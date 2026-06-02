@@ -1,0 +1,114 @@
+<div class="scicalc" data-scientific-calculator>
+  <div class="scicalc__screen" aria-live="polite">
+    <div class="scicalc__expression scicalc__math-display" data-expression>0</div>
+    <div class="scicalc__result scicalc__math-display" data-result>0</div>
+  </div>
+  <div class="scicalc__mode-row">
+    <span data-angle-label>DEG</span>
+  </div>
+
+  <div class="scicalc__nav" aria-label="Expression navigation">
+    <button type="button" class="scicalc__nav-key scicalc__nav-key--up" data-action="history-up" aria-label="Previous expression">&uarr;</button>
+    <button type="button" class="scicalc__nav-key scicalc__nav-key--left" data-action="cursor-left" aria-label="Move cursor left">&larr;</button>
+    <button type="button" class="scicalc__nav-key scicalc__nav-key--center" data-action="noop" aria-label="Navigation pad center"></button>
+    <button type="button" class="scicalc__nav-key scicalc__nav-key--right" data-action="cursor-right" aria-label="Move cursor right">&rarr;</button>
+    <button type="button" class="scicalc__nav-key scicalc__nav-key--down" data-action="history-down" aria-label="Next expression">&darr;</button>
+  </div>
+
+  <div class="scicalc__keys">
+    <button type="button" class="scicalc__key scicalc__key--second" data-action="second">
+      <span class="scicalc__label">2nd F</span>
+    </button>
+    <button type="button" class="scicalc__key scicalc__key--utility" data-action="home">
+      <span class="scicalc__label">Home</span>
+    </button>
+    <button type="button" class="scicalc__key scicalc__key--utility" data-action="backspace">
+      <span class="scicalc__label">Del</span>
+    </button>
+    <button type="button" class="scicalc__key scicalc__key--utility" data-action="angle">
+      <span class="scicalc__label">Deg/Rad</span>
+    </button>
+    <button type="button" class="scicalc__key scicalc__key--danger" data-action="clear">
+      <span class="scicalc__label">C</span>
+    </button>
+
+    <button type="button" class="scicalc__key scicalc__key--function" data-insert="sin(">
+      <span class="scicalc__label">sin</span>
+    </button>
+    <button type="button" class="scicalc__key scicalc__key--function" data-insert="cos(">
+      <span class="scicalc__label">cos</span>
+    </button>
+    <button type="button" class="scicalc__key scicalc__key--function" data-insert="tan(">
+      <span class="scicalc__label">tan</span>
+    </button>
+    <button type="button" class="scicalc__key scicalc__key--function" data-insert="sqrt(">
+      <span class="scicalc__label scicalc__label--math">&radic;x</span>
+    </button>
+    <button type="button" class="scicalc__key scicalc__key--function" data-insert="log(">
+      <span class="scicalc__label">log</span>
+    </button>
+
+    <button type="button" class="scicalc__key scicalc__key--function" data-insert="^2">
+      <span class="scicalc__label scicalc__label--math">x<sup>2</sup></span>
+    </button>
+    <button type="button" class="scicalc__key scicalc__key--constant" data-insert="e">
+      <span class="scicalc__label scicalc__label--math">e</span>
+    </button>
+    <button type="button" class="scicalc__key scicalc__key--function" data-insert="ln(">
+      <span class="scicalc__label">ln</span>
+    </button>
+    <button type="button" class="scicalc__key scicalc__key--empty" data-action="noop" aria-hidden="true" tabindex="-1"></button>
+    <button type="button" class="scicalc__key scicalc__key--empty" data-action="noop" aria-hidden="true" tabindex="-1"></button>
+
+    <button type="button" class="scicalc__key scicalc__key--function" data-action="exp">
+      <span class="scicalc__label">Exp</span>
+    </button>
+    <button type="button" class="scicalc__key scicalc__key--function scicalc__key--has-second" data-action="fraction">
+      <span class="scicalc__secondary-label">A b/c</span>
+      <span class="scicalc__label scicalc__primary-label scicalc__label--fraction"><span>b</span><span>c</span></span>
+      <span class="scicalc__label scicalc__second-main">A b/c</span>
+    </button>
+    <button type="button" class="scicalc__key scicalc__key--function" data-action="dms">
+      <span class="scicalc__label scicalc__label--math">D<sup>&deg;</sup>M&#8242;S</span>
+    </button>
+    <button type="button" class="scicalc__key scicalc__key--function" data-action="power">
+      <span class="scicalc__label scicalc__label--math">x<sup>y</sup></span>
+    </button>
+    <button type="button" class="scicalc__key scicalc__key--constant" data-insert="pi">
+      <span class="scicalc__label scicalc__label--math">&pi;</span>
+    </button>
+
+    <button type="button" class="scicalc__key scicalc__key--number" data-insert="7">7</button>
+    <button type="button" class="scicalc__key scicalc__key--number" data-insert="8">8</button>
+    <button type="button" class="scicalc__key scicalc__key--number" data-insert="9">9</button>
+    <button type="button" class="scicalc__key" data-insert="(">
+      <span class="scicalc__label">(</span>
+    </button>
+    <button type="button" class="scicalc__key" data-insert=")">
+      <span class="scicalc__label">)</span>
+    </button>
+
+    <button type="button" class="scicalc__key scicalc__key--number" data-insert="4">4</button>
+    <button type="button" class="scicalc__key scicalc__key--number" data-insert="5">5</button>
+    <button type="button" class="scicalc__key scicalc__key--number" data-insert="6">6</button>
+    <button type="button" class="scicalc__key scicalc__key--operator" data-insert="*">&times;</button>
+    <button type="button" class="scicalc__key scicalc__key--operator" data-insert="/">&#247;</button>
+
+    <button type="button" class="scicalc__key scicalc__key--number" data-insert="1">1</button>
+    <button type="button" class="scicalc__key scicalc__key--number" data-insert="2">2</button>
+    <button type="button" class="scicalc__key scicalc__key--number" data-insert="3">3</button>
+    <button type="button" class="scicalc__key scicalc__key--operator" data-insert="+">+</button>
+    <button type="button" class="scicalc__key scicalc__key--operator" data-insert="-">&minus;</button>
+
+    <button type="button" class="scicalc__key scicalc__key--utility" data-action="sign">
+      <span class="scicalc__label scicalc__label--math">&plusmn;</span>
+    </button>
+    <button type="button" class="scicalc__key scicalc__key--number" data-insert="0">0</button>
+    <button type="button" class="scicalc__key scicalc__key--number" data-insert=".">.</button>
+    <button type="button" class="scicalc__key scicalc__key--wide scicalc__key--equals" data-action="equals">
+      <span class="scicalc__secondary-label">Ans</span>
+      <span class="scicalc__primary-label">=</span>
+      <span class="scicalc__second-main">Ans</span>
+    </button>
+  </div>
+</div>

@@ -1,0 +1,41 @@
+[build-system]
+requires = ["setuptools>=69", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "django-scientific-calculator"
+version = "0.1.0"
+description = "Reusable Django scientific calculator template tag with bundled static assets."
+readme = "README.md"
+requires-python = ">=3.10"
+authors = [
+    { name = "Kevin Oudai" }
+]
+dependencies = [
+    "Django>=5.2,<6.0"
+]
+classifiers = [
+    "Framework :: Django",
+    "Framework :: Django :: 5.2",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3 :: Only",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+]
+
+[tool.setuptools]
+package-dir = { "" = "src" }
+include-package-data = true
+
+[tool.setuptools.packages.find]
+where = ["src"]
+include = ["scientific_calculator*"]
+
+[tool.setuptools.package-data]
+scientific_calculator = [
+    "templates/scientific_calculator/*.html",
+    "static/scientific_calculator/*.css",
+    "static/scientific_calculator/*.js",
+]

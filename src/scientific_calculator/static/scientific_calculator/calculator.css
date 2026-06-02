@@ -1,0 +1,385 @@
+.scicalc {
+  --surface: #fffdf8;
+  --line: #d7dce8;
+  --ink: #162033;
+  --muted: #667085;
+  --screen: #f9fbff;
+  --number: #ffffff;
+  --number-border: #d8deea;
+  --function: #eef2ff;
+  --function-ink: #3730a3;
+  --constant: #fff7ed;
+  --constant-ink: #c2410c;
+  --utility: #ecfeff;
+  --utility-ink: #0e7490;
+  --operator: #ecfdf3;
+  --operator-ink: #047857;
+  --danger: #fff1f2;
+  --danger-ink: #be123c;
+  --accent: #2563eb;
+  --second: #f59e0b;
+  width: 100%;
+  background:
+    linear-gradient(135deg, rgba(37, 99, 235, 0.08), transparent 38%),
+    linear-gradient(315deg, rgba(245, 158, 11, 0.08), transparent 42%),
+    var(--surface);
+  color: var(--ink);
+  padding: 14px;
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+.scicalc button {
+  font: inherit;
+}
+
+.scicalc__screen {
+  height: 210px;
+  border: 1px solid #cfd7e6;
+  border-radius: 10px;
+  background:
+    linear-gradient(180deg, rgba(37, 99, 235, 0.08), transparent 48%),
+    var(--screen);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.95);
+  padding: 14px 12px;
+}
+
+.scicalc__mode-row {
+  display: flex;
+  justify-content: flex-end;
+  min-height: 18px;
+  padding: 5px 2px 0;
+  color: #2563eb;
+  font-size: 0.76rem;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+.scicalc__math-display {
+  font-family: Cambria Math, STIX Two Math, Georgia, "Times New Roman", serif;
+  letter-spacing: 0;
+}
+
+.scicalc__expression {
+  height: 88px;
+  overflow-x: auto;
+  overflow-y: hidden;
+  color: #344054;
+  font-size: 1.62rem;
+  font-weight: 800;
+  line-height: 1.7;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.scicalc__expression sup,
+.scicalc__result sup {
+  font-size: 0.62em;
+  line-height: 0;
+}
+
+.scicalc__result {
+  height: 88px;
+  overflow-x: auto;
+  overflow-y: hidden;
+  color: var(--ink);
+  font-size: 2.55rem;
+  font-weight: 900;
+  line-height: 1.55;
+  text-align: right;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.scicalc__cursor {
+  display: inline-block;
+  width: 2px;
+  height: 1.05em;
+  margin: 0 1px;
+  background: #2563eb;
+  vertical-align: -0.12em;
+}
+
+.scicalc__selected-char {
+  display: inline-block;
+  border-radius: 3px;
+  background: #bfdbfe;
+  color: #0f172a;
+  padding: 0 1px;
+}
+
+.scicalc__nav {
+  position: relative;
+  display: grid;
+  width: 122px;
+  height: 122px;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  gap: 4px;
+  margin: 12px auto 0;
+  border: 1px solid #bfdbfe;
+  border-radius: 999px;
+  background: linear-gradient(145deg, #eff6ff, #dbeafe);
+  padding: 8px;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.9), 0 2px 6px rgba(37, 99, 235, 0.16);
+}
+
+.scicalc__nav-key {
+  display: grid;
+  width: 100%;
+  height: 100%;
+  place-items: center;
+  border: 0;
+  border-radius: 999px;
+  background: #ffffff;
+  color: #1e40af;
+  cursor: pointer;
+  font-size: 1.22rem;
+  font-weight: 900;
+  line-height: 1;
+  box-shadow: 0 1px 2px rgba(16, 24, 40, 0.08);
+}
+
+.scicalc__nav-key--up {
+  grid-column: 2;
+  grid-row: 1;
+}
+
+.scicalc__nav-key--left {
+  grid-column: 1;
+  grid-row: 2;
+}
+
+.scicalc__nav-key--center {
+  grid-column: 2;
+  grid-row: 2;
+  background: #2563eb;
+  cursor: default;
+}
+
+.scicalc__nav-key--right {
+  grid-column: 3;
+  grid-row: 2;
+}
+
+.scicalc__nav-key--down {
+  grid-column: 2;
+  grid-row: 3;
+}
+
+.scicalc__nav-key:hover {
+  filter: brightness(0.98);
+  transform: translateY(-1px);
+}
+
+.scicalc__nav-key--center:hover {
+  filter: none;
+  transform: none;
+}
+
+.scicalc__keys {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 14px 8px;
+  padding-top: 14px;
+}
+
+.scicalc__key {
+  position: relative;
+  display: grid;
+  min-width: 0;
+  height: 42px;
+  place-items: center;
+  border: 1px solid var(--number-border);
+  border-radius: 8px;
+  background: var(--number);
+  color: var(--ink);
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 900;
+  line-height: 1;
+  box-shadow: 0 1px 2px rgba(16, 24, 40, 0.08);
+}
+
+.scicalc__key:hover {
+  filter: brightness(0.985);
+  transform: translateY(-1px);
+}
+
+.scicalc__key:active {
+  filter: brightness(0.965);
+  transform: translateY(0);
+}
+
+.scicalc__label {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 0;
+}
+
+.scicalc__second-main {
+  display: none;
+}
+
+.scicalc__label--math {
+  display: inline-block;
+  font-family: Cambria Math, STIX Two Math, Georgia, "Times New Roman", serif;
+  font-size: 1.2rem;
+  font-style: italic;
+}
+
+.scicalc__label sup {
+  font-size: 0.62em;
+  line-height: 0;
+  vertical-align: super;
+}
+
+.scicalc__label--fraction {
+  display: inline-grid;
+  grid-template-rows: 1fr 1fr;
+  min-width: 1.2em;
+  font-family: Cambria Math, STIX Two Math, Georgia, "Times New Roman", serif;
+  font-size: 0.84rem;
+  font-style: italic;
+  line-height: 1;
+}
+
+.scicalc__label--fraction span:first-child {
+  border-bottom: 1.8px solid currentColor;
+  padding-bottom: 2px;
+}
+
+.scicalc__label--fraction span:last-child {
+  padding-top: 2px;
+}
+
+.scicalc__display-fraction {
+  display: inline-grid;
+  grid-template-rows: auto auto;
+  min-width: 0.9em;
+  margin: 0 4px;
+  text-align: center;
+  vertical-align: middle;
+  line-height: 1.05;
+}
+
+.scicalc__display-fraction span:first-child {
+  border-bottom: 1.7px solid currentColor;
+  padding: 0 2px 1px;
+}
+
+.scicalc__display-fraction span:last-child {
+  padding: 1px 2px 0;
+}
+
+.scicalc__display-operator {
+  display: inline-block;
+  margin: 0 4px;
+  vertical-align: middle;
+}
+
+.scicalc__key--utility {
+  border-color: #bae6fd;
+  background: var(--utility);
+  color: var(--utility-ink);
+}
+
+.scicalc__key--second {
+  border-color: #fed7aa;
+  background: #fffbeb;
+  color: var(--second);
+}
+
+.scicalc__key--danger {
+  border-color: #fecdd3;
+  background: var(--danger);
+  color: var(--danger-ink);
+}
+
+.scicalc__key--function {
+  border-color: #c7d2fe;
+  background: var(--function);
+  color: var(--function-ink);
+}
+
+.scicalc__key--constant {
+  border-color: #fed7aa;
+  background: var(--constant);
+  color: var(--constant-ink);
+}
+
+.scicalc__key--number {
+  background: #ffffff;
+  color: #111827;
+  font-size: 1.38rem;
+  font-weight: 900;
+}
+
+.scicalc__key--operator {
+  border-color: #bbf7d0;
+  background: var(--operator);
+  color: var(--operator-ink);
+  font-size: 1.42rem;
+}
+
+.scicalc__key--equals {
+  position: relative;
+  border-color: var(--accent);
+  background: linear-gradient(135deg, #2563eb, #4f46e5);
+  color: #ffffff;
+  font-size: 1.52rem;
+}
+
+.scicalc__key--wide {
+  grid-column: span 2;
+}
+
+.scicalc__key--empty {
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.scicalc__secondary-label {
+  position: absolute;
+  top: -12px;
+  left: 0;
+  right: 0;
+  color: var(--second);
+  font-size: 0.58rem;
+  font-weight: 900;
+  line-height: 1;
+  text-align: center;
+  text-transform: uppercase;
+  pointer-events: none;
+}
+
+.scicalc.is-second-active .scicalc__key[data-action="second"] {
+  border-color: #f59e0b;
+  background: #f59e0b;
+  color: #fff7ed;
+}
+
+.scicalc.is-second-active .scicalc__key--has-second .scicalc__primary-label,
+.scicalc.is-second-active .scicalc__key--equals .scicalc__primary-label {
+  display: none;
+}
+
+.scicalc.is-second-active .scicalc__key--has-second .scicalc__second-main,
+.scicalc.is-second-active .scicalc__key--equals .scicalc__second-main {
+  display: inline-flex;
+}
+
+@media (max-width: 360px) {
+  .scicalc {
+    padding: 12px;
+  }
+
+  .scicalc__keys {
+    gap: 7px 6px;
+  }
+
+  .scicalc__key {
+    height: 39px;
+    font-size: 0.82rem;
+  }
+}

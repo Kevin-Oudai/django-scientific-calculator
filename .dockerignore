@@ -1,0 +1,24 @@
+.git
+.gitignore
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# Local virtual environments
+.venv/
+venv/
+env/
+Include/
+Lib/
+Scripts/
+pyvenv.cfg
+
+# Runtime/local data
+src/db.sqlite3
+src/staticfiles/
+*.log
+.env

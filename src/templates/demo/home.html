@@ -1,0 +1,40 @@
+{% load static %}
+{% load scientific_calculator %}
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Django Scientific Calculator Demo</title>
+  <link rel="stylesheet" href="{% static 'demo/demo.css' %}">
+  <link rel="stylesheet" href="{% static 'scientific_calculator/calculator.css' %}">
+</head>
+<body>
+  <main class="demo-shell">
+    <div class="whiteboard-grid" aria-hidden="true"></div>
+    <section class="demo-panel">
+      <p class="demo-kicker">Whiteboard Tool</p>
+      <h1>Scientific Calculator Widget</h1>
+      <p>
+        This demo uses the reusable template tag inside a draggable panel, so it
+        can sit on top of a whiteboard or any workspace. In another Django
+        template, the calculator itself is embedded with:
+      </p>
+      <pre>{% templatetag openblock %} load scientific_calculator {% templatetag closeblock %}
+{% templatetag openblock %} scientific_calculator {% templatetag closeblock %}</pre>
+    </section>
+  </main>
+
+  <section class="floating-tool" data-floating-calculator aria-labelledby="calculator-title">
+    <div class="floating-tool__bar" data-drag-handle>
+      <h2 class="demo-sr-only" id="calculator-title">Scientific calculator</h2>
+      <span>Scientific Calculator</span>
+      <span class="floating-tool__hint">Drag</span>
+    </div>
+    {% scientific_calculator %}
+  </section>
+
+  <script src="{% static 'scientific_calculator/calculator.js' %}" defer></script>
+  <script src="{% static 'demo/demo.js' %}" defer></script>
+</body>
+</html>
