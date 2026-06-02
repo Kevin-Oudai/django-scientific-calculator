@@ -165,6 +165,24 @@ test("evaluates powers, square root, and scientific notation", async ({ page }) 
   await insert(page, "2");
   await action(page, "equals");
   await expectFractionResult(page, "3+\u221a2", "2");
+  const nestedOperatorBorder = await result(page)
+    .locator(".scicalc__display-fraction .scicalc__display-operator")
+    .evaluate((node) => {
+      const styles = window.getComputedStyle(node);
+      return { style: styles.borderBottomStyle, width: styles.borderBottomWidth };
+    });
+  expect(nestedOperatorBorder).toEqual({ style: "none", width: "0px" });
+
+  await reset(page);
+  await action(page, "fraction");
+  await clickExpression(page, ["3", "+", "sqrt(", "2", ")"]);
+  await page.keyboard.press("ArrowDown");
+  await insert(page, "2");
+  await page.keyboard.press("ArrowRight");
+  await insert(page, "+");
+  await insert(page, "1");
+  await action(page, "equals");
+  await expectFractionResult(page, "5+\u221a2", "2");
 
   await reset(page);
   await insert(page, "2");

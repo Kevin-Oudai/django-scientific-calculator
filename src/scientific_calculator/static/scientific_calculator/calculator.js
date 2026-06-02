@@ -1059,6 +1059,17 @@
       return true;
     };
 
+    const finishFractionTemplate = () => {
+      if (stagedEntry?.type !== "fraction") {
+        return false;
+      }
+      if (!commitFractionTemplate()) {
+        return false;
+      }
+      render();
+      return true;
+    };
+
     const startFractionTemplate = (numerator = "", part = "numerator") => {
       stagedEntry = {
         type: "fraction",
@@ -1346,7 +1357,15 @@
 
     const moveCursor = (offset) => {
       if (stagedEntry?.type === "fraction") {
-        setFractionPart(offset < 0 ? "numerator" : "denominator");
+        if (offset < 0) {
+          setFractionPart("numerator");
+          return;
+        }
+        if (stagedEntry.part === "numerator") {
+          setFractionPart("denominator");
+          return;
+        }
+        finishFractionTemplate();
         return;
       }
       commitEntry();

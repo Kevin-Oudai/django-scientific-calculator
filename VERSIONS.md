@@ -1,5 +1,13 @@
 # Versions
 
+## 0.2.2
+
+Fixes fraction-template navigation and fraction bar styling.
+
+- Right arrow exits a filled denominator and places the main cursor after the inserted fraction.
+- Operators can be entered immediately after completing a fraction template.
+- Fraction bars only apply to the fraction's direct numerator and denominator cells, avoiding extra lines under nested operators.
+
 ## 0.2.1
 
 Improves exact fraction entry and result rotation.

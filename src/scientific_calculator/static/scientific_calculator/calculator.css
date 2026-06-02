@@ -263,12 +263,12 @@
   line-height: 1.05;
 }
 
-.scicalc__display-fraction span:first-child {
+.scicalc__display-fraction > span:first-child {
   border-bottom: 1.7px solid currentColor;
   padding: 0 2px 1px;
 }
 
-.scicalc__display-fraction span:last-child {
+.scicalc__display-fraction > span:last-child {
   padding: 1px 2px 0;
 }
 

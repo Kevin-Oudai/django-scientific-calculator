@@ -46,7 +46,7 @@ Current Django app name:
 Current version:
 
 ```text
-0.2.1
+0.2.2
 ```
 
 ## What The Package Includes
@@ -86,7 +86,8 @@ The `b/c` button opens an editable stacked fraction template. Press it before ty
 Use the arrow controls or keyboard arrows while the template is active:
 
 - up or left moves to the numerator
-- down or right moves to the denominator
+- down moves to the denominator
+- right moves from the numerator to the denominator, then exits a filled denominator and places the main expression cursor after the fraction
 
 This allows compound entries such as `(3 + sqrt(2)) / 2` without forcing the user to type a linear slash expression. When a result has an exact surd form, the `b/c` button also rotates between exact/surd and decimal display.
 
@@ -120,7 +121,7 @@ The target machine must have access to the private GitHub repository. SSH instal
 For future stable installs, prefer a version tag instead of `main`, for example:
 
 ```text
-django-scientific-calculator @ git+ssh://git@github.com/Kevin-Oudai/django-scientific-calculator.git@v0.2.1
+django-scientific-calculator @ git+ssh://git@github.com/Kevin-Oudai/django-scientific-calculator.git@v0.2.2
 ```
 
 Only use that form after the tag exists.
