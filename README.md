@@ -7,16 +7,16 @@ A reusable Django scientific calculator app with a template-tag embed, bundled s
 For a future private GitHub install:
 
 ```text
-django-scientific-calculator @ git+ssh://git@github.com/<owner>/django-scientific-calculator.git@main
+django-scientific-calculator @ git+ssh://git@github.com/Kevin-Oudai/django-scientific-calculator.git@main
 ```
 
 Or install directly:
 
 ```powershell
-pip install "django-scientific-calculator @ git+ssh://git@github.com/<owner>/django-scientific-calculator.git@main"
+pip install "django-scientific-calculator @ git+ssh://git@github.com/Kevin-Oudai/django-scientific-calculator.git@main"
 ```
 
-Replace `<owner>` with the GitHub account or organization that owns the private repo.
+The private repo requires GitHub access from the machine running `pip install`.
 
 ## Django Setup
 
