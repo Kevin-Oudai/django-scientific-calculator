@@ -12,6 +12,12 @@ build/
 dist/
 *.egg-info/
 
+# Node / Playwright tests
+node_modules/
+playwright-report/
+test-results/
+blob-report/
+
 # Virtual environments
 .venv/
 venv/

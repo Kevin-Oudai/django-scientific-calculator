@@ -24,7 +24,7 @@
     linear-gradient(315deg, rgba(245, 158, 11, 0.08), transparent 42%),
     var(--surface);
   color: var(--ink);
-  padding: 14px;
+  padding: 10px 12px 12px;
   font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
 }
 
@@ -33,14 +33,14 @@
 }
 
 .scicalc__screen {
-  height: 210px;
+  height: 148px;
   border: 1px solid #cfd7e6;
   border-radius: 10px;
   background:
     linear-gradient(180deg, rgba(37, 99, 235, 0.08), transparent 48%),
     var(--screen);
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.95);
-  padding: 14px 12px;
+  padding: 10px 12px;
 }
 
 .scicalc__mode-row {
@@ -60,13 +60,13 @@
 }
 
 .scicalc__expression {
-  height: 88px;
+  height: 58px;
   overflow-x: auto;
   overflow-y: hidden;
   color: #344054;
-  font-size: 1.62rem;
+  font-size: 1.34rem;
   font-weight: 800;
-  line-height: 1.7;
+  line-height: 1.45;
   text-overflow: ellipsis;
   white-space: nowrap;
 }
@@ -78,11 +78,11 @@
 }
 
 .scicalc__result {
-  height: 88px;
+  height: 68px;
   overflow-x: auto;
   overflow-y: hidden;
   color: var(--ink);
-  font-size: 2.55rem;
+  font-size: 2.12rem;
   font-weight: 900;
   line-height: 1.55;
   text-align: right;
@@ -110,16 +110,16 @@
 .scicalc__nav {
   position: relative;
   display: grid;
-  width: 122px;
-  height: 122px;
+  width: 92px;
+  height: 92px;
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: repeat(3, 1fr);
-  gap: 4px;
-  margin: 12px auto 0;
+  gap: 3px;
+  margin: 8px auto 0;
   border: 1px solid #bfdbfe;
   border-radius: 999px;
   background: linear-gradient(145deg, #eff6ff, #dbeafe);
-  padding: 8px;
+  padding: 6px;
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.9), 0 2px 6px rgba(37, 99, 235, 0.16);
 }
 
@@ -133,7 +133,7 @@
   background: #ffffff;
   color: #1e40af;
   cursor: pointer;
-  font-size: 1.22rem;
+  font-size: 1rem;
   font-weight: 900;
   line-height: 1;
   box-shadow: 0 1px 2px rgba(16, 24, 40, 0.08);
@@ -179,22 +179,22 @@
 .scicalc__keys {
   display: grid;
   grid-template-columns: repeat(5, minmax(0, 1fr));
-  gap: 14px 8px;
-  padding-top: 14px;
+  gap: 8px;
+  padding-top: 10px;
 }
 
 .scicalc__key {
   position: relative;
   display: grid;
   min-width: 0;
-  height: 42px;
+  height: 36px;
   place-items: center;
   border: 1px solid var(--number-border);
   border-radius: 8px;
   background: var(--number);
   color: var(--ink);
   cursor: pointer;
-  font-size: 1rem;
+  font-size: 0.92rem;
   font-weight: 900;
   line-height: 1;
   box-shadow: 0 1px 2px rgba(16, 24, 40, 0.08);
@@ -224,7 +224,7 @@
 .scicalc__label--math {
   display: inline-block;
   font-family: Cambria Math, STIX Two Math, Georgia, "Times New Roman", serif;
-  font-size: 1.2rem;
+  font-size: 1.08rem;
   font-style: italic;
 }
 
@@ -311,7 +311,7 @@
 .scicalc__key--number {
   background: #ffffff;
   color: #111827;
-  font-size: 1.38rem;
+  font-size: 1.12rem;
   font-weight: 900;
 }
 
@@ -319,7 +319,7 @@
   border-color: #bbf7d0;
   background: var(--operator);
   color: var(--operator-ink);
-  font-size: 1.42rem;
+  font-size: 1.16rem;
 }
 
 .scicalc__key--equals {
@@ -327,7 +327,7 @@
   border-color: var(--accent);
   background: linear-gradient(135deg, #2563eb, #4f46e5);
   color: #ffffff;
-  font-size: 1.52rem;
+  font-size: 1.26rem;
 }
 
 .scicalc__key--wide {

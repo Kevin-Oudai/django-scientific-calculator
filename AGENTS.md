@@ -22,6 +22,7 @@ Use these checks after changes:
 ```powershell
 python -m compileall src\scientific_calculator
 docker compose config
+npm test
 ```
 
 When Docker Desktop is running, also verify:
@@ -30,4 +31,4 @@ When Docker Desktop is running, also verify:
 docker compose up --build
 ```
 
-Then open `http://127.0.0.1:8000/`.
+Then open `http://127.0.0.1:8010/`.

@@ -8,3 +8,4 @@ Initial reusable package baseline.
 - Includes calculator template, CSS, and JavaScript in the pip package.
 - Supports Django 5.2.
 - Includes a Dockerized local demo project.
+- Includes desktop Playwright tests for calculator UI functions.

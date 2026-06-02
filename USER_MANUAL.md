@@ -173,7 +173,7 @@ docker compose up --build
 Then open:
 
 ```text
-http://127.0.0.1:8000/
+http://127.0.0.1:8010/
 ```
 
 The local demo can also run without Docker from the `src` folder:
@@ -227,20 +227,25 @@ python -m pip install --dry-run --no-deps .
 docker compose config
 ```
 
-When Docker Desktop is running, also test:
+When Docker Desktop is running, also test the demo and desktop calculator functions:
 
 ```powershell
 docker compose up --build
+npm install
+npx playwright install chromium
+npm test
 ```
 
 Then verify:
 
-- the demo page loads at `http://127.0.0.1:8000/`
+- the Docker demo page loads at `http://127.0.0.1:8010/`
 - the calculator renders
 - buttons respond
 - keyboard input works
 - degree/radian toggle works
 - static files load without 404s
+
+The Playwright tests cover the desktop whiteboard use case. They intentionally do not enforce mobile behavior.
 
 ## Integration Checklist For Future Agents
 
@@ -272,4 +277,3 @@ When changing package behavior:
 - update `VERSIONS.md` for release-level changes
 - update `UPDATES.md` for project history
 - update this manual when integration steps change
-

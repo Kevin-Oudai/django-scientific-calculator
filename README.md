@@ -53,7 +53,7 @@ docker compose up --build
 Open:
 
 ```text
-http://127.0.0.1:8000/
+http://127.0.0.1:8010/
 ```
 
 ## Local Demo Without Docker
@@ -69,6 +69,18 @@ Open:
 ```text
 http://127.0.0.1:8000/
 ```
+
+## Tests
+
+From the project root:
+
+```powershell
+npm install
+npx playwright install chromium
+npm test
+```
+
+The Playwright suite runs the calculator in a desktop browser viewport against the Docker demo URL.
 
 ## Package Contents
 

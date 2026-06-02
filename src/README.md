@@ -13,7 +13,7 @@ docker compose up --build
 Then open:
 
 ```text
-http://127.0.0.1:8000/
+http://127.0.0.1:8010/
 ```
 
 For local Python development without Docker, run this from the `src` folder:

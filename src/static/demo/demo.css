@@ -76,15 +76,16 @@ pre {
 
 .floating-tool {
   position: fixed;
-  top: 48px;
-  right: 48px;
+  top: 24px;
+  right: 24px;
   z-index: 20;
   width: min(390px, calc(100vw - 24px));
+  max-height: calc(100vh - 24px);
   border: 1px solid rgba(15, 23, 42, 0.16);
   border-radius: 12px;
   background: #ffffff;
   box-shadow: 0 24px 70px rgba(15, 23, 42, 0.2);
-  overflow: hidden;
+  overflow: auto;
   touch-action: none;
 }
 
