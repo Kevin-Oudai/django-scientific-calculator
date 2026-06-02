@@ -1,5 +1,13 @@
 # Versions
 
+## 0.2.1
+
+Improves exact fraction entry and result rotation.
+
+- The `b/c` button opens an editable stacked fraction template.
+- Arrow controls move between numerator and denominator while editing the template.
+- Result rotation includes exact/surd form when the value has one.
+
 ## 0.2.0
 
 Adds Additional Mathematics surd behavior.

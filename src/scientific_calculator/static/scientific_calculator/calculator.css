@@ -272,6 +272,23 @@
   padding: 1px 2px 0;
 }
 
+.scicalc__display-fraction--template {
+  min-width: 1.8em;
+}
+
+.scicalc__fraction-template-part {
+  border-radius: 4px;
+  min-width: 1.2em;
+}
+
+.scicalc__fraction-template-part.is-active {
+  background: #bfdbfe;
+}
+
+.scicalc__fraction-template-blank {
+  color: #64748b;
+}
+
 .scicalc__display-operator {
   display: inline-block;
   margin: 0 4px;

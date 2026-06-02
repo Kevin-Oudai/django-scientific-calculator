@@ -916,6 +916,7 @@
     let resultDisplay = "0";
     let answer = 0;
     let lastValue = 0;
+    let lastExactDisplay = "";
     let resultMode = "decimal";
     let angleMode = "DEG";
     let history = [];
@@ -933,10 +934,27 @@
       return `${expression.slice(0, cursor)}${SELECT_START}${expression[cursor]}${SELECT_END}${expression.slice(cursor + 1)}`;
     };
 
+    const stagedFractionHtml = () => {
+      const partHtml = (part) => {
+        const value = stagedEntry[part];
+        const classes = [
+          "scicalc__fraction-template-part",
+          stagedEntry.part === part ? "is-active" : "",
+        ].filter(Boolean).join(" ");
+        const content = value
+          ? formatExpression(value)
+          : '<span class="scicalc__fraction-template-blank">□</span>';
+        return `<span class="${classes}">${content}</span>`;
+      };
+      return `<span class="scicalc__display-fraction scicalc__display-fraction--template">${partHtml("numerator")}${partHtml("denominator")}</span>`;
+    };
+
     const render = () => {
       expressionEl.innerHTML = formatExpression(expressionForDisplay());
       angleLabel.textContent = angleMode;
-      resultEl.innerHTML = formatExpression(resultDisplay || "0");
+      resultEl.innerHTML = stagedEntry?.type === "fraction"
+        ? stagedFractionHtml()
+        : formatExpression(resultDisplay || "0");
       root.classList.toggle("is-second-active", secondActive);
       requestAnimationFrame(() => {
         expressionEl.scrollLeft = expressionEl.scrollWidth;
@@ -945,6 +963,9 @@
     };
 
     const resultText = (value, mode) => {
+      if (mode === "exact") {
+        return lastExactDisplay || formatValue(value);
+      }
       if (mode === "mixed") {
         return formatFractionValue(value, true);
       }
@@ -955,6 +976,9 @@
     };
 
     const resultModesForValue = (value) => {
+      if (lastExactDisplay) {
+        return ["exact", "decimal"];
+      }
       const modes = ["decimal"];
       const improper = formatFractionValue(value, false);
       const mixed = formatFractionValue(value, true);
@@ -988,6 +1012,67 @@
       return "";
     };
 
+    const setFractionPart = (part) => {
+      if (stagedEntry?.type !== "fraction") {
+        return false;
+      }
+      stagedEntry.part = part;
+      historyIndex = null;
+      render();
+      return true;
+    };
+
+    const currentFractionPart = () => stagedEntry.part;
+
+    const updateCurrentFractionPart = (updater) => {
+      const part = currentFractionPart();
+      stagedEntry[part] = updater(stagedEntry[part] || "");
+      resultDisplay = "";
+      historyIndex = null;
+      render();
+    };
+
+    const appendFractionToken = (value) => {
+      if (value === "/") {
+        setFractionPart("denominator");
+        return;
+      }
+      updateCurrentFractionPart((current) => `${current}${value === "/" ? DIVIDE_TOKEN : value}`);
+    };
+
+    const deleteFractionToken = () => {
+      updateCurrentFractionPart((current) => current.slice(0, -1));
+    };
+
+    const commitFractionTemplate = () => {
+      const numerator = stagedEntry.numerator || "0";
+      const denominator = stagedEntry.denominator || "";
+      if (!denominator) {
+        stagedEntry.part = "denominator";
+        render();
+        return false;
+      }
+      appendExpression(`(${numerator})/(${denominator})`);
+      stagedEntry = null;
+      entry = "";
+      resultDisplay = "0";
+      return true;
+    };
+
+    const startFractionTemplate = (numerator = "", part = "numerator") => {
+      stagedEntry = {
+        type: "fraction",
+        numerator,
+        denominator: "",
+        part,
+      };
+      entry = "";
+      resultDisplay = "";
+      historyIndex = null;
+      secondActive = false;
+      render();
+    };
+
     const appendExpression = (value) => {
       if (expression.endsWith("=")) {
         expression = "";
@@ -1009,6 +1094,10 @@
       if (stagedEntry) {
         if (stagedEntry.type === "dms") {
           appendExpression(`dms(${stagedEntry.degrees || 0},${stagedEntry.minutes || 0},${stagedEntry.seconds || 0})`);
+        } else if (stagedEntry.type === "fraction") {
+          if (!commitFractionTemplate()) {
+            return;
+          }
         } else {
           appendExpression(stagedText());
         }
@@ -1040,10 +1129,11 @@
         const exactDisplay = evaluateExactExpression(expressionToEvaluate, angleMode, answer);
         answer = value;
         lastValue = value;
+        lastExactDisplay = exactDisplay || "";
         expression = `${expressionToEvaluate}=`;
         cursor = Math.max(0, expression.length - 1);
         selectionActive = false;
-        history.push({ expression, value });
+        history.push({ expression, value, exactDisplay: lastExactDisplay });
         if (history.length > 25) {
           history = history.slice(-25);
         }
@@ -1059,6 +1149,10 @@
 
     const appendEntry = (value) => {
       if (stagedEntry) {
+        if (stagedEntry.type === "fraction") {
+          appendFractionToken(value);
+          return;
+        }
         if (stagedEntry.type === "dms") {
           if (!/^[0-9.]$/.test(value)) {
             return;
@@ -1099,6 +1193,10 @@
     };
 
     const setEntry = (value) => {
+      if (stagedEntry?.type === "fraction") {
+        appendFractionToken(value);
+        return;
+      }
       stagedEntry = null;
       if ((value === "pi" || value === "ans" || value === "e") && entry) {
         entry += value;
@@ -1112,6 +1210,10 @@
     };
 
     const insertOperator = (operator) => {
+      if (stagedEntry?.type === "fraction") {
+        appendFractionToken(operator);
+        return;
+      }
       if (expression.endsWith("=")) {
         expression = formatValue(answer);
         cursor = Math.max(0, expression.length - 1);
@@ -1136,6 +1238,11 @@
     };
 
     const insertToken = (value) => {
+      if (stagedEntry?.type === "fraction") {
+        appendFractionToken(value === "/" ? "/" : value);
+        return;
+      }
+
       if (/^[0-9]$/.test(value) || value === ".") {
         if (expression.endsWith("=")) {
           expression = "";
@@ -1188,6 +1295,10 @@
     };
 
     const deleteAtCursor = () => {
+      if (stagedEntry?.type === "fraction") {
+        deleteFractionToken();
+        return;
+      }
       if (entry) {
         stagedEntry = null;
         entry = entry.slice(0, -1);
@@ -1212,6 +1323,10 @@
     };
 
     const backspace = () => {
+      if (stagedEntry?.type === "fraction") {
+        deleteFractionToken();
+        return;
+      }
       if (entry) {
         stagedEntry = null;
         entry = entry.slice(0, -1);
@@ -1230,6 +1345,10 @@
     };
 
     const moveCursor = (offset) => {
+      if (stagedEntry?.type === "fraction") {
+        setFractionPart(offset < 0 ? "numerator" : "denominator");
+        return;
+      }
       commitEntry();
       if (!expression) {
         cursor = 0;
@@ -1241,6 +1360,10 @@
     };
 
     const loadHistory = (direction) => {
+      if (stagedEntry?.type === "fraction") {
+        setFractionPart(direction < 0 ? "numerator" : "denominator");
+        return;
+      }
       if (!history.length) {
         return;
       }
@@ -1270,7 +1393,9 @@
       cursor = Math.max(0, expression.length - 1);
       selectionActive = false;
       entry = "";
-      resultDisplay = formatValue(item.value);
+      lastExactDisplay = item.exactDisplay || "";
+      resultMode = lastExactDisplay ? "exact" : "decimal";
+      resultDisplay = lastExactDisplay || formatValue(item.value);
       render();
     };
 
@@ -1290,6 +1415,7 @@
         entry = "";
         stagedEntry = null;
         resultDisplay = "0";
+        lastExactDisplay = "";
         resultMode = "decimal";
         historyIndex = null;
         secondActive = false;
@@ -1311,7 +1437,9 @@
         commit();
       }
       if (action === "sign") {
-        if (stagedEntry) {
+        if (stagedEntry?.type === "fraction") {
+          updateCurrentFractionPart((current) => current.startsWith("-") ? current.slice(1) : `-${current}`);
+        } else if (stagedEntry) {
           stagedEntry.exponent = stagedEntry.exponent.startsWith("-")
             ? stagedEntry.exponent.slice(1)
             : `-${stagedEntry.exponent}`;
@@ -1354,9 +1482,17 @@
             entry += "/";
           }
           secondActive = false;
-        } else if (entry && !entry.includes("/")) {
-          stagedEntry = null;
+        } else if (entry && entry.includes(" ") && !entry.includes("/")) {
           entry += "/";
+        } else if (stagedEntry?.type === "fraction") {
+          setFractionPart(stagedEntry.part === "numerator" ? "denominator" : "numerator");
+          return;
+        } else if (entry && !entry.includes("/")) {
+          startFractionTemplate(entry, "denominator");
+          return;
+        } else if (!entry) {
+          startFractionTemplate();
+          return;
         }
         resultDisplay = entry;
         historyIndex = null;

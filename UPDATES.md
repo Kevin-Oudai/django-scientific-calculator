@@ -12,3 +12,5 @@
 - Compact desktop widget sizing so all calculator keys are reachable in a normal desktop viewport.
 - Added exact surd output for simplified square roots and common DEG trig values.
 - Updated exact surd fractions to use the regular stacked fraction display.
+- Changed the `b/c` button to open an editable fraction template with arrow-key numerator/denominator navigation.
+- Added exact/surd display to result rotation when available.

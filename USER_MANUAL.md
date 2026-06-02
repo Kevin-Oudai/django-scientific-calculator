@@ -46,7 +46,7 @@ Current Django app name:
 Current version:
 
 ```text
-0.2.0
+0.2.1
 ```
 
 ## What The Package Includes
@@ -79,6 +79,17 @@ Exact surd fractions render with the same stacked fraction layout as regular fra
 
 Unsupported exact symbolic cases intentionally fall back to the existing decimal evaluator instead of blocking calculation.
 
+## Fraction Entry Behavior
+
+The `b/c` button opens an editable stacked fraction template. Press it before typing to create blank numerator and denominator slots.
+
+Use the arrow controls or keyboard arrows while the template is active:
+
+- up or left moves to the numerator
+- down or right moves to the denominator
+
+This allows compound entries such as `(3 + sqrt(2)) / 2` without forcing the user to type a linear slash expression. When a result has an exact surd form, the `b/c` button also rotates between exact/surd and decimal display.
+
 ## Compatibility
 
 The package metadata currently requires:
@@ -109,7 +120,7 @@ The target machine must have access to the private GitHub repository. SSH instal
 For future stable installs, prefer a version tag instead of `main`, for example:
 
 ```text
-django-scientific-calculator @ git+ssh://git@github.com/Kevin-Oudai/django-scientific-calculator.git@v0.2.0
+django-scientific-calculator @ git+ssh://git@github.com/Kevin-Oudai/django-scientific-calculator.git@v0.2.1
 ```
 
 Only use that form after the tag exists.

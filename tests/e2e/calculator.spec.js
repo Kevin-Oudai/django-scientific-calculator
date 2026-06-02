@@ -158,6 +158,15 @@ test("evaluates powers, square root, and scientific notation", async ({ page }) 
   await expectFractionResult(page, "3+\u221a2", "2");
 
   await reset(page);
+  await action(page, "fraction");
+  await expectFractionResult(page, "\u25a1", "\u25a1");
+  await clickExpression(page, ["3", "+", "sqrt(", "2", ")"]);
+  await page.keyboard.press("ArrowDown");
+  await insert(page, "2");
+  await action(page, "equals");
+  await expectFractionResult(page, "3+\u221a2", "2");
+
+  await reset(page);
   await insert(page, "2");
   await action(page, "exp");
   await insert(page, "3");
@@ -179,6 +188,10 @@ test("evaluates trig functions in degree and radian modes", async ({ page }) => 
 
   await reset(page);
   await calculate(page, ["sin(", "6", "0"]);
+  await expectFractionResult(page, "\u221a3", "2");
+  await action(page, "fraction");
+  await expectResult(page, "0.866025403784");
+  await action(page, "fraction");
   await expectFractionResult(page, "\u221a3", "2");
 
   await reset(page);

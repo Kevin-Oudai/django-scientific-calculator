@@ -91,6 +91,7 @@ The pip package includes:
 - calculator template
 - calculator CSS and JavaScript
 - exact surd output for simplified square roots and common DEG trig values
+- editable stacked fraction template with arrow-key numerator/denominator navigation
 
 The demo project is intentionally excluded from the Python package.
 
