@@ -10,3 +10,4 @@
 - Changed the Docker demo host port to `8010` to avoid common local Django port conflicts.
 - Added desktop Playwright coverage for calculator controls and math functions.
 - Compact desktop widget sizing so all calculator keys are reachable in a normal desktop viewport.
+- Added exact surd output for simplified square roots and common DEG trig values.

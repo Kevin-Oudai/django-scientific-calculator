@@ -46,7 +46,7 @@ Current Django app name:
 Current version:
 
 ```text
-0.1.0
+0.2.0
 ```
 
 ## What The Package Includes
@@ -62,6 +62,20 @@ The Python package includes:
   - `scientific_calculator/calculator.js`
 
 The app currently has no models, migrations, URLs, database requirements, or server-side views.
+
+## Calculator Math Behavior
+
+The calculator keeps a numeric value internally for `ANS`, history, and fallback behavior, but displays exact surd results for supported Additional Mathematics cases.
+
+Supported exact displays include:
+
+- simplified square roots, such as `sqrt(24) = 2√6`
+- like-surd addition, such as `sqrt(8) + sqrt(18) = 5√2`
+- surd multiplication, such as `sqrt(6) * sqrt(2) = 2√3`
+- common DEG trig values, such as `sin(60) = √3/2`, `cos(30) = √3/2`, and `tan(60) = √3`
+- exact rational DEG trig values, such as `sin(30) = 1/2`
+
+Unsupported exact symbolic cases intentionally fall back to the existing decimal evaluator instead of blocking calculation.
 
 ## Compatibility
 
@@ -93,7 +107,7 @@ The target machine must have access to the private GitHub repository. SSH instal
 For future stable installs, prefer a version tag instead of `main`, for example:
 
 ```text
-django-scientific-calculator @ git+ssh://git@github.com/Kevin-Oudai/django-scientific-calculator.git@v0.1.0
+django-scientific-calculator @ git+ssh://git@github.com/Kevin-Oudai/django-scientific-calculator.git@v0.2.0
 ```
 
 Only use that form after the tag exists.
@@ -263,7 +277,7 @@ Before integrating into another Django project:
 
 ## Current Limitations
 
-- No automated test suite exists yet.
+- No Python unit test suite exists yet; calculator behavior is covered by desktop Playwright tests.
 - No customization API exists yet for theme, initial mode, or button layout.
 - No release tags exist yet unless one has been created after this manual was written.
 - The README uses the private GitHub SSH install path. HTTPS token-based installs should be handled carefully and should not commit secrets.

@@ -249,6 +249,424 @@
     return `${sign}${whole} ${remainder}/${denominator}`;
   }
 
+  function normalizeRational(numerator, denominator = 1) {
+    if (!Number.isInteger(numerator) || !Number.isInteger(denominator) || denominator === 0) {
+      throw new Error("Invalid rational");
+    }
+    if (numerator === 0) {
+      return { numerator: 0, denominator: 1 };
+    }
+    const sign = denominator < 0 ? -1 : 1;
+    const divisor = gcd(numerator, denominator);
+    return {
+      numerator: sign * numerator / divisor,
+      denominator: Math.abs(denominator) / divisor,
+    };
+  }
+
+  function rationalFromNumberText(value) {
+    if (!/^-?(?:\d+(?:\.\d*)?|\.\d+)$/.test(value)) {
+      throw new Error("Invalid exact number");
+    }
+    const sign = value.startsWith("-") ? -1 : 1;
+    const unsigned = sign === -1 ? value.slice(1) : value;
+    const [whole, decimal = ""] = unsigned.split(".");
+    const denominator = 10 ** decimal.length;
+    const numerator = sign * (Number(whole || "0") * denominator + Number(decimal || "0"));
+    return normalizeRational(numerator, denominator);
+  }
+
+  function addRational(left, right) {
+    return normalizeRational(
+      left.numerator * right.denominator + right.numerator * left.denominator,
+      left.denominator * right.denominator
+    );
+  }
+
+  function multiplyRational(left, right) {
+    return normalizeRational(left.numerator * right.numerator, left.denominator * right.denominator);
+  }
+
+  function divideRational(left, right) {
+    return normalizeRational(left.numerator * right.denominator, left.denominator * right.numerator);
+  }
+
+  function simplifySquareRootInteger(value) {
+    if (!Number.isInteger(value) || value < 0) {
+      throw new Error("Invalid exact square root");
+    }
+    if (value === 0) {
+      return { outside: 0, inside: 1 };
+    }
+    let outside = 1;
+    let inside = value;
+    for (let factor = 2; factor * factor <= inside; factor += 1) {
+      const square = factor * factor;
+      while (inside % square === 0) {
+        outside *= factor;
+        inside /= square;
+      }
+    }
+    return { outside, inside };
+  }
+
+  function createExactValue(terms = []) {
+    const combined = new Map();
+    for (const term of terms) {
+      if (!term.coefficient || term.coefficient.numerator === 0) {
+        continue;
+      }
+      const current = combined.get(term.radicand) || normalizeRational(0);
+      const next = addRational(current, term.coefficient);
+      if (next.numerator === 0) {
+        combined.delete(term.radicand);
+      } else {
+        combined.set(term.radicand, next);
+      }
+    }
+    return { terms: Array.from(combined, ([radicand, coefficient]) => ({ radicand, coefficient })) };
+  }
+
+  function exactRational(numerator, denominator = 1) {
+    return createExactValue([{ radicand: 1, coefficient: normalizeRational(numerator, denominator) }]);
+  }
+
+  function exactRadical(coefficient, radicand) {
+    const simplified = simplifySquareRootInteger(radicand);
+    return createExactValue([{
+      radicand: simplified.inside,
+      coefficient: multiplyRational(coefficient, normalizeRational(simplified.outside)),
+    }]);
+  }
+
+  function negateExact(value) {
+    return createExactValue(value.terms.map((term) => ({
+      radicand: term.radicand,
+      coefficient: normalizeRational(-term.coefficient.numerator, term.coefficient.denominator),
+    })));
+  }
+
+  function addExact(left, right) {
+    return createExactValue([...left.terms, ...right.terms]);
+  }
+
+  function subtractExact(left, right) {
+    return addExact(left, negateExact(right));
+  }
+
+  function multiplyExact(left, right) {
+    const terms = [];
+    for (const leftTerm of left.terms) {
+      for (const rightTerm of right.terms) {
+        const radical = simplifySquareRootInteger(leftTerm.radicand * rightTerm.radicand);
+        terms.push({
+          radicand: radical.inside,
+          coefficient: multiplyRational(
+            multiplyRational(leftTerm.coefficient, rightTerm.coefficient),
+            normalizeRational(radical.outside)
+          ),
+        });
+      }
+    }
+    return createExactValue(terms);
+  }
+
+  function divideExact(left, right) {
+    if (right.terms.length !== 1) {
+      throw new Error("Unsupported exact division");
+    }
+    const [denominator] = right.terms;
+    if (denominator.coefficient.numerator === 0) {
+      throw new Error("Division by zero");
+    }
+    if (denominator.radicand === 1) {
+      return createExactValue(left.terms.map((term) => ({
+        radicand: term.radicand,
+        coefficient: divideRational(term.coefficient, denominator.coefficient),
+      })));
+    }
+
+    const rationalizedDenominator = multiplyRational(denominator.coefficient, normalizeRational(denominator.radicand));
+    return multiplyExact(left, exactRadical(divideRational(normalizeRational(1), rationalizedDenominator), denominator.radicand));
+  }
+
+  function exactSingleRational(value) {
+    if (value.terms.length === 0) {
+      return normalizeRational(0);
+    }
+    if (value.terms.length === 1 && value.terms[0].radicand === 1) {
+      return value.terms[0].coefficient;
+    }
+    return null;
+  }
+
+  function sqrtExact(value) {
+    const rational = exactSingleRational(value);
+    if (!rational || rational.numerator < 0) {
+      throw new Error("Unsupported exact square root");
+    }
+    const numeratorSign = rational.numerator < 0 ? -1 : 1;
+    const radicand = Math.abs(rational.numerator) * rational.denominator;
+    return exactRadical(normalizeRational(numeratorSign, rational.denominator), radicand);
+  }
+
+  function integerPowerExact(value, exponent) {
+    if (!Number.isInteger(exponent)) {
+      throw new Error("Unsupported exact exponent");
+    }
+    if (exponent === 0) {
+      return exactRational(1);
+    }
+    if (exponent < 0) {
+      return divideExact(exactRational(1), integerPowerExact(value, Math.abs(exponent)));
+    }
+    let result = exactRational(1);
+    for (let index = 0; index < exponent; index += 1) {
+      result = multiplyExact(result, value);
+    }
+    return result;
+  }
+
+  function formatRationalText(value) {
+    if (value.denominator === 1) {
+      return String(value.numerator);
+    }
+    return `${value.numerator}/${value.denominator}`;
+  }
+
+  function formatExactTerm(term, first = false) {
+    const coefficient = term.coefficient;
+    const negative = coefficient.numerator < 0;
+    const absolute = normalizeRational(Math.abs(coefficient.numerator), coefficient.denominator);
+    const sign = negative ? "-" : first ? "" : "+";
+
+    if (term.radicand === 1) {
+      return `${sign}${formatRationalText(absolute)}`;
+    }
+
+    const root = `\u221a${term.radicand}`;
+    if (absolute.numerator === absolute.denominator) {
+      return `${sign}${root}`;
+    }
+    if (absolute.denominator === 1) {
+      return `${sign}${absolute.numerator}${root}`;
+    }
+    if (absolute.numerator === 1) {
+      return `${sign}${root}/${absolute.denominator}`;
+    }
+    return `${sign}${absolute.numerator}${root}/${absolute.denominator}`;
+  }
+
+  function formatExactValue(value) {
+    if (!value.terms.length) {
+      return "0";
+    }
+    const sortedTerms = [...value.terms].sort((left, right) => left.radicand - right.radicand);
+    return sortedTerms.map((term, index) => formatExactTerm(term, index === 0)).join("");
+  }
+
+  function exactTrigValue(name, value, angleMode) {
+    if (angleMode !== "DEG") {
+      throw new Error("Unsupported exact trig mode");
+    }
+    const angle = exactSingleRational(value);
+    if (!angle || angle.denominator !== 1) {
+      throw new Error("Unsupported exact trig angle");
+    }
+    const normalizedAngle = ((angle.numerator % 360) + 360) % 360;
+    const half = () => exactRational(1, 2);
+    const negativeHalf = () => exactRational(-1, 2);
+    const rootHalf = (radicand, sign = 1) => exactRadical(normalizeRational(sign, 2), radicand);
+    const rootThird = (radicand, sign = 1) => exactRadical(normalizeRational(sign, 3), radicand);
+
+    const values = {
+      sin: {
+        0: exactRational(0), 30: half(), 45: rootHalf(2), 60: rootHalf(3), 90: exactRational(1),
+        120: rootHalf(3), 135: rootHalf(2), 150: half(), 180: exactRational(0),
+        210: negativeHalf(), 225: rootHalf(2, -1), 240: rootHalf(3, -1), 270: exactRational(-1),
+        300: rootHalf(3, -1), 315: rootHalf(2, -1), 330: negativeHalf(),
+      },
+      cos: {
+        0: exactRational(1), 30: rootHalf(3), 45: rootHalf(2), 60: half(), 90: exactRational(0),
+        120: negativeHalf(), 135: rootHalf(2, -1), 150: rootHalf(3, -1), 180: exactRational(-1),
+        210: rootHalf(3, -1), 225: rootHalf(2, -1), 240: negativeHalf(), 270: exactRational(0),
+        300: half(), 315: rootHalf(2), 330: rootHalf(3),
+      },
+      tan: {
+        0: exactRational(0), 30: rootThird(3), 45: exactRational(1), 60: exactRadical(normalizeRational(1), 3),
+        120: exactRadical(normalizeRational(-1), 3), 135: exactRational(-1), 150: rootThird(3, -1),
+        180: exactRational(0), 210: rootThird(3), 225: exactRational(1), 240: exactRadical(normalizeRational(1), 3),
+        300: exactRadical(normalizeRational(-1), 3), 315: exactRational(-1), 330: rootThird(3, -1),
+      },
+    };
+
+    const result = values[name]?.[normalizedAngle];
+    if (!result) {
+      throw new Error("Unsupported exact trig value");
+    }
+    return result;
+  }
+
+  class ExactParser {
+    constructor(input, angleMode, answer) {
+      this.input = normalizeExpression(input).replaceAll(DIVIDE_TOKEN, "/").replace(/\s+/g, "");
+      this.angleMode = angleMode;
+      this.answer = answer;
+      this.index = 0;
+      this.usedExactFeature = false;
+    }
+
+    parse() {
+      const value = this.parseExpression();
+      if (this.index < this.input.length) {
+        throw new Error("Unexpected exact input");
+      }
+      return value;
+    }
+
+    peek() {
+      return this.input[this.index] || "";
+    }
+
+    consume(char) {
+      if (this.input[this.index] === char) {
+        this.index += 1;
+        return true;
+      }
+      return false;
+    }
+
+    parseExpression() {
+      let value = this.parseTerm();
+      while (this.peek() === "+" || this.peek() === "-") {
+        const operator = this.input[this.index++];
+        const next = this.parseTerm();
+        value = operator === "+" ? addExact(value, next) : subtractExact(value, next);
+      }
+      return value;
+    }
+
+    parseTerm() {
+      let value = this.parsePower();
+      while (this.peek() === "*" || this.peek() === "/") {
+        const operator = this.input[this.index++];
+        const next = this.parsePower();
+        value = operator === "*" ? multiplyExact(value, next) : divideExact(value, next);
+      }
+      return value;
+    }
+
+    parsePower() {
+      let value = this.parseUnary();
+      if (this.consume("^")) {
+        const exponent = exactSingleRational(this.parsePower());
+        if (!exponent || exponent.denominator !== 1) {
+          throw new Error("Unsupported exact exponent");
+        }
+        value = integerPowerExact(value, exponent.numerator);
+      }
+      return value;
+    }
+
+    parseUnary() {
+      if (this.consume("+")) {
+        return this.parseUnary();
+      }
+      if (this.consume("-")) {
+        return negateExact(this.parseUnary());
+      }
+      return this.parsePrimary();
+    }
+
+    parsePrimary() {
+      if (this.consume("(")) {
+        const value = this.parseExpression();
+        if (!this.consume(")")) {
+          throw new Error("Missing exact parenthesis");
+        }
+        return value;
+      }
+
+      if (this.peek() && /[0-9.]/.test(this.peek())) {
+        return this.parseNumber();
+      }
+
+      if (this.peek() && /[a-z]/i.test(this.peek())) {
+        return this.parseIdentifier();
+      }
+
+      throw new Error("Invalid exact expression");
+    }
+
+    parseNumber() {
+      const start = this.index;
+      while (this.peek() && /[0-9.]/.test(this.peek())) {
+        this.index += 1;
+      }
+      return createExactValue([{ radicand: 1, coefficient: rationalFromNumberText(this.input.slice(start, this.index)) }]);
+    }
+
+    parseIdentifier() {
+      const start = this.index;
+      while (this.peek() && /[a-z]/i.test(this.peek())) {
+        this.index += 1;
+      }
+      const name = this.input.slice(start, this.index).toLowerCase();
+
+      if (name === "ans") {
+        const fraction = decimalToFraction(this.answer, 1000);
+        if (!fraction || Math.abs(fraction.numerator / fraction.denominator - this.answer) > 1e-10) {
+          throw new Error("Unsupported exact answer");
+        }
+        return exactRational(fraction.numerator, fraction.denominator);
+      }
+      if (name === "pi" || name === "e") {
+        throw new Error("Unsupported exact constant");
+      }
+
+      if (name === "dms") {
+        if (!this.consume("(")) {
+          throw new Error("DMS requires parentheses");
+        }
+        const degrees = this.parseExpression();
+        if (!this.consume(",")) throw new Error("Missing DMS minutes");
+        const minutes = this.parseExpression();
+        if (!this.consume(",")) throw new Error("Missing DMS seconds");
+        const seconds = this.parseExpression();
+        if (!this.consume(")")) throw new Error("Missing parenthesis");
+        return addExact(addExact(degrees, divideExact(minutes, exactRational(60))), divideExact(seconds, exactRational(3600)));
+      }
+
+      if (!this.consume("(")) {
+        throw new Error("Exact function requires parentheses");
+      }
+      const value = this.parseExpression();
+      if (!this.consume(")")) {
+        throw new Error("Missing exact parenthesis");
+      }
+
+      if (name === "sqrt") {
+        this.usedExactFeature = true;
+        return sqrtExact(value);
+      }
+      if (["sin", "cos", "tan"].includes(name)) {
+        this.usedExactFeature = true;
+        return exactTrigValue(name, value, this.angleMode);
+      }
+      throw new Error("Unsupported exact function");
+    }
+  }
+
+  function evaluateExactExpression(expression, angleMode, answer) {
+    try {
+      const parser = new ExactParser(expression, angleMode, answer);
+      const value = parser.parse();
+      return parser.usedExactFeature ? formatExactValue(value) : null;
+    } catch (error) {
+      return null;
+    }
+  }
+
   function normalizeMixedNumbers(value) {
     return value.replace(/(^|[+\-*:/^(])(-?\d+)\s+(\d+(?:\.\d+)?)\/(\d+(?:\.\d+)?)/g, (match, prefix, whole, numerator, denominator) => {
       const operator = whole.startsWith("-") ? "-" : "+";
@@ -387,13 +805,18 @@
         index += mixedMatch[0].length;
         continue;
       }
-      const fractionMatch = expression.slice(index).match(/^(-?\d+(?:\.\d+)?)\/(\d+(?:\.\d+)?)/);
+      const previousChar = expression[index - 1] || "";
+      const fractionMatch = previousChar !== "\u221a"
+        ? expression.slice(index).match(/^(-?\d+(?:\.\d+)?)\/(\d+(?:\.\d+)?)/)
+        : null;
       if (fractionMatch) {
         output += `<span class="scicalc__display-fraction"><span>${escapeHtml(fractionMatch[1])}</span><span>${escapeHtml(fractionMatch[2])}</span></span>`;
         index += fractionMatch[0].length;
         continue;
       }
-      const partialFractionMatch = expression.slice(index).match(/^(-?\d+(?:\.\d+)?)\/(?=$|[+\-*:^)])/);
+      const partialFractionMatch = previousChar !== "\u221a"
+        ? expression.slice(index).match(/^(-?\d+(?:\.\d+)?)\/(?=$|[+\-*:^)])/)
+        : null;
       if (partialFractionMatch) {
         output += `<span class="scicalc__display-fraction"><span>${escapeHtml(partialFractionMatch[1])}</span><span>&nbsp;</span></span>`;
         index += partialFractionMatch[0].length;
@@ -589,6 +1012,7 @@
       );
       try {
         const value = evaluateExpression(expressionToEvaluate, angleMode, answer);
+        const exactDisplay = evaluateExactExpression(expressionToEvaluate, angleMode, answer);
         answer = value;
         lastValue = value;
         expression = `${expressionToEvaluate}=`;
@@ -600,8 +1024,8 @@
         }
         historyIndex = null;
         historyDraft = "";
-        resultMode = expressionToEvaluate.includes("/") ? "improper" : "decimal";
-        resultDisplay = resultText(value, resultMode);
+        resultMode = exactDisplay ? "exact" : expressionToEvaluate.includes("/") ? "improper" : "decimal";
+        resultDisplay = exactDisplay || resultText(value, resultMode);
         render();
       } catch (error) {
         resultEl.textContent = "Error";

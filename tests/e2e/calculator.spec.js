@@ -38,6 +38,12 @@ async function expectResult(page, value) {
   await expect(result(page)).toHaveText(value);
 }
 
+async function expectResultParts(page, parts) {
+  for (const part of parts) {
+    await expect(result(page)).toContainText(part);
+  }
+}
+
 async function clickExpression(page, tokens) {
   for (const token of tokens) {
     await insert(page, token);
@@ -127,6 +133,18 @@ test("evaluates powers, square root, and scientific notation", async ({ page }) 
   await expectResult(page, "9");
 
   await reset(page);
+  await calculate(page, ["sqrt(", "2", "4"]);
+  await expectResult(page, "2\u221a6");
+
+  await reset(page);
+  await calculate(page, ["sqrt(", "8", ")", "+", "sqrt(", "1", "8"]);
+  await expectResult(page, "5\u221a2");
+
+  await reset(page);
+  await calculate(page, ["sqrt(", "6", ")", "*", "sqrt(", "2"]);
+  await expectResult(page, "2\u221a3");
+
+  await reset(page);
   await insert(page, "2");
   await action(page, "exp");
   await insert(page, "3");
@@ -136,15 +154,31 @@ test("evaluates powers, square root, and scientific notation", async ({ page }) 
 
 test("evaluates trig functions in degree and radian modes", async ({ page }) => {
   await calculate(page, ["sin(", "3", "0"]);
-  await expectResult(page, "0.5");
+  await expectResultParts(page, ["1", "2"]);
 
   await reset(page);
   await calculate(page, ["cos(", "6", "0"]);
-  await expectResult(page, "0.5");
+  await expectResultParts(page, ["1", "2"]);
 
   await reset(page);
   await calculate(page, ["tan(", "4", "5"]);
   await expectResult(page, "1");
+
+  await reset(page);
+  await calculate(page, ["sin(", "6", "0"]);
+  await expectResult(page, "\u221a3/2");
+
+  await reset(page);
+  await calculate(page, ["cos(", "3", "0"]);
+  await expectResult(page, "\u221a3/2");
+
+  await reset(page);
+  await calculate(page, ["tan(", "6", "0"]);
+  await expectResult(page, "\u221a3");
+
+  await reset(page);
+  await calculate(page, ["tan(", "3", "0"]);
+  await expectResult(page, "\u221a3/3");
 
   await reset(page);
   await action(page, "angle");

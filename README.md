@@ -90,6 +90,7 @@ The pip package includes:
 - template tag: `{% scientific_calculator %}`
 - calculator template
 - calculator CSS and JavaScript
+- exact surd output for simplified square roots and common DEG trig values
 
 The demo project is intentionally excluded from the Python package.
 
