@@ -44,6 +44,15 @@ async function expectResultParts(page, parts) {
   }
 }
 
+async function expectFractionResult(page, numerator, denominator) {
+  const fraction = result(page).locator(".scicalc__display-fraction");
+  const parts = fraction.locator(":scope > span");
+  await expect(fraction).toHaveCount(1);
+  await expect(parts).toHaveCount(2);
+  await expect(parts.nth(0)).toHaveText(numerator);
+  await expect(parts.nth(1)).toHaveText(denominator);
+}
+
 async function clickExpression(page, tokens) {
   for (const token of tokens) {
     await insert(page, token);
@@ -145,6 +154,10 @@ test("evaluates powers, square root, and scientific notation", async ({ page }) 
   await expectResult(page, "2\u221a3");
 
   await reset(page);
+  await calculate(page, ["(", "3", "+", "sqrt(", "2", ")", ")", "/", "2"]);
+  await expectFractionResult(page, "3+\u221a2", "2");
+
+  await reset(page);
   await insert(page, "2");
   await action(page, "exp");
   await insert(page, "3");
@@ -154,11 +167,11 @@ test("evaluates powers, square root, and scientific notation", async ({ page }) 
 
 test("evaluates trig functions in degree and radian modes", async ({ page }) => {
   await calculate(page, ["sin(", "3", "0"]);
-  await expectResultParts(page, ["1", "2"]);
+  await expectFractionResult(page, "1", "2");
 
   await reset(page);
   await calculate(page, ["cos(", "6", "0"]);
-  await expectResultParts(page, ["1", "2"]);
+  await expectFractionResult(page, "1", "2");
 
   await reset(page);
   await calculate(page, ["tan(", "4", "5"]);
@@ -166,11 +179,11 @@ test("evaluates trig functions in degree and radian modes", async ({ page }) => 
 
   await reset(page);
   await calculate(page, ["sin(", "6", "0"]);
-  await expectResult(page, "\u221a3/2");
+  await expectFractionResult(page, "\u221a3", "2");
 
   await reset(page);
   await calculate(page, ["cos(", "3", "0"]);
-  await expectResult(page, "\u221a3/2");
+  await expectFractionResult(page, "\u221a3", "2");
 
   await reset(page);
   await calculate(page, ["tan(", "6", "0"]);
@@ -178,7 +191,7 @@ test("evaluates trig functions in degree and radian modes", async ({ page }) => 
 
   await reset(page);
   await calculate(page, ["tan(", "3", "0"]);
-  await expectResult(page, "\u221a3/3");
+  await expectFractionResult(page, "\u221a3", "3");
 
   await reset(page);
   await action(page, "angle");

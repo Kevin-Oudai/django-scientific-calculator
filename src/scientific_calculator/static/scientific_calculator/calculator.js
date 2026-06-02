@@ -291,6 +291,10 @@
     return normalizeRational(left.numerator * right.denominator, left.denominator * right.numerator);
   }
 
+  function lcm(a, b) {
+    return Math.abs(a * b) / gcd(a, b);
+  }
+
   function simplifySquareRootInteger(value) {
     if (!Number.isInteger(value) || value < 0) {
       throw new Error("Invalid exact square root");
@@ -462,6 +466,21 @@
       return "0";
     }
     const sortedTerms = [...value.terms].sort((left, right) => left.radicand - right.radicand);
+
+    const commonDenominator = sortedTerms.reduce(
+      (denominator, term) => lcm(denominator, term.coefficient.denominator),
+      1
+    );
+    if (commonDenominator > 1) {
+      const numerator = sortedTerms
+        .map((term, index) => formatExactTerm({
+          radicand: term.radicand,
+          coefficient: multiplyRational(term.coefficient, normalizeRational(commonDenominator)),
+        }, index === 0))
+        .join("");
+      return `(${numerator})/${commonDenominator}`;
+    }
+
     return sortedTerms.map((term, index) => formatExactTerm(term, index === 0)).join("");
   }
 
@@ -799,24 +818,30 @@
         index += dmsMatch[0].length;
         continue;
       }
+      if (expression[index] === "(") {
+        const numerator = readParenthesized(index);
+        if (expression[numerator.end] === "/") {
+          const denominator = readSimpleToken(numerator.end + 1);
+          if (/^-?\d+(?:\.\d+)?$/.test(denominator.token)) {
+            output += `<span class="scicalc__display-fraction"><span>${formatExpression(numerator.token)}</span><span>${escapeHtml(denominator.token)}</span></span>`;
+            index = denominator.end;
+            continue;
+          }
+        }
+      }
       const mixedMatch = expression.slice(index).match(/^(-?\d+)\s+(\d+(?:\.\d+)?)\/(\d+(?:\.\d+)?)/);
       if (mixedMatch) {
         output += `${escapeHtml(mixedMatch[1])}<span class="scicalc__display-fraction"><span>${escapeHtml(mixedMatch[2])}</span><span>${escapeHtml(mixedMatch[3])}</span></span>`;
         index += mixedMatch[0].length;
         continue;
       }
-      const previousChar = expression[index - 1] || "";
-      const fractionMatch = previousChar !== "\u221a"
-        ? expression.slice(index).match(/^(-?\d+(?:\.\d+)?)\/(\d+(?:\.\d+)?)/)
-        : null;
+      const fractionMatch = expression.slice(index).match(/^(-?\d+(?:\.\d+)?)\/(\d+(?:\.\d+)?)/);
       if (fractionMatch) {
         output += `<span class="scicalc__display-fraction"><span>${escapeHtml(fractionMatch[1])}</span><span>${escapeHtml(fractionMatch[2])}</span></span>`;
         index += fractionMatch[0].length;
         continue;
       }
-      const partialFractionMatch = previousChar !== "\u221a"
-        ? expression.slice(index).match(/^(-?\d+(?:\.\d+)?)\/(?=$|[+\-*:^)])/)
-        : null;
+      const partialFractionMatch = expression.slice(index).match(/^(-?\d+(?:\.\d+)?)\/(?=$|[+\-*:^)])/);
       if (partialFractionMatch) {
         output += `<span class="scicalc__display-fraction"><span>${escapeHtml(partialFractionMatch[1])}</span><span>&nbsp;</span></span>`;
         index += partialFractionMatch[0].length;

@@ -75,6 +75,8 @@ Supported exact displays include:
 - common DEG trig values, such as `sin(60) = √3/2`, `cos(30) = √3/2`, and `tan(60) = √3`
 - exact rational DEG trig values, such as `sin(30) = 1/2`
 
+Exact surd fractions render with the same stacked fraction layout as regular fractions. For example, `(3 + sqrt(2)) / 2` displays with `3 + √2` as the numerator and `2` as the denominator.
+
 Unsupported exact symbolic cases intentionally fall back to the existing decimal evaluator instead of blocking calculation.
 
 ## Compatibility
