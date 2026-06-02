@@ -6,3 +6,4 @@
 - Added reusable Python package metadata for future pip installs.
 - Moved calculator static assets into the Django app package so they ship with pip installs.
 - Added root project documentation and agent notes.
+- Added a user manual for future installation and integration work.

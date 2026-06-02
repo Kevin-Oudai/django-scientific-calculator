@@ -80,3 +80,7 @@ The pip package includes:
 - calculator CSS and JavaScript
 
 The demo project is intentionally excluded from the Python package.
+
+## Manual
+
+See [USER_MANUAL.md](USER_MANUAL.md) for the full installation, integration, validation, and future-agent checklist.
