@@ -12,7 +12,8 @@
 - Keep reusable package assets inside `src/scientific_calculator`.
 - Do not put package CSS or JavaScript under project-level `src/static/scientific_calculator`; those files will not be included in pip installs.
 - Keep the demo project lightweight. It exists to exercise the reusable app locally.
-- Keep `pyproject.toml`, `VERSIONS.md`, `UPDATES.md`, and `USER_MANUAL.md` in sync when changing release or integration behavior.
+- Keep `README.md`, `pyproject.toml`, and `src/scientific_calculator/__init__.py` in sync when changing release, integration, dependency, or user-facing behavior.
+- Keep documentation consolidated in the root `README.md`; avoid adding duplicate project-level or `src`-level Markdown files unless there is a clear new audience.
 - Avoid committing local runtime files such as `src/db.sqlite3`, `src/staticfiles`, caches, virtual environments, or build artifacts.
 
 ## Validation

@@ -179,15 +179,16 @@
 .scicalc__keys {
   display: grid;
   grid-template-columns: repeat(5, minmax(0, 1fr));
-  gap: 8px;
-  padding-top: 10px;
+  gap: 15px 8px;
+  padding-top: 14px;
 }
 
 .scicalc__key {
   position: relative;
   display: grid;
   min-width: 0;
-  height: 36px;
+  box-sizing: border-box;
+  height: 38px;
   place-items: center;
   border: 1px solid var(--number-border);
   border-radius: 8px;
@@ -197,6 +198,7 @@
   font-size: 0.92rem;
   font-weight: 900;
   line-height: 1;
+  padding: 0 4px;
   box-shadow: 0 1px 2px rgba(16, 24, 40, 0.08);
 }
 
@@ -226,6 +228,10 @@
   font-family: Cambria Math, STIX Two Math, Georgia, "Times New Roman", serif;
   font-size: 1.08rem;
   font-style: italic;
+}
+
+.scicalc__second-main {
+  display: none;
 }
 
 .scicalc__label sup {
@@ -358,7 +364,7 @@
 
 .scicalc__secondary-label {
   position: absolute;
-  top: -12px;
+  top: -13px;
   left: 0;
   right: 0;
   color: var(--second);
@@ -366,8 +372,13 @@
   font-weight: 900;
   line-height: 1;
   text-align: center;
-  text-transform: uppercase;
   pointer-events: none;
+}
+
+.scicalc__secondary-label sup,
+.scicalc__second-main sup {
+  font-size: 0.7em;
+  line-height: 0;
 }
 
 .scicalc.is-second-active .scicalc__key[data-action="second"] {
@@ -392,11 +403,11 @@
   }
 
   .scicalc__keys {
-    gap: 7px 6px;
+    gap: 14px 6px;
   }
 
   .scicalc__key {
-    height: 39px;
+    height: 38px;
     font-size: 0.82rem;
   }
 }

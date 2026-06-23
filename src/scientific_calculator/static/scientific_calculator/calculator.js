@@ -129,26 +129,75 @@
         throw new Error("Function requires parentheses");
       }
 
-      const value = this.parseExpression();
+      const first = this.parseExpression();
+      let second = null;
+      if (this.consume(",")) {
+        second = this.parseExpression();
+      }
       if (!this.consume(")")) {
         throw new Error("Missing parenthesis");
       }
 
-      const trigValue = this.angleMode === "DEG" ? (value * Math.PI) / 180 : value;
+      const value = first;
+      const inverseTrigResult = (radians) => this.angleMode === "DEG" ? (radians * 180) / Math.PI : radians;
+      const requireSingleArgument = () => {
+        if (second !== null) {
+          throw new Error("Function only accepts one argument");
+        }
+        return value;
+      };
+      const requireTwoArguments = () => {
+        if (second === null) {
+          throw new Error("Function requires two arguments");
+        }
+        return [value, second];
+      };
 
       switch (name) {
         case "sin":
-          return Math.sin(trigValue);
+          return Math.sin(this.angleMode === "DEG" ? (requireSingleArgument() * Math.PI) / 180 : requireSingleArgument());
         case "cos":
-          return Math.cos(trigValue);
+          return Math.cos(this.angleMode === "DEG" ? (requireSingleArgument() * Math.PI) / 180 : requireSingleArgument());
         case "tan":
-          return Math.tan(trigValue);
+          return Math.tan(this.angleMode === "DEG" ? (requireSingleArgument() * Math.PI) / 180 : requireSingleArgument());
+        case "asin":
+          return inverseTrigResult(Math.asin(requireSingleArgument()));
+        case "acos":
+          return inverseTrigResult(Math.acos(requireSingleArgument()));
+        case "atan":
+          return inverseTrigResult(Math.atan(requireSingleArgument()));
         case "sqrt":
-          return Math.sqrt(value);
+          return Math.sqrt(requireSingleArgument());
+        case "cbrt":
+          return Math.cbrt(requireSingleArgument());
         case "log":
-          return Math.log10(value);
+          return Math.log10(requireSingleArgument());
         case "ln":
-          return Math.log(value);
+          return Math.log(requireSingleArgument());
+        case "tenpow":
+          return 10 ** requireSingleArgument();
+        case "epow":
+          return Math.exp(requireSingleArgument());
+        case "recip":
+          return 1 / requireSingleArgument();
+        case "abs":
+          return Math.abs(requireSingleArgument());
+        case "pct":
+          return requireSingleArgument() / 100;
+        case "fact":
+          return factorialValue(requireSingleArgument());
+        case "root": {
+          const [index, radicand] = requireTwoArguments();
+          return nthRootValue(index, radicand);
+        }
+        case "ncr": {
+          const [n, r] = requireTwoArguments();
+          return combinationValue(n, r);
+        }
+        case "npr": {
+          const [n, r] = requireTwoArguments();
+          return permutationValue(n, r);
+        }
         default:
           throw new Error("Unknown function");
       }
@@ -247,6 +296,55 @@
       return `${sign}${whole}`;
     }
     return `${sign}${whole} ${remainder}/${denominator}`;
+  }
+
+  function nonNegativeInteger(value, name) {
+    if (!Number.isInteger(value) || value < 0) {
+      throw new Error(`${name} requires a non-negative integer`);
+    }
+    return value;
+  }
+
+  function factorialValue(value) {
+    const n = nonNegativeInteger(value, "Factorial");
+    let result = 1;
+    for (let factor = 2; factor <= n; factor += 1) {
+      result *= factor;
+    }
+    return result;
+  }
+
+  function permutationValue(nValue, rValue) {
+    const n = nonNegativeInteger(nValue, "nPr");
+    const r = nonNegativeInteger(rValue, "nPr");
+    if (r > n) {
+      throw new Error("nPr requires r <= n");
+    }
+    let result = 1;
+    for (let factor = n - r + 1; factor <= n; factor += 1) {
+      result *= factor;
+    }
+    return result;
+  }
+
+  function combinationValue(nValue, rValue) {
+    const n = nonNegativeInteger(nValue, "nCr");
+    const r = nonNegativeInteger(rValue, "nCr");
+    if (r > n) {
+      throw new Error("nCr requires r <= n");
+    }
+    const smaller = Math.min(r, n - r);
+    return permutationValue(n, smaller) / factorialValue(smaller);
+  }
+
+  function nthRootValue(index, radicand) {
+    if (index === 0) {
+      throw new Error("Root index cannot be zero");
+    }
+    if (radicand < 0 && Number.isInteger(index) && Math.abs(index % 2) === 1) {
+      return -((-radicand) ** (1 / index));
+    }
+    return radicand ** (1 / index);
   }
 
   function normalizeRational(numerator, denominator = 1) {
@@ -695,7 +793,10 @@
 
   function normalizeExpression(value) {
     const normalized = normalizeMixedNumbers(value);
-    const functionNames = new Set(["sin", "cos", "tan", "sqrt", "log", "ln", "dms"]);
+    const functionNames = new Set([
+      "sin", "cos", "tan", "asin", "acos", "atan", "sqrt", "cbrt", "log", "ln",
+      "tenpow", "epow", "recip", "abs", "pct", "fact", "root", "ncr", "npr", "dms",
+    ]);
     const constants = new Set(["pi", "ans", "e"]);
     const tokens = [];
     let index = 0;
@@ -923,6 +1024,8 @@
     let historyIndex = null;
     let historyDraft = "";
     let secondActive = false;
+    let memoryValue = 0;
+    const statsValues = [];
 
     const expressionForDisplay = () => {
       if (!expression) {
@@ -991,6 +1094,115 @@
       return modes;
     };
 
+    const showImmediateResult = (value, label = "") => {
+      if (!Number.isFinite(value)) {
+        resultEl.textContent = "Error";
+        return;
+      }
+      answer = value;
+      lastValue = value;
+      lastExactDisplay = "";
+      resultMode = "decimal";
+      resultDisplay = formatValue(value);
+      expression = label ? `${label}=` : "";
+      cursor = Math.max(0, expression.length - 1);
+      selectionActive = false;
+      entry = "";
+      stagedEntry = null;
+      historyIndex = null;
+      render();
+    };
+
+    const currentNumericValue = () => {
+      if (entry) {
+        return evaluateExpression(closeOpenParentheses(entry), angleMode, answer);
+      }
+      if (expression && !expression.endsWith("=")) {
+        return evaluateExpression(closeOpenParentheses(expression), angleMode, answer);
+      }
+      return lastValue;
+    };
+
+    const applyUnaryFunction = (name) => {
+      const target = entry || (expression.endsWith("=") ? formatValue(lastValue) : resultDisplay !== "0" ? resultDisplay : "");
+      if (!target) {
+        appendExpression(`${name}(`);
+        resultDisplay = "0";
+      } else {
+        if (expression.endsWith("=")) {
+          expression = "";
+          cursor = 0;
+          selectionActive = false;
+        }
+        entry = `${name}(${target})`;
+        stagedEntry = null;
+        resultDisplay = entry;
+      }
+      historyIndex = null;
+      secondActive = false;
+      render();
+    };
+
+    const startBinaryFunction = (name) => {
+      const left = entry || (expression.endsWith("=") ? formatValue(lastValue) : resultDisplay !== "0" ? resultDisplay : "0");
+      stagedEntry = {
+        type: "binaryFunction",
+        name,
+        left,
+        right: "0",
+        hasRight: false,
+      };
+      entry = "";
+      resultDisplay = stagedText();
+      historyIndex = null;
+      secondActive = false;
+      render();
+    };
+
+    const startRootTemplate = () => {
+      const index = entry || (expression.endsWith("=") ? formatValue(lastValue) : resultDisplay !== "0" ? resultDisplay : "0");
+      stagedEntry = {
+        type: "root",
+        index,
+        radicand: "0",
+        hasRadicand: false,
+      };
+      entry = "";
+      resultDisplay = stagedText();
+      historyIndex = null;
+      secondActive = false;
+      render();
+    };
+
+    const stagedEditableField = () => {
+      if (!stagedEntry) {
+        return null;
+      }
+      if (stagedEntry.type === "root") {
+        return { field: "radicand", flag: "hasRadicand" };
+      }
+      if (stagedEntry.type === "binaryFunction") {
+        return { field: "right", flag: "hasRight" };
+      }
+      if (stagedEntry.type === "power" || stagedEntry.type === "exp") {
+        return { field: "exponent", flag: "hasExponent" };
+      }
+      return null;
+    };
+
+    const updateStagedEditableField = (updater) => {
+      const target = stagedEditableField();
+      if (!target) {
+        return false;
+      }
+      stagedEntry[target.field] = updater(stagedEntry[target.field] || "");
+      stagedEntry[target.flag] = true;
+      resultDisplay = stagedText();
+      historyIndex = null;
+      render();
+      return true;
+    };
+
     const stagedText = () => {
       if (!stagedEntry) {
         return "";
@@ -1000,6 +1212,12 @@
       }
       if (stagedEntry.type === "power") {
         return `${stagedEntry.base}^${stagedEntry.exponent}`;
+      }
+      if (stagedEntry.type === "root") {
+        return `root(${stagedEntry.index},${stagedEntry.radicand})`;
+      }
+      if (stagedEntry.type === "binaryFunction") {
+        return `${stagedEntry.name}(${stagedEntry.left},${stagedEntry.right})`;
       }
       if (stagedEntry.type === "dms") {
         const minutes = stagedEntry.minutes || "0";
@@ -1180,11 +1398,17 @@
           render();
           return;
         }
-        if (!/^[0-9]$/.test(value)) {
+        const editableTarget = stagedEditableField();
+        if (!editableTarget || !/^[0-9.]$/.test(value)) {
           return;
         }
-        stagedEntry.exponent = stagedEntry.hasExponent ? `${stagedEntry.exponent}${value}` : value;
-        stagedEntry.hasExponent = true;
+        if (value === "." && (stagedEntry[editableTarget.field] || "").includes(".")) {
+          return;
+        }
+        stagedEntry[editableTarget.field] = stagedEntry[editableTarget.flag]
+          ? `${stagedEntry[editableTarget.field]}${value}`
+          : value;
+        stagedEntry[editableTarget.flag] = true;
         resultDisplay = stagedText();
         historyIndex = null;
         render();
@@ -1447,6 +1671,29 @@
         angleMode = angleMode === "DEG" ? "RAD" : "DEG";
         render();
       }
+      if (action === "memory-add" || action === "memory-subtract") {
+        try {
+          const value = currentNumericValue();
+          memoryValue += action === "memory-add" ? value : -value;
+          secondActive = false;
+          showImmediateResult(memoryValue, "M");
+        } catch (error) {
+          resultEl.textContent = "Error";
+        }
+      }
+      if (action === "memory-recall") {
+        entry = formatValue(memoryValue);
+        resultDisplay = entry;
+        stagedEntry = null;
+        historyIndex = null;
+        secondActive = false;
+        render();
+      }
+      if (action === "memory-clear") {
+        memoryValue = 0;
+        secondActive = false;
+        showImmediateResult(memoryValue, "M");
+      }
       if (action === "equals") {
         if (secondActive) {
           secondActive = false;
@@ -1459,10 +1706,7 @@
         if (stagedEntry?.type === "fraction") {
           updateCurrentFractionPart((current) => current.startsWith("-") ? current.slice(1) : `-${current}`);
         } else if (stagedEntry) {
-          stagedEntry.exponent = stagedEntry.exponent.startsWith("-")
-            ? stagedEntry.exponent.slice(1)
-            : `-${stagedEntry.exponent}`;
-          resultDisplay = stagedText();
+          updateStagedEditableField((current) => current.startsWith("-") ? current.slice(1) : `-${current || "0"}`);
         } else if (entry) {
           entry = entry.startsWith("-") ? entry.slice(1) : `-${entry}`;
           resultDisplay = entry;
@@ -1471,6 +1715,65 @@
           resultDisplay = entry;
         }
         render();
+      }
+      if (action === "abs") {
+        applyUnaryFunction("abs");
+      }
+      if (action === "percent") {
+        applyUnaryFunction("pct");
+      }
+      if (action === "factorial") {
+        applyUnaryFunction("fact");
+      }
+      if (action === "reciprocal") {
+        applyUnaryFunction("recip");
+      }
+      if (action === "root") {
+        startRootTemplate();
+      }
+      if (action === "ncr") {
+        startBinaryFunction("ncr");
+      }
+      if (action === "npr") {
+        startBinaryFunction("npr");
+      }
+      if (action === "stats-add") {
+        try {
+          statsValues.push(currentNumericValue());
+          secondActive = false;
+          showImmediateResult(statsValues.length, "n");
+        } catch (error) {
+          resultEl.textContent = "Error";
+        }
+      }
+      if (action === "stats-sum") {
+        secondActive = false;
+        showImmediateResult(statsValues.reduce((sum, value) => sum + value, 0), "\u03a3x");
+      }
+      if (action === "stats-sum-squares") {
+        secondActive = false;
+        showImmediateResult(statsValues.reduce((sum, value) => sum + value ** 2, 0), "\u03a3x^2");
+      }
+      if (action === "stats-mean") {
+        secondActive = false;
+        showImmediateResult(
+          statsValues.length ? statsValues.reduce((sum, value) => sum + value, 0) / statsValues.length : 0,
+          "xbar"
+        );
+      }
+      if (action === "stats-stddev") {
+        const mean = statsValues.length
+          ? statsValues.reduce((sum, value) => sum + value, 0) / statsValues.length
+          : 0;
+        const variance = statsValues.length > 1
+          ? statsValues.reduce((sum, value) => sum + (value - mean) ** 2, 0) / (statsValues.length - 1)
+          : 0;
+        secondActive = false;
+        showImmediateResult(Math.sqrt(variance), "sx");
+      }
+      if (action === "stats-count") {
+        secondActive = false;
+        showImmediateResult(statsValues.length, "n");
       }
       if (action === "fraction") {
         if (stagedEntry && (stagedEntry.type === "power" || stagedEntry.type === "exp")) {
@@ -1573,11 +1876,18 @@
         return;
       }
 
-      if (button.dataset.insert) {
-        insertToken(button.dataset.insert);
+      const useSecondFunction = secondActive && (button.dataset.secondInsert || button.dataset.secondAction);
+      const insert = useSecondFunction ? button.dataset.secondInsert : button.dataset.insert;
+      const action = useSecondFunction ? button.dataset.secondAction : button.dataset.action;
+
+      if (useSecondFunction) {
+        secondActive = false;
       }
-      if (button.dataset.action) {
-        runAction(button.dataset.action);
+      if (insert) {
+        insertToken(insert);
+      }
+      if (action) {
+        runAction(action);
       }
     });
 

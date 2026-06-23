@@ -12,6 +12,14 @@ function actionButton(page, action) {
   return calculator(page).locator(`button[data-action=${JSON.stringify(action)}]`);
 }
 
+function secondInsertButton(page, value) {
+  return calculator(page).locator(`button[data-second-insert=${JSON.stringify(value)}]`);
+}
+
+function secondActionButton(page, action) {
+  return calculator(page).locator(`button[data-second-action=${JSON.stringify(action)}]`);
+}
+
 async function insert(page, value) {
   await insertButton(page, value).click();
 }
@@ -92,9 +100,17 @@ test("renders every desktop calculator control", async ({ page }) => {
     "1", "2", "3", "+", "-", "0", ".",
   ];
   const actions = [
-    "second", "home", "backspace", "angle", "clear", "exp", "fraction",
-    "dms", "power", "sign", "equals", "history-up", "cursor-left",
+    "second", "home", "backspace", "angle", "clear", "abs", "percent", "exp",
+    "fraction", "dms", "power", "sign", "equals", "history-up", "cursor-left",
     "cursor-right", "history-down",
+  ];
+  const secondInserts = [
+    "asin(", "acos(", "atan(", "cbrt(", "tenpow(", "epow(",
+  ];
+  const secondActions = [
+    "memory-clear", "memory-recall", "memory-add", "memory-subtract",
+    "reciprocal", "stats-add", "root", "stats-mean", "stats-stddev",
+    "stats-count", "factorial", "ncr", "npr", "stats-sum", "stats-sum-squares",
   ];
 
   for (const value of inserts) {
@@ -105,6 +121,14 @@ test("renders every desktop calculator control", async ({ page }) => {
   for (const value of actions) {
     await expect(actionButton(page, value), `action ${value}`).toHaveCount(1);
     await expect(actionButton(page, value), `action ${value}`).toBeVisible();
+  }
+
+  for (const value of secondInserts) {
+    await expect(secondInsertButton(page, value), `second insert ${value}`).toHaveCount(1);
+  }
+
+  for (const value of secondActions) {
+    await expect(secondActionButton(page, value), `second action ${value}`).toHaveCount(1);
   }
 });
 
@@ -231,6 +255,64 @@ test("evaluates trig functions in degree and radian modes", async ({ page }) => 
   await expectResult(page, "1");
 });
 
+test("evaluates inverse trig and second-layer power functions", async ({ page }) => {
+  await action(page, "second");
+  await insert(page, "sin(");
+  await clickExpression(page, ["0", ".", "5"]);
+  await action(page, "equals");
+  await expectResult(page, "30");
+
+  await reset(page);
+  await action(page, "second");
+  await insert(page, "cos(");
+  await clickExpression(page, ["0", ".", "5"]);
+  await action(page, "equals");
+  await expectResult(page, "60");
+
+  await reset(page);
+  await action(page, "second");
+  await insert(page, "tan(");
+  await insert(page, "1");
+  await action(page, "equals");
+  await expectResult(page, "45");
+
+  await reset(page);
+  await action(page, "second");
+  await insert(page, "sqrt(");
+  await clickExpression(page, ["2", "7"]);
+  await action(page, "equals");
+  await expectResult(page, "3");
+
+  await reset(page);
+  await action(page, "second");
+  await insert(page, "log(");
+  await insert(page, "3");
+  await action(page, "equals");
+  await expectResult(page, "1000");
+
+  await reset(page);
+  await action(page, "second");
+  await insert(page, "e");
+  await insert(page, "1");
+  await action(page, "equals");
+  await expectResult(page, "2.71828182846");
+
+  await reset(page);
+  await insert(page, "4");
+  await action(page, "second");
+  await insert(page, "^2");
+  await action(page, "equals");
+  await expectResult(page, "0.25");
+
+  await reset(page);
+  await insert(page, "3");
+  await action(page, "second");
+  await action(page, "power");
+  await clickExpression(page, ["2", "7"]);
+  await action(page, "equals");
+  await expectResult(page, "3");
+});
+
 test("evaluates logarithms and constants", async ({ page }) => {
   await calculate(page, ["log(", "1", "0", "0"]);
   await expectResult(page, "2");
@@ -246,6 +328,101 @@ test("evaluates logarithms and constants", async ({ page }) => {
   await reset(page);
   await calculate(page, ["e"]);
   await expectResult(page, "2.71828182846");
+});
+
+test("evaluates combinatorics, percent, and absolute value", async ({ page }) => {
+  await insert(page, "5");
+  await action(page, "second");
+  await insert(page, "4");
+  await action(page, "equals");
+  await expectResult(page, "120");
+
+  await reset(page);
+  await insert(page, "5");
+  await action(page, "second");
+  await insert(page, "5");
+  await insert(page, "2");
+  await action(page, "equals");
+  await expectResult(page, "10");
+
+  await reset(page);
+  await insert(page, "5");
+  await action(page, "second");
+  await insert(page, "6");
+  await insert(page, "2");
+  await action(page, "equals");
+  await expectResult(page, "20");
+
+  await reset(page);
+  await action(page, "sign");
+  await insert(page, "8");
+  await action(page, "abs");
+  await action(page, "equals");
+  await expectResult(page, "8");
+
+  await reset(page);
+  await clickExpression(page, ["5", "0"]);
+  await action(page, "percent");
+  await action(page, "equals");
+  await expectResult(page, "0.5");
+});
+
+test("handles memory functions", async ({ page }) => {
+  await insert(page, "9");
+  await action(page, "second");
+  await action(page, "angle");
+  await expectResult(page, "9");
+
+  await action(page, "clear");
+  await insert(page, "4");
+  await action(page, "second");
+  await action(page, "clear");
+  await expectResult(page, "5");
+
+  await action(page, "second");
+  await action(page, "backspace");
+  await expectResult(page, "5");
+
+  await action(page, "second");
+  await action(page, "home");
+  await expectResult(page, "0");
+
+  await action(page, "second");
+  await action(page, "backspace");
+  await expectResult(page, "0");
+});
+
+test("handles statistics functions", async ({ page }) => {
+  await insert(page, "2");
+  await action(page, "second");
+  await action(page, "exp");
+  await expectResult(page, "1");
+
+  await action(page, "clear");
+  await insert(page, "4");
+  await action(page, "second");
+  await action(page, "exp");
+  await expectResult(page, "2");
+
+  await action(page, "second");
+  await insert(page, "1");
+  await expectResult(page, "6");
+
+  await action(page, "second");
+  await insert(page, "2");
+  await expectResult(page, "20");
+
+  await action(page, "second");
+  await insert(page, "7");
+  await expectResult(page, "3");
+
+  await action(page, "second");
+  await insert(page, "8");
+  await expectResult(page, "1.41421356237");
+
+  await action(page, "second");
+  await insert(page, "9");
+  await expectResult(page, "2");
 });
 
 test("handles fractions, mixed-number input, result-mode cycling, and DMS", async ({ page }) => {
