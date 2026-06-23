@@ -507,6 +507,7 @@ test("handles delete, cursor navigation, history, and keyboard input", async ({ 
   await expectResult(page, "13");
 
   await reset(page);
+  await calculator(page).focus();
   await page.keyboard.type("987");
   await page.keyboard.press("Backspace");
   await expectResult(page, "98");

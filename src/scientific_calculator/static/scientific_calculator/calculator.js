@@ -1006,6 +1006,10 @@
   }
 
   function createCalculator(root) {
+    if (!root.hasAttribute("tabindex")) {
+      root.setAttribute("tabindex", "0");
+    }
+
     const expressionEl = root.querySelector("[data-expression]");
     const resultEl = root.querySelector("[data-result]");
     const angleLabel = root.querySelector("[data-angle-label]");
@@ -1026,6 +1030,7 @@
     let secondActive = false;
     let memoryValue = 0;
     const statsValues = [];
+    const hasKeyboardFocus = () => root.contains(document.activeElement);
 
     const expressionForDisplay = () => {
       if (!expression) {
@@ -1891,7 +1896,16 @@
       }
     });
 
+    root.addEventListener("pointerdown", () => {
+      if (!hasKeyboardFocus()) {
+        root.focus({ preventScroll: true });
+      }
+    });
+
     document.addEventListener("keydown", (event) => {
+      if (!hasKeyboardFocus()) {
+        return;
+      }
       if (/^[0-9+\-*/().^]$/.test(event.key)) {
         insertToken(event.key);
       } else if (event.key === "Enter" || event.key === "=") {

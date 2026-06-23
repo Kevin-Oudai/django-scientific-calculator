@@ -25,7 +25,7 @@ The demo project is intentionally excluded from pip installs. Do not copy it int
 
 - Package install name: `django-scientific-calculator`
 - Django app name: `scientific_calculator`
-- Current version: `0.3.0`
+- Current version: `0.3.1`
 - Python support: `>=3.10`
 - Django support: `Django>=5.2,<6.0`
 - Repository: `https://github.com/Kevin-Oudai/django-scientific-calculator`
@@ -61,7 +61,7 @@ The target machine must have access to the private repository. SSH installs requ
 For future stable installs, prefer a version tag after that tag exists:
 
 ```text
-django-scientific-calculator @ git+ssh://git@github.com/Kevin-Oudai/django-scientific-calculator.git@v0.3.0
+django-scientific-calculator @ git+ssh://git@github.com/Kevin-Oudai/django-scientific-calculator.git@v0.3.1
 ```
 
 ## Django Setup
@@ -271,6 +271,13 @@ When changing package behavior:
 - avoid committing local runtime files such as `src/db.sqlite3`, `src/staticfiles`, caches, virtual environments, or build artifacts
 
 ## Release History
+
+### 0.3.1
+
+Scopes keyboard handling for embedded use.
+
+- Keyboard shortcuts now apply only when the calculator has focus.
+- The calculator root is focusable for keyboard entry after clicking or tabbing into it.
 
 ### 0.3.0
 
