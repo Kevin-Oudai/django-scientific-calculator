@@ -1,0 +1,355 @@
+{
+  "schema_version": 1,
+  "profile_id": "sharp-el506ts-pc-simulator-1.0.2.0",
+  "roadmap_item": "EL506-000",
+  "status": "pinned",
+  "captured_at_utc": "2026-09-07T20:53:54Z",
+  "identity": {
+    "vendor": "SHARP CORPORATION",
+    "product": "SHARP PC Simulator for EL-506TS",
+    "model": "EL-506TS",
+    "declared_regional_variant": "not declared by the package",
+    "ui_language": "English",
+    "observed_visual_variant": "small-panel light silver/white calculator face",
+    "readme_release": {
+      "version": "1.0",
+      "date": "2017-04-12"
+    },
+    "runtime_build": {
+      "file_version": "1.0.2.0",
+      "product_version": "1.0.2.0",
+      "architecture": "x86"
+    }
+  },
+  "oracle": {
+    "role": "Primary behavioral reference for key sequences, displays, state transitions, results, and errors.",
+    "exception_policy": "The six differences explicitly documented by Sharp are simulator limitations, not physical EL-506TS behavior. For those differences, the official operation guide or a physical EL-506TS outranks the simulator.",
+    "repo_policy": "Store fingerprints and behavioral transcriptions only. Do not commit the simulator, its assets, its ReadMe, or captured images."
+  },
+  "official_source": {
+    "support_page": "https://www.sharp-calculators.com/support/software/",
+    "download_url": "https://www.sharp-calculators.com/wp-content/uploads/2024/10/EL_506TS_Simulator.zip",
+    "verified_at_utc": "2026-09-07T20:45:00Z",
+    "published_checksum_available": false,
+    "observed_download": {
+      "bytes": 1381182,
+      "sha256": "7cf02d67db3d97f8e544ac18913b1b65ceeaf3f0127069db74580cf85f531efe",
+      "repeat_downloads_matched": true
+    },
+    "provenance": "The local launcher and ReadMe hashes exactly match the corresponding entries in the official download observed on the verification date."
+  },
+  "artifacts": [
+    {
+      "kind": "launcher_sfx",
+      "name": "EL_506TS_Simulator.exe",
+      "path_template": "%USERPROFILE%\\OneDrive\\Google-data\\drive\\teaching\\calculator\\113-el_506ts_simulator\\EL_506TS_Simulator.exe",
+      "bytes": 1712128,
+      "sha256": "8246dc314e7232cb62ac1a4abc14d8c82f4aba4ffd37161ba13f463150f1d509",
+      "local_mtime_utc": "2022-04-07T21:50:27Z",
+      "official_archive_timestamp_timezone_unspecified": "2017-03-09T15:55:08",
+      "file_version": null,
+      "authenticode_status": "NotSigned",
+      "redistribution_allowed_by_project": false
+    },
+    {
+      "kind": "runtime_executable",
+      "name": "SHARP Calculator.exe",
+      "ephemeral_path_template": "%LOCALAPPDATA%\\Temp\\WZSE*.TMP\\SHARP Calculator.exe",
+      "bytes": 1220608,
+      "sha256": "6bfef4d04900b472892be2d4c54dcfa6013f87232097e32df508ca4c27425530",
+      "official_archive_timestamp_timezone_unspecified": "2017-03-02T16:12:48",
+      "observed_extracted_mtime_utc": "2017-03-02T20:12:48Z",
+      "file_version": "1.0.2.0",
+      "product_version": "1.0.2.0",
+      "product_name": "SHARP Calculator",
+      "company_name": "SHARP CORPORATION",
+      "file_description": "SHARP Calculator",
+      "architecture": "x86 (32-bit process)",
+      "authenticode_status": "NotSigned",
+      "redistribution_allowed_by_project": false
+    },
+    {
+      "kind": "bundled_readme",
+      "name": "ReadMe.txt",
+      "path_template": "%USERPROFILE%\\OneDrive\\Google-data\\drive\\teaching\\calculator\\113-el_506ts_simulator\\ReadMe.txt",
+      "bytes": 27912,
+      "sha256": "ef7ee5f6896b87875ec04f5380d086d253878d6b80c3f50e3653dbca77de8240",
+      "local_mtime_utc": "2022-04-07T21:50:27Z",
+      "official_archive_timestamp_timezone_unspecified": "2017-04-12T10:56:48",
+      "declared_release": "Ver. 1.0 : April.12, 2017",
+      "redistribution_allowed_by_project": false
+    }
+  ],
+  "environment": {
+    "vendor_documented_requirements": {
+      "operating_systems": [
+        "Windows 7 (32-bit or 64-bit)",
+        "Windows 8.1 (32-bit or 64-bit)",
+        "Windows 10 (32-bit or 64-bit)"
+      ],
+      "operating_system_language": "English",
+      "minimum_display": "1024x768, 16-bit color",
+      "minimum_free_disk_mb": 10,
+      "writable_temporary_directory_required": true
+    },
+    "observed_host": {
+      "operating_system": "Microsoft Windows 11 Home",
+      "version": "10.0.26200",
+      "build": "26200",
+      "architecture": "64-bit",
+      "vendor_support_note": "Windows 11 is outside the bundled ReadMe support matrix but launched successfully.",
+      "ui_culture": "en-US",
+      "user_culture": "en-TT",
+      "time_zone": "America/Port_of_Spain",
+      "primary_display": {
+        "width_px": 1920,
+        "height_px": 1080,
+        "color_depth_bits": 32,
+        "dpi": 96,
+        "scale_percent": 100
+      }
+    }
+  },
+  "launch": {
+    "method": "Run the launcher SFX with no arguments and leave its WinZip Self-Extractor window open while SHARP Calculator.exe is running.",
+    "powershell": "Start-Process -FilePath \"$env:USERPROFILE\\OneDrive\\Google-data\\drive\\teaching\\calculator\\113-el_506ts_simulator\\EL_506TS_Simulator.exe\"",
+    "outer_process": {
+      "name": "EL_506TS_Simulator",
+      "window_title": "WinZip Self-Extractor - EL_506TS_Simulator.exe"
+    },
+    "runtime_process": {
+      "name": "SHARP Calculator",
+      "window_title": "SHARP Calculator - EL-506TS"
+    },
+    "ready_timeout_seconds": 10,
+    "preconditions": [
+      "No prior EL_506TS_Simulator or SHARP Calculator process is running.",
+      "The launcher SHA-256 matches this profile.",
+      "Windows display scaling is 100 percent for pixel-comparison sessions.",
+      "The simulator is allowed to write to the user's temporary directory and Documents folder."
+    ],
+    "ready_assertions": [
+      "The runtime window title exactly matches SHARP Calculator - EL-506TS.",
+      "The runtime executable SHA-256 and version match this profile.",
+      "The window is 772x665 px with a 766x636 px client area at 96 DPI.",
+      "SmallCalcPanel is 287x577 px and SegLcdWnd is 425x124 px."
+    ],
+    "teardown": [
+      "Close the SHARP Calculator window normally.",
+      "Verify that both the runtime and Self-Extractor processes exit.",
+      "Delete only capture files created by the current test session."
+    ]
+  },
+  "reset_baseline": {
+    "canonical_reset": "Use the simulator chrome Reset control, not ON/C or a calculator memory-clear sequence.",
+    "reset_control": {
+      "name": "Reset",
+      "automation_id": "1001",
+      "win32_class": "Button",
+      "uia_control_type": "Pane"
+    },
+    "settle_time_ms": 500,
+    "documented_effects": [
+      "Return the display format to its initial setting.",
+      "Return calculation mode to its initial setting.",
+      "Erase all calculator memory."
+    ],
+    "documented_initial_display_format": "NORM1",
+    "documented_initial_calculation_mode": "NORMAL (MODE 0)",
+    "observed_display": {
+      "upper_line": "",
+      "lower_line": "0.",
+      "indicators_on": [
+        "DEG"
+      ],
+      "other_indicators": "off",
+      "cursor": "not visible",
+      "prompt": null
+    },
+    "observed_mode_probe": {
+      "sequence_after_reset": [
+        "MODE"
+      ],
+      "menu_options": [
+        {
+          "number": "0",
+          "label": "NORMAL",
+          "selection_marker": "dot"
+        },
+        {
+          "number": "1",
+          "label": "STAT",
+          "selection_marker": null
+        }
+      ],
+      "note": "The simulator uses a dot beside the selected menu number instead of the physical calculator's blinking number."
+    },
+    "capture": {
+      "button_name": "Capture",
+      "automation_id": "1000",
+      "output_directory_template": "%USERPROFILE%\\Documents\\CalcDispImage",
+      "format": "BMP",
+      "width_px": 425,
+      "height_px": 124,
+      "pixel_format": "24bpp RGB",
+      "reset_frame_sha256": "2c110af0ce76bc0714338d0a7baffb4ca42aaa9a806a2a75d08fccdf8b9e0b73",
+      "repeat_capture_count": 2,
+      "repeat_captures_matched": true,
+      "image_retained_in_repository": false
+    }
+  },
+  "automation": {
+    "uia_readability": "partial",
+    "calculator_keys_exposed": false,
+    "lcd_text_exposed": false,
+    "supported_patterns_exposed": false,
+    "coordinate_policy": "Resolve SmallCalcPanel on every session, express future calculator-key centers relative to its 287x577 bounds, and reject pixel-golden runs when DPI or panel dimensions differ.",
+    "result_policy": "Use the built-in Capture control, then compare the local image and store only a transcription and hash in Git.",
+    "window": {
+      "title": "SHARP Calculator - EL-506TS",
+      "win32_class": "#32770",
+      "width_px": 772,
+      "height_px": 665,
+      "client_width_px": 766,
+      "client_height_px": 636,
+      "dpi": 96
+    },
+    "controls": [
+      {
+        "name": "SmallCalcPanel",
+        "automation_id": "1",
+        "win32_class": "AfxWnd80s",
+        "relative_bounds": [23, 56, 287, 577]
+      },
+      {
+        "name": "SegLcdWnd",
+        "automation_id": "3",
+        "win32_class": "AfxWnd80s",
+        "relative_bounds": [330, 56, 425, 124]
+      },
+      {
+        "name": "Capture",
+        "automation_id": "1000",
+        "win32_class": "Button",
+        "relative_bounds": [330, 210, 124, 32]
+      },
+      {
+        "name": "Open Image Folder",
+        "automation_id": "1002",
+        "win32_class": "Button",
+        "relative_bounds": [469, 210, 148, 32]
+      },
+      {
+        "name": "Reset",
+        "automation_id": "1001",
+        "win32_class": "Button",
+        "relative_bounds": [632, 210, 124, 32]
+      }
+    ]
+  },
+  "known_simulator_differences": [
+    {
+      "id": "automatic-power-off",
+      "simulator_behavior": "Does not turn itself off automatically.",
+      "parity_policy": "Treat as an officially documented simulator limitation and verify physical-device behavior separately."
+    },
+    {
+      "id": "random-output-variety",
+      "simulator_behavior": "RANDOM, R-DICE, R-COIN, and R-INT produce fewer varieties or values.",
+      "parity_policy": "Do not artificially restrict the web calculator to the simulator's reduced sample set."
+    },
+    {
+      "id": "cursor-blink",
+      "simulator_behavior": "The cursor does not blink.",
+      "parity_policy": "Use the physical-device behavior when defining final display timing."
+    },
+    {
+      "id": "memory-on-application-close",
+      "simulator_behavior": "Stored memory is cleared when the simulator application closes.",
+      "parity_policy": "Do not infer physical memory persistence from simulator process lifetime."
+    },
+    {
+      "id": "menu-selection-marker",
+      "simulator_behavior": "MODE, SET UP, M-CLR, RANDOM, and MATH menus show a dot beside the selected number instead of blinking the number.",
+      "parity_policy": "Use physical-device presentation for the final display while retaining the same selections and sequences."
+    },
+    {
+      "id": "algb-selection-marker",
+      "simulator_behavior": "ALGB underlines the selected variable instead of blinking it.",
+      "parity_policy": "Use physical-device presentation for the final display while retaining the same prompt sequence."
+    }
+  ],
+  "evidence": [
+    {
+      "id": "official-software-listing",
+      "type": "official_web_page",
+      "url": "https://www.sharp-calculators.com/support/software/"
+    },
+    {
+      "id": "official-operation-guide",
+      "type": "official_pdf",
+      "url": "https://global.sharp/contents/calculator/support/guidebook/documents/OperationGuide_EL506TS.pdf",
+      "scope": "Reset effects, NORM1 default, NORMAL mode, and physical calculator behavior."
+    },
+    {
+      "id": "bundled-readme",
+      "type": "local_metadata",
+      "sha256": "ef7ee5f6896b87875ec04f5380d086d253878d6b80c3f50e3653dbca77de8240",
+      "scope": "Product identity, release, requirements, reset procedure, capture behavior, license, and six simulator differences."
+    },
+    {
+      "id": "runtime-version-info",
+      "type": "local_metadata",
+      "scope": "Runtime version, company, architecture, signature status, and executable fingerprint."
+    },
+    {
+      "id": "interactive-reset-observation",
+      "type": "local_behavioral_observation",
+      "observed_at_utc": "2026-09-07T20:53:54Z",
+      "scope": "Launch lifecycle, Reset baseline, MODE probe, capture dimensions, repeatable capture hash, and clean shutdown."
+    },
+    {
+      "id": "uia-control-tree",
+      "type": "local_accessibility_observation",
+      "observed_at_utc": "2026-09-07T20:44:00Z",
+      "scope": "Window/control identifiers, bounds, supported-pattern limits, and lack of key/LCD text exposure."
+    }
+  ],
+  "verification": [
+    {
+      "check": "local-package-matches-official-download",
+      "status": "pass",
+      "method": "Compared SHA-256 and byte length of both local files to the entries in two identical downloads of the official ZIP.",
+      "evidence_refs": [
+        "official-software-listing",
+        "bundled-readme"
+      ]
+    },
+    {
+      "check": "launch-and-runtime-identity",
+      "status": "pass",
+      "method": "Launched the SFX, observed the exact runtime title, and fingerprinted the active runtime executable.",
+      "evidence_refs": [
+        "runtime-version-info",
+        "interactive-reset-observation"
+      ]
+    },
+    {
+      "check": "reset-baseline-repeatability",
+      "status": "pass",
+      "method": "Reset and captured the LCD twice at 96 DPI; both 425x124 BMP files had the same SHA-256.",
+      "evidence_refs": [
+        "interactive-reset-observation"
+      ]
+    },
+    {
+      "check": "clean-session-lifecycle",
+      "status": "pass",
+      "method": "Closing the runtime window normally also closed the SFX wrapper; all test-created captures were removed.",
+      "evidence_refs": [
+        "interactive-reset-observation"
+      ]
+    }
+  ],
+  "unresolved": []
+}
