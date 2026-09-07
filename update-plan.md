@@ -1,10 +1,10 @@
 # EL-506TS Behavior Parity Update Plan
 
-- Plan version: 1.0
+- Plan version: 1.1
 - Plan status: Active
 - Current package baseline: 0.3.1
 - Target release: 1.0.0 after verified parity
-- Next item: EL506-000
+- Next item: EL506-001
 - Last updated: 2026-09-07
 
 ## Purpose
@@ -30,8 +30,11 @@ assets, or other protected branding into the distributed package.
 
 ## Decisions Already Made
 
-1. The user's official Sharp EL-506TS simulator is the final behavioral oracle.
-2. The official simulator outranks written examples when the two disagree.
+1. The pinned official Sharp EL-506TS simulator is the primary behavioral
+   oracle.
+2. The official simulator outranks written examples except for the six
+   simulator-specific differences declared in its bundled ReadMe. For those
+   differences, the full manual or a physical EL-506TS defines parity.
 3. The calculator will retain the physical key positions and functional labels
    needed to teach EL-506TS sequences.
 4. The distributed default will use an original, dark visual theme without
@@ -76,6 +79,8 @@ Official references:
   https://global.sharp/products/calculators/sc_calculator/el-506ts/index.html
 - Sharp EL-506TS operation guide:
   https://global.sharp/contents/calculator/support/guidebook/documents/OperationGuide_EL506TS.pdf
+- Sharp PC simulator software listing:
+  https://www.sharp-calculators.com/support/software/
 - Math.js expression documentation:
   https://mathjs.org/docs/expressions/
 - Math.js security guidance:
@@ -83,6 +88,11 @@ Official references:
 
 The local PDF is a user-provided, untracked reference file. Do not stage or
 publish it unless the user explicitly asks and confirms redistribution rights.
+
+The pinned simulator identity, hashes, launch/reset procedure, environment,
+automation surface, baseline display, and known simulator limitations are in
+`tests/reference/el506ts/simulator-profile.json`. It intentionally contains no
+Sharp executable, ReadMe, panel art, or captured image.
 
 ### Operation Guide Traceability Anchors
 
@@ -322,10 +332,20 @@ requires the order to change.
 
 ### Phase 0 - Reference and Traceability
 
-- [ ] **EL506-000 - Pin the reference simulator.** Record its executable or
+- [x] **EL506-000 - Pin the reference simulator.** Record its executable or
   launch method, official source, exact version/build, locale, model variant,
   display scaling, default state, reset procedure, and a reproducible session
   setup.
+    Completed: 2026-09-07, commit 1a7bc12da9220c87bb857c4f35cd25baa73e732c
+    Evidence: `tests/reference/el506ts/simulator-profile.json`; official Sharp
+    software listing and ZIP; bundled ReadMe release 1.0; runtime build
+    1.0.2.0; repeated simulator Reset captures and MODE probe.
+    Verification: JSON parse and required-field assertions; Python compileall;
+    Docker Compose configuration; Playwright 12/12 passed; git diff --check.
+    Notes: local files match the official ZIP by SHA-256. Simulator binaries,
+    documentation, assets, and captures remain local and untracked. The six
+    Sharp-documented simulator/device differences are explicit oracle
+    exceptions.
 - [ ] **EL506-001 - Create the 470-capability ledger.** Inventory every
   physical key, base action, 2ndF action, ALPHA action, mode/submode action,
   SET UP choice, MATH menu entry, constant, conversion, statistic, regression,
