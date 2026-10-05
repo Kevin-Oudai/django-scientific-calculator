@@ -480,6 +480,26 @@ The runner's completion does not require implementing the later feature phases.
 - [ ] **EL506-003 - Create the golden fixture format and runner.** Fixtures
   must drive canonical key IDs and assert displays, indicators, prompts,
   result pages, state mutations, and errors.
+    READY_TO_PUSH: 2026-10-05. Version 1 canonical-sequence fixtures and
+    deterministic Node runner assert explicit observable state paths at every
+    step, retaining complete snapshots. Two supported baseline sequences replay
+    11 frames; mode/menu fixture stays pending with no assertions or parity pass.
+    Oracle display differences are compared against their exact recorded set;
+    unexpected assertions, physical IDs, paths or dispatch fail. Prompts/pages
+    absent from baseline remain pending; future state fields use the same paths.
+    Evidence: fresh el506-003-golden-addition-v1, Reset then K40 K43 K41 K48,
+    five inspected frames, DEG and result 3.; pinned runtime verified. Existing
+    error-recovery and menu-inventory evidence supplies other references.
+    A legacy CP1252 division glyph in error-recovery JSON was exposed by exact
+    comparison; normalized that transcript to UTF-8 without changing content,
+    and added strict UTF-8/glyph regression coverage.
+    Verification: 18/18 pure unit tests, golden runner and 28/28 browser
+    tests including canonical replay; existing
+    two-embed/compatibility regressions; reference validation; compileall; pip
+    dry run; Compose config/demo; HTTP 200; diff check.
+    Scope: bootstrap test bridge covers NORMAL base keys only; unimplemented
+    layers/modes do not count as passing parity. No UI layout/theme, touch,
+    accessibility, evaluator algorithm or package version change.
 - [ ] **EL506-004 - Capture all 44-page guide examples.** Convert every worked
   sequence in the operation guide into reference fixtures, preserving printed
   values and noting any guide/simulator disagreement.

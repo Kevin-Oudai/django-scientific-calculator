@@ -449,6 +449,24 @@ In a browser, each initialized calculator root exposes
 `root.scientificCalculator.snapshot()` and `.restore(snapshot)`. Restoring
 updates that instance's display. Invalid snapshots leave it unchanged.
 
+## Golden Sequence Tests
+
+`npm run test:golden` replays fixtures in `tests/reference/el506ts/golden`.
+Version 1 fixtures identify their reference experiment, canonical sequence,
+ledger capability IDs, status and expected assertions after every physical key.
+Assertions use state paths such as `displayResult`, `history.length`,
+`stagedEntry.part` or a future prompt/result-page field. Snapshots preserve each
+step for inspection. Missing fields and unsupported key/mode/modifier dispatch
+fail explicitly. A pending fixture records a reason and executes no assertions.
+
+The bootstrap adapter covers implemented NORMAL base operations. It is a test
+bridge to the baseline reducer, not a completed physical-layout or layer model.
+Two supported addition/error-recovery fixtures replay 11 frames in both Node
+and the browser. Their complete known display differences are asserted against
+the live oracle and reported as `known-differences`, never passing parity.
+Unmeasured cursor, prompt, paging and simulator stores remain explicit.
+The mode/menu fixture remains pending. `npm test` includes this runner.
+
 ## Release History
 
 ### 0.3.1

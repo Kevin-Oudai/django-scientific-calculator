@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
-  "experiment_id": "el506-002-error-recovery-v1",
-  "roadmap_item": "EL506-002",
+  "experiment_id": "el506-003-golden-addition-v1",
+  "roadmap_item": "EL506-003",
   "catalog_id": "el506-physical-keys-v1",
   "simulator": {
     "profile_id": "sharp-el506ts-pc-simulator-1.0.2.0",
@@ -14,7 +14,7 @@
   "capture": {
     "date": "2026-10-05",
     "timezone": "America/Port_of_Spain",
-    "method": "Computer Use @oai/sky: chrome Reset then one coordinate click and fresh screenshot per physical key. Runtime hash and file version checked. Small panel origin (23,56), size 287x577; catalogue centers used. No artwork retained.",
+    "method": "Computer Use @oai/sky; fresh chrome Reset then refreshed baseline capture, K40 K43 K41 K48 with an inspected screenshot after each physical click. Same pinned runtime identity verified in this session. No images retained.",
     "evidence_kind": "live-simulator",
     "source_ids": [
       "live-session"
@@ -68,10 +68,9 @@
   },
   "sequence": [
     "EL506-K40",
-    "EL506-K39",
-    "EL506-K45",
-    "EL506-K48",
-    "EL506-K02"
+    "EL506-K43",
+    "EL506-K41",
+    "EL506-K48"
   ],
   "frames": [
     {
@@ -96,7 +95,7 @@
       },
       "result": {
         "status": "not-applicable",
-        "reason": "No successful evaluation result in this error/recovery experiment."
+        "reason": "Entry frame before evaluation."
       }
     },
     {
@@ -121,13 +120,13 @@
       },
       "result": {
         "status": "not-applicable",
-        "reason": "No successful evaluation result in this error/recovery experiment."
+        "reason": "Entry frame before evaluation."
       }
     },
     {
       "after_step": 2,
       "display": {
-        "upper_line": "1÷",
+        "upper_line": "1+",
         "lower_line": "0.",
         "indicators": [
           "DEG"
@@ -135,7 +134,7 @@
         "scroll_arrows": [],
         "cursor": {
           "status": "observed",
-          "value": "underscore after ÷"
+          "value": "underscore after +"
         },
         "insert_mode": {
           "status": "unknown",
@@ -146,21 +145,21 @@
       },
       "result": {
         "status": "not-applicable",
-        "reason": "No successful evaluation result in this error/recovery experiment."
+        "reason": "Entry frame before evaluation."
       }
     },
     {
       "after_step": 3,
       "display": {
-        "upper_line": "1÷",
-        "lower_line": "0.",
+        "upper_line": "1+",
+        "lower_line": "2.",
         "indicators": [
           "DEG"
         ],
         "scroll_arrows": [],
         "cursor": {
           "status": "observed",
-          "value": "underscore after ÷"
+          "value": "underscore after +"
         },
         "insert_mode": {
           "status": "unknown",
@@ -171,14 +170,14 @@
       },
       "result": {
         "status": "not-applicable",
-        "reason": "No successful evaluation result in this error/recovery experiment."
+        "reason": "Entry frame before evaluation."
       }
     },
     {
       "after_step": 4,
       "display": {
-        "upper_line": "Error 2",
-        "lower_line": "",
+        "upper_line": "1+2=",
+        "lower_line": "3.",
         "indicators": [
           "DEG"
         ],
@@ -195,33 +194,12 @@
         "selected_result_component": null
       },
       "result": {
-        "status": "not-applicable",
-        "reason": "No successful evaluation result in this error/recovery experiment."
-      }
-    },
-    {
-      "after_step": 5,
-      "display": {
-        "upper_line": "",
-        "lower_line": "0.",
-        "indicators": [
-          "DEG"
-        ],
-        "scroll_arrows": [],
-        "cursor": {
-          "status": "observed",
-          "value": "not visible"
-        },
-        "insert_mode": {
-          "status": "unknown",
-          "reason": "Not probed in this experiment."
-        },
-        "prompt": null,
-        "selected_result_component": null
-      },
-      "result": {
-        "status": "not-applicable",
-        "reason": "No successful evaluation result in this error/recovery experiment."
+        "status": "observed",
+        "value": {
+          "encoding": "decimal-string",
+          "value": "3",
+          "basis": "displayed"
+        }
       }
     }
   ],
@@ -229,27 +207,14 @@
     "coverage": "No store changes or persistence asserted; internal ANS and memories were not read back. Empty observations means unmeasured, not unchanged.",
     "observations": []
   },
-  "errors": [
-    {
-      "at_step": 4,
-      "message": "Error 2",
-      "position": {
-        "status": "not-applicable",
-        "reason": "Error frame has no visible fault cursor."
-      },
-      "recovery_steps": [
-        5
-      ],
-      "recovered_at_step": 5
-    }
-  ],
+  "errors": [],
   "sources": [
     {
       "source_id": "live-session",
       "kind": "simulator",
       "reference": "simulator-profile.json",
       "page": null,
-      "scope": "Fresh reset, five-key divide-by-zero and ON/C recovery observation on capture date."
+      "scope": "Fresh reset, canonical 1 + 2 = physical sequence, significant LCD frames; result 3."
     }
   ],
   "oracle": {
@@ -259,7 +224,6 @@
   },
   "ambiguities": [],
   "notes": [
-    "Schema evidence only. No calculator behavior implementation or application parity claim.",
-    "No manual worked example used; source page is explicitly null."
+    "Fresh golden runner addition reference; no new internal store measurements. Baseline display formatting differences remain explicit."
   ]
 }

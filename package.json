@@ -8,8 +8,9 @@
     "test": "playwright test",
     "test:e2e": "playwright test",
     "test:unit": "node --test --test-concurrency=1 tests/unit/*.test.js",
+    "test:golden": "node tests/reference/el506ts/golden-runner.js",
     "test:reference": "node tests/reference/el506ts/validate-experiment.js && node tests/reference/el506ts/validate-ledger.js && node tests/reference/el506ts/validate-baseline.js",
-    "pretest": "npm run test:reference && npm run test:unit"
+    "pretest": "npm run test:reference && npm run test:unit && npm run test:golden"
   },
   "devDependencies": {
     "@playwright/test": "^1.60.0",
