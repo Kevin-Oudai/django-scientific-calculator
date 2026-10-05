@@ -601,6 +601,22 @@ The runner's completion does not require implementing the later feature phases.
 - [ ] **EL506-019 - Add full state snapshot and restore.** Include all stores,
   settings, prompts, cursors, result pages, and modifiers for history and
   deterministic tests.
+    READY_TO_PUSH: 2026-10-05. Versioned legacy-0.3.1 in-memory snapshot and
+    validated restore cover every currently implemented field, nested template,
+    memory/statistics/history store, setting, cursor, modifier and error display.
+    Independent deep copies preserve nonfinite numbers. Per-root browser API
+    restores and renders atomically; malformed/version-mismatched input rejects.
+    Evidence: el506-019-retained-ans-v1 extends fresh addition with ON/C,
+    2ndF and equals; blank upper/0. lower, modifier on then off observed.
+    No numeric ANS recall or internal simulator store value is asserted.
+    Verification: 15/15 unit tests, 25 existing browser regressions and
+    the targeted snapshot test passed. Initial test focus clicked a key;
+    corrected to explicit root focus, then snapshot test passed; reference validation; compileall; pip dry run; Compose
+    config/rebuild; HTTP 200; diff check. Two-embed regression remains covered.
+    Scope: all baseline state is covered; unimplemented prompts, modes and
+    result pages must extend the versioned contract in their future items.
+    JSON persistence, canonical dispatch, touch/theme/accessibility changes
+    are inapplicable to this bootstrap contract. No algorithm/version change.
 - [ ] **EL506-020 - Integrate a pinned local Math.js build.** Bundle it with
   the package, record its version and license notices, expose only an
   allowlisted evaluator adapter, and require no CDN.

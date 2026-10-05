@@ -1028,6 +1028,58 @@
     return { expression, cursor, selectionActive, entry, stagedEntry, resultDisplay, answer, lastValue, lastExactDisplay, resultMode, angleMode, history, historyIndex, historyDraft, secondActive, memoryValue, statsValues, displayExpression, displayResult };
   }
 
+  function validateState(state) {
+    const initial = createInitialState();
+    if (!state || Object.getPrototypeOf(state) !== Object.prototype
+      || Object.keys(state).sort().join() !== Object.keys(initial).sort().join()) {
+      throw new TypeError("Invalid calculator state fields");
+    }
+    for (const name of Object.keys(initial)) {
+      if (initial[name] !== null && !Array.isArray(initial[name])
+        && typeof state[name] !== typeof initial[name]) throw new TypeError(`Invalid state: ${name}`);
+    }
+    if (!Number.isInteger(state.cursor) || state.cursor < 0
+      || !(state.historyIndex === null || Number.isInteger(state.historyIndex))
+      || !["DEG", "RAD"].includes(state.angleMode)
+      || !["decimal", "exact", "mixed", "improper"].includes(state.resultMode)
+      || !Array.isArray(state.statsValues) || !state.statsValues.every(v => typeof v === "number")
+      || !Array.isArray(state.history) || !state.history.every(h => h && typeof h.expression === "string"
+        && typeof h.value === "number" && typeof h.exactDisplay === "string")) {
+      throw new TypeError("Invalid calculator state values");
+    }
+    if (state.stagedEntry !== null) {
+      const templates = {
+        fraction: ["numerator", "denominator", "part"],
+        power: ["base", "exponent", "hasExponent"],
+        exp: ["base", "exponent", "hasExponent"],
+        root: ["index", "radicand", "hasRadicand"],
+        binaryFunction: ["name", "left", "right", "hasRight"],
+        dms: ["degrees", "minutes", "seconds", "part", "hasMinutes", "hasSeconds"],
+      };
+      const fields = templates[state.stagedEntry.type];
+      if (!fields || Object.keys(state.stagedEntry).sort().join() !== ["type", ...fields].sort().join()
+        || !fields.every(name => typeof state.stagedEntry[name] === (name.startsWith("has") ? "boolean" : "string"))) {
+        throw new TypeError("Invalid staged entry");
+      }
+    }
+  }
+
+  // In-memory snapshots retain nonfinite numbers; JSON serialization is not
+  // part of this contract. Future modes must version and extend these fields.
+  function snapshotCalculator(state) {
+    validateState(state);
+    return { schemaVersion: 1, profile: "legacy-0.3.1", state: structuredClone(state) };
+  }
+
+  function restoreCalculator(snapshot) {
+    if (!snapshot || snapshot.schemaVersion !== 1 || snapshot.profile !== "legacy-0.3.1"
+      || Object.keys(snapshot).sort().join() !== "profile,schemaVersion,state") {
+      throw new TypeError("Unsupported calculator snapshot");
+    }
+    validateState(snapshot.state);
+    return structuredClone(snapshot.state);
+  }
+
   function reduceCalculator(previous, event) {
     let { expression, cursor, selectionActive, entry, stagedEntry, resultDisplay, answer, lastValue, lastExactDisplay, resultMode, angleMode, history, historyIndex, historyDraft, secondActive, memoryValue, statsValues, displayExpression, displayResult } = structuredClone(previous);
     const render = () => { displayExpression = expression; displayResult = resultDisplay || "0"; };
@@ -1909,6 +1961,12 @@
     };
 
     const dispatch = (event) => { state = reduceCalculator(state, event); render(); };
+    Object.defineProperty(root, "scientificCalculator", {
+      value: Object.freeze({
+        snapshot: () => snapshotCalculator(state),
+        restore: (snapshot) => { state = restoreCalculator(snapshot); render(); },
+      }),
+    });
 
     root.addEventListener("click", (event) => {
       const button = event.target.closest("button");
@@ -1933,6 +1991,8 @@
     module.exports = Object.freeze({
       createInitialState,
       reduceCalculator,
+      snapshotCalculator,
+      restoreCalculator,
       evaluateExpression,
       evaluateExactExpression,
       formatValue,

@@ -437,7 +437,17 @@ Four additional reducer tests cover deterministic replay, immutable state,
 memory/statistics isolation, history/cursor/error recovery, fractions, modifiers
 and nonfinite values. The fresh `el506-014-reducer-addition-v1` transcript records
 the reference addition sequence independently. State snapshots and the full
-browser/core asset split remain scheduled separately.
+browser/core asset split remains scheduled separately.
+
+`snapshotCalculator(state)` returns a versioned in-memory snapshot;
+`restoreCalculator(snapshot)` validates and copies it. Version 1 covers all
+baseline fields, including memories, statistics, staged templates, settings,
+history, cursor, modifiers and displayed errors. Nonfinite numbers are retained;
+JSON serialization is not supported by this contract. Unsupported future modes
+are not implied by an empty store. Their implementation must extend the schema.
+In a browser, each initialized calculator root exposes
+`root.scientificCalculator.snapshot()` and `.restore(snapshot)`. Restoring
+updates that instance's display. Invalid snapshots leave it unchanged.
 
 ## Release History
 
