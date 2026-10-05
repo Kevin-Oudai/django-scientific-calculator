@@ -4,13 +4,13 @@
 - Plan status: Active
 - Current package baseline: 0.3.1
 - Target release: 1.0.0 after verified parity
-- Next item: EL506-020
+- Next item: EL506-021
 - Last updated: 2026-10-05
 
 ## Progress Overview
 
-As of 2026-10-05, **17 of 245 roadmap tasks are complete (6.9%)**, with
-**228 remaining**. The next task is **EL506-020**. These counts measure
+As of 2026-10-05, **18 of 245 roadmap tasks are complete (7.3%)**, with
+**227 remaining**. The next task is **EL506-021**. These counts measure
 completed checklist items, not elapsed effort or verified calculator parity;
 individual tasks vary in size. The detailed checklist below describes every
 remaining task and preserves its evidence and completion requirements.
@@ -21,7 +21,7 @@ in the generated report; phase completion does not establish full parity.
 | Roadmap phase | Completed | Remaining |
 | --- | ---: | ---: |
 | Phase 0 - Reference and Traceability | 7 | 0 |
-| Phase 1 - Test and Emulator Foundation | 10 | 4 |
+| Phase 1 - Test and Emulator Foundation | 11 | 3 |
 | Phase 2 - Physical Layout, Display, Theme, and Access | 0 | 14 |
 | Phase 3 - Power, Modes, Clear, Editing, and History | 0 | 17 |
 | Phase 4 - Display Settings and Formatting | 0 | 11 |
@@ -39,7 +39,7 @@ in the generated report; phase completion does not establish full parity.
 | Phase 16 - LIST Mode | 0 | 11 |
 | Phase 17 - Errors, Limits, and Cross-mode Parity | 0 | 15 |
 | Phase 18 - Security, Packaging, Compatibility, and Release | 0 | 15 |
-| **Total** | **17** | **228** |
+| **Total** | **18** | **227** |
 
 Refresh this overview's date, counts, percentage, and next task in every
 roadmap completion tracking commit, using the checklist as the source of truth.
@@ -786,10 +786,11 @@ The runner's completion does not require implementing the later feature phases.
     result pages must extend the versioned contract in their future items.
     JSON persistence, canonical dispatch, touch/theme/accessibility changes
     are inapplicable to this bootstrap contract. No algorithm/version change.
-- [ ] **EL506-020 - Integrate a pinned local Math.js build.** Bundle it with
+- [x] **EL506-020 - Integrate a pinned local Math.js build.** Bundle it with
   the package, record its version and license notices, expose only an
   allowlisted evaluator adapter, and require no CDN.
-    READY_TO_PUSH: 2026-10-05.
+    Completed: 2026-10-05, implementation commit
+    e613243affe912039928d6d71088946e46138cd5 verified on origin/main.
     Evidence: fraction-type and existing five golden sequences; pinned
     simulator 1.0.2.0 final 1/3 frame freshly inspected this session. Bundle
     infrastructure retains Number behavior; no new numerical parity claimed.
