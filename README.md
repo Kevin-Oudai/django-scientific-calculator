@@ -579,6 +579,14 @@ The package requires Django 5.2.17 or later within the 5.2 series; the demo pins
 5.2.17, the [security release](https://www.djangoproject.com/weblog/2026/aug/04/security-releases/)
 that replaces its vulnerable 5.2.13 pin. The package version remains 0.3.1.
 
+The deterministic core tracks entry phases separately from LCD text: empty,
+entering, editing, evaluated, error, menu, prompt, data entry and multi-result.
+Modal workflow transitions retain the underlying entry and prevent unrelated
+input from bypassing a selection. Result paging changes the selected component
+without evaluation. These are foundation contracts; later roadmap items supply
+mode-specific calculations and LCD presentation. Snapshot schema 2 includes
+workflow state and migrates schema 1 in-memory snapshots from the legacy profile.
+
 ### 2026-06-22
 
 - Consolidated project documentation into the root `README.md` and `AGENTS.md`.

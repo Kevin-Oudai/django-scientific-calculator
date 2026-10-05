@@ -21,7 +21,8 @@
         "displayResult": "0",
         "answer": 0,
         "angleMode": "DEG",
-        "history.length": 0
+        "history.length": 0,
+        "lifecycle": "empty"
       }
     },
     {
@@ -31,7 +32,8 @@
         "displayResult": "2",
         "answer": 0,
         "angleMode": "DEG",
-        "history.length": 0
+        "history.length": 0,
+        "lifecycle": "entering"
       }
     },
     {
@@ -41,7 +43,8 @@
         "displayResult": "2^0",
         "answer": 0,
         "angleMode": "DEG",
-        "history.length": 0
+        "history.length": 0,
+        "lifecycle": "entering"
       },
       "domResultText": "20",
       "domResultSup": "0"
@@ -53,7 +56,8 @@
         "displayResult": "2^4",
         "answer": 0,
         "angleMode": "DEG",
-        "history.length": 0
+        "history.length": 0,
+        "lifecycle": "entering"
       },
       "domResultText": "24",
       "domResultSup": "4"
@@ -65,7 +69,8 @@
         "displayResult": "16",
         "answer": 16,
         "angleMode": "DEG",
-        "history.length": 1
+        "history.length": 1,
+        "lifecycle": "evaluated"
       }
     }
   ],

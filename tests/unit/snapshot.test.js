@@ -34,7 +34,7 @@ test("restore resumes history, cursor, errors and nonfinite values deterministic
 
 test("unsupported versions and malformed states are rejected before replacement", () => {
   const snapshot = core.snapshotCalculator(core.createInitialState());
-  for (const mutate of [s => s.schemaVersion = 2, s => delete s.state.memoryValue,
+  for (const mutate of [s => s.schemaVersion = 99, s => delete s.state.memoryValue,
     s => s.state.statsValues = ["bad"], s => s.state.cursor = -1,
     s => s.state.angleMode = "invented", s => s.state.extra = true,
     s => s.state.stagedEntry = { type: "fraction" }]) {

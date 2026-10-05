@@ -1005,7 +1005,7 @@
     return `${expression}${")".repeat(depth)}`;
   }
 
-  function createInitialState() {
+  function createLegacyInitialState() {
     let expression = "";
     let cursor = 0;
     let selectionActive = false;
@@ -1028,12 +1028,34 @@
     return { expression, cursor, selectionActive, entry, stagedEntry, resultDisplay, answer, lastValue, lastExactDisplay, resultMode, angleMode, history, historyIndex, historyDraft, secondActive, memoryValue, statsValues, displayExpression, displayResult };
   }
 
+  const ENTRY_PHASES = Object.freeze(["empty", "entering", "editing", "evaluated", "prompt", "menu", "data-entry", "multi-result", "error"]);
+  function emptyWorkflow() { return { kind: null, payload: null, page: 0, returnPhase: "empty" }; }
+  function createInitialState() {
+    return { ...createLegacyInitialState(), lifecycle: "empty", workflow: emptyWorkflow() };
+  }
+  function validateWorkflow(state) {
+    const w = state.workflow;
+    if (!ENTRY_PHASES.includes(state.lifecycle) || !w
+      || Object.keys(w).sort().join() !== "kind,page,payload,returnPhase"
+      || !ENTRY_PHASES.includes(w.returnPhase) || !Number.isInteger(w.page) || w.page < 0
+      || ![null, "menu", "prompt", "data-entry", "multi-result"].includes(w.kind)) {
+      throw new TypeError("Invalid entry lifecycle");
+    }
+    if (w.kind === null) {
+      if (w.payload !== null || w.page !== 0 || ["menu", "prompt", "data-entry", "multi-result"].includes(state.lifecycle)) throw new TypeError("Invalid idle workflow");
+    } else {
+      if (state.lifecycle !== w.kind || !w.payload || typeof w.payload !== "object") throw new TypeError("Invalid active workflow");
+      if (w.kind === "multi-result" && (!Array.isArray(w.payload.pages) || !w.payload.pages.length || w.page >= w.payload.pages.length)) throw new TypeError("Invalid result pages");
+      if (w.kind !== "multi-result" && (typeof w.payload.id !== "string" || !w.payload.id)) throw new TypeError("Invalid workflow identity");
+    }
+  }
   function validateState(state) {
     const initial = createInitialState();
     if (!state || Object.getPrototypeOf(state) !== Object.prototype
       || Object.keys(state).sort().join() !== Object.keys(initial).sort().join()) {
       throw new TypeError("Invalid calculator state fields");
     }
+    validateWorkflow(state);
     for (const name of Object.keys(initial)) {
       if (initial[name] !== null && !Array.isArray(initial[name])
         && typeof state[name] !== typeof initial[name]) throw new TypeError(`Invalid state: ${name}`);
@@ -1068,19 +1090,62 @@
   // part of this contract. Future modes must version and extend these fields.
   function snapshotCalculator(state) {
     validateState(state);
-    return { schemaVersion: 1, profile: "legacy-0.3.1", state: structuredClone(state) };
+    return { schemaVersion: 2, profile: "legacy-0.3.1", state: structuredClone(state) };
   }
 
   function restoreCalculator(snapshot) {
-    if (!snapshot || snapshot.schemaVersion !== 1 || snapshot.profile !== "legacy-0.3.1"
+    if (!snapshot || ![1, 2].includes(snapshot.schemaVersion) || snapshot.profile !== "legacy-0.3.1"
       || Object.keys(snapshot).sort().join() !== "profile,schemaVersion,state") {
       throw new TypeError("Unsupported calculator snapshot");
     }
-    validateState(snapshot.state);
-    return structuredClone(snapshot.state);
+    let state = structuredClone(snapshot.state);
+    if (snapshot.schemaVersion === 1) {
+      if (!state || Object.keys(state).sort().join() !== Object.keys(createLegacyInitialState()).sort().join()) throw new TypeError("Invalid legacy snapshot");
+      state = { ...state, lifecycle: inferEntryPhase(state), workflow: emptyWorkflow() };
+    }
+    validateState(state);
+    return state;
   }
 
+  function inferEntryPhase(state) {
+    if (state.displayResult === "Error") return "error";
+    if (state.selectionActive) return "editing";
+    if (state.expression.endsWith("=")) return "evaluated";
+    return state.expression || state.entry || state.stagedEntry ? "entering" : "empty";
+  }
   function reduceCalculator(previous, event) {
+    validateState(previous);
+    if (!event || typeof event.type !== "string") throw new TypeError("Invalid calculator event");
+    if (event.type === "workflow") {
+      const next = structuredClone(previous);
+      const commands = { "open-menu": "menu", "open-prompt": "prompt", "begin-data": "data-entry", "show-results": "multi-result" };
+      if (commands[event.command]) {
+        if (previous.workflow.kind !== null) throw new TypeError("Dismiss active workflow before opening another");
+        next.workflow = { kind: commands[event.command], payload: structuredClone(event.payload), page: 0, returnPhase: previous.lifecycle };
+        next.lifecycle = next.workflow.kind;
+      } else if (event.command === "dismiss") {
+        next.lifecycle = next.workflow.returnPhase;
+        next.workflow = emptyWorkflow();
+      } else if (event.command === "page") {
+        if (next.workflow.kind !== "multi-result" || ![-1, 1].includes(event.direction)) throw new TypeError("Invalid paging transition");
+        next.workflow.page = Math.max(0, Math.min(next.workflow.payload.pages.length - 1, next.workflow.page + event.direction));
+      } else throw new TypeError("Unknown workflow transition");
+      validateState(next);
+      return next;
+    }
+    if (previous.workflow.kind !== null) {
+      if (event.type === "keyboard" && event.key === "Escape" || event.type === "button" && ["clear", "home"].includes(event.action)) {
+        return reduceCalculator(previous, { type: "workflow", command: "dismiss" });
+      }
+      return structuredClone(previous);
+    }
+    const next = { ...reduceLegacyCalculator(previous, event), workflow: emptyWorkflow() };
+    next.lifecycle = inferEntryPhase(next);
+    if (next.lifecycle === "entering" && (event.key?.startsWith("Arrow") || event.action?.startsWith("cursor-"))) next.lifecycle = "editing";
+    validateState(next);
+    return next;
+  }
+  function reduceLegacyCalculator(previous, event) {
     let { expression, cursor, selectionActive, entry, stagedEntry, resultDisplay, answer, lastValue, lastExactDisplay, resultMode, angleMode, history, historyIndex, historyDraft, secondActive, memoryValue, statsValues, displayExpression, displayResult } = structuredClone(previous);
     const render = () => { displayExpression = expression; displayResult = resultDisplay || "0"; };
     const resultText = (value, mode) => {
@@ -1954,6 +2019,7 @@
         ? stagedFractionHtml()
         : formatExpression(resultDisplay || "0");
       root.classList.toggle("is-second-active", secondActive);
+      root.dataset.entryPhase = state.lifecycle;
       requestAnimationFrame(() => {
         expressionEl.scrollLeft = expressionEl.scrollWidth;
         resultEl.scrollLeft = resultEl.scrollWidth;

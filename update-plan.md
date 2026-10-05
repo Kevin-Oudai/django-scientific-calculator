@@ -687,6 +687,19 @@ The runner's completion does not require implementing the later feature phases.
     inapplicable because controls, labels and style are unchanged. Version 0.3.1.
 - [ ] **EL506-015 - Model entry lifecycle states.** Cover empty, entering,
   editing, evaluated, prompt, menu, data entry, multi-result, and error states.
+    READY_TO_PUSH: 2026-10-05. Explicit lifecycle and modal workflow contracts,
+    immutable transitions, retained underlying entry, bounded result paging and
+    snapshot schema 2 with schema 1 migration. Pure tests cover all nine states;
+    existing simulator golden fixtures now assert lifecycle paths; browser
+    checks input and restored modal dismissal. Future numeric modes/UI remain
+    owned by their later tasks, not claimed as implemented parity.
+    Evidence: el506-015-entry-lifecycle-v1, fresh Reset/K40/K09/K48 captures;
+    discarded lone lower-line digit on left navigation recorded as legacy
+    difference for Phase 3. Existing menu-inventory/error/addition references
+    supply remaining workflow oracle context. Pinned runtime/hash matched.
+    Verification: Django 4/4, unit 25/25, browser 31/31; golden/reference/report;
+    compileall, pip dry run, Compose rebuilt demo, diff check. No visual/theme
+    change. CI EL506-012 implementation run 37343374982 passed on GitHub.
 - [ ] **EL506-016 - Implement modifier and menu layers.** Support base, 2ndF,
   ALPHA, HYP, MODE, SET UP, MATH, STO, RCL, and other waiting-for-selection
   states without string replacement.

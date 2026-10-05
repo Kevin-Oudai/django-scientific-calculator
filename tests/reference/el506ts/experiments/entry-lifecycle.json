@@ -1,0 +1,205 @@
+{
+  "schema_version": 1,
+  "experiment_id": "el506-015-entry-lifecycle-v1",
+  "roadmap_item": "EL506-015",
+  "catalog_id": "el506-physical-keys-v1",
+  "simulator": {
+    "profile_id": "sharp-el506ts-pc-simulator-1.0.2.0",
+    "product": "SHARP PC Simulator for EL-506TS",
+    "build": "1.0.2.0",
+    "runtime_sha256": "6bfef4d04900b472892be2d4c54dcfa6013f87232097e32df508ca4c27425530",
+    "locale": "English UI; en-US",
+    "operating_system": "Windows 11"
+  },
+  "capture": {
+    "date": "2026-10-05",
+    "timezone": "America/Port_of_Spain",
+    "method": "Computer Use @oai/sky; exact returned runtime window, fresh chrome Reset, one physical click and inspected capture per key; runtime hash/build reverified. No images retained.",
+    "evidence_kind": "live-simulator",
+    "source_ids": [
+      "live-session"
+    ]
+  },
+  "initial_state": {
+    "reset": {
+      "kind": "simulator-chrome-reset",
+      "description": "Clicked simulator chrome Reset before step 1; host control excluded from physical sequence."
+    },
+    "setup_sequence": [],
+    "mode": {
+      "status": "observed",
+      "value": "NORMAL (pinned reset default)"
+    },
+    "settings": [
+      {
+        "name": "angle",
+        "observation": {
+          "status": "observed",
+          "value": "DEG"
+        }
+      },
+      {
+        "name": "display-format",
+        "observation": {
+          "status": "observed",
+          "value": "NORM1 (pinned reset default)"
+        }
+      }
+    ],
+    "display": {
+      "upper_line": "",
+      "lower_line": "0.",
+      "indicators": [
+        "DEG"
+      ],
+      "scroll_arrows": [],
+      "cursor": {
+        "status": "observed",
+        "value": "not visible"
+      },
+      "insert_mode": {
+        "status": "unknown",
+        "reason": "Not probed in this experiment."
+      },
+      "prompt": null,
+      "selected_result_component": null
+    },
+    "stores": []
+  },
+  "sequence": [
+    "EL506-K40",
+    "EL506-K09",
+    "EL506-K48"
+  ],
+  "frames": [
+    {
+      "after_step": 0,
+      "display": {
+        "upper_line": "",
+        "lower_line": "0.",
+        "indicators": [
+          "DEG"
+        ],
+        "scroll_arrows": [],
+        "cursor": {
+          "status": "observed",
+          "value": "not visible"
+        },
+        "insert_mode": {
+          "status": "unknown",
+          "reason": "Not probed in this experiment."
+        },
+        "prompt": null,
+        "selected_result_component": null
+      },
+      "result": {
+        "status": "not-applicable",
+        "reason": "Entry frame before evaluation."
+      }
+    },
+    {
+      "after_step": 1,
+      "display": {
+        "upper_line": "",
+        "lower_line": "1.",
+        "indicators": [
+          "DEG"
+        ],
+        "scroll_arrows": [],
+        "cursor": {
+          "status": "observed",
+          "value": "not visible"
+        },
+        "insert_mode": {
+          "status": "unknown",
+          "reason": "Not probed in this experiment."
+        },
+        "prompt": null,
+        "selected_result_component": null
+      },
+      "result": {
+        "status": "not-applicable",
+        "reason": "Entry frame before evaluation."
+      }
+    },
+    {
+      "after_step": 2,
+      "display": {
+        "upper_line": "",
+        "lower_line": "0.",
+        "indicators": [
+          "DEG"
+        ],
+        "scroll_arrows": [],
+        "cursor": {
+          "status": "observed",
+          "value": "underscore at start of upper line"
+        },
+        "insert_mode": {
+          "status": "unknown",
+          "reason": "Not probed in this experiment."
+        },
+        "prompt": null,
+        "selected_result_component": null
+      },
+      "result": {
+        "status": "not-applicable",
+        "reason": "Entry frame before evaluation."
+      }
+    },
+    {
+      "after_step": 3,
+      "display": {
+        "upper_line": "=",
+        "lower_line": "0.",
+        "indicators": [
+          "DEG"
+        ],
+        "scroll_arrows": [],
+        "cursor": {
+          "status": "observed",
+          "value": "not visible"
+        },
+        "insert_mode": {
+          "status": "unknown",
+          "reason": "Not probed in this experiment."
+        },
+        "prompt": null,
+        "selected_result_component": null
+      },
+      "result": {
+        "status": "observed",
+        "value": {
+          "encoding": "decimal-string",
+          "value": "0",
+          "basis": "displayed"
+        }
+      }
+    }
+  ],
+  "stored_values": {
+    "coverage": "No store changes or persistence asserted; internal ANS and memories were not read back. Empty observations means unmeasured, not unchanged.",
+    "observations": []
+  },
+  "errors": [],
+  "sources": [
+    {
+      "source_id": "live-session",
+      "kind": "simulator",
+      "reference": "simulator-profile.json",
+      "page": null,
+      "scope": "Entry to editing to evaluation: lone digit is not retained after moving left."
+    }
+  ],
+  "oracle": {
+    "selected_source_id": "live-session",
+    "simulator_exception_ids": [],
+    "disagreements": []
+  },
+  "ambiguities": [],
+  "notes": [
+    "Observed discarded lower-line entry on left navigation; legacy app retains it. Full cursor/editing parity belongs to Phase 3.",
+    "Workflow contracts cover future menu/prompt/data/result states, not numerical mode implementations.",
+    "No internal stores measured; existing menu-inventory supplies modal oracle frames."
+  ]
+}

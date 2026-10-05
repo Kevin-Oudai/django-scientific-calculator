@@ -22,7 +22,8 @@
         "displayExpression": "",
         "displayResult": "0",
         "secondActive": false,
-        "memoryValue": 0
+        "memoryValue": 0,
+        "lifecycle": "empty"
       }
     },
     {
@@ -31,7 +32,8 @@
         "displayExpression": "",
         "displayResult": "1",
         "secondActive": false,
-        "memoryValue": 0
+        "memoryValue": 0,
+        "lifecycle": "entering"
       }
     },
     {
@@ -40,7 +42,8 @@
         "displayExpression": "1:",
         "displayResult": "0",
         "secondActive": false,
-        "memoryValue": 0
+        "memoryValue": 0,
+        "lifecycle": "entering"
       }
     },
     {
@@ -49,7 +52,8 @@
         "displayExpression": "1:",
         "displayResult": "0",
         "secondActive": false,
-        "memoryValue": 0
+        "memoryValue": 0,
+        "lifecycle": "entering"
       }
     },
     {
@@ -58,7 +62,8 @@
         "displayExpression": "1:0=",
         "displayResult": "Error",
         "secondActive": false,
-        "memoryValue": 0
+        "memoryValue": 0,
+        "lifecycle": "error"
       }
     },
     {
@@ -67,7 +72,8 @@
         "displayExpression": "",
         "displayResult": "0",
         "secondActive": false,
-        "memoryValue": 0
+        "memoryValue": 0,
+        "lifecycle": "empty"
       }
     }
   ],
@@ -87,7 +93,7 @@
     {
       "afterStep": 2,
       "field": "displayExpression",
-      "expected": "1\u00f7",
+      "expected": "1÷",
       "actual": "1:"
     },
     {
@@ -99,7 +105,7 @@
     {
       "afterStep": 3,
       "field": "displayExpression",
-      "expected": "1\u00f7",
+      "expected": "1÷",
       "actual": "1:"
     },
     {

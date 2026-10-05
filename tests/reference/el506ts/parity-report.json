@@ -80,15 +80,15 @@
     },
     {
       "path": "tests/reference/el506ts/golden/addition.json",
-      "sha256": "b64e5d00077c9f4f4ad6fdc38a23e3e8e61b614b829390d2744f1906771d5b39"
+      "sha256": "a20ed6b633298716dbab212d5ce34e5c0276ad6d11174795b2cf177b4f844795"
     },
     {
       "path": "tests/reference/el506ts/golden/error-recovery.json",
-      "sha256": "12cb1c8174eadd4debbcfbbab398df1e492e32263a363166db8cd58dc6ee441f"
+      "sha256": "b22708c1445c5a7be5894885258db7afbda95220f23ae534703d85a75093d785"
     },
     {
       "path": "tests/reference/el506ts/golden/guide-power.json",
-      "sha256": "698e952f13193bf9438635dc8af627c3f0b76e231c8c6c4ae107f43cb5b94f73"
+      "sha256": "3e55e2cb287f63fdb4bd3842eea057be19fe0daf7ff0b77be509f26298fda7d5"
     },
     {
       "path": "tests/reference/el506ts/golden/menus-pending.json",
