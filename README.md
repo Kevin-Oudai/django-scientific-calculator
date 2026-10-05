@@ -274,6 +274,59 @@ not included in the package. This update adds reference data; runtime dispatch
 and UI mapping remain later roadmap work. Existing embeds still use the same
 template tag, CSS, and JavaScript includes.
 
+## Simulator Experiment Evidence
+
+`tests/reference/el506ts/experiment.schema.json` defines version 1 of the
+reference experiment contract (JSON Schema draft-07). Store transcripts under
+`tests/reference/el506ts/experiments/`; `error-recovery.json` is a live simulator
+example. Existing simulator-profile and key-panel transcripts retain their own
+formats. This contract records reference evidence; application golden replay is
+scheduled for EL506-003.
+
+Use `npm ci` to install the test tools, including the pinned, development-only
+Ajv validator, then run `npm run test:reference` and `npm test`. Ajv is not shipped
+with the Python package or loaded by the calculator. Validation uses the local
+schema and pinned profile without fetching schemas from the network. The schema
+uses Ajv's [documented draft-07 support](https://ajv.js.org/json-schema.html).
+To validate one new transcript, run
+`node tests/reference/el506ts/validate-experiment.js path/to/experiment.json`.
+
+The canonical notation is an ordered JSON array of physical IDs, for example
+`["EL506-K40", "EL506-K39", "EL506-K45", "EL506-K48", "EL506-K02"]`.
+Each element means one press and release; repeated presses repeat the ID. A
+modifier sequence lists each physical press explicitly, never a function name, chord,
+translated label, DOM selector, or host shortcut. Simulator chrome Reset belongs
+in `initial_state.reset`, outside the key sequence. `setup_sequence` contains
+physical keys pressed after reset and before the experiment. It must be empty
+when no setup input is needed. Capture its final state as frame 0; main sequence
+steps are one-based, and each significant frame uses `after_step`. Always include
+frame 0 and the final step. Sparse intermediate frames are allowed.
+
+Each experiment records identity/build/fingerprint, locale/OS, capture date and
+method, reset/setup/settings, upper/lower display lines, indicators and scrolling,
+cursor/insert/prompt/component selection, exact values, affected stores, errors
+and recovery, source pages, oracle exceptions/disagreements, and ambiguities.
+Use `""` for an observed blank display and `null` for no visible prompt/component
+or no applicable source page. An empty store list means no stores were measured;
+describe that scope in `stored_values.coverage`, rather than claiming persistence.
+Recovery presses remain in the main sequence; error records reference their
+step numbers and require matching error and recovery frames.
+
+State/value observations use `status: "observed"` with a `value`, or
+`status: "unknown"` / `"not-applicable"` with a reason. Unknown is not zero or
+unchanged. Exact value magnitudes are strings, separate from LCD strings;
+`decimal-string`, `rational-string` and `structured-json-string` allow evidence
+without JavaScript number rounding. The `basis` states whether a value came from
+the display, recall probe, manual, or physical device; displayed digits alone do
+not establish an internal stored value. Document unresolved questions in
+`ambiguities` and every source disagreement in `oracle.disagreements`.
+
+The validator checks structure and cross-references, ordered frame/recovery
+steps, source IDs, and the pinned build/hash. Schema conformance establishes
+record completeness, not proof that a transcription is true or that the web
+calculator matches it. Keep simulator binaries, screenshots, manuals and artwork
+outside Git. New schema versions must not reinterpret existing v1 step or key IDs.
+
 ## Docker Notes
 
 Docker is for local demo development only. Other Django sites do not need this repository's `Dockerfile` or `compose.yaml` to use the package.

@@ -403,6 +403,20 @@ The runner's completion does not require implementing the later feature phases.
 - [ ] **EL506-002 - Create the simulator experiment schema.** Define the
   evidence fields above and a stable canonical notation for physical key
   sequences.
+    READY_TO_PUSH: 2026-10-05. Versioned draft-07 experiment schema, canonical
+    physical-key sequence notation, offline structural/cross-reference validator,
+    and live `el506-002-error-recovery-v1` transcript prepared.
+    Evidence: pinned runtime build 1.0.2.0 and matching SHA-256; fresh simulator
+    chrome Reset; five physical keys for 1 / 0 = and ON/C; Error 2 and recovery
+    frames. Source page inapplicable: no manual example used. Stores unmeasured.
+    Verification: npm.cmd test 18/18 (12 calculator, 3 catalogue, 3 schema tests),
+    including automatic test:reference validation; compileall; pip dry run;
+    Docker Compose config; docker compose up --build -d; demo HTTP 200;
+    git diff --check. Ajv 8.20.0 is pinned as a development-only dependency.
+    Notes: schema validation proves completeness, not application parity.
+    Core unit/golden suites, runtime dispatch, multi-embed, touch, theme and
+    accessibility changes are inapplicable to this evidence-only bootstrap item;
+    their infrastructure/implementation remains scheduled in later items.
 - [ ] **EL506-003 - Create the golden fixture format and runner.** Fixtures
   must drive canonical key IDs and assert displays, indicators, prompts,
   result pages, state mutations, and errors.

@@ -3,9 +3,12 @@
   "private": true,
   "scripts": {
     "test": "playwright test",
-    "test:e2e": "playwright test"
+    "test:e2e": "playwright test",
+    "test:reference": "node tests/reference/el506ts/validate-experiment.js",
+    "pretest": "npm run test:reference"
   },
   "devDependencies": {
-    "@playwright/test": "^1.60.0"
+    "@playwright/test": "^1.60.0",
+    "ajv": "8.20.0"
   }
 }
