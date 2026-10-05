@@ -1,0 +1,27 @@
+{
+  "schemaVersion": 1,
+  "scope": "Explicit partial evidence only; a test's existence or a key appearing in a sequence does not establish complete capability parity.",
+  "tests": [
+    {
+      "kind": "unit",
+      "path": "tests/unit/calculator.test.js",
+      "anchor": "fresh simulator addition reference agrees numerically",
+      "capabilityIds": ["el506.base.el506-k43"],
+      "scope": "Numeric addition evaluator agrees on 1+2; no physical dispatch, display or full domain assertion."
+    },
+    {
+      "kind": "unit",
+      "path": "tests/unit/reducer.test.js",
+      "anchor": "reducer is deterministic, does not mutate its input, and isolates stores",
+      "capabilityIds": ["el506.base.el506-k29", "el506.base.el506-k43", "el506.base.el506-k48"],
+      "scope": "Baseline addition, equals and M+ state isolation only; simulator persistence and sequencing not established."
+    },
+    {
+      "kind": "browser",
+      "path": "tests/e2e/golden.spec.js",
+      "anchor": "canonical baseline browser replay",
+      "fixtureIds": ["addition-baseline-v1", "error-recovery-baseline-v1", "guide-power-baseline-v1"],
+      "scope": "Actual controls drive the canonical test bridge and assert baseline snapshots; known display differences remain."
+    }
+  ]
+}

@@ -488,6 +488,23 @@ exponent, the page 41 polar-angle sign needs verification, and the matrix paging
 ellipsis on page 43 leaves a repeated-key count unspecified. These facts remain
 explicit in the fixtures; no corrected value or guessed paging count replaces them.
 
+## Parity Evidence Report
+
+Open `tests/reference/el506ts/parity-report.html` for the filterable report;
+`parity-report.json` contains the same 430 ledger rows for tooling. Each row
+reports documentation, simulator observation, implementation, unit tests,
+golden replay and browser tests independently, with evidence and scope.
+Inventory observation means a capability was exposed, not that all of its
+behavior was measured. Implementation classifications retain the frozen 0.3.1
+baseline. Explicit test mappings describe partial assertions; a pending fixture
+cannot count as tested. Full verified parity currently remains zero.
+
+Regenerate with `npm run report:parity` after changing source evidence or test
+mappings in `report-coverage.json`. `npm run report:check` detects stale generated
+JSON/HTML and runs as part of `npm test`. Fingerprints identify report inputs.
+The report runs offline, includes no external assets and does not modify the
+calculator's UI or assert that unimplemented features are complete.
+
 ## Release History
 
 ### 0.3.1

@@ -557,6 +557,26 @@ The runner's completion does not require implementing the later feature phases.
 - [ ] **EL506-006 - Add a generated parity report.** Report documented,
   simulator-observed, implemented, unit-tested, golden-tested, and
   browser-tested status independently for every ledger entry.
+    READY_TO_PUSH: 2026-10-05. Deterministic JSON and filterable offline HTML
+    report includes all 430 ledger rows with six independent status/evidence
+    columns, explicit scope and input fingerprints. Frozen baseline
+    implementation classifications stay separate from inventory observation,
+    guide capture, unit assertions, golden differences and browser assertions.
+    Explicit test manifest verifies source anchors/IDs; pending menu fixtures
+    execute no assertions and cannot count as tested. Full verified parity=0.
+    Evidence: validated pinned-profile live transcripts and guide source,
+    including this session's fresh addition/power/clear/modifier captures.
+    Report is derived reference data; no new simulator state mutation claimed.
+    Guide summary: 52 workflows, 148 checkpoints, 1 baseline replay, 51 pending.
+    Golden summary: 16 asserted baseline frames, 1 pending fixture.
+    Verification: deterministic/staleness/status-independence/escaping tests;
+    filterable HTML browser check; reference validation, 22/22 unit tests,
+    golden checks and 30/30 browser tests; visual report screenshot reviewed;
+    compileall; pip dry run; Compose config/demo; HTTP 200; diff check.
+    No calculator UI, algorithm, package version or dependency changes.
+    Physical dispatch, touch/theme and calculator accessibility gates are
+    inapplicable to derived reporting. Report labels/search are accessible;
+    no external assets or requests required. Regenerate/check commands documented.
 
 ### Phase 1 - Test and Emulator Foundation
 
