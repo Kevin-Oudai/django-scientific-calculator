@@ -678,3 +678,14 @@ The compatible `calculator.js` entry now loads local companion modules.
 the existing entry receive the same core API. Existing Django tags and asset
 paths need no template change; collect and deploy all package static assets
 together. State snapshots remain schema 5 with the legacy profile.
+
+Multiple template-tag embeds own independent entry, ANS, memory, statistics,
+history, modifiers, settings, token cursors and snapshots. Keyboard input
+belongs to the nearest focused calculator; pointer and touch events affect
+only their owning root, including nested embeds. Input outside a calculator
+does not change its state. Mounting an existing root again, including loading
+the compatible entry again, preserves its state and installs no duplicate
+handlers; new roots receive a fresh state. Snapshot and restore boundaries
+copy mutable values. Key resolution returns fresh events rather than exposing
+shared key definitions. Regression tests exercise three simultaneous embeds
+with keyboard, mouse and touch input and retain explicit LCD differences.

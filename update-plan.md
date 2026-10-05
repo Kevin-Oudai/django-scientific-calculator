@@ -852,6 +852,29 @@ The runner's completion does not require implementing the later feature phases.
     existing later roadmap items. No new parity claim.
 - [ ] **EL506-023 - Guarantee independent embeds.** Eliminate shared mutable
   state and verify two or more calculators on one page.
+    READY_TO_PUSH: 2026-10-05.
+    Evidence: retained-answer live sequence extends the actual preceding
+    module-addition observation: ON/C, ALPHA, equals (ANS), equals yields
+    upper ANS= / lower 3. / DEG. Nine reference frames; no multiple-simulator
+    claim. Browser isolation is verified as an application property.
+    Verification: 46 unit, 44 browser, 4 Django tests; 37 golden frames;
+    three-embed keyboard/mouse/touch test isolates ANS, rational memory,
+    statistics, settings, history/cursors and copied snapshots/restores;
+    remount, nested dispatch, repeated entry load and fresh root tests pass.
+    Bundle/reference/report checks, compileall, pip dry run, Compose config
+    and healthy rebuild, diff check; npm audit zero vulnerabilities; license
+    check and pip check pass. Wheel/sdist asset coverage passed EL506-022.
+    Regression fixes: returned physical events exposed shared definitions;
+    repeated mount redefined the instance API; nested roots handled the same
+    event. Events now copy definitions, mount is idempotent, and listeners
+    belong to each nearest root. A second-layer M+ test exposed typed values
+    using the unresolved base action; effective action normalization now
+    retains the exact rational. Initial test selectors and overlapping demo
+    shell fixture were corrected; real pointer/touch tests pass in an ordinary
+    three-embed host without forced clicks.
+    Scope: independent current stores/contracts; future algorithms retain
+    their own roadmap items. LCD differences, legacy profile and release
+    version remain explicit; no theme/layout change or full parity claim.
 
 ### Phase 2 - Physical Layout, Display, Theme, and Access
 

@@ -1103,13 +1103,15 @@
       return structuredClone(previous);
     }
     const next = { ...reduceLegacyCalculator(previous, event), workflow: emptyWorkflow(), layers: structuredClone(previous.layers) };
+    const effectiveEvent = event.type === 'button' && previous.secondActive && (event.secondInsert || event.secondAction)
+      ? {...event,insert:event.secondInsert,action:event.secondAction} : event;
     next.lifecycle = inferEntryPhase(next);
     next.editor = editorForState(next);
-    if ((event.key === "Enter" || event.key === "=" || event.action === "equals") && !previous.editor.incomplete && !previous.stagedEntry) {
+    if ((effectiveEvent.key === "Enter" || effectiveEvent.key === "=" || effectiveEvent.action === "equals") && !previous.editor.incomplete && !previous.stagedEntry) {
       next.editor = semantic.createEditor(previous.editor.tokens);
     }
-    next.values = valuesForState(next, previous, event);
-    if (next.lifecycle === "entering" && (event.key?.startsWith("Arrow") || event.action?.startsWith("cursor-"))) next.lifecycle = "editing";
+    next.values = valuesForState(next, previous, effectiveEvent);
+    if (next.lifecycle === "entering" && (effectiveEvent.key?.startsWith("Arrow") || effectiveEvent.action?.startsWith("cursor-"))) next.lifecycle = "editing";
     validateState(next);
     return next;
   }
@@ -1143,7 +1145,7 @@
     if (!/^EL506-K(?:0[1-9]|[1-3][0-9]|4[0-8])$/.test(id)) throw new TypeError("Unknown physical key");
     const n = Number(id.slice(-2));
     const active = state.layers;
-    if (n === 1 || n === 2 && !state.secondActive) return { kind:"operation", event: BASE_KEYS[n] };
+    if (n === 1 || n === 2 && !state.secondActive) return { kind:"operation", event: {...BASE_KEYS[n]} };
     if (state.workflow.kind === "menu" || state.workflow.kind === "prompt") {
       if (state.workflow.payload.keyLayer) return {kind:"selection", key:n, digit:DIGIT_KEYS[n], slot:MEMORY_KEYS[n]};
     }
@@ -1156,10 +1158,10 @@
       if ([24,25].includes(n)) return {kind:"conversion",name:n===24?"fraction-decimal":"mixed-improper"};
       const menu = {4:"CLEAR",5:"STATVAR",17:"ALGB",30:"RANDOM",41:"CNST",42:"CONV",47:"MEMORY_CLEAR"}[n];
       if (menu) return {kind:"menu", name:menu};
-      return SECOND_KEYS[n] ? {kind:"operation", event:SECOND_KEYS[n]} : {kind:"pending", key:id, layer:"2ndF"};
+      return SECOND_KEYS[n] ? {kind:"operation", event:{...SECOND_KEYS[n]}} : {kind:"pending", key:id, layer:"2ndF"};
     }
     if ([4,6,17,27,28].includes(n)) return {kind:"menu", name:({4:"MODE",6:"SETUP",17:"MATH",27:"RCL",28:"STO"})[n]};
-    return BASE_KEYS[n] ? {kind:"operation", event:BASE_KEYS[n]} : {kind:"pending", key:id, layer:"base"};
+    return BASE_KEYS[n] ? {kind:"operation", event:{...BASE_KEYS[n]}} : {kind:"pending", key:id, layer:"base"};
   }
   function reducePhysicalKey(previous, id) {
     const intent = resolvePhysicalKey(previous, id);

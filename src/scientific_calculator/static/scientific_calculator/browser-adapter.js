@@ -5,6 +5,7 @@
 })(globalThis,function(){
   'use strict';
   function mount(root, core, formatting) {
+    if (Object.hasOwn(root, 'scientificCalculator')) return root.scientificCalculator;
     const {createInitialState,reduceCalculator,snapshotCalculator,restoreCalculator}=core;
     const document=root.ownerDocument;
     const requestAnimationFrame=callback=>document.defaultView.requestAnimationFrame(callback);
@@ -16,7 +17,8 @@
     const resultEl = root.querySelector("[data-result]");
     const angleLabel = root.querySelector("[data-angle-label]");
     let state = createInitialState();
-    const hasKeyboardFocus = () => root.contains(document.activeElement);
+    const ownsTarget = target => target?.closest('[data-scientific-calculator]') === root;
+    const hasKeyboardFocus = () => ownsTarget(document.activeElement);
     const render = () => {
       const view=formatting.renderState(state);
       expressionEl.innerHTML=view.expressionHtml;
@@ -41,19 +43,21 @@
 
     root.addEventListener("click", (event) => {
       const button = event.target.closest("button");
-      if (!button || !root.contains(button)) return;
+      if (!button || !ownsTarget(button)) return;
       dispatch({ type: "button", ...button.dataset });
     });
-    root.addEventListener("pointerdown", () => {
+    root.addEventListener("pointerdown", (event) => {
+      if (!ownsTarget(event.target)) return;
       if (!hasKeyboardFocus()) root.focus({ preventScroll: true });
     });
-    document.addEventListener("keydown", (event) => {
+    root.addEventListener("keydown", (event) => {
       if (!hasKeyboardFocus()) return;
       if (["Enter", "=", "Backspace", "Delete", "ArrowLeft", "ArrowRight", "ArrowUp", "ArrowDown"].includes(event.key)) event.preventDefault();
       dispatch({ type: "keyboard", key: event.key });
     });
 
     render();
+    return root.scientificCalculator;
   }
 
   return Object.freeze({mount});

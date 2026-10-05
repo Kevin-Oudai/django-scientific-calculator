@@ -1,0 +1,218 @@
+{
+  "schemaVersion": 1,
+  "id": "retained-answer-isolation-v1",
+  "dispatch": "physical",
+  "status": "baseline-characterization",
+  "reference": "experiments/retained-answer.json",
+  "sequence": [
+    "EL506-K40",
+    "EL506-K43",
+    "EL506-K41",
+    "EL506-K48",
+    "EL506-K02",
+    "EL506-K05",
+    "EL506-K48",
+    "EL506-K48"
+  ],
+  "capabilityIds": [
+    "el506.alpha.el506-k48",
+    "el506.base.el506-k02"
+  ],
+  "expected": [
+    {
+      "afterStep": 0,
+      "assertions": {
+        "displayExpression": "",
+        "displayResult": "0",
+        "answer": 0,
+        "lifecycle": "empty",
+        "layers.alpha": false,
+        "values.answer": {
+          "kind": "scalar",
+          "value": 0
+        }
+      }
+    },
+    {
+      "afterStep": 1,
+      "assertions": {
+        "displayExpression": "",
+        "displayResult": "1",
+        "answer": 0,
+        "lifecycle": "entering",
+        "layers.alpha": false,
+        "values.answer": {
+          "kind": "scalar",
+          "value": 0
+        }
+      }
+    },
+    {
+      "afterStep": 2,
+      "assertions": {
+        "displayExpression": "1+",
+        "displayResult": "0",
+        "answer": 0,
+        "lifecycle": "entering",
+        "layers.alpha": false,
+        "values.answer": {
+          "kind": "scalar",
+          "value": 0
+        }
+      }
+    },
+    {
+      "afterStep": 3,
+      "assertions": {
+        "displayExpression": "1+",
+        "displayResult": "2",
+        "answer": 0,
+        "lifecycle": "entering",
+        "layers.alpha": false,
+        "values.answer": {
+          "kind": "scalar",
+          "value": 0
+        }
+      }
+    },
+    {
+      "afterStep": 4,
+      "assertions": {
+        "displayExpression": "1+2=",
+        "displayResult": "3",
+        "answer": 3,
+        "lifecycle": "evaluated",
+        "layers.alpha": false,
+        "values.answer": {
+          "kind": "scalar",
+          "value": 3
+        }
+      }
+    },
+    {
+      "afterStep": 5,
+      "assertions": {
+        "displayExpression": "",
+        "displayResult": "0",
+        "answer": 3,
+        "lifecycle": "empty",
+        "layers.alpha": false,
+        "values.answer": {
+          "kind": "scalar",
+          "value": 3
+        }
+      }
+    },
+    {
+      "afterStep": 6,
+      "assertions": {
+        "displayExpression": "",
+        "displayResult": "0",
+        "answer": 3,
+        "lifecycle": "empty",
+        "layers.alpha": true,
+        "values.answer": {
+          "kind": "scalar",
+          "value": 3
+        }
+      }
+    },
+    {
+      "afterStep": 7,
+      "assertions": {
+        "displayExpression": "",
+        "displayResult": "ans",
+        "answer": 3,
+        "lifecycle": "entering",
+        "layers.alpha": false,
+        "values.answer": {
+          "kind": "scalar",
+          "value": 3
+        }
+      },
+      "domResultText": "Ans"
+    },
+    {
+      "afterStep": 8,
+      "assertions": {
+        "displayExpression": "ans=",
+        "displayResult": "3",
+        "answer": 3,
+        "lifecycle": "evaluated",
+        "layers.alpha": false,
+        "values.answer": {
+          "kind": "scalar",
+          "value": 3
+        }
+      }
+    }
+  ],
+  "knownDifferences": [
+    {
+      "afterStep": 0,
+      "field": "displayResult",
+      "expected": "0.",
+      "actual": "0"
+    },
+    {
+      "afterStep": 1,
+      "field": "displayResult",
+      "expected": "1.",
+      "actual": "1"
+    },
+    {
+      "afterStep": 2,
+      "field": "displayResult",
+      "expected": "0.",
+      "actual": "0"
+    },
+    {
+      "afterStep": 3,
+      "field": "displayResult",
+      "expected": "2.",
+      "actual": "2"
+    },
+    {
+      "afterStep": 4,
+      "field": "displayResult",
+      "expected": "3.",
+      "actual": "3"
+    },
+    {
+      "afterStep": 5,
+      "field": "displayResult",
+      "expected": "0.",
+      "actual": "0"
+    },
+    {
+      "afterStep": 6,
+      "field": "displayResult",
+      "expected": "0.",
+      "actual": "0"
+    },
+    {
+      "afterStep": 7,
+      "field": "displayExpression",
+      "expected": "ANS",
+      "actual": ""
+    },
+    {
+      "afterStep": 7,
+      "field": "displayResult",
+      "expected": "0.",
+      "actual": "ans"
+    },
+    {
+      "afterStep": 8,
+      "field": "displayExpression",
+      "expected": "ANS=",
+      "actual": "ans="
+    },
+    {
+      "afterStep": 8,
+      "field": "displayResult",
+      "expected": "3.",
+      "actual": "3"
+    }
+  ]
+}

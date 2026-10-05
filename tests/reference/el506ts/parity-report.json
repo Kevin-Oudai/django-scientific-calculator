@@ -23,8 +23,8 @@
         "partial": 3
       },
       "goldenTested": {
-        "pending": 419,
-        "baseline-known-differences": 11
+        "pending": 418,
+        "baseline-known-differences": 12
       },
       "browserTested": {
         "pending": 423,
@@ -38,8 +38,8 @@
       "pending": 51
     },
     "golden": {
-      "fixtures": 6,
-      "assertedFrames": 28,
+      "fixtures": 7,
+      "assertedFrames": 37,
       "pending": 1
     },
     "verifiedFullParity": 0
@@ -79,6 +79,10 @@
       "sha256": "3d04bfe39ec1508b6d3cdc25c900aad974a293209b1b76160da36ce2bd77d353"
     },
     {
+      "path": "tests/reference/el506ts/experiments/retained-answer.json",
+      "sha256": "7ded9b273cf3d756ce11ac3fb5c6344d9f12c1f52219eb461da1a5cf3caceb14"
+    },
+    {
       "path": "tests/reference/el506ts/generate-report.js",
       "sha256": "431c0dab77e8123673c44711af3dc87442c807eb669be72deb049a62299de692"
     },
@@ -109,6 +113,10 @@
     {
       "path": "tests/reference/el506ts/golden/menus-pending.json",
       "sha256": "560527bd6a5f22e294b57b52c9df265c6ab806ebaba7fdcdfa03e2f9a07f45aa"
+    },
+    {
+      "path": "tests/reference/el506ts/golden/retained-answer.json",
+      "sha256": "f0584e368519ef952aa8d262293d6e494b3cf2b9b121e26b07d00d26d5f53544"
     },
     {
       "path": "tests/reference/el506ts/guide-examples.json",
@@ -5226,8 +5234,14 @@
         "scope": "Explicit mapped assertions only; unlisted coverage is unassessed."
       },
       "goldenTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "baseline-known-differences",
+        "evidence": [
+          {
+            "fixtureId": "retained-answer-isolation-v1",
+            "status": "known-differences",
+            "assertedFrames": 9
+          }
+        ],
         "scope": "Baseline characterization only; all current supported fixtures have oracle display differences."
       },
       "browserTested": {
@@ -10469,6 +10483,11 @@
             "fixtureId": "key-layers-foundation-v1",
             "status": "known-differences",
             "assertedFrames": 8
+          },
+          {
+            "fixtureId": "retained-answer-isolation-v1",
+            "status": "known-differences",
+            "assertedFrames": 9
           }
         ],
         "scope": "Baseline characterization only; all current supported fixtures have oracle display differences."
