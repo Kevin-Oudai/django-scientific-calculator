@@ -7,6 +7,40 @@
 - Next item: EL506-014
 - Last updated: 2026-10-05
 
+## Progress Overview
+
+As of 2026-10-05, **6 of 245 roadmap tasks are complete (2.4%)**, with
+**239 remaining**. The next task is **EL506-014**. These counts measure
+completed checklist items, not elapsed effort or verified calculator parity;
+individual tasks vary in size. The detailed checklist below describes every
+remaining task and preserves its evidence and completion requirements.
+
+| Roadmap phase | Completed | Remaining |
+| --- | ---: | ---: |
+| Phase 0 - Reference and Traceability | 4 | 3 |
+| Phase 1 - Test and Emulator Foundation | 2 | 12 |
+| Phase 2 - Physical Layout, Display, Theme, and Access | 0 | 14 |
+| Phase 3 - Power, Modes, Clear, Editing, and History | 0 | 17 |
+| Phase 4 - Display Settings and Formatting | 0 | 11 |
+| Phase 5 - NORMAL Entry and Arithmetic | 0 | 22 |
+| Phase 6 - Angles, Trigonometry, Fractions, DMS, and Coordinates | 0 | 18 |
+| Phase 7 - Random Numbers, Constants, and Unit Conversions | 0 | 10 |
+| Phase 8 - Memories, Formula Memories, Simulation, and Solver | 0 | 14 |
+| Phase 9 - N-base Operations | 0 | 10 |
+| Phase 10 - Numerical Differentiation and Integration | 0 | 8 |
+| Phase 11 - Statistics Data Management | 0 | 12 |
+| Phase 12 - Statistics Results and Regressions | 0 | 16 |
+| Phase 13 - Equation Mode | 0 | 9 |
+| Phase 14 - Complex Mode | 0 | 8 |
+| Phase 15 - Matrix Mode | 0 | 14 |
+| Phase 16 - LIST Mode | 0 | 11 |
+| Phase 17 - Errors, Limits, and Cross-mode Parity | 0 | 15 |
+| Phase 18 - Security, Packaging, Compatibility, and Release | 0 | 15 |
+| **Total** | **6** | **239** |
+
+Refresh this overview's date, counts, percentage, and next task in every
+roadmap completion tracking commit, using the checklist as the source of truth.
+
 ## Purpose
 
 This is the controlling implementation plan for turning the reusable Django
