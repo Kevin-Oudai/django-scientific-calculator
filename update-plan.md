@@ -452,6 +452,28 @@ The runner's completion does not require implementing the later feature phases.
 - [ ] **EL506-005 - Capture the version 0.3.1 baseline.** Classify every
   existing feature and test as matching, partial, enhanced-only, incorrect, or
   missing. Record the source revision before EL506-014 refactors the baseline.
+    READY_TO_PUSH: 2026-10-05. `el506-005-baseline-0.3.1-v1` freezes source
+    afd4094bee71e27ac963721887a41aa30f75a018 and Git-blob SHA-256 fingerprints.
+    Evidence: 82 existing feature classifications, 21 original test records,
+    all 430 ledger entries (123 partial, 307 missing); six browser probes and
+    two-embed keyboard/focus isolation. Existing exact-value extensions remain
+    enhanced-only; error wording, formatting and keyboard 2ndF discrepancies
+    are explicit. No calculator behavior or release version changed.
+    Reference gate: simulator launched before capture; runtime 1.0.2.0 and
+    pinned SHA-256 matched, initial blank upper/0. lower/DEG display observed.
+    Window activation failed during Reset and after target reselection recovery;
+    no further input issued and no new reset/key sequence claimed. Existing
+    live `el506-013-key-panel-v1`, `el506-002-error-recovery-v1` and
+    `el506-001-menu-inventory-v1` transcripts supply comparisons. Internal stores,
+    new surd probes and exact underflow boundary remain explicitly unmeasured.
+    Verification: frozen-source/coverage validator; npm.cmd test 24/24 including
+    original 21 regressions and three baseline tests; compileall; pip dry run;
+    Docker Compose config; docker compose up --build -d; demo HTTP 200;
+    git diff --check. Initial capture assertion expected no equals after a
+    nonfinite result; observed `1/0=` corrected in transcript, then tests passed.
+    Notes: future pure-core unit/golden runner, runtime dispatch, snapshot API,
+    generated report, touch/theme/accessibility gates are inapplicable to this
+    baseline-only item. Original Git history is required for offline validation.
 - [ ] **EL506-006 - Add a generated parity report.** Report documented,
   simulator-observed, implemented, unit-tested, golden-tested, and
   browser-tested status independently for every ledger entry.

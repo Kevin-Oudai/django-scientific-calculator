@@ -4,7 +4,7 @@
   "scripts": {
     "test": "playwright test",
     "test:e2e": "playwright test",
-    "test:reference": "node tests/reference/el506ts/validate-experiment.js && node tests/reference/el506ts/validate-ledger.js",
+    "test:reference": "node tests/reference/el506ts/validate-experiment.js && node tests/reference/el506ts/validate-ledger.js && node tests/reference/el506ts/validate-baseline.js",
     "pretest": "npm run test:reference"
   },
   "devDependencies": {

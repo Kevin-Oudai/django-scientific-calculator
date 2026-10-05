@@ -1,0 +1,4608 @@
+{
+  "schema_version": 1,
+  "baseline_id": "el506-005-baseline-0.3.1-v1",
+  "roadmap_item": "EL506-005",
+  "package_version": "0.3.1",
+  "source_revision": "afd4094bee71e27ac963721887a41aa30f75a018",
+  "captured_on": "2026-10-05",
+  "classification_policy": {
+    "matching": "Matches only its explicitly stated scope; never inferred full calculator parity.",
+    "partial": "Related implementation exists, with missing/different sequencing, presentation, semantics or unverified boundaries.",
+    "enhanced-only": "Existing additional teaching presentation/interface to retain only in an enhancement profile.",
+    "incorrect": "Known discrepancy established by source or recorded reference comparison.",
+    "missing": "No corresponding function/controller at this revision."
+  },
+  "source_files": [
+    {
+      "path": "package.json",
+      "sha256": "64477d6e3098a0de323eef693613d19c85096a365eb6935eaec033b44518298d"
+    },
+    {
+      "path": "playwright.config.js",
+      "sha256": "b618a4f221a60be59b5b4136d1f8d5fa3820c0a3b536a8142f3e69b392501790"
+    },
+    {
+      "path": "pyproject.toml",
+      "sha256": "4da424950ee03d1c5979534cd8862c820029b25acffd07c28bb62f1251bd524d"
+    },
+    {
+      "path": "src/scientific_calculator/__init__.py",
+      "sha256": "af8c4016284e7fbd96f530fe969322ea7b564932933f64a5cca3f5cad92345b2"
+    },
+    {
+      "path": "src/scientific_calculator/apps.py",
+      "sha256": "3cdd2eaed93ffa7ed994e0042ca81e899ff49727c9e620491d70a914ac95be8a"
+    },
+    {
+      "path": "src/scientific_calculator/static/scientific_calculator/calculator.css",
+      "sha256": "c05de6196c29c7d5e29f87c6bfa333960a4491f283877f7a8174c72e969f0e15"
+    },
+    {
+      "path": "src/scientific_calculator/static/scientific_calculator/calculator.js",
+      "sha256": "64fe3387532a6dbf5498d4943e0fabee3592f8e612746f85d7cf88cbdd48f5e2"
+    },
+    {
+      "path": "src/scientific_calculator/static/scientific_calculator/physical-keys.json",
+      "sha256": "c6db4bd819cd8bfacb0dd6654102eac43ea466079331610d1653eaefd77b2273"
+    },
+    {
+      "path": "src/scientific_calculator/templates/scientific_calculator/calculator.html",
+      "sha256": "ffa3d5b9344b4087fd9b56a1a16bc3b5d2a9a35cc08d9be4430ef7a5eacee729"
+    },
+    {
+      "path": "src/scientific_calculator/templatetags/__init__.py",
+      "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b"
+    },
+    {
+      "path": "src/scientific_calculator/templatetags/scientific_calculator.py",
+      "sha256": "5720ca4d175cdad09c5ee57b6cabac48de4f6bb0805a937a8ddd3f8af1faec07"
+    },
+    {
+      "path": "tests/e2e/calculator.spec.js",
+      "sha256": "7c2b7df39ec784add4d9af79384d9622ce659f52af502ec58674938036886c2f"
+    },
+    {
+      "path": "tests/e2e/capability-ledger.spec.js",
+      "sha256": "c95aa7b74e032556098feb118a6d44b5f8947b7cb589e37b1926666c9c302abe"
+    },
+    {
+      "path": "tests/e2e/experiment-schema.spec.js",
+      "sha256": "cc0630de1683588ced781d00718ea9d8eae61c5ea87efb8e0426c246e212623f"
+    },
+    {
+      "path": "tests/e2e/physical-keys.spec.js",
+      "sha256": "3b9231c07a30c7e2c109410fedec09cd3462e63fb2afffb5e2e219e069d5b587"
+    }
+  ],
+  "reference_sources": [
+    {
+      "id": "el506-013-key-panel-v1",
+      "path": "tests/reference/el506ts/physical-key-reference.json",
+      "scope": "Prior live reset, all panel positions, 1+2, edit/history, mode and HOME."
+    },
+    {
+      "id": "el506-002-error-recovery-v1",
+      "path": "tests/reference/el506ts/experiments/error-recovery.json",
+      "scope": "Prior fresh-reset live divide-by-zero Error 2 and ON/C recovery."
+    },
+    {
+      "id": "el506-001-menu-inventory-v1",
+      "path": "tests/reference/el506ts/experiments/menu-inventory.json",
+      "scope": "Prior live modes, menu selections, CNST and CONV results."
+    },
+    {
+      "id": "roadmap-enhancement-policy",
+      "path": "update-plan.md",
+      "scope": "Decision 11 explicitly reserves additional exact-surd presentation for enhancement profile."
+    },
+    {
+      "id": "reference-format-contract",
+      "path": "update-plan.md",
+      "scope": "EL506-076 ten-digit mantissa and two-digit exponent; implementation formatting policy differs."
+    },
+    {
+      "id": "canonical-dispatch-contract",
+      "path": "update-plan.md",
+      "scope": "EL506-041 pointer/touch/keyboard must emit same canonical physical events."
+    }
+  ],
+  "live_session": {
+    "product": "SHARP PC Simulator for EL-506TS",
+    "build": "1.0.2.0",
+    "runtime_sha256": "6bfef4d04900b472892be2d4c54dcfa6013f87232097e32df508ca4c27425530",
+    "locale": "English UI; en-US",
+    "operating_system": "Windows 11",
+    "observation": {
+      "upper_line": "",
+      "lower_line": "0.",
+      "indicators": [
+        "DEG"
+      ],
+      "cursor": "not visible",
+      "prompt": null
+    },
+    "initial_state": "Fresh launcher default observed; chrome Reset action outcome not verified.",
+    "new_key_sequence": [],
+    "limitation": "Computer Use failed to activate captured window during Reset attempt; target reselection/activation recovery failed with same error. No further UI input issued. New arithmetic/surd probes not claimed; prior live transcripts remain selected reference.",
+    "stores": "Unmeasured; no retained-store inference."
+  },
+  "features": [
+    {
+      "id": "data-action:abs",
+      "label": "abs",
+      "classification": "enhanced-only",
+      "reason": "Standalone NORMAL abs shortcut is outside the observed NORMAL MATH menu; preserve only as an enhancement until availability audit.",
+      "source": {
+        "path": "src/scientific_calculator/templates/scientific_calculator/calculator.html",
+        "anchor": "data-action=\"abs\""
+      },
+      "reference_ids": [
+        "el506-013-key-panel-v1"
+      ],
+      "parity_scope": "Classification only; no full behavioral parity assertion."
+    },
+    {
+      "id": "data-action:angle",
+      "label": "angle",
+      "classification": "partial",
+      "reason": "Direct DEG/RAD toggle only; GRAD and SET UP DRG flow are missing.",
+      "source": {
+        "path": "src/scientific_calculator/templates/scientific_calculator/calculator.html",
+        "anchor": "data-action=\"angle\""
+      },
+      "reference_ids": [
+        "el506-013-key-panel-v1"
+      ],
+      "parity_scope": "Classification only; no full behavioral parity assertion."
+    },
+    {
+      "id": "data-action:backspace",
+      "label": "backspace",
+      "classification": "partial",
+      "reason": "Implemented legacy control; physical layout/dispatch, LCD formatting, boundaries and mode semantics do not establish EL-506TS parity.",
+      "source": {
+        "path": "src/scientific_calculator/templates/scientific_calculator/calculator.html",
+        "anchor": "data-action=\"backspace\""
+      },
+      "reference_ids": [
+        "el506-013-key-panel-v1"
+      ],
+      "parity_scope": "Classification only; no full behavioral parity assertion."
+    },
+    {
+      "id": "data-action:clear",
+      "label": "clear",
+      "classification": "partial",
+      "reason": "Implemented legacy control; physical layout/dispatch, LCD formatting, boundaries and mode semantics do not establish EL-506TS parity.",
+      "source": {
+        "path": "src/scientific_calculator/templates/scientific_calculator/calculator.html",
+        "anchor": "data-action=\"clear\""
+      },
+      "reference_ids": [
+        "el506-013-key-panel-v1"
+      ],
+      "parity_scope": "Classification only; no full behavioral parity assertion."
+    },
+    {
+      "id": "data-action:cursor-left",
+      "label": "cursor-left",
+      "classification": "partial",
+      "reason": "Implemented legacy control; physical layout/dispatch, LCD formatting, boundaries and mode semantics do not establish EL-506TS parity.",
+      "source": {
+        "path": "src/scientific_calculator/templates/scientific_calculator/calculator.html",
+        "anchor": "data-action=\"cursor-left\""
+      },
+      "reference_ids": [
+        "el506-013-key-panel-v1"
+      ],
+      "parity_scope": "Classification only; no full behavioral parity assertion."
+    },
+    {
+      "id": "data-action:cursor-right",
+      "label": "cursor-right",
+      "classification": "partial",
+      "reason": "Implemented legacy control; physical layout/dispatch, LCD formatting, boundaries and mode semantics do not establish EL-506TS parity.",
+      "source": {
+        "path": "src/scientific_calculator/templates/scientific_calculator/calculator.html",
+        "anchor": "data-action=\"cursor-right\""
+      },
+      "reference_ids": [
+        "el506-013-key-panel-v1"
+      ],
+      "parity_scope": "Classification only; no full behavioral parity assertion."
+    },
+    {
+      "id": "data-action:dms",
+      "label": "dms",
+      "classification": "partial",
+      "reason": "Implemented legacy control; physical layout/dispatch, LCD formatting, boundaries and mode semantics do not establish EL-506TS parity.",
+      "source": {
+        "path": "src/scientific_calculator/templates/scientific_calculator/calculator.html",
+        "anchor": "data-action=\"dms\""
+      },
+      "reference_ids": [
+        "el506-013-key-panel-v1"
+      ],
+      "parity_scope": "Classification only; no full behavioral parity assertion."
+    },
+    {
+      "id": "data-action:equals",
+      "label": "equals",
+      "classification": "partial",
+      "reason": "Implemented legacy control; physical layout/dispatch, LCD formatting, boundaries and mode semantics do not establish EL-506TS parity.",
+      "source": {
+        "path": "src/scientific_calculator/templates/scientific_calculator/calculator.html",
+        "anchor": "data-action=\"equals\""
+      },
+      "reference_ids": [
+        "el506-013-key-panel-v1"
+      ],
+      "parity_scope": "Classification only; no full behavioral parity assertion."
+    },
+    {
+      "id": "data-action:exp",
+      "label": "exp",
+      "classification": "partial",
+      "reason": "Implemented legacy control; physical layout/dispatch, LCD formatting, boundaries and mode semantics do not establish EL-506TS parity.",
+      "source": {
+        "path": "src/scientific_calculator/templates/scientific_calculator/calculator.html",
+        "anchor": "data-action=\"exp\""
+      },
+      "reference_ids": [
+        "el506-013-key-panel-v1"
+      ],
+      "parity_scope": "Classification only; no full behavioral parity assertion."
+    },
+    {
+      "id": "data-action:fraction",
+      "label": "fraction",
+      "classification": "partial",
+      "reason": "Legacy entry/function supported with additional exact/surd output. Workflow, formatter, precision and full reference behavior remain partial; exact extensions classified separately.",
+      "source": {
+        "path": "src/scientific_calculator/templates/scientific_calculator/calculator.html",
+        "anchor": "data-action=\"fraction\""
+      },
+      "reference_ids": [
+        "el506-013-key-panel-v1"
+      ],
+      "parity_scope": "Classification only; no full behavioral parity assertion."
+    },
+    {
+      "id": "data-action:history-down",
+      "label": "history-down",
+      "classification": "partial",
+      "reason": "Implemented legacy control; physical layout/dispatch, LCD formatting, boundaries and mode semantics do not establish EL-506TS parity.",
+      "source": {
+        "path": "src/scientific_calculator/templates/scientific_calculator/calculator.html",
+        "anchor": "data-action=\"history-down\""
+      },
+      "reference_ids": [
+        "el506-013-key-panel-v1"
+      ],
+      "parity_scope": "Classification only; no full behavioral parity assertion."
+    },
+    {
+      "id": "data-action:history-up",
+      "label": "history-up",
+      "classification": "partial",
+      "reason": "Implemented legacy control; physical layout/dispatch, LCD formatting, boundaries and mode semantics do not establish EL-506TS parity.",
+      "source": {
+        "path": "src/scientific_calculator/templates/scientific_calculator/calculator.html",
+        "anchor": "data-action=\"history-up\""
+      },
+      "reference_ids": [
+        "el506-013-key-panel-v1"
+      ],
+      "parity_scope": "Classification only; no full behavioral parity assertion."
+    },
+    {
+      "id": "data-action:home",
+      "label": "home",
+      "classification": "partial",
+      "reason": "Implemented legacy control; physical layout/dispatch, LCD formatting, boundaries and mode semantics do not establish EL-506TS parity.",
+      "source": {
+        "path": "src/scientific_calculator/templates/scientific_calculator/calculator.html",
+        "anchor": "data-action=\"home\""
+      },
+      "reference_ids": [
+        "el506-013-key-panel-v1"
+      ],
+      "parity_scope": "Classification only; no full behavioral parity assertion."
+    },
+    {
+      "id": "data-action:noop",
+      "label": "noop",
+      "classification": "enhanced-only",
+      "reason": "Extra focusable navigation-pad center has no canonical physical key; it deliberately performs no action.",
+      "source": {
+        "path": "src/scientific_calculator/templates/scientific_calculator/calculator.html",
+        "anchor": "data-action=\"noop\""
+      },
+      "reference_ids": [
+        "el506-013-key-panel-v1"
+      ],
+      "parity_scope": "Classification only; no full behavioral parity assertion."
+    },
+    {
+      "id": "data-action:percent",
+      "label": "percent",
+      "classification": "partial",
+      "reason": "Generic pct(x)=x/100 wrapper is implemented; Sharp contextual-percent behavior not modeled.",
+      "source": {
+        "path": "src/scientific_calculator/templates/scientific_calculator/calculator.html",
+        "anchor": "data-action=\"percent\""
+      },
+      "reference_ids": [
+        "el506-013-key-panel-v1"
+      ],
+      "parity_scope": "Classification only; no full behavioral parity assertion."
+    },
+    {
+      "id": "data-action:power",
+      "label": "power",
+      "classification": "partial",
+      "reason": "Implemented legacy control; physical layout/dispatch, LCD formatting, boundaries and mode semantics do not establish EL-506TS parity.",
+      "source": {
+        "path": "src/scientific_calculator/templates/scientific_calculator/calculator.html",
+        "anchor": "data-action=\"power\""
+      },
+      "reference_ids": [
+        "el506-013-key-panel-v1"
+      ],
+      "parity_scope": "Classification only; no full behavioral parity assertion."
+    },
+    {
+      "id": "data-action:second",
+      "label": "second",
+      "classification": "partial",
+      "reason": "Implemented legacy control; physical layout/dispatch, LCD formatting, boundaries and mode semantics do not establish EL-506TS parity.",
+      "source": {
+        "path": "src/scientific_calculator/templates/scientific_calculator/calculator.html",
+        "anchor": "data-action=\"second\""
+      },
+      "reference_ids": [
+        "el506-013-key-panel-v1"
+      ],
+      "parity_scope": "Classification only; no full behavioral parity assertion."
+    },
+    {
+      "id": "data-action:sign",
+      "label": "sign",
+      "classification": "partial",
+      "reason": "Implemented legacy control; physical layout/dispatch, LCD formatting, boundaries and mode semantics do not establish EL-506TS parity.",
+      "source": {
+        "path": "src/scientific_calculator/templates/scientific_calculator/calculator.html",
+        "anchor": "data-action=\"sign\""
+      },
+      "reference_ids": [
+        "el506-013-key-panel-v1"
+      ],
+      "parity_scope": "Classification only; no full behavioral parity assertion."
+    },
+    {
+      "id": "data-insert:(",
+      "label": "(",
+      "classification": "partial",
+      "reason": "Implemented legacy control; physical layout/dispatch, LCD formatting, boundaries and mode semantics do not establish EL-506TS parity.",
+      "source": {
+        "path": "src/scientific_calculator/templates/scientific_calculator/calculator.html",
+        "anchor": "data-insert=\"(\""
+      },
+      "reference_ids": [
+        "el506-013-key-panel-v1"
+      ],
+      "parity_scope": "Classification only; no full behavioral parity assertion."
+    },
+    {
+      "id": "data-insert:)",
+      "label": ")",
+      "classification": "partial",
+      "reason": "Implemented legacy control; physical layout/dispatch, LCD formatting, boundaries and mode semantics do not establish EL-506TS parity.",
+      "source": {
+        "path": "src/scientific_calculator/templates/scientific_calculator/calculator.html",
+        "anchor": "data-insert=\")\""
+      },
+      "reference_ids": [
+        "el506-013-key-panel-v1"
+      ],
+      "parity_scope": "Classification only; no full behavioral parity assertion."
+    },
+    {
+      "id": "data-insert:*",
+      "label": "*",
+      "classification": "partial",
+      "reason": "Implemented legacy control; physical layout/dispatch, LCD formatting, boundaries and mode semantics do not establish EL-506TS parity.",
+      "source": {
+        "path": "src/scientific_calculator/templates/scientific_calculator/calculator.html",
+        "anchor": "data-insert=\"*\""
+      },
+      "reference_ids": [
+        "el506-013-key-panel-v1"
+      ],
+      "parity_scope": "Classification only; no full behavioral parity assertion."
+    },
+    {
+      "id": "data-insert:+",
+      "label": "+",
+      "classification": "partial",
+      "reason": "Implemented legacy control; physical layout/dispatch, LCD formatting, boundaries and mode semantics do not establish EL-506TS parity.",
+      "source": {
+        "path": "src/scientific_calculator/templates/scientific_calculator/calculator.html",
+        "anchor": "data-insert=\"+\""
+      },
+      "reference_ids": [
+        "el506-013-key-panel-v1"
+      ],
+      "parity_scope": "Classification only; no full behavioral parity assertion."
+    },
+    {
+      "id": "data-insert:-",
+      "label": "-",
+      "classification": "partial",
+      "reason": "Implemented legacy control; physical layout/dispatch, LCD formatting, boundaries and mode semantics do not establish EL-506TS parity.",
+      "source": {
+        "path": "src/scientific_calculator/templates/scientific_calculator/calculator.html",
+        "anchor": "data-insert=\"-\""
+      },
+      "reference_ids": [
+        "el506-013-key-panel-v1"
+      ],
+      "parity_scope": "Classification only; no full behavioral parity assertion."
+    },
+    {
+      "id": "data-insert:.",
+      "label": ".",
+      "classification": "partial",
+      "reason": "Implemented legacy control; physical layout/dispatch, LCD formatting, boundaries and mode semantics do not establish EL-506TS parity.",
+      "source": {
+        "path": "src/scientific_calculator/templates/scientific_calculator/calculator.html",
+        "anchor": "data-insert=\".\""
+      },
+      "reference_ids": [
+        "el506-013-key-panel-v1"
+      ],
+      "parity_scope": "Classification only; no full behavioral parity assertion."
+    },
+    {
+      "id": "data-insert:/",
+      "label": "/",
+      "classification": "partial",
+      "reason": "Implemented legacy control; physical layout/dispatch, LCD formatting, boundaries and mode semantics do not establish EL-506TS parity.",
+      "source": {
+        "path": "src/scientific_calculator/templates/scientific_calculator/calculator.html",
+        "anchor": "data-insert=\"/\""
+      },
+      "reference_ids": [
+        "el506-013-key-panel-v1"
+      ],
+      "parity_scope": "Classification only; no full behavioral parity assertion."
+    },
+    {
+      "id": "data-insert:0",
+      "label": "0",
+      "classification": "partial",
+      "reason": "Implemented legacy control; physical layout/dispatch, LCD formatting, boundaries and mode semantics do not establish EL-506TS parity.",
+      "source": {
+        "path": "src/scientific_calculator/templates/scientific_calculator/calculator.html",
+        "anchor": "data-insert=\"0\""
+      },
+      "reference_ids": [
+        "el506-013-key-panel-v1"
+      ],
+      "parity_scope": "Classification only; no full behavioral parity assertion."
+    },
+    {
+      "id": "data-insert:1",
+      "label": "1",
+      "classification": "partial",
+      "reason": "Implemented legacy control; physical layout/dispatch, LCD formatting, boundaries and mode semantics do not establish EL-506TS parity.",
+      "source": {
+        "path": "src/scientific_calculator/templates/scientific_calculator/calculator.html",
+        "anchor": "data-insert=\"1\""
+      },
+      "reference_ids": [
+        "el506-013-key-panel-v1"
+      ],
+      "parity_scope": "Classification only; no full behavioral parity assertion."
+    },
+    {
+      "id": "data-insert:2",
+      "label": "2",
+      "classification": "partial",
+      "reason": "Implemented legacy control; physical layout/dispatch, LCD formatting, boundaries and mode semantics do not establish EL-506TS parity.",
+      "source": {
+        "path": "src/scientific_calculator/templates/scientific_calculator/calculator.html",
+        "anchor": "data-insert=\"2\""
+      },
+      "reference_ids": [
+        "el506-013-key-panel-v1"
+      ],
+      "parity_scope": "Classification only; no full behavioral parity assertion."
+    },
+    {
+      "id": "data-insert:3",
+      "label": "3",
+      "classification": "partial",
+      "reason": "Implemented legacy control; physical layout/dispatch, LCD formatting, boundaries and mode semantics do not establish EL-506TS parity.",
+      "source": {
+        "path": "src/scientific_calculator/templates/scientific_calculator/calculator.html",
+        "anchor": "data-insert=\"3\""
+      },
+      "reference_ids": [
+        "el506-013-key-panel-v1"
+      ],
+      "parity_scope": "Classification only; no full behavioral parity assertion."
+    },
+    {
+      "id": "data-insert:4",
+      "label": "4",
+      "classification": "partial",
+      "reason": "Implemented legacy control; physical layout/dispatch, LCD formatting, boundaries and mode semantics do not establish EL-506TS parity.",
+      "source": {
+        "path": "src/scientific_calculator/templates/scientific_calculator/calculator.html",
+        "anchor": "data-insert=\"4\""
+      },
+      "reference_ids": [
+        "el506-013-key-panel-v1"
+      ],
+      "parity_scope": "Classification only; no full behavioral parity assertion."
+    },
+    {
+      "id": "data-insert:5",
+      "label": "5",
+      "classification": "partial",
+      "reason": "Implemented legacy control; physical layout/dispatch, LCD formatting, boundaries and mode semantics do not establish EL-506TS parity.",
+      "source": {
+        "path": "src/scientific_calculator/templates/scientific_calculator/calculator.html",
+        "anchor": "data-insert=\"5\""
+      },
+      "reference_ids": [
+        "el506-013-key-panel-v1"
+      ],
+      "parity_scope": "Classification only; no full behavioral parity assertion."
+    },
+    {
+      "id": "data-insert:6",
+      "label": "6",
+      "classification": "partial",
+      "reason": "Implemented legacy control; physical layout/dispatch, LCD formatting, boundaries and mode semantics do not establish EL-506TS parity.",
+      "source": {
+        "path": "src/scientific_calculator/templates/scientific_calculator/calculator.html",
+        "anchor": "data-insert=\"6\""
+      },
+      "reference_ids": [
+        "el506-013-key-panel-v1"
+      ],
+      "parity_scope": "Classification only; no full behavioral parity assertion."
+    },
+    {
+      "id": "data-insert:7",
+      "label": "7",
+      "classification": "partial",
+      "reason": "Implemented legacy control; physical layout/dispatch, LCD formatting, boundaries and mode semantics do not establish EL-506TS parity.",
+      "source": {
+        "path": "src/scientific_calculator/templates/scientific_calculator/calculator.html",
+        "anchor": "data-insert=\"7\""
+      },
+      "reference_ids": [
+        "el506-013-key-panel-v1"
+      ],
+      "parity_scope": "Classification only; no full behavioral parity assertion."
+    },
+    {
+      "id": "data-insert:8",
+      "label": "8",
+      "classification": "partial",
+      "reason": "Implemented legacy control; physical layout/dispatch, LCD formatting, boundaries and mode semantics do not establish EL-506TS parity.",
+      "source": {
+        "path": "src/scientific_calculator/templates/scientific_calculator/calculator.html",
+        "anchor": "data-insert=\"8\""
+      },
+      "reference_ids": [
+        "el506-013-key-panel-v1"
+      ],
+      "parity_scope": "Classification only; no full behavioral parity assertion."
+    },
+    {
+      "id": "data-insert:9",
+      "label": "9",
+      "classification": "partial",
+      "reason": "Implemented legacy control; physical layout/dispatch, LCD formatting, boundaries and mode semantics do not establish EL-506TS parity.",
+      "source": {
+        "path": "src/scientific_calculator/templates/scientific_calculator/calculator.html",
+        "anchor": "data-insert=\"9\""
+      },
+      "reference_ids": [
+        "el506-013-key-panel-v1"
+      ],
+      "parity_scope": "Classification only; no full behavioral parity assertion."
+    },
+    {
+      "id": "data-insert:^2",
+      "label": "^2",
+      "classification": "partial",
+      "reason": "Implemented legacy control; physical layout/dispatch, LCD formatting, boundaries and mode semantics do not establish EL-506TS parity.",
+      "source": {
+        "path": "src/scientific_calculator/templates/scientific_calculator/calculator.html",
+        "anchor": "data-insert=\"^2\""
+      },
+      "reference_ids": [
+        "el506-013-key-panel-v1"
+      ],
+      "parity_scope": "Classification only; no full behavioral parity assertion."
+    },
+    {
+      "id": "data-insert:cos(",
+      "label": "cos(",
+      "classification": "partial",
+      "reason": "Legacy entry/function supported with additional exact/surd output. Workflow, formatter, precision and full reference behavior remain partial; exact extensions classified separately.",
+      "source": {
+        "path": "src/scientific_calculator/templates/scientific_calculator/calculator.html",
+        "anchor": "data-insert=\"cos(\""
+      },
+      "reference_ids": [
+        "el506-013-key-panel-v1"
+      ],
+      "parity_scope": "Classification only; no full behavioral parity assertion."
+    },
+    {
+      "id": "data-insert:e",
+      "label": "e",
+      "classification": "enhanced-only",
+      "reason": "Dedicated e key differs from the pinned physical panel; e^x exists there, but this extra direct-key interface is an enhancement.",
+      "source": {
+        "path": "src/scientific_calculator/templates/scientific_calculator/calculator.html",
+        "anchor": "data-insert=\"e\""
+      },
+      "reference_ids": [
+        "el506-013-key-panel-v1"
+      ],
+      "parity_scope": "Classification only; no full behavioral parity assertion."
+    },
+    {
+      "id": "data-insert:ln(",
+      "label": "ln(",
+      "classification": "partial",
+      "reason": "Implemented legacy control; physical layout/dispatch, LCD formatting, boundaries and mode semantics do not establish EL-506TS parity.",
+      "source": {
+        "path": "src/scientific_calculator/templates/scientific_calculator/calculator.html",
+        "anchor": "data-insert=\"ln(\""
+      },
+      "reference_ids": [
+        "el506-013-key-panel-v1"
+      ],
+      "parity_scope": "Classification only; no full behavioral parity assertion."
+    },
+    {
+      "id": "data-insert:log(",
+      "label": "log(",
+      "classification": "partial",
+      "reason": "Implemented legacy control; physical layout/dispatch, LCD formatting, boundaries and mode semantics do not establish EL-506TS parity.",
+      "source": {
+        "path": "src/scientific_calculator/templates/scientific_calculator/calculator.html",
+        "anchor": "data-insert=\"log(\""
+      },
+      "reference_ids": [
+        "el506-013-key-panel-v1"
+      ],
+      "parity_scope": "Classification only; no full behavioral parity assertion."
+    },
+    {
+      "id": "data-insert:pi",
+      "label": "pi",
+      "classification": "partial",
+      "reason": "Implemented legacy control; physical layout/dispatch, LCD formatting, boundaries and mode semantics do not establish EL-506TS parity.",
+      "source": {
+        "path": "src/scientific_calculator/templates/scientific_calculator/calculator.html",
+        "anchor": "data-insert=\"pi\""
+      },
+      "reference_ids": [
+        "el506-013-key-panel-v1"
+      ],
+      "parity_scope": "Classification only; no full behavioral parity assertion."
+    },
+    {
+      "id": "data-insert:sin(",
+      "label": "sin(",
+      "classification": "partial",
+      "reason": "Legacy entry/function supported with additional exact/surd output. Workflow, formatter, precision and full reference behavior remain partial; exact extensions classified separately.",
+      "source": {
+        "path": "src/scientific_calculator/templates/scientific_calculator/calculator.html",
+        "anchor": "data-insert=\"sin(\""
+      },
+      "reference_ids": [
+        "el506-013-key-panel-v1"
+      ],
+      "parity_scope": "Classification only; no full behavioral parity assertion."
+    },
+    {
+      "id": "data-insert:sqrt(",
+      "label": "sqrt(",
+      "classification": "partial",
+      "reason": "Legacy entry/function supported with additional exact/surd output. Workflow, formatter, precision and full reference behavior remain partial; exact extensions classified separately.",
+      "source": {
+        "path": "src/scientific_calculator/templates/scientific_calculator/calculator.html",
+        "anchor": "data-insert=\"sqrt(\""
+      },
+      "reference_ids": [
+        "el506-013-key-panel-v1"
+      ],
+      "parity_scope": "Classification only; no full behavioral parity assertion."
+    },
+    {
+      "id": "data-insert:tan(",
+      "label": "tan(",
+      "classification": "partial",
+      "reason": "Legacy entry/function supported with additional exact/surd output. Workflow, formatter, precision and full reference behavior remain partial; exact extensions classified separately.",
+      "source": {
+        "path": "src/scientific_calculator/templates/scientific_calculator/calculator.html",
+        "anchor": "data-insert=\"tan(\""
+      },
+      "reference_ids": [
+        "el506-013-key-panel-v1"
+      ],
+      "parity_scope": "Classification only; no full behavioral parity assertion."
+    },
+    {
+      "id": "data-second-action:factorial",
+      "label": "factorial",
+      "classification": "partial",
+      "reason": "Implemented legacy control; physical layout/dispatch, LCD formatting, boundaries and mode semantics do not establish EL-506TS parity.",
+      "source": {
+        "path": "src/scientific_calculator/templates/scientific_calculator/calculator.html",
+        "anchor": "data-second-action=\"factorial\""
+      },
+      "reference_ids": [
+        "el506-013-key-panel-v1"
+      ],
+      "parity_scope": "Classification only; no full behavioral parity assertion."
+    },
+    {
+      "id": "data-second-action:memory-add",
+      "label": "memory-add",
+      "classification": "partial",
+      "reason": "One independent M scalar supported by relocated second-function controls; A-F/X/Y, STO/RCL controller, formula memories and indicators are missing.",
+      "source": {
+        "path": "src/scientific_calculator/templates/scientific_calculator/calculator.html",
+        "anchor": "data-second-action=\"memory-add\""
+      },
+      "reference_ids": [
+        "el506-013-key-panel-v1"
+      ],
+      "parity_scope": "Classification only; no full behavioral parity assertion."
+    },
+    {
+      "id": "data-second-action:memory-clear",
+      "label": "memory-clear",
+      "classification": "partial",
+      "reason": "One independent M scalar supported by relocated second-function controls; A-F/X/Y, STO/RCL controller, formula memories and indicators are missing.",
+      "source": {
+        "path": "src/scientific_calculator/templates/scientific_calculator/calculator.html",
+        "anchor": "data-second-action=\"memory-clear\""
+      },
+      "reference_ids": [
+        "el506-013-key-panel-v1"
+      ],
+      "parity_scope": "Classification only; no full behavioral parity assertion."
+    },
+    {
+      "id": "data-second-action:memory-recall",
+      "label": "memory-recall",
+      "classification": "partial",
+      "reason": "One independent M scalar supported by relocated second-function controls; A-F/X/Y, STO/RCL controller, formula memories and indicators are missing.",
+      "source": {
+        "path": "src/scientific_calculator/templates/scientific_calculator/calculator.html",
+        "anchor": "data-second-action=\"memory-recall\""
+      },
+      "reference_ids": [
+        "el506-013-key-panel-v1"
+      ],
+      "parity_scope": "Classification only; no full behavioral parity assertion."
+    },
+    {
+      "id": "data-second-action:memory-subtract",
+      "label": "memory-subtract",
+      "classification": "partial",
+      "reason": "One independent M scalar supported by relocated second-function controls; A-F/X/Y, STO/RCL controller, formula memories and indicators are missing.",
+      "source": {
+        "path": "src/scientific_calculator/templates/scientific_calculator/calculator.html",
+        "anchor": "data-second-action=\"memory-subtract\""
+      },
+      "reference_ids": [
+        "el506-013-key-panel-v1"
+      ],
+      "parity_scope": "Classification only; no full behavioral parity assertion."
+    },
+    {
+      "id": "data-second-action:ncr",
+      "label": "ncr",
+      "classification": "partial",
+      "reason": "Implemented legacy control; physical layout/dispatch, LCD formatting, boundaries and mode semantics do not establish EL-506TS parity.",
+      "source": {
+        "path": "src/scientific_calculator/templates/scientific_calculator/calculator.html",
+        "anchor": "data-second-action=\"ncr\""
+      },
+      "reference_ids": [
+        "el506-013-key-panel-v1"
+      ],
+      "parity_scope": "Classification only; no full behavioral parity assertion."
+    },
+    {
+      "id": "data-second-action:npr",
+      "label": "npr",
+      "classification": "partial",
+      "reason": "Implemented legacy control; physical layout/dispatch, LCD formatting, boundaries and mode semantics do not establish EL-506TS parity.",
+      "source": {
+        "path": "src/scientific_calculator/templates/scientific_calculator/calculator.html",
+        "anchor": "data-second-action=\"npr\""
+      },
+      "reference_ids": [
+        "el506-013-key-panel-v1"
+      ],
+      "parity_scope": "Classification only; no full behavioral parity assertion."
+    },
+    {
+      "id": "data-second-action:reciprocal",
+      "label": "reciprocal",
+      "classification": "partial",
+      "reason": "Implemented legacy control; physical layout/dispatch, LCD formatting, boundaries and mode semantics do not establish EL-506TS parity.",
+      "source": {
+        "path": "src/scientific_calculator/templates/scientific_calculator/calculator.html",
+        "anchor": "data-second-action=\"reciprocal\""
+      },
+      "reference_ids": [
+        "el506-013-key-panel-v1"
+      ],
+      "parity_scope": "Classification only; no full behavioral parity assertion."
+    },
+    {
+      "id": "data-second-action:root",
+      "label": "root",
+      "classification": "partial",
+      "reason": "Implemented legacy control; physical layout/dispatch, LCD formatting, boundaries and mode semantics do not establish EL-506TS parity.",
+      "source": {
+        "path": "src/scientific_calculator/templates/scientific_calculator/calculator.html",
+        "anchor": "data-second-action=\"root\""
+      },
+      "reference_ids": [
+        "el506-013-key-panel-v1"
+      ],
+      "parity_scope": "Classification only; no full behavioral parity assertion."
+    },
+    {
+      "id": "data-second-action:stats-add",
+      "label": "stats-add",
+      "classification": "partial",
+      "reason": "Flat one-variable statsValues array and immediate results; STAT mode, frequencies, record editor, regressions and physical result selectors are missing.",
+      "source": {
+        "path": "src/scientific_calculator/templates/scientific_calculator/calculator.html",
+        "anchor": "data-second-action=\"stats-add\""
+      },
+      "reference_ids": [
+        "el506-013-key-panel-v1"
+      ],
+      "parity_scope": "Classification only; no full behavioral parity assertion."
+    },
+    {
+      "id": "data-second-action:stats-count",
+      "label": "stats-count",
+      "classification": "partial",
+      "reason": "Flat one-variable statsValues array and immediate results; STAT mode, frequencies, record editor, regressions and physical result selectors are missing.",
+      "source": {
+        "path": "src/scientific_calculator/templates/scientific_calculator/calculator.html",
+        "anchor": "data-second-action=\"stats-count\""
+      },
+      "reference_ids": [
+        "el506-013-key-panel-v1"
+      ],
+      "parity_scope": "Classification only; no full behavioral parity assertion."
+    },
+    {
+      "id": "data-second-action:stats-mean",
+      "label": "stats-mean",
+      "classification": "partial",
+      "reason": "Flat one-variable statsValues array and immediate results; STAT mode, frequencies, record editor, regressions and physical result selectors are missing.",
+      "source": {
+        "path": "src/scientific_calculator/templates/scientific_calculator/calculator.html",
+        "anchor": "data-second-action=\"stats-mean\""
+      },
+      "reference_ids": [
+        "el506-013-key-panel-v1"
+      ],
+      "parity_scope": "Classification only; no full behavioral parity assertion."
+    },
+    {
+      "id": "data-second-action:stats-stddev",
+      "label": "stats-stddev",
+      "classification": "partial",
+      "reason": "Flat one-variable statsValues array and immediate results; STAT mode, frequencies, record editor, regressions and physical result selectors are missing.",
+      "source": {
+        "path": "src/scientific_calculator/templates/scientific_calculator/calculator.html",
+        "anchor": "data-second-action=\"stats-stddev\""
+      },
+      "reference_ids": [
+        "el506-013-key-panel-v1"
+      ],
+      "parity_scope": "Classification only; no full behavioral parity assertion."
+    },
+    {
+      "id": "data-second-action:stats-sum",
+      "label": "stats-sum",
+      "classification": "partial",
+      "reason": "Flat one-variable statsValues array and immediate results; STAT mode, frequencies, record editor, regressions and physical result selectors are missing.",
+      "source": {
+        "path": "src/scientific_calculator/templates/scientific_calculator/calculator.html",
+        "anchor": "data-second-action=\"stats-sum\""
+      },
+      "reference_ids": [
+        "el506-013-key-panel-v1"
+      ],
+      "parity_scope": "Classification only; no full behavioral parity assertion."
+    },
+    {
+      "id": "data-second-action:stats-sum-squares",
+      "label": "stats-sum-squares",
+      "classification": "partial",
+      "reason": "Flat one-variable statsValues array and immediate results; STAT mode, frequencies, record editor, regressions and physical result selectors are missing.",
+      "source": {
+        "path": "src/scientific_calculator/templates/scientific_calculator/calculator.html",
+        "anchor": "data-second-action=\"stats-sum-squares\""
+      },
+      "reference_ids": [
+        "el506-013-key-panel-v1"
+      ],
+      "parity_scope": "Classification only; no full behavioral parity assertion."
+    },
+    {
+      "id": "data-second-insert:acos(",
+      "label": "acos(",
+      "classification": "partial",
+      "reason": "Implemented legacy control; physical layout/dispatch, LCD formatting, boundaries and mode semantics do not establish EL-506TS parity.",
+      "source": {
+        "path": "src/scientific_calculator/templates/scientific_calculator/calculator.html",
+        "anchor": "data-second-insert=\"acos(\""
+      },
+      "reference_ids": [
+        "el506-013-key-panel-v1"
+      ],
+      "parity_scope": "Classification only; no full behavioral parity assertion."
+    },
+    {
+      "id": "data-second-insert:asin(",
+      "label": "asin(",
+      "classification": "partial",
+      "reason": "Implemented legacy control; physical layout/dispatch, LCD formatting, boundaries and mode semantics do not establish EL-506TS parity.",
+      "source": {
+        "path": "src/scientific_calculator/templates/scientific_calculator/calculator.html",
+        "anchor": "data-second-insert=\"asin(\""
+      },
+      "reference_ids": [
+        "el506-013-key-panel-v1"
+      ],
+      "parity_scope": "Classification only; no full behavioral parity assertion."
+    },
+    {
+      "id": "data-second-insert:atan(",
+      "label": "atan(",
+      "classification": "partial",
+      "reason": "Implemented legacy control; physical layout/dispatch, LCD formatting, boundaries and mode semantics do not establish EL-506TS parity.",
+      "source": {
+        "path": "src/scientific_calculator/templates/scientific_calculator/calculator.html",
+        "anchor": "data-second-insert=\"atan(\""
+      },
+      "reference_ids": [
+        "el506-013-key-panel-v1"
+      ],
+      "parity_scope": "Classification only; no full behavioral parity assertion."
+    },
+    {
+      "id": "data-second-insert:cbrt(",
+      "label": "cbrt(",
+      "classification": "partial",
+      "reason": "Implemented legacy control; physical layout/dispatch, LCD formatting, boundaries and mode semantics do not establish EL-506TS parity.",
+      "source": {
+        "path": "src/scientific_calculator/templates/scientific_calculator/calculator.html",
+        "anchor": "data-second-insert=\"cbrt(\""
+      },
+      "reference_ids": [
+        "el506-013-key-panel-v1"
+      ],
+      "parity_scope": "Classification only; no full behavioral parity assertion."
+    },
+    {
+      "id": "data-second-insert:epow(",
+      "label": "epow(",
+      "classification": "partial",
+      "reason": "Implemented legacy control; physical layout/dispatch, LCD formatting, boundaries and mode semantics do not establish EL-506TS parity.",
+      "source": {
+        "path": "src/scientific_calculator/templates/scientific_calculator/calculator.html",
+        "anchor": "data-second-insert=\"epow(\""
+      },
+      "reference_ids": [
+        "el506-013-key-panel-v1"
+      ],
+      "parity_scope": "Classification only; no full behavioral parity assertion."
+    },
+    {
+      "id": "data-second-insert:tenpow(",
+      "label": "tenpow(",
+      "classification": "partial",
+      "reason": "Implemented legacy control; physical layout/dispatch, LCD formatting, boundaries and mode semantics do not establish EL-506TS parity.",
+      "source": {
+        "path": "src/scientific_calculator/templates/scientific_calculator/calculator.html",
+        "anchor": "data-second-insert=\"tenpow(\""
+      },
+      "reference_ids": [
+        "el506-013-key-panel-v1"
+      ],
+      "parity_scope": "Classification only; no full behavioral parity assertion."
+    },
+    {
+      "id": "decimal-parser",
+      "label": "Scalar parser",
+      "classification": "partial",
+      "reason": "Custom Number parser supports precedence, right-associative powers, unary signs and named functions; simulator precision, limits and domains unverified.",
+      "source": {
+        "path": "src/scientific_calculator/static/scientific_calculator/calculator.js",
+        "anchor": "class Parser"
+      },
+      "reference_ids": [
+        "el506-013-key-panel-v1"
+      ],
+      "parity_scope": "Classification only; no full behavioral parity assertion."
+    },
+    {
+      "id": "exact-parser",
+      "label": "Rational/radical parser",
+      "classification": "enhanced-only",
+      "reason": "Second parser simplifies radical sums/products/quotients and selected degree trig values; plan explicitly reserves extra exact-surd presentation for enhancement profile.",
+      "source": {
+        "path": "src/scientific_calculator/static/scientific_calculator/calculator.js",
+        "anchor": "class ExactParser"
+      },
+      "reference_ids": [
+        "el506-013-key-panel-v1"
+      ],
+      "parity_scope": "Classification only; no full behavioral parity assertion."
+    },
+    {
+      "id": "fraction-approximation",
+      "label": "Decimal to rational approximation",
+      "classification": "partial",
+      "reason": "Continued-fraction denominator cap 10000 and floating-point fallback are local policy, not verified Sharp limits.",
+      "source": {
+        "path": "src/scientific_calculator/static/scientific_calculator/calculator.js",
+        "anchor": "function decimalToFraction"
+      },
+      "reference_ids": [
+        "el506-013-key-panel-v1"
+      ],
+      "parity_scope": "Classification only; no full behavioral parity assertion."
+    },
+    {
+      "id": "number-formatter",
+      "label": "Twelve-significant-digit formatting and tiny-value zeroing",
+      "classification": "incorrect",
+      "reason": "toPrecision(12), forced zero below 1e-12 and scientific exponent policy differ from the ten-digit reference formatter.",
+      "source": {
+        "path": "src/scientific_calculator/static/scientific_calculator/calculator.js",
+        "anchor": "function formatValue"
+      },
+      "reference_ids": [
+        "el506-013-key-panel-v1"
+      ],
+      "parity_scope": "Classification only; no full behavioral parity assertion."
+    },
+    {
+      "id": "error-display",
+      "label": "Error classification and recovery",
+      "classification": "incorrect",
+      "reason": "All exceptions/nonfinite values collapse to lower-line Error; live oracle uses upper-line Error 2 for divide by zero.",
+      "source": {
+        "path": "src/scientific_calculator/static/scientific_calculator/calculator.js",
+        "anchor": "resultEl.textContent = \"Error\""
+      },
+      "reference_ids": [
+        "el506-002-error-recovery-v1"
+      ],
+      "parity_scope": "Classification only; no full behavioral parity assertion."
+    },
+    {
+      "id": "html-math",
+      "label": "Expression/fraction/superscript rendering",
+      "classification": "partial",
+      "reason": "Original HTML math layout instead of two independent Sharp LCD token lines; symbolic fraction glyphs and cursor clipping remain unverified.",
+      "source": {
+        "path": "src/scientific_calculator/static/scientific_calculator/calculator.js",
+        "anchor": "function formatExpression"
+      },
+      "reference_ids": [
+        "el506-013-key-panel-v1"
+      ],
+      "parity_scope": "Classification only; no full behavioral parity assertion."
+    },
+    {
+      "id": "implicit-products",
+      "label": "Implied multiplication",
+      "classification": "partial",
+      "reason": "Normalizer inserts * between adjacent term tokens; simulator grammar/boundaries not exhaustively compared.",
+      "source": {
+        "path": "src/scientific_calculator/static/scientific_calculator/calculator.js",
+        "anchor": "function normalizeExpression"
+      },
+      "reference_ids": [
+        "el506-013-key-panel-v1"
+      ],
+      "parity_scope": "Classification only; no full behavioral parity assertion."
+    },
+    {
+      "id": "parenthesis-close",
+      "label": "Automatic closing parentheses",
+      "classification": "partial",
+      "reason": "Unclosed parentheses added at evaluation; invalid inputs and Sharp closing/limit policy unverified.",
+      "source": {
+        "path": "src/scientific_calculator/static/scientific_calculator/calculator.js",
+        "anchor": "function closeOpenParentheses"
+      },
+      "reference_ids": [
+        "el506-013-key-panel-v1"
+      ],
+      "parity_scope": "Classification only; no full behavioral parity assertion."
+    },
+    {
+      "id": "mixed-normalizer",
+      "label": "Mixed number grammar",
+      "classification": "partial",
+      "reason": "Whitespace-based mixed fractions normalized to sums; negative and nested boundary semantics not reference verified.",
+      "source": {
+        "path": "src/scientific_calculator/static/scientific_calculator/calculator.js",
+        "anchor": "function normalizeMixedNumbers"
+      },
+      "reference_ids": [
+        "el506-013-key-panel-v1"
+      ],
+      "parity_scope": "Classification only; no full behavioral parity assertion."
+    },
+    {
+      "id": "history-store",
+      "label": "25-entry expression history",
+      "classification": "partial",
+      "reason": "History stores local expressions, Number values and exactDisplay; capacity, draft restoration and Sharp persistence unverified.",
+      "source": {
+        "path": "src/scientific_calculator/static/scientific_calculator/calculator.js",
+        "anchor": "history.length > 25"
+      },
+      "reference_ids": [
+        "el506-013-key-panel-v1"
+      ],
+      "parity_scope": "Classification only; no full behavioral parity assertion."
+    },
+    {
+      "id": "keyboard-focus",
+      "label": "Focused independent input",
+      "classification": "matching",
+      "reason": "0.3.1 public contract scopes keyboard handling to root focus with per-instance closures. Matching is limited to this integration contract, not simulator keyboard bindings.",
+      "source": {
+        "path": "src/scientific_calculator/static/scientific_calculator/calculator.js",
+        "anchor": "const hasKeyboardFocus"
+      },
+      "reference_ids": [
+        "el506-013-key-panel-v1"
+      ],
+      "parity_scope": "Classification only; no full behavioral parity assertion."
+    },
+    {
+      "id": "keyboard-dispatch",
+      "label": "Pointer/keyboard second-function dispatch",
+      "classification": "incorrect",
+      "reason": "Pointer equals honors 2ndF ANS; keyboard Enter calls commit directly and keeps secondActive. Canonical event path is absent.",
+      "source": {
+        "path": "src/scientific_calculator/static/scientific_calculator/calculator.js",
+        "anchor": "document.addEventListener(\"keydown\""
+      },
+      "reference_ids": [
+        "el506-013-key-panel-v1"
+      ],
+      "parity_scope": "Classification only; no full behavioral parity assertion."
+    },
+    {
+      "id": "state-boundaries",
+      "label": "Observable core/snapshot contract",
+      "classification": "missing",
+      "reason": "Mutable state exists only inside createCalculator closure; no deterministic reducer or public snapshot/restore yet.",
+      "source": {
+        "path": "src/scientific_calculator/static/scientific_calculator/calculator.js",
+        "anchor": "function createCalculator"
+      },
+      "reference_ids": [
+        "el506-013-key-panel-v1"
+      ],
+      "parity_scope": "Classification only; no full behavioral parity assertion."
+    },
+    {
+      "id": "memory-persistence",
+      "label": "M/ANS/stats/history persistence on clear",
+      "classification": "partial",
+      "reason": "Clear and HOME reset entry/result but retain M, answer, history and statsValues; all-mode persistence not reference verified.",
+      "source": {
+        "path": "src/scientific_calculator/static/scientific_calculator/calculator.js",
+        "anchor": "action === \"clear\" || action === \"home\""
+      },
+      "reference_ids": [
+        "el506-013-key-panel-v1"
+      ],
+      "parity_scope": "Classification only; no full behavioral parity assertion."
+    },
+    {
+      "id": "finite-integer-functions",
+      "label": "Factorial, nPr, nCr and nth root helpers",
+      "classification": "partial",
+      "reason": "Local numeric algorithms support these controls; precision, domains and reference limits pending.",
+      "source": {
+        "path": "src/scientific_calculator/static/scientific_calculator/calculator.js",
+        "anchor": "function factorialValue"
+      },
+      "reference_ids": [
+        "el506-013-key-panel-v1"
+      ],
+      "parity_scope": "Classification only; no full behavioral parity assertion."
+    },
+    {
+      "id": "css-layout",
+      "label": "Original desktop/responsive visual style",
+      "classification": "partial",
+      "reason": "Existing CSS styles/nav geometry differ from the canonical physical panel; full accessibility, responsive/theme contract and visual parity not measured.",
+      "source": {
+        "path": "src/scientific_calculator/static/scientific_calculator/calculator.css",
+        "anchor": ".scicalc"
+      },
+      "reference_ids": [
+        "el506-013-key-panel-v1"
+      ],
+      "parity_scope": "Classification only; no full behavioral parity assertion."
+    },
+    {
+      "id": "django-embed",
+      "label": "No-argument template tag and packaged assets",
+      "classification": "matching",
+      "reason": "Existing tag/template/static contracts preserved at pinned source; checks cover demo rendering and static catalogue. Full Django integration suite remains later work.",
+      "source": {
+        "path": "src/scientific_calculator/templatetags/scientific_calculator.py",
+        "anchor": "scientific_calculator"
+      },
+      "reference_ids": [
+        "el506-013-key-panel-v1"
+      ],
+      "parity_scope": "Classification only; no full behavioral parity assertion."
+    }
+  ],
+  "tests": [
+    {
+      "path": "tests/e2e/calculator.spec.js",
+      "title": "renders every desktop calculator control",
+      "classification": "partial",
+      "reason": "Legacy multi-assertion browser regression; numeric success and enhancement expectations do not prove identical physical sequences/displays. Exact/surd assertions are enhanced-only subsets.",
+      "scope": "application-regression",
+      "reference_ids": [
+        "el506-013-key-panel-v1",
+        "el506-001-menu-inventory-v1"
+      ]
+    },
+    {
+      "path": "tests/e2e/calculator.spec.js",
+      "title": "evaluates arithmetic, precedence, parentheses, decimals, and division",
+      "classification": "partial",
+      "reason": "Legacy multi-assertion browser regression; numeric success and enhancement expectations do not prove identical physical sequences/displays. Exact/surd assertions are enhanced-only subsets.",
+      "scope": "application-regression",
+      "reference_ids": [
+        "el506-013-key-panel-v1",
+        "el506-001-menu-inventory-v1"
+      ]
+    },
+    {
+      "path": "tests/e2e/calculator.spec.js",
+      "title": "evaluates powers, square root, and scientific notation",
+      "classification": "partial",
+      "reason": "Legacy multi-assertion browser regression; numeric success and enhancement expectations do not prove identical physical sequences/displays. Exact/surd assertions are enhanced-only subsets.",
+      "scope": "application-regression",
+      "reference_ids": [
+        "el506-013-key-panel-v1",
+        "el506-001-menu-inventory-v1"
+      ]
+    },
+    {
+      "path": "tests/e2e/calculator.spec.js",
+      "title": "evaluates trig functions in degree and radian modes",
+      "classification": "partial",
+      "reason": "Legacy multi-assertion browser regression; numeric success and enhancement expectations do not prove identical physical sequences/displays. Exact/surd assertions are enhanced-only subsets.",
+      "scope": "application-regression",
+      "reference_ids": [
+        "el506-013-key-panel-v1",
+        "el506-001-menu-inventory-v1"
+      ]
+    },
+    {
+      "path": "tests/e2e/calculator.spec.js",
+      "title": "evaluates inverse trig and second-layer power functions",
+      "classification": "partial",
+      "reason": "Legacy multi-assertion browser regression; numeric success and enhancement expectations do not prove identical physical sequences/displays. Exact/surd assertions are enhanced-only subsets.",
+      "scope": "application-regression",
+      "reference_ids": [
+        "el506-013-key-panel-v1",
+        "el506-001-menu-inventory-v1"
+      ]
+    },
+    {
+      "path": "tests/e2e/calculator.spec.js",
+      "title": "evaluates logarithms and constants",
+      "classification": "partial",
+      "reason": "Legacy multi-assertion browser regression; numeric success and enhancement expectations do not prove identical physical sequences/displays. Exact/surd assertions are enhanced-only subsets.",
+      "scope": "application-regression",
+      "reference_ids": [
+        "el506-013-key-panel-v1",
+        "el506-001-menu-inventory-v1"
+      ]
+    },
+    {
+      "path": "tests/e2e/calculator.spec.js",
+      "title": "evaluates combinatorics, percent, and absolute value",
+      "classification": "partial",
+      "reason": "Legacy multi-assertion browser regression; numeric success and enhancement expectations do not prove identical physical sequences/displays. Exact/surd assertions are enhanced-only subsets.",
+      "scope": "application-regression",
+      "reference_ids": [
+        "el506-013-key-panel-v1",
+        "el506-001-menu-inventory-v1"
+      ]
+    },
+    {
+      "path": "tests/e2e/calculator.spec.js",
+      "title": "handles memory functions",
+      "classification": "partial",
+      "reason": "Legacy multi-assertion browser regression; numeric success and enhancement expectations do not prove identical physical sequences/displays. Exact/surd assertions are enhanced-only subsets.",
+      "scope": "application-regression",
+      "reference_ids": [
+        "el506-013-key-panel-v1",
+        "el506-001-menu-inventory-v1"
+      ]
+    },
+    {
+      "path": "tests/e2e/calculator.spec.js",
+      "title": "handles statistics functions",
+      "classification": "partial",
+      "reason": "Legacy multi-assertion browser regression; numeric success and enhancement expectations do not prove identical physical sequences/displays. Exact/surd assertions are enhanced-only subsets.",
+      "scope": "application-regression",
+      "reference_ids": [
+        "el506-013-key-panel-v1",
+        "el506-001-menu-inventory-v1"
+      ]
+    },
+    {
+      "path": "tests/e2e/calculator.spec.js",
+      "title": "handles fractions, mixed-number input, result-mode cycling, and DMS",
+      "classification": "partial",
+      "reason": "Legacy multi-assertion browser regression; numeric success and enhancement expectations do not prove identical physical sequences/displays. Exact/surd assertions are enhanced-only subsets.",
+      "scope": "application-regression",
+      "reference_ids": [
+        "el506-013-key-panel-v1",
+        "el506-001-menu-inventory-v1"
+      ]
+    },
+    {
+      "path": "tests/e2e/calculator.spec.js",
+      "title": "handles sign, answer recall, clear, and home",
+      "classification": "partial",
+      "reason": "Legacy multi-assertion browser regression; numeric success and enhancement expectations do not prove identical physical sequences/displays. Exact/surd assertions are enhanced-only subsets.",
+      "scope": "application-regression",
+      "reference_ids": [
+        "el506-013-key-panel-v1",
+        "el506-001-menu-inventory-v1"
+      ]
+    },
+    {
+      "path": "tests/e2e/calculator.spec.js",
+      "title": "handles delete, cursor navigation, history, and keyboard input",
+      "classification": "partial",
+      "reason": "Legacy multi-assertion browser regression; numeric success and enhancement expectations do not prove identical physical sequences/displays. Exact/surd assertions are enhanced-only subsets.",
+      "scope": "application-regression",
+      "reference_ids": [
+        "el506-013-key-panel-v1",
+        "el506-001-menu-inventory-v1"
+      ]
+    },
+    {
+      "path": "tests/e2e/capability-ledger.spec.js",
+      "title": "inventory has complete numbered catalogues, layer paths and traceable evidence",
+      "classification": "matching",
+      "reason": "Matching only within reference-data/schema contract; structural validation does not establish calculator parity.",
+      "scope": "reference-contract",
+      "reference_ids": [
+        "el506-013-key-panel-v1",
+        "el506-001-menu-inventory-v1"
+      ]
+    },
+    {
+      "path": "tests/e2e/capability-ledger.spec.js",
+      "title": "inventory rejects gaps, broken references and premature parity claims",
+      "classification": "matching",
+      "reason": "Matching only within reference-data/schema contract; structural validation does not establish calculator parity.",
+      "scope": "reference-contract",
+      "reference_ids": [
+        "el506-013-key-panel-v1",
+        "el506-001-menu-inventory-v1"
+      ]
+    },
+    {
+      "path": "tests/e2e/capability-ledger.spec.js",
+      "title": "reference results, errors and cancellation remain independent of inventory status",
+      "classification": "matching",
+      "reason": "Matching only within reference-data/schema contract; structural validation does not establish calculator parity.",
+      "scope": "reference-contract",
+      "reference_ids": [
+        "el506-013-key-panel-v1",
+        "el506-001-menu-inventory-v1"
+      ]
+    },
+    {
+      "path": "tests/e2e/experiment-schema.spec.js",
+      "title": "validates live evidence and freezes canonical sequence notation",
+      "classification": "matching",
+      "reason": "Matching only within reference-data/schema contract; structural validation does not establish calculator parity.",
+      "scope": "reference-contract",
+      "reference_ids": [
+        "el506-013-key-panel-v1",
+        "el506-001-menu-inventory-v1"
+      ]
+    },
+    {
+      "path": "tests/e2e/experiment-schema.spec.js",
+      "title": "rejects incomplete evidence, labels, host controls, and incorrect references",
+      "classification": "matching",
+      "reason": "Matching only within reference-data/schema contract; structural validation does not establish calculator parity.",
+      "scope": "reference-contract",
+      "reference_ids": [
+        "el506-013-key-panel-v1",
+        "el506-001-menu-inventory-v1"
+      ]
+    },
+    {
+      "path": "tests/e2e/experiment-schema.spec.js",
+      "title": "preserves exact values separately from displays and makes unknown state explicit",
+      "classification": "matching",
+      "reason": "Matching only within reference-data/schema contract; structural validation does not establish calculator parity.",
+      "scope": "reference-contract",
+      "reference_ids": [
+        "el506-013-key-panel-v1",
+        "el506-001-menu-inventory-v1"
+      ]
+    },
+    {
+      "path": "tests/e2e/physical-keys.spec.js",
+      "title": "preserves all 48 physical key identities and their distinct positions",
+      "classification": "matching",
+      "reason": "Matching only within reference-data/schema contract; structural validation does not establish calculator parity.",
+      "scope": "reference-contract",
+      "reference_ids": [
+        "el506-013-key-panel-v1",
+        "el506-001-menu-inventory-v1"
+      ]
+    },
+    {
+      "path": "tests/e2e/physical-keys.spec.js",
+      "title": "ties every physical key to one reference transcription and a panel location",
+      "classification": "matching",
+      "reason": "Matching only within reference-data/schema contract; structural validation does not establish calculator parity.",
+      "scope": "reference-contract",
+      "reference_ids": [
+        "el506-013-key-panel-v1",
+        "el506-001-menu-inventory-v1"
+      ]
+    },
+    {
+      "path": "tests/e2e/physical-keys.spec.js",
+      "title": "serves the standalone physical key catalogue at its package static path",
+      "classification": "matching",
+      "reason": "Matching only within reference-data/schema contract; structural validation does not establish calculator parity.",
+      "scope": "reference-contract",
+      "reference_ids": [
+        "el506-013-key-panel-v1",
+        "el506-001-menu-inventory-v1"
+      ]
+    }
+  ],
+  "capabilities": [
+    {
+      "capability_id": "el506.key.el506-k01",
+      "classification": "partial",
+      "feature_ids": [
+        "css-layout"
+      ],
+      "reason": "48-key catalogue is shipped, but live DOM layout and dispatch do not use the canonical IDs."
+    },
+    {
+      "capability_id": "el506.key.el506-k02",
+      "classification": "partial",
+      "feature_ids": [
+        "css-layout"
+      ],
+      "reason": "48-key catalogue is shipped, but live DOM layout and dispatch do not use the canonical IDs."
+    },
+    {
+      "capability_id": "el506.key.el506-k03",
+      "classification": "partial",
+      "feature_ids": [
+        "css-layout"
+      ],
+      "reason": "48-key catalogue is shipped, but live DOM layout and dispatch do not use the canonical IDs."
+    },
+    {
+      "capability_id": "el506.key.el506-k04",
+      "classification": "partial",
+      "feature_ids": [
+        "css-layout"
+      ],
+      "reason": "48-key catalogue is shipped, but live DOM layout and dispatch do not use the canonical IDs."
+    },
+    {
+      "capability_id": "el506.key.el506-k05",
+      "classification": "partial",
+      "feature_ids": [
+        "css-layout"
+      ],
+      "reason": "48-key catalogue is shipped, but live DOM layout and dispatch do not use the canonical IDs."
+    },
+    {
+      "capability_id": "el506.key.el506-k06",
+      "classification": "partial",
+      "feature_ids": [
+        "css-layout"
+      ],
+      "reason": "48-key catalogue is shipped, but live DOM layout and dispatch do not use the canonical IDs."
+    },
+    {
+      "capability_id": "el506.key.el506-k07",
+      "classification": "partial",
+      "feature_ids": [
+        "css-layout"
+      ],
+      "reason": "48-key catalogue is shipped, but live DOM layout and dispatch do not use the canonical IDs."
+    },
+    {
+      "capability_id": "el506.key.el506-k08",
+      "classification": "partial",
+      "feature_ids": [
+        "css-layout"
+      ],
+      "reason": "48-key catalogue is shipped, but live DOM layout and dispatch do not use the canonical IDs."
+    },
+    {
+      "capability_id": "el506.key.el506-k09",
+      "classification": "partial",
+      "feature_ids": [
+        "css-layout"
+      ],
+      "reason": "48-key catalogue is shipped, but live DOM layout and dispatch do not use the canonical IDs."
+    },
+    {
+      "capability_id": "el506.key.el506-k10",
+      "classification": "partial",
+      "feature_ids": [
+        "css-layout"
+      ],
+      "reason": "48-key catalogue is shipped, but live DOM layout and dispatch do not use the canonical IDs."
+    },
+    {
+      "capability_id": "el506.key.el506-k11",
+      "classification": "partial",
+      "feature_ids": [
+        "css-layout"
+      ],
+      "reason": "48-key catalogue is shipped, but live DOM layout and dispatch do not use the canonical IDs."
+    },
+    {
+      "capability_id": "el506.key.el506-k12",
+      "classification": "partial",
+      "feature_ids": [
+        "css-layout"
+      ],
+      "reason": "48-key catalogue is shipped, but live DOM layout and dispatch do not use the canonical IDs."
+    },
+    {
+      "capability_id": "el506.key.el506-k13",
+      "classification": "partial",
+      "feature_ids": [
+        "css-layout"
+      ],
+      "reason": "48-key catalogue is shipped, but live DOM layout and dispatch do not use the canonical IDs."
+    },
+    {
+      "capability_id": "el506.key.el506-k14",
+      "classification": "partial",
+      "feature_ids": [
+        "css-layout"
+      ],
+      "reason": "48-key catalogue is shipped, but live DOM layout and dispatch do not use the canonical IDs."
+    },
+    {
+      "capability_id": "el506.key.el506-k15",
+      "classification": "partial",
+      "feature_ids": [
+        "css-layout"
+      ],
+      "reason": "48-key catalogue is shipped, but live DOM layout and dispatch do not use the canonical IDs."
+    },
+    {
+      "capability_id": "el506.key.el506-k16",
+      "classification": "partial",
+      "feature_ids": [
+        "css-layout"
+      ],
+      "reason": "48-key catalogue is shipped, but live DOM layout and dispatch do not use the canonical IDs."
+    },
+    {
+      "capability_id": "el506.key.el506-k17",
+      "classification": "partial",
+      "feature_ids": [
+        "css-layout"
+      ],
+      "reason": "48-key catalogue is shipped, but live DOM layout and dispatch do not use the canonical IDs."
+    },
+    {
+      "capability_id": "el506.key.el506-k18",
+      "classification": "partial",
+      "feature_ids": [
+        "css-layout"
+      ],
+      "reason": "48-key catalogue is shipped, but live DOM layout and dispatch do not use the canonical IDs."
+    },
+    {
+      "capability_id": "el506.key.el506-k19",
+      "classification": "partial",
+      "feature_ids": [
+        "css-layout"
+      ],
+      "reason": "48-key catalogue is shipped, but live DOM layout and dispatch do not use the canonical IDs."
+    },
+    {
+      "capability_id": "el506.key.el506-k20",
+      "classification": "partial",
+      "feature_ids": [
+        "css-layout"
+      ],
+      "reason": "48-key catalogue is shipped, but live DOM layout and dispatch do not use the canonical IDs."
+    },
+    {
+      "capability_id": "el506.key.el506-k21",
+      "classification": "partial",
+      "feature_ids": [
+        "css-layout"
+      ],
+      "reason": "48-key catalogue is shipped, but live DOM layout and dispatch do not use the canonical IDs."
+    },
+    {
+      "capability_id": "el506.key.el506-k22",
+      "classification": "partial",
+      "feature_ids": [
+        "css-layout"
+      ],
+      "reason": "48-key catalogue is shipped, but live DOM layout and dispatch do not use the canonical IDs."
+    },
+    {
+      "capability_id": "el506.key.el506-k23",
+      "classification": "partial",
+      "feature_ids": [
+        "css-layout"
+      ],
+      "reason": "48-key catalogue is shipped, but live DOM layout and dispatch do not use the canonical IDs."
+    },
+    {
+      "capability_id": "el506.key.el506-k24",
+      "classification": "partial",
+      "feature_ids": [
+        "css-layout"
+      ],
+      "reason": "48-key catalogue is shipped, but live DOM layout and dispatch do not use the canonical IDs."
+    },
+    {
+      "capability_id": "el506.key.el506-k25",
+      "classification": "partial",
+      "feature_ids": [
+        "css-layout"
+      ],
+      "reason": "48-key catalogue is shipped, but live DOM layout and dispatch do not use the canonical IDs."
+    },
+    {
+      "capability_id": "el506.key.el506-k26",
+      "classification": "partial",
+      "feature_ids": [
+        "css-layout"
+      ],
+      "reason": "48-key catalogue is shipped, but live DOM layout and dispatch do not use the canonical IDs."
+    },
+    {
+      "capability_id": "el506.key.el506-k27",
+      "classification": "partial",
+      "feature_ids": [
+        "css-layout"
+      ],
+      "reason": "48-key catalogue is shipped, but live DOM layout and dispatch do not use the canonical IDs."
+    },
+    {
+      "capability_id": "el506.key.el506-k28",
+      "classification": "partial",
+      "feature_ids": [
+        "css-layout"
+      ],
+      "reason": "48-key catalogue is shipped, but live DOM layout and dispatch do not use the canonical IDs."
+    },
+    {
+      "capability_id": "el506.key.el506-k29",
+      "classification": "partial",
+      "feature_ids": [
+        "css-layout"
+      ],
+      "reason": "48-key catalogue is shipped, but live DOM layout and dispatch do not use the canonical IDs."
+    },
+    {
+      "capability_id": "el506.key.el506-k30",
+      "classification": "partial",
+      "feature_ids": [
+        "css-layout"
+      ],
+      "reason": "48-key catalogue is shipped, but live DOM layout and dispatch do not use the canonical IDs."
+    },
+    {
+      "capability_id": "el506.key.el506-k31",
+      "classification": "partial",
+      "feature_ids": [
+        "css-layout"
+      ],
+      "reason": "48-key catalogue is shipped, but live DOM layout and dispatch do not use the canonical IDs."
+    },
+    {
+      "capability_id": "el506.key.el506-k32",
+      "classification": "partial",
+      "feature_ids": [
+        "css-layout"
+      ],
+      "reason": "48-key catalogue is shipped, but live DOM layout and dispatch do not use the canonical IDs."
+    },
+    {
+      "capability_id": "el506.key.el506-k33",
+      "classification": "partial",
+      "feature_ids": [
+        "css-layout"
+      ],
+      "reason": "48-key catalogue is shipped, but live DOM layout and dispatch do not use the canonical IDs."
+    },
+    {
+      "capability_id": "el506.key.el506-k34",
+      "classification": "partial",
+      "feature_ids": [
+        "css-layout"
+      ],
+      "reason": "48-key catalogue is shipped, but live DOM layout and dispatch do not use the canonical IDs."
+    },
+    {
+      "capability_id": "el506.key.el506-k35",
+      "classification": "partial",
+      "feature_ids": [
+        "css-layout"
+      ],
+      "reason": "48-key catalogue is shipped, but live DOM layout and dispatch do not use the canonical IDs."
+    },
+    {
+      "capability_id": "el506.key.el506-k36",
+      "classification": "partial",
+      "feature_ids": [
+        "css-layout"
+      ],
+      "reason": "48-key catalogue is shipped, but live DOM layout and dispatch do not use the canonical IDs."
+    },
+    {
+      "capability_id": "el506.key.el506-k37",
+      "classification": "partial",
+      "feature_ids": [
+        "css-layout"
+      ],
+      "reason": "48-key catalogue is shipped, but live DOM layout and dispatch do not use the canonical IDs."
+    },
+    {
+      "capability_id": "el506.key.el506-k38",
+      "classification": "partial",
+      "feature_ids": [
+        "css-layout"
+      ],
+      "reason": "48-key catalogue is shipped, but live DOM layout and dispatch do not use the canonical IDs."
+    },
+    {
+      "capability_id": "el506.key.el506-k39",
+      "classification": "partial",
+      "feature_ids": [
+        "css-layout"
+      ],
+      "reason": "48-key catalogue is shipped, but live DOM layout and dispatch do not use the canonical IDs."
+    },
+    {
+      "capability_id": "el506.key.el506-k40",
+      "classification": "partial",
+      "feature_ids": [
+        "css-layout"
+      ],
+      "reason": "48-key catalogue is shipped, but live DOM layout and dispatch do not use the canonical IDs."
+    },
+    {
+      "capability_id": "el506.key.el506-k41",
+      "classification": "partial",
+      "feature_ids": [
+        "css-layout"
+      ],
+      "reason": "48-key catalogue is shipped, but live DOM layout and dispatch do not use the canonical IDs."
+    },
+    {
+      "capability_id": "el506.key.el506-k42",
+      "classification": "partial",
+      "feature_ids": [
+        "css-layout"
+      ],
+      "reason": "48-key catalogue is shipped, but live DOM layout and dispatch do not use the canonical IDs."
+    },
+    {
+      "capability_id": "el506.key.el506-k43",
+      "classification": "partial",
+      "feature_ids": [
+        "css-layout"
+      ],
+      "reason": "48-key catalogue is shipped, but live DOM layout and dispatch do not use the canonical IDs."
+    },
+    {
+      "capability_id": "el506.key.el506-k44",
+      "classification": "partial",
+      "feature_ids": [
+        "css-layout"
+      ],
+      "reason": "48-key catalogue is shipped, but live DOM layout and dispatch do not use the canonical IDs."
+    },
+    {
+      "capability_id": "el506.key.el506-k45",
+      "classification": "partial",
+      "feature_ids": [
+        "css-layout"
+      ],
+      "reason": "48-key catalogue is shipped, but live DOM layout and dispatch do not use the canonical IDs."
+    },
+    {
+      "capability_id": "el506.key.el506-k46",
+      "classification": "partial",
+      "feature_ids": [
+        "css-layout"
+      ],
+      "reason": "48-key catalogue is shipped, but live DOM layout and dispatch do not use the canonical IDs."
+    },
+    {
+      "capability_id": "el506.key.el506-k47",
+      "classification": "partial",
+      "feature_ids": [
+        "css-layout"
+      ],
+      "reason": "48-key catalogue is shipped, but live DOM layout and dispatch do not use the canonical IDs."
+    },
+    {
+      "capability_id": "el506.key.el506-k48",
+      "classification": "partial",
+      "feature_ids": [
+        "css-layout"
+      ],
+      "reason": "48-key catalogue is shipped, but live DOM layout and dispatch do not use the canonical IDs."
+    },
+    {
+      "capability_id": "el506.base.el506-k01",
+      "classification": "partial",
+      "feature_ids": [
+        "data-action:home"
+      ],
+      "reason": "Related legacy functionality exists, but the canonical key/mode sequence, displays, state rules or precision are incomplete/unverified. No full parity claim."
+    },
+    {
+      "capability_id": "el506.base.el506-k02",
+      "classification": "partial",
+      "feature_ids": [
+        "data-action:clear"
+      ],
+      "reason": "Related legacy functionality exists, but the canonical key/mode sequence, displays, state rules or precision are incomplete/unverified. No full parity claim."
+    },
+    {
+      "capability_id": "el506.base.el506-k03",
+      "classification": "partial",
+      "feature_ids": [
+        "data-action:second"
+      ],
+      "reason": "Related legacy functionality exists, but the canonical key/mode sequence, displays, state rules or precision are incomplete/unverified. No full parity claim."
+    },
+    {
+      "capability_id": "el506.base.el506-k04",
+      "classification": "missing",
+      "feature_ids": [],
+      "reason": "No corresponding mode/controller/function in the frozen 0.3.1 implementation; reference exposure is not implementation evidence."
+    },
+    {
+      "capability_id": "el506.base.el506-k05",
+      "classification": "missing",
+      "feature_ids": [],
+      "reason": "No corresponding mode/controller/function in the frozen 0.3.1 implementation; reference exposure is not implementation evidence."
+    },
+    {
+      "capability_id": "el506.base.el506-k06",
+      "classification": "missing",
+      "feature_ids": [],
+      "reason": "No corresponding mode/controller/function in the frozen 0.3.1 implementation; reference exposure is not implementation evidence."
+    },
+    {
+      "capability_id": "el506.base.el506-k07",
+      "classification": "partial",
+      "feature_ids": [
+        "data-action:backspace"
+      ],
+      "reason": "Related legacy functionality exists, but the canonical key/mode sequence, displays, state rules or precision are incomplete/unverified. No full parity claim."
+    },
+    {
+      "capability_id": "el506.base.el506-k08",
+      "classification": "partial",
+      "feature_ids": [
+        "data-action:history-up"
+      ],
+      "reason": "Related legacy functionality exists, but the canonical key/mode sequence, displays, state rules or precision are incomplete/unverified. No full parity claim."
+    },
+    {
+      "capability_id": "el506.base.el506-k09",
+      "classification": "partial",
+      "feature_ids": [
+        "data-action:cursor-left"
+      ],
+      "reason": "Related legacy functionality exists, but the canonical key/mode sequence, displays, state rules or precision are incomplete/unverified. No full parity claim."
+    },
+    {
+      "capability_id": "el506.base.el506-k10",
+      "classification": "partial",
+      "feature_ids": [
+        "data-action:cursor-right"
+      ],
+      "reason": "Related legacy functionality exists, but the canonical key/mode sequence, displays, state rules or precision are incomplete/unverified. No full parity claim."
+    },
+    {
+      "capability_id": "el506.base.el506-k11",
+      "classification": "partial",
+      "feature_ids": [
+        "data-action:history-down"
+      ],
+      "reason": "Related legacy functionality exists, but the canonical key/mode sequence, displays, state rules or precision are incomplete/unverified. No full parity claim."
+    },
+    {
+      "capability_id": "el506.base.el506-k12",
+      "classification": "missing",
+      "feature_ids": [],
+      "reason": "No corresponding mode/controller/function in the frozen 0.3.1 implementation; reference exposure is not implementation evidence."
+    },
+    {
+      "capability_id": "el506.base.el506-k13",
+      "classification": "partial",
+      "feature_ids": [
+        "data-insert:sin("
+      ],
+      "reason": "Related legacy functionality exists, but the canonical key/mode sequence, displays, state rules or precision are incomplete/unverified. No full parity claim."
+    },
+    {
+      "capability_id": "el506.base.el506-k14",
+      "classification": "partial",
+      "feature_ids": [
+        "data-insert:cos("
+      ],
+      "reason": "Related legacy functionality exists, but the canonical key/mode sequence, displays, state rules or precision are incomplete/unverified. No full parity claim."
+    },
+    {
+      "capability_id": "el506.base.el506-k15",
+      "classification": "partial",
+      "feature_ids": [
+        "data-insert:tan("
+      ],
+      "reason": "Related legacy functionality exists, but the canonical key/mode sequence, displays, state rules or precision are incomplete/unverified. No full parity claim."
+    },
+    {
+      "capability_id": "el506.base.el506-k16",
+      "classification": "missing",
+      "feature_ids": [],
+      "reason": "No corresponding mode/controller/function in the frozen 0.3.1 implementation; reference exposure is not implementation evidence."
+    },
+    {
+      "capability_id": "el506.base.el506-k17",
+      "classification": "missing",
+      "feature_ids": [],
+      "reason": "No corresponding mode/controller/function in the frozen 0.3.1 implementation; reference exposure is not implementation evidence."
+    },
+    {
+      "capability_id": "el506.base.el506-k18",
+      "classification": "partial",
+      "feature_ids": [
+        "data-insert:pi"
+      ],
+      "reason": "Related legacy functionality exists, but the canonical key/mode sequence, displays, state rules or precision are incomplete/unverified. No full parity claim."
+    },
+    {
+      "capability_id": "el506.base.el506-k19",
+      "classification": "partial",
+      "feature_ids": [
+        "data-action:power"
+      ],
+      "reason": "Related legacy functionality exists, but the canonical key/mode sequence, displays, state rules or precision are incomplete/unverified. No full parity claim."
+    },
+    {
+      "capability_id": "el506.base.el506-k20",
+      "classification": "partial",
+      "feature_ids": [
+        "data-insert:^2"
+      ],
+      "reason": "Related legacy functionality exists, but the canonical key/mode sequence, displays, state rules or precision are incomplete/unverified. No full parity claim."
+    },
+    {
+      "capability_id": "el506.base.el506-k21",
+      "classification": "missing",
+      "feature_ids": [],
+      "reason": "No corresponding mode/controller/function in the frozen 0.3.1 implementation; reference exposure is not implementation evidence."
+    },
+    {
+      "capability_id": "el506.base.el506-k22",
+      "classification": "partial",
+      "feature_ids": [
+        "data-insert:log("
+      ],
+      "reason": "Related legacy functionality exists, but the canonical key/mode sequence, displays, state rules or precision are incomplete/unverified. No full parity claim."
+    },
+    {
+      "capability_id": "el506.base.el506-k23",
+      "classification": "partial",
+      "feature_ids": [
+        "data-insert:ln("
+      ],
+      "reason": "Related legacy functionality exists, but the canonical key/mode sequence, displays, state rules or precision are incomplete/unverified. No full parity claim."
+    },
+    {
+      "capability_id": "el506.base.el506-k24",
+      "classification": "partial",
+      "feature_ids": [
+        "data-action:exp"
+      ],
+      "reason": "Related legacy functionality exists, but the canonical key/mode sequence, displays, state rules or precision are incomplete/unverified. No full parity claim."
+    },
+    {
+      "capability_id": "el506.base.el506-k25",
+      "classification": "partial",
+      "feature_ids": [
+        "data-action:fraction"
+      ],
+      "reason": "Related legacy functionality exists, but the canonical key/mode sequence, displays, state rules or precision are incomplete/unverified. No full parity claim."
+    },
+    {
+      "capability_id": "el506.base.el506-k26",
+      "classification": "partial",
+      "feature_ids": [
+        "data-action:dms"
+      ],
+      "reason": "Related legacy functionality exists, but the canonical key/mode sequence, displays, state rules or precision are incomplete/unverified. No full parity claim."
+    },
+    {
+      "capability_id": "el506.base.el506-k27",
+      "classification": "partial",
+      "feature_ids": [
+        "data-second-action:memory-recall"
+      ],
+      "reason": "Related legacy functionality exists, but the canonical key/mode sequence, displays, state rules or precision are incomplete/unverified. No full parity claim."
+    },
+    {
+      "capability_id": "el506.base.el506-k28",
+      "classification": "missing",
+      "feature_ids": [],
+      "reason": "No corresponding mode/controller/function in the frozen 0.3.1 implementation; reference exposure is not implementation evidence."
+    },
+    {
+      "capability_id": "el506.base.el506-k29",
+      "classification": "partial",
+      "feature_ids": [
+        "data-second-action:memory-add"
+      ],
+      "reason": "Related legacy functionality exists, but the canonical key/mode sequence, displays, state rules or precision are incomplete/unverified. No full parity claim."
+    },
+    {
+      "capability_id": "el506.base.el506-k30",
+      "classification": "partial",
+      "feature_ids": [
+        "data-insert:7"
+      ],
+      "reason": "Related legacy functionality exists, but the canonical key/mode sequence, displays, state rules or precision are incomplete/unverified. No full parity claim."
+    },
+    {
+      "capability_id": "el506.base.el506-k31",
+      "classification": "partial",
+      "feature_ids": [
+        "data-insert:8"
+      ],
+      "reason": "Related legacy functionality exists, but the canonical key/mode sequence, displays, state rules or precision are incomplete/unverified. No full parity claim."
+    },
+    {
+      "capability_id": "el506.base.el506-k32",
+      "classification": "partial",
+      "feature_ids": [
+        "data-insert:9"
+      ],
+      "reason": "Related legacy functionality exists, but the canonical key/mode sequence, displays, state rules or precision are incomplete/unverified. No full parity claim."
+    },
+    {
+      "capability_id": "el506.base.el506-k33",
+      "classification": "partial",
+      "feature_ids": [
+        "data-insert:("
+      ],
+      "reason": "Related legacy functionality exists, but the canonical key/mode sequence, displays, state rules or precision are incomplete/unverified. No full parity claim."
+    },
+    {
+      "capability_id": "el506.base.el506-k34",
+      "classification": "partial",
+      "feature_ids": [
+        "data-insert:)"
+      ],
+      "reason": "Related legacy functionality exists, but the canonical key/mode sequence, displays, state rules or precision are incomplete/unverified. No full parity claim."
+    },
+    {
+      "capability_id": "el506.base.el506-k35",
+      "classification": "partial",
+      "feature_ids": [
+        "data-insert:4"
+      ],
+      "reason": "Related legacy functionality exists, but the canonical key/mode sequence, displays, state rules or precision are incomplete/unverified. No full parity claim."
+    },
+    {
+      "capability_id": "el506.base.el506-k36",
+      "classification": "partial",
+      "feature_ids": [
+        "data-insert:5"
+      ],
+      "reason": "Related legacy functionality exists, but the canonical key/mode sequence, displays, state rules or precision are incomplete/unverified. No full parity claim."
+    },
+    {
+      "capability_id": "el506.base.el506-k37",
+      "classification": "partial",
+      "feature_ids": [
+        "data-insert:6"
+      ],
+      "reason": "Related legacy functionality exists, but the canonical key/mode sequence, displays, state rules or precision are incomplete/unverified. No full parity claim."
+    },
+    {
+      "capability_id": "el506.base.el506-k38",
+      "classification": "partial",
+      "feature_ids": [
+        "data-insert:*"
+      ],
+      "reason": "Related legacy functionality exists, but the canonical key/mode sequence, displays, state rules or precision are incomplete/unverified. No full parity claim."
+    },
+    {
+      "capability_id": "el506.base.el506-k39",
+      "classification": "partial",
+      "feature_ids": [
+        "data-insert:/"
+      ],
+      "reason": "Related legacy functionality exists, but the canonical key/mode sequence, displays, state rules or precision are incomplete/unverified. No full parity claim."
+    },
+    {
+      "capability_id": "el506.base.el506-k40",
+      "classification": "partial",
+      "feature_ids": [
+        "data-insert:1"
+      ],
+      "reason": "Related legacy functionality exists, but the canonical key/mode sequence, displays, state rules or precision are incomplete/unverified. No full parity claim."
+    },
+    {
+      "capability_id": "el506.base.el506-k41",
+      "classification": "partial",
+      "feature_ids": [
+        "data-insert:2"
+      ],
+      "reason": "Related legacy functionality exists, but the canonical key/mode sequence, displays, state rules or precision are incomplete/unverified. No full parity claim."
+    },
+    {
+      "capability_id": "el506.base.el506-k42",
+      "classification": "partial",
+      "feature_ids": [
+        "data-insert:3"
+      ],
+      "reason": "Related legacy functionality exists, but the canonical key/mode sequence, displays, state rules or precision are incomplete/unverified. No full parity claim."
+    },
+    {
+      "capability_id": "el506.base.el506-k43",
+      "classification": "partial",
+      "feature_ids": [
+        "data-insert:+"
+      ],
+      "reason": "Related legacy functionality exists, but the canonical key/mode sequence, displays, state rules or precision are incomplete/unverified. No full parity claim."
+    },
+    {
+      "capability_id": "el506.base.el506-k44",
+      "classification": "partial",
+      "feature_ids": [
+        "data-insert:-"
+      ],
+      "reason": "Related legacy functionality exists, but the canonical key/mode sequence, displays, state rules or precision are incomplete/unverified. No full parity claim."
+    },
+    {
+      "capability_id": "el506.base.el506-k45",
+      "classification": "partial",
+      "feature_ids": [
+        "data-insert:0"
+      ],
+      "reason": "Related legacy functionality exists, but the canonical key/mode sequence, displays, state rules or precision are incomplete/unverified. No full parity claim."
+    },
+    {
+      "capability_id": "el506.base.el506-k46",
+      "classification": "partial",
+      "feature_ids": [
+        "data-insert:."
+      ],
+      "reason": "Related legacy functionality exists, but the canonical key/mode sequence, displays, state rules or precision are incomplete/unverified. No full parity claim."
+    },
+    {
+      "capability_id": "el506.base.el506-k47",
+      "classification": "partial",
+      "feature_ids": [
+        "data-action:sign"
+      ],
+      "reason": "Related legacy functionality exists, but the canonical key/mode sequence, displays, state rules or precision are incomplete/unverified. No full parity claim."
+    },
+    {
+      "capability_id": "el506.base.el506-k48",
+      "classification": "partial",
+      "feature_ids": [
+        "data-action:equals"
+      ],
+      "reason": "Related legacy functionality exists, but the canonical key/mode sequence, displays, state rules or precision are incomplete/unverified. No full parity claim."
+    },
+    {
+      "capability_id": "el506.second.el506-k02",
+      "classification": "missing",
+      "feature_ids": [],
+      "reason": "No corresponding mode/controller/function in the frozen 0.3.1 implementation; reference exposure is not implementation evidence."
+    },
+    {
+      "capability_id": "el506.second.el506-k04",
+      "classification": "missing",
+      "feature_ids": [],
+      "reason": "No corresponding mode/controller/function in the frozen 0.3.1 implementation; reference exposure is not implementation evidence."
+    },
+    {
+      "capability_id": "el506.second.el506-k05",
+      "classification": "missing",
+      "feature_ids": [],
+      "reason": "No corresponding mode/controller/function in the frozen 0.3.1 implementation; reference exposure is not implementation evidence."
+    },
+    {
+      "capability_id": "el506.second.el506-k07",
+      "classification": "partial",
+      "feature_ids": [
+        "data-action:backspace"
+      ],
+      "reason": "Related legacy functionality exists, but the canonical key/mode sequence, displays, state rules or precision are incomplete/unverified. No full parity claim."
+    },
+    {
+      "capability_id": "el506.formula.f1",
+      "classification": "missing",
+      "feature_ids": [],
+      "reason": "No corresponding mode/controller/function in the frozen 0.3.1 implementation; reference exposure is not implementation evidence."
+    },
+    {
+      "capability_id": "el506.formula.f2",
+      "classification": "missing",
+      "feature_ids": [],
+      "reason": "No corresponding mode/controller/function in the frozen 0.3.1 implementation; reference exposure is not implementation evidence."
+    },
+    {
+      "capability_id": "el506.formula.f3",
+      "classification": "missing",
+      "feature_ids": [],
+      "reason": "No corresponding mode/controller/function in the frozen 0.3.1 implementation; reference exposure is not implementation evidence."
+    },
+    {
+      "capability_id": "el506.formula.f4",
+      "classification": "missing",
+      "feature_ids": [],
+      "reason": "No corresponding mode/controller/function in the frozen 0.3.1 implementation; reference exposure is not implementation evidence."
+    },
+    {
+      "capability_id": "el506.second.el506-k12",
+      "classification": "missing",
+      "feature_ids": [],
+      "reason": "No corresponding mode/controller/function in the frozen 0.3.1 implementation; reference exposure is not implementation evidence."
+    },
+    {
+      "capability_id": "el506.second.el506-k13",
+      "classification": "partial",
+      "feature_ids": [
+        "data-second-insert:asin("
+      ],
+      "reason": "Related legacy functionality exists, but the canonical key/mode sequence, displays, state rules or precision are incomplete/unverified. No full parity claim."
+    },
+    {
+      "capability_id": "el506.second.el506-k14",
+      "classification": "partial",
+      "feature_ids": [
+        "data-second-insert:acos("
+      ],
+      "reason": "Related legacy functionality exists, but the canonical key/mode sequence, displays, state rules or precision are incomplete/unverified. No full parity claim."
+    },
+    {
+      "capability_id": "el506.second.el506-k15",
+      "classification": "partial",
+      "feature_ids": [
+        "data-second-insert:atan("
+      ],
+      "reason": "Related legacy functionality exists, but the canonical key/mode sequence, displays, state rules or precision are incomplete/unverified. No full parity claim."
+    },
+    {
+      "capability_id": "el506.second.el506-k16",
+      "classification": "missing",
+      "feature_ids": [],
+      "reason": "No corresponding mode/controller/function in the frozen 0.3.1 implementation; reference exposure is not implementation evidence."
+    },
+    {
+      "capability_id": "el506.second.el506-k17",
+      "classification": "missing",
+      "feature_ids": [],
+      "reason": "No corresponding mode/controller/function in the frozen 0.3.1 implementation; reference exposure is not implementation evidence."
+    },
+    {
+      "capability_id": "el506.second.el506-k18",
+      "classification": "partial",
+      "feature_ids": [
+        "data-second-action:reciprocal"
+      ],
+      "reason": "Related legacy functionality exists, but the canonical key/mode sequence, displays, state rules or precision are incomplete/unverified. No full parity claim."
+    },
+    {
+      "capability_id": "el506.second.el506-k19",
+      "classification": "partial",
+      "feature_ids": [
+        "data-second-action:root"
+      ],
+      "reason": "Related legacy functionality exists, but the canonical key/mode sequence, displays, state rules or precision are incomplete/unverified. No full parity claim."
+    },
+    {
+      "capability_id": "el506.second.el506-k20",
+      "classification": "partial",
+      "feature_ids": [
+        "data-insert:sqrt("
+      ],
+      "reason": "Related legacy functionality exists, but the canonical key/mode sequence, displays, state rules or precision are incomplete/unverified. No full parity claim."
+    },
+    {
+      "capability_id": "el506.second.el506-k21",
+      "classification": "partial",
+      "feature_ids": [
+        "data-second-insert:cbrt("
+      ],
+      "reason": "Related legacy functionality exists, but the canonical key/mode sequence, displays, state rules or precision are incomplete/unverified. No full parity claim."
+    },
+    {
+      "capability_id": "el506.second.el506-k22",
+      "classification": "partial",
+      "feature_ids": [
+        "data-second-insert:tenpow("
+      ],
+      "reason": "Related legacy functionality exists, but the canonical key/mode sequence, displays, state rules or precision are incomplete/unverified. No full parity claim."
+    },
+    {
+      "capability_id": "el506.second.el506-k23",
+      "classification": "partial",
+      "feature_ids": [
+        "data-second-insert:epow("
+      ],
+      "reason": "Related legacy functionality exists, but the canonical key/mode sequence, displays, state rules or precision are incomplete/unverified. No full parity claim."
+    },
+    {
+      "capability_id": "el506.second.el506-k24",
+      "classification": "partial",
+      "feature_ids": [
+        "data-action:fraction"
+      ],
+      "reason": "Related legacy functionality exists, but the canonical key/mode sequence, displays, state rules or precision are incomplete/unverified. No full parity claim."
+    },
+    {
+      "capability_id": "el506.second.el506-k25",
+      "classification": "partial",
+      "feature_ids": [
+        "data-action:fraction"
+      ],
+      "reason": "Related legacy functionality exists, but the canonical key/mode sequence, displays, state rules or precision are incomplete/unverified. No full parity claim."
+    },
+    {
+      "capability_id": "el506.second.el506-k26",
+      "classification": "partial",
+      "feature_ids": [
+        "data-action:dms"
+      ],
+      "reason": "Related legacy functionality exists, but the canonical key/mode sequence, displays, state rules or precision are incomplete/unverified. No full parity claim."
+    },
+    {
+      "capability_id": "el506.second.el506-k29",
+      "classification": "partial",
+      "feature_ids": [
+        "data-second-action:memory-subtract"
+      ],
+      "reason": "Related legacy functionality exists, but the canonical key/mode sequence, displays, state rules or precision are incomplete/unverified. No full parity claim."
+    },
+    {
+      "capability_id": "el506.second.el506-k30",
+      "classification": "missing",
+      "feature_ids": [],
+      "reason": "No corresponding mode/controller/function in the frozen 0.3.1 implementation; reference exposure is not implementation evidence."
+    },
+    {
+      "capability_id": "el506.second.el506-k31",
+      "classification": "missing",
+      "feature_ids": [],
+      "reason": "No corresponding mode/controller/function in the frozen 0.3.1 implementation; reference exposure is not implementation evidence."
+    },
+    {
+      "capability_id": "el506.second.el506-k32",
+      "classification": "missing",
+      "feature_ids": [],
+      "reason": "No corresponding mode/controller/function in the frozen 0.3.1 implementation; reference exposure is not implementation evidence."
+    },
+    {
+      "capability_id": "el506.second.el506-k33",
+      "classification": "missing",
+      "feature_ids": [],
+      "reason": "No corresponding mode/controller/function in the frozen 0.3.1 implementation; reference exposure is not implementation evidence."
+    },
+    {
+      "capability_id": "el506.second.el506-k34",
+      "classification": "missing",
+      "feature_ids": [],
+      "reason": "No corresponding mode/controller/function in the frozen 0.3.1 implementation; reference exposure is not implementation evidence."
+    },
+    {
+      "capability_id": "el506.second.el506-k35",
+      "classification": "partial",
+      "feature_ids": [
+        "data-second-action:factorial"
+      ],
+      "reason": "Related legacy functionality exists, but the canonical key/mode sequence, displays, state rules or precision are incomplete/unverified. No full parity claim."
+    },
+    {
+      "capability_id": "el506.second.el506-k36",
+      "classification": "partial",
+      "feature_ids": [
+        "data-second-action:ncr"
+      ],
+      "reason": "Related legacy functionality exists, but the canonical key/mode sequence, displays, state rules or precision are incomplete/unverified. No full parity claim."
+    },
+    {
+      "capability_id": "el506.second.el506-k37",
+      "classification": "partial",
+      "feature_ids": [
+        "data-second-action:npr"
+      ],
+      "reason": "Related legacy functionality exists, but the canonical key/mode sequence, displays, state rules or precision are incomplete/unverified. No full parity claim."
+    },
+    {
+      "capability_id": "el506.second.el506-k38",
+      "classification": "missing",
+      "feature_ids": [],
+      "reason": "No corresponding mode/controller/function in the frozen 0.3.1 implementation; reference exposure is not implementation evidence."
+    },
+    {
+      "capability_id": "el506.second.el506-k39",
+      "classification": "missing",
+      "feature_ids": [],
+      "reason": "No corresponding mode/controller/function in the frozen 0.3.1 implementation; reference exposure is not implementation evidence."
+    },
+    {
+      "capability_id": "el506.second.el506-k40",
+      "classification": "partial",
+      "feature_ids": [
+        "data-action:percent"
+      ],
+      "reason": "Related legacy functionality exists, but the canonical key/mode sequence, displays, state rules or precision are incomplete/unverified. No full parity claim."
+    },
+    {
+      "capability_id": "el506.second.el506-k41",
+      "classification": "missing",
+      "feature_ids": [],
+      "reason": "No corresponding mode/controller/function in the frozen 0.3.1 implementation; reference exposure is not implementation evidence."
+    },
+    {
+      "capability_id": "el506.second.el506-k42",
+      "classification": "missing",
+      "feature_ids": [],
+      "reason": "No corresponding mode/controller/function in the frozen 0.3.1 implementation; reference exposure is not implementation evidence."
+    },
+    {
+      "capability_id": "el506.second.el506-k43",
+      "classification": "missing",
+      "feature_ids": [],
+      "reason": "No corresponding mode/controller/function in the frozen 0.3.1 implementation; reference exposure is not implementation evidence."
+    },
+    {
+      "capability_id": "el506.second.el506-k44",
+      "classification": "missing",
+      "feature_ids": [],
+      "reason": "No corresponding mode/controller/function in the frozen 0.3.1 implementation; reference exposure is not implementation evidence."
+    },
+    {
+      "capability_id": "el506.second.el506-k45",
+      "classification": "missing",
+      "feature_ids": [],
+      "reason": "No corresponding mode/controller/function in the frozen 0.3.1 implementation; reference exposure is not implementation evidence."
+    },
+    {
+      "capability_id": "el506.second.el506-k46",
+      "classification": "partial",
+      "feature_ids": [
+        "data-action:angle"
+      ],
+      "reason": "Related legacy functionality exists, but the canonical key/mode sequence, displays, state rules or precision are incomplete/unverified. No full parity claim."
+    },
+    {
+      "capability_id": "el506.second.el506-k47",
+      "classification": "missing",
+      "feature_ids": [],
+      "reason": "No corresponding mode/controller/function in the frozen 0.3.1 implementation; reference exposure is not implementation evidence."
+    },
+    {
+      "capability_id": "el506.second.el506-k48",
+      "classification": "missing",
+      "feature_ids": [],
+      "reason": "No corresponding mode/controller/function in the frozen 0.3.1 implementation; reference exposure is not implementation evidence."
+    },
+    {
+      "capability_id": "el506.alpha.el506-k18",
+      "classification": "missing",
+      "feature_ids": [],
+      "reason": "No corresponding mode/controller/function in the frozen 0.3.1 implementation; reference exposure is not implementation evidence."
+    },
+    {
+      "capability_id": "el506.alpha.el506-k19",
+      "classification": "missing",
+      "feature_ids": [],
+      "reason": "No corresponding mode/controller/function in the frozen 0.3.1 implementation; reference exposure is not implementation evidence."
+    },
+    {
+      "capability_id": "el506.alpha.el506-k20",
+      "classification": "missing",
+      "feature_ids": [],
+      "reason": "No corresponding mode/controller/function in the frozen 0.3.1 implementation; reference exposure is not implementation evidence."
+    },
+    {
+      "capability_id": "el506.alpha.el506-k21",
+      "classification": "missing",
+      "feature_ids": [],
+      "reason": "No corresponding mode/controller/function in the frozen 0.3.1 implementation; reference exposure is not implementation evidence."
+    },
+    {
+      "capability_id": "el506.alpha.el506-k22",
+      "classification": "missing",
+      "feature_ids": [],
+      "reason": "No corresponding mode/controller/function in the frozen 0.3.1 implementation; reference exposure is not implementation evidence."
+    },
+    {
+      "capability_id": "el506.alpha.el506-k23",
+      "classification": "missing",
+      "feature_ids": [],
+      "reason": "No corresponding mode/controller/function in the frozen 0.3.1 implementation; reference exposure is not implementation evidence."
+    },
+    {
+      "capability_id": "el506.alpha.el506-k27",
+      "classification": "missing",
+      "feature_ids": [],
+      "reason": "No corresponding mode/controller/function in the frozen 0.3.1 implementation; reference exposure is not implementation evidence."
+    },
+    {
+      "capability_id": "el506.alpha.el506-k28",
+      "classification": "missing",
+      "feature_ids": [],
+      "reason": "No corresponding mode/controller/function in the frozen 0.3.1 implementation; reference exposure is not implementation evidence."
+    },
+    {
+      "capability_id": "el506.alpha.el506-k29",
+      "classification": "missing",
+      "feature_ids": [],
+      "reason": "No corresponding mode/controller/function in the frozen 0.3.1 implementation; reference exposure is not implementation evidence."
+    },
+    {
+      "capability_id": "el506.alpha.el506-k30",
+      "classification": "missing",
+      "feature_ids": [],
+      "reason": "No corresponding mode/controller/function in the frozen 0.3.1 implementation; reference exposure is not implementation evidence."
+    },
+    {
+      "capability_id": "el506.alpha.el506-k31",
+      "classification": "missing",
+      "feature_ids": [],
+      "reason": "No corresponding mode/controller/function in the frozen 0.3.1 implementation; reference exposure is not implementation evidence."
+    },
+    {
+      "capability_id": "el506.alpha.el506-k32",
+      "classification": "missing",
+      "feature_ids": [],
+      "reason": "No corresponding mode/controller/function in the frozen 0.3.1 implementation; reference exposure is not implementation evidence."
+    },
+    {
+      "capability_id": "el506.alpha.el506-k33",
+      "classification": "missing",
+      "feature_ids": [],
+      "reason": "No corresponding mode/controller/function in the frozen 0.3.1 implementation; reference exposure is not implementation evidence."
+    },
+    {
+      "capability_id": "el506.alpha.el506-k34",
+      "classification": "missing",
+      "feature_ids": [],
+      "reason": "No corresponding mode/controller/function in the frozen 0.3.1 implementation; reference exposure is not implementation evidence."
+    },
+    {
+      "capability_id": "el506.alpha.el506-k35",
+      "classification": "partial",
+      "feature_ids": [
+        "data-second-action:stats-mean"
+      ],
+      "reason": "Related legacy functionality exists, but the canonical key/mode sequence, displays, state rules or precision are incomplete/unverified. No full parity claim."
+    },
+    {
+      "capability_id": "el506.alpha.el506-k36",
+      "classification": "partial",
+      "feature_ids": [
+        "data-second-action:stats-stddev"
+      ],
+      "reason": "Related legacy functionality exists, but the canonical key/mode sequence, displays, state rules or precision are incomplete/unverified. No full parity claim."
+    },
+    {
+      "capability_id": "el506.alpha.el506-k37",
+      "classification": "missing",
+      "feature_ids": [],
+      "reason": "No corresponding mode/controller/function in the frozen 0.3.1 implementation; reference exposure is not implementation evidence."
+    },
+    {
+      "capability_id": "el506.alpha.el506-k38",
+      "classification": "missing",
+      "feature_ids": [],
+      "reason": "No corresponding mode/controller/function in the frozen 0.3.1 implementation; reference exposure is not implementation evidence."
+    },
+    {
+      "capability_id": "el506.alpha.el506-k39",
+      "classification": "missing",
+      "feature_ids": [],
+      "reason": "No corresponding mode/controller/function in the frozen 0.3.1 implementation; reference exposure is not implementation evidence."
+    },
+    {
+      "capability_id": "el506.alpha.el506-k40",
+      "classification": "missing",
+      "feature_ids": [],
+      "reason": "No corresponding mode/controller/function in the frozen 0.3.1 implementation; reference exposure is not implementation evidence."
+    },
+    {
+      "capability_id": "el506.alpha.el506-k41",
+      "classification": "missing",
+      "feature_ids": [],
+      "reason": "No corresponding mode/controller/function in the frozen 0.3.1 implementation; reference exposure is not implementation evidence."
+    },
+    {
+      "capability_id": "el506.alpha.el506-k42",
+      "classification": "missing",
+      "feature_ids": [],
+      "reason": "No corresponding mode/controller/function in the frozen 0.3.1 implementation; reference exposure is not implementation evidence."
+    },
+    {
+      "capability_id": "el506.alpha.el506-k45",
+      "classification": "partial",
+      "feature_ids": [
+        "data-second-action:stats-count"
+      ],
+      "reason": "Related legacy functionality exists, but the canonical key/mode sequence, displays, state rules or precision are incomplete/unverified. No full parity claim."
+    },
+    {
+      "capability_id": "el506.alpha.el506-k46",
+      "classification": "partial",
+      "feature_ids": [
+        "data-second-action:stats-sum"
+      ],
+      "reason": "Related legacy functionality exists, but the canonical key/mode sequence, displays, state rules or precision are incomplete/unverified. No full parity claim."
+    },
+    {
+      "capability_id": "el506.alpha.el506-k47",
+      "classification": "partial",
+      "feature_ids": [
+        "data-second-action:stats-sum-squares"
+      ],
+      "reason": "Related legacy functionality exists, but the canonical key/mode sequence, displays, state rules or precision are incomplete/unverified. No full parity claim."
+    },
+    {
+      "capability_id": "el506.alpha.el506-k48",
+      "classification": "partial",
+      "feature_ids": [
+        "data-action:equals"
+      ],
+      "reason": "Related legacy functionality exists, but the canonical key/mode sequence, displays, state rules or precision are incomplete/unverified. No full parity claim."
+    },
+    {
+      "capability_id": "el506.context.stat.data-separator",
+      "classification": "missing",
+      "feature_ids": [],
+      "reason": "No corresponding mode/controller/function in the frozen 0.3.1 implementation; reference exposure is not implementation evidence."
+    },
+    {
+      "capability_id": "el506.context.stat.second.33",
+      "classification": "missing",
+      "feature_ids": [],
+      "reason": "No corresponding mode/controller/function in the frozen 0.3.1 implementation; reference exposure is not implementation evidence."
+    },
+    {
+      "capability_id": "el506.context.stat.second.34",
+      "classification": "missing",
+      "feature_ids": [],
+      "reason": "No corresponding mode/controller/function in the frozen 0.3.1 implementation; reference exposure is not implementation evidence."
+    },
+    {
+      "capability_id": "el506.context.nbase.12",
+      "classification": "missing",
+      "feature_ids": [],
+      "reason": "No corresponding mode/controller/function in the frozen 0.3.1 implementation; reference exposure is not implementation evidence."
+    },
+    {
+      "capability_id": "el506.context.nbase.13",
+      "classification": "missing",
+      "feature_ids": [],
+      "reason": "No corresponding mode/controller/function in the frozen 0.3.1 implementation; reference exposure is not implementation evidence."
+    },
+    {
+      "capability_id": "el506.context.nbase.14",
+      "classification": "missing",
+      "feature_ids": [],
+      "reason": "No corresponding mode/controller/function in the frozen 0.3.1 implementation; reference exposure is not implementation evidence."
+    },
+    {
+      "capability_id": "el506.context.nbase.15",
+      "classification": "missing",
+      "feature_ids": [],
+      "reason": "No corresponding mode/controller/function in the frozen 0.3.1 implementation; reference exposure is not implementation evidence."
+    },
+    {
+      "capability_id": "el506.context.nbase.16",
+      "classification": "missing",
+      "feature_ids": [],
+      "reason": "No corresponding mode/controller/function in the frozen 0.3.1 implementation; reference exposure is not implementation evidence."
+    },
+    {
+      "capability_id": "el506.context.nbase.47",
+      "classification": "missing",
+      "feature_ids": [],
+      "reason": "No corresponding mode/controller/function in the frozen 0.3.1 implementation; reference exposure is not implementation evidence."
+    },
+    {
+      "capability_id": "el506.hyp.13",
+      "classification": "missing",
+      "feature_ids": [],
+      "reason": "No corresponding mode/controller/function in the frozen 0.3.1 implementation; reference exposure is not implementation evidence."
+    },
+    {
+      "capability_id": "el506.hyp.13.inverse",
+      "classification": "missing",
+      "feature_ids": [],
+      "reason": "No corresponding mode/controller/function in the frozen 0.3.1 implementation; reference exposure is not implementation evidence."
+    },
+    {
+      "capability_id": "el506.hyp.14",
+      "classification": "missing",
+      "feature_ids": [],
+      "reason": "No corresponding mode/controller/function in the frozen 0.3.1 implementation; reference exposure is not implementation evidence."
+    },
+    {
+      "capability_id": "el506.hyp.14.inverse",
+      "classification": "missing",
+      "feature_ids": [],
+      "reason": "No corresponding mode/controller/function in the frozen 0.3.1 implementation; reference exposure is not implementation evidence."
+    },
+    {
+      "capability_id": "el506.hyp.15",
+      "classification": "missing",
+      "feature_ids": [],
+      "reason": "No corresponding mode/controller/function in the frozen 0.3.1 implementation; reference exposure is not implementation evidence."
+    },
+    {
+      "capability_id": "el506.hyp.15.inverse",
+      "classification": "missing",
+      "feature_ids": [],
+      "reason": "No corresponding mode/controller/function in the frozen 0.3.1 implementation; reference exposure is not implementation evidence."
+    },
+    {
+      "capability_id": "el506.mode.normal",
+      "classification": "partial",
+      "feature_ids": [
+        "decimal-parser"
+      ],
+      "reason": "Related legacy functionality exists, but the canonical key/mode sequence, displays, state rules or precision are incomplete/unverified. No full parity claim."
+    },
+    {
+      "capability_id": "el506.mode.stat",
+      "classification": "missing",
+      "feature_ids": [],
+      "reason": "No corresponding mode/controller/function in the frozen 0.3.1 implementation; reference exposure is not implementation evidence."
+    },
+    {
+      "capability_id": "el506.mode.eqn",
+      "classification": "missing",
+      "feature_ids": [],
+      "reason": "No corresponding mode/controller/function in the frozen 0.3.1 implementation; reference exposure is not implementation evidence."
+    },
+    {
+      "capability_id": "el506.mode.cplx",
+      "classification": "missing",
+      "feature_ids": [],
+      "reason": "No corresponding mode/controller/function in the frozen 0.3.1 implementation; reference exposure is not implementation evidence."
+    },
+    {
+      "capability_id": "el506.mode.mat",
+      "classification": "missing",
+      "feature_ids": [],
+      "reason": "No corresponding mode/controller/function in the frozen 0.3.1 implementation; reference exposure is not implementation evidence."
+    },
+    {
+      "capability_id": "el506.mode.list",
+      "classification": "missing",
+      "feature_ids": [],
+      "reason": "No corresponding mode/controller/function in the frozen 0.3.1 implementation; reference exposure is not implementation evidence."
+    },
+    {
+      "capability_id": "el506.stat.submode.sd",
+      "classification": "missing",
+      "feature_ids": [],
+      "reason": "No corresponding mode/controller/function in the frozen 0.3.1 implementation; reference exposure is not implementation evidence."
+    },
+    {
+      "capability_id": "el506.stat.submode.line",
+      "classification": "missing",
+      "feature_ids": [],
+      "reason": "No corresponding mode/controller/function in the frozen 0.3.1 implementation; reference exposure is not implementation evidence."
+    },
+    {
+      "capability_id": "el506.stat.submode.quad",
+      "classification": "missing",
+      "feature_ids": [],
+      "reason": "No corresponding mode/controller/function in the frozen 0.3.1 implementation; reference exposure is not implementation evidence."
+    },
+    {
+      "capability_id": "el506.stat.submode.exp",
+      "classification": "missing",
+      "feature_ids": [],
+      "reason": "No corresponding mode/controller/function in the frozen 0.3.1 implementation; reference exposure is not implementation evidence."
+    },
+    {
+      "capability_id": "el506.stat.submode.log",
+      "classification": "missing",
+      "feature_ids": [],
+      "reason": "No corresponding mode/controller/function in the frozen 0.3.1 implementation; reference exposure is not implementation evidence."
+    },
+    {
+      "capability_id": "el506.stat.submode.pwr",
+      "classification": "missing",
+      "feature_ids": [],
+      "reason": "No corresponding mode/controller/function in the frozen 0.3.1 implementation; reference exposure is not implementation evidence."
+    },
+    {
+      "capability_id": "el506.stat.submode.inv",
+      "classification": "missing",
+      "feature_ids": [],
+      "reason": "No corresponding mode/controller/function in the frozen 0.3.1 implementation; reference exposure is not implementation evidence."
+    },
+    {
+      "capability_id": "el506.eqn.0",
+      "classification": "missing",
+      "feature_ids": [],
+      "reason": "No corresponding mode/controller/function in the frozen 0.3.1 implementation; reference exposure is not implementation evidence."
+    },
+    {
+      "capability_id": "el506.eqn.1",
+      "classification": "missing",
+      "feature_ids": [],
+      "reason": "No corresponding mode/controller/function in the frozen 0.3.1 implementation; reference exposure is not implementation evidence."
+    },
+    {
+      "capability_id": "el506.eqn.2",
+      "classification": "missing",
+      "feature_ids": [],
+      "reason": "No corresponding mode/controller/function in the frozen 0.3.1 implementation; reference exposure is not implementation evidence."
+    },
+    {
+      "capability_id": "el506.eqn.3",
+      "classification": "missing",
+      "feature_ids": [],
+      "reason": "No corresponding mode/controller/function in the frozen 0.3.1 implementation; reference exposure is not implementation evidence."
+    },
+    {
+      "capability_id": "el506.setup.angle.deg",
+      "classification": "partial",
+      "feature_ids": [
+        "data-action:angle"
+      ],
+      "reason": "Related legacy functionality exists, but the canonical key/mode sequence, displays, state rules or precision are incomplete/unverified. No full parity claim."
+    },
+    {
+      "capability_id": "el506.setup.angle.rad",
+      "classification": "partial",
+      "feature_ids": [
+        "data-action:angle"
+      ],
+      "reason": "Related legacy functionality exists, but the canonical key/mode sequence, displays, state rules or precision are incomplete/unverified. No full parity claim."
+    },
+    {
+      "capability_id": "el506.setup.angle.grad",
+      "classification": "missing",
+      "feature_ids": [],
+      "reason": "No corresponding mode/controller/function in the frozen 0.3.1 implementation; reference exposure is not implementation evidence."
+    },
+    {
+      "capability_id": "el506.setup.format.fix",
+      "classification": "missing",
+      "feature_ids": [],
+      "reason": "No corresponding mode/controller/function in the frozen 0.3.1 implementation; reference exposure is not implementation evidence."
+    },
+    {
+      "capability_id": "el506.setup.format.sci",
+      "classification": "missing",
+      "feature_ids": [],
+      "reason": "No corresponding mode/controller/function in the frozen 0.3.1 implementation; reference exposure is not implementation evidence."
+    },
+    {
+      "capability_id": "el506.setup.format.eng",
+      "classification": "missing",
+      "feature_ids": [],
+      "reason": "No corresponding mode/controller/function in the frozen 0.3.1 implementation; reference exposure is not implementation evidence."
+    },
+    {
+      "capability_id": "el506.setup.format.norm1",
+      "classification": "missing",
+      "feature_ids": [],
+      "reason": "No corresponding mode/controller/function in the frozen 0.3.1 implementation; reference exposure is not implementation evidence."
+    },
+    {
+      "capability_id": "el506.setup.format.norm2",
+      "classification": "missing",
+      "feature_ids": [],
+      "reason": "No corresponding mode/controller/function in the frozen 0.3.1 implementation; reference exposure is not implementation evidence."
+    },
+    {
+      "capability_id": "el506.setup.tab.0",
+      "classification": "missing",
+      "feature_ids": [],
+      "reason": "No corresponding mode/controller/function in the frozen 0.3.1 implementation; reference exposure is not implementation evidence."
+    },
+    {
+      "capability_id": "el506.setup.tab.1",
+      "classification": "missing",
+      "feature_ids": [],
+      "reason": "No corresponding mode/controller/function in the frozen 0.3.1 implementation; reference exposure is not implementation evidence."
+    },
+    {
+      "capability_id": "el506.setup.tab.2",
+      "classification": "missing",
+      "feature_ids": [],
+      "reason": "No corresponding mode/controller/function in the frozen 0.3.1 implementation; reference exposure is not implementation evidence."
+    },
+    {
+      "capability_id": "el506.setup.tab.3",
+      "classification": "missing",
+      "feature_ids": [],
+      "reason": "No corresponding mode/controller/function in the frozen 0.3.1 implementation; reference exposure is not implementation evidence."
+    },
+    {
+      "capability_id": "el506.setup.tab.4",
+      "classification": "missing",
+      "feature_ids": [],
+      "reason": "No corresponding mode/controller/function in the frozen 0.3.1 implementation; reference exposure is not implementation evidence."
+    },
+    {
+      "capability_id": "el506.setup.tab.5",
+      "classification": "missing",
+      "feature_ids": [],
+      "reason": "No corresponding mode/controller/function in the frozen 0.3.1 implementation; reference exposure is not implementation evidence."
+    },
+    {
+      "capability_id": "el506.setup.tab.6",
+      "classification": "missing",
+      "feature_ids": [],
+      "reason": "No corresponding mode/controller/function in the frozen 0.3.1 implementation; reference exposure is not implementation evidence."
+    },
+    {
+      "capability_id": "el506.setup.tab.7",
+      "classification": "missing",
+      "feature_ids": [],
+      "reason": "No corresponding mode/controller/function in the frozen 0.3.1 implementation; reference exposure is not implementation evidence."
+    },
+    {
+      "capability_id": "el506.setup.tab.8",
+      "classification": "missing",
+      "feature_ids": [],
+      "reason": "No corresponding mode/controller/function in the frozen 0.3.1 implementation; reference exposure is not implementation evidence."
+    },
+    {
+      "capability_id": "el506.setup.tab.9",
+      "classification": "missing",
+      "feature_ids": [],
+      "reason": "No corresponding mode/controller/function in the frozen 0.3.1 implementation; reference exposure is not implementation evidence."
+    },
+    {
+      "capability_id": "el506.normal.solv",
+      "classification": "missing",
+      "feature_ids": [],
+      "reason": "No corresponding mode/controller/function in the frozen 0.3.1 implementation; reference exposure is not implementation evidence."
+    },
+    {
+      "capability_id": "el506.normal.eng",
+      "classification": "missing",
+      "feature_ids": [],
+      "reason": "No corresponding mode/controller/function in the frozen 0.3.1 implementation; reference exposure is not implementation evidence."
+    },
+    {
+      "capability_id": "el506.normal.to-seconds",
+      "classification": "missing",
+      "feature_ids": [],
+      "reason": "No corresponding mode/controller/function in the frozen 0.3.1 implementation; reference exposure is not implementation evidence."
+    },
+    {
+      "capability_id": "el506.normal.to-minutes",
+      "classification": "missing",
+      "feature_ids": [],
+      "reason": "No corresponding mode/controller/function in the frozen 0.3.1 implementation; reference exposure is not implementation evidence."
+    },
+    {
+      "capability_id": "el506.engineering.k",
+      "classification": "missing",
+      "feature_ids": [],
+      "reason": "No corresponding mode/controller/function in the frozen 0.3.1 implementation; reference exposure is not implementation evidence."
+    },
+    {
+      "capability_id": "el506.engineering.mega",
+      "classification": "missing",
+      "feature_ids": [],
+      "reason": "No corresponding mode/controller/function in the frozen 0.3.1 implementation; reference exposure is not implementation evidence."
+    },
+    {
+      "capability_id": "el506.engineering.g",
+      "classification": "missing",
+      "feature_ids": [],
+      "reason": "No corresponding mode/controller/function in the frozen 0.3.1 implementation; reference exposure is not implementation evidence."
+    },
+    {
+      "capability_id": "el506.engineering.t",
+      "classification": "missing",
+      "feature_ids": [],
+      "reason": "No corresponding mode/controller/function in the frozen 0.3.1 implementation; reference exposure is not implementation evidence."
+    },
+    {
+      "capability_id": "el506.engineering.milli",
+      "classification": "missing",
+      "feature_ids": [],
+      "reason": "No corresponding mode/controller/function in the frozen 0.3.1 implementation; reference exposure is not implementation evidence."
+    },
+    {
+      "capability_id": "el506.engineering.micro",
+      "classification": "missing",
+      "feature_ids": [],
+      "reason": "No corresponding mode/controller/function in the frozen 0.3.1 implementation; reference exposure is not implementation evidence."
+    },
+    {
+      "capability_id": "el506.engineering.n",
+      "classification": "missing",
+      "feature_ids": [],
+      "reason": "No corresponding mode/controller/function in the frozen 0.3.1 implementation; reference exposure is not implementation evidence."
+    },
+    {
+      "capability_id": "el506.engineering.p",
+      "classification": "missing",
+      "feature_ids": [],
+      "reason": "No corresponding mode/controller/function in the frozen 0.3.1 implementation; reference exposure is not implementation evidence."
+    },
+    {
+      "capability_id": "el506.engineering.f",
+      "classification": "missing",
+      "feature_ids": [],
+      "reason": "No corresponding mode/controller/function in the frozen 0.3.1 implementation; reference exposure is not implementation evidence."
+    },
+    {
+      "capability_id": "el506.probability.to-t",
+      "classification": "missing",
+      "feature_ids": [],
+      "reason": "No corresponding mode/controller/function in the frozen 0.3.1 implementation; reference exposure is not implementation evidence."
+    },
+    {
+      "capability_id": "el506.probability.p",
+      "classification": "missing",
+      "feature_ids": [],
+      "reason": "No corresponding mode/controller/function in the frozen 0.3.1 implementation; reference exposure is not implementation evidence."
+    },
+    {
+      "capability_id": "el506.probability.q",
+      "classification": "missing",
+      "feature_ids": [],
+      "reason": "No corresponding mode/controller/function in the frozen 0.3.1 implementation; reference exposure is not implementation evidence."
+    },
+    {
+      "capability_id": "el506.probability.r",
+      "classification": "missing",
+      "feature_ids": [],
+      "reason": "No corresponding mode/controller/function in the frozen 0.3.1 implementation; reference exposure is not implementation evidence."
+    },
+    {
+      "capability_id": "el506.complex.conj",
+      "classification": "missing",
+      "feature_ids": [],
+      "reason": "No corresponding mode/controller/function in the frozen 0.3.1 implementation; reference exposure is not implementation evidence."
+    },
+    {
+      "capability_id": "el506.matrix-root.mat",
+      "classification": "missing",
+      "feature_ids": [],
+      "reason": "No corresponding mode/controller/function in the frozen 0.3.1 implementation; reference exposure is not implementation evidence."
+    },
+    {
+      "capability_id": "el506.matrix-root.chk",
+      "classification": "missing",
+      "feature_ids": [],
+      "reason": "No corresponding mode/controller/function in the frozen 0.3.1 implementation; reference exposure is not implementation evidence."
+    },
+    {
+      "capability_id": "el506.matrix-root.sto",
+      "classification": "missing",
+      "feature_ids": [],
+      "reason": "No corresponding mode/controller/function in the frozen 0.3.1 implementation; reference exposure is not implementation evidence."
+    },
+    {
+      "capability_id": "el506.matrix-root.ope",
+      "classification": "missing",
+      "feature_ids": [],
+      "reason": "No corresponding mode/controller/function in the frozen 0.3.1 implementation; reference exposure is not implementation evidence."
+    },
+    {
+      "capability_id": "el506.matrix-root.math",
+      "classification": "missing",
+      "feature_ids": [],
+      "reason": "No corresponding mode/controller/function in the frozen 0.3.1 implementation; reference exposure is not implementation evidence."
+    },
+    {
+      "capability_id": "el506.matrix-root.mat-to-list",
+      "classification": "missing",
+      "feature_ids": [],
+      "reason": "No corresponding mode/controller/function in the frozen 0.3.1 implementation; reference exposure is not implementation evidence."
+    },
+    {
+      "capability_id": "el506.matrix-root.mata-to-list",
+      "classification": "missing",
+      "feature_ids": [],
+      "reason": "No corresponding mode/controller/function in the frozen 0.3.1 implementation; reference exposure is not implementation evidence."
+    },
+    {
+      "capability_id": "el506.matrix-ope.dim",
+      "classification": "missing",
+      "feature_ids": [],
+      "reason": "No corresponding mode/controller/function in the frozen 0.3.1 implementation; reference exposure is not implementation evidence."
+    },
+    {
+      "capability_id": "el506.matrix-ope.fill",
+      "classification": "missing",
+      "feature_ids": [],
+      "reason": "No corresponding mode/controller/function in the frozen 0.3.1 implementation; reference exposure is not implementation evidence."
+    },
+    {
+      "capability_id": "el506.matrix-ope.cumul",
+      "classification": "missing",
+      "feature_ids": [],
+      "reason": "No corresponding mode/controller/function in the frozen 0.3.1 implementation; reference exposure is not implementation evidence."
+    },
+    {
+      "capability_id": "el506.matrix-ope.aug",
+      "classification": "missing",
+      "feature_ids": [],
+      "reason": "No corresponding mode/controller/function in the frozen 0.3.1 implementation; reference exposure is not implementation evidence."
+    },
+    {
+      "capability_id": "el506.matrix-ope.identity",
+      "classification": "missing",
+      "feature_ids": [],
+      "reason": "No corresponding mode/controller/function in the frozen 0.3.1 implementation; reference exposure is not implementation evidence."
+    },
+    {
+      "capability_id": "el506.matrix-ope.rnd-mat",
+      "classification": "missing",
+      "feature_ids": [],
+      "reason": "No corresponding mode/controller/function in the frozen 0.3.1 implementation; reference exposure is not implementation evidence."
+    },
+    {
+      "capability_id": "el506.matrix-math.det",
+      "classification": "missing",
+      "feature_ids": [],
+      "reason": "No corresponding mode/controller/function in the frozen 0.3.1 implementation; reference exposure is not implementation evidence."
+    },
+    {
+      "capability_id": "el506.matrix-math.trans",
+      "classification": "missing",
+      "feature_ids": [],
+      "reason": "No corresponding mode/controller/function in the frozen 0.3.1 implementation; reference exposure is not implementation evidence."
+    },
+    {
+      "capability_id": "el506.list-root.lst",
+      "classification": "missing",
+      "feature_ids": [],
+      "reason": "No corresponding mode/controller/function in the frozen 0.3.1 implementation; reference exposure is not implementation evidence."
+    },
+    {
+      "capability_id": "el506.list-root.chk",
+      "classification": "missing",
+      "feature_ids": [],
+      "reason": "No corresponding mode/controller/function in the frozen 0.3.1 implementation; reference exposure is not implementation evidence."
+    },
+    {
+      "capability_id": "el506.list-root.sto",
+      "classification": "missing",
+      "feature_ids": [],
+      "reason": "No corresponding mode/controller/function in the frozen 0.3.1 implementation; reference exposure is not implementation evidence."
+    },
+    {
+      "capability_id": "el506.list-root.ope",
+      "classification": "missing",
+      "feature_ids": [],
+      "reason": "No corresponding mode/controller/function in the frozen 0.3.1 implementation; reference exposure is not implementation evidence."
+    },
+    {
+      "capability_id": "el506.list-root.math",
+      "classification": "missing",
+      "feature_ids": [],
+      "reason": "No corresponding mode/controller/function in the frozen 0.3.1 implementation; reference exposure is not implementation evidence."
+    },
+    {
+      "capability_id": "el506.list-root.list-to-mat",
+      "classification": "missing",
+      "feature_ids": [],
+      "reason": "No corresponding mode/controller/function in the frozen 0.3.1 implementation; reference exposure is not implementation evidence."
+    },
+    {
+      "capability_id": "el506.list-root.list-to-mata",
+      "classification": "missing",
+      "feature_ids": [],
+      "reason": "No corresponding mode/controller/function in the frozen 0.3.1 implementation; reference exposure is not implementation evidence."
+    },
+    {
+      "capability_id": "el506.list-ope.sorta",
+      "classification": "missing",
+      "feature_ids": [],
+      "reason": "No corresponding mode/controller/function in the frozen 0.3.1 implementation; reference exposure is not implementation evidence."
+    },
+    {
+      "capability_id": "el506.list-ope.sortd",
+      "classification": "missing",
+      "feature_ids": [],
+      "reason": "No corresponding mode/controller/function in the frozen 0.3.1 implementation; reference exposure is not implementation evidence."
+    },
+    {
+      "capability_id": "el506.list-ope.dim",
+      "classification": "missing",
+      "feature_ids": [],
+      "reason": "No corresponding mode/controller/function in the frozen 0.3.1 implementation; reference exposure is not implementation evidence."
+    },
+    {
+      "capability_id": "el506.list-ope.fill",
+      "classification": "missing",
+      "feature_ids": [],
+      "reason": "No corresponding mode/controller/function in the frozen 0.3.1 implementation; reference exposure is not implementation evidence."
+    },
+    {
+      "capability_id": "el506.list-ope.cumul",
+      "classification": "missing",
+      "feature_ids": [],
+      "reason": "No corresponding mode/controller/function in the frozen 0.3.1 implementation; reference exposure is not implementation evidence."
+    },
+    {
+      "capability_id": "el506.list-ope.df-list",
+      "classification": "missing",
+      "feature_ids": [],
+      "reason": "No corresponding mode/controller/function in the frozen 0.3.1 implementation; reference exposure is not implementation evidence."
+    },
+    {
+      "capability_id": "el506.list-ope.aug",
+      "classification": "missing",
+      "feature_ids": [],
+      "reason": "No corresponding mode/controller/function in the frozen 0.3.1 implementation; reference exposure is not implementation evidence."
+    },
+    {
+      "capability_id": "el506.list-math.min",
+      "classification": "missing",
+      "feature_ids": [],
+      "reason": "No corresponding mode/controller/function in the frozen 0.3.1 implementation; reference exposure is not implementation evidence."
+    },
+    {
+      "capability_id": "el506.list-math.max",
+      "classification": "missing",
+      "feature_ids": [],
+      "reason": "No corresponding mode/controller/function in the frozen 0.3.1 implementation; reference exposure is not implementation evidence."
+    },
+    {
+      "capability_id": "el506.list-math.mean",
+      "classification": "missing",
+      "feature_ids": [],
+      "reason": "No corresponding mode/controller/function in the frozen 0.3.1 implementation; reference exposure is not implementation evidence."
+    },
+    {
+      "capability_id": "el506.list-math.med",
+      "classification": "missing",
+      "feature_ids": [],
+      "reason": "No corresponding mode/controller/function in the frozen 0.3.1 implementation; reference exposure is not implementation evidence."
+    },
+    {
+      "capability_id": "el506.list-math.sum",
+      "classification": "missing",
+      "feature_ids": [],
+      "reason": "No corresponding mode/controller/function in the frozen 0.3.1 implementation; reference exposure is not implementation evidence."
+    },
+    {
+      "capability_id": "el506.list-math.prod",
+      "classification": "missing",
+      "feature_ids": [],
+      "reason": "No corresponding mode/controller/function in the frozen 0.3.1 implementation; reference exposure is not implementation evidence."
+    },
+    {
+      "capability_id": "el506.list-math.stddv",
+      "classification": "missing",
+      "feature_ids": [],
+      "reason": "No corresponding mode/controller/function in the frozen 0.3.1 implementation; reference exposure is not implementation evidence."
+    },
+    {
+      "capability_id": "el506.list-math.vari",
+      "classification": "missing",
+      "feature_ids": [],
+      "reason": "No corresponding mode/controller/function in the frozen 0.3.1 implementation; reference exposure is not implementation evidence."
+    },
+    {
+      "capability_id": "el506.list-math.o-prod",
+      "classification": "missing",
+      "feature_ids": [],
+      "reason": "No corresponding mode/controller/function in the frozen 0.3.1 implementation; reference exposure is not implementation evidence."
+    },
+    {
+      "capability_id": "el506.list-math.i-prod",
+      "classification": "missing",
+      "feature_ids": [],
+      "reason": "No corresponding mode/controller/function in the frozen 0.3.1 implementation; reference exposure is not implementation evidence."
+    },
+    {
+      "capability_id": "el506.list-math.abs",
+      "classification": "missing",
+      "feature_ids": [],
+      "reason": "No corresponding mode/controller/function in the frozen 0.3.1 implementation; reference exposure is not implementation evidence."
+    },
+    {
+      "capability_id": "el506.random.rand",
+      "classification": "missing",
+      "feature_ids": [],
+      "reason": "No corresponding mode/controller/function in the frozen 0.3.1 implementation; reference exposure is not implementation evidence."
+    },
+    {
+      "capability_id": "el506.random.r-dice",
+      "classification": "missing",
+      "feature_ids": [],
+      "reason": "No corresponding mode/controller/function in the frozen 0.3.1 implementation; reference exposure is not implementation evidence."
+    },
+    {
+      "capability_id": "el506.random.r-coin",
+      "classification": "missing",
+      "feature_ids": [],
+      "reason": "No corresponding mode/controller/function in the frozen 0.3.1 implementation; reference exposure is not implementation evidence."
+    },
+    {
+      "capability_id": "el506.random.r-int",
+      "classification": "missing",
+      "feature_ids": [],
+      "reason": "No corresponding mode/controller/function in the frozen 0.3.1 implementation; reference exposure is not implementation evidence."
+    },
+    {
+      "capability_id": "el506.clear.mem",
+      "classification": "missing",
+      "feature_ids": [],
+      "reason": "No corresponding mode/controller/function in the frozen 0.3.1 implementation; reference exposure is not implementation evidence."
+    },
+    {
+      "capability_id": "el506.clear.reset",
+      "classification": "missing",
+      "feature_ids": [],
+      "reason": "No corresponding mode/controller/function in the frozen 0.3.1 implementation; reference exposure is not implementation evidence."
+    },
+    {
+      "capability_id": "el506.matrix.slot.a",
+      "classification": "missing",
+      "feature_ids": [],
+      "reason": "No corresponding mode/controller/function in the frozen 0.3.1 implementation; reference exposure is not implementation evidence."
+    },
+    {
+      "capability_id": "el506.list.slot.1",
+      "classification": "missing",
+      "feature_ids": [],
+      "reason": "No corresponding mode/controller/function in the frozen 0.3.1 implementation; reference exposure is not implementation evidence."
+    },
+    {
+      "capability_id": "el506.matrix.slot.b",
+      "classification": "missing",
+      "feature_ids": [],
+      "reason": "No corresponding mode/controller/function in the frozen 0.3.1 implementation; reference exposure is not implementation evidence."
+    },
+    {
+      "capability_id": "el506.list.slot.2",
+      "classification": "missing",
+      "feature_ids": [],
+      "reason": "No corresponding mode/controller/function in the frozen 0.3.1 implementation; reference exposure is not implementation evidence."
+    },
+    {
+      "capability_id": "el506.matrix.slot.c",
+      "classification": "missing",
+      "feature_ids": [],
+      "reason": "No corresponding mode/controller/function in the frozen 0.3.1 implementation; reference exposure is not implementation evidence."
+    },
+    {
+      "capability_id": "el506.list.slot.3",
+      "classification": "missing",
+      "feature_ids": [],
+      "reason": "No corresponding mode/controller/function in the frozen 0.3.1 implementation; reference exposure is not implementation evidence."
+    },
+    {
+      "capability_id": "el506.matrix.slot.d",
+      "classification": "missing",
+      "feature_ids": [],
+      "reason": "No corresponding mode/controller/function in the frozen 0.3.1 implementation; reference exposure is not implementation evidence."
+    },
+    {
+      "capability_id": "el506.list.slot.4",
+      "classification": "missing",
+      "feature_ids": [],
+      "reason": "No corresponding mode/controller/function in the frozen 0.3.1 implementation; reference exposure is not implementation evidence."
+    },
+    {
+      "capability_id": "el506.constant.01",
+      "classification": "missing",
+      "feature_ids": [],
+      "reason": "No corresponding mode/controller/function in the frozen 0.3.1 implementation; reference exposure is not implementation evidence."
+    },
+    {
+      "capability_id": "el506.constant.02",
+      "classification": "missing",
+      "feature_ids": [],
+      "reason": "No corresponding mode/controller/function in the frozen 0.3.1 implementation; reference exposure is not implementation evidence."
+    },
+    {
+      "capability_id": "el506.constant.03",
+      "classification": "missing",
+      "feature_ids": [],
+      "reason": "No corresponding mode/controller/function in the frozen 0.3.1 implementation; reference exposure is not implementation evidence."
+    },
+    {
+      "capability_id": "el506.constant.04",
+      "classification": "missing",
+      "feature_ids": [],
+      "reason": "No corresponding mode/controller/function in the frozen 0.3.1 implementation; reference exposure is not implementation evidence."
+    },
+    {
+      "capability_id": "el506.constant.05",
+      "classification": "missing",
+      "feature_ids": [],
+      "reason": "No corresponding mode/controller/function in the frozen 0.3.1 implementation; reference exposure is not implementation evidence."
+    },
+    {
+      "capability_id": "el506.constant.06",
+      "classification": "missing",
+      "feature_ids": [],
+      "reason": "No corresponding mode/controller/function in the frozen 0.3.1 implementation; reference exposure is not implementation evidence."
+    },
+    {
+      "capability_id": "el506.constant.07",
+      "classification": "missing",
+      "feature_ids": [],
+      "reason": "No corresponding mode/controller/function in the frozen 0.3.1 implementation; reference exposure is not implementation evidence."
+    },
+    {
+      "capability_id": "el506.constant.08",
+      "classification": "missing",
+      "feature_ids": [],
+      "reason": "No corresponding mode/controller/function in the frozen 0.3.1 implementation; reference exposure is not implementation evidence."
+    },
+    {
+      "capability_id": "el506.constant.09",
+      "classification": "missing",
+      "feature_ids": [],
+      "reason": "No corresponding mode/controller/function in the frozen 0.3.1 implementation; reference exposure is not implementation evidence."
+    },
+    {
+      "capability_id": "el506.constant.10",
+      "classification": "missing",
+      "feature_ids": [],
+      "reason": "No corresponding mode/controller/function in the frozen 0.3.1 implementation; reference exposure is not implementation evidence."
+    },
+    {
+      "capability_id": "el506.constant.11",
+      "classification": "missing",
+      "feature_ids": [],
+      "reason": "No corresponding mode/controller/function in the frozen 0.3.1 implementation; reference exposure is not implementation evidence."
+    },
+    {
+      "capability_id": "el506.constant.12",
+      "classification": "missing",
+      "feature_ids": [],
+      "reason": "No corresponding mode/controller/function in the frozen 0.3.1 implementation; reference exposure is not implementation evidence."
+    },
+    {
+      "capability_id": "el506.constant.13",
+      "classification": "missing",
+      "feature_ids": [],
+      "reason": "No corresponding mode/controller/function in the frozen 0.3.1 implementation; reference exposure is not implementation evidence."
+    },
+    {
+      "capability_id": "el506.constant.14",
+      "classification": "missing",
+      "feature_ids": [],
+      "reason": "No corresponding mode/controller/function in the frozen 0.3.1 implementation; reference exposure is not implementation evidence."
+    },
+    {
+      "capability_id": "el506.constant.15",
+      "classification": "missing",
+      "feature_ids": [],
+      "reason": "No corresponding mode/controller/function in the frozen 0.3.1 implementation; reference exposure is not implementation evidence."
+    },
+    {
+      "capability_id": "el506.constant.16",
+      "classification": "missing",
+      "feature_ids": [],
+      "reason": "No corresponding mode/controller/function in the frozen 0.3.1 implementation; reference exposure is not implementation evidence."
+    },
+    {
+      "capability_id": "el506.constant.17",
+      "classification": "missing",
+      "feature_ids": [],
+      "reason": "No corresponding mode/controller/function in the frozen 0.3.1 implementation; reference exposure is not implementation evidence."
+    },
+    {
+      "capability_id": "el506.constant.18",
+      "classification": "missing",
+      "feature_ids": [],
+      "reason": "No corresponding mode/controller/function in the frozen 0.3.1 implementation; reference exposure is not implementation evidence."
+    },
+    {
+      "capability_id": "el506.constant.19",
+      "classification": "missing",
+      "feature_ids": [],
+      "reason": "No corresponding mode/controller/function in the frozen 0.3.1 implementation; reference exposure is not implementation evidence."
+    },
+    {
+      "capability_id": "el506.constant.20",
+      "classification": "missing",
+      "feature_ids": [],
+      "reason": "No corresponding mode/controller/function in the frozen 0.3.1 implementation; reference exposure is not implementation evidence."
+    },
+    {
+      "capability_id": "el506.constant.21",
+      "classification": "missing",
+      "feature_ids": [],
+      "reason": "No corresponding mode/controller/function in the frozen 0.3.1 implementation; reference exposure is not implementation evidence."
+    },
+    {
+      "capability_id": "el506.constant.22",
+      "classification": "missing",
+      "feature_ids": [],
+      "reason": "No corresponding mode/controller/function in the frozen 0.3.1 implementation; reference exposure is not implementation evidence."
+    },
+    {
+      "capability_id": "el506.constant.23",
+      "classification": "missing",
+      "feature_ids": [],
+      "reason": "No corresponding mode/controller/function in the frozen 0.3.1 implementation; reference exposure is not implementation evidence."
+    },
+    {
+      "capability_id": "el506.constant.24",
+      "classification": "missing",
+      "feature_ids": [],
+      "reason": "No corresponding mode/controller/function in the frozen 0.3.1 implementation; reference exposure is not implementation evidence."
+    },
+    {
+      "capability_id": "el506.constant.25",
+      "classification": "missing",
+      "feature_ids": [],
+      "reason": "No corresponding mode/controller/function in the frozen 0.3.1 implementation; reference exposure is not implementation evidence."
+    },
+    {
+      "capability_id": "el506.constant.26",
+      "classification": "missing",
+      "feature_ids": [],
+      "reason": "No corresponding mode/controller/function in the frozen 0.3.1 implementation; reference exposure is not implementation evidence."
+    },
+    {
+      "capability_id": "el506.constant.27",
+      "classification": "missing",
+      "feature_ids": [],
+      "reason": "No corresponding mode/controller/function in the frozen 0.3.1 implementation; reference exposure is not implementation evidence."
+    },
+    {
+      "capability_id": "el506.constant.28",
+      "classification": "missing",
+      "feature_ids": [],
+      "reason": "No corresponding mode/controller/function in the frozen 0.3.1 implementation; reference exposure is not implementation evidence."
+    },
+    {
+      "capability_id": "el506.constant.29",
+      "classification": "missing",
+      "feature_ids": [],
+      "reason": "No corresponding mode/controller/function in the frozen 0.3.1 implementation; reference exposure is not implementation evidence."
+    },
+    {
+      "capability_id": "el506.constant.30",
+      "classification": "missing",
+      "feature_ids": [],
+      "reason": "No corresponding mode/controller/function in the frozen 0.3.1 implementation; reference exposure is not implementation evidence."
+    },
+    {
+      "capability_id": "el506.constant.31",
+      "classification": "missing",
+      "feature_ids": [],
+      "reason": "No corresponding mode/controller/function in the frozen 0.3.1 implementation; reference exposure is not implementation evidence."
+    },
+    {
+      "capability_id": "el506.constant.32",
+      "classification": "missing",
+      "feature_ids": [],
+      "reason": "No corresponding mode/controller/function in the frozen 0.3.1 implementation; reference exposure is not implementation evidence."
+    },
+    {
+      "capability_id": "el506.constant.33",
+      "classification": "missing",
+      "feature_ids": [],
+      "reason": "No corresponding mode/controller/function in the frozen 0.3.1 implementation; reference exposure is not implementation evidence."
+    },
+    {
+      "capability_id": "el506.constant.34",
+      "classification": "missing",
+      "feature_ids": [],
+      "reason": "No corresponding mode/controller/function in the frozen 0.3.1 implementation; reference exposure is not implementation evidence."
+    },
+    {
+      "capability_id": "el506.constant.35",
+      "classification": "missing",
+      "feature_ids": [],
+      "reason": "No corresponding mode/controller/function in the frozen 0.3.1 implementation; reference exposure is not implementation evidence."
+    },
+    {
+      "capability_id": "el506.constant.36",
+      "classification": "missing",
+      "feature_ids": [],
+      "reason": "No corresponding mode/controller/function in the frozen 0.3.1 implementation; reference exposure is not implementation evidence."
+    },
+    {
+      "capability_id": "el506.constant.37",
+      "classification": "missing",
+      "feature_ids": [],
+      "reason": "No corresponding mode/controller/function in the frozen 0.3.1 implementation; reference exposure is not implementation evidence."
+    },
+    {
+      "capability_id": "el506.constant.38",
+      "classification": "missing",
+      "feature_ids": [],
+      "reason": "No corresponding mode/controller/function in the frozen 0.3.1 implementation; reference exposure is not implementation evidence."
+    },
+    {
+      "capability_id": "el506.constant.39",
+      "classification": "missing",
+      "feature_ids": [],
+      "reason": "No corresponding mode/controller/function in the frozen 0.3.1 implementation; reference exposure is not implementation evidence."
+    },
+    {
+      "capability_id": "el506.constant.40",
+      "classification": "missing",
+      "feature_ids": [],
+      "reason": "No corresponding mode/controller/function in the frozen 0.3.1 implementation; reference exposure is not implementation evidence."
+    },
+    {
+      "capability_id": "el506.constant.41",
+      "classification": "missing",
+      "feature_ids": [],
+      "reason": "No corresponding mode/controller/function in the frozen 0.3.1 implementation; reference exposure is not implementation evidence."
+    },
+    {
+      "capability_id": "el506.constant.42",
+      "classification": "missing",
+      "feature_ids": [],
+      "reason": "No corresponding mode/controller/function in the frozen 0.3.1 implementation; reference exposure is not implementation evidence."
+    },
+    {
+      "capability_id": "el506.constant.43",
+      "classification": "missing",
+      "feature_ids": [],
+      "reason": "No corresponding mode/controller/function in the frozen 0.3.1 implementation; reference exposure is not implementation evidence."
+    },
+    {
+      "capability_id": "el506.constant.44",
+      "classification": "missing",
+      "feature_ids": [],
+      "reason": "No corresponding mode/controller/function in the frozen 0.3.1 implementation; reference exposure is not implementation evidence."
+    },
+    {
+      "capability_id": "el506.constant.45",
+      "classification": "missing",
+      "feature_ids": [],
+      "reason": "No corresponding mode/controller/function in the frozen 0.3.1 implementation; reference exposure is not implementation evidence."
+    },
+    {
+      "capability_id": "el506.constant.46",
+      "classification": "missing",
+      "feature_ids": [],
+      "reason": "No corresponding mode/controller/function in the frozen 0.3.1 implementation; reference exposure is not implementation evidence."
+    },
+    {
+      "capability_id": "el506.constant.47",
+      "classification": "missing",
+      "feature_ids": [],
+      "reason": "No corresponding mode/controller/function in the frozen 0.3.1 implementation; reference exposure is not implementation evidence."
+    },
+    {
+      "capability_id": "el506.constant.48",
+      "classification": "missing",
+      "feature_ids": [],
+      "reason": "No corresponding mode/controller/function in the frozen 0.3.1 implementation; reference exposure is not implementation evidence."
+    },
+    {
+      "capability_id": "el506.constant.49",
+      "classification": "missing",
+      "feature_ids": [],
+      "reason": "No corresponding mode/controller/function in the frozen 0.3.1 implementation; reference exposure is not implementation evidence."
+    },
+    {
+      "capability_id": "el506.constant.50",
+      "classification": "missing",
+      "feature_ids": [],
+      "reason": "No corresponding mode/controller/function in the frozen 0.3.1 implementation; reference exposure is not implementation evidence."
+    },
+    {
+      "capability_id": "el506.constant.51",
+      "classification": "missing",
+      "feature_ids": [],
+      "reason": "No corresponding mode/controller/function in the frozen 0.3.1 implementation; reference exposure is not implementation evidence."
+    },
+    {
+      "capability_id": "el506.constant.52",
+      "classification": "missing",
+      "feature_ids": [],
+      "reason": "No corresponding mode/controller/function in the frozen 0.3.1 implementation; reference exposure is not implementation evidence."
+    },
+    {
+      "capability_id": "el506.conversion.01",
+      "classification": "missing",
+      "feature_ids": [],
+      "reason": "No corresponding mode/controller/function in the frozen 0.3.1 implementation; reference exposure is not implementation evidence."
+    },
+    {
+      "capability_id": "el506.conversion.02",
+      "classification": "missing",
+      "feature_ids": [],
+      "reason": "No corresponding mode/controller/function in the frozen 0.3.1 implementation; reference exposure is not implementation evidence."
+    },
+    {
+      "capability_id": "el506.conversion.03",
+      "classification": "missing",
+      "feature_ids": [],
+      "reason": "No corresponding mode/controller/function in the frozen 0.3.1 implementation; reference exposure is not implementation evidence."
+    },
+    {
+      "capability_id": "el506.conversion.04",
+      "classification": "missing",
+      "feature_ids": [],
+      "reason": "No corresponding mode/controller/function in the frozen 0.3.1 implementation; reference exposure is not implementation evidence."
+    },
+    {
+      "capability_id": "el506.conversion.05",
+      "classification": "missing",
+      "feature_ids": [],
+      "reason": "No corresponding mode/controller/function in the frozen 0.3.1 implementation; reference exposure is not implementation evidence."
+    },
+    {
+      "capability_id": "el506.conversion.06",
+      "classification": "missing",
+      "feature_ids": [],
+      "reason": "No corresponding mode/controller/function in the frozen 0.3.1 implementation; reference exposure is not implementation evidence."
+    },
+    {
+      "capability_id": "el506.conversion.07",
+      "classification": "missing",
+      "feature_ids": [],
+      "reason": "No corresponding mode/controller/function in the frozen 0.3.1 implementation; reference exposure is not implementation evidence."
+    },
+    {
+      "capability_id": "el506.conversion.08",
+      "classification": "missing",
+      "feature_ids": [],
+      "reason": "No corresponding mode/controller/function in the frozen 0.3.1 implementation; reference exposure is not implementation evidence."
+    },
+    {
+      "capability_id": "el506.conversion.09",
+      "classification": "missing",
+      "feature_ids": [],
+      "reason": "No corresponding mode/controller/function in the frozen 0.3.1 implementation; reference exposure is not implementation evidence."
+    },
+    {
+      "capability_id": "el506.conversion.10",
+      "classification": "missing",
+      "feature_ids": [],
+      "reason": "No corresponding mode/controller/function in the frozen 0.3.1 implementation; reference exposure is not implementation evidence."
+    },
+    {
+      "capability_id": "el506.conversion.11",
+      "classification": "missing",
+      "feature_ids": [],
+      "reason": "No corresponding mode/controller/function in the frozen 0.3.1 implementation; reference exposure is not implementation evidence."
+    },
+    {
+      "capability_id": "el506.conversion.12",
+      "classification": "missing",
+      "feature_ids": [],
+      "reason": "No corresponding mode/controller/function in the frozen 0.3.1 implementation; reference exposure is not implementation evidence."
+    },
+    {
+      "capability_id": "el506.conversion.13",
+      "classification": "missing",
+      "feature_ids": [],
+      "reason": "No corresponding mode/controller/function in the frozen 0.3.1 implementation; reference exposure is not implementation evidence."
+    },
+    {
+      "capability_id": "el506.conversion.14",
+      "classification": "missing",
+      "feature_ids": [],
+      "reason": "No corresponding mode/controller/function in the frozen 0.3.1 implementation; reference exposure is not implementation evidence."
+    },
+    {
+      "capability_id": "el506.conversion.15",
+      "classification": "missing",
+      "feature_ids": [],
+      "reason": "No corresponding mode/controller/function in the frozen 0.3.1 implementation; reference exposure is not implementation evidence."
+    },
+    {
+      "capability_id": "el506.conversion.16",
+      "classification": "missing",
+      "feature_ids": [],
+      "reason": "No corresponding mode/controller/function in the frozen 0.3.1 implementation; reference exposure is not implementation evidence."
+    },
+    {
+      "capability_id": "el506.conversion.17",
+      "classification": "missing",
+      "feature_ids": [],
+      "reason": "No corresponding mode/controller/function in the frozen 0.3.1 implementation; reference exposure is not implementation evidence."
+    },
+    {
+      "capability_id": "el506.conversion.18",
+      "classification": "missing",
+      "feature_ids": [],
+      "reason": "No corresponding mode/controller/function in the frozen 0.3.1 implementation; reference exposure is not implementation evidence."
+    },
+    {
+      "capability_id": "el506.conversion.19",
+      "classification": "missing",
+      "feature_ids": [],
+      "reason": "No corresponding mode/controller/function in the frozen 0.3.1 implementation; reference exposure is not implementation evidence."
+    },
+    {
+      "capability_id": "el506.conversion.20",
+      "classification": "missing",
+      "feature_ids": [],
+      "reason": "No corresponding mode/controller/function in the frozen 0.3.1 implementation; reference exposure is not implementation evidence."
+    },
+    {
+      "capability_id": "el506.conversion.21",
+      "classification": "missing",
+      "feature_ids": [],
+      "reason": "No corresponding mode/controller/function in the frozen 0.3.1 implementation; reference exposure is not implementation evidence."
+    },
+    {
+      "capability_id": "el506.conversion.22",
+      "classification": "missing",
+      "feature_ids": [],
+      "reason": "No corresponding mode/controller/function in the frozen 0.3.1 implementation; reference exposure is not implementation evidence."
+    },
+    {
+      "capability_id": "el506.conversion.23",
+      "classification": "missing",
+      "feature_ids": [],
+      "reason": "No corresponding mode/controller/function in the frozen 0.3.1 implementation; reference exposure is not implementation evidence."
+    },
+    {
+      "capability_id": "el506.conversion.24",
+      "classification": "missing",
+      "feature_ids": [],
+      "reason": "No corresponding mode/controller/function in the frozen 0.3.1 implementation; reference exposure is not implementation evidence."
+    },
+    {
+      "capability_id": "el506.conversion.25",
+      "classification": "missing",
+      "feature_ids": [],
+      "reason": "No corresponding mode/controller/function in the frozen 0.3.1 implementation; reference exposure is not implementation evidence."
+    },
+    {
+      "capability_id": "el506.conversion.26",
+      "classification": "missing",
+      "feature_ids": [],
+      "reason": "No corresponding mode/controller/function in the frozen 0.3.1 implementation; reference exposure is not implementation evidence."
+    },
+    {
+      "capability_id": "el506.conversion.27",
+      "classification": "missing",
+      "feature_ids": [],
+      "reason": "No corresponding mode/controller/function in the frozen 0.3.1 implementation; reference exposure is not implementation evidence."
+    },
+    {
+      "capability_id": "el506.conversion.28",
+      "classification": "missing",
+      "feature_ids": [],
+      "reason": "No corresponding mode/controller/function in the frozen 0.3.1 implementation; reference exposure is not implementation evidence."
+    },
+    {
+      "capability_id": "el506.conversion.29",
+      "classification": "missing",
+      "feature_ids": [],
+      "reason": "No corresponding mode/controller/function in the frozen 0.3.1 implementation; reference exposure is not implementation evidence."
+    },
+    {
+      "capability_id": "el506.conversion.30",
+      "classification": "missing",
+      "feature_ids": [],
+      "reason": "No corresponding mode/controller/function in the frozen 0.3.1 implementation; reference exposure is not implementation evidence."
+    },
+    {
+      "capability_id": "el506.conversion.31",
+      "classification": "missing",
+      "feature_ids": [],
+      "reason": "No corresponding mode/controller/function in the frozen 0.3.1 implementation; reference exposure is not implementation evidence."
+    },
+    {
+      "capability_id": "el506.conversion.32",
+      "classification": "missing",
+      "feature_ids": [],
+      "reason": "No corresponding mode/controller/function in the frozen 0.3.1 implementation; reference exposure is not implementation evidence."
+    },
+    {
+      "capability_id": "el506.conversion.33",
+      "classification": "missing",
+      "feature_ids": [],
+      "reason": "No corresponding mode/controller/function in the frozen 0.3.1 implementation; reference exposure is not implementation evidence."
+    },
+    {
+      "capability_id": "el506.conversion.34",
+      "classification": "missing",
+      "feature_ids": [],
+      "reason": "No corresponding mode/controller/function in the frozen 0.3.1 implementation; reference exposure is not implementation evidence."
+    },
+    {
+      "capability_id": "el506.conversion.35",
+      "classification": "missing",
+      "feature_ids": [],
+      "reason": "No corresponding mode/controller/function in the frozen 0.3.1 implementation; reference exposure is not implementation evidence."
+    },
+    {
+      "capability_id": "el506.conversion.36",
+      "classification": "missing",
+      "feature_ids": [],
+      "reason": "No corresponding mode/controller/function in the frozen 0.3.1 implementation; reference exposure is not implementation evidence."
+    },
+    {
+      "capability_id": "el506.conversion.37",
+      "classification": "missing",
+      "feature_ids": [],
+      "reason": "No corresponding mode/controller/function in the frozen 0.3.1 implementation; reference exposure is not implementation evidence."
+    },
+    {
+      "capability_id": "el506.conversion.38",
+      "classification": "missing",
+      "feature_ids": [],
+      "reason": "No corresponding mode/controller/function in the frozen 0.3.1 implementation; reference exposure is not implementation evidence."
+    },
+    {
+      "capability_id": "el506.conversion.39",
+      "classification": "missing",
+      "feature_ids": [],
+      "reason": "No corresponding mode/controller/function in the frozen 0.3.1 implementation; reference exposure is not implementation evidence."
+    },
+    {
+      "capability_id": "el506.conversion.40",
+      "classification": "missing",
+      "feature_ids": [],
+      "reason": "No corresponding mode/controller/function in the frozen 0.3.1 implementation; reference exposure is not implementation evidence."
+    },
+    {
+      "capability_id": "el506.conversion.41",
+      "classification": "missing",
+      "feature_ids": [],
+      "reason": "No corresponding mode/controller/function in the frozen 0.3.1 implementation; reference exposure is not implementation evidence."
+    },
+    {
+      "capability_id": "el506.conversion.42",
+      "classification": "missing",
+      "feature_ids": [],
+      "reason": "No corresponding mode/controller/function in the frozen 0.3.1 implementation; reference exposure is not implementation evidence."
+    },
+    {
+      "capability_id": "el506.conversion.43",
+      "classification": "missing",
+      "feature_ids": [],
+      "reason": "No corresponding mode/controller/function in the frozen 0.3.1 implementation; reference exposure is not implementation evidence."
+    },
+    {
+      "capability_id": "el506.conversion.44",
+      "classification": "missing",
+      "feature_ids": [],
+      "reason": "No corresponding mode/controller/function in the frozen 0.3.1 implementation; reference exposure is not implementation evidence."
+    },
+    {
+      "capability_id": "el506.context.imaginary-unit-i",
+      "classification": "missing",
+      "feature_ids": [],
+      "reason": "No corresponding mode/controller/function in the frozen 0.3.1 implementation; reference exposure is not implementation evidence."
+    },
+    {
+      "capability_id": "el506.context.complex-rectangular-polar-separator",
+      "classification": "missing",
+      "feature_ids": [],
+      "reason": "No corresponding mode/controller/function in the frozen 0.3.1 implementation; reference exposure is not implementation evidence."
+    },
+    {
+      "capability_id": "el506.context.confirm-coefficient-or-data",
+      "classification": "missing",
+      "feature_ids": [],
+      "reason": "No corresponding mode/controller/function in the frozen 0.3.1 implementation; reference exposure is not implementation evidence."
+    },
+    {
+      "capability_id": "el506.context.matrix-or-list-result-element-paging",
+      "classification": "missing",
+      "feature_ids": [],
+      "reason": "No corresponding mode/controller/function in the frozen 0.3.1 implementation; reference exposure is not implementation evidence."
+    },
+    {
+      "capability_id": "el506.context.stat-data-commit",
+      "classification": "partial",
+      "feature_ids": [
+        "data-second-action:stats-add"
+      ],
+      "reason": "Related legacy functionality exists, but the canonical key/mode sequence, displays, state rules or precision are incomplete/unverified. No full parity claim."
+    },
+    {
+      "capability_id": "el506.context.stat-data-deletion",
+      "classification": "missing",
+      "feature_ids": [],
+      "reason": "No corresponding mode/controller/function in the frozen 0.3.1 implementation; reference exposure is not implementation evidence."
+    },
+    {
+      "capability_id": "el506.second.el506-k28",
+      "classification": "missing",
+      "feature_ids": [],
+      "reason": "No corresponding mode/controller/function in the frozen 0.3.1 implementation; reference exposure is not implementation evidence."
+    },
+    {
+      "capability_id": "el506.statistic.el506-k30",
+      "classification": "missing",
+      "feature_ids": [],
+      "reason": "No corresponding mode/controller/function in the frozen 0.3.1 implementation; reference exposure is not implementation evidence."
+    },
+    {
+      "capability_id": "el506.statistic.el506-k31",
+      "classification": "missing",
+      "feature_ids": [],
+      "reason": "No corresponding mode/controller/function in the frozen 0.3.1 implementation; reference exposure is not implementation evidence."
+    },
+    {
+      "capability_id": "el506.statistic.el506-k32",
+      "classification": "missing",
+      "feature_ids": [],
+      "reason": "No corresponding mode/controller/function in the frozen 0.3.1 implementation; reference exposure is not implementation evidence."
+    },
+    {
+      "capability_id": "el506.statistic.el506-k33",
+      "classification": "missing",
+      "feature_ids": [],
+      "reason": "No corresponding mode/controller/function in the frozen 0.3.1 implementation; reference exposure is not implementation evidence."
+    },
+    {
+      "capability_id": "el506.statistic.el506-k34",
+      "classification": "missing",
+      "feature_ids": [],
+      "reason": "No corresponding mode/controller/function in the frozen 0.3.1 implementation; reference exposure is not implementation evidence."
+    },
+    {
+      "capability_id": "el506.statistic.el506-k35",
+      "classification": "partial",
+      "feature_ids": [
+        "data-second-action:stats-mean"
+      ],
+      "reason": "Related legacy functionality exists, but the canonical key/mode sequence, displays, state rules or precision are incomplete/unverified. No full parity claim."
+    },
+    {
+      "capability_id": "el506.statistic.el506-k36",
+      "classification": "partial",
+      "feature_ids": [
+        "data-second-action:stats-stddev"
+      ],
+      "reason": "Related legacy functionality exists, but the canonical key/mode sequence, displays, state rules or precision are incomplete/unverified. No full parity claim."
+    },
+    {
+      "capability_id": "el506.statistic.el506-k37",
+      "classification": "missing",
+      "feature_ids": [],
+      "reason": "No corresponding mode/controller/function in the frozen 0.3.1 implementation; reference exposure is not implementation evidence."
+    },
+    {
+      "capability_id": "el506.statistic.el506-k38",
+      "classification": "missing",
+      "feature_ids": [],
+      "reason": "No corresponding mode/controller/function in the frozen 0.3.1 implementation; reference exposure is not implementation evidence."
+    },
+    {
+      "capability_id": "el506.statistic.el506-k39",
+      "classification": "missing",
+      "feature_ids": [],
+      "reason": "No corresponding mode/controller/function in the frozen 0.3.1 implementation; reference exposure is not implementation evidence."
+    },
+    {
+      "capability_id": "el506.statistic.el506-k40",
+      "classification": "missing",
+      "feature_ids": [],
+      "reason": "No corresponding mode/controller/function in the frozen 0.3.1 implementation; reference exposure is not implementation evidence."
+    },
+    {
+      "capability_id": "el506.statistic.el506-k41",
+      "classification": "missing",
+      "feature_ids": [],
+      "reason": "No corresponding mode/controller/function in the frozen 0.3.1 implementation; reference exposure is not implementation evidence."
+    },
+    {
+      "capability_id": "el506.statistic.el506-k42",
+      "classification": "missing",
+      "feature_ids": [],
+      "reason": "No corresponding mode/controller/function in the frozen 0.3.1 implementation; reference exposure is not implementation evidence."
+    },
+    {
+      "capability_id": "el506.statistic.el506-k45",
+      "classification": "partial",
+      "feature_ids": [
+        "data-second-action:stats-count"
+      ],
+      "reason": "Related legacy functionality exists, but the canonical key/mode sequence, displays, state rules or precision are incomplete/unverified. No full parity claim."
+    },
+    {
+      "capability_id": "el506.statistic.el506-k46",
+      "classification": "partial",
+      "feature_ids": [
+        "data-second-action:stats-sum"
+      ],
+      "reason": "Related legacy functionality exists, but the canonical key/mode sequence, displays, state rules or precision are incomplete/unverified. No full parity claim."
+    },
+    {
+      "capability_id": "el506.statistic.el506-k47",
+      "classification": "partial",
+      "feature_ids": [
+        "data-second-action:stats-sum-squares"
+      ],
+      "reason": "Related legacy functionality exists, but the canonical key/mode sequence, displays, state rules or precision are incomplete/unverified. No full parity claim."
+    },
+    {
+      "capability_id": "el506.memory.a.store",
+      "classification": "missing",
+      "feature_ids": [],
+      "reason": "No corresponding mode/controller/function in the frozen 0.3.1 implementation; reference exposure is not implementation evidence."
+    },
+    {
+      "capability_id": "el506.memory.a.recall",
+      "classification": "missing",
+      "feature_ids": [],
+      "reason": "No corresponding mode/controller/function in the frozen 0.3.1 implementation; reference exposure is not implementation evidence."
+    },
+    {
+      "capability_id": "el506.memory.b.store",
+      "classification": "missing",
+      "feature_ids": [],
+      "reason": "No corresponding mode/controller/function in the frozen 0.3.1 implementation; reference exposure is not implementation evidence."
+    },
+    {
+      "capability_id": "el506.memory.b.recall",
+      "classification": "missing",
+      "feature_ids": [],
+      "reason": "No corresponding mode/controller/function in the frozen 0.3.1 implementation; reference exposure is not implementation evidence."
+    },
+    {
+      "capability_id": "el506.memory.c.store",
+      "classification": "missing",
+      "feature_ids": [],
+      "reason": "No corresponding mode/controller/function in the frozen 0.3.1 implementation; reference exposure is not implementation evidence."
+    },
+    {
+      "capability_id": "el506.memory.c.recall",
+      "classification": "missing",
+      "feature_ids": [],
+      "reason": "No corresponding mode/controller/function in the frozen 0.3.1 implementation; reference exposure is not implementation evidence."
+    },
+    {
+      "capability_id": "el506.memory.d.store",
+      "classification": "missing",
+      "feature_ids": [],
+      "reason": "No corresponding mode/controller/function in the frozen 0.3.1 implementation; reference exposure is not implementation evidence."
+    },
+    {
+      "capability_id": "el506.memory.d.recall",
+      "classification": "missing",
+      "feature_ids": [],
+      "reason": "No corresponding mode/controller/function in the frozen 0.3.1 implementation; reference exposure is not implementation evidence."
+    },
+    {
+      "capability_id": "el506.memory.e.store",
+      "classification": "missing",
+      "feature_ids": [],
+      "reason": "No corresponding mode/controller/function in the frozen 0.3.1 implementation; reference exposure is not implementation evidence."
+    },
+    {
+      "capability_id": "el506.memory.e.recall",
+      "classification": "missing",
+      "feature_ids": [],
+      "reason": "No corresponding mode/controller/function in the frozen 0.3.1 implementation; reference exposure is not implementation evidence."
+    },
+    {
+      "capability_id": "el506.memory.f.store",
+      "classification": "missing",
+      "feature_ids": [],
+      "reason": "No corresponding mode/controller/function in the frozen 0.3.1 implementation; reference exposure is not implementation evidence."
+    },
+    {
+      "capability_id": "el506.memory.f.recall",
+      "classification": "missing",
+      "feature_ids": [],
+      "reason": "No corresponding mode/controller/function in the frozen 0.3.1 implementation; reference exposure is not implementation evidence."
+    },
+    {
+      "capability_id": "el506.memory.x.store",
+      "classification": "missing",
+      "feature_ids": [],
+      "reason": "No corresponding mode/controller/function in the frozen 0.3.1 implementation; reference exposure is not implementation evidence."
+    },
+    {
+      "capability_id": "el506.memory.x.recall",
+      "classification": "missing",
+      "feature_ids": [],
+      "reason": "No corresponding mode/controller/function in the frozen 0.3.1 implementation; reference exposure is not implementation evidence."
+    },
+    {
+      "capability_id": "el506.memory.y.store",
+      "classification": "missing",
+      "feature_ids": [],
+      "reason": "No corresponding mode/controller/function in the frozen 0.3.1 implementation; reference exposure is not implementation evidence."
+    },
+    {
+      "capability_id": "el506.memory.y.recall",
+      "classification": "missing",
+      "feature_ids": [],
+      "reason": "No corresponding mode/controller/function in the frozen 0.3.1 implementation; reference exposure is not implementation evidence."
+    },
+    {
+      "capability_id": "el506.memory.m.store",
+      "classification": "missing",
+      "feature_ids": [],
+      "reason": "M+/M- accumulation exists, but STO overwrite selection does not."
+    },
+    {
+      "capability_id": "el506.memory.m.recall",
+      "classification": "partial",
+      "feature_ids": [
+        "data-second-action:memory-recall"
+      ],
+      "reason": "Related legacy functionality exists, but the canonical key/mode sequence, displays, state rules or precision are incomplete/unverified. No full parity claim."
+    },
+    {
+      "capability_id": "el506.nbase.digit.a",
+      "classification": "missing",
+      "feature_ids": [],
+      "reason": "No corresponding mode/controller/function in the frozen 0.3.1 implementation; reference exposure is not implementation evidence."
+    },
+    {
+      "capability_id": "el506.nbase.digit.b",
+      "classification": "missing",
+      "feature_ids": [],
+      "reason": "No corresponding mode/controller/function in the frozen 0.3.1 implementation; reference exposure is not implementation evidence."
+    },
+    {
+      "capability_id": "el506.nbase.digit.c",
+      "classification": "missing",
+      "feature_ids": [],
+      "reason": "No corresponding mode/controller/function in the frozen 0.3.1 implementation; reference exposure is not implementation evidence."
+    },
+    {
+      "capability_id": "el506.nbase.digit.d",
+      "classification": "missing",
+      "feature_ids": [],
+      "reason": "No corresponding mode/controller/function in the frozen 0.3.1 implementation; reference exposure is not implementation evidence."
+    },
+    {
+      "capability_id": "el506.nbase.digit.e",
+      "classification": "missing",
+      "feature_ids": [],
+      "reason": "No corresponding mode/controller/function in the frozen 0.3.1 implementation; reference exposure is not implementation evidence."
+    },
+    {
+      "capability_id": "el506.nbase.digit.f",
+      "classification": "missing",
+      "feature_ids": [],
+      "reason": "No corresponding mode/controller/function in the frozen 0.3.1 implementation; reference exposure is not implementation evidence."
+    }
+  ],
+  "browser_probes": [
+    {
+      "id": "scalar-add",
+      "application_sequence": [
+        {
+          "attribute": "data-insert",
+          "value": "1"
+        },
+        {
+          "attribute": "data-insert",
+          "value": "+"
+        },
+        {
+          "attribute": "data-insert",
+          "value": "2"
+        },
+        {
+          "attribute": "data-action",
+          "value": "equals"
+        }
+      ],
+      "expected": {
+        "expression": "1+2=",
+        "result": "3",
+        "angle": "DEG",
+        "second_active": false
+      },
+      "reference_id": "el506-013-key-panel-v1",
+      "reference_scope": "Numeric result 3 agrees; simulator lower line 3. and initial/input presentation differ.",
+      "classification": "partial"
+    },
+    {
+      "id": "divide-zero",
+      "application_sequence": [
+        {
+          "attribute": "data-insert",
+          "value": "1"
+        },
+        {
+          "attribute": "data-insert",
+          "value": "/"
+        },
+        {
+          "attribute": "data-insert",
+          "value": "0"
+        },
+        {
+          "attribute": "data-action",
+          "value": "equals"
+        }
+      ],
+      "expected": {
+        "expression": "1\u00f70=",
+        "result": "Error",
+        "angle": "DEG",
+        "second_active": false
+      },
+      "reference_id": "el506-002-error-recovery-v1",
+      "reference_scope": "Simulator upper Error 2 with blank lower; application Error lower line.",
+      "classification": "incorrect"
+    },
+    {
+      "id": "sqrt-exact-extension",
+      "application_sequence": [
+        {
+          "attribute": "data-insert",
+          "value": "sqrt("
+        },
+        {
+          "attribute": "data-insert",
+          "value": "2"
+        },
+        {
+          "attribute": "data-insert",
+          "value": "4"
+        },
+        {
+          "attribute": "data-action",
+          "value": "equals"
+        }
+      ],
+      "expected": {
+        "expression": "\u221a(24)=",
+        "result": "2\u221a6",
+        "angle": "DEG",
+        "second_active": false
+      },
+      "reference_id": "roadmap-enhancement-policy",
+      "reference_scope": "Existing plan explicitly identifies extra exact-surd presentation as enhancement behavior; numeric simulator value not newly probed.",
+      "classification": "enhanced-only"
+    },
+    {
+      "id": "pi-format",
+      "application_sequence": [
+        {
+          "attribute": "data-insert",
+          "value": "pi"
+        },
+        {
+          "attribute": "data-action",
+          "value": "equals"
+        }
+      ],
+      "expected": {
+        "expression": "\u03c0=",
+        "result": "3.14159265359",
+        "angle": "DEG",
+        "second_active": false
+      },
+      "reference_id": "reference-format-contract",
+      "reference_scope": "12-digit format versus reference ten-digit mantissa; precise simulator pi sequence remains pending.",
+      "classification": "incorrect"
+    },
+    {
+      "id": "tiny-decimal",
+      "application_sequence": [
+        {
+          "attribute": "data-insert",
+          "value": "0"
+        },
+        {
+          "attribute": "data-insert",
+          "value": "."
+        },
+        {
+          "attribute": "data-insert",
+          "value": "0"
+        },
+        {
+          "attribute": "data-insert",
+          "value": "0"
+        },
+        {
+          "attribute": "data-insert",
+          "value": "0"
+        },
+        {
+          "attribute": "data-insert",
+          "value": "0"
+        },
+        {
+          "attribute": "data-insert",
+          "value": "0"
+        },
+        {
+          "attribute": "data-insert",
+          "value": "0"
+        },
+        {
+          "attribute": "data-insert",
+          "value": "0"
+        },
+        {
+          "attribute": "data-insert",
+          "value": "0"
+        },
+        {
+          "attribute": "data-insert",
+          "value": "0"
+        },
+        {
+          "attribute": "data-insert",
+          "value": "0"
+        },
+        {
+          "attribute": "data-insert",
+          "value": "0"
+        },
+        {
+          "attribute": "data-insert",
+          "value": "0"
+        },
+        {
+          "attribute": "data-insert",
+          "value": "1"
+        },
+        {
+          "attribute": "data-action",
+          "value": "equals"
+        }
+      ],
+      "expected": {
+        "expression": "0.0000000000001=",
+        "result": "0",
+        "angle": "DEG",
+        "second_active": false
+      },
+      "reference_id": "reference-format-contract",
+      "reference_scope": "Observed source policy forces |x|<1e-12 to zero; exact reference underflow threshold is not established by this probe and remains pending EL506-021/354.",
+      "classification": "partial"
+    },
+    {
+      "id": "keyboard-second-equals",
+      "application_sequence": [
+        {
+          "attribute": "data-insert",
+          "value": "1"
+        },
+        {
+          "attribute": "data-insert",
+          "value": "+"
+        },
+        {
+          "attribute": "data-insert",
+          "value": "2"
+        },
+        {
+          "attribute": "data-action",
+          "value": "equals"
+        },
+        {
+          "attribute": "data-action",
+          "value": "second"
+        },
+        {
+          "keyboard": "Enter"
+        }
+      ],
+      "expected": {
+        "expression": "1+2=",
+        "result": "3",
+        "angle": "DEG",
+        "second_active": true
+      },
+      "reference_id": "canonical-dispatch-contract",
+      "reference_scope": "Same app pointer equals with 2ndF inserts Ans; Enter re-evaluates and leaves modifier active.",
+      "classification": "incorrect"
+    }
+  ],
+  "disagreements": [
+    {
+      "id": "error-display",
+      "source_ids": [
+        "el506-002-error-recovery-v1"
+      ],
+      "selected_reference": "el506-002-error-recovery-v1",
+      "application": "lower Error",
+      "reference": "upper Error 2; lower blank",
+      "resolution": "Keep discrepancy frozen for baseline; fix later error items."
+    },
+    {
+      "id": "lcd-layout",
+      "source_ids": [
+        "el506-013-key-panel-v1"
+      ],
+      "selected_reference": "el506-013-key-panel-v1",
+      "application": "Initial expression/result 0 and numeric 3",
+      "reference": "Initial blank upper/0. lower, numeric 3.",
+      "resolution": "Baseline is partial; formatter/LCD work scheduled later."
+    }
+  ],
+  "notes": [
+    "Freeze facts before EL506-014; no core refactor or calculator behavior changes.",
+    "All existing controls, semantic implementation features, 21 tests and 430 ledger entries are classified. Helper functions are grouped by observable feature, not counted as separate calculator capabilities.",
+    "Source hashes identify the original bytes; git revision is authoritative after future refactors.",
+    "Browser probes use legacy DOM labels because canonical runtime dispatch does not yet exist. These are characterization tests, not the EL506-003 golden runner.",
+    "No future unit/golden/browser parity statuses are promoted. Baseline classifications are separate from EL506-001 exposure inventory and EL506-006 generated reporting.",
+    "Live browser capture shows divide-by-zero retains expression 1/0= while the lower line is Error; nonfinite parse results are formatted as Error rather than thrown."
+  ],
+  "source_hash_policy": "SHA-256 of git blob bytes at source_revision, independent of working-tree CRLF conversion.",
+  "browser_capture": {
+    "date": "2026-10-05",
+    "browser": "Playwright desktop Chromium",
+    "url": "http://127.0.0.1:8010/",
+    "method": "Fresh page for each legacy DOM sequence; captured expression/result innerText, angle indicator and second-function class. All six observations asserted by baseline.spec.js; two-embed focus isolation checked separately.",
+    "scope": "Observable application state only; internal Number/ANS/M/history/stats stores not exported.",
+    "result": "Six probes and two-embed focus check passed; no console/page errors in probes."
+  }
+}

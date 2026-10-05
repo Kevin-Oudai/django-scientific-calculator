@@ -369,11 +369,42 @@ explicitly pending. Source manuals, binaries and images are not distributed.
 The ledger contains 430 inventory entries under its stated counting policy.
 Sharp advertises 470 functions, but a one-to-one marketing-count mapping remains
 unresolved and assigned to the final audit. No synthetic entries pad that count.
-An observed legend or menu does not establish application parity: implementation
-is unassessed until EL506-005, and unit/golden/browser parity statuses are pending.
+An observed legend or menu does not establish application parity: the inventory's
+historical implementation status is unassessed, and parity test statuses are
+pending. EL506-005 records the baseline classifications separately below.
 `npm run test:reference` validates both experiments and the ledger offline;
 `npm test` also checks catalogue completeness, source references and rejected
 premature parity claims. EL506-006 will add the generated parity report.
+
+## Version 0.3.1 Baseline
+
+`tests/reference/el506ts/baseline-0.3.1.json` freezes the source revision
+`afd4094bee71e27ac963721887a41aa30f75a018` before the core refactor. It records
+Git-blob SHA-256 fingerprints, classifications for 82 existing features and
+21 original tests, and a classification for every one of the 430 ledger entries.
+Classes are matching, partial, enhanced-only, incorrect or missing; each has a
+stated scope and rationale. Matching integration/reference-data checks do not
+mean matching calculator behavior. No capability is promoted to full parity.
+
+Six browser probes preserve scalar addition, error display, exact-surd output,
+pi formatting, tiny-value zeroing and keyboard 2ndF behavior. A separate test
+checks focused keyboard input across two embeds. These tests intentionally
+record known discrepancies rather than fixing them: error text, twelve-digit
+formatting, forced tiny-value zeroing and the Enter/2ndF dispatch difference
+remain scheduled work. The exact parser and extra shortcuts are identified as
+enhancements. Later behavior work must deliberately revise or retire affected
+baseline assertions while retaining the immutable capture. The exact reference
+underflow boundary remains unmeasured; the tiny-value probe records the app's
+local zeroing policy without claiming a newly verified simulator result.
+
+The baseline uses the existing live simulator transcripts for comparisons.
+The simulator was launched and its pinned build/hash and initial display checked
+again, but window activation and its recovery failed, so no new key probes are
+claimed. The limitation and unmeasured state are recorded in the capture.
+`npm run test:reference` verifies the baseline against its original Git objects;
+the source commit must be present locally (shallow clones need that history).
+The application and package version remain 0.3.1. This capture does not implement
+the future reducer, snapshot API, golden runner or generated parity report.
 
 ## Release History
 
