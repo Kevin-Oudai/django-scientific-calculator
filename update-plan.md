@@ -153,7 +153,7 @@ Known structural gaps:
 - Math.js is not currently installed or bundled.
 - The approximately 1,900-line calculator script combines parsing, state,
   display rendering, and DOM behavior.
-- There is no pure calculator-core unit test suite.
+- Pure evaluator unit tests now run in Node; reducer/state tests await EL506-014.
 - There are no Django integration tests or continuous-integration workflow.
 - Playwright currently covers a desktop Chromium scenario only.
 - The current keys, menus, state rules, and display do not yet match the
@@ -484,6 +484,29 @@ The runner's completion does not require implementing the later feature phases.
 
 - [ ] **EL506-010 - Add pure JavaScript unit testing.** Use an open-source,
   deterministic runner that can test the calculator core without a browser.
+    READY_TO_PUSH: 2026-10-05. Node 22+ built-in node:test runner, sequential
+    test:unit command and npm test integration added without a runner dependency.
+    CommonJS-only/no-document exports expose the four existing pure evaluator
+    functions; DOM handlers, algorithms and package version remain unchanged.
+    Evidence: fresh `el506-010-addition-v1`, chrome Reset then K40 K43 K41 K48,
+    five LCD frames and numeric result 3; pinned runtime 1.0.2.0/hash matched.
+    Initial target capture mismatch recovered by exact returned id/app selection;
+    all physical actions then used fresh target snapshots. Stores unmeasured,
+    no errors in reference, guide source page inapplicable.
+    Verification: npm.cmd test ran 8/8 pure unit tests and 25/25 browser tests;
+    reference/schema/ledger/baseline validation; compileall; pip dry run;
+    Docker Compose config; rebuilt Docker demo; HTTP 200; git diff --check.
+    Unit tests separate numeric/format output, explicit angle/ANS inputs and
+    exact enhancements; legacy precision/errors remain characterized. First
+    exact-output assertion omitted internal parentheses; observed output fixed
+    in test expectation and rerun passed, confirming runner failure exit status.
+    Browser compatibility check covers hosts with a CommonJS module global;
+    existing baseline also verifies two independent focused embeds.
+    Notes: reducer state tests await EL506-014; snapshots await EL506-019 and
+    full golden replay awaits EL506-003. Runtime canonical dispatch, new theme,
+    touch and accessibility gates are inapplicable to this test-infrastructure
+    item; no full calculator parity is claimed. Unit tests require no DOM shim,
+    browser, Django or Docker. No dependency or release version bump.
 - [ ] **EL506-011 - Add Django integration tests.** Verify the template tag,
   template rendering, packaged static assets, escaping, and multiple embeds.
 - [ ] **EL506-012 - Add continuous integration.** Run Python checks,

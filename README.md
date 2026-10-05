@@ -406,6 +406,28 @@ the source commit must be present locally (shallow clones need that history).
 The application and package version remain 0.3.1. This capture does not implement
 the future reducer, snapshot API, golden runner or generated parity report.
 
+## JavaScript Unit Tests
+
+Development checks require Node.js 22 or newer. `npm run test:unit` uses the
+[Node built-in test runner](https://nodejs.org/api/test.html) and runs the files
+under `tests/unit` sequentially, without a browser, Django, Docker, DOM shim or
+additional runner dependency. `npm test` runs reference validation and the unit
+suite before Playwright; `npm run test:e2e` runs Playwright alone.
+
+The existing `calculator.js` exports four pure functions for CommonJS use when
+no document exists: `evaluateExpression`, `evaluateExactExpression`,
+`formatValue` and `closeOpenParentheses`. The normal browser script entry and
+DOMContentLoaded initializer remain operational, including on hosts that define
+a `module` global. These exports are a test seam around the current implementation;
+the reducer, state snapshot API and browser/core split remain separate work.
+
+The initial eight unit tests cover the numeric result of the fresh simulator
+`el506-010-addition-v1` reference, scalar grammar, explicit angle/ANS inputs,
+combinatorics domains, exact-value enhancements and known formatting/error
+policies. Only the addition result has new live simulator evidence; the other
+tests characterize 0.3.1 behavior. They do not establish state-machine, LCD or
+full capability parity. The package remains version 0.3.1.
+
 ## Release History
 
 ### 0.3.1

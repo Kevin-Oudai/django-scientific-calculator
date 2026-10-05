@@ -1935,6 +1935,18 @@
     render();
   }
 
+  // Test the existing pure functions in Node without constructing a DOM.
+  // State reduction and the browser/core split remain separate roadmap work.
+  if (typeof module !== "undefined" && module.exports && typeof document === "undefined") {
+    module.exports = Object.freeze({
+      evaluateExpression,
+      evaluateExactExpression,
+      formatValue,
+      closeOpenParentheses,
+    });
+    return;
+  }
+
   document.addEventListener("DOMContentLoaded", () => {
     document.querySelectorAll("[data-scientific-calculator]").forEach(createCalculator);
   });
