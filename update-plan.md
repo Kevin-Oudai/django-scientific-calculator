@@ -4,13 +4,13 @@
 - Plan status: Active
 - Current package baseline: 0.3.1
 - Target release: 1.0.0 after verified parity
-- Next item: EL506-011
+- Next item: EL506-012
 - Last updated: 2026-10-05
 
 ## Progress Overview
 
-As of 2026-10-05, **11 of 245 roadmap tasks are complete (4.5%)**, with
-**234 remaining**. The next task is **EL506-011**. These counts measure
+As of 2026-10-05, **12 of 245 roadmap tasks are complete (4.9%)**, with
+**233 remaining**. The next task is **EL506-012**. These counts measure
 completed checklist items, not elapsed effort or verified calculator parity;
 individual tasks vary in size. The detailed checklist below describes every
 remaining task and preserves its evidence and completion requirements.
@@ -21,7 +21,7 @@ in the generated report; phase completion does not establish full parity.
 | Roadmap phase | Completed | Remaining |
 | --- | ---: | ---: |
 | Phase 0 - Reference and Traceability | 7 | 0 |
-| Phase 1 - Test and Emulator Foundation | 4 | 10 |
+| Phase 1 - Test and Emulator Foundation | 5 | 9 |
 | Phase 2 - Physical Layout, Display, Theme, and Access | 0 | 14 |
 | Phase 3 - Power, Modes, Clear, Editing, and History | 0 | 17 |
 | Phase 4 - Display Settings and Formatting | 0 | 11 |
@@ -39,7 +39,7 @@ in the generated report; phase completion does not establish full parity.
 | Phase 16 - LIST Mode | 0 | 11 |
 | Phase 17 - Errors, Limits, and Cross-mode Parity | 0 | 15 |
 | Phase 18 - Security, Packaging, Compatibility, and Release | 0 | 15 |
-| **Total** | **11** | **234** |
+| **Total** | **12** | **233** |
 
 Refresh this overview's date, counts, percentage, and next task in every
 roadmap completion tracking commit, using the checklist as the source of truth.
@@ -617,9 +617,11 @@ The runner's completion does not require implementing the later feature phases.
     touch and accessibility gates are inapplicable to this test-infrastructure
     item; no full calculator parity is claimed. Unit tests require no DOM shim,
     browser, Django or Docker. No dependency or release version bump.
-- [ ] **EL506-011 - Add Django integration tests.** Verify the template tag,
+- [x] **EL506-011 - Add Django integration tests.** Verify the template tag,
   template rendering, packaged static assets, escaping, and multiple embeds.
-    READY_TO_PUSH: 2026-10-05. Four database-free Django integration tests
+    Completed: 2026-10-05, implementation commit
+    `6f3edcd938ea0cf4d021340a4ce3daabab7a275e` verified on origin/main.
+    Four database-free Django integration tests
     cover tag/template discovery, static resource bytes, host escaping and
     duplicate-ID-free embeds. Runtime build 1.0.2.0/hash reverified and initial
     blank upper/0./DEG observed; no new numeric oracle required for test-only
