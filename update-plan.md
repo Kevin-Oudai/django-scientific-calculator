@@ -4,7 +4,7 @@
 - Plan status: Active
 - Current package baseline: 0.3.1
 - Target release: 1.0.0 after verified parity
-- Next item: EL506-010
+- Next item: EL506-014
 - Last updated: 2026-10-05
 
 ## Purpose
@@ -482,9 +482,11 @@ The runner's completion does not require implementing the later feature phases.
 
 ### Phase 1 - Test and Emulator Foundation
 
-- [ ] **EL506-010 - Add pure JavaScript unit testing.** Use an open-source,
+- [x] **EL506-010 - Add pure JavaScript unit testing.** Use an open-source,
   deterministic runner that can test the calculator core without a browser.
-    READY_TO_PUSH: 2026-10-05. Node 22+ built-in node:test runner, sequential
+    Completed: 2026-10-05, implementation commit
+    `91f561911b3ef09cecefaa2ba9c5d3ac1c6c2031` verified on origin/main.
+    Node 22+ built-in node:test runner, sequential
     test:unit command and npm test integration added without a runner dependency.
     CommonJS-only/no-document exports expose the four existing pure evaluator
     functions; DOM handlers, algorithms and package version remain unchanged.
