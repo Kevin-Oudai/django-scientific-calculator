@@ -4,24 +4,25 @@
 - Plan status: Active
 - Current package baseline: 0.3.1
 - Target release: 1.0.0 after verified parity
-- Next item: EL506-023
+- Next item: EL506-030
 - Last updated: 2026-10-05
 
 ## Progress Overview
 
-As of 2026-10-05, **20 of 245 roadmap tasks are complete (8.2%)**, with
-**225 remaining**. The next task is **EL506-023**. These counts measure
+As of 2026-10-05, **21 of 245 roadmap tasks are complete (8.6%)**, with
+**224 remaining**. The next task is **EL506-030**. These counts measure
 completed checklist items, not elapsed effort or verified calculator parity;
 individual tasks vary in size. The detailed checklist below describes every
 remaining task and preserves its evidence and completion requirements.
 Phase 0 is complete (7/7 reference and traceability items), including its reducer
-and snapshot prerequisites. Pending simulator/application behavior is visible
+and snapshot prerequisites. Phase 1 is complete (14/14 test and emulator
+foundation items). Pending simulator/application behavior is visible
 in the generated report; phase completion does not establish full parity.
 
 | Roadmap phase | Completed | Remaining |
 | --- | ---: | ---: |
 | Phase 0 - Reference and Traceability | 7 | 0 |
-| Phase 1 - Test and Emulator Foundation | 13 | 1 |
+| Phase 1 - Test and Emulator Foundation | 14 | 0 |
 | Phase 2 - Physical Layout, Display, Theme, and Access | 0 | 14 |
 | Phase 3 - Power, Modes, Clear, Editing, and History | 0 | 17 |
 | Phase 4 - Display Settings and Formatting | 0 | 11 |
@@ -39,7 +40,7 @@ in the generated report; phase completion does not establish full parity.
 | Phase 16 - LIST Mode | 0 | 11 |
 | Phase 17 - Errors, Limits, and Cross-mode Parity | 0 | 15 |
 | Phase 18 - Security, Packaging, Compatibility, and Release | 0 | 15 |
-| **Total** | **20** | **225** |
+| **Total** | **21** | **224** |
 
 Refresh this overview's date, counts, percentage, and next task in every
 roadmap completion tracking commit, using the checklist as the source of truth.
@@ -403,7 +404,8 @@ The following order takes precedence over the phase layout and numeric IDs:
 `EL506-000 -> EL506-013 -> EL506-002 -> EL506-001 -> EL506-005 -> EL506-010 ->
 EL506-014 -> EL506-019 -> EL506-003 -> EL506-004 -> EL506-006`
 
-The bootstrap chain is complete as of 2026-10-05. Resume with EL506-011.
+The bootstrap chain and Phase 1 are complete as of 2026-10-05.
+Resume with Phase 2, EL506-030.
 Stable physical-key IDs
 must exist before the experiment schema and capability ledger use them. Capture
 the 0.3.1 baseline before refactoring its behavior. Unit testing, the reducer,
@@ -850,9 +852,10 @@ The runner's completion does not require implementing the later feature phases.
     Legacy state schema/profile, UI behavior and release version retained.
     Full physical dispatch and visual/accessibility changes stay with their
     existing later roadmap items. No new parity claim.
-- [ ] **EL506-023 - Guarantee independent embeds.** Eliminate shared mutable
+- [x] **EL506-023 - Guarantee independent embeds.** Eliminate shared mutable
   state and verify two or more calculators on one page.
-    READY_TO_PUSH: 2026-10-05.
+    Completed: 2026-10-05, implementation commit
+    d5f1833f1a63b58422c154f1c34e2b4ef399c610 verified on origin/main.
     Evidence: retained-answer live sequence extends the actual preceding
     module-addition observation: ON/C, ALPHA, equals (ANS), equals yields
     upper ANS= / lower 3. / DEG. Nine reference frames; no multiple-simulator
