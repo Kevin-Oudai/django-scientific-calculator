@@ -4,13 +4,13 @@
 - Plan status: Active
 - Current package baseline: 0.3.1
 - Target release: 1.0.0 after verified parity
-- Next item: EL506-015
+- Next item: EL506-016
 - Last updated: 2026-10-05
 
 ## Progress Overview
 
-As of 2026-10-05, **13 of 245 roadmap tasks are complete (5.3%)**, with
-**232 remaining**. The next task is **EL506-015**. These counts measure
+As of 2026-10-05, **14 of 245 roadmap tasks are complete (5.7%)**, with
+**231 remaining**. The next task is **EL506-016**. These counts measure
 completed checklist items, not elapsed effort or verified calculator parity;
 individual tasks vary in size. The detailed checklist below describes every
 remaining task and preserves its evidence and completion requirements.
@@ -21,7 +21,7 @@ in the generated report; phase completion does not establish full parity.
 | Roadmap phase | Completed | Remaining |
 | --- | ---: | ---: |
 | Phase 0 - Reference and Traceability | 7 | 0 |
-| Phase 1 - Test and Emulator Foundation | 6 | 8 |
+| Phase 1 - Test and Emulator Foundation | 7 | 7 |
 | Phase 2 - Physical Layout, Display, Theme, and Access | 0 | 14 |
 | Phase 3 - Power, Modes, Clear, Editing, and History | 0 | 17 |
 | Phase 4 - Display Settings and Formatting | 0 | 11 |
@@ -39,7 +39,7 @@ in the generated report; phase completion does not establish full parity.
 | Phase 16 - LIST Mode | 0 | 11 |
 | Phase 17 - Errors, Limits, and Cross-mode Parity | 0 | 15 |
 | Phase 18 - Security, Packaging, Compatibility, and Release | 0 | 15 |
-| **Total** | **13** | **232** |
+| **Total** | **14** | **231** |
 
 Refresh this overview's date, counts, percentage, and next task in every
 roadmap completion tracking commit, using the checklist as the source of truth.
@@ -685,9 +685,10 @@ The runner's completion does not require implementing the later feature phases.
     canonical physical routing, future modes, golden runner and snapshots
     remain separate tasks. Theme, touch and accessibility gates are
     inapplicable because controls, labels and style are unchanged. Version 0.3.1.
-- [ ] **EL506-015 - Model entry lifecycle states.** Cover empty, entering,
+- [x] **EL506-015 - Model entry lifecycle states.** Cover empty, entering,
   editing, evaluated, prompt, menu, data entry, multi-result, and error states.
-    READY_TO_PUSH: 2026-10-05. Explicit lifecycle and modal workflow contracts,
+    Completed: 2026-10-05, implementation commit
+    197fe35f348c031fc67216fb377300723fc69449 verified on origin/main. Explicit lifecycle and modal workflow contracts,
     immutable transitions, retained underlying entry, bounded result paging and
     snapshot schema 2 with schema 1 migration. Pure tests cover all nine states;
     existing simulator golden fixtures now assert lifecycle paths; browser
