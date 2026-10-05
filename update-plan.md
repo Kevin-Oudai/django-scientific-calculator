@@ -4,20 +4,23 @@
 - Plan status: Active
 - Current package baseline: 0.3.1
 - Target release: 1.0.0 after verified parity
-- Next item: EL506-006
+- Next item: EL506-011
 - Last updated: 2026-10-05
 
 ## Progress Overview
 
-As of 2026-10-05, **10 of 245 roadmap tasks are complete (4.1%)**, with
-**235 remaining**. The next task is **EL506-006**. These counts measure
+As of 2026-10-05, **11 of 245 roadmap tasks are complete (4.5%)**, with
+**234 remaining**. The next task is **EL506-011**. These counts measure
 completed checklist items, not elapsed effort or verified calculator parity;
 individual tasks vary in size. The detailed checklist below describes every
 remaining task and preserves its evidence and completion requirements.
+Phase 0 is complete (7/7 reference and traceability items), including its reducer
+and snapshot prerequisites. Pending simulator/application behavior is visible
+in the generated report; phase completion does not establish full parity.
 
 | Roadmap phase | Completed | Remaining |
 | --- | ---: | ---: |
-| Phase 0 - Reference and Traceability | 6 | 1 |
+| Phase 0 - Reference and Traceability | 7 | 0 |
 | Phase 1 - Test and Emulator Foundation | 4 | 10 |
 | Phase 2 - Physical Layout, Display, Theme, and Access | 0 | 14 |
 | Phase 3 - Power, Modes, Clear, Editing, and History | 0 | 17 |
@@ -36,7 +39,7 @@ remaining task and preserves its evidence and completion requirements.
 | Phase 16 - LIST Mode | 0 | 11 |
 | Phase 17 - Errors, Limits, and Cross-mode Parity | 0 | 15 |
 | Phase 18 - Security, Packaging, Compatibility, and Release | 0 | 15 |
-| **Total** | **10** | **235** |
+| **Total** | **11** | **234** |
 
 Refresh this overview's date, counts, percentage, and next task in every
 roadmap completion tracking commit, using the checklist as the source of truth.
@@ -400,7 +403,8 @@ The following order takes precedence over the phase layout and numeric IDs:
 `EL506-000 -> EL506-013 -> EL506-002 -> EL506-001 -> EL506-005 -> EL506-010 ->
 EL506-014 -> EL506-019 -> EL506-003 -> EL506-004 -> EL506-006`
 
-EL506-000 is already complete, so EL506-013 is next. Stable physical-key IDs
+The bootstrap chain is complete as of 2026-10-05. Resume with EL506-011.
+Stable physical-key IDs
 must exist before the experiment schema and capability ledger use them. Capture
 the 0.3.1 baseline before refactoring its behavior. Unit testing, the reducer,
 and observable state snapshots must exist before the golden runner can exercise
@@ -554,10 +558,13 @@ The runner's completion does not require implementing the later feature phases.
     Notes: future pure-core unit/golden runner, runtime dispatch, snapshot API,
     generated report, touch/theme/accessibility gates are inapplicable to this
     baseline-only item. Original Git history is required for offline validation.
-- [ ] **EL506-006 - Add a generated parity report.** Report documented,
+- [x] **EL506-006 - Add a generated parity report.** Report documented,
   simulator-observed, implemented, unit-tested, golden-tested, and
   browser-tested status independently for every ledger entry.
-    READY_TO_PUSH: 2026-10-05. Deterministic JSON and filterable offline HTML
+    Completed: 2026-10-05, implementation commits
+    `7d88c3e4ebc64f4278d362b6693e536685225441` and
+    `cfb38f09e05ecfe7973ff3e05e2f0ae57e613666` verified on origin/main.
+    Deterministic JSON and filterable offline HTML
     report includes all 430 ledger rows with six independent status/evidence
     columns, explicit scope and input fingerprints. Frozen baseline
     implementation classifications stay separate from inventory observation,
