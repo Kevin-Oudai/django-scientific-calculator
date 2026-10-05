@@ -350,6 +350,31 @@ When changing package behavior:
 - do not put package CSS or JavaScript under project-level `src/static/scientific_calculator`; those files will not be included in pip installs
 - avoid committing local runtime files such as `src/db.sqlite3`, `src/staticfiles`, caches, virtual environments, or build artifacts
 
+## Capability Inventory
+
+`tests/reference/el506ts/capability-ledger.json` records stable semantic IDs,
+canonical physical-key access paths, mode contexts, evidence locations, owning
+roadmap items, and independent implementation/test statuses. It covers all 48
+physical positions and their visible layers, six modes, seven STAT selections,
+four EQN selections, SET UP choices, observed MATH menus, 52 named constants,
+44 conversion directions, statistics, memories, matrix and list functions.
+
+`experiments/menu-inventory.json` contains a fresh-reset live transcript of 119
+physical clicks and 70 significant frames against the pinned simulator. It
+includes CNST 01, CONV 01, an exploratory Error 2 and recovery, and cancelled
+M-CLR confirmations. Full-manual catalogue entries are marked documented;
+unexecuted values, capacities, modifier behavior and mode availability remain
+explicitly pending. Source manuals, binaries and images are not distributed.
+
+The ledger contains 430 inventory entries under its stated counting policy.
+Sharp advertises 470 functions, but a one-to-one marketing-count mapping remains
+unresolved and assigned to the final audit. No synthetic entries pad that count.
+An observed legend or menu does not establish application parity: implementation
+is unassessed until EL506-005, and unit/golden/browser parity statuses are pending.
+`npm run test:reference` validates both experiments and the ledger offline;
+`npm test` also checks catalogue completeness, source references and rejected
+premature parity claims. EL506-006 will add the generated parity report.
+
 ## Release History
 
 ### 0.3.1

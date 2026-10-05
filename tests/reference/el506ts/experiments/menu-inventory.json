@@ -1,0 +1,2125 @@
+{
+  "schema_version": 1,
+  "experiment_id": "el506-001-menu-inventory-v1",
+  "roadmap_item": "EL506-001",
+  "catalog_id": "el506-physical-keys-v1",
+  "simulator": {
+    "profile_id": "sharp-el506ts-pc-simulator-1.0.2.0",
+    "product": "SHARP PC Simulator for EL-506TS",
+    "build": "1.0.2.0",
+    "runtime_sha256": "6bfef4d04900b472892be2d4c54dcfa6013f87232097e32df508ca4c27425530",
+    "locale": "English UI; en-US",
+    "operating_system": "Windows 11"
+  },
+  "capture": {
+    "date": "2026-10-05",
+    "timezone": "America/Port_of_Spain",
+    "method": "Computer Use @oai/sky: fresh chrome Reset; 119 physical clicks, one fresh screenshot inspected per action. Small-panel origin (23,56). Pinned runtime hash/build verified. Independent text transcript; no artwork retained.",
+    "evidence_kind": "live-simulator",
+    "source_ids": [
+      "live-session"
+    ]
+  },
+  "initial_state": {
+    "reset": {
+      "kind": "simulator-chrome-reset",
+      "description": "Clicked simulator chrome Reset before step 1; host control excluded from physical sequence."
+    },
+    "setup_sequence": [],
+    "mode": {
+      "status": "observed",
+      "value": "NORMAL (pinned reset default)"
+    },
+    "settings": [
+      {
+        "name": "angle",
+        "observation": {
+          "status": "observed",
+          "value": "DEG"
+        }
+      },
+      {
+        "name": "display-format",
+        "observation": {
+          "status": "observed",
+          "value": "NORM1 (pinned reset default)"
+        }
+      }
+    ],
+    "display": {
+      "upper_line": "",
+      "lower_line": "0.",
+      "indicators": [
+        "DEG"
+      ],
+      "scroll_arrows": [],
+      "cursor": {
+        "status": "observed",
+        "value": "not visible"
+      },
+      "insert_mode": {
+        "status": "unknown",
+        "reason": "Not probed in this experiment."
+      },
+      "prompt": null,
+      "selected_result_component": null
+    },
+    "stores": []
+  },
+  "sequence": [
+    "EL506-K04",
+    "EL506-K11",
+    "EL506-K11",
+    "EL506-K40",
+    "EL506-K11",
+    "EL506-K11",
+    "EL506-K45",
+    "EL506-K17",
+    "EL506-K02",
+    "EL506-K03",
+    "EL506-K05",
+    "EL506-K01",
+    "EL506-K06",
+    "EL506-K45",
+    "EL506-K01",
+    "EL506-K06",
+    "EL506-K40",
+    "EL506-K11",
+    "EL506-K01",
+    "EL506-K06",
+    "EL506-K41",
+    "EL506-K01",
+    "EL506-K17",
+    "EL506-K11",
+    "EL506-K40",
+    "EL506-K11",
+    "EL506-K01",
+    "EL506-K04",
+    "EL506-K41",
+    "EL506-K11",
+    "EL506-K01",
+    "EL506-K04",
+    "EL506-K42",
+    "EL506-K17",
+    "EL506-K01",
+    "EL506-K04",
+    "EL506-K35",
+    "EL506-K17",
+    "EL506-K11",
+    "EL506-K11",
+    "EL506-K11",
+    "EL506-K45",
+    "EL506-K11",
+    "EL506-K02",
+    "EL506-K17",
+    "EL506-K42",
+    "EL506-K11",
+    "EL506-K11",
+    "EL506-K11",
+    "EL506-K02",
+    "EL506-K17",
+    "EL506-K35",
+    "EL506-K01",
+    "EL506-K04",
+    "EL506-K36",
+    "EL506-K17",
+    "EL506-K11",
+    "EL506-K11",
+    "EL506-K11",
+    "EL506-K45",
+    "EL506-K02",
+    "EL506-K17",
+    "EL506-K42",
+    "EL506-K11",
+    "EL506-K11",
+    "EL506-K11",
+    "EL506-K02",
+    "EL506-K17",
+    "EL506-K35",
+    "EL506-K11",
+    "EL506-K11",
+    "EL506-K11",
+    "EL506-K11",
+    "EL506-K18",
+    "EL506-K01",
+    "EL506-K03",
+    "EL506-K30",
+    "EL506-K11",
+    "EL506-K01",
+    "EL506-K03",
+    "EL506-K36",
+    "EL506-K45",
+    "EL506-K40",
+    "EL506-K48",
+    "EL506-K02",
+    "EL506-K03",
+    "EL506-K41",
+    "EL506-K45",
+    "EL506-K40",
+    "EL506-K02",
+    "EL506-K40",
+    "EL506-K03",
+    "EL506-K42",
+    "EL506-K45",
+    "EL506-K40",
+    "EL506-K48",
+    "EL506-K03",
+    "EL506-K47",
+    "EL506-K45",
+    "EL506-K02",
+    "EL506-K03",
+    "EL506-K47",
+    "EL506-K40",
+    "EL506-K02",
+    "EL506-K06",
+    "EL506-K40",
+    "EL506-K45",
+    "EL506-K06",
+    "EL506-K41",
+    "EL506-K01",
+    "EL506-K04",
+    "EL506-K40",
+    "EL506-K40",
+    "EL506-K17",
+    "EL506-K01",
+    "EL506-K03",
+    "EL506-K08",
+    "EL506-K05",
+    "EL506-K08"
+  ],
+  "frames": [
+    {
+      "after_step": 0,
+      "display": {
+        "upper_line": "",
+        "lower_line": "0.",
+        "indicators": [
+          "DEG"
+        ],
+        "scroll_arrows": [],
+        "cursor": {
+          "status": "observed",
+          "value": "not visible"
+        },
+        "insert_mode": {
+          "status": "unknown",
+          "reason": "Not probed in this experiment."
+        },
+        "prompt": null,
+        "selected_result_component": null
+      },
+      "result": {
+        "status": "not-applicable",
+        "reason": "Menu or entry frame; no numeric result asserted."
+      }
+    },
+    {
+      "after_step": 1,
+      "display": {
+        "upper_line": "NORMAL STAT",
+        "lower_line": "0 1",
+        "indicators": [
+          "DEG"
+        ],
+        "scroll_arrows": [
+          "down"
+        ],
+        "cursor": {
+          "status": "unknown",
+          "reason": "Selection dot and blinking cursor timing not measured."
+        },
+        "insert_mode": {
+          "status": "unknown",
+          "reason": "Not probed."
+        },
+        "prompt": null,
+        "selected_result_component": null
+      },
+      "result": {
+        "status": "not-applicable",
+        "reason": "Menu or entry frame; no numeric result asserted."
+      }
+    },
+    {
+      "after_step": 2,
+      "display": {
+        "upper_line": "EQN CPLX",
+        "lower_line": "2 3",
+        "indicators": [
+          "DEG"
+        ],
+        "scroll_arrows": [
+          "up",
+          "down"
+        ],
+        "cursor": {
+          "status": "unknown",
+          "reason": "Selection dot and blinking cursor timing not measured."
+        },
+        "insert_mode": {
+          "status": "unknown",
+          "reason": "Not probed."
+        },
+        "prompt": null,
+        "selected_result_component": null
+      },
+      "result": {
+        "status": "not-applicable",
+        "reason": "Menu or entry frame; no numeric result asserted."
+      }
+    },
+    {
+      "after_step": 3,
+      "display": {
+        "upper_line": "MAT LIST",
+        "lower_line": "4 5",
+        "indicators": [
+          "DEG"
+        ],
+        "scroll_arrows": [
+          "up"
+        ],
+        "cursor": {
+          "status": "unknown",
+          "reason": "Selection dot and blinking cursor timing not measured."
+        },
+        "insert_mode": {
+          "status": "unknown",
+          "reason": "Not probed."
+        },
+        "prompt": null,
+        "selected_result_component": null
+      },
+      "result": {
+        "status": "not-applicable",
+        "reason": "Menu or entry frame; no numeric result asserted."
+      }
+    },
+    {
+      "after_step": 4,
+      "display": {
+        "upper_line": "SD LINE QUAD",
+        "lower_line": "0 1 2",
+        "indicators": [
+          "DEG"
+        ],
+        "scroll_arrows": [
+          "down"
+        ],
+        "cursor": {
+          "status": "unknown",
+          "reason": "Selection dot and blinking cursor timing not measured."
+        },
+        "insert_mode": {
+          "status": "unknown",
+          "reason": "Not probed."
+        },
+        "prompt": null,
+        "selected_result_component": null
+      },
+      "result": {
+        "status": "not-applicable",
+        "reason": "Menu or entry frame; no numeric result asserted."
+      }
+    },
+    {
+      "after_step": 5,
+      "display": {
+        "upper_line": "EXP LOG PWR",
+        "lower_line": "3 4 5",
+        "indicators": [
+          "DEG"
+        ],
+        "scroll_arrows": [
+          "up",
+          "down"
+        ],
+        "cursor": {
+          "status": "unknown",
+          "reason": "Selection dot and blinking cursor timing not measured."
+        },
+        "insert_mode": {
+          "status": "unknown",
+          "reason": "Not probed."
+        },
+        "prompt": null,
+        "selected_result_component": null
+      },
+      "result": {
+        "status": "not-applicable",
+        "reason": "Menu or entry frame; no numeric result asserted."
+      }
+    },
+    {
+      "after_step": 6,
+      "display": {
+        "upper_line": "INV",
+        "lower_line": "6",
+        "indicators": [
+          "DEG"
+        ],
+        "scroll_arrows": [
+          "up"
+        ],
+        "cursor": {
+          "status": "unknown",
+          "reason": "Selection dot and blinking cursor timing not measured."
+        },
+        "insert_mode": {
+          "status": "unknown",
+          "reason": "Not probed."
+        },
+        "prompt": null,
+        "selected_result_component": null
+      },
+      "result": {
+        "status": "not-applicable",
+        "reason": "Menu or entry frame; no numeric result asserted."
+      }
+    },
+    {
+      "after_step": 7,
+      "display": {
+        "upper_line": "Stat 0",
+        "lower_line": "0.",
+        "indicators": [
+          "DEG",
+          "STAT"
+        ],
+        "scroll_arrows": [],
+        "cursor": {
+          "status": "unknown",
+          "reason": "Selection dot and blinking cursor timing not measured."
+        },
+        "insert_mode": {
+          "status": "unknown",
+          "reason": "Not probed."
+        },
+        "prompt": null,
+        "selected_result_component": null
+      },
+      "result": {
+        "status": "not-applicable",
+        "reason": "Menu or entry frame; no numeric result asserted."
+      }
+    },
+    {
+      "after_step": 8,
+      "display": {
+        "upper_line": "→t P( Q( R(",
+        "lower_line": "0 1 2 3",
+        "indicators": [
+          "DEG",
+          "STAT"
+        ],
+        "scroll_arrows": [],
+        "cursor": {
+          "status": "unknown",
+          "reason": "Selection dot and blinking cursor timing not measured."
+        },
+        "insert_mode": {
+          "status": "unknown",
+          "reason": "Not probed."
+        },
+        "prompt": null,
+        "selected_result_component": null
+      },
+      "result": {
+        "status": "not-applicable",
+        "reason": "Menu or entry frame; no numeric result asserted."
+      }
+    },
+    {
+      "after_step": 11,
+      "display": {
+        "upper_line": "Stat 0",
+        "lower_line": "0.",
+        "indicators": [
+          "DEG",
+          "STAT",
+          "ALPHA"
+        ],
+        "scroll_arrows": [],
+        "cursor": {
+          "status": "unknown",
+          "reason": "Selection dot and blinking cursor timing not measured."
+        },
+        "insert_mode": {
+          "status": "unknown",
+          "reason": "Not probed."
+        },
+        "prompt": null,
+        "selected_result_component": null
+      },
+      "result": {
+        "status": "not-applicable",
+        "reason": "Menu or entry frame; no numeric result asserted."
+      }
+    },
+    {
+      "after_step": 13,
+      "display": {
+        "upper_line": "DRG FSE TAB",
+        "lower_line": "0 1",
+        "indicators": [
+          "DEG"
+        ],
+        "scroll_arrows": [],
+        "cursor": {
+          "status": "unknown",
+          "reason": "Selection dot and blinking cursor timing not measured."
+        },
+        "insert_mode": {
+          "status": "unknown",
+          "reason": "Not probed."
+        },
+        "prompt": null,
+        "selected_result_component": null
+      },
+      "result": {
+        "status": "not-applicable",
+        "reason": "Menu or entry frame; no numeric result asserted."
+      }
+    },
+    {
+      "after_step": 14,
+      "display": {
+        "upper_line": "DEG RAD GRAD",
+        "lower_line": "0 1 2",
+        "indicators": [
+          "DEG"
+        ],
+        "scroll_arrows": [],
+        "cursor": {
+          "status": "unknown",
+          "reason": "Selection dot and blinking cursor timing not measured."
+        },
+        "insert_mode": {
+          "status": "unknown",
+          "reason": "Not probed."
+        },
+        "prompt": null,
+        "selected_result_component": null
+      },
+      "result": {
+        "status": "not-applicable",
+        "reason": "Menu or entry frame; no numeric result asserted."
+      }
+    },
+    {
+      "after_step": 17,
+      "display": {
+        "upper_line": "FIX SCI ENG",
+        "lower_line": "0 1 2",
+        "indicators": [
+          "DEG"
+        ],
+        "scroll_arrows": [
+          "down"
+        ],
+        "cursor": {
+          "status": "unknown",
+          "reason": "Selection dot and blinking cursor timing not measured."
+        },
+        "insert_mode": {
+          "status": "unknown",
+          "reason": "Not probed."
+        },
+        "prompt": null,
+        "selected_result_component": null
+      },
+      "result": {
+        "status": "not-applicable",
+        "reason": "Menu or entry frame; no numeric result asserted."
+      }
+    },
+    {
+      "after_step": 18,
+      "display": {
+        "upper_line": "NORM1 NORM2",
+        "lower_line": "3 4",
+        "indicators": [
+          "DEG"
+        ],
+        "scroll_arrows": [
+          "up"
+        ],
+        "cursor": {
+          "status": "unknown",
+          "reason": "Selection dot and blinking cursor timing not measured."
+        },
+        "insert_mode": {
+          "status": "unknown",
+          "reason": "Not probed."
+        },
+        "prompt": null,
+        "selected_result_component": null
+      },
+      "result": {
+        "status": "not-applicable",
+        "reason": "Menu or entry frame; no numeric result asserted."
+      }
+    },
+    {
+      "after_step": 21,
+      "display": {
+        "upper_line": "DRG FSE TAB",
+        "lower_line": "0 1",
+        "indicators": [
+          "DEG"
+        ],
+        "scroll_arrows": [],
+        "cursor": {
+          "status": "unknown",
+          "reason": "Selection dot and blinking cursor timing not measured."
+        },
+        "insert_mode": {
+          "status": "unknown",
+          "reason": "Not probed."
+        },
+        "prompt": null,
+        "selected_result_component": null
+      },
+      "result": {
+        "status": "not-applicable",
+        "reason": "Menu or entry frame; no numeric result asserted."
+      }
+    },
+    {
+      "after_step": 23,
+      "display": {
+        "upper_line": "SOLV ENG",
+        "lower_line": "0 1",
+        "indicators": [
+          "DEG"
+        ],
+        "scroll_arrows": [
+          "down"
+        ],
+        "cursor": {
+          "status": "unknown",
+          "reason": "Selection dot and blinking cursor timing not measured."
+        },
+        "insert_mode": {
+          "status": "unknown",
+          "reason": "Not probed."
+        },
+        "prompt": null,
+        "selected_result_component": null
+      },
+      "result": {
+        "status": "not-applicable",
+        "reason": "Menu or entry frame; no numeric result asserted."
+      }
+    },
+    {
+      "after_step": 24,
+      "display": {
+        "upper_line": "→sec →min",
+        "lower_line": "2 3",
+        "indicators": [
+          "DEG"
+        ],
+        "scroll_arrows": [
+          "up"
+        ],
+        "cursor": {
+          "status": "unknown",
+          "reason": "Selection dot and blinking cursor timing not measured."
+        },
+        "insert_mode": {
+          "status": "unknown",
+          "reason": "Not probed."
+        },
+        "prompt": null,
+        "selected_result_component": null
+      },
+      "result": {
+        "status": "not-applicable",
+        "reason": "Menu or entry frame; no numeric result asserted."
+      }
+    },
+    {
+      "after_step": 25,
+      "display": {
+        "upper_line": "k M G T",
+        "lower_line": "0 1 2 3",
+        "indicators": [
+          "DEG"
+        ],
+        "scroll_arrows": [
+          "down"
+        ],
+        "cursor": {
+          "status": "unknown",
+          "reason": "Selection dot and blinking cursor timing not measured."
+        },
+        "insert_mode": {
+          "status": "unknown",
+          "reason": "Not probed."
+        },
+        "prompt": null,
+        "selected_result_component": null
+      },
+      "result": {
+        "status": "not-applicable",
+        "reason": "Menu or entry frame; no numeric result asserted."
+      }
+    },
+    {
+      "after_step": 26,
+      "display": {
+        "upper_line": "m μ n p f",
+        "lower_line": "4 5 6 7 8",
+        "indicators": [
+          "DEG"
+        ],
+        "scroll_arrows": [
+          "up"
+        ],
+        "cursor": {
+          "status": "unknown",
+          "reason": "Selection dot and blinking cursor timing not measured."
+        },
+        "insert_mode": {
+          "status": "unknown",
+          "reason": "Not probed."
+        },
+        "prompt": null,
+        "selected_result_component": null
+      },
+      "result": {
+        "status": "not-applicable",
+        "reason": "Menu or entry frame; no numeric result asserted."
+      }
+    },
+    {
+      "after_step": 29,
+      "display": {
+        "upper_line": "2-VLE 3-VLE",
+        "lower_line": "0 1",
+        "indicators": [
+          "DEG"
+        ],
+        "scroll_arrows": [
+          "down"
+        ],
+        "cursor": {
+          "status": "unknown",
+          "reason": "Selection dot and blinking cursor timing not measured."
+        },
+        "insert_mode": {
+          "status": "unknown",
+          "reason": "Not probed."
+        },
+        "prompt": null,
+        "selected_result_component": null
+      },
+      "result": {
+        "status": "not-applicable",
+        "reason": "Menu or entry frame; no numeric result asserted."
+      }
+    },
+    {
+      "after_step": 30,
+      "display": {
+        "upper_line": "QUAD CUBIC",
+        "lower_line": "2 3",
+        "indicators": [
+          "DEG"
+        ],
+        "scroll_arrows": [
+          "up"
+        ],
+        "cursor": {
+          "status": "unknown",
+          "reason": "Selection dot and blinking cursor timing not measured."
+        },
+        "insert_mode": {
+          "status": "unknown",
+          "reason": "Not probed."
+        },
+        "prompt": null,
+        "selected_result_component": null
+      },
+      "result": {
+        "status": "not-applicable",
+        "reason": "Menu or entry frame; no numeric result asserted."
+      }
+    },
+    {
+      "after_step": 34,
+      "display": {
+        "upper_line": "CONJ",
+        "lower_line": "0",
+        "indicators": [
+          "DEG",
+          "xy"
+        ],
+        "scroll_arrows": [],
+        "cursor": {
+          "status": "unknown",
+          "reason": "Selection dot and blinking cursor timing not measured."
+        },
+        "insert_mode": {
+          "status": "unknown",
+          "reason": "Not probed."
+        },
+        "prompt": null,
+        "selected_result_component": null
+      },
+      "result": {
+        "status": "not-applicable",
+        "reason": "Menu or entry frame; no numeric result asserted."
+      }
+    },
+    {
+      "after_step": 38,
+      "display": {
+        "upper_line": "MAT CHK STO",
+        "lower_line": "0 1 2",
+        "indicators": [
+          "DEG",
+          "MAT"
+        ],
+        "scroll_arrows": [
+          "down"
+        ],
+        "cursor": {
+          "status": "unknown",
+          "reason": "Selection dot and blinking cursor timing not measured."
+        },
+        "insert_mode": {
+          "status": "unknown",
+          "reason": "Not probed."
+        },
+        "prompt": null,
+        "selected_result_component": null
+      },
+      "result": {
+        "status": "not-applicable",
+        "reason": "Menu or entry frame; no numeric result asserted."
+      }
+    },
+    {
+      "after_step": 39,
+      "display": {
+        "upper_line": "OPE MATH",
+        "lower_line": "3 4",
+        "indicators": [
+          "DEG",
+          "MAT"
+        ],
+        "scroll_arrows": [
+          "up",
+          "down"
+        ],
+        "cursor": {
+          "status": "unknown",
+          "reason": "Selection dot and blinking cursor timing not measured."
+        },
+        "insert_mode": {
+          "status": "unknown",
+          "reason": "Not probed."
+        },
+        "prompt": null,
+        "selected_result_component": null
+      },
+      "result": {
+        "status": "not-applicable",
+        "reason": "Menu or entry frame; no numeric result asserted."
+      }
+    },
+    {
+      "after_step": 40,
+      "display": {
+        "upper_line": "mat→list",
+        "lower_line": "5",
+        "indicators": [
+          "DEG",
+          "MAT"
+        ],
+        "scroll_arrows": [
+          "up",
+          "down"
+        ],
+        "cursor": {
+          "status": "unknown",
+          "reason": "Selection dot and blinking cursor timing not measured."
+        },
+        "insert_mode": {
+          "status": "unknown",
+          "reason": "Not probed."
+        },
+        "prompt": null,
+        "selected_result_component": null
+      },
+      "result": {
+        "status": "not-applicable",
+        "reason": "Menu or entry frame; no numeric result asserted."
+      }
+    },
+    {
+      "after_step": 41,
+      "display": {
+        "upper_line": "matA→list",
+        "lower_line": "6",
+        "indicators": [
+          "DEG",
+          "MAT"
+        ],
+        "scroll_arrows": [
+          "up"
+        ],
+        "cursor": {
+          "status": "unknown",
+          "reason": "Selection dot and blinking cursor timing not measured."
+        },
+        "insert_mode": {
+          "status": "unknown",
+          "reason": "Not probed."
+        },
+        "prompt": null,
+        "selected_result_component": null
+      },
+      "result": {
+        "status": "not-applicable",
+        "reason": "Menu or entry frame; no numeric result asserted."
+      }
+    },
+    {
+      "after_step": 42,
+      "display": {
+        "upper_line": "matA matB",
+        "lower_line": "0 1",
+        "indicators": [
+          "DEG",
+          "MAT"
+        ],
+        "scroll_arrows": [
+          "down"
+        ],
+        "cursor": {
+          "status": "unknown",
+          "reason": "Selection dot and blinking cursor timing not measured."
+        },
+        "insert_mode": {
+          "status": "unknown",
+          "reason": "Not probed."
+        },
+        "prompt": null,
+        "selected_result_component": null
+      },
+      "result": {
+        "status": "not-applicable",
+        "reason": "Menu or entry frame; no numeric result asserted."
+      }
+    },
+    {
+      "after_step": 43,
+      "display": {
+        "upper_line": "matC matD",
+        "lower_line": "2 3",
+        "indicators": [
+          "DEG",
+          "MAT"
+        ],
+        "scroll_arrows": [
+          "up"
+        ],
+        "cursor": {
+          "status": "unknown",
+          "reason": "Selection dot and blinking cursor timing not measured."
+        },
+        "insert_mode": {
+          "status": "unknown",
+          "reason": "Not probed."
+        },
+        "prompt": null,
+        "selected_result_component": null
+      },
+      "result": {
+        "status": "not-applicable",
+        "reason": "Menu or entry frame; no numeric result asserted."
+      }
+    },
+    {
+      "after_step": 46,
+      "display": {
+        "upper_line": "dim( fill(",
+        "lower_line": "0 1",
+        "indicators": [
+          "DEG",
+          "MAT"
+        ],
+        "scroll_arrows": [
+          "down"
+        ],
+        "cursor": {
+          "status": "unknown",
+          "reason": "Selection dot and blinking cursor timing not measured."
+        },
+        "insert_mode": {
+          "status": "unknown",
+          "reason": "Not probed."
+        },
+        "prompt": null,
+        "selected_result_component": null
+      },
+      "result": {
+        "status": "not-applicable",
+        "reason": "Menu or entry frame; no numeric result asserted."
+      }
+    },
+    {
+      "after_step": 47,
+      "display": {
+        "upper_line": "cumul aug(",
+        "lower_line": "2 3",
+        "indicators": [
+          "DEG",
+          "MAT"
+        ],
+        "scroll_arrows": [
+          "up",
+          "down"
+        ],
+        "cursor": {
+          "status": "unknown",
+          "reason": "Selection dot and blinking cursor timing not measured."
+        },
+        "insert_mode": {
+          "status": "unknown",
+          "reason": "Not probed."
+        },
+        "prompt": null,
+        "selected_result_component": null
+      },
+      "result": {
+        "status": "not-applicable",
+        "reason": "Menu or entry frame; no numeric result asserted."
+      }
+    },
+    {
+      "after_step": 48,
+      "display": {
+        "upper_line": "identity",
+        "lower_line": "4",
+        "indicators": [
+          "DEG",
+          "MAT"
+        ],
+        "scroll_arrows": [
+          "up",
+          "down"
+        ],
+        "cursor": {
+          "status": "unknown",
+          "reason": "Selection dot and blinking cursor timing not measured."
+        },
+        "insert_mode": {
+          "status": "unknown",
+          "reason": "Not probed."
+        },
+        "prompt": null,
+        "selected_result_component": null
+      },
+      "result": {
+        "status": "not-applicable",
+        "reason": "Menu or entry frame; no numeric result asserted."
+      }
+    },
+    {
+      "after_step": 49,
+      "display": {
+        "upper_line": "rnd_mat(",
+        "lower_line": "5",
+        "indicators": [
+          "DEG",
+          "MAT"
+        ],
+        "scroll_arrows": [
+          "up"
+        ],
+        "cursor": {
+          "status": "unknown",
+          "reason": "Selection dot and blinking cursor timing not measured."
+        },
+        "insert_mode": {
+          "status": "unknown",
+          "reason": "Not probed."
+        },
+        "prompt": null,
+        "selected_result_component": null
+      },
+      "result": {
+        "status": "not-applicable",
+        "reason": "Menu or entry frame; no numeric result asserted."
+      }
+    },
+    {
+      "after_step": 52,
+      "display": {
+        "upper_line": "det trans",
+        "lower_line": "0 1",
+        "indicators": [
+          "DEG",
+          "MAT"
+        ],
+        "scroll_arrows": [],
+        "cursor": {
+          "status": "unknown",
+          "reason": "Selection dot and blinking cursor timing not measured."
+        },
+        "insert_mode": {
+          "status": "unknown",
+          "reason": "Not probed."
+        },
+        "prompt": null,
+        "selected_result_component": null
+      },
+      "result": {
+        "status": "not-applicable",
+        "reason": "Menu or entry frame; no numeric result asserted."
+      }
+    },
+    {
+      "after_step": 56,
+      "display": {
+        "upper_line": "LST CHK STO",
+        "lower_line": "0 1 2",
+        "indicators": [
+          "DEG",
+          "LIST"
+        ],
+        "scroll_arrows": [
+          "down"
+        ],
+        "cursor": {
+          "status": "unknown",
+          "reason": "Selection dot and blinking cursor timing not measured."
+        },
+        "insert_mode": {
+          "status": "unknown",
+          "reason": "Not probed."
+        },
+        "prompt": null,
+        "selected_result_component": null
+      },
+      "result": {
+        "status": "not-applicable",
+        "reason": "Menu or entry frame; no numeric result asserted."
+      }
+    },
+    {
+      "after_step": 57,
+      "display": {
+        "upper_line": "OPE MATH",
+        "lower_line": "3 4",
+        "indicators": [
+          "DEG",
+          "LIST"
+        ],
+        "scroll_arrows": [
+          "up",
+          "down"
+        ],
+        "cursor": {
+          "status": "unknown",
+          "reason": "Selection dot and blinking cursor timing not measured."
+        },
+        "insert_mode": {
+          "status": "unknown",
+          "reason": "Not probed."
+        },
+        "prompt": null,
+        "selected_result_component": null
+      },
+      "result": {
+        "status": "not-applicable",
+        "reason": "Menu or entry frame; no numeric result asserted."
+      }
+    },
+    {
+      "after_step": 58,
+      "display": {
+        "upper_line": "list→mat",
+        "lower_line": "5",
+        "indicators": [
+          "DEG",
+          "LIST"
+        ],
+        "scroll_arrows": [
+          "up",
+          "down"
+        ],
+        "cursor": {
+          "status": "unknown",
+          "reason": "Selection dot and blinking cursor timing not measured."
+        },
+        "insert_mode": {
+          "status": "unknown",
+          "reason": "Not probed."
+        },
+        "prompt": null,
+        "selected_result_component": null
+      },
+      "result": {
+        "status": "not-applicable",
+        "reason": "Menu or entry frame; no numeric result asserted."
+      }
+    },
+    {
+      "after_step": 59,
+      "display": {
+        "upper_line": "list→matA",
+        "lower_line": "6",
+        "indicators": [
+          "DEG",
+          "LIST"
+        ],
+        "scroll_arrows": [
+          "up"
+        ],
+        "cursor": {
+          "status": "unknown",
+          "reason": "Selection dot and blinking cursor timing not measured."
+        },
+        "insert_mode": {
+          "status": "unknown",
+          "reason": "Not probed."
+        },
+        "prompt": null,
+        "selected_result_component": null
+      },
+      "result": {
+        "status": "not-applicable",
+        "reason": "Menu or entry frame; no numeric result asserted."
+      }
+    },
+    {
+      "after_step": 60,
+      "display": {
+        "upper_line": "L1 L2 L3 L4",
+        "lower_line": "0 1 2 3",
+        "indicators": [
+          "DEG",
+          "LIST"
+        ],
+        "scroll_arrows": [],
+        "cursor": {
+          "status": "unknown",
+          "reason": "Selection dot and blinking cursor timing not measured."
+        },
+        "insert_mode": {
+          "status": "unknown",
+          "reason": "Not probed."
+        },
+        "prompt": null,
+        "selected_result_component": null
+      },
+      "result": {
+        "status": "not-applicable",
+        "reason": "Menu or entry frame; no numeric result asserted."
+      }
+    },
+    {
+      "after_step": 63,
+      "display": {
+        "upper_line": "sortA sortD",
+        "lower_line": "0 1",
+        "indicators": [
+          "DEG",
+          "LIST"
+        ],
+        "scroll_arrows": [
+          "down"
+        ],
+        "cursor": {
+          "status": "unknown",
+          "reason": "Selection dot and blinking cursor timing not measured."
+        },
+        "insert_mode": {
+          "status": "unknown",
+          "reason": "Not probed."
+        },
+        "prompt": null,
+        "selected_result_component": null
+      },
+      "result": {
+        "status": "not-applicable",
+        "reason": "Menu or entry frame; no numeric result asserted."
+      }
+    },
+    {
+      "after_step": 64,
+      "display": {
+        "upper_line": "dim( fill(",
+        "lower_line": "2 3",
+        "indicators": [
+          "DEG",
+          "LIST"
+        ],
+        "scroll_arrows": [
+          "up",
+          "down"
+        ],
+        "cursor": {
+          "status": "unknown",
+          "reason": "Selection dot and blinking cursor timing not measured."
+        },
+        "insert_mode": {
+          "status": "unknown",
+          "reason": "Not probed."
+        },
+        "prompt": null,
+        "selected_result_component": null
+      },
+      "result": {
+        "status": "not-applicable",
+        "reason": "Menu or entry frame; no numeric result asserted."
+      }
+    },
+    {
+      "after_step": 65,
+      "display": {
+        "upper_line": "cumul",
+        "lower_line": "4",
+        "indicators": [
+          "DEG",
+          "LIST"
+        ],
+        "scroll_arrows": [
+          "up",
+          "down"
+        ],
+        "cursor": {
+          "status": "unknown",
+          "reason": "Selection dot and blinking cursor timing not measured."
+        },
+        "insert_mode": {
+          "status": "unknown",
+          "reason": "Not probed."
+        },
+        "prompt": null,
+        "selected_result_component": null
+      },
+      "result": {
+        "status": "not-applicable",
+        "reason": "Menu or entry frame; no numeric result asserted."
+      }
+    },
+    {
+      "after_step": 66,
+      "display": {
+        "upper_line": "df_list aug(",
+        "lower_line": "5 6",
+        "indicators": [
+          "DEG",
+          "LIST"
+        ],
+        "scroll_arrows": [
+          "up"
+        ],
+        "cursor": {
+          "status": "unknown",
+          "reason": "Selection dot and blinking cursor timing not measured."
+        },
+        "insert_mode": {
+          "status": "unknown",
+          "reason": "Not probed."
+        },
+        "prompt": null,
+        "selected_result_component": null
+      },
+      "result": {
+        "status": "not-applicable",
+        "reason": "Menu or entry frame; no numeric result asserted."
+      }
+    },
+    {
+      "after_step": 69,
+      "display": {
+        "upper_line": "min max mean",
+        "lower_line": "0 1 2",
+        "indicators": [
+          "DEG",
+          "LIST"
+        ],
+        "scroll_arrows": [
+          "down"
+        ],
+        "cursor": {
+          "status": "unknown",
+          "reason": "Selection dot and blinking cursor timing not measured."
+        },
+        "insert_mode": {
+          "status": "unknown",
+          "reason": "Not probed."
+        },
+        "prompt": null,
+        "selected_result_component": null
+      },
+      "result": {
+        "status": "not-applicable",
+        "reason": "Menu or entry frame; no numeric result asserted."
+      }
+    },
+    {
+      "after_step": 70,
+      "display": {
+        "upper_line": "med sum",
+        "lower_line": "3 4",
+        "indicators": [
+          "DEG",
+          "LIST"
+        ],
+        "scroll_arrows": [
+          "up",
+          "down"
+        ],
+        "cursor": {
+          "status": "unknown",
+          "reason": "Selection dot and blinking cursor timing not measured."
+        },
+        "insert_mode": {
+          "status": "unknown",
+          "reason": "Not probed."
+        },
+        "prompt": null,
+        "selected_result_component": null
+      },
+      "result": {
+        "status": "not-applicable",
+        "reason": "Menu or entry frame; no numeric result asserted."
+      }
+    },
+    {
+      "after_step": 71,
+      "display": {
+        "upper_line": "prod stdDv",
+        "lower_line": "5 6",
+        "indicators": [
+          "DEG",
+          "LIST"
+        ],
+        "scroll_arrows": [
+          "up",
+          "down"
+        ],
+        "cursor": {
+          "status": "unknown",
+          "reason": "Selection dot and blinking cursor timing not measured."
+        },
+        "insert_mode": {
+          "status": "unknown",
+          "reason": "Not probed."
+        },
+        "prompt": null,
+        "selected_result_component": null
+      },
+      "result": {
+        "status": "not-applicable",
+        "reason": "Menu or entry frame; no numeric result asserted."
+      }
+    },
+    {
+      "after_step": 72,
+      "display": {
+        "upper_line": "vari o_prod(",
+        "lower_line": "7 8",
+        "indicators": [
+          "DEG",
+          "LIST"
+        ],
+        "scroll_arrows": [
+          "up",
+          "down"
+        ],
+        "cursor": {
+          "status": "unknown",
+          "reason": "Selection dot and blinking cursor timing not measured."
+        },
+        "insert_mode": {
+          "status": "unknown",
+          "reason": "Not probed."
+        },
+        "prompt": null,
+        "selected_result_component": null
+      },
+      "result": {
+        "status": "not-applicable",
+        "reason": "Menu or entry frame; no numeric result asserted."
+      }
+    },
+    {
+      "after_step": 73,
+      "display": {
+        "upper_line": "i_prod( abs",
+        "lower_line": "9 A",
+        "indicators": [
+          "DEG",
+          "LIST"
+        ],
+        "scroll_arrows": [
+          "up"
+        ],
+        "cursor": {
+          "status": "unknown",
+          "reason": "Selection dot and blinking cursor timing not measured."
+        },
+        "insert_mode": {
+          "status": "unknown",
+          "reason": "Not probed."
+        },
+        "prompt": null,
+        "selected_result_component": null
+      },
+      "result": {
+        "status": "not-applicable",
+        "reason": "Menu or entry frame; no numeric result asserted."
+      }
+    },
+    {
+      "after_step": 74,
+      "display": {
+        "upper_line": "abs",
+        "lower_line": "0.",
+        "indicators": [
+          "DEG",
+          "LIST"
+        ],
+        "scroll_arrows": [],
+        "cursor": {
+          "status": "unknown",
+          "reason": "Selection dot and blinking cursor timing not measured."
+        },
+        "insert_mode": {
+          "status": "unknown",
+          "reason": "Not probed."
+        },
+        "prompt": null,
+        "selected_result_component": null
+      },
+      "result": {
+        "status": "not-applicable",
+        "reason": "Menu or entry frame; no numeric result asserted."
+      }
+    },
+    {
+      "after_step": 77,
+      "display": {
+        "upper_line": "RAND R-DICE",
+        "lower_line": "0 1",
+        "indicators": [
+          "DEG"
+        ],
+        "scroll_arrows": [
+          "down"
+        ],
+        "cursor": {
+          "status": "unknown",
+          "reason": "Selection dot and blinking cursor timing not measured."
+        },
+        "insert_mode": {
+          "status": "unknown",
+          "reason": "Not probed."
+        },
+        "prompt": null,
+        "selected_result_component": null
+      },
+      "result": {
+        "status": "not-applicable",
+        "reason": "Menu or entry frame; no numeric result asserted."
+      }
+    },
+    {
+      "after_step": 78,
+      "display": {
+        "upper_line": "R-COIN R-INT",
+        "lower_line": "2 3",
+        "indicators": [
+          "DEG"
+        ],
+        "scroll_arrows": [
+          "up"
+        ],
+        "cursor": {
+          "status": "unknown",
+          "reason": "Selection dot and blinking cursor timing not measured."
+        },
+        "insert_mode": {
+          "status": "unknown",
+          "reason": "Not probed."
+        },
+        "prompt": null,
+        "selected_result_component": null
+      },
+      "result": {
+        "status": "not-applicable",
+        "reason": "Menu or entry frame; no numeric result asserted."
+      }
+    },
+    {
+      "after_step": 81,
+      "display": {
+        "upper_line": "[nCr]",
+        "lower_line": "0.",
+        "indicators": [
+          "DEG"
+        ],
+        "scroll_arrows": [],
+        "cursor": {
+          "status": "unknown",
+          "reason": "Selection dot and blinking cursor timing not measured."
+        },
+        "insert_mode": {
+          "status": "unknown",
+          "reason": "Not probed."
+        },
+        "prompt": null,
+        "selected_result_component": null
+      },
+      "result": {
+        "status": "not-applicable",
+        "reason": "Menu or entry frame; no numeric result asserted."
+      }
+    },
+    {
+      "after_step": 83,
+      "display": {
+        "upper_line": "[nCr]",
+        "lower_line": "1.",
+        "indicators": [
+          "DEG"
+        ],
+        "scroll_arrows": [],
+        "cursor": {
+          "status": "unknown",
+          "reason": "Selection dot and blinking cursor timing not measured."
+        },
+        "insert_mode": {
+          "status": "unknown",
+          "reason": "Not probed."
+        },
+        "prompt": null,
+        "selected_result_component": null
+      },
+      "result": {
+        "status": "not-applicable",
+        "reason": "Menu or entry frame; no numeric result asserted."
+      }
+    },
+    {
+      "after_step": 84,
+      "display": {
+        "upper_line": "Error 2",
+        "lower_line": "",
+        "indicators": [
+          "DEG"
+        ],
+        "scroll_arrows": [],
+        "cursor": {
+          "status": "unknown",
+          "reason": "Selection dot and blinking cursor timing not measured."
+        },
+        "insert_mode": {
+          "status": "unknown",
+          "reason": "Not probed."
+        },
+        "prompt": null,
+        "selected_result_component": null
+      },
+      "result": {
+        "status": "not-applicable",
+        "reason": "Menu or entry frame; no numeric result asserted."
+      }
+    },
+    {
+      "after_step": 85,
+      "display": {
+        "upper_line": "",
+        "lower_line": "0.",
+        "indicators": [
+          "DEG"
+        ],
+        "scroll_arrows": [],
+        "cursor": {
+          "status": "unknown",
+          "reason": "Selection dot and blinking cursor timing not measured."
+        },
+        "insert_mode": {
+          "status": "unknown",
+          "reason": "Not probed."
+        },
+        "prompt": null,
+        "selected_result_component": null
+      },
+      "result": {
+        "status": "not-applicable",
+        "reason": "Menu or entry frame; no numeric result asserted."
+      }
+    },
+    {
+      "after_step": 87,
+      "display": {
+        "upper_line": "",
+        "lower_line": "01-52 [  ]",
+        "indicators": [
+          "DEG",
+          "?"
+        ],
+        "scroll_arrows": [],
+        "cursor": {
+          "status": "unknown",
+          "reason": "Selection dot and blinking cursor timing not measured."
+        },
+        "insert_mode": {
+          "status": "unknown",
+          "reason": "Not probed."
+        },
+        "prompt": "01-52 [  ]",
+        "selected_result_component": null
+      },
+      "result": {
+        "status": "not-applicable",
+        "reason": "Menu or entry frame; no numeric result asserted."
+      }
+    },
+    {
+      "after_step": 89,
+      "display": {
+        "upper_line": "",
+        "lower_line": "2.99792458×10^08",
+        "indicators": [
+          "DEG"
+        ],
+        "scroll_arrows": [],
+        "cursor": {
+          "status": "unknown",
+          "reason": "Selection dot and blinking cursor timing not measured."
+        },
+        "insert_mode": {
+          "status": "unknown",
+          "reason": "Not probed."
+        },
+        "prompt": null,
+        "selected_result_component": null
+      },
+      "result": {
+        "status": "observed",
+        "value": {
+          "encoding": "decimal-string",
+          "value": "299792458",
+          "basis": "displayed"
+        }
+      }
+    },
+    {
+      "after_step": 93,
+      "display": {
+        "upper_line": "1→cv",
+        "lower_line": "0.",
+        "indicators": [
+          "DEG"
+        ],
+        "scroll_arrows": [],
+        "cursor": {
+          "status": "unknown",
+          "reason": "Selection dot and blinking cursor timing not measured."
+        },
+        "insert_mode": {
+          "status": "unknown",
+          "reason": "Not probed."
+        },
+        "prompt": null,
+        "selected_result_component": null
+      },
+      "result": {
+        "status": "not-applicable",
+        "reason": "Menu or entry frame; no numeric result asserted."
+      }
+    },
+    {
+      "after_step": 96,
+      "display": {
+        "upper_line": "1→cv1=",
+        "lower_line": "2.54",
+        "indicators": [
+          "DEG"
+        ],
+        "scroll_arrows": [],
+        "cursor": {
+          "status": "unknown",
+          "reason": "Selection dot and blinking cursor timing not measured."
+        },
+        "insert_mode": {
+          "status": "unknown",
+          "reason": "Not probed."
+        },
+        "prompt": null,
+        "selected_result_component": null
+      },
+      "result": {
+        "status": "observed",
+        "value": {
+          "encoding": "decimal-string",
+          "value": "2.54",
+          "basis": "displayed"
+        }
+      }
+    },
+    {
+      "after_step": 98,
+      "display": {
+        "upper_line": "MEM RESET",
+        "lower_line": "0 1",
+        "indicators": [
+          "DEG"
+        ],
+        "scroll_arrows": [],
+        "cursor": {
+          "status": "unknown",
+          "reason": "Selection dot and blinking cursor timing not measured."
+        },
+        "insert_mode": {
+          "status": "unknown",
+          "reason": "Not probed."
+        },
+        "prompt": null,
+        "selected_result_component": null
+      },
+      "result": {
+        "status": "not-applicable",
+        "reason": "Menu or entry frame; no numeric result asserted."
+      }
+    },
+    {
+      "after_step": 99,
+      "display": {
+        "upper_line": "CLR_MEMORY?",
+        "lower_line": "0.",
+        "indicators": [
+          "DEG"
+        ],
+        "scroll_arrows": [],
+        "cursor": {
+          "status": "unknown",
+          "reason": "Selection dot and blinking cursor timing not measured."
+        },
+        "insert_mode": {
+          "status": "unknown",
+          "reason": "Not probed."
+        },
+        "prompt": "CLR_MEMORY?",
+        "selected_result_component": null
+      },
+      "result": {
+        "status": "not-applicable",
+        "reason": "Menu or entry frame; no numeric result asserted."
+      }
+    },
+    {
+      "after_step": 100,
+      "display": {
+        "upper_line": "",
+        "lower_line": "0.",
+        "indicators": [
+          "DEG"
+        ],
+        "scroll_arrows": [],
+        "cursor": {
+          "status": "unknown",
+          "reason": "Selection dot and blinking cursor timing not measured."
+        },
+        "insert_mode": {
+          "status": "unknown",
+          "reason": "Not probed."
+        },
+        "prompt": null,
+        "selected_result_component": null
+      },
+      "result": {
+        "status": "not-applicable",
+        "reason": "Menu or entry frame; no numeric result asserted."
+      }
+    },
+    {
+      "after_step": 103,
+      "display": {
+        "upper_line": "RESET?",
+        "lower_line": "0.",
+        "indicators": [
+          "DEG"
+        ],
+        "scroll_arrows": [],
+        "cursor": {
+          "status": "unknown",
+          "reason": "Selection dot and blinking cursor timing not measured."
+        },
+        "insert_mode": {
+          "status": "unknown",
+          "reason": "Not probed."
+        },
+        "prompt": "RESET?",
+        "selected_result_component": null
+      },
+      "result": {
+        "status": "not-applicable",
+        "reason": "Menu or entry frame; no numeric result asserted."
+      }
+    },
+    {
+      "after_step": 107,
+      "display": {
+        "upper_line": "",
+        "lower_line": "0.000000000",
+        "indicators": [
+          "DEG",
+          "FIX"
+        ],
+        "scroll_arrows": [],
+        "cursor": {
+          "status": "unknown",
+          "reason": "Selection dot and blinking cursor timing not measured."
+        },
+        "insert_mode": {
+          "status": "unknown",
+          "reason": "Not probed."
+        },
+        "prompt": null,
+        "selected_result_component": null
+      },
+      "result": {
+        "status": "not-applicable",
+        "reason": "Menu or entry frame; no numeric result asserted."
+      }
+    },
+    {
+      "after_step": 108,
+      "display": {
+        "upper_line": "DRG FSE TAB",
+        "lower_line": "0 1 2",
+        "indicators": [
+          "DEG",
+          "FIX"
+        ],
+        "scroll_arrows": [],
+        "cursor": {
+          "status": "unknown",
+          "reason": "Selection dot and blinking cursor timing not measured."
+        },
+        "insert_mode": {
+          "status": "unknown",
+          "reason": "Not probed."
+        },
+        "prompt": null,
+        "selected_result_component": null
+      },
+      "result": {
+        "status": "not-applicable",
+        "reason": "Menu or entry frame; no numeric result asserted."
+      }
+    },
+    {
+      "after_step": 109,
+      "display": {
+        "upper_line": "TAB(0-9)?",
+        "lower_line": "",
+        "indicators": [
+          "DEG",
+          "FIX",
+          "?"
+        ],
+        "scroll_arrows": [],
+        "cursor": {
+          "status": "unknown",
+          "reason": "Selection dot and blinking cursor timing not measured."
+        },
+        "insert_mode": {
+          "status": "unknown",
+          "reason": "Not probed."
+        },
+        "prompt": "TAB(0-9)?",
+        "selected_result_component": null
+      },
+      "result": {
+        "status": "not-applicable",
+        "reason": "Menu or entry frame; no numeric result asserted."
+      }
+    },
+    {
+      "after_step": 113,
+      "display": {
+        "upper_line": "Stat 1",
+        "lower_line": "0.000000000",
+        "indicators": [
+          "DEG",
+          "STAT",
+          "FIX"
+        ],
+        "scroll_arrows": [],
+        "cursor": {
+          "status": "unknown",
+          "reason": "Selection dot and blinking cursor timing not measured."
+        },
+        "insert_mode": {
+          "status": "unknown",
+          "reason": "Not probed."
+        },
+        "prompt": null,
+        "selected_result_component": null
+      },
+      "result": {
+        "status": "not-applicable",
+        "reason": "Menu or entry frame; no numeric result asserted."
+      }
+    },
+    {
+      "after_step": 114,
+      "display": {
+        "upper_line": "→t P( Q( R(",
+        "lower_line": "0 1 2 3",
+        "indicators": [
+          "DEG",
+          "STAT",
+          "FIX"
+        ],
+        "scroll_arrows": [],
+        "cursor": {
+          "status": "unknown",
+          "reason": "Selection dot and blinking cursor timing not measured."
+        },
+        "insert_mode": {
+          "status": "unknown",
+          "reason": "Not probed."
+        },
+        "prompt": null,
+        "selected_result_component": null
+      },
+      "result": {
+        "status": "not-applicable",
+        "reason": "Menu or entry frame; no numeric result asserted."
+      }
+    },
+    {
+      "after_step": 115,
+      "display": {
+        "upper_line": "",
+        "lower_line": "0.000000000",
+        "indicators": [
+          "DEG",
+          "FIX"
+        ],
+        "scroll_arrows": [],
+        "cursor": {
+          "status": "unknown",
+          "reason": "Selection dot and blinking cursor timing not measured."
+        },
+        "insert_mode": {
+          "status": "unknown",
+          "reason": "Not probed."
+        },
+        "prompt": null,
+        "selected_result_component": null
+      },
+      "result": {
+        "status": "not-applicable",
+        "reason": "Menu or entry frame; no numeric result asserted."
+      }
+    },
+    {
+      "after_step": 117,
+      "display": {
+        "upper_line": "",
+        "lower_line": "0.000000000",
+        "indicators": [
+          "DEG",
+          "FIX"
+        ],
+        "scroll_arrows": [],
+        "cursor": {
+          "status": "unknown",
+          "reason": "Selection dot and blinking cursor timing not measured."
+        },
+        "insert_mode": {
+          "status": "unknown",
+          "reason": "Not probed."
+        },
+        "prompt": null,
+        "selected_result_component": null
+      },
+      "result": {
+        "status": "not-applicable",
+        "reason": "Empty formula-memory modifier probe; no numerical behavior established."
+      }
+    },
+    {
+      "after_step": 119,
+      "display": {
+        "upper_line": "",
+        "lower_line": "0.000000000",
+        "indicators": [
+          "DEG",
+          "FIX"
+        ],
+        "scroll_arrows": [],
+        "cursor": {
+          "status": "unknown",
+          "reason": "Selection dot and blinking cursor timing not measured."
+        },
+        "insert_mode": {
+          "status": "unknown",
+          "reason": "Not probed."
+        },
+        "prompt": null,
+        "selected_result_component": null
+      },
+      "result": {
+        "status": "not-applicable",
+        "reason": "Empty formula-memory modifier probe; no numerical behavior established."
+      }
+    }
+  ],
+  "stored_values": {
+    "coverage": "No store changes or persistence asserted; internal ANS and memories were not read back. Empty observations means unmeasured, not unchanged.",
+    "observations": []
+  },
+  "errors": [
+    {
+      "at_step": 84,
+      "message": "Error 2",
+      "position": {
+        "status": "not-applicable",
+        "reason": "No visible fault cursor."
+      },
+      "recovery_steps": [
+        85
+      ],
+      "recovered_at_step": 85
+    }
+  ],
+  "sources": [
+    {
+      "source_id": "live-session",
+      "kind": "simulator",
+      "reference": "simulator-profile.json",
+      "page": null,
+      "scope": "Mode, submode, setup, MATH, random, constants, conversions and clear menu inventory; representative results."
+    }
+  ],
+  "oracle": {
+    "selected_source_id": "live-session",
+    "simulator_exception_ids": [],
+    "disagreements": []
+  },
+  "ambiguities": [],
+  "notes": [
+    "Small LCD supplies complete labels when enlarged display clips them. Spaces describe label separation, not pixel spacing; menu selector dot omitted.",
+    "Steps 81-84 exploratory nCr input corrected before CNST; Error 2 is not an application defect.",
+    "MEM and RESET prompts cancelled with ON/C; no deletion confirmed.",
+    "Final HOME leaves FIX active. Stores not read back; empty observations means unmeasured.",
+    "Exposure inventory only; precision, cursor, all-mode compatibility and application parity remain pending.",
+    "Steps 116-119: second-function up and ALPHA up on an empty formula memory both cleared the modifier without visible output. Recall semantics remain unresolved; labels alone do not prove modifier dispatch."
+  ]
+}

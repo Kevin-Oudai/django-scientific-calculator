@@ -400,6 +400,28 @@ The runner's completion does not require implementing the later feature phases.
   physical key, base action, 2ndF action, ALPHA action, mode/submode action,
   SET UP choice, MATH menu entry, constant, conversion, statistic, regression,
   solver, matrix function, and list function exposed by the simulator.
+    READY_TO_PUSH: 2026-10-05. Ledger prepared with 430 stable inventory IDs,
+    all 48 physical positions and visible layers, observed mode/submode and
+    menu selections, 52 constants, 44 conversion directions, named statistics,
+    memories, solver, matrix and list operations. Live
+    `el506-001-menu-inventory-v1`: 119 physical clicks, 70 significant frames;
+    pinned runtime 1.0.2.0/hash verified; fresh chrome Reset; CNST 01 and
+    CONV 01 results; Error 2/recovery; cancelled memory/reset confirmations.
+    Full English manual linked from Sharp Australia supplies unexecuted
+    catalogue names; only independent text and fingerprints are committed.
+    Scope note: 470 is the manufacturer's aggregate, not this ledger's count
+    of semantic/context entries. Its unpublished counting correspondence is
+    explicitly unresolved for EL506-364; no synthetic entries added. Formula
+    modifier semantics, capacities, all-mode dispatch, precision and numeric
+    parity remain owned by their later roadmap items. Implementation status is
+    unassessed pending EL506-005; parity test statuses are independently pending.
+    Verification: offline experiment/ledger validation; npm.cmd test 21/21;
+    compileall; pip dry run (0.3.1); Docker Compose config; Docker demo rebuild;
+    demo HTTP 200; git diff --check. Final ledger validation changes also passed
+    the targeted 3/3 inventory tests.
+    Inapplicable: future pure-core/golden runner, dispatch refactor, multiple
+    embeds, touch, theme and accessibility gates; this item changes reference
+    inventory only and runs the existing browser regressions.
 - [x] **EL506-002 - Create the simulator experiment schema.** Define the
   evidence fields above and a stable canonical notation for physical key
   sequences.
