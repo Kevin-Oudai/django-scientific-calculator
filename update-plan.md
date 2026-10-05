@@ -632,6 +632,18 @@ The runner's completion does not require implementing the later feature phases.
 - [ ] **EL506-012 - Add continuous integration.** Run Python checks,
   JavaScript unit tests, Playwright, packaging checks, and dependency/license
   checks without secrets or paid services.
+    READY_TO_PUSH: 2026-10-05. Read-only SHA-pinned GitHub Actions workflow
+    with full-history checkout, Python/Node checks, public dependency audits,
+    explicit license review, isolated installed-wheel and sdist byte checks,
+    Compose demo and complete npm suite. No secrets/paid services. Existing
+    pinned simulator baseline/evidence retained; no calculator behavior changed.
+    Audit exposed vulnerable demo Django 5.2.13; demo pin/package minimum moved
+    to security release 5.2.17 with official release reference in README.
+    Verification: audit zero known vulnerabilities, npm audit zero, pip check,
+    license/YAML/package smoke checks, Django 4/4, unit 22/22, browser 30/30,
+    reference/golden/report, compileall, pip dry run, Compose rebuild/diff check.
+    Recovery: old sqlparse license classifier handled; isolated smoke installs
+    dependencies rather than assuming user site packages. UI gates inapplicable.
 - [x] **EL506-013 - Define canonical physical key IDs.** Keep IDs independent
   of current label, mode, theme, DOM selector, or translated expression. Execute
   before EL506-002 and EL506-001 as specified in the bootstrap order.

@@ -566,6 +566,19 @@ Database-free Django integration checks run with
 tag, app template discovery, packaged static assets, escaped host context,
 and repeated embeds. The browser suite checks runtime embed isolation.
 
+GitHub Actions runs these checks on pushes to main and pull requests, together
+with the Node/golden/reference/browser suites, isolated wheel/sdist smoke tests,
+dependency audits and reviewed dependency licenses. It needs no project secrets.
+Actions use read-only permissions and pinned revisions; see
+[GitHub's permissions documentation](https://docs.github.com/en/actions/reference/workflows-and-actions/workflow-syntax#permissions).
+Run packaging checks locally with `python tests/ci/check-package.py` after
+installing `tests/ci/requirements.txt`; run license checks with
+`node tests/ci/check-licenses.js`. Audits use the public npm/PyPI advisory
+services and fail on advisories rather than changing dependencies automatically.
+The package requires Django 5.2.17 or later within the 5.2 series; the demo pins
+5.2.17, the [security release](https://www.djangoproject.com/weblog/2026/aug/04/security-releases/)
+that replaces its vulnerable 5.2.13 pin. The package version remains 0.3.1.
+
 ### 2026-06-22
 
 - Consolidated project documentation into the root `README.md` and `AGENTS.md`.
