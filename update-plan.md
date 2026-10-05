@@ -4,7 +4,7 @@
 - Plan status: Active
 - Current package baseline: 0.3.1
 - Target release: 1.0.0 after verified parity
-- Next item: EL506-013
+- Next item: EL506-002
 - Last updated: 2026-10-05
 
 ## Purpose
@@ -425,10 +425,12 @@ The runner's completion does not require implementing the later feature phases.
 - [ ] **EL506-012 - Add continuous integration.** Run Python checks,
   JavaScript unit tests, Playwright, packaging checks, and dependency/license
   checks without secrets or paid services.
-- [ ] **EL506-013 - Define canonical physical key IDs.** Keep IDs independent
+- [x] **EL506-013 - Define canonical physical key IDs.** Keep IDs independent
   of current label, mode, theme, DOM selector, or translated expression. Execute
   before EL506-002 and EL506-001 as specified in the bootstrap order.
-    READY_TO_PUSH: 2026-10-05. Live reference gate passed against pinned build
+    Completed: 2026-10-05, implementation commit
+    3d4d486c2bf6ca5a27e2c0533db7e106f0c79239
+    Live reference gate passed against pinned build
     1.0.2.0: all 48 panel positions compared, eleven representative physical
     inputs transcribed, and Reset capture SHA-256 matched the pinned baseline.
     Evidence: `el506-013-key-panel-v1` in
