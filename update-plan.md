@@ -619,6 +619,14 @@ The runner's completion does not require implementing the later feature phases.
     browser, Django or Docker. No dependency or release version bump.
 - [ ] **EL506-011 - Add Django integration tests.** Verify the template tag,
   template rendering, packaged static assets, escaping, and multiple embeds.
+    READY_TO_PUSH: 2026-10-05. Four database-free Django integration tests
+    cover tag/template discovery, static resource bytes, host escaping and
+    duplicate-ID-free embeds. Runtime build 1.0.2.0/hash reverified and initial
+    blank upper/0./DEG observed; no new numeric oracle required for test-only
+    scope. Existing golden/browser regressions retained. Verification:
+    Django 4/4, unit 22/22, browser 30/30, reference/golden/report checks,
+    compileall, pip dry run, Compose config/demo rebuild and diff check.
+    No UI/theme, evaluator, modifier or release change.
 - [ ] **EL506-012 - Add continuous integration.** Run Python checks,
   JavaScript unit tests, Playwright, packaging checks, and dependency/license
   checks without secrets or paid services.

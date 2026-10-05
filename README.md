@@ -561,6 +561,11 @@ Initial reusable package baseline.
 
 ## Project Updates
 
+Database-free Django integration checks run with
+`python -m unittest discover -s tests/django -v`. They cover the no-argument
+tag, app template discovery, packaged static assets, escaped host context,
+and repeated embeds. The browser suite checks runtime embed isolation.
+
 ### 2026-06-22
 
 - Consolidated project documentation into the root `README.md` and `AGENTS.md`.
