@@ -668,3 +668,13 @@ and add domain-specific accuracy probes. Number remains limited to the legacy
 profile, bounded control metadata and explicit approximate conversions.
 These are representation decisions, not claims that future mode algorithms
 or all intermediate precision and rounding cases are already verified.
+
+The compatible `calculator.js` entry now loads local companion modules.
+`core.js` owns pure state, reduction, snapshots and evaluation;
+`semantic-editor.js` owns token/AST parsing; `values.js` owns tagged values;
+`numeric-model.js` and `math-engine.js` own numerical primitives and profiles.
+`formatting.js` projects state into escaped display markup without a DOM, and
+`browser-adapter.js` owns root events, rendering and focus. Node consumers of
+the existing entry receive the same core API. Existing Django tags and asset
+paths need no template change; collect and deploy all package static assets
+together. State snapshots remain schema 5 with the legacy profile.

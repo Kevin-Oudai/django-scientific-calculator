@@ -832,6 +832,23 @@ The runner's completion does not require implementing the later feature phases.
 - [ ] **EL506-022 - Split the browser adapter from the core.** Keep the
   existing calculator.js asset as the compatible entry point while making
   state, parsing, evaluation, formatting, and DOM responsibilities testable.
+    READY_TO_PUSH: 2026-10-05.
+    Evidence: module-addition fresh simulator Reset K40 K43 K41 K48,
+    five inspected frames; upper 1+2= / lower 3. / DEG retained. Existing
+    golden addition LCD differences remain explicit; architecture only.
+    Verification: 43 unit, 39 browser, 4 Django tests; 28 golden frames;
+    Node entry identity, core VM with DOM access blocked, pure escaping
+    and fraction view checks, local companion load and host module safety;
+    bundle/reference/report checks, compileall, pip dry run, Compose config
+    and healthy rebuild, wheel/sdist installed smoke (13 assets), diff check.
+    Initial VM reducer test mixed structuredClone realms and correctly hit
+    prototype validation; test now checks VM pure evaluation and performs
+    state replay in its native realm. All checks pass after correction.
+    Scope: calculator.js remains the compatible entry; core.js, formatter,
+    parser/value/numeric modules and DOM adapter have separate test seams.
+    Legacy state schema/profile, UI behavior and release version retained.
+    Full physical dispatch and visual/accessibility changes stay with their
+    existing later roadmap items. No new parity claim.
 - [ ] **EL506-023 - Guarantee independent embeds.** Eliminate shared mutable
   state and verify two or more calculators on one page.
 
