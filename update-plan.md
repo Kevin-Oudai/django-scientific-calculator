@@ -4,13 +4,13 @@
 - Plan status: Active
 - Current package baseline: 0.3.1
 - Target release: 1.0.0 after verified parity
-- Next item: EL506-019
+- Next item: EL506-003
 - Last updated: 2026-10-05
 
 ## Progress Overview
 
-As of 2026-10-05, **7 of 245 roadmap tasks are complete (2.9%)**, with
-**238 remaining**. The next task is **EL506-019**. These counts measure
+As of 2026-10-05, **8 of 245 roadmap tasks are complete (3.3%)**, with
+**237 remaining**. The next task is **EL506-003**. These counts measure
 completed checklist items, not elapsed effort or verified calculator parity;
 individual tasks vary in size. The detailed checklist below describes every
 remaining task and preserves its evidence and completion requirements.
@@ -18,7 +18,7 @@ remaining task and preserves its evidence and completion requirements.
 | Roadmap phase | Completed | Remaining |
 | --- | ---: | ---: |
 | Phase 0 - Reference and Traceability | 4 | 3 |
-| Phase 1 - Test and Emulator Foundation | 3 | 11 |
+| Phase 1 - Test and Emulator Foundation | 4 | 10 |
 | Phase 2 - Physical Layout, Display, Theme, and Access | 0 | 14 |
 | Phase 3 - Power, Modes, Clear, Editing, and History | 0 | 17 |
 | Phase 4 - Display Settings and Formatting | 0 | 11 |
@@ -36,7 +36,7 @@ remaining task and preserves its evidence and completion requirements.
 | Phase 16 - LIST Mode | 0 | 11 |
 | Phase 17 - Errors, Limits, and Cross-mode Parity | 0 | 15 |
 | Phase 18 - Security, Packaging, Compatibility, and Release | 0 | 15 |
-| **Total** | **7** | **238** |
+| **Total** | **8** | **237** |
 
 Refresh this overview's date, counts, percentage, and next task in every
 roadmap completion tracking commit, using the checklist as the source of truth.
@@ -598,10 +598,12 @@ The runner's completion does not require implementing the later feature phases.
 - [ ] **EL506-018 - Add typed calculator values.** Preserve scalar, rational,
   DMS, complex, N-base, statistics, equation, matrix, and list types across
   evaluation and display conversion.
-- [ ] **EL506-019 - Add full state snapshot and restore.** Include all stores,
+- [x] **EL506-019 - Add full state snapshot and restore.** Include all stores,
   settings, prompts, cursors, result pages, and modifiers for history and
   deterministic tests.
-    READY_TO_PUSH: 2026-10-05. Versioned legacy-0.3.1 in-memory snapshot and
+    Completed: 2026-10-05, implementation commit
+    `d22ea3595697f4c84b803f33a2338787eb88ba1c` verified on origin/main.
+    Versioned legacy-0.3.1 in-memory snapshot and
     validated restore cover every currently implemented field, nested template,
     memory/statistics/history store, setting, cursor, modifier and error display.
     Independent deep copies preserve nonfinite numbers. Per-root browser API
