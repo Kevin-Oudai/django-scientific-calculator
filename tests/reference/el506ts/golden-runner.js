@@ -62,7 +62,9 @@ function runFixture(fixture) {
   let state = core.createInitialState();
   const frames = [];
   for (let step = 0; step <= fixture.sequence.length; step++) {
-    if (step) state = core.reduceCalculator(state, canonicalEvent(state, fixture.sequence[step - 1]));
+    if (step) state = core.reduceCalculator(state, fixture.dispatch === "physical"
+      ? {type:"physical-key",id:fixture.sequence[step-1]}
+      : canonicalEvent(state, fixture.sequence[step - 1]));
     const expected = fixture.expected[step];
     assert.equal(expected.afterStep, step);
     assert.ok(Object.keys(expected.assertions).length > 0);

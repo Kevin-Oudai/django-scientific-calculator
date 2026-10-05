@@ -23,8 +23,8 @@
         "partial": 3
       },
       "goldenTested": {
-        "pending": 423,
-        "baseline-known-differences": 7
+        "pending": 420,
+        "baseline-known-differences": 10
       },
       "browserTested": {
         "pending": 423,
@@ -38,8 +38,8 @@
       "pending": 51
     },
     "golden": {
-      "fixtures": 4,
-      "assertedFrames": 16,
+      "fixtures": 5,
+      "assertedFrames": 24,
       "pending": 1
     },
     "verifiedFullParity": 0
@@ -67,6 +67,10 @@
       "sha256": "fee8d6d3b7354297a3644ec6a8d2076e65fcc9286b917bbc89870a94c815a119"
     },
     {
+      "path": "tests/reference/el506ts/experiments/key-layers.json",
+      "sha256": "ad801c83c34fe91546883cde2a8c1e458030492a7f50ee4243e8b46816212da0"
+    },
+    {
       "path": "tests/reference/el506ts/experiments/menu-inventory.json",
       "sha256": "3d04bfe39ec1508b6d3cdc25c900aad974a293209b1b76160da36ce2bd77d353"
     },
@@ -76,7 +80,7 @@
     },
     {
       "path": "tests/reference/el506ts/golden-runner.js",
-      "sha256": "84b41f54c25a6ad49dcc54ba55e3967a4fea6cdda005f8fbc02503c0f8b3b9c3"
+      "sha256": "f8bb7776d0db43ceb2b5b46850c8139c8a82eff4e78adde1fd4094cbb0836738"
     },
     {
       "path": "tests/reference/el506ts/golden/addition.json",
@@ -89,6 +93,10 @@
     {
       "path": "tests/reference/el506ts/golden/guide-power.json",
       "sha256": "3e55e2cb287f63fdb4bd3842eea057be19fe0daf7ff0b77be509f26298fda7d5"
+    },
+    {
+      "path": "tests/reference/el506ts/golden/key-layers.json",
+      "sha256": "2a8a9a7da27d0f4ba2b6b6b503b2c46e5205821041452c3fff23246bbd00facc"
     },
     {
       "path": "tests/reference/el506ts/golden/menus-pending.json",
@@ -108,7 +116,7 @@
     },
     {
       "path": "tests/e2e/golden.spec.js",
-      "sha256": "9c4f6d8049ee68ce5997648a67bcc954d276bd951c913268aa77f1e74c32ccfa"
+      "sha256": "5384610e481085b0bd227d7637dc4be866a35e7b11956ba6fbf0f1a5b24834c0"
     },
     {
       "path": "tests/unit/calculator.test.js",
@@ -10441,8 +10449,14 @@
         "scope": "Explicit mapped assertions only; unlisted coverage is unassessed."
       },
       "goldenTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "baseline-known-differences",
+        "evidence": [
+          {
+            "fixtureId": "key-layers-foundation-v1",
+            "status": "known-differences",
+            "assertedFrames": 8
+          }
+        ],
         "scope": "Baseline characterization only; all current supported fixtures have oracle display differences."
       },
       "browserTested": {
@@ -10995,8 +11009,14 @@
         "scope": "Explicit mapped assertions only; unlisted coverage is unassessed."
       },
       "goldenTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "baseline-known-differences",
+        "evidence": [
+          {
+            "fixtureId": "key-layers-foundation-v1",
+            "status": "known-differences",
+            "assertedFrames": 8
+          }
+        ],
         "scope": "Baseline characterization only; all current supported fixtures have oracle display differences."
       },
       "browserTested": {
@@ -11245,8 +11265,14 @@
         "scope": "Explicit mapped assertions only; unlisted coverage is unassessed."
       },
       "goldenTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "baseline-known-differences",
+        "evidence": [
+          {
+            "fixtureId": "key-layers-foundation-v1",
+            "status": "known-differences",
+            "assertedFrames": 8
+          }
+        ],
         "scope": "Baseline characterization only; all current supported fixtures have oracle display differences."
       },
       "browserTested": {

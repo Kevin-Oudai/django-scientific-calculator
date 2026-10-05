@@ -9,9 +9,13 @@ for (const fixture of loadFixtures().filter(f => f.status !== "pending")) {
     const root = page.locator("[data-scientific-calculator]").first();
     for (let step = 0; step <= fixture.sequence.length; step++) {
       if (step) {
+        if (fixture.dispatch === "physical") {
+          await root.evaluate((el,id)=>el.scientificCalculator.pressKey(id),fixture.sequence[step-1]);
+        } else {
         const event = baseEvents[fixture.sequence[step - 1]];
         const selector = event.insert ? `[data-insert="${event.insert}"]` : `[data-action="${event.action}"]`;
         await root.locator(selector).click();
+        }
       }
       const expected = fixture.expected[step].assertions;
       const actual = await root.evaluate(el => el.scientificCalculator.snapshot().state);

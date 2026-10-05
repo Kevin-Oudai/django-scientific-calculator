@@ -584,8 +584,15 @@ entering, editing, evaluated, error, menu, prompt, data entry and multi-result.
 Modal workflow transitions retain the underlying entry and prevent unrelated
 input from bypassing a selection. Result paging changes the selected component
 without evaluation. These are foundation contracts; later roadmap items supply
-mode-specific calculations and LCD presentation. Snapshot schema 2 includes
-workflow state and migrates schema 1 in-memory snapshots from the legacy profile.
+mode-specific calculations and LCD presentation. Snapshot schema 3 includes
+workflow and key-layer state and migrates schemas 1 and 2 in-memory snapshots
+from the legacy profile. `pressKey('EL506-KNN')` on each embed's observable API
+dispatches canonical physical IDs. Declarative 2ndF, ALPHA and HYP resolution
+retains semantic intent, menus and memory/catalogue selection paths separately
+from expression text. Unsupported operations retain explicit pending intents;
+unsupported numeric modes reject calculation until their feature tasks exist.
+The existing enhanced controls remain the compatibility adapter; the physical
+layout and unified pointer/touch/keyboard mapping are Phase 2 tasks.
 
 ### 2026-06-22
 

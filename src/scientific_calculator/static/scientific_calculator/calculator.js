@@ -1030,8 +1030,9 @@
 
   const ENTRY_PHASES = Object.freeze(["empty", "entering", "editing", "evaluated", "prompt", "menu", "data-entry", "multi-result", "error"]);
   function emptyWorkflow() { return { kind: null, payload: null, page: 0, returnPhase: "empty" }; }
+  function initialLayers() { return { alpha: false, hyp: false, inverseHyp: false, mode: "NORMAL", settings: { angle: "DEG", format: "NORM1", tab: 0 }, intent: null }; }
   function createInitialState() {
-    return { ...createLegacyInitialState(), lifecycle: "empty", workflow: emptyWorkflow() };
+    return { ...createLegacyInitialState(), lifecycle: "empty", workflow: emptyWorkflow(), layers: initialLayers() };
   }
   function validateWorkflow(state) {
     const w = state.workflow;
@@ -1056,6 +1057,14 @@
       throw new TypeError("Invalid calculator state fields");
     }
     validateWorkflow(state);
+    const layers = state.layers;
+    if (!layers || Object.keys(layers).sort().join() !== "alpha,hyp,intent,inverseHyp,mode,settings"
+      || !["alpha", "hyp", "inverseHyp"].every(k => typeof layers[k] === "boolean")
+      || !["NORMAL", "STAT", "EQN", "CPLX", "MAT", "LIST"].includes(layers.mode)
+      || !layers.settings || !["DEG", "RAD", "GRAD"].includes(layers.settings.angle)
+      || !["FIX", "SCI", "ENG", "NORM1", "NORM2"].includes(layers.settings.format)
+      || !Number.isInteger(layers.settings.tab) || layers.settings.tab < 0 || layers.settings.tab > 9
+      || !(layers.intent === null || layers.intent && typeof layers.intent.kind === "string")) throw new TypeError("Invalid key layers");
     for (const name of Object.keys(initial)) {
       if (initial[name] !== null && !Array.isArray(initial[name])
         && typeof state[name] !== typeof initial[name]) throw new TypeError(`Invalid state: ${name}`);
@@ -1090,11 +1099,11 @@
   // part of this contract. Future modes must version and extend these fields.
   function snapshotCalculator(state) {
     validateState(state);
-    return { schemaVersion: 2, profile: "legacy-0.3.1", state: structuredClone(state) };
+    return { schemaVersion: 3, profile: "legacy-0.3.1", state: structuredClone(state) };
   }
 
   function restoreCalculator(snapshot) {
-    if (!snapshot || ![1, 2].includes(snapshot.schemaVersion) || snapshot.profile !== "legacy-0.3.1"
+    if (!snapshot || ![1, 2, 3].includes(snapshot.schemaVersion) || snapshot.profile !== "legacy-0.3.1"
       || Object.keys(snapshot).sort().join() !== "profile,schemaVersion,state") {
       throw new TypeError("Unsupported calculator snapshot");
     }
@@ -1103,6 +1112,7 @@
       if (!state || Object.keys(state).sort().join() !== Object.keys(createLegacyInitialState()).sort().join()) throw new TypeError("Invalid legacy snapshot");
       state = { ...state, lifecycle: inferEntryPhase(state), workflow: emptyWorkflow() };
     }
+    if (snapshot.schemaVersion < 3) state.layers = initialLayers();
     validateState(state);
     return state;
   }
@@ -1116,6 +1126,7 @@
   function reduceCalculator(previous, event) {
     validateState(previous);
     if (!event || typeof event.type !== "string") throw new TypeError("Invalid calculator event");
+    if (event.type === "physical-key") return reducePhysicalKey(previous, event.id);
     if (event.type === "workflow") {
       const next = structuredClone(previous);
       const commands = { "open-menu": "menu", "open-prompt": "prompt", "begin-data": "data-entry", "show-results": "multi-result" };
@@ -1139,9 +1150,115 @@
       }
       return structuredClone(previous);
     }
-    const next = { ...reduceLegacyCalculator(previous, event), workflow: emptyWorkflow() };
+    const next = { ...reduceLegacyCalculator(previous, event), workflow: emptyWorkflow(), layers: structuredClone(previous.layers) };
     next.lifecycle = inferEntryPhase(next);
     if (next.lifecycle === "entering" && (event.key?.startsWith("Arrow") || event.action?.startsWith("cursor-"))) next.lifecycle = "editing";
+    validateState(next);
+    return next;
+  }
+  const physicalId = n => `EL506-K${String(n).padStart(2, "0")}`;
+  const DIGIT_KEYS = Object.freeze({30:"7",31:"8",32:"9",35:"4",36:"5",37:"6",40:"1",41:"2",42:"3",45:"0"});
+  const BASE_KEYS = Object.freeze(Object.fromEntries([
+    [1,{action:"home"}], [2,{action:"clear"}], [7,{action:"delete"}], [8,{action:"history-up"}],
+    [9,{action:"cursor-left"}], [10,{action:"cursor-right"}], [11,{action:"history-down"}],
+    [13,{insert:"sin("}], [14,{insert:"cos("}], [15,{insert:"tan("}], [18,{insert:"pi"}],
+    [19,{action:"power"}], [20,{insert:"^2"}], [21,{insert:"^3"}], [22,{insert:"log("}],
+    [23,{insert:"ln("}], [24,{action:"exp"}], [25,{action:"fraction"}], [26,{action:"dms"}],
+    [29,{action:"memory-add"}], [33,{insert:"("}], [34,{insert:")"}], [38,{insert:"*"}],
+    [39,{insert:"/"}], [43,{insert:"+"}], [44,{insert:"-"}], [46,{insert:"."}],
+    [47,{action:"sign"}], [48,{action:"equals"}],
+    ...Object.entries(DIGIT_KEYS).map(([n,insert]) => [Number(n),{insert}]),
+  ]));
+  const SECOND_KEYS = Object.freeze({13:{insert:"asin("},14:{insert:"acos("},15:{insert:"atan("},
+    18:{insert:"^(-1)"},19:{action:"root"},20:{insert:"sqrt("},21:{insert:"cbrt("},
+    22:{insert:"10^("},23:{insert:"e^("},24:{action:"result-mode"},25:{action:"result-mode"},
+    29:{action:"memory-subtract"},35:{insert:"!"},36:{action:"ncr"},37:{action:"npr"},40:{insert:"%"}});
+  const MEMORY_KEYS = Object.freeze({18:"A",19:"B",20:"C",21:"D",22:"E",23:"F",27:"X",28:"Y",29:"M"});
+  const ALPHA_STATS = Object.freeze({30:"mean-y",31:"sample-deviation-y",32:"population-deviation-y",33:"coefficient-a",34:"coefficient-b",35:"mean-x",36:"sample-deviation-x",37:"population-deviation-x",38:"coefficient-c",39:"correlation-r",40:"sum-xy",41:"sum-y",42:"sum-y-squared",45:"count-n",46:"sum-x",47:"sum-x-squared"});
+  const KEY_MENUS = Object.freeze({
+    MODE: ["NORMAL", "STAT", "EQN", "CPLX", "MAT", "LIST"],
+    SETUP: ["ANGLE", "FORMAT", "TAB"], ANGLE: ["DEG", "RAD", "GRAD"],
+    FORMAT: ["FIX", "SCI", "ENG", "NORM1", "NORM2"], TAB: ["0","1","2","3","4","5","6","7","8","9"],
+    MATH: ["SOLV", "ENG", "TO_SECONDS", "TO_MINUTES"], ENG: ["k", "M", "G", "T", "m", "micro", "n", "p", "f"],
+    RANDOM: ["RANDOM", "R_INT", "R_DICE", "R_COIN"], CLEAR: ["MEMORY", "RESET"],
+  });
+  function resolvePhysicalKey(state, id) {
+    if (!/^EL506-K(?:0[1-9]|[1-3][0-9]|4[0-8])$/.test(id)) throw new TypeError("Unknown physical key");
+    const n = Number(id.slice(-2));
+    const active = state.layers;
+    if (n === 1 || n === 2 && !state.secondActive) return { kind:"operation", event: BASE_KEYS[n] };
+    if (state.workflow.kind === "menu" || state.workflow.kind === "prompt") {
+      if (state.workflow.payload.keyLayer) return {kind:"selection", key:n, digit:DIGIT_KEYS[n], slot:MEMORY_KEYS[n]};
+    }
+    if (n === 3) return {kind:"modifier", name:"second"};
+    if (n === 5 && !state.secondActive) return {kind:"modifier", name:"alpha"};
+    if (n === 12) return {kind:"modifier", name:"hyp"};
+    if (active.hyp && [13,14,15].includes(n)) return {kind:"function", name: (active.inverseHyp ? "a" : "") + ["sinh","cosh","tanh"][n-13]};
+    if (active.alpha) return n === 48 ? {kind:"operation", event:{insert:"ans"}} : MEMORY_KEYS[n] ? {kind:"symbol", name:MEMORY_KEYS[n]} : ALPHA_STATS[n] ? {kind:"statistic", name:ALPHA_STATS[n]} : {kind:"pending", key:id, layer:"ALPHA"};
+    if (state.secondActive) {
+      const menu = {4:"CLEAR",5:"STATVAR",17:"ALGB",30:"RANDOM",41:"CNST",42:"CONV",47:"MEMORY_CLEAR"}[n];
+      if (menu) return {kind:"menu", name:menu};
+      return SECOND_KEYS[n] ? {kind:"operation", event:SECOND_KEYS[n]} : {kind:"pending", key:id, layer:"2ndF"};
+    }
+    if ([4,6,17,27,28].includes(n)) return {kind:"menu", name:({4:"MODE",6:"SETUP",17:"MATH",27:"RCL",28:"STO"})[n]};
+    return BASE_KEYS[n] ? {kind:"operation", event:BASE_KEYS[n]} : {kind:"pending", key:id, layer:"base"};
+  }
+  function reducePhysicalKey(previous, id) {
+    const intent = resolvePhysicalKey(previous, id);
+    let next = structuredClone(previous);
+    const dismiss = () => { if (next.workflow.kind) next = reduceCalculator(next,{type:"workflow",command:"dismiss"}); };
+    const open = name => {
+      dismiss(); next.secondActive = false; next.layers.alpha = false; next.layers.hyp = false; next.layers.inverseHyp = false;
+      const prompts = ["STO","RCL","SOLV","ALGB","STATVAR","CNST","CONV","MEMORY_CLEAR"];
+      next = reduceCalculator(next,{type:"workflow",command:prompts.includes(name)?"open-prompt":"open-menu",payload:{id:name,keyLayer:true,choices:KEY_MENUS[name] || (["STO","RCL"].includes(name)?Object.values(MEMORY_KEYS):[]),path:[]}});
+    };
+    if (intent.kind === "modifier") {
+      if (intent.name === "second") { next.secondActive = !next.secondActive; next.layers.alpha = false; }
+      if (intent.name === "alpha") { next.layers.alpha = !next.layers.alpha; next.secondActive = false; }
+      if (intent.name === "hyp") { next.layers.hyp = !next.layers.hyp; next.layers.inverseHyp = next.secondActive && next.layers.hyp; }
+      next.layers.intent = null;
+    } else if (intent.kind === "menu") open(intent.name);
+    else if (intent.kind === "selection") {
+      const menu = next.workflow.payload.id;
+      if (["STO","RCL"].includes(menu)) {
+        if (!intent.slot) return next;
+        dismiss(); next.layers.intent = {kind:"memory-selection", operation:menu, slot:intent.slot};
+      } else if (["CNST", "CONV"].includes(menu) && intent.digit !== undefined) {
+        next.workflow.payload.path.push(intent.digit);
+        if (next.workflow.payload.path.length === 2) {
+          const index = Number(next.workflow.payload.path.join(""));
+          if (index < 1 || index > (menu === "CNST" ? 52 : 44)) { next.workflow.payload.path = []; return next; }
+          dismiss(); next.layers.intent = {kind:"catalogue-selection", menu, index};
+        }
+      } else if (intent.digit !== undefined) {
+        const choice = next.workflow.payload.choices[Number(intent.digit)];
+        if (choice === undefined) return next;
+        if (menu === "SETUP" || menu === "MATH" && choice === "ENG") open(choice);
+        else {
+          dismiss(); next.layers.intent = {kind:"menu-selection", menu, choice};
+          if (menu === "MODE") next.layers.mode = choice;
+          if (menu === "ANGLE") { next.layers.settings.angle = choice; if (choice !== "GRAD") next.angleMode = choice; }
+          if (menu === "FORMAT") next.layers.settings.format = choice;
+          if (menu === "TAB") next.layers.settings.tab = Number(choice);
+          if (menu === "MATH" && choice === "SOLV") open("SOLV");
+        }
+      }
+    } else {
+      if (Number(id.slice(-2)) <= 2 && intent.kind === "operation") {
+        dismiss();
+        next.layers = { ...initialLayers(), mode: next.layers.mode, settings: structuredClone(next.layers.settings) };
+        if (id === "EL506-K01") next.layers.mode = "NORMAL";
+        next.secondActive = false;
+      }
+      else { next.secondActive = false; next.layers.alpha = false; next.layers.hyp = false; next.layers.inverseHyp = false; }
+      next.layers.intent = intent;
+      if (intent.kind === "operation") {
+        if (next.layers.mode !== "NORMAL" && !["clear","home"].includes(intent.event.action)) throw new TypeError("Numeric mode implementation pending");
+        next = reduceCalculator(next,{type:"button",...intent.event});
+      }
+      // Semantic intent is retained independently of text. Feature owners
+      // implement pending functions, variables, stores and menus later.
+    }
     validateState(next);
     return next;
   }
@@ -2031,6 +2148,7 @@
       value: Object.freeze({
         snapshot: () => snapshotCalculator(state),
         restore: (snapshot) => { state = restoreCalculator(snapshot); render(); },
+        pressKey: id => dispatch({type:"physical-key", id}),
       }),
     });
 
@@ -2059,6 +2177,7 @@
       reduceCalculator,
       snapshotCalculator,
       restoreCalculator,
+      resolvePhysicalKey,
       evaluateExpression,
       evaluateExactExpression,
       formatValue,

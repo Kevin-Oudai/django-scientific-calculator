@@ -1,0 +1,215 @@
+{
+  "schemaVersion": 1,
+  "id": "key-layers-foundation-v1",
+  "dispatch": "physical",
+  "status": "baseline-characterization",
+  "reference": "experiments/key-layers.json",
+  "sequence": [
+    "EL506-K03",
+    "EL506-K12",
+    "EL506-K13",
+    "EL506-K02",
+    "EL506-K05",
+    "EL506-K48",
+    "EL506-K04"
+  ],
+  "capabilityIds": [
+    "el506.hyp.13.inverse",
+    "el506.alpha.el506-k48",
+    "el506.mode.normal"
+  ],
+  "expected": [
+    {
+      "afterStep": 0,
+      "assertions": {
+        "displayExpression": "",
+        "displayResult": "0",
+        "lifecycle": "empty",
+        "secondActive": false,
+        "layers.alpha": false,
+        "layers.hyp": false,
+        "layers.intent": null,
+        "workflow.kind": null
+      }
+    },
+    {
+      "afterStep": 1,
+      "assertions": {
+        "displayExpression": "",
+        "displayResult": "0",
+        "lifecycle": "empty",
+        "secondActive": true,
+        "layers.alpha": false,
+        "layers.hyp": false,
+        "layers.intent": null,
+        "workflow.kind": null
+      }
+    },
+    {
+      "afterStep": 2,
+      "assertions": {
+        "displayExpression": "",
+        "displayResult": "0",
+        "lifecycle": "empty",
+        "secondActive": true,
+        "layers.alpha": false,
+        "layers.hyp": true,
+        "layers.intent": null,
+        "workflow.kind": null
+      }
+    },
+    {
+      "afterStep": 3,
+      "assertions": {
+        "displayExpression": "",
+        "displayResult": "0",
+        "lifecycle": "empty",
+        "secondActive": false,
+        "layers.alpha": false,
+        "layers.hyp": false,
+        "layers.intent": {
+          "kind": "function",
+          "name": "asinh"
+        },
+        "workflow.kind": null
+      }
+    },
+    {
+      "afterStep": 4,
+      "assertions": {
+        "displayExpression": "",
+        "displayResult": "0",
+        "lifecycle": "empty",
+        "secondActive": false,
+        "layers.alpha": false,
+        "layers.hyp": false,
+        "layers.intent": {
+          "kind": "operation",
+          "event": {
+            "action": "clear"
+          }
+        },
+        "workflow.kind": null
+      }
+    },
+    {
+      "afterStep": 5,
+      "assertions": {
+        "displayExpression": "",
+        "displayResult": "0",
+        "lifecycle": "empty",
+        "secondActive": false,
+        "layers.alpha": true,
+        "layers.hyp": false,
+        "layers.intent": null,
+        "workflow.kind": null
+      }
+    },
+    {
+      "afterStep": 6,
+      "domResultText": "Ans",
+      "assertions": {
+        "displayExpression": "",
+        "displayResult": "ans",
+        "lifecycle": "entering",
+        "secondActive": false,
+        "layers.alpha": false,
+        "layers.hyp": false,
+        "layers.intent": {
+          "kind": "operation",
+          "event": {
+            "insert": "ans"
+          }
+        },
+        "workflow.kind": null
+      }
+    },
+    {
+      "afterStep": 7,
+      "domResultText": "Ans",
+      "assertions": {
+        "displayExpression": "",
+        "displayResult": "ans",
+        "lifecycle": "menu",
+        "secondActive": false,
+        "layers.alpha": false,
+        "layers.hyp": false,
+        "layers.intent": {
+          "kind": "operation",
+          "event": {
+            "insert": "ans"
+          }
+        },
+        "workflow.kind": "menu"
+      }
+    }
+  ],
+  "knownDifferences": [
+    {
+      "afterStep": 0,
+      "field": "displayResult",
+      "expected": "0.",
+      "actual": "0"
+    },
+    {
+      "afterStep": 1,
+      "field": "displayResult",
+      "expected": "0.",
+      "actual": "0"
+    },
+    {
+      "afterStep": 2,
+      "field": "displayResult",
+      "expected": "0.",
+      "actual": "0"
+    },
+    {
+      "afterStep": 3,
+      "field": "displayExpression",
+      "expected": "sinh⁻¹",
+      "actual": ""
+    },
+    {
+      "afterStep": 3,
+      "field": "displayResult",
+      "expected": "0.",
+      "actual": "0"
+    },
+    {
+      "afterStep": 4,
+      "field": "displayResult",
+      "expected": "0.",
+      "actual": "0"
+    },
+    {
+      "afterStep": 5,
+      "field": "displayResult",
+      "expected": "0.",
+      "actual": "0"
+    },
+    {
+      "afterStep": 6,
+      "field": "displayExpression",
+      "expected": "ANS",
+      "actual": ""
+    },
+    {
+      "afterStep": 6,
+      "field": "displayResult",
+      "expected": "0.",
+      "actual": "ans"
+    },
+    {
+      "afterStep": 7,
+      "field": "displayExpression",
+      "expected": "NORMAL STAT",
+      "actual": ""
+    },
+    {
+      "afterStep": 7,
+      "field": "displayResult",
+      "expected": "0 1",
+      "actual": "ans"
+    }
+  ]
+}

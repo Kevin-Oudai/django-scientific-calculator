@@ -704,6 +704,22 @@ The runner's completion does not require implementing the later feature phases.
 - [ ] **EL506-016 - Implement modifier and menu layers.** Support base, 2ndF,
   ALPHA, HYP, MODE, SET UP, MATH, STO, RCL, and other waiting-for-selection
   states without string replacement.
+    READY_TO_PUSH: 2026-10-05. Declarative physical intent resolution, combined
+    inverse HYP, one-shot modifier consumption, MODE/SETUP/MATH selections,
+    STO/RCL letter prompts, RANDOM/clear and two-digit CNST/CONV selection
+    contracts. Layers, pending intents and settings round-trip in schema 3
+    snapshots; schemas 1/2 migrate. Per-embed pressKey API uses physical IDs.
+    Unsupported feature algorithms remain explicit pending intents; non-NORMAL
+    arithmetic rejects until its owning feature item. Existing enhanced controls
+    remain the compatibility adapter; physical DOM/input mapping is Phase 2.
+    Evidence: fresh el506-016-key-layers-v1, Reset then K03 K12 K13 K02 K05
+    K48 K04; 8 LCD frames, modifier consumption/ANS/MODE observed; build/hash
+    matched. Menu inventory supplies other selection references; stores unmeasured.
+    Golden replay asserts exact current state and LCD differences, not parity.
+    Verification: unit 28/28, browser 33/33, Django 4/4; all reference/golden/report
+    checks; compileall, pip dry run, Compose/demo rebuild, diff check. Regression
+    protects settings/mode from ON/C reset. Test corrected legacy ANS projection
+    expectation to assert semantic intent. No new visual/theme or release change.
 - [ ] **EL506-017 - Add the semantic token editor and AST.** Separate
   calculator intent, cursor structure, and implied operations from display
   text.

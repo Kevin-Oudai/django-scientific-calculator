@@ -1,0 +1,310 @@
+{
+  "schema_version": 1,
+  "experiment_id": "el506-016-key-layers-v1",
+  "roadmap_item": "EL506-016",
+  "catalog_id": "el506-physical-keys-v1",
+  "simulator": {
+    "profile_id": "sharp-el506ts-pc-simulator-1.0.2.0",
+    "product": "SHARP PC Simulator for EL-506TS",
+    "build": "1.0.2.0",
+    "runtime_sha256": "6bfef4d04900b472892be2d4c54dcfa6013f87232097e32df508ca4c27425530",
+    "locale": "English UI; en-US",
+    "operating_system": "Windows 11"
+  },
+  "capture": {
+    "date": "2026-10-05",
+    "timezone": "America/Port_of_Spain",
+    "method": "Computer Use @oai/sky, fresh chrome Reset; one click/fresh inspected screenshot per physical key; pinned runtime hash and build verified. No captures retained.",
+    "evidence_kind": "live-simulator",
+    "source_ids": [
+      "live-session"
+    ]
+  },
+  "initial_state": {
+    "reset": {
+      "kind": "simulator-chrome-reset",
+      "description": "Clicked simulator chrome Reset before step 1; host control excluded from physical sequence."
+    },
+    "setup_sequence": [],
+    "mode": {
+      "status": "observed",
+      "value": "NORMAL (pinned reset default)"
+    },
+    "settings": [
+      {
+        "name": "angle",
+        "observation": {
+          "status": "observed",
+          "value": "DEG"
+        }
+      },
+      {
+        "name": "display-format",
+        "observation": {
+          "status": "observed",
+          "value": "NORM1 (pinned reset default)"
+        }
+      }
+    ],
+    "display": {
+      "upper_line": "",
+      "lower_line": "0.",
+      "indicators": [
+        "DEG"
+      ],
+      "scroll_arrows": [],
+      "cursor": {
+        "status": "observed",
+        "value": "not visible"
+      },
+      "insert_mode": {
+        "status": "unknown",
+        "reason": "Not probed in this experiment."
+      },
+      "prompt": null,
+      "selected_result_component": null
+    },
+    "stores": []
+  },
+  "sequence": [
+    "EL506-K03",
+    "EL506-K12",
+    "EL506-K13",
+    "EL506-K02",
+    "EL506-K05",
+    "EL506-K48",
+    "EL506-K04"
+  ],
+  "frames": [
+    {
+      "after_step": 0,
+      "display": {
+        "upper_line": "",
+        "lower_line": "0.",
+        "indicators": [
+          "DEG"
+        ],
+        "scroll_arrows": [],
+        "cursor": {
+          "status": "observed",
+          "value": "not visible"
+        },
+        "insert_mode": {
+          "status": "unknown",
+          "reason": "Not probed in this experiment."
+        },
+        "prompt": null,
+        "selected_result_component": null
+      },
+      "result": {
+        "status": "not-applicable",
+        "reason": "Entry frame before evaluation."
+      }
+    },
+    {
+      "after_step": 1,
+      "display": {
+        "upper_line": "",
+        "lower_line": "0.",
+        "indicators": [
+          "2ndF",
+          "DEG"
+        ],
+        "scroll_arrows": [],
+        "cursor": {
+          "status": "observed",
+          "value": "not visible"
+        },
+        "insert_mode": {
+          "status": "unknown",
+          "reason": "Not probed in this experiment."
+        },
+        "prompt": null,
+        "selected_result_component": null
+      },
+      "result": {
+        "status": "not-applicable",
+        "reason": "Entry frame before evaluation."
+      }
+    },
+    {
+      "after_step": 2,
+      "display": {
+        "upper_line": "",
+        "lower_line": "0.",
+        "indicators": [
+          "2ndF",
+          "HYP",
+          "DEG"
+        ],
+        "scroll_arrows": [],
+        "cursor": {
+          "status": "observed",
+          "value": "not visible"
+        },
+        "insert_mode": {
+          "status": "unknown",
+          "reason": "Not probed in this experiment."
+        },
+        "prompt": null,
+        "selected_result_component": null
+      },
+      "result": {
+        "status": "not-applicable",
+        "reason": "Entry frame before evaluation."
+      }
+    },
+    {
+      "after_step": 3,
+      "display": {
+        "upper_line": "sinh⁻¹",
+        "lower_line": "0.",
+        "indicators": [
+          "DEG"
+        ],
+        "scroll_arrows": [],
+        "cursor": {
+          "status": "observed",
+          "value": "underscore after inverse hyperbolic sine"
+        },
+        "insert_mode": {
+          "status": "unknown",
+          "reason": "Not probed in this experiment."
+        },
+        "prompt": null,
+        "selected_result_component": null
+      },
+      "result": {
+        "status": "not-applicable",
+        "reason": "Entry frame before evaluation."
+      }
+    },
+    {
+      "after_step": 4,
+      "display": {
+        "upper_line": "",
+        "lower_line": "0.",
+        "indicators": [
+          "DEG"
+        ],
+        "scroll_arrows": [],
+        "cursor": {
+          "status": "observed",
+          "value": "not visible"
+        },
+        "insert_mode": {
+          "status": "unknown",
+          "reason": "Not probed in this experiment."
+        },
+        "prompt": null,
+        "selected_result_component": null
+      },
+      "result": {
+        "status": "not-applicable",
+        "reason": "Entry frame before evaluation."
+      }
+    },
+    {
+      "after_step": 5,
+      "display": {
+        "upper_line": "",
+        "lower_line": "0.",
+        "indicators": [
+          "ALPHA",
+          "DEG"
+        ],
+        "scroll_arrows": [],
+        "cursor": {
+          "status": "observed",
+          "value": "not visible"
+        },
+        "insert_mode": {
+          "status": "unknown",
+          "reason": "Not probed in this experiment."
+        },
+        "prompt": null,
+        "selected_result_component": null
+      },
+      "result": {
+        "status": "not-applicable",
+        "reason": "Entry frame before evaluation."
+      }
+    },
+    {
+      "after_step": 6,
+      "display": {
+        "upper_line": "ANS",
+        "lower_line": "0.",
+        "indicators": [
+          "DEG"
+        ],
+        "scroll_arrows": [],
+        "cursor": {
+          "status": "observed",
+          "value": "underscore after ANS"
+        },
+        "insert_mode": {
+          "status": "unknown",
+          "reason": "Not probed in this experiment."
+        },
+        "prompt": null,
+        "selected_result_component": null
+      },
+      "result": {
+        "status": "not-applicable",
+        "reason": "Entry frame before evaluation."
+      }
+    },
+    {
+      "after_step": 7,
+      "display": {
+        "upper_line": "NORMAL STAT",
+        "lower_line": "0 1",
+        "indicators": [
+          "DEG"
+        ],
+        "scroll_arrows": [
+          "down"
+        ],
+        "cursor": {
+          "status": "observed",
+          "value": "not visible"
+        },
+        "insert_mode": {
+          "status": "unknown",
+          "reason": "Not probed in this experiment."
+        },
+        "prompt": "MODE selection",
+        "selected_result_component": null
+      },
+      "result": {
+        "status": "not-applicable",
+        "reason": "Entry frame before evaluation."
+      }
+    }
+  ],
+  "stored_values": {
+    "coverage": "No store changes or persistence asserted; internal ANS and memories were not read back. Empty observations means unmeasured, not unchanged.",
+    "observations": []
+  },
+  "errors": [],
+  "sources": [
+    {
+      "source_id": "live-session",
+      "kind": "simulator",
+      "reference": "simulator-profile.json",
+      "page": null,
+      "scope": "2ndF/HYP/inverse sine consumption, clear, ALPHA/ANS consumption and MODE waiting-for-selection"
+    }
+  ],
+  "oracle": {
+    "selected_source_id": "live-session",
+    "simulator_exception_ids": [],
+    "disagreements": []
+  },
+  "ambiguities": [],
+  "notes": [
+    "No internal store readback or numeric evaluation asserted.",
+    "Menu inventory supplies SETUP/MATH/STO/RCL/catalogue selection references. Layer contract retains intent; later feature owners execute unsupported operations."
+  ]
+}
