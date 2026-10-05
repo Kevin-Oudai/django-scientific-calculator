@@ -4,7 +4,7 @@
 - Plan status: Active
 - Current package baseline: 0.3.1
 - Target release: 1.0.0 after verified parity
-- Next item: EL506-002
+- Next item: EL506-001
 - Last updated: 2026-10-05
 
 ## Purpose
@@ -400,10 +400,12 @@ The runner's completion does not require implementing the later feature phases.
   physical key, base action, 2ndF action, ALPHA action, mode/submode action,
   SET UP choice, MATH menu entry, constant, conversion, statistic, regression,
   solver, matrix function, and list function exposed by the simulator.
-- [ ] **EL506-002 - Create the simulator experiment schema.** Define the
+- [x] **EL506-002 - Create the simulator experiment schema.** Define the
   evidence fields above and a stable canonical notation for physical key
   sequences.
-    READY_TO_PUSH: 2026-10-05. Versioned draft-07 experiment schema, canonical
+    Completed: 2026-10-05, implementation commit
+    145797e4f26990e702f91246dd52616a39594a61
+    Versioned draft-07 experiment schema, canonical
     physical-key sequence notation, offline structural/cross-reference validator,
     and live `el506-002-error-recovery-v1` transcript prepared.
     Evidence: pinned runtime build 1.0.2.0 and matching SHA-256; fresh simulator
