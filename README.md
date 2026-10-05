@@ -594,6 +594,14 @@ unsupported numeric modes reject calculation until their feature tasks exist.
 The existing enhanced controls remain the compatibility adapter; the physical
 layout and unified pointer/touch/keyboard mapping are Phase 2 tasks.
 
+`semantic-editor.js` owns allowlisted calculator tokens, structural cursors,
+staged templates, implied multiplication and an independently validated AST.
+Scalar evaluation traverses that AST through numeric operations; it never
+evaluates JavaScript or unrestricted engine source. Function tokens edit
+atomically, while digits have positions within numeric tokens. Snapshot schema
+4 adds the editor and migrates earlier snapshots. The compatible script entry
+loads this bundled local asset automatically; existing script includes work.
+
 ### 2026-06-22
 
 - Consolidated project documentation into the root `README.md` and `AGENTS.md`.

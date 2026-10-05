@@ -724,6 +724,22 @@ The runner's completion does not require implementing the later feature phases.
 - [ ] **EL506-017 - Add the semantic token editor and AST.** Separate
   calculator intent, cursor structure, and implied operations from display
   text.
+    READY_TO_PUSH: 2026-10-05. Bundled semantic editor with allowlisted tokens,
+    atomic function edits, numeric digit offsets, structural/template cursors,
+    explicit/implied multiplication and validated AST traversal. Scalar evaluation
+    now traverses AST operations rather than executing source. Existing scalar
+    precedence, exact enhancement and formatting remain characterized. Schema 4
+    snapshots include editor state and migrate schemas 1-3. The compatible entry
+    loads the local module without requiring an additional consumer include.
+    Evidence: fresh el506-017-implied-multiplication-v1, Reset/K41/K18/K48;
+    4 inspected LCD frames and result 6.283185307. Golden replay asserts AST
+    implied intent and exact retained baseline display differences. Build/hash
+    matched; no internal precision/store values asserted.
+    Verification: unit 32/32, browser 35/35, Django 4/4; reference/golden/report;
+    compileall, pip dry run, Compose rebuilt demo, diff check. Browser verifies
+    snapshot/AST/format independence and exclusively local asset requests.
+    Hostile input, unbound variables, depth/arity limits and immutable branches
+    covered. No layout/theme/release change; physical input layout remains Phase 2.
 - [ ] **EL506-018 - Add typed calculator values.** Preserve scalar, rational,
   DMS, complex, N-base, statistics, equation, matrix, and list types across
   evaluation and display conversion.

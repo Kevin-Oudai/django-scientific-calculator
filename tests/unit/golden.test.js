@@ -7,9 +7,9 @@ const core = require("../../src/scientific_calculator/static/scientific_calculat
 
 test("canonical golden replay asserts every supported baseline frame and reports gaps", () => {
   const results = runner.loadFixtures().map(runner.runFixture);
-  assert.equal(results.filter(r => r.status === "known-differences").length, 4);
+  assert.equal(results.filter(r => r.status === "known-differences").length, 5);
   assert.equal(results.filter(r => r.status === "pending").length, 1);
-  assert.equal(results.reduce((n, r) => n + r.frames.length, 0), 24);
+  assert.equal(results.reduce((n, r) => n + r.frames.length, 0), 28);
 });
 
 test("golden assertions fail on state regressions, new differences and invalid physical IDs", () => {

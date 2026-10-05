@@ -1,4 +1,13 @@
 (function () {
+  const nodeRuntime = typeof document === "undefined";
+  let semantic = nodeRuntime ? require("./semantic-editor.js") : null;
+  const dependencies = nodeRuntime ? null : new Promise((resolve, reject) => {
+    const script = document.createElement("script");
+    script.src = new URL("semantic-editor.js", document.currentScript.src).href;
+    script.onload = () => { semantic = globalThis.ScientificCalculatorSemantic; resolve(); };
+    script.onerror = () => reject(new Error("Local semantic editor failed to load"));
+    document.head.append(script);
+  });
   const SELECT_START = "\uE000";
   const SELECT_END = "\uE001";
   const DIVIDE_TOKEN = ":";
@@ -989,8 +998,33 @@
   }
 
   function evaluateExpression(expression, angleMode, answer) {
-    return new Parser(expression, angleMode, answer).parse();
+    const ast = semantic.parseTokens(semantic.tokenize(normalizeMixedNumbers(expression).replaceAll(DIVIDE_TOKEN, "/")));
+    return semantic.evaluate(ast, legacyNumericAdapter, {angleMode, answer});
   }
+  const legacyNumericAdapter = Object.freeze({
+    number: text => { const value = Number(text); if (!Number.isFinite(value)) throw new TypeError("Invalid number"); return value; },
+    symbol: (name, scope) => {
+      if (name === "pi") return Math.PI;
+      if (name === "e") return Math.E;
+      if (name === "ans") return scope.answer;
+      if (Object.hasOwn(scope, name) && typeof scope[name] === "number") return scope[name];
+      throw new TypeError("Unbound calculator variable");
+    },
+    unary: (op, value) => op === "-" ? -value : value,
+    binary: (op, a, b) => ({"+":()=>a+b,"-":()=>a-b,"*":()=>a*b,"/":()=>a/b,"^":()=>Math.pow(a,b)})[op](),
+    call: (name, args, scope) => {
+      const [a,b,c] = args;
+      const radians = scope.angleMode === "DEG" ? a*Math.PI/180 : a;
+      const inverse = value => scope.angleMode === "DEG" ? value*180/Math.PI : value;
+      const calls = {sin:()=>Math.sin(radians),cos:()=>Math.cos(radians),tan:()=>Math.tan(radians),
+        asin:()=>inverse(Math.asin(a)),acos:()=>inverse(Math.acos(a)),atan:()=>inverse(Math.atan(a)),
+        sqrt:()=>Math.sqrt(a),cbrt:()=>Math.cbrt(a),log:()=>Math.log10(a),ln:()=>Math.log(a),
+        tenpow:()=>10**a,epow:()=>Math.exp(a),recip:()=>1/a,abs:()=>Math.abs(a),pct:()=>a/100,
+        fact:()=>factorialValue(a),root:()=>nthRootValue(a,b),ncr:()=>combinationValue(a,b),npr:()=>permutationValue(a,b),dms:()=>a+b/60+c/3600};
+      if (!Object.hasOwn(calls,name)) throw new TypeError("Calculator function implementation pending");
+      return calls[name]();
+    },
+  });
 
   function closeOpenParentheses(expression) {
     let depth = 0;
@@ -1031,8 +1065,29 @@
   const ENTRY_PHASES = Object.freeze(["empty", "entering", "editing", "evaluated", "prompt", "menu", "data-entry", "multi-result", "error"]);
   function emptyWorkflow() { return { kind: null, payload: null, page: 0, returnPhase: "empty" }; }
   function initialLayers() { return { alpha: false, hyp: false, inverseHyp: false, mode: "NORMAL", settings: { angle: "DEG", format: "NORM1", tab: 0 }, intent: null }; }
+  function editorForState(state) {
+    const source = normalizeMixedNumbers(state.expression.replace(/=$/, "") + state.entry);
+    let tokens = [];
+    try { tokens = semantic.tokenize(source); } catch (error) { if (!(error instanceof TypeError)) throw error; }
+    const editor = semantic.createEditor(tokens);
+    if (state.selectionActive) {
+      let offset = 0;
+      for (let index = 0; index < tokens.length; index++) {
+        const length = tokens[index].value.length;
+        if (state.cursor < offset + length) { editor.cursor = {index,offset:tokens[index].kind === "number" ? state.cursor-offset : 0,path:[]}; break; }
+        offset += length;
+      }
+    }
+    if (state.stagedEntry) {
+      editor.template = structuredClone(state.stagedEntry);
+      editor.cursor.path = ["template", state.stagedEntry.part || (state.stagedEntry.type === "root" ? "radicand" : "exponent")];
+      editor.incomplete = true;
+    }
+    return editor;
+  }
   function createInitialState() {
-    return { ...createLegacyInitialState(), lifecycle: "empty", workflow: emptyWorkflow(), layers: initialLayers() };
+    const state = { ...createLegacyInitialState(), lifecycle: "empty", workflow: emptyWorkflow(), layers: initialLayers() };
+    return { ...state, editor: editorForState(state) };
   }
   function validateWorkflow(state) {
     const w = state.workflow;
@@ -1057,6 +1112,8 @@
       throw new TypeError("Invalid calculator state fields");
     }
     validateWorkflow(state);
+    semantic.validateEditor(state.editor);
+    if (state.editor.ast !== null) semantic.validateAst(state.editor.ast);
     const layers = state.layers;
     if (!layers || Object.keys(layers).sort().join() !== "alpha,hyp,intent,inverseHyp,mode,settings"
       || !["alpha", "hyp", "inverseHyp"].every(k => typeof layers[k] === "boolean")
@@ -1099,11 +1156,11 @@
   // part of this contract. Future modes must version and extend these fields.
   function snapshotCalculator(state) {
     validateState(state);
-    return { schemaVersion: 3, profile: "legacy-0.3.1", state: structuredClone(state) };
+    return { schemaVersion: 4, profile: "legacy-0.3.1", state: structuredClone(state) };
   }
 
   function restoreCalculator(snapshot) {
-    if (!snapshot || ![1, 2, 3].includes(snapshot.schemaVersion) || snapshot.profile !== "legacy-0.3.1"
+    if (!snapshot || ![1, 2, 3, 4].includes(snapshot.schemaVersion) || snapshot.profile !== "legacy-0.3.1"
       || Object.keys(snapshot).sort().join() !== "profile,schemaVersion,state") {
       throw new TypeError("Unsupported calculator snapshot");
     }
@@ -1113,6 +1170,7 @@
       state = { ...state, lifecycle: inferEntryPhase(state), workflow: emptyWorkflow() };
     }
     if (snapshot.schemaVersion < 3) state.layers = initialLayers();
+    if (snapshot.schemaVersion < 4) state.editor = editorForState(state);
     validateState(state);
     return state;
   }
@@ -1127,6 +1185,17 @@
     validateState(previous);
     if (!event || typeof event.type !== "string") throw new TypeError("Invalid calculator event");
     if (event.type === "physical-key") return reducePhysicalKey(previous, event.id);
+    if (event.type === "token-edit") {
+      if (previous.workflow.kind !== null) throw new TypeError("Cannot edit during a workflow");
+      const next = structuredClone(previous);
+      next.editor = semantic.edit(previous.editor, event.command);
+      next.expression = semantic.serialize(next.editor.tokens); next.entry = ""; next.stagedEntry = null;
+      next.cursor = next.editor.tokens.slice(0,next.editor.cursor.index).reduce((n,t)=>n+t.value.length,0)+next.editor.cursor.offset;
+      next.selectionActive = next.editor.cursor.index < next.editor.tokens.length;
+      next.displayExpression = next.expression; next.displayResult = "0"; next.resultDisplay = "0";
+      next.lifecycle = next.expression ? "editing" : "empty";
+      validateState(next); return next;
+    }
     if (event.type === "workflow") {
       const next = structuredClone(previous);
       const commands = { "open-menu": "menu", "open-prompt": "prompt", "begin-data": "data-entry", "show-results": "multi-result" };
@@ -1152,6 +1221,10 @@
     }
     const next = { ...reduceLegacyCalculator(previous, event), workflow: emptyWorkflow(), layers: structuredClone(previous.layers) };
     next.lifecycle = inferEntryPhase(next);
+    next.editor = editorForState(next);
+    if ((event.key === "Enter" || event.key === "=" || event.action === "equals") && !previous.editor.incomplete && !previous.stagedEntry) {
+      next.editor = semantic.createEditor(previous.editor.tokens);
+    }
     if (next.lifecycle === "entering" && (event.key?.startsWith("Arrow") || event.action?.startsWith("cursor-"))) next.lifecycle = "editing";
     validateState(next);
     return next;
@@ -1255,6 +1328,9 @@
       if (intent.kind === "operation") {
         if (next.layers.mode !== "NORMAL" && !["clear","home"].includes(intent.event.action)) throw new TypeError("Numeric mode implementation pending");
         next = reduceCalculator(next,{type:"button",...intent.event});
+        if (["pi","e","ans"].includes(intent.event.insert) && previous.editor.tokens.length && !previous.expression.endsWith("=") && !previous.stagedEntry) {
+          next.editor = semantic.createEditor([...previous.editor.tokens,{kind:"symbol",value:intent.event.insert}]);
+        }
       }
       // Semantic intent is retained independently of text. Feature owners
       // implement pending functions, variables, stores and menus later.
@@ -2178,6 +2254,7 @@
       snapshotCalculator,
       restoreCalculator,
       resolvePhysicalKey,
+      semanticEditor: semantic,
       evaluateExpression,
       evaluateExactExpression,
       formatValue,
@@ -2186,7 +2263,7 @@
     return;
   }
 
-  document.addEventListener("DOMContentLoaded", () => {
-    document.querySelectorAll("[data-scientific-calculator]").forEach(createCalculator);
-  });
+  const initialize = () => dependencies.then(() => document.querySelectorAll("[data-scientific-calculator]").forEach(createCalculator));
+  if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", initialize);
+  else initialize();
 })();

@@ -23,8 +23,8 @@
         "partial": 3
       },
       "goldenTested": {
-        "pending": 420,
-        "baseline-known-differences": 10
+        "pending": 419,
+        "baseline-known-differences": 11
       },
       "browserTested": {
         "pending": 423,
@@ -38,8 +38,8 @@
       "pending": 51
     },
     "golden": {
-      "fixtures": 5,
-      "assertedFrames": 24,
+      "fixtures": 6,
+      "assertedFrames": 28,
       "pending": 1
     },
     "verifiedFullParity": 0
@@ -65,6 +65,10 @@
     {
       "path": "tests/reference/el506ts/experiments/guide-power.json",
       "sha256": "fee8d6d3b7354297a3644ec6a8d2076e65fcc9286b917bbc89870a94c815a119"
+    },
+    {
+      "path": "tests/reference/el506ts/experiments/implied-multiplication.json",
+      "sha256": "417a0482b5db3b4bffa288b9cc8ea5bcc80477a1f65a8031db1d97e803c007b1"
     },
     {
       "path": "tests/reference/el506ts/experiments/key-layers.json",
@@ -93,6 +97,10 @@
     {
       "path": "tests/reference/el506ts/golden/guide-power.json",
       "sha256": "3e55e2cb287f63fdb4bd3842eea057be19fe0daf7ff0b77be509f26298fda7d5"
+    },
+    {
+      "path": "tests/reference/el506ts/golden/implied-multiplication.json",
+      "sha256": "ccc129bf905a5e16daf44336b486d68b9b316d5f3684ac99f711d92249518f8e"
     },
     {
       "path": "tests/reference/el506ts/golden/key-layers.json",
@@ -5942,8 +5950,14 @@
         "scope": "Explicit mapped assertions only; unlisted coverage is unassessed."
       },
       "goldenTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "baseline-known-differences",
+        "evidence": [
+          {
+            "fixtureId": "implied-multiplication-foundation-v1",
+            "status": "known-differences",
+            "assertedFrames": 4
+          }
+        ],
         "scope": "Baseline characterization only; all current supported fixtures have oracle display differences."
       },
       "browserTested": {
