@@ -4,7 +4,7 @@
 - Plan status: Active
 - Current package baseline: 0.3.1
 - Target release: 1.0.0 after verified parity
-- Next item: EL506-005
+- Next item: EL506-010
 - Last updated: 2026-10-05
 
 ## Purpose
@@ -449,10 +449,12 @@ The runner's completion does not require implementing the later feature phases.
 - [ ] **EL506-004 - Capture all 44-page guide examples.** Convert every worked
   sequence in the operation guide into reference fixtures, preserving printed
   values and noting any guide/simulator disagreement.
-- [ ] **EL506-005 - Capture the version 0.3.1 baseline.** Classify every
+- [x] **EL506-005 - Capture the version 0.3.1 baseline.** Classify every
   existing feature and test as matching, partial, enhanced-only, incorrect, or
   missing. Record the source revision before EL506-014 refactors the baseline.
-    READY_TO_PUSH: 2026-10-05. `el506-005-baseline-0.3.1-v1` freezes source
+    Completed: 2026-10-05, implementation commit
+    b90c5480d54c194ffbf1885ea1965ac0636667e9
+    `el506-005-baseline-0.3.1-v1` freezes source
     afd4094bee71e27ac963721887a41aa30f75a018 and Git-blob SHA-256 fingerprints.
     Evidence: 82 existing feature classifications, 21 original test records,
     all 430 ledger entries (123 partial, 307 missing); six browser probes and
