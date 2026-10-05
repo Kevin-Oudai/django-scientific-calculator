@@ -4,20 +4,20 @@
 - Plan status: Active
 - Current package baseline: 0.3.1
 - Target release: 1.0.0 after verified parity
-- Next item: EL506-003
+- Next item: EL506-004
 - Last updated: 2026-10-05
 
 ## Progress Overview
 
-As of 2026-10-05, **8 of 245 roadmap tasks are complete (3.3%)**, with
-**237 remaining**. The next task is **EL506-003**. These counts measure
+As of 2026-10-05, **9 of 245 roadmap tasks are complete (3.7%)**, with
+**236 remaining**. The next task is **EL506-004**. These counts measure
 completed checklist items, not elapsed effort or verified calculator parity;
 individual tasks vary in size. The detailed checklist below describes every
 remaining task and preserves its evidence and completion requirements.
 
 | Roadmap phase | Completed | Remaining |
 | --- | ---: | ---: |
-| Phase 0 - Reference and Traceability | 4 | 3 |
+| Phase 0 - Reference and Traceability | 5 | 2 |
 | Phase 1 - Test and Emulator Foundation | 4 | 10 |
 | Phase 2 - Physical Layout, Display, Theme, and Access | 0 | 14 |
 | Phase 3 - Power, Modes, Clear, Editing, and History | 0 | 17 |
@@ -36,7 +36,7 @@ remaining task and preserves its evidence and completion requirements.
 | Phase 16 - LIST Mode | 0 | 11 |
 | Phase 17 - Errors, Limits, and Cross-mode Parity | 0 | 15 |
 | Phase 18 - Security, Packaging, Compatibility, and Release | 0 | 15 |
-| **Total** | **8** | **237** |
+| **Total** | **9** | **236** |
 
 Refresh this overview's date, counts, percentage, and next task in every
 roadmap completion tracking commit, using the checklist as the source of truth.
@@ -477,10 +477,12 @@ The runner's completion does not require implementing the later feature phases.
     Core unit/golden suites, runtime dispatch, multi-embed, touch, theme and
     accessibility changes are inapplicable to this evidence-only bootstrap item;
     their infrastructure/implementation remains scheduled in later items.
-- [ ] **EL506-003 - Create the golden fixture format and runner.** Fixtures
+- [x] **EL506-003 - Create the golden fixture format and runner.** Fixtures
   must drive canonical key IDs and assert displays, indicators, prompts,
   result pages, state mutations, and errors.
-    READY_TO_PUSH: 2026-10-05. Version 1 canonical-sequence fixtures and
+    Completed: 2026-10-05, implementation commit
+    `42b39b74ce860131522077d48a32f9d7554b2f0d` verified on origin/main.
+    Version 1 canonical-sequence fixtures and
     deterministic Node runner assert explicit observable state paths at every
     step, retaining complete snapshots. Two supported baseline sequences replay
     11 frames; mode/menu fixture stays pending with no assertions or parity pass.
