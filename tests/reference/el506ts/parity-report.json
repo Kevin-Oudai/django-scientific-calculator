@@ -44,26 +44,27 @@
     },
     "verifiedFullParity": 0
   },
+  "sourceFingerprintEncoding": "UTF-8 text with CRLF normalized to LF",
   "sources": [
     {
       "path": "tests/reference/el506ts/baseline-0.3.1.json",
-      "sha256": "a6b0fee0b57c7533c9e23ca29ff3ec4a3e90423468c12924697a01ee3e4d3435"
+      "sha256": "27ea275b20ed55ab088940f965493bb8dc63399c24c9b1a7336f8cc25826da3a"
     },
     {
       "path": "tests/reference/el506ts/capability-ledger.json",
-      "sha256": "19395a6e7abb4a690cb766ce23ccfb6cad155944a98b9eb084acaa930f2244a9"
+      "sha256": "32f93fda3a2ef82d11aa0318852e73660fe37493ec8465d682fa4b76d8236573"
     },
     {
       "path": "tests/reference/el506ts/experiments/error-recovery.json",
-      "sha256": "196c9c9ae8b4987ce7d3886e430bbd22f1676517505aeb262fb0406b297c170e"
+      "sha256": "722df350a19a7774bed7be341621087e4f5e57df66802d682c259f496dd6fdeb"
     },
     {
       "path": "tests/reference/el506ts/experiments/golden-addition.json",
-      "sha256": "789ee82d9a81608249a048f755bf3e191f9f17de6012b8540dc6c43cd68b2257"
+      "sha256": "7dfc3b7d1a1ce20ae6112eb4002f201978fa450835de2a62cfbdc26c301c420d"
     },
     {
       "path": "tests/reference/el506ts/experiments/guide-power.json",
-      "sha256": "dc65622486e53174bef5459bc8d157bf97fee8fb38343111389b18db9abc9598"
+      "sha256": "fee8d6d3b7354297a3644ec6a8d2076e65fcc9286b917bbc89870a94c815a119"
     },
     {
       "path": "tests/reference/el506ts/experiments/menu-inventory.json",
@@ -71,7 +72,7 @@
     },
     {
       "path": "tests/reference/el506ts/generate-report.js",
-      "sha256": "5b712f4146b26a1941a94512dd16554f7d970206ad27986a48012937a9968e59"
+      "sha256": "431c0dab77e8123673c44711af3dc87442c807eb669be72deb049a62299de692"
     },
     {
       "path": "tests/reference/el506ts/golden-runner.js",
@@ -79,23 +80,23 @@
     },
     {
       "path": "tests/reference/el506ts/golden/addition.json",
-      "sha256": "ff2dd83ced6f0f5485983218b4ff9129015138b90db97e087f76306e1df494b0"
+      "sha256": "b64e5d00077c9f4f4ad6fdc38a23e3e8e61b614b829390d2744f1906771d5b39"
     },
     {
       "path": "tests/reference/el506ts/golden/error-recovery.json",
-      "sha256": "88c200b2b6a054368eaadb11a3b45436bfa59115fb847cfd6cdce27903ac8141"
+      "sha256": "12cb1c8174eadd4debbcfbbab398df1e492e32263a363166db8cd58dc6ee441f"
     },
     {
       "path": "tests/reference/el506ts/golden/guide-power.json",
-      "sha256": "f9a3ba91ffd773cdfda01df4700787447388fef1ba2977851e0ea56b9e6cf0a6"
+      "sha256": "698e952f13193bf9438635dc8af627c3f0b76e231c8c6c4ae107f43cb5b94f73"
     },
     {
       "path": "tests/reference/el506ts/golden/menus-pending.json",
-      "sha256": "2523fadb88868c30be3c5daf44e3e0db7512b18ce42cbc5cb4b3239446ead565"
+      "sha256": "560527bd6a5f22e294b57b52c9df265c6ab806ebaba7fdcdfa03e2f9a07f45aa"
     },
     {
       "path": "tests/reference/el506ts/guide-examples.json",
-      "sha256": "c0a9e44813b7509a5c5e631929450ce06d969f726a990899f01ebd3172e4fbd3"
+      "sha256": "72d9fbd611a651aeeade03c8fd837bb40794b3400aedd148389848036a05705d"
     },
     {
       "path": "tests/reference/el506ts/report-coverage.json",

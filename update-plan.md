@@ -577,6 +577,9 @@ The runner's completion does not require implementing the later feature phases.
     Physical dispatch, touch/theme and calculator accessibility gates are
     inapplicable to derived reporting. Report labels/search are accessible;
     no external assets or requests required. Regenerate/check commands documented.
+    Publication review found that raw text hashes would vary after a Windows
+    CRLF checkout. Fingerprints and stale checks now normalize CRLF to LF;
+    both LF and CRLF report comparisons are covered by the regression test.
 
 ### Phase 1 - Test and Emulator Foundation
 

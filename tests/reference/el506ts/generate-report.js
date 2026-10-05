@@ -6,7 +6,8 @@ const { loadFixtures, runFixture } = require("./golden-runner");
 const { validateGuide } = require("./validate-guide");
 const root = path.resolve(__dirname, "../../..");
 const read = file => JSON.parse(fs.readFileSync(path.join(__dirname, file), "utf8"));
-const digest = bytes => createHash("sha256").update(bytes).digest("hex");
+const normalizeText = text => String(text).replace(/\r\n/g, "\n");
+const digest = bytes => createHash("sha256").update(normalizeText(bytes.toString("utf8"))).digest("hex");
 const escape = text => String(text).replace(/[&<>"']/g, ch => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[ch]));
 
 function generateReport() {
@@ -69,7 +70,7 @@ function generateReport() {
   return { schemaVersion: 1, roadmapItem: "EL506-006", ledgerId: ledger.ledger_id,
     policy: "Evidence status is independent across columns. Inventory observation, partial implementation and baseline tests do not establish full calculator parity. Test mappings identify assertions, not a new test execution record. Run npm test for verification.",
     summary: { entries: rows.length, counts, guide: guideSummary, golden: { fixtures: fixtures.length, assertedFrames: [...replay.values()].reduce((n, r) => n + r.frames.length, 0), pending: [...replay.values()].filter(r => r.status === "pending").length }, verifiedFullParity: 0 },
-    sources, rows };
+    sourceFingerprintEncoding: "UTF-8 text with CRLF normalized to LF", sources, rows };
 }
 
 function renderReport(report) {
@@ -88,9 +89,9 @@ if (require.main === module) {
   const outputs = artifacts();
   for (const [file, text] of Object.entries(outputs)) {
     const target = path.join(__dirname, file);
-    if (process.argv.includes("--check")) assert.equal(fs.readFileSync(target, "utf8"), text, `${file} is stale; run npm run report:parity`);
+    if (process.argv.includes("--check")) assert.equal(normalizeText(fs.readFileSync(target, "utf8")), text, `${file} is stale; run npm run report:parity`);
     else fs.writeFileSync(target, text);
   }
   console.log(`Parity report ${process.argv.includes("--check") ? "current" : "generated"}: 430 independent ledger rows`);
 }
-module.exports = { generateReport, renderReport, artifacts };
+module.exports = { generateReport, renderReport, artifacts, normalizeText };

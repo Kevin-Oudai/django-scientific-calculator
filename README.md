@@ -501,7 +501,8 @@ cannot count as tested. Full verified parity currently remains zero.
 
 Regenerate with `npm run report:parity` after changing source evidence or test
 mappings in `report-coverage.json`. `npm run report:check` detects stale generated
-JSON/HTML and runs as part of `npm test`. Fingerprints identify report inputs.
+JSON/HTML and runs as part of `npm test`. Fingerprints identify report inputs
+as UTF-8 text with CRLF normalized to LF, so Windows checkouts remain reproducible.
 The report runs offline, includes no external assets and does not modify the
 calculator's UI or assert that unimplemented features are complete.
 

@@ -2,7 +2,7 @@ const test = require("node:test");
 const assert = require("node:assert/strict");
 const fs = require("node:fs");
 const path = require("node:path");
-const { generateReport, artifacts, renderReport } = require("../reference/el506ts/generate-report");
+const { generateReport, artifacts, renderReport, normalizeText } = require("../reference/el506ts/generate-report");
 
 test("generated report is deterministic, current and has independent evidence for every capability", () => {
   const report = generateReport();
@@ -23,7 +23,8 @@ test("generated report is deterministic, current and has independent evidence fo
   assert.equal(mode.browserTested.status, "pending");
   assert.equal(mode.goldenTested.evidence[0].assertedFrames, 0);
   for (const [file, text] of Object.entries(artifacts())) {
-    assert.equal(fs.readFileSync(path.join(__dirname, "../reference/el506ts", file), "utf8"), text);
+    assert.equal(normalizeText(fs.readFileSync(path.join(__dirname, "../reference/el506ts", file), "utf8")), text);
+    assert.equal(normalizeText(text.replace(/\n/g, "\r\n")), text);
   }
 });
 
