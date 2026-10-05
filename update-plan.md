@@ -4,13 +4,13 @@
 - Plan status: Active
 - Current package baseline: 0.3.1
 - Target release: 1.0.0 after verified parity
-- Next item: EL506-016
+- Next item: EL506-017
 - Last updated: 2026-10-05
 
 ## Progress Overview
 
-As of 2026-10-05, **14 of 245 roadmap tasks are complete (5.7%)**, with
-**231 remaining**. The next task is **EL506-016**. These counts measure
+As of 2026-10-05, **15 of 245 roadmap tasks are complete (6.1%)**, with
+**230 remaining**. The next task is **EL506-017**. These counts measure
 completed checklist items, not elapsed effort or verified calculator parity;
 individual tasks vary in size. The detailed checklist below describes every
 remaining task and preserves its evidence and completion requirements.
@@ -21,7 +21,7 @@ in the generated report; phase completion does not establish full parity.
 | Roadmap phase | Completed | Remaining |
 | --- | ---: | ---: |
 | Phase 0 - Reference and Traceability | 7 | 0 |
-| Phase 1 - Test and Emulator Foundation | 7 | 7 |
+| Phase 1 - Test and Emulator Foundation | 8 | 6 |
 | Phase 2 - Physical Layout, Display, Theme, and Access | 0 | 14 |
 | Phase 3 - Power, Modes, Clear, Editing, and History | 0 | 17 |
 | Phase 4 - Display Settings and Formatting | 0 | 11 |
@@ -39,7 +39,7 @@ in the generated report; phase completion does not establish full parity.
 | Phase 16 - LIST Mode | 0 | 11 |
 | Phase 17 - Errors, Limits, and Cross-mode Parity | 0 | 15 |
 | Phase 18 - Security, Packaging, Compatibility, and Release | 0 | 15 |
-| **Total** | **14** | **231** |
+| **Total** | **15** | **230** |
 
 Refresh this overview's date, counts, percentage, and next task in every
 roadmap completion tracking commit, using the checklist as the source of truth.
@@ -701,10 +701,11 @@ The runner's completion does not require implementing the later feature phases.
     Verification: Django 4/4, unit 25/25, browser 31/31; golden/reference/report;
     compileall, pip dry run, Compose rebuilt demo, diff check. No visual/theme
     change. CI EL506-012 implementation run 37343374982 passed on GitHub.
-- [ ] **EL506-016 - Implement modifier and menu layers.** Support base, 2ndF,
+- [x] **EL506-016 - Implement modifier and menu layers.** Support base, 2ndF,
   ALPHA, HYP, MODE, SET UP, MATH, STO, RCL, and other waiting-for-selection
   states without string replacement.
-    READY_TO_PUSH: 2026-10-05. Declarative physical intent resolution, combined
+    Completed: 2026-10-05, implementation commit
+    4d42530b6b063c06328422b03507473ebdb24497 verified on origin/main. Declarative physical intent resolution, combined
     inverse HYP, one-shot modifier consumption, MODE/SETUP/MATH selections,
     STO/RCL letter prompts, RANDOM/clear and two-digit CNST/CONV selection
     contracts. Layers, pending intents and settings round-trip in schema 3
