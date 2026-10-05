@@ -4,13 +4,13 @@
 - Plan status: Active
 - Current package baseline: 0.3.1
 - Target release: 1.0.0 after verified parity
-- Next item: EL506-012
+- Next item: EL506-015
 - Last updated: 2026-10-05
 
 ## Progress Overview
 
-As of 2026-10-05, **12 of 245 roadmap tasks are complete (4.9%)**, with
-**233 remaining**. The next task is **EL506-012**. These counts measure
+As of 2026-10-05, **13 of 245 roadmap tasks are complete (5.3%)**, with
+**232 remaining**. The next task is **EL506-015**. These counts measure
 completed checklist items, not elapsed effort or verified calculator parity;
 individual tasks vary in size. The detailed checklist below describes every
 remaining task and preserves its evidence and completion requirements.
@@ -21,7 +21,7 @@ in the generated report; phase completion does not establish full parity.
 | Roadmap phase | Completed | Remaining |
 | --- | ---: | ---: |
 | Phase 0 - Reference and Traceability | 7 | 0 |
-| Phase 1 - Test and Emulator Foundation | 5 | 9 |
+| Phase 1 - Test and Emulator Foundation | 6 | 8 |
 | Phase 2 - Physical Layout, Display, Theme, and Access | 0 | 14 |
 | Phase 3 - Power, Modes, Clear, Editing, and History | 0 | 17 |
 | Phase 4 - Display Settings and Formatting | 0 | 11 |
@@ -39,7 +39,7 @@ in the generated report; phase completion does not establish full parity.
 | Phase 16 - LIST Mode | 0 | 11 |
 | Phase 17 - Errors, Limits, and Cross-mode Parity | 0 | 15 |
 | Phase 18 - Security, Packaging, Compatibility, and Release | 0 | 15 |
-| **Total** | **12** | **233** |
+| **Total** | **13** | **232** |
 
 Refresh this overview's date, counts, percentage, and next task in every
 roadmap completion tracking commit, using the checklist as the source of truth.
@@ -629,10 +629,12 @@ The runner's completion does not require implementing the later feature phases.
     Django 4/4, unit 22/22, browser 30/30, reference/golden/report checks,
     compileall, pip dry run, Compose config/demo rebuild and diff check.
     No UI/theme, evaluator, modifier or release change.
-- [ ] **EL506-012 - Add continuous integration.** Run Python checks,
+- [x] **EL506-012 - Add continuous integration.** Run Python checks,
   JavaScript unit tests, Playwright, packaging checks, and dependency/license
   checks without secrets or paid services.
-    READY_TO_PUSH: 2026-10-05. Read-only SHA-pinned GitHub Actions workflow
+    Completed: 2026-10-05, implementation commit
+    `4b0bef84059ebbd920ae2069bfb29a07ef4dd545` verified on origin/main.
+    Read-only SHA-pinned GitHub Actions workflow
     with full-history checkout, Python/Node checks, public dependency audits,
     explicit license review, isolated installed-wheel and sdist byte checks,
     Compose demo and complete npm suite. No secrets/paid services. Existing
