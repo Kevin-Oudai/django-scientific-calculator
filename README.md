@@ -467,6 +467,27 @@ the live oracle and reported as `known-differences`, never passing parity.
 Unmeasured cursor, prompt, paging and simulator stores remain explicit.
 The mode/menu fixture remains pending. `npm test` includes this runner.
 
+## Operation Guide Fixtures
+
+`tests/reference/el506ts/guide-examples.json` records the review of all 44 pages
+of the September 2019 guide: 52 connected workflows with 148 printed checkpoints,
+canonical physical IDs, prerequisites, printed values and page links. Table
+ellipsis entries are expanded from the printed datasets. Repeated conversion,
+memory, statistics, equation and matrix steps retain their sequence context.
+No guide prose, illustrations or PDF are distributed. The local PDF stays untracked.
+
+`npm run test:reference` validates page coverage and fixture links and uses the
+golden runner for the supported live-checked page 14 power sequence. That sequence
+agrees numerically at 16, with baseline entry/display differences recorded.
+The other 51 workflows remain pending application replay and simulator comparison;
+capture completion does not establish their parity. EL506-362 owns the complete
+guide regression audit after the required behavior exists.
+
+The printed positive exponent on page 6 conflicts with the problem's negative
+exponent, the page 41 polar-angle sign needs verification, and the matrix paging
+ellipsis on page 43 leaves a repeated-key count unspecified. These facts remain
+explicit in the fixtures; no corrected value or guessed paging count replaces them.
+
 ## Release History
 
 ### 0.3.1

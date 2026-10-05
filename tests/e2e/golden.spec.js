@@ -18,7 +18,10 @@ for (const fixture of loadFixtures().filter(f => f.status !== "pending")) {
       for (const [field, value] of Object.entries(expected)) {
         expect(field.split(".").reduce((v, k) => v[k], actual)).toEqual(value);
       }
-      await expect(root.locator("[data-result]")).toHaveText(expected.displayResult);
+      await expect(root.locator("[data-result]")).toHaveText(fixture.expected[step].domResultText ?? expected.displayResult);
+      if (fixture.expected[step].domResultSup !== undefined) {
+        await expect(root.locator("[data-result] sup")).toHaveText(fixture.expected[step].domResultSup);
+      }
     }
     expect(errors).toEqual([]);
   });

@@ -1,0 +1,3891 @@
+{
+  "schemaVersion": 1,
+  "roadmapItem": "EL506-004",
+  "source": {
+    "reference": "src/OperationGuide_EL506TS.pdf (local, untracked)",
+    "sha256": "0fd2dda1f5a38757624c03a4ae5c72f0d9f531244f6a056af708e7e67addf0e2",
+    "pageCount": 44,
+    "edition": "September 2019; 19JSC43E1",
+    "redistribution": "Independent numeric/key transcripts only; no source prose, images or PDF distributed."
+  },
+  "captureDate": "2026-10-05",
+  "policy": "Manual printed expectations do not establish simulator or application parity. Every connected workflow includes prerequisites. Unmeasured fields remain unknown. All pages reviewed visually. Numeric sample endpoints and tables transcribed; diagrams and general function descriptions are not invented worked examples.",
+  "keyAliases": {
+    "HOME": [
+      "EL506-K01"
+    ],
+    "ON/C": [
+      "EL506-K02"
+    ],
+    "MODE": [
+      "EL506-K04"
+    ],
+    "ALPHA": [
+      "EL506-K05"
+    ],
+    "SETUP": [
+      "EL506-K06"
+    ],
+    "UP": [
+      "EL506-K08"
+    ],
+    "LEFT": [
+      "EL506-K09"
+    ],
+    "RIGHT": [
+      "EL506-K10"
+    ],
+    "DOWN": [
+      "EL506-K11"
+    ],
+    "SIN": [
+      "EL506-K13"
+    ],
+    "COS": [
+      "EL506-K14"
+    ],
+    "TAN": [
+      "EL506-K15"
+    ],
+    "INTEGRAL": [
+      "EL506-K16"
+    ],
+    "MATH": [
+      "EL506-K17"
+    ],
+    "PI": [
+      "EL506-K18"
+    ],
+    "POWER": [
+      "EL506-K19"
+    ],
+    "SQUARE": [
+      "EL506-K20"
+    ],
+    "LOG": [
+      "EL506-K22"
+    ],
+    "LN": [
+      "EL506-K23"
+    ],
+    "EXP": [
+      "EL506-K24"
+    ],
+    "FRAC": [
+      "EL506-K25"
+    ],
+    "DMS": [
+      "EL506-K26"
+    ],
+    "RCL": [
+      "EL506-K27"
+    ],
+    "STO": [
+      "EL506-K28"
+    ],
+    "M+": [
+      "EL506-K29"
+    ],
+    "DATA": [
+      "EL506-K29"
+    ],
+    "SEP": [
+      "EL506-K28"
+    ],
+    "ENT": [
+      "EL506-K48"
+    ],
+    "+": [
+      "EL506-K43"
+    ],
+    "-": [
+      "EL506-K44"
+    ],
+    "*": [
+      "EL506-K38"
+    ],
+    "/": [
+      "EL506-K39"
+    ],
+    "(": [
+      "EL506-K33"
+    ],
+    ")": [
+      "EL506-K34"
+    ],
+    "=": [
+      "EL506-K48"
+    ],
+    "NEG": [
+      "EL506-K47"
+    ],
+    ".": [
+      "EL506-K46"
+    ],
+    "A": [
+      "EL506-K18"
+    ],
+    "B": [
+      "EL506-K19"
+    ],
+    "C": [
+      "EL506-K20"
+    ],
+    "X": [
+      "EL506-K27"
+    ],
+    "Y": [
+      "EL506-K28"
+    ],
+    "M": [
+      "EL506-K29"
+    ],
+    "F1": [
+      "EL506-K08"
+    ],
+    "I": [
+      "EL506-K25"
+    ],
+    "AND": [
+      "EL506-K13"
+    ],
+    "XBAR": [
+      "EL506-K35"
+    ],
+    "SX": [
+      "EL506-K36"
+    ],
+    "SIGX": [
+      "EL506-K37"
+    ],
+    "YBAR": [
+      "EL506-K30"
+    ],
+    "SY": [
+      "EL506-K31"
+    ],
+    "SIGY": [
+      "EL506-K32"
+    ],
+    "N": [
+      "EL506-K45"
+    ],
+    "SUMX": [
+      "EL506-K46"
+    ],
+    "SUMX2": [
+      "EL506-K47"
+    ],
+    "SUMXY": [
+      "EL506-K40"
+    ],
+    "SUMY": [
+      "EL506-K41"
+    ],
+    "SUMY2": [
+      "EL506-K42"
+    ],
+    "SQRT": [
+      "EL506-K03",
+      "EL506-K20"
+    ],
+    "ROOT": [
+      "EL506-K03",
+      "EL506-K19"
+    ],
+    "TENPOW": [
+      "EL506-K03",
+      "EL506-K22"
+    ],
+    "EPOW": [
+      "EL506-K03",
+      "EL506-K23"
+    ],
+    "FACT": [
+      "EL506-K03",
+      "EL506-K35"
+    ],
+    "NPR": [
+      "EL506-K03",
+      "EL506-K37"
+    ],
+    "NCR": [
+      "EL506-K03",
+      "EL506-K36"
+    ],
+    "PCT": [
+      "EL506-K03",
+      "EL506-K40"
+    ],
+    "DEGREES": [
+      "EL506-K03",
+      "EL506-K26"
+    ],
+    "DRG": [
+      "EL506-K03",
+      "EL506-K46"
+    ],
+    "MDF": [
+      "EL506-K03",
+      "EL506-K45"
+    ],
+    "RANDOM": [
+      "EL506-K03",
+      "EL506-K30"
+    ],
+    "POLAR": [
+      "EL506-K03",
+      "EL506-K31"
+    ],
+    "RECT": [
+      "EL506-K03",
+      "EL506-K32"
+    ],
+    "PAGE": [
+      "EL506-K03",
+      "EL506-K33"
+    ],
+    "HEX": [
+      "EL506-K03",
+      "EL506-K38"
+    ],
+    "BIN": [
+      "EL506-K03",
+      "EL506-K39"
+    ],
+    "PEN": [
+      "EL506-K03",
+      "EL506-K43"
+    ],
+    "OCT": [
+      "EL506-K03",
+      "EL506-K44"
+    ],
+    "DEC": [
+      "EL506-K03",
+      "EL506-K48"
+    ],
+    "DERIV": [
+      "EL506-K03",
+      "EL506-K16"
+    ],
+    "ALGB": [
+      "EL506-K03",
+      "EL506-K17"
+    ],
+    "ATAN": [
+      "EL506-K03",
+      "EL506-K15"
+    ],
+    "IMPROPER": [
+      "EL506-K03",
+      "EL506-K25"
+    ],
+    "ANS": [
+      "EL506-K05",
+      "EL506-K48"
+    ],
+    "COMMA": [
+      "EL506-K03",
+      "EL506-K28"
+    ]
+  },
+  "pages": [
+    {
+      "page": 1,
+      "reviewed": "visual and extracted text",
+      "fixtureIds": [],
+      "disposition": "cover"
+    },
+    {
+      "page": 2,
+      "reviewed": "visual and extracted text",
+      "fixtureIds": [],
+      "disposition": "contents"
+    },
+    {
+      "page": 3,
+      "reviewed": "visual and extracted text",
+      "fixtureIds": [],
+      "disposition": "contents"
+    },
+    {
+      "page": 4,
+      "reviewed": "visual and extracted text",
+      "fixtureIds": [],
+      "disposition": "key/mode reference, no worked numeric example"
+    },
+    {
+      "page": 5,
+      "reviewed": "visual and extracted text",
+      "fixtureIds": [
+        "guide-p05-display-formats"
+      ],
+      "disposition": "worked sequences transcribed"
+    },
+    {
+      "page": 6,
+      "reviewed": "visual and extracted text",
+      "fixtureIds": [
+        "guide-p05-display-formats",
+        "guide-p06-exponent"
+      ],
+      "disposition": "worked sequences transcribed"
+    },
+    {
+      "page": 7,
+      "reviewed": "visual and extracted text",
+      "fixtureIds": [
+        "guide-p07-angular-conversion"
+      ],
+      "disposition": "worked sequences transcribed"
+    },
+    {
+      "page": 8,
+      "reviewed": "visual and extracted text",
+      "fixtureIds": [],
+      "disposition": "key reference, no worked sequence"
+    },
+    {
+      "page": 9,
+      "reviewed": "visual and extracted text",
+      "fixtureIds": [
+        "guide-p09-orbit"
+      ],
+      "disposition": "worked sequences transcribed"
+    },
+    {
+      "page": 10,
+      "reviewed": "visual and extracted text",
+      "fixtureIds": [
+        "guide-p10-random-decimal",
+        "guide-p10-random-dice",
+        "guide-p10-random-coin",
+        "guide-p10-random-integer"
+      ],
+      "disposition": "worked sequences transcribed"
+    },
+    {
+      "page": 11,
+      "reviewed": "visual and extracted text",
+      "fixtureIds": [
+        "guide-p11-unmodified-rounding",
+        "guide-p11-modified-rounding"
+      ],
+      "disposition": "worked sequences transcribed"
+    },
+    {
+      "page": 12,
+      "reviewed": "visual and extracted text",
+      "fixtureIds": [],
+      "disposition": "arithmetic descriptions, no worked sequence"
+    },
+    {
+      "page": 13,
+      "reviewed": "visual and extracted text",
+      "fixtureIds": [
+        "guide-p13-percent-increase",
+        "guide-p13-percent-decrease",
+        "guide-p13-percent-part",
+        "guide-p13-percent-whole"
+      ],
+      "disposition": "worked sequences transcribed"
+    },
+    {
+      "page": 14,
+      "reviewed": "visual and extracted text",
+      "fixtureIds": [
+        "guide-p14-multiply",
+        "guide-p14-power",
+        "guide-p14-root"
+      ],
+      "disposition": "worked sequences transcribed"
+    },
+    {
+      "page": 15,
+      "reviewed": "visual and extracted text",
+      "fixtureIds": [
+        "guide-p15-ten-power",
+        "guide-p15-log"
+      ],
+      "disposition": "worked sequences transcribed"
+    },
+    {
+      "page": 16,
+      "reviewed": "visual and extracted text",
+      "fixtureIds": [
+        "guide-p16-e-power",
+        "guide-p16-ln"
+      ],
+      "disposition": "worked sequences transcribed"
+    },
+    {
+      "page": 17,
+      "reviewed": "visual and extracted text",
+      "fixtureIds": [
+        "guide-p17-factorial-seven",
+        "guide-p17-factorial-three"
+      ],
+      "disposition": "worked sequences transcribed"
+    },
+    {
+      "page": 18,
+      "reviewed": "visual and extracted text",
+      "fixtureIds": [
+        "guide-p18-permutation",
+        "guide-p18-combination"
+      ],
+      "disposition": "worked sequences transcribed"
+    },
+    {
+      "page": 19,
+      "reviewed": "visual and extracted text",
+      "fixtureIds": [
+        "guide-p19-dms"
+      ],
+      "disposition": "worked sequences transcribed"
+    },
+    {
+      "page": 20,
+      "reviewed": "visual and extracted text",
+      "fixtureIds": [
+        "guide-p20-fraction"
+      ],
+      "disposition": "worked sequences transcribed"
+    },
+    {
+      "page": 21,
+      "reviewed": "visual and extracted text",
+      "fixtureIds": [
+        "guide-p21-independent-memory",
+        "guide-p21-temporary-memory"
+      ],
+      "disposition": "worked sequences transcribed"
+    },
+    {
+      "page": 22,
+      "reviewed": "visual and extracted text",
+      "fixtureIds": [
+        "guide-p22-ans"
+      ],
+      "disposition": "worked sequences transcribed"
+    },
+    {
+      "page": 23,
+      "reviewed": "visual and extracted text",
+      "fixtureIds": [
+        "guide-p23-formula-memory"
+      ],
+      "disposition": "worked sequences transcribed"
+    },
+    {
+      "page": 24,
+      "reviewed": "visual and extracted text",
+      "fixtureIds": [
+        "guide-p24-building"
+      ],
+      "disposition": "worked sequences transcribed"
+    },
+    {
+      "page": 25,
+      "reviewed": "visual and extracted text",
+      "fixtureIds": [
+        "guide-p26-side-a",
+        "guide-p26-side-b",
+        "guide-p26-side-x",
+        "guide-p26-side-y",
+        "guide-p25-angle-setup"
+      ],
+      "disposition": "worked sequences transcribed"
+    },
+    {
+      "page": 26,
+      "reviewed": "visual and extracted text",
+      "fixtureIds": [
+        "guide-p26-side-a",
+        "guide-p26-side-b",
+        "guide-p26-side-x",
+        "guide-p26-side-y"
+      ],
+      "disposition": "worked sequences transcribed"
+    },
+    {
+      "page": 27,
+      "reviewed": "visual and extracted text",
+      "fixtureIds": [
+        "guide-p27-inverse-tangent"
+      ],
+      "disposition": "worked sequences transcribed"
+    },
+    {
+      "page": 28,
+      "reviewed": "visual and extracted text",
+      "fixtureIds": [],
+      "disposition": "function descriptions, no worked sequence"
+    },
+    {
+      "page": 29,
+      "reviewed": "visual and extracted text",
+      "fixtureIds": [
+        "guide-p29-coordinates"
+      ],
+      "disposition": "worked sequences transcribed"
+    },
+    {
+      "page": 30,
+      "reviewed": "visual and extracted text",
+      "fixtureIds": [
+        "guide-p30-base-conversions",
+        "guide-p30-binary-and"
+      ],
+      "disposition": "worked sequences transcribed"
+    },
+    {
+      "page": 31,
+      "reviewed": "visual and extracted text",
+      "fixtureIds": [
+        "guide-p31-derivative"
+      ],
+      "disposition": "worked sequences transcribed"
+    },
+    {
+      "page": 32,
+      "reviewed": "visual and extracted text",
+      "fixtureIds": [
+        "guide-p32-integral"
+      ],
+      "disposition": "worked sequences transcribed"
+    },
+    {
+      "page": 33,
+      "reviewed": "visual and extracted text",
+      "fixtureIds": [
+        "guide-p33-simulation"
+      ],
+      "disposition": "worked sequences transcribed"
+    },
+    {
+      "page": 34,
+      "reviewed": "visual and extracted text",
+      "fixtureIds": [
+        "guide-p34-weighted-statistics"
+      ],
+      "disposition": "worked sequences transcribed"
+    },
+    {
+      "page": 35,
+      "reviewed": "visual and extracted text",
+      "fixtureIds": [
+        "guide-p34-weighted-statistics"
+      ],
+      "disposition": "worked sequences transcribed"
+    },
+    {
+      "page": 36,
+      "reviewed": "visual and extracted text",
+      "fixtureIds": [
+        "guide-p36-statistics-correction"
+      ],
+      "disposition": "worked sequences transcribed"
+    },
+    {
+      "page": 37,
+      "reviewed": "visual and extracted text",
+      "fixtureIds": [
+        "guide-p36-statistics-correction"
+      ],
+      "disposition": "worked sequences transcribed"
+    },
+    {
+      "page": 38,
+      "reviewed": "visual and extracted text",
+      "fixtureIds": [
+        "guide-p38-paired-statistics"
+      ],
+      "disposition": "worked sequences transcribed"
+    },
+    {
+      "page": 39,
+      "reviewed": "visual and extracted text",
+      "fixtureIds": [
+        "guide-p38-paired-statistics"
+      ],
+      "disposition": "worked sequences transcribed"
+    },
+    {
+      "page": 40,
+      "reviewed": "visual and extracted text",
+      "fixtureIds": [
+        "guide-p40-equations"
+      ],
+      "disposition": "worked sequences transcribed"
+    },
+    {
+      "page": 41,
+      "reviewed": "visual and extracted text",
+      "fixtureIds": [
+        "guide-p41-complex"
+      ],
+      "disposition": "worked sequences transcribed"
+    },
+    {
+      "page": 42,
+      "reviewed": "visual and extracted text",
+      "fixtureIds": [
+        "guide-p43-matrix",
+        "guide-p43-share-a",
+        "guide-p43-share-b"
+      ],
+      "disposition": "worked sequences transcribed"
+    },
+    {
+      "page": 43,
+      "reviewed": "visual and extracted text",
+      "fixtureIds": [
+        "guide-p43-matrix",
+        "guide-p43-share-a",
+        "guide-p43-share-b"
+      ],
+      "disposition": "worked sequences transcribed"
+    },
+    {
+      "page": 44,
+      "reviewed": "visual and extracted text",
+      "fixtureIds": [],
+      "disposition": "back cover"
+    }
+  ],
+  "fixtures": [
+    {
+      "id": "guide-p05-display-formats",
+      "pages": [
+        5,
+        6
+      ],
+      "initialState": "fresh reset NORMAL/DEG; settings changed only by listed keys",
+      "sequence": [
+        "EL506-K04",
+        "EL506-K45",
+        "EL506-K40",
+        "EL506-K45",
+        "EL506-K45",
+        "EL506-K45",
+        "EL506-K45",
+        "EL506-K39",
+        "EL506-K31",
+        "EL506-K46",
+        "EL506-K40",
+        "EL506-K48",
+        "EL506-K06",
+        "EL506-K40",
+        "EL506-K45",
+        "EL506-K06",
+        "EL506-K41",
+        "EL506-K42",
+        "EL506-K06",
+        "EL506-K40",
+        "EL506-K40",
+        "EL506-K06",
+        "EL506-K40",
+        "EL506-K41",
+        "EL506-K06",
+        "EL506-K40",
+        "EL506-K42"
+      ],
+      "printedOperations": [
+        "MODE 0",
+        "10000 / 8.1 =",
+        "SETUP 1 0 SETUP 2 3",
+        "SETUP 1 1",
+        "SETUP 1 2",
+        "SETUP 1 3"
+      ],
+      "frames": [
+        {
+          "afterStep": 2,
+          "printed": "0",
+          "evidenceKind": "guide-print",
+          "simulatorStatus": "unmeasured"
+        },
+        {
+          "afterStep": 12,
+          "printed": "1234.567901",
+          "evidenceKind": "guide-print",
+          "simulatorStatus": "unmeasured"
+        },
+        {
+          "afterStep": 18,
+          "printed": "1234.568",
+          "evidenceKind": "guide-print",
+          "simulatorStatus": "unmeasured"
+        },
+        {
+          "afterStep": 21,
+          "printed": "1.235e3",
+          "evidenceKind": "guide-print",
+          "simulatorStatus": "unmeasured"
+        },
+        {
+          "afterStep": 24,
+          "printed": "1.235e3",
+          "evidenceKind": "guide-print",
+          "simulatorStatus": "unmeasured"
+        },
+        {
+          "afterStep": 27,
+          "printed": "1234.567901",
+          "evidenceKind": "guide-print",
+          "simulatorStatus": "unmeasured"
+        }
+      ],
+      "status": "reference-only",
+      "applicationStatus": "pending",
+      "simulatorStatus": "unmeasured",
+      "notes": [],
+      "capabilityIds": [
+        "el506.key.el506-k04",
+        "el506.key.el506-k06",
+        "el506.key.el506-k31",
+        "el506.key.el506-k39",
+        "el506.key.el506-k40",
+        "el506.key.el506-k41",
+        "el506.key.el506-k42",
+        "el506.key.el506-k45",
+        "el506.key.el506-k46",
+        "el506.key.el506-k48"
+      ]
+    },
+    {
+      "id": "guide-p06-exponent",
+      "pages": [
+        6
+      ],
+      "initialState": "fresh reset NORMAL/DEG; settings changed only by listed keys",
+      "sequence": [
+        "EL506-K45",
+        "EL506-K46",
+        "EL506-K42",
+        "EL506-K41",
+        "EL506-K39",
+        "EL506-K40",
+        "EL506-K46",
+        "EL506-K37",
+        "EL506-K24",
+        "EL506-K40",
+        "EL506-K32",
+        "EL506-K48"
+      ],
+      "printedOperations": [
+        "0.32 /",
+        "1.6 EXP 19",
+        "="
+      ],
+      "frames": [
+        {
+          "afterStep": 5,
+          "printed": "0.",
+          "evidenceKind": "guide-print",
+          "simulatorStatus": "unmeasured"
+        },
+        {
+          "afterStep": 11,
+          "printed": "1.6e19",
+          "evidenceKind": "guide-print",
+          "simulatorStatus": "unmeasured"
+        },
+        {
+          "afterStep": 12,
+          "printed": "2.e-20",
+          "evidenceKind": "guide-print",
+          "simulatorStatus": "unmeasured"
+        }
+      ],
+      "status": "reference-only",
+      "applicationStatus": "pending",
+      "simulatorStatus": "unmeasured",
+      "notes": [
+        "The problem states charge 1.6e-19; the printed keys omit NEG and display 2e-20. Preserve both facts; no correction substituted."
+      ],
+      "capabilityIds": [
+        "el506.key.el506-k24",
+        "el506.key.el506-k32",
+        "el506.key.el506-k37",
+        "el506.key.el506-k39",
+        "el506.key.el506-k40",
+        "el506.key.el506-k41",
+        "el506.key.el506-k42",
+        "el506.key.el506-k45",
+        "el506.key.el506-k46",
+        "el506.key.el506-k48"
+      ]
+    },
+    {
+      "id": "guide-p07-angular-conversion",
+      "pages": [
+        7
+      ],
+      "initialState": "fresh reset NORMAL/DEG; settings changed only by listed keys",
+      "sequence": [
+        "EL506-K06",
+        "EL506-K45",
+        "EL506-K45",
+        "EL506-K32",
+        "EL506-K45",
+        "EL506-K03",
+        "EL506-K46",
+        "EL506-K03",
+        "EL506-K46",
+        "EL506-K03",
+        "EL506-K46"
+      ],
+      "printedOperations": [
+        "SETUP 0 0",
+        "90 DRG",
+        "DRG",
+        "DRG"
+      ],
+      "frames": [
+        {
+          "afterStep": 3,
+          "printed": "0.",
+          "evidenceKind": "guide-print",
+          "simulatorStatus": "unmeasured"
+        },
+        {
+          "afterStep": 7,
+          "printed": "1.570796327 RAD",
+          "evidenceKind": "guide-print",
+          "simulatorStatus": "unmeasured"
+        },
+        {
+          "afterStep": 9,
+          "printed": "100. GRAD",
+          "evidenceKind": "guide-print",
+          "simulatorStatus": "unmeasured"
+        },
+        {
+          "afterStep": 11,
+          "printed": "90. DEG",
+          "evidenceKind": "guide-print",
+          "simulatorStatus": "unmeasured"
+        }
+      ],
+      "status": "reference-only",
+      "applicationStatus": "pending",
+      "simulatorStatus": "unmeasured",
+      "notes": [],
+      "capabilityIds": [
+        "el506.key.el506-k03",
+        "el506.key.el506-k06",
+        "el506.key.el506-k32",
+        "el506.key.el506-k45",
+        "el506.key.el506-k46"
+      ]
+    },
+    {
+      "id": "guide-p09-orbit",
+      "pages": [
+        9
+      ],
+      "initialState": "fresh reset NORMAL/DEG; settings changed only by listed keys",
+      "sequence": [
+        "EL506-K40",
+        "EL506-K46",
+        "EL506-K35",
+        "EL506-K32",
+        "EL506-K37",
+        "EL506-K24",
+        "EL506-K31",
+        "EL506-K38",
+        "EL506-K41",
+        "EL506-K38",
+        "EL506-K18",
+        "EL506-K48"
+      ],
+      "printedOperations": [
+        "1.496 EXP 8",
+        "* 2 * PI ="
+      ],
+      "frames": [
+        {
+          "afterStep": 7,
+          "printed": "1.496e8",
+          "evidenceKind": "guide-print",
+          "simulatorStatus": "unmeasured"
+        },
+        {
+          "afterStep": 12,
+          "printed": "939964522.",
+          "evidenceKind": "guide-print",
+          "simulatorStatus": "unmeasured"
+        }
+      ],
+      "status": "reference-only",
+      "applicationStatus": "pending",
+      "simulatorStatus": "unmeasured",
+      "notes": [],
+      "capabilityIds": [
+        "el506.key.el506-k18",
+        "el506.key.el506-k24",
+        "el506.key.el506-k31",
+        "el506.key.el506-k32",
+        "el506.key.el506-k35",
+        "el506.key.el506-k37",
+        "el506.key.el506-k38",
+        "el506.key.el506-k40",
+        "el506.key.el506-k41",
+        "el506.key.el506-k46",
+        "el506.key.el506-k48"
+      ]
+    },
+    {
+      "id": "guide-p10-random-coin",
+      "pages": [
+        10
+      ],
+      "initialState": "fresh reset NORMAL/DEG; settings changed only by listed keys",
+      "sequence": [
+        "EL506-K03",
+        "EL506-K30",
+        "EL506-K41",
+        "EL506-K48",
+        "EL506-K48"
+      ],
+      "printedOperations": [
+        "RANDOM 2 ENT",
+        "ENT"
+      ],
+      "frames": [
+        {
+          "afterStep": 4,
+          "printed": "0 or 1",
+          "evidenceKind": "guide-print",
+          "simulatorStatus": "unmeasured"
+        },
+        {
+          "afterStep": 5,
+          "printed": "0 or 1",
+          "evidenceKind": "guide-print",
+          "simulatorStatus": "unmeasured"
+        }
+      ],
+      "status": "reference-only",
+      "applicationStatus": "pending",
+      "simulatorStatus": "unmeasured",
+      "notes": [
+        "Property expectation; no particular random stream or value asserted."
+      ],
+      "capabilityIds": [
+        "el506.key.el506-k03",
+        "el506.key.el506-k30",
+        "el506.key.el506-k41",
+        "el506.key.el506-k48"
+      ]
+    },
+    {
+      "id": "guide-p10-random-decimal",
+      "pages": [
+        10
+      ],
+      "initialState": "fresh reset NORMAL/DEG; settings changed only by listed keys",
+      "sequence": [
+        "EL506-K03",
+        "EL506-K30",
+        "EL506-K45",
+        "EL506-K48",
+        "EL506-K48"
+      ],
+      "printedOperations": [
+        "RANDOM 0 ENT",
+        "ENT"
+      ],
+      "frames": [
+        {
+          "afterStep": 4,
+          "printed": "0.***; 0.000..0.999",
+          "evidenceKind": "guide-print",
+          "simulatorStatus": "unmeasured"
+        },
+        {
+          "afterStep": 5,
+          "printed": "0.***; 0.000..0.999",
+          "evidenceKind": "guide-print",
+          "simulatorStatus": "unmeasured"
+        }
+      ],
+      "status": "reference-only",
+      "applicationStatus": "pending",
+      "simulatorStatus": "unmeasured",
+      "notes": [
+        "Property expectation; no particular random stream or value asserted."
+      ],
+      "capabilityIds": [
+        "el506.key.el506-k03",
+        "el506.key.el506-k30",
+        "el506.key.el506-k45",
+        "el506.key.el506-k48"
+      ]
+    },
+    {
+      "id": "guide-p10-random-dice",
+      "pages": [
+        10
+      ],
+      "initialState": "fresh reset NORMAL/DEG; settings changed only by listed keys",
+      "sequence": [
+        "EL506-K03",
+        "EL506-K30",
+        "EL506-K40",
+        "EL506-K48",
+        "EL506-K48"
+      ],
+      "printedOperations": [
+        "RANDOM 1 ENT",
+        "ENT"
+      ],
+      "frames": [
+        {
+          "afterStep": 4,
+          "printed": "integer 1..6",
+          "evidenceKind": "guide-print",
+          "simulatorStatus": "unmeasured"
+        },
+        {
+          "afterStep": 5,
+          "printed": "integer 1..6",
+          "evidenceKind": "guide-print",
+          "simulatorStatus": "unmeasured"
+        }
+      ],
+      "status": "reference-only",
+      "applicationStatus": "pending",
+      "simulatorStatus": "unmeasured",
+      "notes": [
+        "Property expectation; no particular random stream or value asserted."
+      ],
+      "capabilityIds": [
+        "el506.key.el506-k03",
+        "el506.key.el506-k30",
+        "el506.key.el506-k40",
+        "el506.key.el506-k48"
+      ]
+    },
+    {
+      "id": "guide-p10-random-integer",
+      "pages": [
+        10
+      ],
+      "initialState": "fresh reset NORMAL/DEG; settings changed only by listed keys",
+      "sequence": [
+        "EL506-K03",
+        "EL506-K30",
+        "EL506-K42",
+        "EL506-K48",
+        "EL506-K48"
+      ],
+      "printedOperations": [
+        "RANDOM 3 ENT",
+        "ENT"
+      ],
+      "frames": [
+        {
+          "afterStep": 4,
+          "printed": "integer 0..99",
+          "evidenceKind": "guide-print",
+          "simulatorStatus": "unmeasured"
+        },
+        {
+          "afterStep": 5,
+          "printed": "integer 0..99",
+          "evidenceKind": "guide-print",
+          "simulatorStatus": "unmeasured"
+        }
+      ],
+      "status": "reference-only",
+      "applicationStatus": "pending",
+      "simulatorStatus": "unmeasured",
+      "notes": [
+        "Property expectation; no particular random stream or value asserted."
+      ],
+      "capabilityIds": [
+        "el506.key.el506-k03",
+        "el506.key.el506-k30",
+        "el506.key.el506-k42",
+        "el506.key.el506-k48"
+      ]
+    },
+    {
+      "id": "guide-p11-modified-rounding",
+      "pages": [
+        11
+      ],
+      "initialState": "fresh reset NORMAL/DEG; settings changed only by listed keys",
+      "sequence": [
+        "EL506-K06",
+        "EL506-K40",
+        "EL506-K45",
+        "EL506-K06",
+        "EL506-K41",
+        "EL506-K40",
+        "EL506-K36",
+        "EL506-K39",
+        "EL506-K32",
+        "EL506-K48",
+        "EL506-K03",
+        "EL506-K45",
+        "EL506-K38",
+        "EL506-K32",
+        "EL506-K48"
+      ],
+      "printedOperations": [
+        "SETUP 1 0 SETUP 2 1",
+        "5 / 9 =",
+        "MDF",
+        "* 9 ="
+      ],
+      "frames": [
+        {
+          "afterStep": 10,
+          "printed": "0.6",
+          "evidenceKind": "guide-print",
+          "simulatorStatus": "unmeasured"
+        },
+        {
+          "afterStep": 12,
+          "printed": "internal 0.6",
+          "evidenceKind": "guide-print",
+          "simulatorStatus": "unmeasured"
+        },
+        {
+          "afterStep": 15,
+          "printed": "5.4",
+          "evidenceKind": "guide-print",
+          "simulatorStatus": "unmeasured"
+        }
+      ],
+      "status": "reference-only",
+      "applicationStatus": "pending",
+      "simulatorStatus": "unmeasured",
+      "notes": [],
+      "capabilityIds": [
+        "el506.key.el506-k03",
+        "el506.key.el506-k06",
+        "el506.key.el506-k32",
+        "el506.key.el506-k36",
+        "el506.key.el506-k38",
+        "el506.key.el506-k39",
+        "el506.key.el506-k40",
+        "el506.key.el506-k41",
+        "el506.key.el506-k45",
+        "el506.key.el506-k48"
+      ]
+    },
+    {
+      "id": "guide-p11-unmodified-rounding",
+      "pages": [
+        11
+      ],
+      "initialState": "fresh reset NORMAL/DEG; settings changed only by listed keys",
+      "sequence": [
+        "EL506-K06",
+        "EL506-K40",
+        "EL506-K45",
+        "EL506-K06",
+        "EL506-K41",
+        "EL506-K40",
+        "EL506-K36",
+        "EL506-K39",
+        "EL506-K32",
+        "EL506-K48",
+        "EL506-K38",
+        "EL506-K32",
+        "EL506-K48"
+      ],
+      "printedOperations": [
+        "SETUP 1 0 SETUP 2 1",
+        "5 / 9 =",
+        "* 9 ="
+      ],
+      "frames": [
+        {
+          "afterStep": 10,
+          "printed": "0.6",
+          "evidenceKind": "guide-print",
+          "simulatorStatus": "unmeasured"
+        },
+        {
+          "afterStep": 13,
+          "printed": "5.0",
+          "evidenceKind": "guide-print",
+          "simulatorStatus": "unmeasured"
+        }
+      ],
+      "status": "reference-only",
+      "applicationStatus": "pending",
+      "simulatorStatus": "unmeasured",
+      "notes": [],
+      "capabilityIds": [
+        "el506.key.el506-k06",
+        "el506.key.el506-k32",
+        "el506.key.el506-k36",
+        "el506.key.el506-k38",
+        "el506.key.el506-k39",
+        "el506.key.el506-k40",
+        "el506.key.el506-k41",
+        "el506.key.el506-k45",
+        "el506.key.el506-k48"
+      ]
+    },
+    {
+      "id": "guide-p13-percent-decrease",
+      "pages": [
+        13
+      ],
+      "initialState": "fresh reset NORMAL/DEG; settings changed only by listed keys",
+      "sequence": [
+        "EL506-K40",
+        "EL506-K41",
+        "EL506-K36",
+        "EL506-K44",
+        "EL506-K41",
+        "EL506-K45",
+        "EL506-K03",
+        "EL506-K40"
+      ],
+      "printedOperations": [
+        "125 - 20 PCT"
+      ],
+      "frames": [
+        {
+          "afterStep": 8,
+          "printed": "100.",
+          "evidenceKind": "guide-print",
+          "simulatorStatus": "unmeasured"
+        }
+      ],
+      "status": "reference-only",
+      "applicationStatus": "pending",
+      "simulatorStatus": "unmeasured",
+      "notes": [],
+      "capabilityIds": [
+        "el506.key.el506-k03",
+        "el506.key.el506-k36",
+        "el506.key.el506-k40",
+        "el506.key.el506-k41",
+        "el506.key.el506-k44",
+        "el506.key.el506-k45"
+      ]
+    },
+    {
+      "id": "guide-p13-percent-increase",
+      "pages": [
+        13
+      ],
+      "initialState": "fresh reset NORMAL/DEG; settings changed only by listed keys",
+      "sequence": [
+        "EL506-K40",
+        "EL506-K41",
+        "EL506-K36",
+        "EL506-K43",
+        "EL506-K40",
+        "EL506-K45",
+        "EL506-K03",
+        "EL506-K40"
+      ],
+      "printedOperations": [
+        "125 + 10 PCT"
+      ],
+      "frames": [
+        {
+          "afterStep": 8,
+          "printed": "137.5",
+          "evidenceKind": "guide-print",
+          "simulatorStatus": "unmeasured"
+        }
+      ],
+      "status": "reference-only",
+      "applicationStatus": "pending",
+      "simulatorStatus": "unmeasured",
+      "notes": [],
+      "capabilityIds": [
+        "el506.key.el506-k03",
+        "el506.key.el506-k36",
+        "el506.key.el506-k40",
+        "el506.key.el506-k41",
+        "el506.key.el506-k43",
+        "el506.key.el506-k45"
+      ]
+    },
+    {
+      "id": "guide-p13-percent-part",
+      "pages": [
+        13
+      ],
+      "initialState": "fresh reset NORMAL/DEG; settings changed only by listed keys",
+      "sequence": [
+        "EL506-K40",
+        "EL506-K41",
+        "EL506-K36",
+        "EL506-K38",
+        "EL506-K40",
+        "EL506-K36",
+        "EL506-K03",
+        "EL506-K40"
+      ],
+      "printedOperations": [
+        "125 * 15 PCT"
+      ],
+      "frames": [
+        {
+          "afterStep": 8,
+          "printed": "18.75",
+          "evidenceKind": "guide-print",
+          "simulatorStatus": "unmeasured"
+        }
+      ],
+      "status": "reference-only",
+      "applicationStatus": "pending",
+      "simulatorStatus": "unmeasured",
+      "notes": [],
+      "capabilityIds": [
+        "el506.key.el506-k03",
+        "el506.key.el506-k36",
+        "el506.key.el506-k38",
+        "el506.key.el506-k40",
+        "el506.key.el506-k41"
+      ]
+    },
+    {
+      "id": "guide-p13-percent-whole",
+      "pages": [
+        13
+      ],
+      "initialState": "fresh reset NORMAL/DEG; settings changed only by listed keys",
+      "sequence": [
+        "EL506-K40",
+        "EL506-K41",
+        "EL506-K36",
+        "EL506-K39",
+        "EL506-K36",
+        "EL506-K03",
+        "EL506-K40"
+      ],
+      "printedOperations": [
+        "125 / 5 PCT"
+      ],
+      "frames": [
+        {
+          "afterStep": 7,
+          "printed": "2500.",
+          "evidenceKind": "guide-print",
+          "simulatorStatus": "unmeasured"
+        }
+      ],
+      "status": "reference-only",
+      "applicationStatus": "pending",
+      "simulatorStatus": "unmeasured",
+      "notes": [],
+      "capabilityIds": [
+        "el506.key.el506-k03",
+        "el506.key.el506-k36",
+        "el506.key.el506-k39",
+        "el506.key.el506-k40",
+        "el506.key.el506-k41"
+      ]
+    },
+    {
+      "id": "guide-p14-multiply",
+      "pages": [
+        14
+      ],
+      "initialState": "fresh reset NORMAL/DEG; settings changed only by listed keys",
+      "sequence": [
+        "EL506-K41",
+        "EL506-K38",
+        "EL506-K41",
+        "EL506-K38",
+        "EL506-K41",
+        "EL506-K38",
+        "EL506-K41",
+        "EL506-K48"
+      ],
+      "printedOperations": [
+        "2 * 2 * 2 * 2 ="
+      ],
+      "frames": [
+        {
+          "afterStep": 8,
+          "printed": "16.",
+          "evidenceKind": "guide-print",
+          "simulatorStatus": "unmeasured"
+        }
+      ],
+      "status": "reference-only",
+      "applicationStatus": "pending",
+      "simulatorStatus": "unmeasured",
+      "notes": [],
+      "capabilityIds": [
+        "el506.key.el506-k38",
+        "el506.key.el506-k41",
+        "el506.key.el506-k48"
+      ]
+    },
+    {
+      "id": "guide-p14-power",
+      "pages": [
+        14
+      ],
+      "initialState": "fresh reset NORMAL/DEG; settings changed only by listed keys",
+      "sequence": [
+        "EL506-K41",
+        "EL506-K19",
+        "EL506-K35",
+        "EL506-K48"
+      ],
+      "printedOperations": [
+        "2 POWER 4 ="
+      ],
+      "frames": [
+        {
+          "afterStep": 4,
+          "printed": "16.",
+          "evidenceKind": "guide-print",
+          "simulatorStatus": "observed"
+        }
+      ],
+      "status": "reference-only",
+      "applicationStatus": "baseline-characterization",
+      "simulatorStatus": "observed",
+      "notes": [],
+      "capabilityIds": [
+        "el506.key.el506-k19",
+        "el506.key.el506-k35",
+        "el506.key.el506-k41",
+        "el506.key.el506-k48"
+      ],
+      "experiment": "experiments/guide-power.json",
+      "goldenFixture": "guide-power-baseline-v1"
+    },
+    {
+      "id": "guide-p14-root",
+      "pages": [
+        14
+      ],
+      "initialState": "fresh reset NORMAL/DEG; settings changed only by listed keys",
+      "sequence": [
+        "EL506-K35",
+        "EL506-K03",
+        "EL506-K19",
+        "EL506-K40",
+        "EL506-K37",
+        "EL506-K48"
+      ],
+      "printedOperations": [
+        "4 ROOT 16 ="
+      ],
+      "frames": [
+        {
+          "afterStep": 6,
+          "printed": "2.",
+          "evidenceKind": "guide-print",
+          "simulatorStatus": "unmeasured"
+        }
+      ],
+      "status": "reference-only",
+      "applicationStatus": "pending",
+      "simulatorStatus": "unmeasured",
+      "notes": [],
+      "capabilityIds": [
+        "el506.key.el506-k03",
+        "el506.key.el506-k19",
+        "el506.key.el506-k35",
+        "el506.key.el506-k37",
+        "el506.key.el506-k40",
+        "el506.key.el506-k48"
+      ]
+    },
+    {
+      "id": "guide-p15-log",
+      "pages": [
+        15
+      ],
+      "initialState": "fresh reset NORMAL/DEG; settings changed only by listed keys",
+      "sequence": [
+        "EL506-K22",
+        "EL506-K40",
+        "EL506-K45",
+        "EL506-K45",
+        "EL506-K45",
+        "EL506-K48"
+      ],
+      "printedOperations": [
+        "LOG 1000 ="
+      ],
+      "frames": [
+        {
+          "afterStep": 6,
+          "printed": "3.",
+          "evidenceKind": "guide-print",
+          "simulatorStatus": "unmeasured"
+        }
+      ],
+      "status": "reference-only",
+      "applicationStatus": "pending",
+      "simulatorStatus": "unmeasured",
+      "notes": [],
+      "capabilityIds": [
+        "el506.key.el506-k22",
+        "el506.key.el506-k40",
+        "el506.key.el506-k45",
+        "el506.key.el506-k48"
+      ]
+    },
+    {
+      "id": "guide-p15-ten-power",
+      "pages": [
+        15
+      ],
+      "initialState": "fresh reset NORMAL/DEG; settings changed only by listed keys",
+      "sequence": [
+        "EL506-K03",
+        "EL506-K22",
+        "EL506-K42",
+        "EL506-K48"
+      ],
+      "printedOperations": [
+        "TENPOW 3 ="
+      ],
+      "frames": [
+        {
+          "afterStep": 4,
+          "printed": "1000.",
+          "evidenceKind": "guide-print",
+          "simulatorStatus": "unmeasured"
+        }
+      ],
+      "status": "reference-only",
+      "applicationStatus": "pending",
+      "simulatorStatus": "unmeasured",
+      "notes": [],
+      "capabilityIds": [
+        "el506.key.el506-k03",
+        "el506.key.el506-k22",
+        "el506.key.el506-k42",
+        "el506.key.el506-k48"
+      ]
+    },
+    {
+      "id": "guide-p16-e-power",
+      "pages": [
+        16
+      ],
+      "initialState": "fresh reset NORMAL/DEG; settings changed only by listed keys",
+      "sequence": [
+        "EL506-K03",
+        "EL506-K23",
+        "EL506-K36",
+        "EL506-K48"
+      ],
+      "printedOperations": [
+        "EPOW 5 ="
+      ],
+      "frames": [
+        {
+          "afterStep": 4,
+          "printed": "148.4131591",
+          "evidenceKind": "guide-print",
+          "simulatorStatus": "unmeasured"
+        }
+      ],
+      "status": "reference-only",
+      "applicationStatus": "pending",
+      "simulatorStatus": "unmeasured",
+      "notes": [],
+      "capabilityIds": [
+        "el506.key.el506-k03",
+        "el506.key.el506-k23",
+        "el506.key.el506-k36",
+        "el506.key.el506-k48"
+      ]
+    },
+    {
+      "id": "guide-p16-ln",
+      "pages": [
+        16
+      ],
+      "initialState": "fresh reset NORMAL/DEG; settings changed only by listed keys",
+      "sequence": [
+        "EL506-K23",
+        "EL506-K40",
+        "EL506-K45",
+        "EL506-K48"
+      ],
+      "printedOperations": [
+        "LN 10 ="
+      ],
+      "frames": [
+        {
+          "afterStep": 4,
+          "printed": "2.302585093",
+          "evidenceKind": "guide-print",
+          "simulatorStatus": "unmeasured"
+        }
+      ],
+      "status": "reference-only",
+      "applicationStatus": "pending",
+      "simulatorStatus": "unmeasured",
+      "notes": [],
+      "capabilityIds": [
+        "el506.key.el506-k23",
+        "el506.key.el506-k40",
+        "el506.key.el506-k45",
+        "el506.key.el506-k48"
+      ]
+    },
+    {
+      "id": "guide-p17-factorial-seven",
+      "pages": [
+        17
+      ],
+      "initialState": "fresh reset NORMAL/DEG; settings changed only by listed keys",
+      "sequence": [
+        "EL506-K30",
+        "EL506-K03",
+        "EL506-K35",
+        "EL506-K48"
+      ],
+      "printedOperations": [
+        "7 FACT ="
+      ],
+      "frames": [
+        {
+          "afterStep": 4,
+          "printed": "5040.",
+          "evidenceKind": "guide-print",
+          "simulatorStatus": "unmeasured"
+        }
+      ],
+      "status": "reference-only",
+      "applicationStatus": "pending",
+      "simulatorStatus": "unmeasured",
+      "notes": [],
+      "capabilityIds": [
+        "el506.key.el506-k03",
+        "el506.key.el506-k30",
+        "el506.key.el506-k35",
+        "el506.key.el506-k48"
+      ]
+    },
+    {
+      "id": "guide-p17-factorial-three",
+      "pages": [
+        17
+      ],
+      "initialState": "fresh reset NORMAL/DEG; settings changed only by listed keys",
+      "sequence": [
+        "EL506-K02",
+        "EL506-K42",
+        "EL506-K03",
+        "EL506-K35",
+        "EL506-K48"
+      ],
+      "printedOperations": [
+        "ON/C 3 FACT ="
+      ],
+      "frames": [
+        {
+          "afterStep": 5,
+          "printed": "6.",
+          "evidenceKind": "guide-print",
+          "simulatorStatus": "unmeasured"
+        }
+      ],
+      "status": "reference-only",
+      "applicationStatus": "pending",
+      "simulatorStatus": "unmeasured",
+      "notes": [],
+      "capabilityIds": [
+        "el506.key.el506-k02",
+        "el506.key.el506-k03",
+        "el506.key.el506-k35",
+        "el506.key.el506-k42",
+        "el506.key.el506-k48"
+      ]
+    },
+    {
+      "id": "guide-p18-combination",
+      "pages": [
+        18
+      ],
+      "initialState": "fresh reset NORMAL/DEG; settings changed only by listed keys",
+      "sequence": [
+        "EL506-K37",
+        "EL506-K03",
+        "EL506-K36",
+        "EL506-K35",
+        "EL506-K48"
+      ],
+      "printedOperations": [
+        "6 NCR 4 ="
+      ],
+      "frames": [
+        {
+          "afterStep": 5,
+          "printed": "15.",
+          "evidenceKind": "guide-print",
+          "simulatorStatus": "unmeasured"
+        }
+      ],
+      "status": "reference-only",
+      "applicationStatus": "pending",
+      "simulatorStatus": "unmeasured",
+      "notes": [],
+      "capabilityIds": [
+        "el506.key.el506-k03",
+        "el506.key.el506-k35",
+        "el506.key.el506-k36",
+        "el506.key.el506-k37",
+        "el506.key.el506-k48"
+      ]
+    },
+    {
+      "id": "guide-p18-permutation",
+      "pages": [
+        18
+      ],
+      "initialState": "fresh reset NORMAL/DEG; settings changed only by listed keys",
+      "sequence": [
+        "EL506-K37",
+        "EL506-K03",
+        "EL506-K37",
+        "EL506-K35",
+        "EL506-K48"
+      ],
+      "printedOperations": [
+        "6 NPR 4 ="
+      ],
+      "frames": [
+        {
+          "afterStep": 5,
+          "printed": "360.",
+          "evidenceKind": "guide-print",
+          "simulatorStatus": "unmeasured"
+        }
+      ],
+      "status": "reference-only",
+      "applicationStatus": "pending",
+      "simulatorStatus": "unmeasured",
+      "notes": [],
+      "capabilityIds": [
+        "el506.key.el506-k03",
+        "el506.key.el506-k35",
+        "el506.key.el506-k37",
+        "el506.key.el506-k48"
+      ]
+    },
+    {
+      "id": "guide-p19-dms",
+      "pages": [
+        19
+      ],
+      "initialState": "fresh reset NORMAL/DEG; settings changed only by listed keys",
+      "sequence": [
+        "EL506-K41",
+        "EL506-K35",
+        "EL506-K26",
+        "EL506-K41",
+        "EL506-K31",
+        "EL506-K26",
+        "EL506-K42",
+        "EL506-K36",
+        "EL506-K03",
+        "EL506-K26",
+        "EL506-K03",
+        "EL506-K26"
+      ],
+      "printedOperations": [
+        "24 DMS 28 DMS 35",
+        "DEGREES",
+        "DEGREES"
+      ],
+      "frames": [
+        {
+          "afterStep": 8,
+          "printed": "24deg28min35sec",
+          "evidenceKind": "guide-print",
+          "simulatorStatus": "unmeasured"
+        },
+        {
+          "afterStep": 10,
+          "printed": "24.47638889",
+          "evidenceKind": "guide-print",
+          "simulatorStatus": "unmeasured"
+        },
+        {
+          "afterStep": 12,
+          "printed": "24deg28min35sec",
+          "evidenceKind": "guide-print",
+          "simulatorStatus": "unmeasured"
+        }
+      ],
+      "status": "reference-only",
+      "applicationStatus": "pending",
+      "simulatorStatus": "unmeasured",
+      "notes": [
+        "Narrative additionally mentions 24.476 degrees; the displayed worked sequence retains 24deg28min35sec."
+      ],
+      "capabilityIds": [
+        "el506.key.el506-k03",
+        "el506.key.el506-k26",
+        "el506.key.el506-k31",
+        "el506.key.el506-k35",
+        "el506.key.el506-k36",
+        "el506.key.el506-k41",
+        "el506.key.el506-k42"
+      ]
+    },
+    {
+      "id": "guide-p20-fraction",
+      "pages": [
+        20
+      ],
+      "initialState": "fresh reset NORMAL/DEG; settings changed only by listed keys",
+      "sequence": [
+        "EL506-K42",
+        "EL506-K25",
+        "EL506-K40",
+        "EL506-K25",
+        "EL506-K41",
+        "EL506-K43",
+        "EL506-K36",
+        "EL506-K25",
+        "EL506-K30",
+        "EL506-K48",
+        "EL506-K25",
+        "EL506-K25",
+        "EL506-K03",
+        "EL506-K25",
+        "EL506-K03",
+        "EL506-K25"
+      ],
+      "printedOperations": [
+        "3 FRAC 1 FRAC 2 + 5 FRAC 7 =",
+        "FRAC",
+        "FRAC (narrative repeat)",
+        "IMPROPER",
+        "IMPROPER"
+      ],
+      "frames": [
+        {
+          "afterStep": 10,
+          "printed": "4 3/14",
+          "evidenceKind": "guide-print",
+          "simulatorStatus": "unmeasured"
+        },
+        {
+          "afterStep": 11,
+          "printed": "4.214285714",
+          "evidenceKind": "guide-print",
+          "simulatorStatus": "unmeasured"
+        },
+        {
+          "afterStep": 12,
+          "printed": "4 3/14",
+          "evidenceKind": "guide-print",
+          "simulatorStatus": "unmeasured"
+        },
+        {
+          "afterStep": 14,
+          "printed": "59/14",
+          "evidenceKind": "guide-print",
+          "simulatorStatus": "unmeasured"
+        },
+        {
+          "afterStep": 16,
+          "printed": "4 3/14",
+          "evidenceKind": "guide-print",
+          "simulatorStatus": "unmeasured"
+        }
+      ],
+      "status": "reference-only",
+      "applicationStatus": "pending",
+      "simulatorStatus": "unmeasured",
+      "notes": [
+        "Narrative instructs repeating FRAC to return to fraction before IMPROPER; include that implied repeat in canonical sequence."
+      ],
+      "capabilityIds": [
+        "el506.key.el506-k03",
+        "el506.key.el506-k25",
+        "el506.key.el506-k30",
+        "el506.key.el506-k36",
+        "el506.key.el506-k40",
+        "el506.key.el506-k41",
+        "el506.key.el506-k42",
+        "el506.key.el506-k43",
+        "el506.key.el506-k48"
+      ]
+    },
+    {
+      "id": "guide-p21-independent-memory",
+      "pages": [
+        21
+      ],
+      "initialState": "fresh reset NORMAL/DEG; settings changed only by listed keys",
+      "sequence": [
+        "EL506-K45",
+        "EL506-K28",
+        "EL506-K29",
+        "EL506-K41",
+        "EL506-K36",
+        "EL506-K38",
+        "EL506-K41",
+        "EL506-K30",
+        "EL506-K29",
+        "EL506-K30",
+        "EL506-K38",
+        "EL506-K42",
+        "EL506-K29",
+        "EL506-K27",
+        "EL506-K29"
+      ],
+      "printedOperations": [
+        "0 STO M",
+        "25 * 27 M+",
+        "7 * 3 M+",
+        "RCL M"
+      ],
+      "frames": [
+        {
+          "afterStep": 3,
+          "printed": "0.",
+          "evidenceKind": "guide-print",
+          "simulatorStatus": "unmeasured"
+        },
+        {
+          "afterStep": 9,
+          "printed": "675.",
+          "evidenceKind": "guide-print",
+          "simulatorStatus": "unmeasured"
+        },
+        {
+          "afterStep": 13,
+          "printed": "21.",
+          "evidenceKind": "guide-print",
+          "simulatorStatus": "unmeasured"
+        },
+        {
+          "afterStep": 15,
+          "printed": "696.",
+          "evidenceKind": "guide-print",
+          "simulatorStatus": "unmeasured"
+        }
+      ],
+      "status": "reference-only",
+      "applicationStatus": "pending",
+      "simulatorStatus": "unmeasured",
+      "notes": [],
+      "capabilityIds": [
+        "el506.key.el506-k27",
+        "el506.key.el506-k28",
+        "el506.key.el506-k29",
+        "el506.key.el506-k30",
+        "el506.key.el506-k36",
+        "el506.key.el506-k38",
+        "el506.key.el506-k41",
+        "el506.key.el506-k42",
+        "el506.key.el506-k45"
+      ]
+    },
+    {
+      "id": "guide-p21-temporary-memory",
+      "pages": [
+        21
+      ],
+      "initialState": "fresh reset NORMAL/DEG; settings changed only by listed keys",
+      "sequence": [
+        "EL506-K40",
+        "EL506-K40",
+        "EL506-K45",
+        "EL506-K28",
+        "EL506-K28",
+        "EL506-K41",
+        "EL506-K37",
+        "EL506-K36",
+        "EL506-K40",
+        "EL506-K45",
+        "EL506-K39",
+        "EL506-K27",
+        "EL506-K28",
+        "EL506-K48",
+        "EL506-K41",
+        "EL506-K30",
+        "EL506-K36",
+        "EL506-K45",
+        "EL506-K38",
+        "EL506-K27",
+        "EL506-K28",
+        "EL506-K48"
+      ],
+      "printedOperations": [
+        "110 STO Y",
+        "26510 / RCL Y =",
+        "2750 * RCL Y ="
+      ],
+      "frames": [
+        {
+          "afterStep": 5,
+          "printed": "110.",
+          "evidenceKind": "guide-print",
+          "simulatorStatus": "unmeasured"
+        },
+        {
+          "afterStep": 14,
+          "printed": "241.",
+          "evidenceKind": "guide-print",
+          "simulatorStatus": "unmeasured"
+        },
+        {
+          "afterStep": 22,
+          "printed": "302500.",
+          "evidenceKind": "guide-print",
+          "simulatorStatus": "unmeasured"
+        }
+      ],
+      "status": "reference-only",
+      "applicationStatus": "pending",
+      "simulatorStatus": "unmeasured",
+      "notes": [],
+      "capabilityIds": [
+        "el506.key.el506-k27",
+        "el506.key.el506-k28",
+        "el506.key.el506-k30",
+        "el506.key.el506-k36",
+        "el506.key.el506-k37",
+        "el506.key.el506-k38",
+        "el506.key.el506-k39",
+        "el506.key.el506-k40",
+        "el506.key.el506-k41",
+        "el506.key.el506-k45",
+        "el506.key.el506-k48"
+      ]
+    },
+    {
+      "id": "guide-p22-ans",
+      "pages": [
+        22
+      ],
+      "initialState": "fresh reset NORMAL/DEG; settings changed only by listed keys",
+      "sequence": [
+        "EL506-K03",
+        "EL506-K20",
+        "EL506-K41",
+        "EL506-K43",
+        "EL506-K42",
+        "EL506-K48",
+        "EL506-K35",
+        "EL506-K39",
+        "EL506-K05",
+        "EL506-K48",
+        "EL506-K48"
+      ],
+      "printedOperations": [
+        "SQRT 2 + 3 =",
+        "4 / ANS ="
+      ],
+      "frames": [
+        {
+          "afterStep": 6,
+          "printed": "4.414213562",
+          "evidenceKind": "guide-print",
+          "simulatorStatus": "unmeasured"
+        },
+        {
+          "afterStep": 11,
+          "printed": "0.906163678",
+          "evidenceKind": "guide-print",
+          "simulatorStatus": "unmeasured"
+        }
+      ],
+      "status": "reference-only",
+      "applicationStatus": "pending",
+      "simulatorStatus": "unmeasured",
+      "notes": [],
+      "capabilityIds": [
+        "el506.key.el506-k03",
+        "el506.key.el506-k05",
+        "el506.key.el506-k20",
+        "el506.key.el506-k35",
+        "el506.key.el506-k39",
+        "el506.key.el506-k41",
+        "el506.key.el506-k42",
+        "el506.key.el506-k43",
+        "el506.key.el506-k48"
+      ]
+    },
+    {
+      "id": "guide-p23-formula-memory",
+      "pages": [
+        23
+      ],
+      "initialState": "fresh reset NORMAL/DEG; settings changed only by listed keys",
+      "sequence": [
+        "EL506-K18",
+        "EL506-K05",
+        "EL506-K28",
+        "EL506-K20",
+        "EL506-K28",
+        "EL506-K08",
+        "EL506-K42",
+        "EL506-K28",
+        "EL506-K28",
+        "EL506-K27",
+        "EL506-K08",
+        "EL506-K38",
+        "EL506-K35",
+        "EL506-K39",
+        "EL506-K42",
+        "EL506-K48"
+      ],
+      "printedOperations": [
+        "PI ALPHA Y SQUARE STO F1",
+        "3 STO Y",
+        "RCL F1 * 4 / 3 ="
+      ],
+      "frames": [
+        {
+          "afterStep": 6,
+          "printed": "F1",
+          "evidenceKind": "guide-print",
+          "simulatorStatus": "unmeasured"
+        },
+        {
+          "afterStep": 9,
+          "printed": "3.",
+          "evidenceKind": "guide-print",
+          "simulatorStatus": "unmeasured"
+        },
+        {
+          "afterStep": 16,
+          "printed": "37.69911184",
+          "evidenceKind": "guide-print",
+          "simulatorStatus": "unmeasured"
+        }
+      ],
+      "status": "reference-only",
+      "applicationStatus": "pending",
+      "simulatorStatus": "unmeasured",
+      "notes": [],
+      "capabilityIds": [
+        "el506.key.el506-k05",
+        "el506.key.el506-k08",
+        "el506.key.el506-k18",
+        "el506.key.el506-k20",
+        "el506.key.el506-k27",
+        "el506.key.el506-k28",
+        "el506.key.el506-k35",
+        "el506.key.el506-k38",
+        "el506.key.el506-k39",
+        "el506.key.el506-k42",
+        "el506.key.el506-k48"
+      ]
+    },
+    {
+      "id": "guide-p24-building",
+      "pages": [
+        24
+      ],
+      "initialState": "fresh reset NORMAL/DEG; settings changed only by listed keys",
+      "sequence": [
+        "EL506-K06",
+        "EL506-K45",
+        "EL506-K45",
+        "EL506-K15",
+        "EL506-K35",
+        "EL506-K36",
+        "EL506-K38",
+        "EL506-K40",
+        "EL506-K36",
+        "EL506-K43",
+        "EL506-K40",
+        "EL506-K46",
+        "EL506-K36",
+        "EL506-K48"
+      ],
+      "printedOperations": [
+        "SETUP 0 0",
+        "TAN 45 * 15 + 1.5 ="
+      ],
+      "frames": [
+        {
+          "afterStep": 14,
+          "printed": "16.5",
+          "evidenceKind": "guide-print",
+          "simulatorStatus": "unmeasured"
+        }
+      ],
+      "status": "reference-only",
+      "applicationStatus": "pending",
+      "simulatorStatus": "unmeasured",
+      "notes": [],
+      "capabilityIds": [
+        "el506.key.el506-k06",
+        "el506.key.el506-k15",
+        "el506.key.el506-k35",
+        "el506.key.el506-k36",
+        "el506.key.el506-k38",
+        "el506.key.el506-k40",
+        "el506.key.el506-k43",
+        "el506.key.el506-k45",
+        "el506.key.el506-k46",
+        "el506.key.el506-k48"
+      ]
+    },
+    {
+      "id": "guide-p25-angle-setup",
+      "pages": [
+        25
+      ],
+      "initialState": "fresh NORMAL reset",
+      "sequence": [
+        "EL506-K06",
+        "EL506-K45",
+        "EL506-K45"
+      ],
+      "printedOperations": [
+        "SETUP 0",
+        "0"
+      ],
+      "frames": [
+        {
+          "afterStep": 2,
+          "printed": "DEG RAD GRAD; 0 1 2",
+          "evidenceKind": "guide-print",
+          "simulatorStatus": "unmeasured"
+        }
+      ],
+      "status": "reference-only",
+      "applicationStatus": "pending",
+      "simulatorStatus": "unmeasured",
+      "notes": [
+        "Page 25 setup is independently preserved in addition to inherited DEG settings on page 26."
+      ],
+      "capabilityIds": [
+        "el506.key.el506-k06",
+        "el506.key.el506-k45"
+      ]
+    },
+    {
+      "id": "guide-p26-side-a",
+      "pages": [
+        25,
+        26
+      ],
+      "initialState": "DEG setting from SETUP 0 0 on page 25; otherwise fresh NORMAL reset",
+      "sequence": [
+        "EL506-K02",
+        "EL506-K41",
+        "EL506-K45",
+        "EL506-K13",
+        "EL506-K42",
+        "EL506-K45",
+        "EL506-K48"
+      ],
+      "printedOperations": [
+        "ON/C 20 SIN 30 ="
+      ],
+      "frames": [
+        {
+          "afterStep": 7,
+          "printed": "10.",
+          "evidenceKind": "guide-print",
+          "simulatorStatus": "unmeasured"
+        }
+      ],
+      "status": "reference-only",
+      "applicationStatus": "pending",
+      "simulatorStatus": "unmeasured",
+      "notes": [],
+      "capabilityIds": [
+        "el506.key.el506-k02",
+        "el506.key.el506-k13",
+        "el506.key.el506-k41",
+        "el506.key.el506-k42",
+        "el506.key.el506-k45",
+        "el506.key.el506-k48"
+      ]
+    },
+    {
+      "id": "guide-p26-side-b",
+      "pages": [
+        25,
+        26
+      ],
+      "initialState": "DEG setting from SETUP 0 0 on page 25; otherwise fresh NORMAL reset",
+      "sequence": [
+        "EL506-K41",
+        "EL506-K45",
+        "EL506-K14",
+        "EL506-K42",
+        "EL506-K45",
+        "EL506-K48"
+      ],
+      "printedOperations": [
+        "20 COS 30 ="
+      ],
+      "frames": [
+        {
+          "afterStep": 6,
+          "printed": "17.32050808",
+          "evidenceKind": "guide-print",
+          "simulatorStatus": "unmeasured"
+        }
+      ],
+      "status": "reference-only",
+      "applicationStatus": "pending",
+      "simulatorStatus": "unmeasured",
+      "notes": [],
+      "capabilityIds": [
+        "el506.key.el506-k14",
+        "el506.key.el506-k41",
+        "el506.key.el506-k42",
+        "el506.key.el506-k45",
+        "el506.key.el506-k48"
+      ]
+    },
+    {
+      "id": "guide-p26-side-x",
+      "pages": [
+        25,
+        26
+      ],
+      "initialState": "DEG setting from SETUP 0 0 on page 25; otherwise fresh NORMAL reset",
+      "sequence": [
+        "EL506-K41",
+        "EL506-K25",
+        "EL506-K15",
+        "EL506-K40",
+        "EL506-K30",
+        "EL506-K48"
+      ],
+      "printedOperations": [
+        "2 FRAC TAN 17 ="
+      ],
+      "frames": [
+        {
+          "afterStep": 6,
+          "printed": "6.541705237",
+          "evidenceKind": "guide-print",
+          "simulatorStatus": "unmeasured"
+        }
+      ],
+      "status": "reference-only",
+      "applicationStatus": "pending",
+      "simulatorStatus": "unmeasured",
+      "notes": [],
+      "capabilityIds": [
+        "el506.key.el506-k15",
+        "el506.key.el506-k25",
+        "el506.key.el506-k30",
+        "el506.key.el506-k40",
+        "el506.key.el506-k41",
+        "el506.key.el506-k48"
+      ]
+    },
+    {
+      "id": "guide-p26-side-y",
+      "pages": [
+        25,
+        26
+      ],
+      "initialState": "DEG setting from SETUP 0 0 on page 25; otherwise fresh NORMAL reset",
+      "sequence": [
+        "EL506-K41",
+        "EL506-K25",
+        "EL506-K13",
+        "EL506-K40",
+        "EL506-K30",
+        "EL506-K48"
+      ],
+      "printedOperations": [
+        "2 FRAC SIN 17 ="
+      ],
+      "frames": [
+        {
+          "afterStep": 6,
+          "printed": "6.84060724",
+          "evidenceKind": "guide-print",
+          "simulatorStatus": "unmeasured"
+        }
+      ],
+      "status": "reference-only",
+      "applicationStatus": "pending",
+      "simulatorStatus": "unmeasured",
+      "notes": [],
+      "capabilityIds": [
+        "el506.key.el506-k13",
+        "el506.key.el506-k25",
+        "el506.key.el506-k30",
+        "el506.key.el506-k40",
+        "el506.key.el506-k41",
+        "el506.key.el506-k48"
+      ]
+    },
+    {
+      "id": "guide-p27-inverse-tangent",
+      "pages": [
+        27
+      ],
+      "initialState": "fresh reset NORMAL/DEG; settings changed only by listed keys",
+      "sequence": [
+        "EL506-K03",
+        "EL506-K15",
+        "EL506-K33",
+        "EL506-K31",
+        "EL506-K45",
+        "EL506-K39",
+        "EL506-K40",
+        "EL506-K45",
+        "EL506-K45",
+        "EL506-K34",
+        "EL506-K48"
+      ],
+      "printedOperations": [
+        "ATAN ( 80 / 100 ) ="
+      ],
+      "frames": [
+        {
+          "afterStep": 11,
+          "printed": "38.65980825",
+          "evidenceKind": "guide-print",
+          "simulatorStatus": "unmeasured"
+        }
+      ],
+      "status": "reference-only",
+      "applicationStatus": "pending",
+      "simulatorStatus": "unmeasured",
+      "notes": [],
+      "capabilityIds": [
+        "el506.key.el506-k03",
+        "el506.key.el506-k15",
+        "el506.key.el506-k31",
+        "el506.key.el506-k33",
+        "el506.key.el506-k34",
+        "el506.key.el506-k39",
+        "el506.key.el506-k40",
+        "el506.key.el506-k45",
+        "el506.key.el506-k48"
+      ]
+    },
+    {
+      "id": "guide-p29-coordinates",
+      "pages": [
+        29
+      ],
+      "initialState": "fresh reset NORMAL/DEG; settings changed only by listed keys",
+      "sequence": [
+        "EL506-K30",
+        "EL506-K03",
+        "EL506-K28",
+        "EL506-K42",
+        "EL506-K03",
+        "EL506-K31",
+        "EL506-K03",
+        "EL506-K33",
+        "EL506-K30",
+        "EL506-K46",
+        "EL506-K37",
+        "EL506-K03",
+        "EL506-K28",
+        "EL506-K41",
+        "EL506-K42",
+        "EL506-K46",
+        "EL506-K41",
+        "EL506-K03",
+        "EL506-K32",
+        "EL506-K03",
+        "EL506-K33"
+      ],
+      "printedOperations": [
+        "7 COMMA 3 POLAR",
+        "PAGE",
+        "7.6 COMMA 23.2 RECT",
+        "PAGE"
+      ],
+      "frames": [
+        {
+          "afterStep": 6,
+          "printed": "r=7.615773106",
+          "evidenceKind": "guide-print",
+          "simulatorStatus": "unmeasured"
+        },
+        {
+          "afterStep": 8,
+          "printed": "theta=23.19859051",
+          "evidenceKind": "guide-print",
+          "simulatorStatus": "unmeasured"
+        },
+        {
+          "afterStep": 19,
+          "printed": "x=6.985428598",
+          "evidenceKind": "guide-print",
+          "simulatorStatus": "unmeasured"
+        },
+        {
+          "afterStep": 21,
+          "printed": "y=2.993958513",
+          "evidenceKind": "guide-print",
+          "simulatorStatus": "unmeasured"
+        }
+      ],
+      "status": "reference-only",
+      "applicationStatus": "pending",
+      "simulatorStatus": "unmeasured",
+      "notes": [],
+      "capabilityIds": [
+        "el506.key.el506-k03",
+        "el506.key.el506-k28",
+        "el506.key.el506-k30",
+        "el506.key.el506-k31",
+        "el506.key.el506-k32",
+        "el506.key.el506-k33",
+        "el506.key.el506-k37",
+        "el506.key.el506-k41",
+        "el506.key.el506-k42",
+        "el506.key.el506-k46"
+      ]
+    },
+    {
+      "id": "guide-p30-base-conversions",
+      "pages": [
+        30
+      ],
+      "initialState": "fresh reset NORMAL/DEG; settings changed only by listed keys",
+      "sequence": [
+        "EL506-K03",
+        "EL506-K38",
+        "EL506-K40",
+        "EL506-K18",
+        "EL506-K20",
+        "EL506-K03",
+        "EL506-K39",
+        "EL506-K03",
+        "EL506-K43",
+        "EL506-K03",
+        "EL506-K44",
+        "EL506-K03",
+        "EL506-K48"
+      ],
+      "printedOperations": [
+        "HEX 1 A C",
+        "BIN",
+        "PEN",
+        "OCT",
+        "DEC"
+      ],
+      "frames": [
+        {
+          "afterStep": 5,
+          "printed": "1AC H",
+          "evidenceKind": "guide-print",
+          "simulatorStatus": "unmeasured"
+        },
+        {
+          "afterStep": 7,
+          "printed": "110101100 b",
+          "evidenceKind": "guide-print",
+          "simulatorStatus": "unmeasured"
+        },
+        {
+          "afterStep": 9,
+          "printed": "3203 P",
+          "evidenceKind": "guide-print",
+          "simulatorStatus": "unmeasured"
+        },
+        {
+          "afterStep": 11,
+          "printed": "654 o",
+          "evidenceKind": "guide-print",
+          "simulatorStatus": "unmeasured"
+        },
+        {
+          "afterStep": 13,
+          "printed": "428.",
+          "evidenceKind": "guide-print",
+          "simulatorStatus": "unmeasured"
+        }
+      ],
+      "status": "reference-only",
+      "applicationStatus": "pending",
+      "simulatorStatus": "unmeasured",
+      "notes": [],
+      "capabilityIds": [
+        "el506.key.el506-k03",
+        "el506.key.el506-k18",
+        "el506.key.el506-k20",
+        "el506.key.el506-k38",
+        "el506.key.el506-k39",
+        "el506.key.el506-k40",
+        "el506.key.el506-k43",
+        "el506.key.el506-k44",
+        "el506.key.el506-k48"
+      ]
+    },
+    {
+      "id": "guide-p30-binary-and",
+      "pages": [
+        30
+      ],
+      "initialState": "fresh reset NORMAL/DEG; settings changed only by listed keys",
+      "sequence": [
+        "EL506-K02",
+        "EL506-K03",
+        "EL506-K39",
+        "EL506-K40",
+        "EL506-K45",
+        "EL506-K40",
+        "EL506-K40",
+        "EL506-K13",
+        "EL506-K40",
+        "EL506-K45",
+        "EL506-K40",
+        "EL506-K48",
+        "EL506-K03",
+        "EL506-K48"
+      ],
+      "printedOperations": [
+        "ON/C BIN 1011 AND",
+        "101 =",
+        "DEC"
+      ],
+      "frames": [
+        {
+          "afterStep": 8,
+          "printed": "0 b",
+          "evidenceKind": "guide-print",
+          "simulatorStatus": "unmeasured"
+        },
+        {
+          "afterStep": 12,
+          "printed": "1 b",
+          "evidenceKind": "guide-print",
+          "simulatorStatus": "unmeasured"
+        },
+        {
+          "afterStep": 14,
+          "printed": "1.",
+          "evidenceKind": "guide-print",
+          "simulatorStatus": "unmeasured"
+        }
+      ],
+      "status": "reference-only",
+      "applicationStatus": "pending",
+      "simulatorStatus": "unmeasured",
+      "notes": [],
+      "capabilityIds": [
+        "el506.key.el506-k02",
+        "el506.key.el506-k03",
+        "el506.key.el506-k13",
+        "el506.key.el506-k39",
+        "el506.key.el506-k40",
+        "el506.key.el506-k45",
+        "el506.key.el506-k48"
+      ]
+    },
+    {
+      "id": "guide-p31-derivative",
+      "pages": [
+        31
+      ],
+      "initialState": "fresh reset NORMAL/DEG; settings changed only by listed keys",
+      "sequence": [
+        "EL506-K02",
+        "EL506-K03",
+        "EL506-K20",
+        "EL506-K33",
+        "EL506-K40",
+        "EL506-K44",
+        "EL506-K05",
+        "EL506-K27",
+        "EL506-K20",
+        "EL506-K34",
+        "EL506-K03",
+        "EL506-K16",
+        "EL506-K47",
+        "EL506-K40",
+        "EL506-K25",
+        "EL506-K41",
+        "EL506-K48",
+        "EL506-K48"
+      ],
+      "printedOperations": [
+        "ON/C SQRT ( 1 - ALPHA X SQUARE ) DERIV NEG 1 FRAC 2 ENT ENT"
+      ],
+      "frames": [
+        {
+          "afterStep": 18,
+          "printed": "0.577350268",
+          "evidenceKind": "guide-print",
+          "simulatorStatus": "unmeasured"
+        }
+      ],
+      "status": "reference-only",
+      "applicationStatus": "pending",
+      "simulatorStatus": "unmeasured",
+      "notes": [],
+      "capabilityIds": [
+        "el506.key.el506-k02",
+        "el506.key.el506-k03",
+        "el506.key.el506-k05",
+        "el506.key.el506-k16",
+        "el506.key.el506-k20",
+        "el506.key.el506-k25",
+        "el506.key.el506-k27",
+        "el506.key.el506-k33",
+        "el506.key.el506-k34",
+        "el506.key.el506-k40",
+        "el506.key.el506-k41",
+        "el506.key.el506-k44",
+        "el506.key.el506-k47",
+        "el506.key.el506-k48"
+      ]
+    },
+    {
+      "id": "guide-p32-integral",
+      "pages": [
+        32
+      ],
+      "initialState": "fresh reset NORMAL/DEG; settings changed only by listed keys",
+      "sequence": [
+        "EL506-K02",
+        "EL506-K03",
+        "EL506-K20",
+        "EL506-K33",
+        "EL506-K40",
+        "EL506-K44",
+        "EL506-K05",
+        "EL506-K27",
+        "EL506-K20",
+        "EL506-K34",
+        "EL506-K16",
+        "EL506-K45",
+        "EL506-K48",
+        "EL506-K40",
+        "EL506-K48",
+        "EL506-K48"
+      ],
+      "printedOperations": [
+        "ON/C SQRT ( 1 - ALPHA X SQUARE ) INTEGRAL 0 ENT 1 ENT ENT"
+      ],
+      "frames": [
+        {
+          "afterStep": 16,
+          "printed": "0.7853957562",
+          "evidenceKind": "guide-print",
+          "simulatorStatus": "unmeasured"
+        }
+      ],
+      "status": "reference-only",
+      "applicationStatus": "pending",
+      "simulatorStatus": "unmeasured",
+      "notes": [],
+      "capabilityIds": [
+        "el506.key.el506-k02",
+        "el506.key.el506-k03",
+        "el506.key.el506-k05",
+        "el506.key.el506-k16",
+        "el506.key.el506-k20",
+        "el506.key.el506-k27",
+        "el506.key.el506-k33",
+        "el506.key.el506-k34",
+        "el506.key.el506-k40",
+        "el506.key.el506-k44",
+        "el506.key.el506-k45",
+        "el506.key.el506-k48"
+      ]
+    },
+    {
+      "id": "guide-p33-simulation",
+      "pages": [
+        33
+      ],
+      "initialState": "fresh reset NORMAL/DEG; settings changed only by listed keys",
+      "sequence": [
+        "EL506-K03",
+        "EL506-K20",
+        "EL506-K33",
+        "EL506-K05",
+        "EL506-K18",
+        "EL506-K20",
+        "EL506-K43",
+        "EL506-K05",
+        "EL506-K19",
+        "EL506-K20",
+        "EL506-K34",
+        "EL506-K03",
+        "EL506-K17",
+        "EL506-K41",
+        "EL506-K48",
+        "EL506-K42",
+        "EL506-K48",
+        "EL506-K03",
+        "EL506-K17",
+        "EL506-K48",
+        "EL506-K36",
+        "EL506-K48"
+      ],
+      "printedOperations": [
+        "SQRT ( ALPHA A SQUARE + ALPHA B SQUARE )",
+        "ALGB 2 ENT 3 ENT",
+        "ALGB ENT 5 ENT"
+      ],
+      "frames": [
+        {
+          "afterStep": 11,
+          "printed": "0.",
+          "evidenceKind": "guide-print",
+          "simulatorStatus": "unmeasured"
+        },
+        {
+          "afterStep": 17,
+          "printed": "3.605551275",
+          "evidenceKind": "guide-print",
+          "simulatorStatus": "unmeasured"
+        },
+        {
+          "afterStep": 22,
+          "printed": "5.385164807",
+          "evidenceKind": "guide-print",
+          "simulatorStatus": "unmeasured"
+        }
+      ],
+      "status": "reference-only",
+      "applicationStatus": "pending",
+      "simulatorStatus": "unmeasured",
+      "notes": [],
+      "capabilityIds": [
+        "el506.key.el506-k03",
+        "el506.key.el506-k05",
+        "el506.key.el506-k17",
+        "el506.key.el506-k18",
+        "el506.key.el506-k19",
+        "el506.key.el506-k20",
+        "el506.key.el506-k33",
+        "el506.key.el506-k34",
+        "el506.key.el506-k36",
+        "el506.key.el506-k41",
+        "el506.key.el506-k42",
+        "el506.key.el506-k43",
+        "el506.key.el506-k48"
+      ]
+    },
+    {
+      "id": "guide-p34-weighted-statistics",
+      "pages": [
+        34,
+        35
+      ],
+      "initialState": "fresh reset NORMAL/DEG; settings changed only by listed keys",
+      "sequence": [
+        "EL506-K04",
+        "EL506-K40",
+        "EL506-K45",
+        "EL506-K42",
+        "EL506-K45",
+        "EL506-K28",
+        "EL506-K41",
+        "EL506-K29",
+        "EL506-K35",
+        "EL506-K45",
+        "EL506-K28",
+        "EL506-K35",
+        "EL506-K29",
+        "EL506-K36",
+        "EL506-K45",
+        "EL506-K28",
+        "EL506-K36",
+        "EL506-K29",
+        "EL506-K37",
+        "EL506-K45",
+        "EL506-K28",
+        "EL506-K30",
+        "EL506-K29",
+        "EL506-K30",
+        "EL506-K45",
+        "EL506-K28",
+        "EL506-K40",
+        "EL506-K41",
+        "EL506-K29",
+        "EL506-K31",
+        "EL506-K45",
+        "EL506-K28",
+        "EL506-K40",
+        "EL506-K45",
+        "EL506-K29",
+        "EL506-K32",
+        "EL506-K45",
+        "EL506-K28",
+        "EL506-K31",
+        "EL506-K29",
+        "EL506-K40",
+        "EL506-K45",
+        "EL506-K45",
+        "EL506-K28",
+        "EL506-K41",
+        "EL506-K29",
+        "EL506-K27",
+        "EL506-K35",
+        "EL506-K27",
+        "EL506-K36",
+        "EL506-K27",
+        "EL506-K37",
+        "EL506-K27",
+        "EL506-K45",
+        "EL506-K27",
+        "EL506-K46"
+      ],
+      "printedOperations": [
+        "MODE 1 0",
+        "30 SEP 2 DATA",
+        "40 SEP 4 DATA",
+        "50 SEP 5 DATA",
+        "60 SEP 7 DATA",
+        "70 SEP 12 DATA",
+        "80 SEP 10 DATA",
+        "90 SEP 8 DATA",
+        "100 SEP 2 DATA",
+        "RCL XBAR",
+        "RCL SX",
+        "RCL SIGX",
+        "RCL N",
+        "RCL SUMX"
+      ],
+      "frames": [
+        {
+          "afterStep": 3,
+          "printed": "Stat 0; 0.",
+          "evidenceKind": "guide-print",
+          "simulatorStatus": "unmeasured"
+        },
+        {
+          "afterStep": 8,
+          "printed": "DATA SET=1.",
+          "evidenceKind": "guide-print",
+          "simulatorStatus": "unmeasured"
+        },
+        {
+          "afterStep": 13,
+          "printed": "DATA SET=2.",
+          "evidenceKind": "guide-print",
+          "simulatorStatus": "unmeasured"
+        },
+        {
+          "afterStep": 18,
+          "printed": "DATA SET=3.",
+          "evidenceKind": "guide-print",
+          "simulatorStatus": "unmeasured"
+        },
+        {
+          "afterStep": 23,
+          "printed": "DATA SET=4.",
+          "evidenceKind": "guide-print",
+          "simulatorStatus": "unmeasured"
+        },
+        {
+          "afterStep": 29,
+          "printed": "DATA SET=5.",
+          "evidenceKind": "guide-print",
+          "simulatorStatus": "unmeasured"
+        },
+        {
+          "afterStep": 35,
+          "printed": "DATA SET=6.",
+          "evidenceKind": "guide-print",
+          "simulatorStatus": "unmeasured"
+        },
+        {
+          "afterStep": 40,
+          "printed": "DATA SET=7.",
+          "evidenceKind": "guide-print",
+          "simulatorStatus": "unmeasured"
+        },
+        {
+          "afterStep": 46,
+          "printed": "DATA SET=8.",
+          "evidenceKind": "guide-print",
+          "simulatorStatus": "unmeasured"
+        },
+        {
+          "afterStep": 48,
+          "printed": "69",
+          "evidenceKind": "guide-print",
+          "simulatorStatus": "unmeasured"
+        },
+        {
+          "afterStep": 50,
+          "printed": "17.75686128",
+          "evidenceKind": "guide-print",
+          "simulatorStatus": "unmeasured"
+        },
+        {
+          "afterStep": 52,
+          "printed": "17.57839583",
+          "evidenceKind": "guide-print",
+          "simulatorStatus": "unmeasured"
+        },
+        {
+          "afterStep": 54,
+          "printed": "50",
+          "evidenceKind": "guide-print",
+          "simulatorStatus": "unmeasured"
+        },
+        {
+          "afterStep": 56,
+          "printed": "3450",
+          "evidenceKind": "guide-print",
+          "simulatorStatus": "unmeasured"
+        }
+      ],
+      "status": "reference-only",
+      "applicationStatus": "pending",
+      "simulatorStatus": "unmeasured",
+      "notes": [
+        "Ellipses in entry illustration expanded using the complete printed table; all five printed result selections retained."
+      ],
+      "capabilityIds": [
+        "el506.key.el506-k04",
+        "el506.key.el506-k27",
+        "el506.key.el506-k28",
+        "el506.key.el506-k29",
+        "el506.key.el506-k30",
+        "el506.key.el506-k31",
+        "el506.key.el506-k32",
+        "el506.key.el506-k35",
+        "el506.key.el506-k36",
+        "el506.key.el506-k37",
+        "el506.key.el506-k40",
+        "el506.key.el506-k41",
+        "el506.key.el506-k42",
+        "el506.key.el506-k45",
+        "el506.key.el506-k46"
+      ]
+    },
+    {
+      "id": "guide-p36-statistics-correction",
+      "pages": [
+        36,
+        37
+      ],
+      "initialState": "fresh reset NORMAL/DEG; settings changed only by listed keys",
+      "sequence": [
+        "EL506-K04",
+        "EL506-K40",
+        "EL506-K45",
+        "EL506-K42",
+        "EL506-K45",
+        "EL506-K29",
+        "EL506-K35",
+        "EL506-K45",
+        "EL506-K28",
+        "EL506-K41",
+        "EL506-K29",
+        "EL506-K36",
+        "EL506-K45",
+        "EL506-K29",
+        "EL506-K11",
+        "EL506-K11",
+        "EL506-K11",
+        "EL506-K35",
+        "EL506-K36",
+        "EL506-K28",
+        "EL506-K42",
+        "EL506-K29",
+        "EL506-K11",
+        "EL506-K11",
+        "EL506-K37",
+        "EL506-K45",
+        "EL506-K29"
+      ],
+      "printedOperations": [
+        "MODE 1 0",
+        "30 DATA",
+        "40 SEP 2 DATA",
+        "50 DATA",
+        "DOWN DOWN DOWN",
+        "45 SEP 3 DATA",
+        "DOWN",
+        "DOWN 60 DATA"
+      ],
+      "frames": [
+        {
+          "afterStep": 3,
+          "printed": "Stat 0; 0.",
+          "evidenceKind": "guide-print",
+          "simulatorStatus": "unmeasured"
+        },
+        {
+          "afterStep": 6,
+          "printed": "DATA SET=1.",
+          "evidenceKind": "guide-print",
+          "simulatorStatus": "unmeasured"
+        },
+        {
+          "afterStep": 11,
+          "printed": "DATA SET=2.",
+          "evidenceKind": "guide-print",
+          "simulatorStatus": "unmeasured"
+        },
+        {
+          "afterStep": 14,
+          "printed": "DATA SET=3.",
+          "evidenceKind": "guide-print",
+          "simulatorStatus": "unmeasured"
+        },
+        {
+          "afterStep": 17,
+          "printed": "X2=40.",
+          "evidenceKind": "guide-print",
+          "simulatorStatus": "unmeasured"
+        },
+        {
+          "afterStep": 22,
+          "printed": "X2=45.",
+          "evidenceKind": "guide-print",
+          "simulatorStatus": "unmeasured"
+        },
+        {
+          "afterStep": 23,
+          "printed": "N2=3.",
+          "evidenceKind": "guide-print",
+          "simulatorStatus": "unmeasured"
+        },
+        {
+          "afterStep": 27,
+          "printed": "X3=60.",
+          "evidenceKind": "guide-print",
+          "simulatorStatus": "unmeasured"
+        }
+      ],
+      "status": "reference-only",
+      "applicationStatus": "pending",
+      "simulatorStatus": "unmeasured",
+      "notes": [
+        "The guide prints N2 for the frequency correction frame; preserve its label rather than silently replacing it with F2."
+      ],
+      "capabilityIds": [
+        "el506.key.el506-k04",
+        "el506.key.el506-k11",
+        "el506.key.el506-k28",
+        "el506.key.el506-k29",
+        "el506.key.el506-k35",
+        "el506.key.el506-k36",
+        "el506.key.el506-k37",
+        "el506.key.el506-k40",
+        "el506.key.el506-k41",
+        "el506.key.el506-k42",
+        "el506.key.el506-k45"
+      ]
+    },
+    {
+      "id": "guide-p38-paired-statistics",
+      "pages": [
+        38,
+        39
+      ],
+      "initialState": "fresh reset NORMAL/DEG; settings changed only by listed keys",
+      "sequence": [
+        "EL506-K04",
+        "EL506-K40",
+        "EL506-K40",
+        "EL506-K37",
+        "EL506-K46",
+        "EL506-K41",
+        "EL506-K28",
+        "EL506-K40",
+        "EL506-K42",
+        "EL506-K29",
+        "EL506-K30",
+        "EL506-K46",
+        "EL506-K45",
+        "EL506-K28",
+        "EL506-K32",
+        "EL506-K29",
+        "EL506-K37",
+        "EL506-K46",
+        "EL506-K31",
+        "EL506-K28",
+        "EL506-K40",
+        "EL506-K40",
+        "EL506-K29",
+        "EL506-K31",
+        "EL506-K46",
+        "EL506-K30",
+        "EL506-K28",
+        "EL506-K36",
+        "EL506-K29",
+        "EL506-K30",
+        "EL506-K46",
+        "EL506-K32",
+        "EL506-K28",
+        "EL506-K30",
+        "EL506-K29",
+        "EL506-K37",
+        "EL506-K46",
+        "EL506-K36",
+        "EL506-K28",
+        "EL506-K40",
+        "EL506-K41",
+        "EL506-K29",
+        "EL506-K37",
+        "EL506-K46",
+        "EL506-K40",
+        "EL506-K28",
+        "EL506-K40",
+        "EL506-K36",
+        "EL506-K29",
+        "EL506-K31",
+        "EL506-K46",
+        "EL506-K41",
+        "EL506-K28",
+        "EL506-K30",
+        "EL506-K29",
+        "EL506-K27",
+        "EL506-K35",
+        "EL506-K27",
+        "EL506-K36",
+        "EL506-K27",
+        "EL506-K37",
+        "EL506-K27",
+        "EL506-K30",
+        "EL506-K27",
+        "EL506-K31",
+        "EL506-K27",
+        "EL506-K32",
+        "EL506-K27",
+        "EL506-K45",
+        "EL506-K27",
+        "EL506-K46",
+        "EL506-K27",
+        "EL506-K47",
+        "EL506-K27",
+        "EL506-K40",
+        "EL506-K27",
+        "EL506-K41",
+        "EL506-K27",
+        "EL506-K42"
+      ],
+      "printedOperations": [
+        "MODE 1 1",
+        "6.2 SEP 13 DATA",
+        "7.0 SEP 9 DATA",
+        "6.8 SEP 11 DATA",
+        "8.7 SEP 5 DATA",
+        "7.9 SEP 7 DATA",
+        "6.5 SEP 12 DATA",
+        "6.1 SEP 15 DATA",
+        "8.2 SEP 7 DATA",
+        "RCL XBAR",
+        "RCL SX",
+        "RCL SIGX",
+        "RCL YBAR",
+        "RCL SY",
+        "RCL SIGY",
+        "RCL N",
+        "RCL SUMX",
+        "RCL SUMX2",
+        "RCL SUMXY",
+        "RCL SUMY",
+        "RCL SUMY2"
+      ],
+      "frames": [
+        {
+          "afterStep": 3,
+          "printed": "Stat 1; 0.",
+          "evidenceKind": "guide-print",
+          "simulatorStatus": "unmeasured"
+        },
+        {
+          "afterStep": 10,
+          "printed": "DATA SET=1.",
+          "evidenceKind": "guide-print",
+          "simulatorStatus": "unmeasured"
+        },
+        {
+          "afterStep": 16,
+          "printed": "DATA SET=2.",
+          "evidenceKind": "guide-print",
+          "simulatorStatus": "unmeasured"
+        },
+        {
+          "afterStep": 23,
+          "printed": "DATA SET=3.",
+          "evidenceKind": "guide-print",
+          "simulatorStatus": "unmeasured"
+        },
+        {
+          "afterStep": 29,
+          "printed": "DATA SET=4.",
+          "evidenceKind": "guide-print",
+          "simulatorStatus": "unmeasured"
+        },
+        {
+          "afterStep": 35,
+          "printed": "DATA SET=5.",
+          "evidenceKind": "guide-print",
+          "simulatorStatus": "unmeasured"
+        },
+        {
+          "afterStep": 42,
+          "printed": "DATA SET=6.",
+          "evidenceKind": "guide-print",
+          "simulatorStatus": "unmeasured"
+        },
+        {
+          "afterStep": 49,
+          "printed": "DATA SET=7.",
+          "evidenceKind": "guide-print",
+          "simulatorStatus": "unmeasured"
+        },
+        {
+          "afterStep": 55,
+          "printed": "DATA SET=8.",
+          "evidenceKind": "guide-print",
+          "simulatorStatus": "unmeasured"
+        },
+        {
+          "afterStep": 57,
+          "printed": "7.175",
+          "evidenceKind": "guide-print",
+          "simulatorStatus": "unmeasured"
+        },
+        {
+          "afterStep": 59,
+          "printed": "0.973579551",
+          "evidenceKind": "guide-print",
+          "simulatorStatus": "unmeasured"
+        },
+        {
+          "afterStep": 61,
+          "printed": "0.91070028",
+          "evidenceKind": "guide-print",
+          "simulatorStatus": "unmeasured"
+        },
+        {
+          "afterStep": 63,
+          "printed": "9.875",
+          "evidenceKind": "guide-print",
+          "simulatorStatus": "unmeasured"
+        },
+        {
+          "afterStep": 65,
+          "printed": "3.440826313",
+          "evidenceKind": "guide-print",
+          "simulatorStatus": "unmeasured"
+        },
+        {
+          "afterStep": 67,
+          "printed": "3.218598297",
+          "evidenceKind": "guide-print",
+          "simulatorStatus": "unmeasured"
+        },
+        {
+          "afterStep": 69,
+          "printed": "8",
+          "evidenceKind": "guide-print",
+          "simulatorStatus": "unmeasured"
+        },
+        {
+          "afterStep": 71,
+          "printed": "57.4",
+          "evidenceKind": "guide-print",
+          "simulatorStatus": "unmeasured"
+        },
+        {
+          "afterStep": 73,
+          "printed": "418.48",
+          "evidenceKind": "guide-print",
+          "simulatorStatus": "unmeasured"
+        },
+        {
+          "afterStep": 75,
+          "printed": "544.1",
+          "evidenceKind": "guide-print",
+          "simulatorStatus": "unmeasured"
+        },
+        {
+          "afterStep": 77,
+          "printed": "79",
+          "evidenceKind": "guide-print",
+          "simulatorStatus": "unmeasured"
+        },
+        {
+          "afterStep": 79,
+          "printed": "863",
+          "evidenceKind": "guide-print",
+          "simulatorStatus": "unmeasured"
+        }
+      ],
+      "status": "reference-only",
+      "applicationStatus": "pending",
+      "simulatorStatus": "unmeasured",
+      "notes": [
+        "Ellipses expanded from all eight printed rows; all twelve printed result selections retained."
+      ],
+      "capabilityIds": [
+        "el506.key.el506-k04",
+        "el506.key.el506-k27",
+        "el506.key.el506-k28",
+        "el506.key.el506-k29",
+        "el506.key.el506-k30",
+        "el506.key.el506-k31",
+        "el506.key.el506-k32",
+        "el506.key.el506-k35",
+        "el506.key.el506-k36",
+        "el506.key.el506-k37",
+        "el506.key.el506-k40",
+        "el506.key.el506-k41",
+        "el506.key.el506-k42",
+        "el506.key.el506-k45",
+        "el506.key.el506-k46",
+        "el506.key.el506-k47"
+      ]
+    },
+    {
+      "id": "guide-p40-equations",
+      "pages": [
+        40
+      ],
+      "initialState": "fresh reset NORMAL/DEG; settings changed only by listed keys",
+      "sequence": [
+        "EL506-K04",
+        "EL506-K41",
+        "EL506-K40",
+        "EL506-K41",
+        "EL506-K48",
+        "EL506-K47",
+        "EL506-K40",
+        "EL506-K48",
+        "EL506-K45",
+        "EL506-K48",
+        "EL506-K45",
+        "EL506-K48",
+        "EL506-K37",
+        "EL506-K48",
+        "EL506-K45",
+        "EL506-K48",
+        "EL506-K47",
+        "EL506-K41",
+        "EL506-K48",
+        "EL506-K45",
+        "EL506-K48",
+        "EL506-K40",
+        "EL506-K48",
+        "EL506-K47",
+        "EL506-K41",
+        "EL506-K48",
+        "EL506-K47",
+        "EL506-K40",
+        "EL506-K48",
+        "EL506-K47",
+        "EL506-K37",
+        "EL506-K48",
+        "EL506-K48",
+        "EL506-K48"
+      ],
+      "printedOperations": [
+        "MODE 2",
+        "1",
+        "2 ENT NEG 1 ENT 0 ENT 0 ENT 6 ENT 0 ENT NEG 2 ENT 0 ENT 1 ENT NEG 2 ENT NEG 1 ENT NEG 6 ENT",
+        "ENT",
+        "ENT"
+      ],
+      "frames": [
+        {
+          "afterStep": 2,
+          "printed": "2-VLE 3-VLE menu",
+          "evidenceKind": "guide-print",
+          "simulatorStatus": "unmeasured"
+        },
+        {
+          "afterStep": 3,
+          "printed": "a1?; 0.",
+          "evidenceKind": "guide-print",
+          "simulatorStatus": "unmeasured"
+        },
+        {
+          "afterStep": 32,
+          "printed": "x=1",
+          "evidenceKind": "guide-print",
+          "simulatorStatus": "unmeasured"
+        },
+        {
+          "afterStep": 33,
+          "printed": "y=2",
+          "evidenceKind": "guide-print",
+          "simulatorStatus": "unmeasured"
+        },
+        {
+          "afterStep": 34,
+          "printed": "z=3",
+          "evidenceKind": "guide-print",
+          "simulatorStatus": "unmeasured"
+        }
+      ],
+      "status": "reference-only",
+      "applicationStatus": "pending",
+      "simulatorStatus": "unmeasured",
+      "notes": [],
+      "capabilityIds": [
+        "el506.key.el506-k04",
+        "el506.key.el506-k37",
+        "el506.key.el506-k40",
+        "el506.key.el506-k41",
+        "el506.key.el506-k45",
+        "el506.key.el506-k47",
+        "el506.key.el506-k48"
+      ]
+    },
+    {
+      "id": "guide-p41-complex",
+      "pages": [
+        41
+      ],
+      "initialState": "fresh reset NORMAL/DEG; settings changed only by listed keys",
+      "sequence": [
+        "EL506-K04",
+        "EL506-K42",
+        "EL506-K03",
+        "EL506-K32",
+        "EL506-K40",
+        "EL506-K39",
+        "EL506-K33",
+        "EL506-K33",
+        "EL506-K40",
+        "EL506-K39",
+        "EL506-K41",
+        "EL506-K36",
+        "EL506-K45",
+        "EL506-K34",
+        "EL506-K43",
+        "EL506-K41",
+        "EL506-K18",
+        "EL506-K38",
+        "EL506-K36",
+        "EL506-K45",
+        "EL506-K38",
+        "EL506-K41",
+        "EL506-K45",
+        "EL506-K24",
+        "EL506-K47",
+        "EL506-K37",
+        "EL506-K25",
+        "EL506-K34",
+        "EL506-K48",
+        "EL506-K03",
+        "EL506-K33",
+        "EL506-K06",
+        "EL506-K45",
+        "EL506-K40",
+        "EL506-K03",
+        "EL506-K31",
+        "EL506-K03",
+        "EL506-K33"
+      ],
+      "printedOperations": [
+        "MODE 3 RECT",
+        "1 / ( ( 1 / 250 ) + 2 PI * 50 * 20 EXP NEG 6 I ) =",
+        "PAGE",
+        "SETUP 0 1",
+        "POLAR",
+        "PAGE"
+      ],
+      "frames": [
+        {
+          "afterStep": 4,
+          "printed": "0.",
+          "evidenceKind": "guide-print",
+          "simulatorStatus": "unmeasured"
+        },
+        {
+          "afterStep": 29,
+          "printed": "real=72.10010979",
+          "evidenceKind": "guide-print",
+          "simulatorStatus": "unmeasured"
+        },
+        {
+          "afterStep": 31,
+          "printed": "imag=-113.2545876",
+          "evidenceKind": "guide-print",
+          "simulatorStatus": "unmeasured"
+        },
+        {
+          "afterStep": 36,
+          "printed": "r=134.257318",
+          "evidenceKind": "guide-print",
+          "simulatorStatus": "unmeasured"
+        },
+        {
+          "afterStep": 38,
+          "printed": "angle=1.003884822",
+          "evidenceKind": "guide-print",
+          "simulatorStatus": "unmeasured"
+        }
+      ],
+      "status": "reference-only",
+      "applicationStatus": "pending",
+      "simulatorStatus": "unmeasured",
+      "notes": [
+        "The printed polar-angle image has no obvious minus sign although the preceding imaginary component is negative. Simulator comparison remains unresolved; preserve the printed value."
+      ],
+      "capabilityIds": [
+        "el506.key.el506-k03",
+        "el506.key.el506-k04",
+        "el506.key.el506-k06",
+        "el506.key.el506-k18",
+        "el506.key.el506-k24",
+        "el506.key.el506-k25",
+        "el506.key.el506-k31",
+        "el506.key.el506-k32",
+        "el506.key.el506-k33",
+        "el506.key.el506-k34",
+        "el506.key.el506-k36",
+        "el506.key.el506-k37",
+        "el506.key.el506-k38",
+        "el506.key.el506-k39",
+        "el506.key.el506-k40",
+        "el506.key.el506-k41",
+        "el506.key.el506-k42",
+        "el506.key.el506-k43",
+        "el506.key.el506-k45",
+        "el506.key.el506-k47",
+        "el506.key.el506-k48"
+      ]
+    },
+    {
+      "id": "guide-p43-matrix",
+      "pages": [
+        42,
+        43
+      ],
+      "initialState": "fresh reset NORMAL/DEG; settings changed only by listed keys",
+      "sequence": [
+        "EL506-K04",
+        "EL506-K35",
+        "EL506-K11",
+        "EL506-K41",
+        "EL506-K29",
+        "EL506-K41",
+        "EL506-K29",
+        "EL506-K45",
+        "EL506-K46",
+        "EL506-K32",
+        "EL506-K29",
+        "EL506-K45",
+        "EL506-K46",
+        "EL506-K41",
+        "EL506-K29",
+        "EL506-K45",
+        "EL506-K46",
+        "EL506-K40",
+        "EL506-K29",
+        "EL506-K45",
+        "EL506-K46",
+        "EL506-K31",
+        "EL506-K29",
+        "EL506-K02",
+        "EL506-K17",
+        "EL506-K41",
+        "EL506-K45",
+        "EL506-K17",
+        "EL506-K45",
+        "EL506-K45",
+        "EL506-K20",
+        "EL506-K48",
+        "EL506-K11"
+      ],
+      "printedOperations": [
+        "MODE 4",
+        "DOWN 2 DATA 2 DATA",
+        "0.9 DATA 0.2 DATA 0.1 DATA 0.8 DATA",
+        "ON/C MATH 2 0",
+        "MATH 0 0 SQUARE",
+        "=",
+        "DOWN"
+      ],
+      "frames": [
+        {
+          "afterStep": 2,
+          "printed": "0. MAT",
+          "evidenceKind": "guide-print",
+          "simulatorStatus": "unmeasured"
+        },
+        {
+          "afterStep": 7,
+          "printed": "MAT1,1=0.",
+          "evidenceKind": "guide-print",
+          "simulatorStatus": "unmeasured"
+        },
+        {
+          "afterStep": 23,
+          "printed": "MAT2,2=0.8",
+          "evidenceKind": "guide-print",
+          "simulatorStatus": "unmeasured"
+        },
+        {
+          "afterStep": 31,
+          "printed": "matA^2; 0.",
+          "evidenceKind": "guide-print",
+          "simulatorStatus": "unmeasured"
+        },
+        {
+          "afterStep": 32,
+          "printed": "ROW=2",
+          "evidenceKind": "guide-print",
+          "simulatorStatus": "unmeasured"
+        },
+        {
+          "afterStep": 33,
+          "printed": "result cells: [[0.83,0.34],[0.17,0.66]]",
+          "evidenceKind": "guide-print",
+          "simulatorStatus": "unmeasured"
+        }
+      ],
+      "status": "reference-only",
+      "applicationStatus": "pending",
+      "simulatorStatus": "unmeasured",
+      "notes": [
+        "Printed ellipsis means result cell browsing, not a specified number of DOWN presses. The final MAT2,2=0.66 requires additional paging; record that uncertainty rather than inventing clicks."
+      ],
+      "capabilityIds": [
+        "el506.key.el506-k02",
+        "el506.key.el506-k04",
+        "el506.key.el506-k11",
+        "el506.key.el506-k17",
+        "el506.key.el506-k20",
+        "el506.key.el506-k29",
+        "el506.key.el506-k31",
+        "el506.key.el506-k32",
+        "el506.key.el506-k35",
+        "el506.key.el506-k40",
+        "el506.key.el506-k41",
+        "el506.key.el506-k45",
+        "el506.key.el506-k46",
+        "el506.key.el506-k48"
+      ]
+    },
+    {
+      "id": "guide-p43-share-a",
+      "pages": [
+        42,
+        43
+      ],
+      "initialState": "fresh reset NORMAL/DEG; settings changed only by listed keys",
+      "sequence": [
+        "EL506-K02",
+        "EL506-K45",
+        "EL506-K46",
+        "EL506-K31",
+        "EL506-K42",
+        "EL506-K38",
+        "EL506-K40",
+        "EL506-K45",
+        "EL506-K43",
+        "EL506-K45",
+        "EL506-K46",
+        "EL506-K42",
+        "EL506-K35",
+        "EL506-K38",
+        "EL506-K32",
+        "EL506-K45",
+        "EL506-K48"
+      ],
+      "printedOperations": [
+        "ON/C 0.83 * 10 + 0.34 * 90 ="
+      ],
+      "frames": [
+        {
+          "afterStep": 17,
+          "printed": "38.9%",
+          "evidenceKind": "guide-print",
+          "simulatorStatus": "unmeasured"
+        }
+      ],
+      "status": "reference-only",
+      "applicationStatus": "pending",
+      "simulatorStatus": "unmeasured",
+      "notes": [],
+      "capabilityIds": [
+        "el506.key.el506-k02",
+        "el506.key.el506-k31",
+        "el506.key.el506-k32",
+        "el506.key.el506-k35",
+        "el506.key.el506-k38",
+        "el506.key.el506-k40",
+        "el506.key.el506-k42",
+        "el506.key.el506-k43",
+        "el506.key.el506-k45",
+        "el506.key.el506-k46",
+        "el506.key.el506-k48"
+      ]
+    },
+    {
+      "id": "guide-p43-share-b",
+      "pages": [
+        42,
+        43
+      ],
+      "initialState": "fresh reset NORMAL/DEG; settings changed only by listed keys",
+      "sequence": [
+        "EL506-K45",
+        "EL506-K46",
+        "EL506-K40",
+        "EL506-K30",
+        "EL506-K38",
+        "EL506-K40",
+        "EL506-K45",
+        "EL506-K43",
+        "EL506-K45",
+        "EL506-K46",
+        "EL506-K37",
+        "EL506-K37",
+        "EL506-K38",
+        "EL506-K32",
+        "EL506-K45",
+        "EL506-K48"
+      ],
+      "printedOperations": [
+        "0.17 * 10 + 0.66 * 90 ="
+      ],
+      "frames": [
+        {
+          "afterStep": 16,
+          "printed": "61.1%",
+          "evidenceKind": "guide-print",
+          "simulatorStatus": "unmeasured"
+        }
+      ],
+      "status": "reference-only",
+      "applicationStatus": "pending",
+      "simulatorStatus": "unmeasured",
+      "notes": [],
+      "capabilityIds": [
+        "el506.key.el506-k30",
+        "el506.key.el506-k32",
+        "el506.key.el506-k37",
+        "el506.key.el506-k38",
+        "el506.key.el506-k40",
+        "el506.key.el506-k43",
+        "el506.key.el506-k45",
+        "el506.key.el506-k46",
+        "el506.key.el506-k48"
+      ]
+    }
+  ],
+  "disagreements": [
+    {
+      "fixtureId": "guide-p14-power",
+      "kind": "application-display",
+      "reference": "golden/guide-power.json",
+      "scope": "Baseline display differs during power entry and omits final decimal dot; numeric16 agrees."
+    }
+  ]
+}

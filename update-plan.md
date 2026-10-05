@@ -505,6 +505,26 @@ The runner's completion does not require implementing the later feature phases.
 - [ ] **EL506-004 - Capture all 44-page guide examples.** Convert every worked
   sequence in the operation guide into reference fixtures, preserving printed
   values and noting any guide/simulator disagreement.
+    READY_TO_PUSH: 2026-10-05. All 44 pages reviewed visually and through text;
+    52 connected workflows, 148 printed checkpoints independently transcribed
+    with canonical key IDs, page review index, printed values and prerequisites.
+    Weighted/paired datasets expand printed ellipses; repeated result selections,
+    conversion and memory steps remain connected. No source PDF/artwork/prose
+    committed. Local source SHA-256 0fd2dda1f5a38757624c03a4ae5c72f0d9f531244f6a056af708e7e67addf0e2.
+    Evidence: fresh el506-004-guide-power-v1, chrome Reset then K41 K19 K35 K48;
+    five inspected LCD frames, numeric 16./DEG agrees with guide page 14;
+    pinned runtime/hash verified in this session. Its baseline golden replay
+    records entry/display differences. No internal simulator stores measured.
+    Remaining 51 workflows are reference-only, pending simulator/application
+    replay under owning feature items and EL506-362; never counted as parity.
+    Printed exponent discrepancy (page 6), polar-angle sign ambiguity (41) and
+    unspecified matrix paging repeat (43) retained without guessed corrections.
+    Verification: guide coverage/canonical/reference validators; 20/20 unit
+    tests; 28 existing browser tests and 3/3 targeted golden replays passed.
+    Initial power DOM expectation used a caret instead of rendered superscript;
+    corrected DOM text plus explicit sup assertions, then replay passed; compileall; pip dry run; Compose config/demo; HTTP 200;
+    diff check. UI, dispatch, touch/theme/accessibility and future mode gates
+    are inapplicable to reference capture. No release or algorithm change.
 - [x] **EL506-005 - Capture the version 0.3.1 baseline.** Classify every
   existing feature and test as matching, partial, enhanced-only, incorrect, or
   missing. Record the source revision before EL506-014 refactors the baseline.

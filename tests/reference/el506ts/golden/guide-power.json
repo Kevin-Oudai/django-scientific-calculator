@@ -1,0 +1,124 @@
+{
+  "schemaVersion": 1,
+  "id": "guide-power-baseline-v1",
+  "roadmapItem": "EL506-004",
+  "status": "baseline-characterization",
+  "reference": "experiments/guide-power.json",
+  "sequence": [
+    "EL506-K41",
+    "EL506-K19",
+    "EL506-K35",
+    "EL506-K48"
+  ],
+  "capabilityIds": [
+    "el506.key.el506-k19"
+  ],
+  "expected": [
+    {
+      "afterStep": 0,
+      "assertions": {
+        "displayExpression": "",
+        "displayResult": "0",
+        "answer": 0,
+        "angleMode": "DEG",
+        "history.length": 0
+      }
+    },
+    {
+      "afterStep": 1,
+      "assertions": {
+        "displayExpression": "",
+        "displayResult": "2",
+        "answer": 0,
+        "angleMode": "DEG",
+        "history.length": 0
+      }
+    },
+    {
+      "afterStep": 2,
+      "assertions": {
+        "displayExpression": "",
+        "displayResult": "2^0",
+        "answer": 0,
+        "angleMode": "DEG",
+        "history.length": 0
+      },
+      "domResultText": "20",
+      "domResultSup": "0"
+    },
+    {
+      "afterStep": 3,
+      "assertions": {
+        "displayExpression": "",
+        "displayResult": "2^4",
+        "answer": 0,
+        "angleMode": "DEG",
+        "history.length": 0
+      },
+      "domResultText": "24",
+      "domResultSup": "4"
+    },
+    {
+      "afterStep": 4,
+      "assertions": {
+        "displayExpression": "2^4=",
+        "displayResult": "16",
+        "answer": 16,
+        "angleMode": "DEG",
+        "history.length": 1
+      }
+    }
+  ],
+  "knownDifferences": [
+    {
+      "afterStep": 0,
+      "field": "displayResult",
+      "expected": "0.",
+      "actual": "0"
+    },
+    {
+      "afterStep": 1,
+      "field": "displayResult",
+      "expected": "2.",
+      "actual": "2"
+    },
+    {
+      "afterStep": 2,
+      "field": "displayExpression",
+      "expected": "2^",
+      "actual": ""
+    },
+    {
+      "afterStep": 2,
+      "field": "displayResult",
+      "expected": "0.",
+      "actual": "2^0"
+    },
+    {
+      "afterStep": 3,
+      "field": "displayExpression",
+      "expected": "2^",
+      "actual": ""
+    },
+    {
+      "afterStep": 3,
+      "field": "displayResult",
+      "expected": "4.",
+      "actual": "2^4"
+    },
+    {
+      "afterStep": 4,
+      "field": "displayResult",
+      "expected": "16.",
+      "actual": "16"
+    }
+  ],
+  "unassertedOracleFields": [
+    "internal stores",
+    "insert mode",
+    "cursor geometry",
+    "scroll arrows",
+    "prompts",
+    "result pages"
+  ]
+}

@@ -1,0 +1,236 @@
+{
+  "schema_version": 1,
+  "experiment_id": "el506-004-guide-power-v1",
+  "roadmap_item": "EL506-004",
+  "catalog_id": "el506-physical-keys-v1",
+  "simulator": {
+    "profile_id": "sharp-el506ts-pc-simulator-1.0.2.0",
+    "product": "SHARP PC Simulator for EL-506TS",
+    "build": "1.0.2.0",
+    "runtime_sha256": "6bfef4d04900b472892be2d4c54dcfa6013f87232097e32df508ca4c27425530",
+    "locale": "English UI; en-US",
+    "operating_system": "Windows 11"
+  },
+  "capture": {
+    "date": "2026-10-05",
+    "timezone": "America/Port_of_Spain",
+    "method": "Computer Use @oai/sky; fresh Reset and refreshed NORMAL/DEG baseline, then K41 K19 K35 K48 with an inspected screenshot after each physical click. Same pinned runtime build/hash verified in this session. Page 14 independent transcript; no images retained.",
+    "evidence_kind": "live-simulator",
+    "source_ids": [
+      "live-session"
+    ]
+  },
+  "initial_state": {
+    "reset": {
+      "kind": "simulator-chrome-reset",
+      "description": "Clicked simulator chrome Reset before step 1; host control excluded from physical sequence."
+    },
+    "setup_sequence": [],
+    "mode": {
+      "status": "observed",
+      "value": "NORMAL (pinned reset default)"
+    },
+    "settings": [
+      {
+        "name": "angle",
+        "observation": {
+          "status": "observed",
+          "value": "DEG"
+        }
+      },
+      {
+        "name": "display-format",
+        "observation": {
+          "status": "observed",
+          "value": "NORM1 (pinned reset default)"
+        }
+      }
+    ],
+    "display": {
+      "upper_line": "",
+      "lower_line": "0.",
+      "indicators": [
+        "DEG"
+      ],
+      "scroll_arrows": [],
+      "cursor": {
+        "status": "observed",
+        "value": "not visible"
+      },
+      "insert_mode": {
+        "status": "unknown",
+        "reason": "Not probed in this experiment."
+      },
+      "prompt": null,
+      "selected_result_component": null
+    },
+    "stores": []
+  },
+  "sequence": [
+    "EL506-K41",
+    "EL506-K19",
+    "EL506-K35",
+    "EL506-K48"
+  ],
+  "frames": [
+    {
+      "after_step": 0,
+      "display": {
+        "upper_line": "",
+        "lower_line": "0.",
+        "indicators": [
+          "DEG"
+        ],
+        "scroll_arrows": [],
+        "cursor": {
+          "status": "observed",
+          "value": "not visible"
+        },
+        "insert_mode": {
+          "status": "unknown",
+          "reason": "Not probed in this experiment."
+        },
+        "prompt": null,
+        "selected_result_component": null
+      },
+      "result": {
+        "status": "not-applicable",
+        "reason": "Entry frame before evaluation."
+      }
+    },
+    {
+      "after_step": 1,
+      "display": {
+        "upper_line": "",
+        "lower_line": "2.",
+        "indicators": [
+          "DEG"
+        ],
+        "scroll_arrows": [],
+        "cursor": {
+          "status": "observed",
+          "value": "not visible"
+        },
+        "insert_mode": {
+          "status": "unknown",
+          "reason": "Not probed in this experiment."
+        },
+        "prompt": null,
+        "selected_result_component": null
+      },
+      "result": {
+        "status": "not-applicable",
+        "reason": "Entry frame before evaluation."
+      }
+    },
+    {
+      "after_step": 2,
+      "display": {
+        "upper_line": "2^",
+        "lower_line": "0.",
+        "indicators": [
+          "DEG"
+        ],
+        "scroll_arrows": [],
+        "cursor": {
+          "status": "observed",
+          "value": "underscore after power operator"
+        },
+        "insert_mode": {
+          "status": "unknown",
+          "reason": "Not probed in this experiment."
+        },
+        "prompt": null,
+        "selected_result_component": null
+      },
+      "result": {
+        "status": "not-applicable",
+        "reason": "Entry frame before evaluation."
+      }
+    },
+    {
+      "after_step": 3,
+      "display": {
+        "upper_line": "2^",
+        "lower_line": "4.",
+        "indicators": [
+          "DEG"
+        ],
+        "scroll_arrows": [],
+        "cursor": {
+          "status": "observed",
+          "value": "underscore after power operator"
+        },
+        "insert_mode": {
+          "status": "unknown",
+          "reason": "Not probed in this experiment."
+        },
+        "prompt": null,
+        "selected_result_component": null
+      },
+      "result": {
+        "status": "not-applicable",
+        "reason": "Entry frame before evaluation."
+      }
+    },
+    {
+      "after_step": 4,
+      "display": {
+        "upper_line": "2^4=",
+        "lower_line": "16.",
+        "indicators": [
+          "DEG"
+        ],
+        "scroll_arrows": [],
+        "cursor": {
+          "status": "observed",
+          "value": "not visible"
+        },
+        "insert_mode": {
+          "status": "unknown",
+          "reason": "Not probed in this experiment."
+        },
+        "prompt": null,
+        "selected_result_component": null
+      },
+      "result": {
+        "status": "observed",
+        "value": {
+          "encoding": "decimal-string",
+          "value": "16",
+          "basis": "displayed"
+        }
+      }
+    }
+  ],
+  "stored_values": {
+    "coverage": "No store changes or persistence asserted; internal ANS and memories were not read back. Empty observations means unmeasured, not unchanged.",
+    "observations": []
+  },
+  "errors": [],
+  "sources": [
+    {
+      "source_id": "live-session",
+      "kind": "simulator",
+      "reference": "simulator-profile.json",
+      "page": null,
+      "scope": "Fresh reset, canonical 1 + 2 = physical sequence, significant LCD frames; result 3."
+    },
+    {
+      "source_id": "guide",
+      "kind": "operation-guide",
+      "reference": "OperationGuide_EL506TS.pdf",
+      "page": 14,
+      "scope": "2 power 4 printed sequence and result 16."
+    }
+  ],
+  "oracle": {
+    "selected_source_id": "live-session",
+    "simulator_exception_ids": [],
+    "disagreements": []
+  },
+  "ambiguities": [],
+  "notes": [
+    "Guide power sequence agrees on final numeric result and display content. Upper-line power notation transcribed as caret. Internal stores unmeasured."
+  ]
+}
