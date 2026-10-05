@@ -4,13 +4,13 @@
 - Plan status: Active
 - Current package baseline: 0.3.1
 - Target release: 1.0.0 after verified parity
-- Next item: EL506-022
+- Next item: EL506-023
 - Last updated: 2026-10-05
 
 ## Progress Overview
 
-As of 2026-10-05, **19 of 245 roadmap tasks are complete (7.8%)**, with
-**226 remaining**. The next task is **EL506-022**. These counts measure
+As of 2026-10-05, **20 of 245 roadmap tasks are complete (8.2%)**, with
+**225 remaining**. The next task is **EL506-023**. These counts measure
 completed checklist items, not elapsed effort or verified calculator parity;
 individual tasks vary in size. The detailed checklist below describes every
 remaining task and preserves its evidence and completion requirements.
@@ -21,7 +21,7 @@ in the generated report; phase completion does not establish full parity.
 | Roadmap phase | Completed | Remaining |
 | --- | ---: | ---: |
 | Phase 0 - Reference and Traceability | 7 | 0 |
-| Phase 1 - Test and Emulator Foundation | 12 | 2 |
+| Phase 1 - Test and Emulator Foundation | 13 | 1 |
 | Phase 2 - Physical Layout, Display, Theme, and Access | 0 | 14 |
 | Phase 3 - Power, Modes, Clear, Editing, and History | 0 | 17 |
 | Phase 4 - Display Settings and Formatting | 0 | 11 |
@@ -39,7 +39,7 @@ in the generated report; phase completion does not establish full parity.
 | Phase 16 - LIST Mode | 0 | 11 |
 | Phase 17 - Errors, Limits, and Cross-mode Parity | 0 | 15 |
 | Phase 18 - Security, Packaging, Compatibility, and Release | 0 | 15 |
-| **Total** | **19** | **226** |
+| **Total** | **20** | **225** |
 
 Refresh this overview's date, counts, percentage, and next task in every
 roadmap completion tracking commit, using the checklist as the source of truth.
@@ -829,10 +829,11 @@ The runner's completion does not require implementing the later feature phases.
     Full formatting, function accuracy, signed intermediate rounding and
     future mode algorithms remain pending their own items; no full parity
     claim, release change or visible theme/accessibility change.
-- [ ] **EL506-022 - Split the browser adapter from the core.** Keep the
+- [x] **EL506-022 - Split the browser adapter from the core.** Keep the
   existing calculator.js asset as the compatible entry point while making
   state, parsing, evaluation, formatting, and DOM responsibilities testable.
-    READY_TO_PUSH: 2026-10-05.
+    Completed: 2026-10-05, implementation commit
+    c8ea4e79df0f89e16e850b86082162c3737f89e6 verified on origin/main.
     Evidence: module-addition fresh simulator Reset K40 K43 K41 K48,
     five inspected frames; upper 1+2= / lower 3. / DEG retained. Existing
     golden addition LCD differences remain explicit; architecture only.
