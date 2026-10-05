@@ -64,8 +64,11 @@ function validateExperiment(experiment) {
   for (const error of experiment.errors) {
     const frame = experiment.frames.find(({ after_step }) => after_step === error.at_step);
     fail(Boolean(frame) && [frame?.display.upper_line, frame?.display.lower_line].includes(error.message), "Error needs a matching display frame");
-    fail(error.recovery_steps.every((step, i) => step > error.at_step && step <= count && (i === 0 || step > error.recovery_steps[i - 1])), "Recovery steps must follow error in sequence order");
-    fail(error.recovered_at_step === error.recovery_steps.at(-1) && frameSteps.includes(error.recovered_at_step), "Recovery needs a final display frame");
+    if (error.recovered_at_step === null) fail(error.recovery_steps.length === 0, "Unmeasured recovery cannot claim recovery steps");
+    else {
+      fail(error.recovery_steps.every((step, i) => step > error.at_step && step <= count && (i === 0 || step > error.recovery_steps[i - 1])), "Recovery steps must follow error in sequence order");
+      fail(error.recovered_at_step === error.recovery_steps.at(-1) && frameSteps.includes(error.recovered_at_step), "Recovery needs a final display frame");
+    }
   }
   const [year, month, day] = experiment.capture.date.split("-").map(Number);
   const date = new Date(Date.UTC(year, month - 1, day));

@@ -643,3 +643,28 @@ until numerical profiles are verified. Dependency notices are shipped in
 `THIRD_PARTY_NOTICES.txt`; exact npm versions and integrity are locked.
 Run `npm run engine:build` after changing its source, and `npm run engine:check`
 to verify reproducible bundle bytes, provenance and notices.
+
+EL506-021 adds an explicit, opt-in measured arithmetic foundation
+(`numeric-model.js`), separate from the default `legacy-0.3.1` behavior.
+Nine live experiments in `tests/reference/el506ts/experiments/numeric-*.json`
+measure range, cancellation, display precision and signed rounding ties.
+The positive cancellation probes support a provisional 13-significant-digit
+truncation model for basic arithmetic. Values below 1e-99 become zero;
+1e100 produces Error 2. Evaluated negative zero normalizes to positive zero.
+Measured NORM mantissas truncate to ten digit positions including the leading
+zero; FIX ties round away from zero. The profile deliberately rejects
+unmeasured function accuracy and scientific display formatting. Later
+function and formatting items must extend these probes before adopting it
+as the calculator default; this foundation does not establish full parity.
+
+The selected value strategy is decimal strings backed by Math.js BigNumber
+with 64 working digits and explicit per-operation quantization for measured
+scalar arithmetic. Exact rational values use reduced BigInt numerator and
+denominator strings; N-base integers use bounded BigInt. DMS retains sign and
+components until an explicit rational/decimal conversion. Complex, statistics,
+equation, matrix and list values retain their structured numeric components;
+their future algorithms must use the measured scalar policy where applicable
+and add domain-specific accuracy probes. Number remains limited to the legacy
+profile, bounded control metadata and explicit approximate conversions.
+These are representation decisions, not claims that future mode algorithms
+or all intermediate precision and rounding cases are already verified.

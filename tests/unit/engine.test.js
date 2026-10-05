@@ -5,7 +5,7 @@ test('local numerical adapter exposes bounded primitives without an expression l
   assert.deepEqual(Object.keys(bundle).sort(), ['createEngine','version']);
   assert.equal(bundle.version,'15.2.0');
   const engine=bundle.createEngine();
-  assert.deepEqual(Object.keys(engine).sort(),['binary','decimalBinary','quantize']);
+  assert.deepEqual(Object.keys(engine).sort(),['binary','decimalBinary','decimalPlaces','quantize']);
   assert.equal(engine.binary('+',0.1,0.2),0.1+0.2);
   assert.equal(engine.decimalBinary('+','0.1','0.2'),'0.3');
   for(const source of ['import("x")','2+3','Infinity','1e9999',{},['1']]) assert.throws(()=>engine.decimalBinary('+',source,'1'),TypeError);

@@ -27,5 +27,9 @@ export function createEngine({precision = 64} = {}) {
       if (!Number.isInteger(digits) || digits < 1 || digits > precision || !Object.hasOwn(roundingModes, rounding)) throw new RangeError('Unsupported quantization');
       return math.bignumber(decimalText(value)).toSignificantDigits(digits, roundingModes[rounding]).toString();
     },
+    decimalPlaces(value, places, rounding = 'half-up') {
+      if (!Number.isInteger(places) || places < 0 || places > 99 || !Object.hasOwn(roundingModes, rounding)) throw new RangeError('Unsupported decimal places');
+      return math.bignumber(decimalText(value)).toFixed(places, roundingModes[rounding]);
+    },
   });
 }

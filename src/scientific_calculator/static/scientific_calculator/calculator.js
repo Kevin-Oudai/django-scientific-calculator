@@ -3,6 +3,7 @@
   let semantic = nodeRuntime ? require("./semantic-editor.js") : null;
   let values = nodeRuntime ? require("./values.js") : null;
   let engine = nodeRuntime ? require("./math-engine.js").createEngine() : null;
+  let numericModel = nodeRuntime ? require("./numeric-model.js") : null;
   const assetBase = nodeRuntime ? null : document.currentScript.src;
   const loadAsset = (file, assign) => new Promise((resolve, reject) => {
     const script = document.createElement("script");
@@ -14,7 +15,7 @@
   const dependencies = nodeRuntime ? null : Promise.all([
     loadAsset("semantic-editor.js", () => { semantic = globalThis.ScientificCalculatorSemantic; }),
     loadAsset("values.js", () => { values = globalThis.ScientificCalculatorValues; }),
-    loadAsset("math-engine.js", () => { engine = globalThis.ScientificCalculatorEngine.createEngine(); }),
+    loadAsset("math-engine.js", () => { engine = globalThis.ScientificCalculatorEngine.createEngine(); }).then(() => loadAsset("numeric-model.js", () => { numericModel = globalThis.ScientificCalculatorNumericModel; })),
   ]);
   const SELECT_START = "\uE000";
   const SELECT_END = "\uE001";
@@ -2302,6 +2303,7 @@
       resolvePhysicalKey,
       semanticEditor: semantic,
       valueTypes: values,
+      numericModel,
       evaluateTypedAst,
       evaluateExpression,
       evaluateExactExpression,

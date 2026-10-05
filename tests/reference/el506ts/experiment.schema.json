@@ -311,11 +311,11 @@
             "type": "integer",
             "minimum": 1
           },
-          "minItems": 1,
+          "minItems": 0,
           "uniqueItems": true
         },
         "recovered_at_step": {
-          "type": "integer",
+          "type": ["integer", "null"],
           "minimum": 1
         }
       }

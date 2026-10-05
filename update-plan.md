@@ -806,6 +806,28 @@ The runner's completion does not require implementing the later feature phases.
   simulator precision, exponent range, rounding ties, overflow, underflow,
   negative zero, and intermediate precision before selecting Number,
   BigNumber, Fraction, or custom quantization per value type.
+    READY_TO_PUSH: 2026-10-05.
+    Evidence: nine numeric-* live experiments, 112 physical key presses
+    observed individually on pinned simulator 1.0.2.0. Exponents +/-99
+    retained; 1e100 Error 2; 1e-100 zero; evaluated -0 displays 0.
+    Cancellation retained unit at 1e11/1e12 but lost it at 1e13/1e14;
+    increments 5/6 at 1e13 also lost. NORM 1/7=0.142857142, FIX TAB9
+    0.142857143, FIX TAB1 +/-1.25 displays +/-1.3. Store bits unmeasured.
+    Verification: 41 unit, 38 browser, 4 Django; numeric golden assertions
+    against measured frames and existing 28 state golden frames; bundle
+    reproducibility, reference/report checks, compileall, pip dry run,
+    Compose config/build/healthy demo and diff check. Regression fixes cover
+    zero formatting and explicit unmeasured error recovery. The first numeric
+    assertion compared equivalent scientific encodings; corrected to compare
+    the observed value, with all tests passing afterward.
+    Decision: 64-digit BigNumber working values with provisional 13-digit
+    truncation per measured basic operation; reduced BigInt rationals and
+    bounded BigInt N-base values, structured components retained. README
+    records every family and the future function-specific probe requirement.
+    Scope: separate measured foundation; legacy-0.3.1 remains default.
+    Full formatting, function accuracy, signed intermediate rounding and
+    future mode algorithms remain pending their own items; no full parity
+    claim, release change or visible theme/accessibility change.
 - [ ] **EL506-022 - Split the browser adapter from the core.** Keep the
   existing calculator.js asset as the compatible entry point while making
   state, parsing, evaluation, formatting, and DOM responsibilities testable.

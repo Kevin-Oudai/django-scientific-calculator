@@ -1,0 +1,163 @@
+{
+  "schema_version": 1,
+  "experiment_id": "el506-021-intermediate-5-v1",
+  "roadmap_item": "EL506-021",
+  "catalog_id": "el506-physical-keys-v1",
+  "simulator": {
+    "profile_id": "sharp-el506ts-pc-simulator-1.0.2.0",
+    "product": "SHARP PC Simulator for EL-506TS",
+    "build": "1.0.2.0",
+    "runtime_sha256": "6bfef4d04900b472892be2d4c54dcfa6013f87232097e32df508ca4c27425530",
+    "locale": "English UI; en-US",
+    "operating_system": "Windows 11"
+  },
+  "capture": {
+    "date": "2026-10-05",
+    "timezone": "America/Port_of_Spain",
+    "method": "Computer Use @oai/sky: fresh chrome Reset; exact physical-key sequence, one click and fresh inspected capture per key. Pinned runtime 1.0.2.0 and hash verified this session.",
+    "evidence_kind": "live-simulator",
+    "source_ids": [
+      "live-session"
+    ]
+  },
+  "initial_state": {
+    "reset": {
+      "kind": "simulator-chrome-reset",
+      "description": "Clicked simulator chrome Reset before step 1; host control excluded from physical sequence."
+    },
+    "setup_sequence": [],
+    "mode": {
+      "status": "observed",
+      "value": "NORMAL (pinned reset default)"
+    },
+    "settings": [
+      {
+        "name": "angle",
+        "observation": {
+          "status": "observed",
+          "value": "DEG"
+        }
+      },
+      {
+        "name": "display-format",
+        "observation": {
+          "status": "observed",
+          "value": "NORM1 (pinned reset default)"
+        }
+      }
+    ],
+    "display": {
+      "upper_line": "",
+      "lower_line": "0.",
+      "indicators": [
+        "DEG"
+      ],
+      "scroll_arrows": [],
+      "cursor": {
+        "status": "observed",
+        "value": "not visible"
+      },
+      "insert_mode": {
+        "status": "unknown",
+        "reason": "Not probed in this experiment."
+      },
+      "prompt": null,
+      "selected_result_component": null
+    },
+    "stores": []
+  },
+  "sequence": [
+    "EL506-K40",
+    "EL506-K24",
+    "EL506-K40",
+    "EL506-K42",
+    "EL506-K43",
+    "EL506-K36",
+    "EL506-K44",
+    "EL506-K40",
+    "EL506-K24",
+    "EL506-K40",
+    "EL506-K42",
+    "EL506-K48"
+  ],
+  "frames": [
+    {
+      "after_step": 0,
+      "display": {
+        "upper_line": "",
+        "lower_line": "0.",
+        "indicators": [
+          "DEG"
+        ],
+        "scroll_arrows": [],
+        "cursor": {
+          "status": "observed",
+          "value": "not visible"
+        },
+        "insert_mode": {
+          "status": "unknown",
+          "reason": "Not probed in this experiment."
+        },
+        "prompt": null,
+        "selected_result_component": null
+      },
+      "result": {
+        "status": "not-applicable",
+        "reason": "Entry frame before evaluation."
+      }
+    },
+    {
+      "after_step": 12,
+      "display": {
+        "upper_line": "1e13+5-1e13=",
+        "lower_line": "0.",
+        "indicators": [
+          "DEG"
+        ],
+        "scroll_arrows": [],
+        "cursor": {
+          "status": "observed",
+          "value": "not visible"
+        },
+        "insert_mode": {
+          "status": "unknown",
+          "reason": "Not probed in this experiment."
+        },
+        "prompt": null,
+        "selected_result_component": null
+      },
+      "result": {
+        "status": "observed",
+        "value": {
+          "encoding": "decimal-string",
+          "value": "0",
+          "basis": "displayed"
+        }
+      }
+    }
+  ],
+  "stored_values": {
+    "coverage": "No store changes or persistence asserted; internal ANS and memories were not read back. Empty observations means unmeasured, not unchanged.",
+    "observations": []
+  },
+  "errors": [],
+  "sources": [
+    {
+      "source_id": "live-session",
+      "kind": "simulator",
+      "reference": "simulator-profile.json",
+      "page": null,
+      "scope": "Fresh numerical precision, range and rounding measurements on capture date."
+    }
+  ],
+  "oracle": {
+    "selected_source_id": "live-session",
+    "simulator_exception_ids": [],
+    "disagreements": []
+  },
+  "ambiguities": [],
+  "notes": [
+    "Both the positive midpoint and above-midpoint increments disappear. Together with 1e12 cancellation this supports provisional 13-digit truncation for measured addition/subtraction.",
+    "Only listed significant frames are transcribed; every individual click was followed by a fresh inspected capture. No images retained. Internal precision is inferred from cancellation, not a simulator memory dump."
+  ]
+}

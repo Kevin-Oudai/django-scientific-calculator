@@ -1,7 +1,7 @@
 {
   "mathjs": "15.2.0",
-  "sourceSha256": "8acec83a245d1e6051824709a1b3c605a016de869e7aadea00a5f68b7db04f42",
-  "bundleSha256": "79743ca18365faeab410b811b3b7a1929bbecf4aadf850c2563e132bbba6582c",
+  "sourceSha256": "b4894b864fb402832c0b658b9c862b24eefb48a1833b5e76c32b2152572ff1a0",
+  "bundleSha256": "f59186c2e0db3861af93139c99f789da3aa156e749c29c6ac249dc5f17c717b3",
   "packages": [
     {
       "name": "@babel/runtime",
