@@ -2,6 +2,7 @@
   const nodeRuntime = typeof document === "undefined";
   let semantic = nodeRuntime ? require("./semantic-editor.js") : null;
   let values = nodeRuntime ? require("./values.js") : null;
+  let engine = nodeRuntime ? require("./math-engine.js").createEngine() : null;
   const assetBase = nodeRuntime ? null : document.currentScript.src;
   const loadAsset = (file, assign) => new Promise((resolve, reject) => {
     const script = document.createElement("script");
@@ -13,6 +14,7 @@
   const dependencies = nodeRuntime ? null : Promise.all([
     loadAsset("semantic-editor.js", () => { semantic = globalThis.ScientificCalculatorSemantic; }),
     loadAsset("values.js", () => { values = globalThis.ScientificCalculatorValues; }),
+    loadAsset("math-engine.js", () => { engine = globalThis.ScientificCalculatorEngine.createEngine(); }),
   ]);
   const SELECT_START = "\uE000";
   const SELECT_END = "\uE001";
@@ -1017,7 +1019,7 @@
       throw new TypeError("Unbound calculator variable");
     },
     unary: (op, value) => op === "-" ? -value : value,
-    binary: (op, a, b) => ({"+":()=>a+b,"-":()=>a-b,"*":()=>a*b,"/":()=>a/b,"^":()=>Math.pow(a,b)})[op](),
+    binary: (op, a, b) => engine.binary(op, a, b),
     call: (name, args, scope) => {
       const [a,b,c] = args;
       const radians = scope.angleMode === "DEG" ? a*Math.PI/180 : a;

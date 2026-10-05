@@ -789,6 +789,18 @@ The runner's completion does not require implementing the later feature phases.
 - [ ] **EL506-020 - Integrate a pinned local Math.js build.** Bundle it with
   the package, record its version and license notices, expose only an
   allowlisted evaluator adapter, and require no CDN.
+    READY_TO_PUSH: 2026-10-05.
+    Evidence: fraction-type and existing five golden sequences; pinned
+    simulator 1.0.2.0 final 1/3 frame freshly inspected this session. Bundle
+    infrastructure retains Number behavior; no new numerical parity claimed.
+    Verification: 37 unit, 37 browser, 4 Django tests; 28 golden frames;
+    reproducible bundle/provenance/notices check, license review, compileall,
+    pip dry run, Compose config/build/healthy demo, wheel/sdist installed
+    smoke, diff check. Local engine is 138323 bytes; Math.js 15.2.0 exact
+    lock plus seven included dependency notices. Negative adapter tests
+    reject expression text, prototype names and unbounded decimal controls.
+    Scope: pure allowlisted numeric engine; physical UI, LCD formatting and
+    non-NORMAL algorithms remain assigned to later items. Release unchanged.
 - [ ] **EL506-021 - Establish the numerical compatibility model.** Measure
   simulator precision, exponent range, rounding ties, overflow, underflow,
   negative zero, and intermediate precision before selecting Number,

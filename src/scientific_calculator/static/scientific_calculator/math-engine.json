@@ -1,0 +1,90 @@
+{
+  "mathjs": "15.2.0",
+  "sourceSha256": "8acec83a245d1e6051824709a1b3c605a016de869e7aadea00a5f68b7db04f42",
+  "bundleSha256": "79743ca18365faeab410b811b3b7a1929bbecf4aadf850c2563e132bbba6582c",
+  "packages": [
+    {
+      "name": "@babel/runtime",
+      "version": "7.29.7",
+      "license": "MIT"
+    },
+    {
+      "name": "complex.js",
+      "version": "2.4.3",
+      "license": "MIT"
+    },
+    {
+      "name": "decimal.js",
+      "version": "10.6.0",
+      "license": "MIT"
+    },
+    {
+      "name": "fraction.js",
+      "version": "5.3.4",
+      "license": "MIT"
+    },
+    {
+      "name": "mathjs",
+      "version": "15.2.0",
+      "license": "Apache-2.0"
+    },
+    {
+      "name": "tiny-emitter",
+      "version": "2.1.0",
+      "license": "MIT"
+    },
+    {
+      "name": "typed-function",
+      "version": "4.2.2",
+      "license": "MIT"
+    }
+  ],
+  "compiledInputs": [
+    "node_modules/@babel/runtime/helpers/esm/extends.js",
+    "node_modules/complex.js/dist/complex.mjs",
+    "node_modules/decimal.js/decimal.mjs",
+    "node_modules/fraction.js/dist/fraction.mjs",
+    "node_modules/mathjs/lib/esm/core/config.js",
+    "node_modules/mathjs/lib/esm/core/create.js",
+    "node_modules/mathjs/lib/esm/core/function/config.js",
+    "node_modules/mathjs/lib/esm/core/function/import.js",
+    "node_modules/mathjs/lib/esm/core/function/typed.js",
+    "node_modules/mathjs/lib/esm/entry/dependenciesAny/dependenciesBigNumberClass.generated.js",
+    "node_modules/mathjs/lib/esm/entry/dependenciesAny/dependenciesBignumber.generated.js",
+    "node_modules/mathjs/lib/esm/entry/dependenciesAny/dependenciesComplexClass.generated.js",
+    "node_modules/mathjs/lib/esm/entry/dependenciesAny/dependenciesDenseMatrixClass.generated.js",
+    "node_modules/mathjs/lib/esm/entry/dependenciesAny/dependenciesFractionClass.generated.js",
+    "node_modules/mathjs/lib/esm/entry/dependenciesAny/dependenciesMatrixClass.generated.js",
+    "node_modules/mathjs/lib/esm/entry/dependenciesAny/dependenciesTyped.generated.js",
+    "node_modules/mathjs/lib/esm/entry/pureFunctionsNumber.generated.js",
+    "node_modules/mathjs/lib/esm/error/ArgumentsError.js",
+    "node_modules/mathjs/lib/esm/error/DimensionError.js",
+    "node_modules/mathjs/lib/esm/error/IndexError.js",
+    "node_modules/mathjs/lib/esm/factoriesNumber.js",
+    "node_modules/mathjs/lib/esm/plain/number/arithmetic.js",
+    "node_modules/mathjs/lib/esm/plain/number/combinations.js",
+    "node_modules/mathjs/lib/esm/plain/number/probability.js",
+    "node_modules/mathjs/lib/esm/type/bignumber/BigNumber.js",
+    "node_modules/mathjs/lib/esm/type/bignumber/function/bignumber.js",
+    "node_modules/mathjs/lib/esm/type/complex/Complex.js",
+    "node_modules/mathjs/lib/esm/type/fraction/Fraction.js",
+    "node_modules/mathjs/lib/esm/type/matrix/DenseMatrix.js",
+    "node_modules/mathjs/lib/esm/type/matrix/Matrix.js",
+    "node_modules/mathjs/lib/esm/utils/array.js",
+    "node_modules/mathjs/lib/esm/utils/bignumber/formatter.js",
+    "node_modules/mathjs/lib/esm/utils/collection.js",
+    "node_modules/mathjs/lib/esm/utils/customs.js",
+    "node_modules/mathjs/lib/esm/utils/emitter.js",
+    "node_modules/mathjs/lib/esm/utils/factory.js",
+    "node_modules/mathjs/lib/esm/utils/is.js",
+    "node_modules/mathjs/lib/esm/utils/map.js",
+    "node_modules/mathjs/lib/esm/utils/number.js",
+    "node_modules/mathjs/lib/esm/utils/object.js",
+    "node_modules/mathjs/lib/esm/utils/optimizeCallback.js",
+    "node_modules/mathjs/lib/esm/utils/product.js",
+    "node_modules/mathjs/lib/esm/utils/string.js",
+    "node_modules/tiny-emitter/index.js",
+    "node_modules/typed-function/lib/umd/typed-function.js",
+    "tests/build/math-engine.source.mjs"
+  ]
+}

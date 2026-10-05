@@ -39,4 +39,5 @@ scientific_calculator = [
     "static/scientific_calculator/*.css",
     "static/scientific_calculator/*.js",
     "static/scientific_calculator/*.json",
+    "static/scientific_calculator/*.txt",
 ]

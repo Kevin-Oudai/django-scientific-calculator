@@ -1,0 +1,20 @@
+const test = require('node:test');
+const assert = require('node:assert/strict');
+const bundle = require('../../src/scientific_calculator/static/scientific_calculator/math-engine.js');
+test('local numerical adapter exposes bounded primitives without an expression language', () => {
+  assert.deepEqual(Object.keys(bundle).sort(), ['createEngine','version']);
+  assert.equal(bundle.version,'15.2.0');
+  const engine=bundle.createEngine();
+  assert.deepEqual(Object.keys(engine).sort(),['binary','decimalBinary','quantize']);
+  assert.equal(engine.binary('+',0.1,0.2),0.1+0.2);
+  assert.equal(engine.decimalBinary('+','0.1','0.2'),'0.3');
+  for(const source of ['import("x")','2+3','Infinity','1e9999',{},['1']]) assert.throws(()=>engine.decimalBinary('+',source,'1'),TypeError);
+  for(const op of ['evaluate','constructor','__proto__']) assert.throws(()=>engine.binary(op,1,2),TypeError);
+  assert.throws(()=>engine.binary('+','1',2),TypeError);
+  assert.throws(()=>engine.decimalBinary('^','2','1001'),RangeError);
+  assert.throws(()=>bundle.createEngine({precision:1000}),RangeError);
+  assert.equal(engine.quantize('1.25',2),'1.3');
+  assert.equal(engine.quantize('1.25',2,'half-even'),'1.2');
+  assert.equal(bundle.createEngine({precision:10}).decimalBinary('/','1','3'),'0.3333333333');
+  assert.equal(bundle.createEngine({precision:20}).decimalBinary('/','1','3'),'0.33333333333333333333');
+});

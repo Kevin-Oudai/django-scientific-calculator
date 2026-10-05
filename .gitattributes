@@ -1,0 +1,5 @@
+# Reproducible numerical bundle, provenance and license bytes across hosts.
+tests/build/*.mjs text eol=lf
+src/scientific_calculator/static/scientific_calculator/math-engine.js text eol=lf
+src/scientific_calculator/static/scientific_calculator/math-engine.json text eol=lf
+src/scientific_calculator/static/scientific_calculator/THIRD_PARTY_NOTICES.txt text eol=lf

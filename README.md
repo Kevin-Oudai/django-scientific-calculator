@@ -633,3 +633,13 @@ This type infrastructure does not establish numeric parity for future modes.
 - Added exact/surd display to result rotation when available.
 - Fixed fraction-template right-arrow behavior so it exits a filled denominator and allows the next operator.
 - Fixed nested fraction display styling so multi-term numerators do not draw extra fraction bars under operators.
+
+The numerical foundation bundles Math.js 15.2.0 locally in `math-engine.js`.
+The existing `calculator.js` entry loads its companion assets from the same
+static directory; no CDN or calculation service is needed. A bounded adapter
+accepts allowlisted numeric operations, not Math.js expression source or its
+import API. Existing Number arithmetic remains the compatibility baseline
+until numerical profiles are verified. Dependency notices are shipped in
+`THIRD_PARTY_NOTICES.txt`; exact npm versions and integrity are locked.
+Run `npm run engine:build` after changing its source, and `npm run engine:check`
+to verify reproducible bundle bytes, provenance and notices.

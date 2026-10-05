@@ -10,12 +10,16 @@
     "test:unit": "node --test --test-concurrency=1 tests/unit/*.test.js",
     "test:golden": "node tests/reference/el506ts/golden-runner.js",
     "test:reference": "node tests/reference/el506ts/validate-experiment.js && node tests/reference/el506ts/validate-ledger.js && node tests/reference/el506ts/validate-baseline.js && node tests/reference/el506ts/validate-guide.js",
-    "pretest": "npm run test:reference && npm run test:unit && npm run test:golden && npm run report:check",
+    "pretest": "npm run engine:check && npm run test:reference && npm run test:unit && npm run test:golden && npm run report:check",
     "report:parity": "node tests/reference/el506ts/generate-report.js",
-    "report:check": "node tests/reference/el506ts/generate-report.js --check"
+    "report:check": "node tests/reference/el506ts/generate-report.js --check",
+    "engine:build": "node tests/build/build-engine.mjs",
+    "engine:check": "node tests/build/build-engine.mjs --check"
   },
   "devDependencies": {
     "@playwright/test": "^1.60.0",
-    "ajv": "8.20.0"
+    "ajv": "8.20.0",
+    "esbuild": "0.28.2",
+    "mathjs": "15.2.0"
   }
 }
