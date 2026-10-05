@@ -602,6 +602,14 @@ atomically, while digits have positions within numeric tokens. Snapshot schema
 4 adds the editor and migrates earlier snapshots. The compatible script entry
 loads this bundled local asset automatically; existing script includes work.
 
+`values.js` validates tagged scalar, exact rational, DMS, complex, fixed-width
+N-base, statistics, equation result, matrix and list values. AST variable bindings
+retain their types; unsupported structured arithmetic rejects coercion. Rational
+arithmetic uses exact integer numerator/denominator pairs. Display conversion
+returns component views without replacing the source value. Typed ANS, last
+result, memory, dataset and history stores round-trip in snapshot schema 5.
+This type infrastructure does not establish numeric parity for future modes.
+
 ### 2026-06-22
 
 - Consolidated project documentation into the root `README.md` and `AGENTS.md`.

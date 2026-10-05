@@ -35,7 +35,7 @@ test('modal workflows retain entry and round-trip every phase, paging without re
 });
 test('legacy snapshots migrate and malformed lifecycle snapshots reject atomically', () => {
   const old = core.snapshotCalculator(key(core.createInitialState(), '4'));
-  old.schemaVersion = 1; delete old.state.lifecycle; delete old.state.workflow; delete old.state.layers; delete old.state.editor;
+  old.schemaVersion = 1; delete old.state.lifecycle; delete old.state.workflow; delete old.state.layers; delete old.state.editor; delete old.state.values;
   assert.equal(core.restoreCalculator(old).lifecycle, 'entering');
   const bad = core.snapshotCalculator(core.createInitialState());
   bad.state.lifecycle = 'menu';

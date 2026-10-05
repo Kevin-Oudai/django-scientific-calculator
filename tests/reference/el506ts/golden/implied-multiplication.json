@@ -20,7 +20,11 @@
         "displayResult": "0",
         "answer": 0,
         "editor.ast": null,
-        "editor.incomplete": true
+        "editor.incomplete": true,
+        "values.answer": {
+          "kind": "scalar",
+          "value": 0
+        }
       }
     },
     {
@@ -33,7 +37,11 @@
           "kind": "number",
           "decimal": "2"
         },
-        "editor.incomplete": false
+        "editor.incomplete": false,
+        "values.answer": {
+          "kind": "scalar",
+          "value": 0
+        }
       }
     },
     {
@@ -56,7 +64,11 @@
           },
           "implied": true
         },
-        "editor.incomplete": false
+        "editor.incomplete": false,
+        "values.answer": {
+          "kind": "scalar",
+          "value": 0
+        }
       }
     },
     {
@@ -78,7 +90,11 @@
           },
           "implied": true
         },
-        "editor.incomplete": false
+        "editor.incomplete": false,
+        "values.answer": {
+          "kind": "scalar",
+          "value": 6.283185307179586
+        }
       }
     }
   ],

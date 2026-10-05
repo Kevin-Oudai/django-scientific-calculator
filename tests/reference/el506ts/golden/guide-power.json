@@ -22,7 +22,11 @@
         "answer": 0,
         "angleMode": "DEG",
         "history.length": 0,
-        "lifecycle": "empty"
+        "lifecycle": "empty",
+        "values.answer": {
+          "kind": "scalar",
+          "value": 0
+        }
       }
     },
     {
@@ -33,7 +37,11 @@
         "answer": 0,
         "angleMode": "DEG",
         "history.length": 0,
-        "lifecycle": "entering"
+        "lifecycle": "entering",
+        "values.answer": {
+          "kind": "scalar",
+          "value": 0
+        }
       }
     },
     {
@@ -44,7 +52,11 @@
         "answer": 0,
         "angleMode": "DEG",
         "history.length": 0,
-        "lifecycle": "entering"
+        "lifecycle": "entering",
+        "values.answer": {
+          "kind": "scalar",
+          "value": 0
+        }
       },
       "domResultText": "20",
       "domResultSup": "0"
@@ -57,7 +69,11 @@
         "answer": 0,
         "angleMode": "DEG",
         "history.length": 0,
-        "lifecycle": "entering"
+        "lifecycle": "entering",
+        "values.answer": {
+          "kind": "scalar",
+          "value": 0
+        }
       },
       "domResultText": "24",
       "domResultSup": "4"
@@ -70,7 +86,11 @@
         "answer": 16,
         "angleMode": "DEG",
         "history.length": 1,
-        "lifecycle": "evaluated"
+        "lifecycle": "evaluated",
+        "values.answer": {
+          "kind": "scalar",
+          "value": 16
+        }
       }
     }
   ],

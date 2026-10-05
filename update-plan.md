@@ -744,6 +744,26 @@ The runner's completion does not require implementing the later feature phases.
 - [ ] **EL506-018 - Add typed calculator values.** Preserve scalar, rational,
   DMS, complex, N-base, statistics, equation, matrix, and list types across
   evaluation and display conversion.
+    READY_TO_PUSH: 2026-10-05. Validated nine-family value model, exact rational
+    arithmetic, fixed-width bounds, retained DMS/complex/structured components,
+    explicit scalar coercion guards and type-preserving AST variable bindings.
+    Conversion returns component views without overwriting source values.
+    Typed ANS/last/memory/statistics/history stores and schema 5 snapshot migrations
+    coexist with unchanged legacy LCD projections. Future mode arithmetic rejects
+    unsupported coercion and remains owned by its feature tasks.
+    Evidence: fresh el506-018-fraction-type-v1, Reset/K40/K25/K42/K48; displayed
+    exact 1/3, five inspected LCD frames; dedicated fraction separator transcribed
+    as [frac] with explicit notation note. Build/hash matched; internal stores
+    unmeasured. Existing addition/power/pi golden fixtures now assert typed ANS.
+    Verification: unit 36/36, browser 36/36, Django 4/4; golden/reference/report;
+    compileall, pip dry run, Compose/demo rebuild, diff check. Regression covers
+    typed history rollover, malformed values, matrix shape, exact fractions,
+    large-rational conversion and negative-zero retention. No LCD/theme/release
+    change; full numeric mode parity remains pending.
+    Browser test initially targeted a nonexistent rotation action; changed to
+    the real fraction control and added an assertion that the view actually
+    changes. Removed that nonexistent action from shifted-key resolution;
+    fraction conversions retain named intents for their owning feature items.
 - [x] **EL506-019 - Add full state snapshot and restore.** Include all stores,
   settings, prompts, cursors, result pages, and modifiers for history and
   deterministic tests.

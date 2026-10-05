@@ -88,7 +88,7 @@
     },
     {
       "path": "tests/reference/el506ts/golden/addition.json",
-      "sha256": "a20ed6b633298716dbab212d5ce34e5c0276ad6d11174795b2cf177b4f844795"
+      "sha256": "ae07e318a94b9213779b265fb81297de1d138e72702e016d87f25e0c3590b0d7"
     },
     {
       "path": "tests/reference/el506ts/golden/error-recovery.json",
@@ -96,11 +96,11 @@
     },
     {
       "path": "tests/reference/el506ts/golden/guide-power.json",
-      "sha256": "3e55e2cb287f63fdb4bd3842eea057be19fe0daf7ff0b77be509f26298fda7d5"
+      "sha256": "e7479be3102d0eb5fafbc8df35e84b508fe67c402b5cc383aab04026b041c7e8"
     },
     {
       "path": "tests/reference/el506ts/golden/implied-multiplication.json",
-      "sha256": "ccc129bf905a5e16daf44336b486d68b9b316d5f3684ac99f711d92249518f8e"
+      "sha256": "c6ded7e647535d08f9b0cca107f02f84c46d5de64d11b8054603f3c9f649dceb"
     },
     {
       "path": "tests/reference/el506ts/golden/key-layers.json",

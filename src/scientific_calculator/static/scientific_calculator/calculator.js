@@ -1,13 +1,19 @@
 (function () {
   const nodeRuntime = typeof document === "undefined";
   let semantic = nodeRuntime ? require("./semantic-editor.js") : null;
-  const dependencies = nodeRuntime ? null : new Promise((resolve, reject) => {
+  let values = nodeRuntime ? require("./values.js") : null;
+  const assetBase = nodeRuntime ? null : document.currentScript.src;
+  const loadAsset = (file, assign) => new Promise((resolve, reject) => {
     const script = document.createElement("script");
-    script.src = new URL("semantic-editor.js", document.currentScript.src).href;
-    script.onload = () => { semantic = globalThis.ScientificCalculatorSemantic; resolve(); };
-    script.onerror = () => reject(new Error("Local semantic editor failed to load"));
+    script.src = new URL(file, assetBase).href;
+    script.onload = () => { assign(); resolve(); };
+    script.onerror = () => reject(new Error(`Local calculator asset failed to load: ${file}`));
     document.head.append(script);
   });
+  const dependencies = nodeRuntime ? null : Promise.all([
+    loadAsset("semantic-editor.js", () => { semantic = globalThis.ScientificCalculatorSemantic; }),
+    loadAsset("values.js", () => { values = globalThis.ScientificCalculatorValues; }),
+  ]);
   const SELECT_START = "\uE000";
   const SELECT_END = "\uE001";
   const DIVIDE_TOKEN = ":";
@@ -1087,7 +1093,34 @@
   }
   function createInitialState() {
     const state = { ...createLegacyInitialState(), lifecycle: "empty", workflow: emptyWorkflow(), layers: initialLayers() };
-    return { ...state, editor: editorForState(state) };
+    return { ...state, editor: editorForState(state), values: initialValues(state) };
+  }
+  function initialValues(state) { return {answer:values.scalar(state.answer),last:values.scalar(state.lastValue),memory:values.scalar(state.memoryValue),statistics:{kind:"statistics",rows:state.statsValues.map(x=>({x:values.scalar(x),y:null,weight:1}))},history:state.history.map(h=>values.scalar(h.value))}; }
+  function evaluateTypedAst(ast, scope = {}) { return values.evaluateAst(ast, semantic, legacyNumericAdapter, scope); }
+  function valuesForState(next, previous, event) {
+    const typed = structuredClone(previous.values);
+    const evaluated = next.history.length !== previous.history.length || (event.action === "equals" || event.key === "Enter" || event.key === "=") && next.expression.endsWith("=");
+    if (evaluated && next.editor.ast && next.displayResult !== "Error") {
+      try { typed.answer = evaluateTypedAst(next.editor.ast,{angleMode:next.angleMode,answer:previous.values.answer}); }
+      catch { typed.answer = values.scalar(next.answer); }
+      typed.last = values.copy(typed.answer);
+    } else if (!Object.is(next.answer,previous.answer)) typed.answer = values.scalar(next.answer);
+    if (!Object.is(next.lastValue,previous.lastValue) && (!evaluated || next.displayResult === "Error")) typed.last = values.scalar(next.lastValue);
+    if (!Object.is(next.memoryValue,previous.memoryValue)) {
+      typed.memory = values.scalar(next.memoryValue);
+      if (["memory-add","memory-subtract"].includes(event.action)) {
+        try {
+          const current = previous.editor.ast && !previous.editor.incomplete
+            ? evaluateTypedAst(previous.editor.ast,{angleMode:previous.angleMode,answer:previous.values.answer}) : previous.values.last;
+          typed.memory = values.binary(event.action === "memory-add" ? "+" : "-",previous.values.memory,current,legacyNumericAdapter.binary);
+        } catch { /* preserve characterized legacy nonfinite/error semantics */ }
+      }
+    }
+    if (["memory-clear","home"].includes(event.action)) typed.memory = values.scalar(next.memoryValue);
+    typed.statistics = {kind:"statistics",rows:next.statsValues.map((x,i)=>({x:previous.statsValues[i]===x && previous.values.statistics.rows[i]?values.copy(previous.values.statistics.rows[i].x):values.scalar(x),y:null,weight:1}))};
+    const historyOffset = evaluated ? Math.max(0,previous.history.length+1-next.history.length) : 0;
+    typed.history = next.history.map((h,i)=>i+historyOffset >= previous.history.length ? values.copy(typed.answer) : values.copy(previous.values.history[i+historyOffset]));
+    return typed;
   }
   function validateWorkflow(state) {
     const w = state.workflow;
@@ -1114,6 +1147,11 @@
     validateWorkflow(state);
     semantic.validateEditor(state.editor);
     if (state.editor.ast !== null) semantic.validateAst(state.editor.ast);
+    if (!state.values || Object.keys(state.values).sort().join() !== "answer,history,last,memory,statistics" || !Array.isArray(state.values.history)
+      || state.values.history.length !== state.history.length || state.values.statistics?.kind !== "statistics"
+      || state.values.statistics.rows.length !== state.statsValues.length) throw new TypeError("Invalid typed stores");
+    for (const name of ["answer","last","memory","statistics"]) values.validate(state.values[name]);
+    state.values.history.forEach(value => values.validate(value));
     const layers = state.layers;
     if (!layers || Object.keys(layers).sort().join() !== "alpha,hyp,intent,inverseHyp,mode,settings"
       || !["alpha", "hyp", "inverseHyp"].every(k => typeof layers[k] === "boolean")
@@ -1156,21 +1194,25 @@
   // part of this contract. Future modes must version and extend these fields.
   function snapshotCalculator(state) {
     validateState(state);
-    return { schemaVersion: 4, profile: "legacy-0.3.1", state: structuredClone(state) };
+    return { schemaVersion: 5, profile: "legacy-0.3.1", state: structuredClone(state) };
   }
 
   function restoreCalculator(snapshot) {
-    if (!snapshot || ![1, 2, 3, 4].includes(snapshot.schemaVersion) || snapshot.profile !== "legacy-0.3.1"
+    if (!snapshot || ![1, 2, 3, 4, 5].includes(snapshot.schemaVersion) || snapshot.profile !== "legacy-0.3.1"
       || Object.keys(snapshot).sort().join() !== "profile,schemaVersion,state") {
       throw new TypeError("Unsupported calculator snapshot");
     }
     let state = structuredClone(snapshot.state);
+    const introduced = {lifecycle:2,workflow:2,layers:3,editor:4,values:5};
+    const expectedFields = Object.keys(createInitialState()).filter(name => !introduced[name] || introduced[name] <= snapshot.schemaVersion);
+    if (!state || Object.keys(state).sort().join() !== expectedFields.sort().join()) throw new TypeError("Invalid versioned state fields");
     if (snapshot.schemaVersion === 1) {
       if (!state || Object.keys(state).sort().join() !== Object.keys(createLegacyInitialState()).sort().join()) throw new TypeError("Invalid legacy snapshot");
       state = { ...state, lifecycle: inferEntryPhase(state), workflow: emptyWorkflow() };
     }
     if (snapshot.schemaVersion < 3) state.layers = initialLayers();
     if (snapshot.schemaVersion < 4) state.editor = editorForState(state);
+    if (snapshot.schemaVersion < 5) state.values = initialValues(state);
     validateState(state);
     return state;
   }
@@ -1225,6 +1267,7 @@
     if ((event.key === "Enter" || event.key === "=" || event.action === "equals") && !previous.editor.incomplete && !previous.stagedEntry) {
       next.editor = semantic.createEditor(previous.editor.tokens);
     }
+    next.values = valuesForState(next, previous, event);
     if (next.lifecycle === "entering" && (event.key?.startsWith("Arrow") || event.action?.startsWith("cursor-"))) next.lifecycle = "editing";
     validateState(next);
     return next;
@@ -1244,7 +1287,7 @@
   ]));
   const SECOND_KEYS = Object.freeze({13:{insert:"asin("},14:{insert:"acos("},15:{insert:"atan("},
     18:{insert:"^(-1)"},19:{action:"root"},20:{insert:"sqrt("},21:{insert:"cbrt("},
-    22:{insert:"10^("},23:{insert:"e^("},24:{action:"result-mode"},25:{action:"result-mode"},
+    22:{insert:"10^("},23:{insert:"e^("},
     29:{action:"memory-subtract"},35:{insert:"!"},36:{action:"ncr"},37:{action:"npr"},40:{insert:"%"}});
   const MEMORY_KEYS = Object.freeze({18:"A",19:"B",20:"C",21:"D",22:"E",23:"F",27:"X",28:"Y",29:"M"});
   const ALPHA_STATS = Object.freeze({30:"mean-y",31:"sample-deviation-y",32:"population-deviation-y",33:"coefficient-a",34:"coefficient-b",35:"mean-x",36:"sample-deviation-x",37:"population-deviation-x",38:"coefficient-c",39:"correlation-r",40:"sum-xy",41:"sum-y",42:"sum-y-squared",45:"count-n",46:"sum-x",47:"sum-x-squared"});
@@ -1269,6 +1312,7 @@
     if (active.hyp && [13,14,15].includes(n)) return {kind:"function", name: (active.inverseHyp ? "a" : "") + ["sinh","cosh","tanh"][n-13]};
     if (active.alpha) return n === 48 ? {kind:"operation", event:{insert:"ans"}} : MEMORY_KEYS[n] ? {kind:"symbol", name:MEMORY_KEYS[n]} : ALPHA_STATS[n] ? {kind:"statistic", name:ALPHA_STATS[n]} : {kind:"pending", key:id, layer:"ALPHA"};
     if (state.secondActive) {
+      if ([24,25].includes(n)) return {kind:"conversion",name:n===24?"fraction-decimal":"mixed-improper"};
       const menu = {4:"CLEAR",5:"STATVAR",17:"ALGB",30:"RANDOM",41:"CNST",42:"CONV",47:"MEMORY_CLEAR"}[n];
       if (menu) return {kind:"menu", name:menu};
       return SECOND_KEYS[n] ? {kind:"operation", event:SECOND_KEYS[n]} : {kind:"pending", key:id, layer:"2ndF"};
@@ -2255,6 +2299,8 @@
       restoreCalculator,
       resolvePhysicalKey,
       semanticEditor: semantic,
+      valueTypes: values,
+      evaluateTypedAst,
       evaluateExpression,
       evaluateExactExpression,
       formatValue,

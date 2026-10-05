@@ -13,6 +13,7 @@ test('physical modifier resolution consumes 2ndF/ALPHA/HYP without text replacem
   assert.equal(s.layers.alpha,false); assert.equal(s.layers.intent.event.insert,'ans');
   s=press(s,3); assert.equal(core.resolvePhysicalKey(s,'EL506-K20').event.insert,'sqrt(');
   assert.throws(()=>press(s,99),TypeError);
+  assert.equal(core.resolvePhysicalKey(s,'EL506-K24').kind,'conversion');
 });
 test('menus and memory prompts accept only their declared physical selections', () => {
   let s=press(core.createInitialState(),4);

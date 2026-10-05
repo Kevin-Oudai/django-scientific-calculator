@@ -29,7 +29,11 @@
         "statsValues": [],
         "history.length": 0,
         "stagedEntry": null,
-        "lifecycle": "empty"
+        "lifecycle": "empty",
+        "values.answer": {
+          "kind": "scalar",
+          "value": 0
+        }
       }
     },
     {
@@ -44,7 +48,11 @@
         "statsValues": [],
         "history.length": 0,
         "stagedEntry": null,
-        "lifecycle": "entering"
+        "lifecycle": "entering",
+        "values.answer": {
+          "kind": "scalar",
+          "value": 0
+        }
       }
     },
     {
@@ -59,7 +67,11 @@
         "statsValues": [],
         "history.length": 0,
         "stagedEntry": null,
-        "lifecycle": "entering"
+        "lifecycle": "entering",
+        "values.answer": {
+          "kind": "scalar",
+          "value": 0
+        }
       }
     },
     {
@@ -74,7 +86,11 @@
         "statsValues": [],
         "history.length": 0,
         "stagedEntry": null,
-        "lifecycle": "entering"
+        "lifecycle": "entering",
+        "values.answer": {
+          "kind": "scalar",
+          "value": 0
+        }
       }
     },
     {
@@ -89,7 +105,11 @@
         "statsValues": [],
         "history.length": 1,
         "stagedEntry": null,
-        "lifecycle": "evaluated"
+        "lifecycle": "evaluated",
+        "values.answer": {
+          "kind": "scalar",
+          "value": 3
+        }
       }
     }
   ],
