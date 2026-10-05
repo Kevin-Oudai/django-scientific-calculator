@@ -4,20 +4,20 @@
 - Plan status: Active
 - Current package baseline: 0.3.1
 - Target release: 1.0.0 after verified parity
-- Next item: EL506-004
+- Next item: EL506-006
 - Last updated: 2026-10-05
 
 ## Progress Overview
 
-As of 2026-10-05, **9 of 245 roadmap tasks are complete (3.7%)**, with
-**236 remaining**. The next task is **EL506-004**. These counts measure
+As of 2026-10-05, **10 of 245 roadmap tasks are complete (4.1%)**, with
+**235 remaining**. The next task is **EL506-006**. These counts measure
 completed checklist items, not elapsed effort or verified calculator parity;
 individual tasks vary in size. The detailed checklist below describes every
 remaining task and preserves its evidence and completion requirements.
 
 | Roadmap phase | Completed | Remaining |
 | --- | ---: | ---: |
-| Phase 0 - Reference and Traceability | 5 | 2 |
+| Phase 0 - Reference and Traceability | 6 | 1 |
 | Phase 1 - Test and Emulator Foundation | 4 | 10 |
 | Phase 2 - Physical Layout, Display, Theme, and Access | 0 | 14 |
 | Phase 3 - Power, Modes, Clear, Editing, and History | 0 | 17 |
@@ -36,7 +36,7 @@ remaining task and preserves its evidence and completion requirements.
 | Phase 16 - LIST Mode | 0 | 11 |
 | Phase 17 - Errors, Limits, and Cross-mode Parity | 0 | 15 |
 | Phase 18 - Security, Packaging, Compatibility, and Release | 0 | 15 |
-| **Total** | **9** | **236** |
+| **Total** | **10** | **235** |
 
 Refresh this overview's date, counts, percentage, and next task in every
 roadmap completion tracking commit, using the checklist as the source of truth.
@@ -502,10 +502,12 @@ The runner's completion does not require implementing the later feature phases.
     Scope: bootstrap test bridge covers NORMAL base keys only; unimplemented
     layers/modes do not count as passing parity. No UI layout/theme, touch,
     accessibility, evaluator algorithm or package version change.
-- [ ] **EL506-004 - Capture all 44-page guide examples.** Convert every worked
+- [x] **EL506-004 - Capture all 44-page guide examples.** Convert every worked
   sequence in the operation guide into reference fixtures, preserving printed
   values and noting any guide/simulator disagreement.
-    READY_TO_PUSH: 2026-10-05. All 44 pages reviewed visually and through text;
+    Completed: 2026-10-05, implementation commit
+    `7b6635244c82a552a89057becd1406b1c1252674` verified on origin/main.
+    All 44 pages reviewed visually and through text;
     52 connected workflows, 148 printed checkpoints independently transcribed
     with canonical key IDs, page review index, printed values and prerequisites.
     Weighted/paired datasets expand printed ellipses; repeated result selections,
