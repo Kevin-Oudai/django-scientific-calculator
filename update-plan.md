@@ -4,13 +4,13 @@
 - Plan status: Active
 - Current package baseline: 0.3.1
 - Target release: 1.0.0 after verified parity
-- Next item: EL506-021
+- Next item: EL506-022
 - Last updated: 2026-10-05
 
 ## Progress Overview
 
-As of 2026-10-05, **18 of 245 roadmap tasks are complete (7.3%)**, with
-**227 remaining**. The next task is **EL506-021**. These counts measure
+As of 2026-10-05, **19 of 245 roadmap tasks are complete (7.8%)**, with
+**226 remaining**. The next task is **EL506-022**. These counts measure
 completed checklist items, not elapsed effort or verified calculator parity;
 individual tasks vary in size. The detailed checklist below describes every
 remaining task and preserves its evidence and completion requirements.
@@ -21,7 +21,7 @@ in the generated report; phase completion does not establish full parity.
 | Roadmap phase | Completed | Remaining |
 | --- | ---: | ---: |
 | Phase 0 - Reference and Traceability | 7 | 0 |
-| Phase 1 - Test and Emulator Foundation | 11 | 3 |
+| Phase 1 - Test and Emulator Foundation | 12 | 2 |
 | Phase 2 - Physical Layout, Display, Theme, and Access | 0 | 14 |
 | Phase 3 - Power, Modes, Clear, Editing, and History | 0 | 17 |
 | Phase 4 - Display Settings and Formatting | 0 | 11 |
@@ -39,7 +39,7 @@ in the generated report; phase completion does not establish full parity.
 | Phase 16 - LIST Mode | 0 | 11 |
 | Phase 17 - Errors, Limits, and Cross-mode Parity | 0 | 15 |
 | Phase 18 - Security, Packaging, Compatibility, and Release | 0 | 15 |
-| **Total** | **18** | **227** |
+| **Total** | **19** | **226** |
 
 Refresh this overview's date, counts, percentage, and next task in every
 roadmap completion tracking commit, using the checklist as the source of truth.
@@ -802,11 +802,12 @@ The runner's completion does not require implementing the later feature phases.
     reject expression text, prototype names and unbounded decimal controls.
     Scope: pure allowlisted numeric engine; physical UI, LCD formatting and
     non-NORMAL algorithms remain assigned to later items. Release unchanged.
-- [ ] **EL506-021 - Establish the numerical compatibility model.** Measure
+- [x] **EL506-021 - Establish the numerical compatibility model.** Measure
   simulator precision, exponent range, rounding ties, overflow, underflow,
   negative zero, and intermediate precision before selecting Number,
   BigNumber, Fraction, or custom quantization per value type.
-    READY_TO_PUSH: 2026-10-05.
+    Completed: 2026-10-05, implementation commit
+    5513ce6b07fe96b5c06e8083311b9652e447d31f verified on origin/main.
     Evidence: nine numeric-* live experiments, 112 physical key presses
     observed individually on pinned simulator 1.0.2.0. Exponents +/-99
     retained; 1e100 Error 2; 1e-100 zero; evaluated -0 displays 0.
