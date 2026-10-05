@@ -4,13 +4,13 @@
 - Plan status: Active
 - Current package baseline: 0.3.1
 - Target release: 1.0.0 after verified parity
-- Next item: EL506-017
+- Next item: EL506-018
 - Last updated: 2026-10-05
 
 ## Progress Overview
 
-As of 2026-10-05, **15 of 245 roadmap tasks are complete (6.1%)**, with
-**230 remaining**. The next task is **EL506-017**. These counts measure
+As of 2026-10-05, **16 of 245 roadmap tasks are complete (6.5%)**, with
+**229 remaining**. The next task is **EL506-018**. These counts measure
 completed checklist items, not elapsed effort or verified calculator parity;
 individual tasks vary in size. The detailed checklist below describes every
 remaining task and preserves its evidence and completion requirements.
@@ -21,7 +21,7 @@ in the generated report; phase completion does not establish full parity.
 | Roadmap phase | Completed | Remaining |
 | --- | ---: | ---: |
 | Phase 0 - Reference and Traceability | 7 | 0 |
-| Phase 1 - Test and Emulator Foundation | 8 | 6 |
+| Phase 1 - Test and Emulator Foundation | 9 | 5 |
 | Phase 2 - Physical Layout, Display, Theme, and Access | 0 | 14 |
 | Phase 3 - Power, Modes, Clear, Editing, and History | 0 | 17 |
 | Phase 4 - Display Settings and Formatting | 0 | 11 |
@@ -39,7 +39,7 @@ in the generated report; phase completion does not establish full parity.
 | Phase 16 - LIST Mode | 0 | 11 |
 | Phase 17 - Errors, Limits, and Cross-mode Parity | 0 | 15 |
 | Phase 18 - Security, Packaging, Compatibility, and Release | 0 | 15 |
-| **Total** | **15** | **230** |
+| **Total** | **16** | **229** |
 
 Refresh this overview's date, counts, percentage, and next task in every
 roadmap completion tracking commit, using the checklist as the source of truth.
@@ -721,10 +721,11 @@ The runner's completion does not require implementing the later feature phases.
     checks; compileall, pip dry run, Compose/demo rebuild, diff check. Regression
     protects settings/mode from ON/C reset. Test corrected legacy ANS projection
     expectation to assert semantic intent. No new visual/theme or release change.
-- [ ] **EL506-017 - Add the semantic token editor and AST.** Separate
+- [x] **EL506-017 - Add the semantic token editor and AST.** Separate
   calculator intent, cursor structure, and implied operations from display
   text.
-    READY_TO_PUSH: 2026-10-05. Bundled semantic editor with allowlisted tokens,
+    Completed: 2026-10-05, implementation commit
+    d147895ad844aab9c54f0925ac5e49b644459301 verified on origin/main. Bundled semantic editor with allowlisted tokens,
     atomic function edits, numeric digit offsets, structural/template cursors,
     explicit/implied multiplication and validated AST traversal. Scalar evaluation
     now traverses AST operations rather than executing source. Existing scalar
