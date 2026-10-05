@@ -4,13 +4,13 @@
 - Plan status: Active
 - Current package baseline: 0.3.1
 - Target release: 1.0.0 after verified parity
-- Next item: EL506-018
+- Next item: EL506-020
 - Last updated: 2026-10-05
 
 ## Progress Overview
 
-As of 2026-10-05, **16 of 245 roadmap tasks are complete (6.5%)**, with
-**229 remaining**. The next task is **EL506-018**. These counts measure
+As of 2026-10-05, **17 of 245 roadmap tasks are complete (6.9%)**, with
+**228 remaining**. The next task is **EL506-020**. These counts measure
 completed checklist items, not elapsed effort or verified calculator parity;
 individual tasks vary in size. The detailed checklist below describes every
 remaining task and preserves its evidence and completion requirements.
@@ -21,7 +21,7 @@ in the generated report; phase completion does not establish full parity.
 | Roadmap phase | Completed | Remaining |
 | --- | ---: | ---: |
 | Phase 0 - Reference and Traceability | 7 | 0 |
-| Phase 1 - Test and Emulator Foundation | 9 | 5 |
+| Phase 1 - Test and Emulator Foundation | 10 | 4 |
 | Phase 2 - Physical Layout, Display, Theme, and Access | 0 | 14 |
 | Phase 3 - Power, Modes, Clear, Editing, and History | 0 | 17 |
 | Phase 4 - Display Settings and Formatting | 0 | 11 |
@@ -39,7 +39,7 @@ in the generated report; phase completion does not establish full parity.
 | Phase 16 - LIST Mode | 0 | 11 |
 | Phase 17 - Errors, Limits, and Cross-mode Parity | 0 | 15 |
 | Phase 18 - Security, Packaging, Compatibility, and Release | 0 | 15 |
-| **Total** | **16** | **229** |
+| **Total** | **17** | **228** |
 
 Refresh this overview's date, counts, percentage, and next task in every
 roadmap completion tracking commit, using the checklist as the source of truth.
@@ -741,10 +741,11 @@ The runner's completion does not require implementing the later feature phases.
     snapshot/AST/format independence and exclusively local asset requests.
     Hostile input, unbound variables, depth/arity limits and immutable branches
     covered. No layout/theme/release change; physical input layout remains Phase 2.
-- [ ] **EL506-018 - Add typed calculator values.** Preserve scalar, rational,
+- [x] **EL506-018 - Add typed calculator values.** Preserve scalar, rational,
   DMS, complex, N-base, statistics, equation, matrix, and list types across
   evaluation and display conversion.
-    READY_TO_PUSH: 2026-10-05. Validated nine-family value model, exact rational
+    Completed: 2026-10-05, implementation commit
+    ec2622aea4bb2faf936df5fed25989974f17b422 verified on origin/main. Validated nine-family value model, exact rational
     arithmetic, fixed-width bounds, retained DMS/complex/structured components,
     explicit scalar coercion guards and type-preserving AST variable bindings.
     Conversion returns component views without overwriting source values.
