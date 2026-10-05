@@ -187,7 +187,7 @@ Known structural gaps:
 - Math.js is not currently installed or bundled.
 - The approximately 1,900-line calculator script combines parsing, state,
   display rendering, and DOM behavior.
-- Pure evaluator unit tests now run in Node; reducer/state tests await EL506-014.
+- Pure evaluator and baseline reducer tests now run in Node.
 - There are no Django integration tests or continuous-integration workflow.
 - Playwright currently covers a desktop Chromium scenario only.
 - The current keys, menus, state rules, and display do not yet match the
@@ -570,6 +570,21 @@ The runner's completion does not require implementing the later feature phases.
     Existing prepared catalogue, packaging, tests and plan changes preserved.
 - [ ] **EL506-014 - Extract a deterministic state reducer.** Move calculator
   behavior out of DOM handlers while preserving existing tested behavior.
+    READY_TO_PUSH: 2026-10-05. Existing behavior now runs through immutable
+    createInitialState/reduceCalculator, with DOM rendering and input adapters
+    consuming returned state. Includes all current stores, staged templates,
+    cursor/history, modifiers, error display and nonfinite values. Legacy
+    pointer/keyboard differences and evaluator algorithms remain unchanged.
+    Evidence: fresh el506-014-reducer-addition-v1; Reset, K40 K43 K41 K48;
+    five inspected LCD frames, result 3., DEG; runtime build/hash matched.
+    Internal simulator stores remain unmeasured; guide example not used.
+    Verification: 12 pure unit tests and existing browser regression suite;
+    reference validators; compileall; pip dry run; Compose config/rebuild;
+    HTTP 200; diff check. Browser tests retain two focused independent embeds.
+    Scope: this prerequisite preserves baseline behavior, not new parity;
+    canonical physical routing, future modes, golden runner and snapshots
+    remain separate tasks. Theme, touch and accessibility gates are
+    inapplicable because controls, labels and style are unchanged. Version 0.3.1.
 - [ ] **EL506-015 - Model entry lifecycle states.** Cover empty, entering,
   editing, evaluated, prompt, menu, data entry, multi-result, and error states.
 - [ ] **EL506-016 - Implement modifier and menu layers.** Support base, 2ndF,

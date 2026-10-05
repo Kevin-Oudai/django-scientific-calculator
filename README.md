@@ -404,7 +404,7 @@ claimed. The limitation and unmeasured state are recorded in the capture.
 `npm run test:reference` verifies the baseline against its original Git objects;
 the source commit must be present locally (shallow clones need that history).
 The application and package version remain 0.3.1. This capture does not implement
-the future reducer, snapshot API, golden runner or generated parity report.
+the later reducer, snapshot API, golden runner or generated parity report.
 
 ## JavaScript Unit Tests
 
@@ -418,8 +418,13 @@ The existing `calculator.js` exports four pure functions for CommonJS use when
 no document exists: `evaluateExpression`, `evaluateExactExpression`,
 `formatValue` and `closeOpenParentheses`. The normal browser script entry and
 DOMContentLoaded initializer remain operational, including on hosts that define
-a `module` global. These exports are a test seam around the current implementation;
-the reducer, state snapshot API and browser/core split remain separate work.
+a `module` global. `createInitialState()` and `reduceCalculator(state, event)`
+also expose the existing behavior without a DOM. The reducer returns a new state
+and leaves the input and its nested stores unchanged. Browser button and keyboard
+handlers dispatch to this same reducer; their existing differences are preserved.
+Events are `{type: "button", insert, action, secondInsert, secondAction}` or
+`{type: "keyboard", key}`. Canonical physical-key routing and unsupported modes
+remain future work; these legacy events do not establish simulator parity.
 
 The initial eight unit tests cover the numeric result of the fresh simulator
 `el506-010-addition-v1` reference, scalar grammar, explicit angle/ANS inputs,
@@ -427,6 +432,12 @@ combinatorics domains, exact-value enhancements and known formatting/error
 policies. Only the addition result has new live simulator evidence; the other
 tests characterize 0.3.1 behavior. They do not establish state-machine, LCD or
 full capability parity. The package remains version 0.3.1.
+
+Four additional reducer tests cover deterministic replay, immutable state,
+memory/statistics isolation, history/cursor/error recovery, fractions, modifiers
+and nonfinite values. The fresh `el506-014-reducer-addition-v1` transcript records
+the reference addition sequence independently. State snapshots and the full
+browser/core asset split remain scheduled separately.
 
 ## Release History
 

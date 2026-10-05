@@ -1005,14 +1005,7 @@
     return `${expression}${")".repeat(depth)}`;
   }
 
-  function createCalculator(root) {
-    if (!root.hasAttribute("tabindex")) {
-      root.setAttribute("tabindex", "0");
-    }
-
-    const expressionEl = root.querySelector("[data-expression]");
-    const resultEl = root.querySelector("[data-result]");
-    const angleLabel = root.querySelector("[data-angle-label]");
+  function createInitialState() {
     let expression = "";
     let cursor = 0;
     let selectionActive = false;
@@ -1029,47 +1022,15 @@
     let historyDraft = "";
     let secondActive = false;
     let memoryValue = 0;
-    const statsValues = [];
-    const hasKeyboardFocus = () => root.contains(document.activeElement);
+    let statsValues = [];
+    let displayExpression = "";
+    let displayResult = "0";
+    return { expression, cursor, selectionActive, entry, stagedEntry, resultDisplay, answer, lastValue, lastExactDisplay, resultMode, angleMode, history, historyIndex, historyDraft, secondActive, memoryValue, statsValues, displayExpression, displayResult };
+  }
 
-    const expressionForDisplay = () => {
-      if (!expression) {
-        return "";
-      }
-      if (!selectionActive || cursor >= expression.length) {
-        return expression;
-      }
-      return `${expression.slice(0, cursor)}${SELECT_START}${expression[cursor]}${SELECT_END}${expression.slice(cursor + 1)}`;
-    };
-
-    const stagedFractionHtml = () => {
-      const partHtml = (part) => {
-        const value = stagedEntry[part];
-        const classes = [
-          "scicalc__fraction-template-part",
-          stagedEntry.part === part ? "is-active" : "",
-        ].filter(Boolean).join(" ");
-        const content = value
-          ? formatExpression(value)
-          : '<span class="scicalc__fraction-template-blank">□</span>';
-        return `<span class="${classes}">${content}</span>`;
-      };
-      return `<span class="scicalc__display-fraction scicalc__display-fraction--template">${partHtml("numerator")}${partHtml("denominator")}</span>`;
-    };
-
-    const render = () => {
-      expressionEl.innerHTML = formatExpression(expressionForDisplay());
-      angleLabel.textContent = angleMode;
-      resultEl.innerHTML = stagedEntry?.type === "fraction"
-        ? stagedFractionHtml()
-        : formatExpression(resultDisplay || "0");
-      root.classList.toggle("is-second-active", secondActive);
-      requestAnimationFrame(() => {
-        expressionEl.scrollLeft = expressionEl.scrollWidth;
-        resultEl.scrollLeft = resultEl.scrollWidth;
-      });
-    };
-
+  function reduceCalculator(previous, event) {
+    let { expression, cursor, selectionActive, entry, stagedEntry, resultDisplay, answer, lastValue, lastExactDisplay, resultMode, angleMode, history, historyIndex, historyDraft, secondActive, memoryValue, statsValues, displayExpression, displayResult } = structuredClone(previous);
+    const render = () => { displayExpression = expression; displayResult = resultDisplay || "0"; };
     const resultText = (value, mode) => {
       if (mode === "exact") {
         return lastExactDisplay || formatValue(value);
@@ -1101,7 +1062,7 @@
 
     const showImmediateResult = (value, label = "") => {
       if (!Number.isFinite(value)) {
-        resultEl.textContent = "Error";
+        displayResult = "Error";
         return;
       }
       answer = value;
@@ -1377,7 +1338,7 @@
         resultDisplay = exactDisplay || resultText(value, resultMode);
         render();
       } catch (error) {
-        resultEl.textContent = "Error";
+        displayResult = "Error";
       }
     };
 
@@ -1683,7 +1644,7 @@
           secondActive = false;
           showImmediateResult(memoryValue, "M");
         } catch (error) {
-          resultEl.textContent = "Error";
+          displayResult = "Error";
         }
       }
       if (action === "memory-recall") {
@@ -1748,7 +1709,7 @@
           secondActive = false;
           showImmediateResult(statsValues.length, "n");
         } catch (error) {
-          resultEl.textContent = "Error";
+          displayResult = "Error";
         }
       }
       if (action === "stats-sum") {
@@ -1875,70 +1836,103 @@
       }
     };
 
+    if (event.type === "button") {
+      const useSecond = secondActive && (event.secondInsert || event.secondAction);
+      const insert = useSecond ? event.secondInsert : event.insert;
+      const action = useSecond ? event.secondAction : event.action;
+      if (useSecond) secondActive = false;
+      if (insert) insertToken(insert);
+      if (action) runAction(action);
+    } else if (event.type === "keyboard") {
+      const key = event.key;
+      if (/^[0-9+\-*/().^]$/.test(key)) insertToken(key);
+      else if (key === "Enter" || key === "=") commit();
+      else if (key === "Backspace") backspace();
+      else if (key === "Delete") deleteAtCursor();
+      else if (key === "ArrowLeft") moveCursor(-1);
+      else if (key === "ArrowRight") moveCursor(1);
+      else if (key === "ArrowUp") loadHistory(-1);
+      else if (key === "ArrowDown") loadHistory(1);
+    } else throw new TypeError("Unknown calculator event");
+    return { expression, cursor, selectionActive, entry, stagedEntry, resultDisplay, answer, lastValue, lastExactDisplay, resultMode, angleMode, history, historyIndex, historyDraft, secondActive, memoryValue, statsValues, displayExpression, displayResult };
+  }
+
+  function createCalculator(root) {
+    if (!root.hasAttribute("tabindex")) {
+      root.setAttribute("tabindex", "0");
+    }
+
+    const expressionEl = root.querySelector("[data-expression]");
+    const resultEl = root.querySelector("[data-result]");
+    const angleLabel = root.querySelector("[data-angle-label]");
+    let state = createInitialState();
+    const hasKeyboardFocus = () => root.contains(document.activeElement);
+    const expressionForDisplay = () => {
+      const { displayExpression: expression, selectionActive, cursor } = state;
+      if (!expression) {
+        return "";
+      }
+      if (!selectionActive || cursor >= expression.length) {
+        return expression;
+      }
+      return `${expression.slice(0, cursor)}${SELECT_START}${expression[cursor]}${SELECT_END}${expression.slice(cursor + 1)}`;
+    };
+
+    const stagedFractionHtml = () => {
+      const { stagedEntry } = state;
+      const partHtml = (part) => {
+        const value = stagedEntry[part];
+        const classes = [
+          "scicalc__fraction-template-part",
+          stagedEntry.part === part ? "is-active" : "",
+        ].filter(Boolean).join(" ");
+        const content = value
+          ? formatExpression(value)
+          : '<span class="scicalc__fraction-template-blank">□</span>';
+        return `<span class="${classes}">${content}</span>`;
+      };
+      return `<span class="scicalc__display-fraction scicalc__display-fraction--template">${partHtml("numerator")}${partHtml("denominator")}</span>`;
+    };
+
+    const render = () => {
+      const { angleMode, stagedEntry, displayResult: resultDisplay, secondActive } = state;
+      expressionEl.innerHTML = formatExpression(expressionForDisplay());
+      angleLabel.textContent = angleMode;
+      resultEl.innerHTML = stagedEntry?.type === "fraction"
+        ? stagedFractionHtml()
+        : formatExpression(resultDisplay || "0");
+      root.classList.toggle("is-second-active", secondActive);
+      requestAnimationFrame(() => {
+        expressionEl.scrollLeft = expressionEl.scrollWidth;
+        resultEl.scrollLeft = resultEl.scrollWidth;
+      });
+    };
+
+    const dispatch = (event) => { state = reduceCalculator(state, event); render(); };
+
     root.addEventListener("click", (event) => {
       const button = event.target.closest("button");
-      if (!button || !root.contains(button)) {
-        return;
-      }
-
-      const useSecondFunction = secondActive && (button.dataset.secondInsert || button.dataset.secondAction);
-      const insert = useSecondFunction ? button.dataset.secondInsert : button.dataset.insert;
-      const action = useSecondFunction ? button.dataset.secondAction : button.dataset.action;
-
-      if (useSecondFunction) {
-        secondActive = false;
-      }
-      if (insert) {
-        insertToken(insert);
-      }
-      if (action) {
-        runAction(action);
-      }
+      if (!button || !root.contains(button)) return;
+      dispatch({ type: "button", ...button.dataset });
     });
-
     root.addEventListener("pointerdown", () => {
-      if (!hasKeyboardFocus()) {
-        root.focus({ preventScroll: true });
-      }
+      if (!hasKeyboardFocus()) root.focus({ preventScroll: true });
     });
-
     document.addEventListener("keydown", (event) => {
-      if (!hasKeyboardFocus()) {
-        return;
-      }
-      if (/^[0-9+\-*/().^]$/.test(event.key)) {
-        insertToken(event.key);
-      } else if (event.key === "Enter" || event.key === "=") {
-        event.preventDefault();
-        commit();
-      } else if (event.key === "Backspace") {
-        event.preventDefault();
-        backspace();
-      } else if (event.key === "Delete") {
-        event.preventDefault();
-        deleteAtCursor();
-      } else if (event.key === "ArrowLeft") {
-        event.preventDefault();
-        moveCursor(-1);
-      } else if (event.key === "ArrowRight") {
-        event.preventDefault();
-        moveCursor(1);
-      } else if (event.key === "ArrowUp") {
-        event.preventDefault();
-        loadHistory(-1);
-      } else if (event.key === "ArrowDown") {
-        event.preventDefault();
-        loadHistory(1);
-      }
+      if (!hasKeyboardFocus()) return;
+      if (["Enter", "=", "Backspace", "Delete", "ArrowLeft", "ArrowRight", "ArrowUp", "ArrowDown"].includes(event.key)) event.preventDefault();
+      dispatch({ type: "keyboard", key: event.key });
     });
 
     render();
   }
 
   // Test the existing pure functions in Node without constructing a DOM.
-  // State reduction and the browser/core split remain separate roadmap work.
+  // The DOM adapter below consumes the same deterministic reducer as Node tests.
   if (typeof module !== "undefined" && module.exports && typeof document === "undefined") {
     module.exports = Object.freeze({
+      createInitialState,
+      reduceCalculator,
       evaluateExpression,
       evaluateExactExpression,
       formatValue,
