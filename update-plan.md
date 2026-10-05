@@ -4,13 +4,13 @@
 - Plan status: Active
 - Current package baseline: 0.3.1
 - Target release: 1.0.0 after verified parity
-- Next item: EL506-014
+- Next item: EL506-019
 - Last updated: 2026-10-05
 
 ## Progress Overview
 
-As of 2026-10-05, **6 of 245 roadmap tasks are complete (2.4%)**, with
-**239 remaining**. The next task is **EL506-014**. These counts measure
+As of 2026-10-05, **7 of 245 roadmap tasks are complete (2.9%)**, with
+**238 remaining**. The next task is **EL506-019**. These counts measure
 completed checklist items, not elapsed effort or verified calculator parity;
 individual tasks vary in size. The detailed checklist below describes every
 remaining task and preserves its evidence and completion requirements.
@@ -18,7 +18,7 @@ remaining task and preserves its evidence and completion requirements.
 | Roadmap phase | Completed | Remaining |
 | --- | ---: | ---: |
 | Phase 0 - Reference and Traceability | 4 | 3 |
-| Phase 1 - Test and Emulator Foundation | 2 | 12 |
+| Phase 1 - Test and Emulator Foundation | 3 | 11 |
 | Phase 2 - Physical Layout, Display, Theme, and Access | 0 | 14 |
 | Phase 3 - Power, Modes, Clear, Editing, and History | 0 | 17 |
 | Phase 4 - Display Settings and Formatting | 0 | 11 |
@@ -36,7 +36,7 @@ remaining task and preserves its evidence and completion requirements.
 | Phase 16 - LIST Mode | 0 | 11 |
 | Phase 17 - Errors, Limits, and Cross-mode Parity | 0 | 15 |
 | Phase 18 - Security, Packaging, Compatibility, and Release | 0 | 15 |
-| **Total** | **6** | **239** |
+| **Total** | **7** | **238** |
 
 Refresh this overview's date, counts, percentage, and next task in every
 roadmap completion tracking commit, using the checklist as the source of truth.
@@ -568,9 +568,11 @@ The runner's completion does not require implementing the later feature phases.
     Notes: reference catalogue only; runtime dispatch, function layers, themes,
     pure-core unit suite and golden runner belong to later bootstrap items.
     Existing prepared catalogue, packaging, tests and plan changes preserved.
-- [ ] **EL506-014 - Extract a deterministic state reducer.** Move calculator
+- [x] **EL506-014 - Extract a deterministic state reducer.** Move calculator
   behavior out of DOM handlers while preserving existing tested behavior.
-    READY_TO_PUSH: 2026-10-05. Existing behavior now runs through immutable
+    Completed: 2026-10-05, implementation commit
+    `11900fb9cddcc210b153f635ba4d2148b2b80d00` verified on origin/main.
+    Existing behavior now runs through immutable
     createInitialState/reduceCalculator, with DOM rendering and input adapters
     consuming returned state. Includes all current stores, staged templates,
     cursor/history, modifiers, error display and nonfinite values. Legacy
@@ -578,7 +580,7 @@ The runner's completion does not require implementing the later feature phases.
     Evidence: fresh el506-014-reducer-addition-v1; Reset, K40 K43 K41 K48;
     five inspected LCD frames, result 3., DEG; runtime build/hash matched.
     Internal simulator stores remain unmeasured; guide example not used.
-    Verification: 12 pure unit tests and existing browser regression suite;
+    Verification: 12/12 pure unit tests and 25/25 browser regression tests;
     reference validators; compileall; pip dry run; Compose config/rebuild;
     HTTP 200; diff check. Browser tests retain two focused independent embeds.
     Scope: this prerequisite preserves baseline behavior, not new parity;
