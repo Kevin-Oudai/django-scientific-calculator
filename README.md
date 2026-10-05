@@ -39,6 +39,7 @@ The reusable app includes:
 - static files:
   - `scientific_calculator/calculator.css`
   - `scientific_calculator/calculator.js`
+  - `scientific_calculator/physical-keys.json` (verified physical key catalogue)
 
 The app has no models, migrations, URLs, database requirements, or server-side views.
 
@@ -246,6 +247,32 @@ scientific_calculator*
 ```
 
 That keeps the demo project out of pip installs.
+
+## Physical Key Reference
+
+`scientific_calculator/physical-keys.json` defines the 48 keypad positions for
+the planned EL-506TS compatibility work. Its fixed IDs, `EL506-K01` through
+`EL506-K48`, identify physical keys independently of their labels, mode,
+function layer, browser markup, or theme. IDs are permanent literal assignments;
+consumers must look them up by `id`, never by array index, display text, or DOM
+order. Correcting descriptive metadata does not reassign an existing ID.
+
+Each entry includes its physical `position` and a readable `reference_legend`.
+Positions use three regions: `utility` (rows of 2, 2, and 3 keys), `navigation`
+(rows of 1, 2, and 1 keys), and `main` (rows of 6, 6, 6, 5, 5, 5, and 4 keys).
+Rows run top to bottom and slots run left to right within each region. Legends
+describe the primary markings; they do not define base, 2ndF, ALPHA, or HYP
+behavior. Alternate functions reuse the same physical ID. The recessed RESET
+switch and simulator window controls are outside this keypad catalogue.
+
+The catalogue was verified against the live pinned simulator on 2026-10-05.
+Its source transcript is `tests/reference/el506ts/physical-key-reference.json`: the pinned
+simulator archive's configured small-panel bitmap, cross-checked against page 4
+of the operation guide. The transcript records hashes, approximate panel centers,
+exclusions, reset fingerprint, and representative live key sequences. Simulator artwork and the manual are
+not included in the package. This update adds reference data; runtime dispatch
+and UI mapping remain later roadmap work. Existing embeds still use the same
+template tag, CSS, and JavaScript includes.
 
 ## Docker Notes
 

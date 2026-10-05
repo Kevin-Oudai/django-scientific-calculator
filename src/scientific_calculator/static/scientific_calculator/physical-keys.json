@@ -1,0 +1,439 @@
+{
+  "schema_version": 1,
+  "catalog_id": "el506-physical-keys-v1",
+  "model": "EL-506TS",
+  "keys": [
+    {
+      "id": "EL506-K01",
+      "position": {
+        "region": "utility",
+        "row": 1,
+        "slot": 1
+      },
+      "reference_legend": "HOME"
+    },
+    {
+      "id": "EL506-K02",
+      "position": {
+        "region": "utility",
+        "row": 1,
+        "slot": 2
+      },
+      "reference_legend": "ON/C"
+    },
+    {
+      "id": "EL506-K03",
+      "position": {
+        "region": "utility",
+        "row": 2,
+        "slot": 1
+      },
+      "reference_legend": "2nd F"
+    },
+    {
+      "id": "EL506-K04",
+      "position": {
+        "region": "utility",
+        "row": 2,
+        "slot": 2
+      },
+      "reference_legend": "MODE"
+    },
+    {
+      "id": "EL506-K05",
+      "position": {
+        "region": "utility",
+        "row": 3,
+        "slot": 1
+      },
+      "reference_legend": "ALPHA"
+    },
+    {
+      "id": "EL506-K06",
+      "position": {
+        "region": "utility",
+        "row": 3,
+        "slot": 2
+      },
+      "reference_legend": "SET UP"
+    },
+    {
+      "id": "EL506-K07",
+      "position": {
+        "region": "utility",
+        "row": 3,
+        "slot": 3
+      },
+      "reference_legend": "DEL"
+    },
+    {
+      "id": "EL506-K08",
+      "position": {
+        "region": "navigation",
+        "row": 1,
+        "slot": 1
+      },
+      "reference_legend": "up"
+    },
+    {
+      "id": "EL506-K09",
+      "position": {
+        "region": "navigation",
+        "row": 2,
+        "slot": 1
+      },
+      "reference_legend": "left"
+    },
+    {
+      "id": "EL506-K10",
+      "position": {
+        "region": "navigation",
+        "row": 2,
+        "slot": 2
+      },
+      "reference_legend": "right"
+    },
+    {
+      "id": "EL506-K11",
+      "position": {
+        "region": "navigation",
+        "row": 3,
+        "slot": 1
+      },
+      "reference_legend": "down"
+    },
+    {
+      "id": "EL506-K12",
+      "position": {
+        "region": "main",
+        "row": 1,
+        "slot": 1
+      },
+      "reference_legend": "hyp"
+    },
+    {
+      "id": "EL506-K13",
+      "position": {
+        "region": "main",
+        "row": 1,
+        "slot": 2
+      },
+      "reference_legend": "sin"
+    },
+    {
+      "id": "EL506-K14",
+      "position": {
+        "region": "main",
+        "row": 1,
+        "slot": 3
+      },
+      "reference_legend": "cos"
+    },
+    {
+      "id": "EL506-K15",
+      "position": {
+        "region": "main",
+        "row": 1,
+        "slot": 4
+      },
+      "reference_legend": "tan"
+    },
+    {
+      "id": "EL506-K16",
+      "position": {
+        "region": "main",
+        "row": 1,
+        "slot": 5
+      },
+      "reference_legend": "integral dx"
+    },
+    {
+      "id": "EL506-K17",
+      "position": {
+        "region": "main",
+        "row": 1,
+        "slot": 6
+      },
+      "reference_legend": "MATH"
+    },
+    {
+      "id": "EL506-K18",
+      "position": {
+        "region": "main",
+        "row": 2,
+        "slot": 1
+      },
+      "reference_legend": "pi"
+    },
+    {
+      "id": "EL506-K19",
+      "position": {
+        "region": "main",
+        "row": 2,
+        "slot": 2
+      },
+      "reference_legend": "y^x"
+    },
+    {
+      "id": "EL506-K20",
+      "position": {
+        "region": "main",
+        "row": 2,
+        "slot": 3
+      },
+      "reference_legend": "x^2"
+    },
+    {
+      "id": "EL506-K21",
+      "position": {
+        "region": "main",
+        "row": 2,
+        "slot": 4
+      },
+      "reference_legend": "x^3"
+    },
+    {
+      "id": "EL506-K22",
+      "position": {
+        "region": "main",
+        "row": 2,
+        "slot": 5
+      },
+      "reference_legend": "log"
+    },
+    {
+      "id": "EL506-K23",
+      "position": {
+        "region": "main",
+        "row": 2,
+        "slot": 6
+      },
+      "reference_legend": "ln"
+    },
+    {
+      "id": "EL506-K24",
+      "position": {
+        "region": "main",
+        "row": 3,
+        "slot": 1
+      },
+      "reference_legend": "Exp"
+    },
+    {
+      "id": "EL506-K25",
+      "position": {
+        "region": "main",
+        "row": 3,
+        "slot": 2
+      },
+      "reference_legend": "a b/c"
+    },
+    {
+      "id": "EL506-K26",
+      "position": {
+        "region": "main",
+        "row": 3,
+        "slot": 3
+      },
+      "reference_legend": "DMS"
+    },
+    {
+      "id": "EL506-K27",
+      "position": {
+        "region": "main",
+        "row": 3,
+        "slot": 4
+      },
+      "reference_legend": "RCL"
+    },
+    {
+      "id": "EL506-K28",
+      "position": {
+        "region": "main",
+        "row": 3,
+        "slot": 5
+      },
+      "reference_legend": "STO"
+    },
+    {
+      "id": "EL506-K29",
+      "position": {
+        "region": "main",
+        "row": 3,
+        "slot": 6
+      },
+      "reference_legend": "M+"
+    },
+    {
+      "id": "EL506-K30",
+      "position": {
+        "region": "main",
+        "row": 4,
+        "slot": 1
+      },
+      "reference_legend": "7"
+    },
+    {
+      "id": "EL506-K31",
+      "position": {
+        "region": "main",
+        "row": 4,
+        "slot": 2
+      },
+      "reference_legend": "8"
+    },
+    {
+      "id": "EL506-K32",
+      "position": {
+        "region": "main",
+        "row": 4,
+        "slot": 3
+      },
+      "reference_legend": "9"
+    },
+    {
+      "id": "EL506-K33",
+      "position": {
+        "region": "main",
+        "row": 4,
+        "slot": 4
+      },
+      "reference_legend": "("
+    },
+    {
+      "id": "EL506-K34",
+      "position": {
+        "region": "main",
+        "row": 4,
+        "slot": 5
+      },
+      "reference_legend": ")"
+    },
+    {
+      "id": "EL506-K35",
+      "position": {
+        "region": "main",
+        "row": 5,
+        "slot": 1
+      },
+      "reference_legend": "4"
+    },
+    {
+      "id": "EL506-K36",
+      "position": {
+        "region": "main",
+        "row": 5,
+        "slot": 2
+      },
+      "reference_legend": "5"
+    },
+    {
+      "id": "EL506-K37",
+      "position": {
+        "region": "main",
+        "row": 5,
+        "slot": 3
+      },
+      "reference_legend": "6"
+    },
+    {
+      "id": "EL506-K38",
+      "position": {
+        "region": "main",
+        "row": 5,
+        "slot": 4
+      },
+      "reference_legend": "multiply"
+    },
+    {
+      "id": "EL506-K39",
+      "position": {
+        "region": "main",
+        "row": 5,
+        "slot": 5
+      },
+      "reference_legend": "divide"
+    },
+    {
+      "id": "EL506-K40",
+      "position": {
+        "region": "main",
+        "row": 6,
+        "slot": 1
+      },
+      "reference_legend": "1"
+    },
+    {
+      "id": "EL506-K41",
+      "position": {
+        "region": "main",
+        "row": 6,
+        "slot": 2
+      },
+      "reference_legend": "2"
+    },
+    {
+      "id": "EL506-K42",
+      "position": {
+        "region": "main",
+        "row": 6,
+        "slot": 3
+      },
+      "reference_legend": "3"
+    },
+    {
+      "id": "EL506-K43",
+      "position": {
+        "region": "main",
+        "row": 6,
+        "slot": 4
+      },
+      "reference_legend": "add"
+    },
+    {
+      "id": "EL506-K44",
+      "position": {
+        "region": "main",
+        "row": 6,
+        "slot": 5
+      },
+      "reference_legend": "subtract"
+    },
+    {
+      "id": "EL506-K45",
+      "position": {
+        "region": "main",
+        "row": 7,
+        "slot": 1
+      },
+      "reference_legend": "0"
+    },
+    {
+      "id": "EL506-K46",
+      "position": {
+        "region": "main",
+        "row": 7,
+        "slot": 2
+      },
+      "reference_legend": "decimal point"
+    },
+    {
+      "id": "EL506-K47",
+      "position": {
+        "region": "main",
+        "row": 7,
+        "slot": 3
+      },
+      "reference_legend": "+/-"
+    },
+    {
+      "id": "EL506-K48",
+      "position": {
+        "region": "main",
+        "row": 7,
+        "slot": 4
+      },
+      "reference_legend": "equals"
+    }
+  ]
+}

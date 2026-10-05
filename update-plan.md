@@ -1,11 +1,11 @@
 # EL-506TS Behavior Parity Update Plan
 
-- Plan version: 1.1
+- Plan version: 1.2
 - Plan status: Active
 - Current package baseline: 0.3.1
 - Target release: 1.0.0 after verified parity
-- Next item: EL506-001
-- Last updated: 2026-09-07
+- Next item: EL506-013
+- Last updated: 2026-10-05
 
 ## Purpose
 
@@ -23,6 +23,11 @@ must produce the same:
 - numerical or exact result;
 - memory, history, dataset, matrix, and list changes;
 - error message, error position, and recovery behavior.
+
+These comparisons use the applicable reference under **Reference Order**,
+including the six documented simulator exceptions. Random outputs are compared
+by their required range and state semantics, not by an identical random stream,
+unless repeatability is established under EL506-144.
 
 The target is behavioral compatibility for teaching. It is not permission to
 copy Sharp logos, product names, artwork, manual illustrations, simulator
@@ -63,7 +68,9 @@ assets, or other protected branding into the distributed package.
 
 Use sources in this order:
 
-1. The exact Sharp EL-506TS simulator build owned by the user.
+1. The exact Sharp EL-506TS simulator build owned by the user, except for the
+   six documented simulator differences in the pinned profile. For those
+   differences, the full manual or a physical EL-506TS takes precedence.
 2. Sharp's full EL-506TS operation manual and official specification.
 3. The 44-page local OperationGuide_EL506TS.pdf.
 4. Existing application behavior, tests, and documentation.
@@ -169,9 +176,15 @@ When the user asks to update the calculator without naming a specific item:
    work required to finish it.
 7. Do not begin a second roadmap item in the same update.
 8. Run the completion gates below.
-9. Mark the item complete, append its completion record, and advance
-   **Next item** in the same commit.
-10. Commit only the intended files and push the commit to origin/main.
+9. Leave the item unchecked and **Next item** pointing to it. Add a
+   READY_TO_PUSH note after local verification passes.
+10. Commit only the intended implementation and evidence files, including the
+    plan note, push to origin/main, and verify that the remote contains that
+    implementation commit.
+11. In a separate tracking commit, mark the item complete, record the already
+    known implementation SHA, and advance **Next item** using the dependency
+    order below. Push and verify the tracking commit before starting another
+    item or reporting the update complete.
 
 If the user explicitly requests a later item, verify its dependencies first.
 Do not implement a feature on an unverified foundation.
@@ -182,24 +195,38 @@ not visibly change the calculator.
 ## Item Status and Completion Records
 
 - [ ] means incomplete.
-- [x] means completed, committed, pushed to origin/main, and verified there.
+- [x] means the implementation and evidence commit has passed its applicable
+  gates, been pushed to origin/main, and been verified there. Publication of
+  the separate tracking commit is also required to finish the update.
 - BLOCKED means work cannot continue without missing evidence or authority.
 - Only one item may be actively implemented at a time.
 
 When completing an item, add an indented record directly below it:
 
-    Completed: YYYY-MM-DD, commit SHA
+    Completed: YYYY-MM-DD, implementation commit SHA
     Evidence: fixture IDs and simulator/manual references
     Verification: commands and relevant test counts
     Notes: deviations, migrations, or none
 
-If implementation and tests pass locally but the push fails, leave the item
-unchecked and add READY_TO_PUSH. The next update must finish that same item
-before selecting another one.
+The recorded SHA identifies the implementation commit, never the commit
+containing the completion record itself. No commit can contain its own SHA.
+
+If the implementation push or remote verification fails, leave the item
+unchecked with READY_TO_PUSH and keep **Next item** on that item. If publication
+of the tracking commit fails, report that pending commit and publish and verify
+it on the next update before following its advanced **Next item**. Do not claim
+that local tracking changes are already on origin/main.
 
 ## Completion Gates for Every Item
 
 An item is complete only when all applicable gates pass:
+
+Apply gates to the item's scope and the infrastructure available at that point
+in the dependency order. Reference and infrastructure items validate their
+artifacts and run the existing regression suite; they do not require future
+calculator features, themes, or test suites to exist. Record any inapplicable
+gate and why. Once the relevant infrastructure exists, behavior changes must
+use it; this does not waive any final release gate.
 
 1. **Reference gate**
    - Record the simulator version, reset state, exact key IDs, significant
@@ -247,8 +274,10 @@ An item is complete only when all applicable gates pass:
 7. **Publication gate**
    - Never use git add -A or stage unrelated files.
    - Never force-push.
-   - Push the tested commit to origin/main.
-   - Verify origin/main contains that commit.
+   - Push the tested implementation commit to origin/main and verify that the
+     remote contains it before recording completion.
+   - Push the separate tracking commit and verify that the remote contains it
+     before beginning another item or reporting the update complete.
 
 Pushing main updates the canonical source. Existing installed copies still
 require their normal reinstall, static collection, and deployment process.
@@ -330,6 +359,27 @@ The final implementation will use these boundaries:
 Complete these items in order unless a dependency recorded by an earlier item
 requires the order to change.
 
+### Bootstrap Dependency Order
+
+The following order takes precedence over the phase layout and numeric IDs:
+
+`EL506-000 -> EL506-013 -> EL506-002 -> EL506-001 -> EL506-005 -> EL506-010 ->
+EL506-014 -> EL506-019 -> EL506-003 -> EL506-004 -> EL506-006`
+
+EL506-000 is already complete, so EL506-013 is next. Stable physical-key IDs
+must exist before the experiment schema and capability ledger use them. Capture
+the 0.3.1 baseline before refactoring its behavior. Unit testing, the reducer,
+and observable state snapshots must exist before the golden runner can exercise
+the application. The guide fixtures and coverage report then use that runner.
+After this chain, resume the remaining incomplete items in phase order,
+starting with EL506-011; skip items already completed through this chain.
+
+During bootstrap, EL506-014 and EL506-019 cover all currently implemented state
+and define contracts that later feature items extend. EL506-003 must replay and
+assert supported baseline sequences through those contracts; unsupported
+capabilities remain explicitly pending and must not count as passing parity.
+The runner's completion does not require implementing the later feature phases.
+
 ### Phase 0 - Reference and Traceability
 
 - [x] **EL506-000 - Pin the reference simulator.** Record its executable or
@@ -361,7 +411,7 @@ requires the order to change.
   values and noting any guide/simulator disagreement.
 - [ ] **EL506-005 - Capture the version 0.3.1 baseline.** Classify every
   existing feature and test as matching, partial, enhanced-only, incorrect, or
-  missing.
+  missing. Record the source revision before EL506-014 refactors the baseline.
 - [ ] **EL506-006 - Add a generated parity report.** Report documented,
   simulator-observed, implemented, unit-tested, golden-tested, and
   browser-tested status independently for every ledger entry.
@@ -376,7 +426,23 @@ requires the order to change.
   JavaScript unit tests, Playwright, packaging checks, and dependency/license
   checks without secrets or paid services.
 - [ ] **EL506-013 - Define canonical physical key IDs.** Keep IDs independent
-  of current label, mode, theme, DOM selector, or translated expression.
+  of current label, mode, theme, DOM selector, or translated expression. Execute
+  before EL506-002 and EL506-001 as specified in the bootstrap order.
+    READY_TO_PUSH: 2026-10-05. Live reference gate passed against pinned build
+    1.0.2.0: all 48 panel positions compared, eleven representative physical
+    inputs transcribed, and Reset capture SHA-256 matched the pinned baseline.
+    Evidence: `el506-013-key-panel-v1` in
+    `tests/reference/el506ts/physical-key-reference.json`; guide page 4.
+    Verification: npm.cmd test 15/15 (12 calculator regressions, 3 catalogue
+    checks); compileall; pip install --dry-run --no-deps .; docker compose config;
+    docker compose up --build -d; demo HTTP 200; isolated wheel/sdist build and
+    catalogue-content assertions; git diff --check.
+    Validation recovery: first test run overlapped the demo rebuild and had
+    three connection failures; stable-container rerun passed. Non-isolated
+    build lacked setuptools; normal isolated build passed.
+    Notes: reference catalogue only; runtime dispatch, function layers, themes,
+    pure-core unit suite and golden runner belong to later bootstrap items.
+    Existing prepared catalogue, packaging, tests and plan changes preserved.
 - [ ] **EL506-014 - Extract a deterministic state reducer.** Move calculator
   behavior out of DOM handlers while preserving existing tested behavior.
 - [ ] **EL506-015 - Model entry lifecycle states.** Cover empty, entering,
@@ -419,7 +485,9 @@ requires the order to change.
   ALPHA, FIX, SCI, ENG, DEG, RAD, GRAD, CPLX, MAT, LIST, STAT, M, base,
   hidden-content arrows, and component indicators.
 - [ ] **EL506-034 - Implement display cursor and insert marker.** Match
-  simulator positions, blinking rules, selection, and horizontal follow.
+  simulator positions, selection, and horizontal follow. Use the full manual
+  or physical device for blinking; the simulator's non-blinking cursor is a
+  documented exception.
 - [ ] **EL506-035 - Implement multi-result paging UI.** Support coordinate
   pairs, complex components, equation solutions, matrix cells, and list
   elements without recalculation.
@@ -777,7 +845,8 @@ guess any item in this phase; observe it in the reference simulator first.
 - [ ] **EL506-363 - Add property tests.** Cover arithmetic, fractions,
   conversions, statistics, equations, complex values, matrices, and lists.
 - [ ] **EL506-364 - Complete the final simulator parity audit with no
-  undocumented deviations.**
+  undocumented deviations.** Apply and verify the six documented simulator
+  exceptions against the full manual or a physical device.
 
 ### Phase 18 - Security, Packaging, Compatibility, and Release
 
@@ -852,8 +921,12 @@ Version 1.0.0 may be called behaviorally compatible only when:
 - every simulator-exposed capability is in the ledger;
 - every ledger entry has reference evidence;
 - every supported key sequence travels through the canonical state machine;
-- all documented guide examples match the simulator and this calculator;
-- all displays, prompts, indicators, result pages, stores, and errors match;
+- every documented guide example has been checked against the applicable
+  reference, every disagreement is recorded, and this calculator matches the
+  reference selected under **Reference Order**;
+- all displays, prompts, indicators, result pages, stores, and errors match the
+  applicable reference, including verified physical-device behavior for the
+  six documented simulator exceptions;
 - random behavior matches ranges and state semantics;
 - numerical differences are absent or explicitly approved and documented with
   evidence that exact reproduction is infeasible;

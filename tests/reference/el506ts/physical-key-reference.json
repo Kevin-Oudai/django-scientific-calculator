@@ -1,0 +1,713 @@
+{
+  "schema_version": 1,
+  "reference_id": "el506-013-key-panel-v1",
+  "roadmap_item": "EL506-013",
+  "catalog_id": "el506-physical-keys-v1",
+  "simulator_profile_id": "sharp-el506ts-pc-simulator-1.0.2.0",
+  "reference_status": "live-verified",
+  "capture_kind": "static-artifact-and-live-simulator-verification",
+  "inspected_at_utc": "2026-09-20T03:08:16+00:00",
+  "sources": [
+    {
+      "kind": "pinned-launcher-archive",
+      "name": "EL_506TS_Simulator.exe",
+      "bytes": 1712128,
+      "sha256": "8246dc314e7232cb62ac1a4abc14d8c82f4aba4ffd37161ba13f463150f1d509"
+    },
+    {
+      "kind": "runtime-payload",
+      "archive_entry": "SHARP Calculator.exe",
+      "bytes": 1220608,
+      "sha256": "6bfef4d04900b472892be2d4c54dcfa6013f87232097e32df508ca4c27425530",
+      "profile_match": true
+    },
+    {
+      "kind": "panel-configuration",
+      "archive_entry": "CalcSim.ini",
+      "bytes": 426,
+      "sha256": "9d49928d03e86d487ea6b570e3d86904605651ec69fe8687e3b18abce8ca12b0",
+      "setting": "PanelBmp.SmallNormalPanelBmp",
+      "value": "small\\Cal_S_normal_EL506TS_WH.bmp"
+    },
+    {
+      "kind": "key-panel-bitmap",
+      "archive_entry": "small/Cal_S_normal_EL506TS_WH.bmp",
+      "bytes": 498582,
+      "sha256": "ddb0eb1865769f8a4a5433057d55a2871b1be615268ebfa79233ce5a95867ee9"
+    },
+    {
+      "kind": "operation-guide",
+      "local_path": "src/OperationGuide_EL506TS.pdf",
+      "sha256": "0fd2dda1f5a38757624c03a4ae5c72f0d9f531244f6a056af708e7e67addf0e2",
+      "total_pages": 44,
+      "page": 4,
+      "section": "1. KEY LAYOUT"
+    }
+  ],
+  "panel": {
+    "width_px": 287,
+    "height_px": 577,
+    "coordinate_origin": "top-left of the small normal panel bitmap",
+    "coordinate_units": "bitmap pixels",
+    "coordinate_precision": "Visual estimates confirmed for representative live inputs; not measured hit regions. Resolve the panel on every session."
+  },
+  "method": [
+    "Read the existing launcher as a ZIP without executing it; its SHA-256 matches the pinned profile.",
+    "Verify the runtime payload SHA-256 against the pinned profile and read CalcSim.ini to identify the selected small normal panel.",
+    "Inspect that bitmap locally and compare all 48 keypad positions with page 4 of the user-provided operation guide.",
+    "Transcribe fixed IDs, positions, readable legend descriptions, and approximate centers; retain no simulator artwork or manual image in the repository."
+  ],
+  "enumeration": {
+    "utility": "HOME and ON/C; 2nd F and MODE; ALPHA, SET UP, DEL. Each row is left to right.",
+    "navigation": "Up; left and right; down. The center is not a key.",
+    "main": "Seven rows below utility/navigation, top to bottom and left to right. Row lengths are 6, 6, 6, 5, 5, 5, 4.",
+    "identity": "EL506-K01 through EL506-K48 are literal permanent assignments, not computed array indexes. Metadata, ordering, translated labels, display theme, mode, and function layers do not change an ID."
+  },
+  "legend_transcription": "ASCII descriptions identify visible primary marks. They are reference aids, not commands or complete base/2ndF/ALPHA mappings.",
+  "keys": [
+    {
+      "key_id": "EL506-K01",
+      "center_px": [
+        45,
+        193
+      ],
+      "reference_legend": "HOME"
+    },
+    {
+      "key_id": "EL506-K02",
+      "center_px": [
+        242,
+        193
+      ],
+      "reference_legend": "ON/C"
+    },
+    {
+      "key_id": "EL506-K03",
+      "center_px": [
+        45,
+        254
+      ],
+      "reference_legend": "2nd F"
+    },
+    {
+      "key_id": "EL506-K04",
+      "center_px": [
+        242,
+        254
+      ],
+      "reference_legend": "MODE"
+    },
+    {
+      "key_id": "EL506-K05",
+      "center_px": [
+        95,
+        279
+      ],
+      "reference_legend": "ALPHA"
+    },
+    {
+      "key_id": "EL506-K06",
+      "center_px": [
+        144,
+        279
+      ],
+      "reference_legend": "SET UP"
+    },
+    {
+      "key_id": "EL506-K07",
+      "center_px": [
+        193,
+        279
+      ],
+      "reference_legend": "DEL"
+    },
+    {
+      "key_id": "EL506-K08",
+      "center_px": [
+        144,
+        202
+      ],
+      "reference_legend": "up"
+    },
+    {
+      "key_id": "EL506-K09",
+      "center_px": [
+        80,
+        223
+      ],
+      "reference_legend": "left"
+    },
+    {
+      "key_id": "EL506-K10",
+      "center_px": [
+        209,
+        223
+      ],
+      "reference_legend": "right"
+    },
+    {
+      "key_id": "EL506-K11",
+      "center_px": [
+        144,
+        244
+      ],
+      "reference_legend": "down"
+    },
+    {
+      "key_id": "EL506-K12",
+      "center_px": [
+        45,
+        313
+      ],
+      "reference_legend": "hyp"
+    },
+    {
+      "key_id": "EL506-K13",
+      "center_px": [
+        84,
+        313
+      ],
+      "reference_legend": "sin"
+    },
+    {
+      "key_id": "EL506-K14",
+      "center_px": [
+        124,
+        313
+      ],
+      "reference_legend": "cos"
+    },
+    {
+      "key_id": "EL506-K15",
+      "center_px": [
+        163,
+        313
+      ],
+      "reference_legend": "tan"
+    },
+    {
+      "key_id": "EL506-K16",
+      "center_px": [
+        202,
+        313
+      ],
+      "reference_legend": "integral dx"
+    },
+    {
+      "key_id": "EL506-K17",
+      "center_px": [
+        242,
+        313
+      ],
+      "reference_legend": "MATH"
+    },
+    {
+      "key_id": "EL506-K18",
+      "center_px": [
+        45,
+        346
+      ],
+      "reference_legend": "pi"
+    },
+    {
+      "key_id": "EL506-K19",
+      "center_px": [
+        84,
+        346
+      ],
+      "reference_legend": "y^x"
+    },
+    {
+      "key_id": "EL506-K20",
+      "center_px": [
+        124,
+        346
+      ],
+      "reference_legend": "x^2"
+    },
+    {
+      "key_id": "EL506-K21",
+      "center_px": [
+        163,
+        346
+      ],
+      "reference_legend": "x^3"
+    },
+    {
+      "key_id": "EL506-K22",
+      "center_px": [
+        202,
+        346
+      ],
+      "reference_legend": "log"
+    },
+    {
+      "key_id": "EL506-K23",
+      "center_px": [
+        242,
+        346
+      ],
+      "reference_legend": "ln"
+    },
+    {
+      "key_id": "EL506-K24",
+      "center_px": [
+        45,
+        378
+      ],
+      "reference_legend": "Exp"
+    },
+    {
+      "key_id": "EL506-K25",
+      "center_px": [
+        84,
+        378
+      ],
+      "reference_legend": "a b/c"
+    },
+    {
+      "key_id": "EL506-K26",
+      "center_px": [
+        124,
+        378
+      ],
+      "reference_legend": "DMS"
+    },
+    {
+      "key_id": "EL506-K27",
+      "center_px": [
+        163,
+        378
+      ],
+      "reference_legend": "RCL"
+    },
+    {
+      "key_id": "EL506-K28",
+      "center_px": [
+        202,
+        378
+      ],
+      "reference_legend": "STO"
+    },
+    {
+      "key_id": "EL506-K29",
+      "center_px": [
+        242,
+        378
+      ],
+      "reference_legend": "M+"
+    },
+    {
+      "key_id": "EL506-K30",
+      "center_px": [
+        50,
+        418
+      ],
+      "reference_legend": "7"
+    },
+    {
+      "key_id": "EL506-K31",
+      "center_px": [
+        100,
+        418
+      ],
+      "reference_legend": "8"
+    },
+    {
+      "key_id": "EL506-K32",
+      "center_px": [
+        150,
+        418
+      ],
+      "reference_legend": "9"
+    },
+    {
+      "key_id": "EL506-K33",
+      "center_px": [
+        198,
+        418
+      ],
+      "reference_legend": "("
+    },
+    {
+      "key_id": "EL506-K34",
+      "center_px": [
+        242,
+        418
+      ],
+      "reference_legend": ")"
+    },
+    {
+      "key_id": "EL506-K35",
+      "center_px": [
+        50,
+        458
+      ],
+      "reference_legend": "4"
+    },
+    {
+      "key_id": "EL506-K36",
+      "center_px": [
+        100,
+        458
+      ],
+      "reference_legend": "5"
+    },
+    {
+      "key_id": "EL506-K37",
+      "center_px": [
+        150,
+        458
+      ],
+      "reference_legend": "6"
+    },
+    {
+      "key_id": "EL506-K38",
+      "center_px": [
+        198,
+        458
+      ],
+      "reference_legend": "multiply"
+    },
+    {
+      "key_id": "EL506-K39",
+      "center_px": [
+        242,
+        458
+      ],
+      "reference_legend": "divide"
+    },
+    {
+      "key_id": "EL506-K40",
+      "center_px": [
+        50,
+        499
+      ],
+      "reference_legend": "1"
+    },
+    {
+      "key_id": "EL506-K41",
+      "center_px": [
+        100,
+        499
+      ],
+      "reference_legend": "2"
+    },
+    {
+      "key_id": "EL506-K42",
+      "center_px": [
+        150,
+        499
+      ],
+      "reference_legend": "3"
+    },
+    {
+      "key_id": "EL506-K43",
+      "center_px": [
+        198,
+        499
+      ],
+      "reference_legend": "add"
+    },
+    {
+      "key_id": "EL506-K44",
+      "center_px": [
+        242,
+        499
+      ],
+      "reference_legend": "subtract"
+    },
+    {
+      "key_id": "EL506-K45",
+      "center_px": [
+        50,
+        540
+      ],
+      "reference_legend": "0"
+    },
+    {
+      "key_id": "EL506-K46",
+      "center_px": [
+        100,
+        540
+      ],
+      "reference_legend": "decimal point"
+    },
+    {
+      "key_id": "EL506-K47",
+      "center_px": [
+        150,
+        540
+      ],
+      "reference_legend": "+/-"
+    },
+    {
+      "key_id": "EL506-K48",
+      "center_px": [
+        218,
+        540
+      ],
+      "reference_legend": "equals"
+    }
+  ],
+  "excluded_controls": [
+    {
+      "control": "physical RESET pinhole",
+      "reason": "A separate recessed hardware reset switch, not a keypad key. Its event and behavior belong to EL506-058."
+    },
+    {
+      "control": "simulator Reset, Capture, Open Image Folder, window chrome",
+      "reason": "Host application controls are not physical calculator keys."
+    },
+    {
+      "control": "navigation pad center",
+      "reason": "No keypad key is shown at the center; the web demo placeholder is not physical-key evidence."
+    },
+    {
+      "control": "2ndF, ALPHA, HYP, formula-memory and other alternate functions",
+      "reason": "Alternate meanings reuse their physical key ID; this catalogue does not allocate function IDs or verify layer semantics."
+    }
+  ],
+  "live_verification": {
+    "status": "pass",
+    "observed_on": "2026-10-05",
+    "timezone": "America/Port_of_Spain",
+    "environment": {
+      "operating_system": "Windows 11",
+      "ui_language": "English",
+      "runtime_file_version": "1.0.2.0",
+      "runtime_product_version": "1.0.2.0",
+      "runtime_sha256": "6bfef4d04900b472892be2d4c54dcfa6013f87232097e32df508ca4c27425530",
+      "launcher_sha256": "8246dc314e7232cb62ac1a4abc14d8c82f4aba4ffd37161ba13f463150f1d509"
+    },
+    "geometry": {
+      "window_px": [
+        768,
+        663
+      ],
+      "small_panel_origin_window_px": [
+        23,
+        56
+      ],
+      "small_panel_px": [
+        287,
+        577
+      ],
+      "lcd_px": [
+        425,
+        124
+      ],
+      "note": "Current window screenshot differs from pinned outer-window dimensions; panel and LCD dimensions match. No pixel-golden comparison of outer chrome claimed."
+    },
+    "panel_comparison": {
+      "matched_key_ids": [
+        "EL506-K01",
+        "EL506-K02",
+        "EL506-K03",
+        "EL506-K04",
+        "EL506-K05",
+        "EL506-K06",
+        "EL506-K07",
+        "EL506-K08",
+        "EL506-K09",
+        "EL506-K10",
+        "EL506-K11",
+        "EL506-K12",
+        "EL506-K13",
+        "EL506-K14",
+        "EL506-K15",
+        "EL506-K16",
+        "EL506-K17",
+        "EL506-K18",
+        "EL506-K19",
+        "EL506-K20",
+        "EL506-K21",
+        "EL506-K22",
+        "EL506-K23",
+        "EL506-K24",
+        "EL506-K25",
+        "EL506-K26",
+        "EL506-K27",
+        "EL506-K28",
+        "EL506-K29",
+        "EL506-K30",
+        "EL506-K31",
+        "EL506-K32",
+        "EL506-K33",
+        "EL506-K34",
+        "EL506-K35",
+        "EL506-K36",
+        "EL506-K37",
+        "EL506-K38",
+        "EL506-K39",
+        "EL506-K40",
+        "EL506-K41",
+        "EL506-K42",
+        "EL506-K43",
+        "EL506-K44",
+        "EL506-K45",
+        "EL506-K46",
+        "EL506-K47",
+        "EL506-K48"
+      ],
+      "navigation": "Four directions confirmed; center has no key.",
+      "excluded_reset": "Recessed RESET pinhole below DEL is separate from the keypad; simulator chrome controls excluded.",
+      "disagreements": []
+    },
+    "reset_state": {
+      "method": "Simulator chrome Reset (automation ID 1001), before and after probes",
+      "upper_line": "",
+      "lower_line": "0.",
+      "indicators": [
+        "DEG"
+      ],
+      "cursor": "not visible",
+      "prompt": null,
+      "reset_capture_sha256": "2c110af0ce76bc0714338d0a7baffb4ca42aaa9a806a2a75d08fccdf8b9e0b73",
+      "capture_dimensions_px": [
+        425,
+        124
+      ],
+      "capture_retained_in_repository": false
+    },
+    "key_sequence": [
+      "EL506-K40",
+      "EL506-K43",
+      "EL506-K41",
+      "EL506-K48",
+      "EL506-K09",
+      "EL506-K10",
+      "EL506-K08",
+      "EL506-K11",
+      "EL506-K02",
+      "EL506-K04",
+      "EL506-K01"
+    ],
+    "display_frames": [
+      {
+        "after_key_id": "EL506-K40",
+        "upper_line": "",
+        "lower_line": "1.",
+        "indicators": [
+          "DEG"
+        ],
+        "cursor_or_selection": "not visible",
+        "scroll_arrows": [],
+        "prompt": null
+      },
+      {
+        "after_key_id": "EL506-K43",
+        "upper_line": "1+",
+        "lower_line": "0.",
+        "indicators": [
+          "DEG"
+        ],
+        "cursor_or_selection": "underscore after +",
+        "scroll_arrows": [],
+        "prompt": null
+      },
+      {
+        "after_key_id": "EL506-K41",
+        "upper_line": "1+",
+        "lower_line": "2.",
+        "indicators": [
+          "DEG"
+        ],
+        "cursor_or_selection": "underscore after +",
+        "scroll_arrows": [],
+        "prompt": null
+      },
+      {
+        "after_key_id": "EL506-K48",
+        "upper_line": "1+2=",
+        "lower_line": "3.",
+        "indicators": [
+          "DEG"
+        ],
+        "cursor_or_selection": "not visible",
+        "scroll_arrows": [],
+        "prompt": null
+      },
+      {
+        "after_key_id": "EL506-K09",
+        "upper_line": "1+2",
+        "lower_line": "0.",
+        "indicators": [
+          "DEG"
+        ],
+        "cursor_or_selection": "underscore after 2",
+        "scroll_arrows": [],
+        "prompt": null
+      },
+      {
+        "after_key_id": "EL506-K10",
+        "upper_line": "1+2",
+        "lower_line": "0.",
+        "indicators": [
+          "DEG"
+        ],
+        "cursor_or_selection": "underscore after 2",
+        "scroll_arrows": [],
+        "prompt": null
+      },
+      {
+        "after_key_id": "EL506-K08",
+        "upper_line": "1+2",
+        "lower_line": "",
+        "indicators": [
+          "DEG"
+        ],
+        "cursor_or_selection": "left-pointing cursor at first character",
+        "scroll_arrows": [],
+        "prompt": null
+      },
+      {
+        "after_key_id": "EL506-K11",
+        "upper_line": "1+2",
+        "lower_line": "",
+        "indicators": [
+          "DEG"
+        ],
+        "cursor_or_selection": "left-pointing cursor at first character",
+        "scroll_arrows": [],
+        "prompt": null
+      },
+      {
+        "after_key_id": "EL506-K02",
+        "upper_line": "",
+        "lower_line": "0.",
+        "indicators": [
+          "DEG"
+        ],
+        "cursor_or_selection": "not visible",
+        "scroll_arrows": [],
+        "prompt": null
+      },
+      {
+        "after_key_id": "EL506-K04",
+        "upper_line": "NORMAL STAT",
+        "lower_line": "0. 1",
+        "indicators": [
+          "DEG"
+        ],
+        "cursor_or_selection": "dot beside 0; NORMAL selected",
+        "scroll_arrows": [],
+        "prompt": null
+      },
+      {
+        "after_key_id": "EL506-K01",
+        "upper_line": "",
+        "lower_line": "0.",
+        "indicators": [
+          "DEG"
+        ],
+        "cursor_or_selection": "not visible",
+        "scroll_arrows": [],
+        "prompt": null
+      }
+    ],
+    "state_scope": "Observed expression/result and menu only. No memory, dataset, matrix or list probes; retained stores not asserted. No errors observed; ON/C cleared entry and HOME exited MODE.",
+    "method": "Computer Use @oai/sky; one click and fresh screenshot per key, at catalogue center plus live panel origin. Built-in Capture reset fingerprint matches pinned profile. Only factual transcripts and hash retained.",
+    "unresolved": []
+  }
+}

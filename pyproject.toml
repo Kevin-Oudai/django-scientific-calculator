@@ -38,4 +38,5 @@ scientific_calculator = [
     "templates/scientific_calculator/*.html",
     "static/scientific_calculator/*.css",
     "static/scientific_calculator/*.js",
+    "static/scientific_calculator/*.json",
 ]

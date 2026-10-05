@@ -1,2 +1,2 @@
 recursive-include src/scientific_calculator/templates *.html
-recursive-include src/scientific_calculator/static *.css *.js
+recursive-include src/scientific_calculator/static *.css *.js *.json
