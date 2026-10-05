@@ -4,7 +4,7 @@
 - Plan status: Active
 - Current package baseline: 0.3.1
 - Target release: 1.0.0 after verified parity
-- Next item: EL506-001
+- Next item: EL506-005
 - Last updated: 2026-10-05
 
 ## Purpose
@@ -396,11 +396,13 @@ The runner's completion does not require implementing the later feature phases.
     documentation, assets, and captures remain local and untracked. The six
     Sharp-documented simulator/device differences are explicit oracle
     exceptions.
-- [ ] **EL506-001 - Create the 470-capability ledger.** Inventory every
+- [x] **EL506-001 - Create the 470-capability ledger.** Inventory every
   physical key, base action, 2ndF action, ALPHA action, mode/submode action,
   SET UP choice, MATH menu entry, constant, conversion, statistic, regression,
   solver, matrix function, and list function exposed by the simulator.
-    READY_TO_PUSH: 2026-10-05. Ledger prepared with 430 stable inventory IDs,
+    Completed: 2026-10-05, implementation commit
+    9b94ee717ac2f9038b05addb8831a3633d8afccb
+    Evidence: Ledger contains 430 stable inventory IDs,
     all 48 physical positions and visible layers, observed mode/submode and
     menu selections, 52 constants, 44 conversion directions, named statistics,
     memories, solver, matrix and list operations. Live
