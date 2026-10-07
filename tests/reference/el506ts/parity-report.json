@@ -19,16 +19,16 @@
         "missing": 307
       },
       "unitTested": {
-        "pending": 405,
-        "partial": 25
+        "pending": 391,
+        "partial": 39
       },
       "goldenTested": {
-        "pending": 407,
-        "baseline-known-differences": 23
+        "pending": 401,
+        "baseline-known-differences": 29
       },
       "browserTested": {
-        "partial": 64,
-        "pending": 366
+        "partial": 70,
+        "pending": 360
       }
     },
     "guide": {
@@ -38,8 +38,8 @@
       "pending": 51
     },
     "golden": {
-      "fixtures": 14,
-      "assertedFrames": 114,
+      "fixtures": 17,
+      "assertedFrames": 147,
       "pending": 1
     },
     "verifiedFullParity": 0
@@ -107,6 +107,18 @@
       "sha256": "57978be6b0aa014f4de98e4a5c9ebc8aa2044cccea2cf1e45e5a8fcd14378c5d"
     },
     {
+      "path": "tests/reference/el506ts/experiments/phase6-coordinate.json",
+      "sha256": "f5d76a27833d3d5156b7ce2de02ccfe881de4bd9a60f31c7ae71fe4c0fc2a5b0"
+    },
+    {
+      "path": "tests/reference/el506ts/experiments/phase6-dms.json",
+      "sha256": "84cbecd90f00763bc88d24f4f5ecad9321c7142f47e960f116f439c970a6c182"
+    },
+    {
+      "path": "tests/reference/el506ts/experiments/phase6-fraction.json",
+      "sha256": "0ab8636cbd1acc91efb9290e63f50e7bf970001daa61fba0985003d76a17156a"
+    },
+    {
       "path": "tests/reference/el506ts/experiments/retained-answer.json",
       "sha256": "7ded9b273cf3d756ce11ac3fb5c6344d9f12c1f52219eb461da1a5cf3caceb14"
     },
@@ -136,7 +148,7 @@
     },
     {
       "path": "tests/reference/el506ts/golden/key-layers.json",
-      "sha256": "1021de68bd1a0b2471bdb8346205848fbf47f09cda00338592bcb620d8be2055"
+      "sha256": "1a28cc2c18b20907829f3ac0f35ba09cacae56f30cbc1b668feec5a9de9f23e3"
     },
     {
       "path": "tests/reference/el506ts/golden/menus-pending.json",
@@ -167,6 +179,18 @@
       "sha256": "936c474e946d9058d54b9016b3922ee54b641e916fe93b809da8dd30ec554cc7"
     },
     {
+      "path": "tests/reference/el506ts/golden/phase6-coordinate.json",
+      "sha256": "26e36ccc13da9d3574d691ac79ddf303e0b7eb7ab7ac6838d24941994d1b9dbb"
+    },
+    {
+      "path": "tests/reference/el506ts/golden/phase6-dms.json",
+      "sha256": "e70bfc3c65d92c24770e38924c20982907e37d64e18f8c64cb4862eb5de27eb0"
+    },
+    {
+      "path": "tests/reference/el506ts/golden/phase6-fraction.json",
+      "sha256": "c22fb2095debb6d8daf9deb41542d76af6d64c3231eedbb6bd00bf20053ce286"
+    },
+    {
       "path": "tests/reference/el506ts/golden/physical-lcd-cursor.json",
       "sha256": "30fe88e63d335349ce2a018ad4f43028edc13e3541a54e27a916a7b381cf878a"
     },
@@ -180,7 +204,7 @@
     },
     {
       "path": "tests/reference/el506ts/report-coverage.json",
-      "sha256": "15030dafcf7b8c80a7cf196fcf962f49fc2aaf1c139d7f2ea8a12ef5b75b8a17"
+      "sha256": "54fa0e52d84fbdb704bd719400e1af2082ff0f9cd303d0d0f948418e24b21ceb"
     },
     {
       "path": "tests/reference/el506ts/validate-guide.js",
@@ -199,6 +223,10 @@
       "sha256": "33c06b4d33b2e860a3a1203f2452f89338d5c44ce5809de859b9302e232dcc2f"
     },
     {
+      "path": "tests/e2e/phase6.spec.js",
+      "sha256": "05ba68df9246f4dc9f2941cce7dcf068303815b0749e8bc06b39e801eedf912d"
+    },
+    {
       "path": "tests/e2e/physical-ui.spec.js",
       "sha256": "1b0b92ff20bef726ed0d183994c69f1ecd42a3b529bcf616e2cad3d8b021b82c"
     },
@@ -213,6 +241,10 @@
     {
       "path": "tests/unit/phase5.test.js",
       "sha256": "e5738b1365f06645fc3902d1ffe5be1e22135db9b3cd2090ecb1b1fc27a430c5"
+    },
+    {
+      "path": "tests/unit/phase6.test.js",
+      "sha256": "8595fd915ac6057342993cf836b3005b44b08df00ded055f0f9e756092456a08"
     },
     {
       "path": "tests/unit/physical-ui.test.js",
@@ -8686,8 +8718,31 @@
         "policy": "Frozen baseline classification; infrastructure refactors do not promote capability parity."
       },
       "unitTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "partial",
+        "evidence": [
+          {
+            "kind": "unit",
+            "path": "tests/unit/phase6.test.js",
+            "anchor": "Phase 6 numeric:",
+            "capabilityIds": [
+              "el506.base.el506-k13",
+              "el506.base.el506-k14",
+              "el506.base.el506-k15",
+              "el506.second.el506-k13",
+              "el506.second.el506-k14",
+              "el506.second.el506-k15",
+              "el506.base.el506-k25",
+              "el506.base.el506-k26",
+              "el506.second.el506-k25",
+              "el506.second.el506-k26",
+              "el506.second.el506-k31",
+              "el506.second.el506-k32",
+              "el506.second.el506-k46",
+              "el506.hyp.13.inverse"
+            ],
+            "scope": "Measured representative NORMAL trig, fraction, DMS and coordinate sequences, boundary errors, typed snapshots and clearing. Partial independent scalar evidence; not a full-device parity claim."
+          }
+        ],
         "scope": "Explicit mapped assertions only; unlisted coverage is unassessed."
       },
       "goldenTested": {
@@ -8732,8 +8787,31 @@
         "policy": "Frozen baseline classification; infrastructure refactors do not promote capability parity."
       },
       "unitTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "partial",
+        "evidence": [
+          {
+            "kind": "unit",
+            "path": "tests/unit/phase6.test.js",
+            "anchor": "Phase 6 numeric:",
+            "capabilityIds": [
+              "el506.base.el506-k13",
+              "el506.base.el506-k14",
+              "el506.base.el506-k15",
+              "el506.second.el506-k13",
+              "el506.second.el506-k14",
+              "el506.second.el506-k15",
+              "el506.base.el506-k25",
+              "el506.base.el506-k26",
+              "el506.second.el506-k25",
+              "el506.second.el506-k26",
+              "el506.second.el506-k31",
+              "el506.second.el506-k32",
+              "el506.second.el506-k46",
+              "el506.hyp.13.inverse"
+            ],
+            "scope": "Measured representative NORMAL trig, fraction, DMS and coordinate sequences, boundary errors, typed snapshots and clearing. Partial independent scalar evidence; not a full-device parity claim."
+          }
+        ],
         "scope": "Explicit mapped assertions only; unlisted coverage is unassessed."
       },
       "goldenTested": {
@@ -8778,8 +8856,31 @@
         "policy": "Frozen baseline classification; infrastructure refactors do not promote capability parity."
       },
       "unitTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "partial",
+        "evidence": [
+          {
+            "kind": "unit",
+            "path": "tests/unit/phase6.test.js",
+            "anchor": "Phase 6 numeric:",
+            "capabilityIds": [
+              "el506.base.el506-k13",
+              "el506.base.el506-k14",
+              "el506.base.el506-k15",
+              "el506.second.el506-k13",
+              "el506.second.el506-k14",
+              "el506.second.el506-k15",
+              "el506.base.el506-k25",
+              "el506.base.el506-k26",
+              "el506.second.el506-k25",
+              "el506.second.el506-k26",
+              "el506.second.el506-k31",
+              "el506.second.el506-k32",
+              "el506.second.el506-k46",
+              "el506.hyp.13.inverse"
+            ],
+            "scope": "Measured representative NORMAL trig, fraction, DMS and coordinate sequences, boundary errors, typed snapshots and clearing. Partial independent scalar evidence; not a full-device parity claim."
+          }
+        ],
         "scope": "Explicit mapped assertions only; unlisted coverage is unassessed."
       },
       "goldenTested": {
@@ -9261,18 +9362,80 @@
         "policy": "Frozen baseline classification; infrastructure refactors do not promote capability parity."
       },
       "unitTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "partial",
+        "evidence": [
+          {
+            "kind": "unit",
+            "path": "tests/unit/phase6.test.js",
+            "anchor": "Phase 6 numeric:",
+            "capabilityIds": [
+              "el506.base.el506-k13",
+              "el506.base.el506-k14",
+              "el506.base.el506-k15",
+              "el506.second.el506-k13",
+              "el506.second.el506-k14",
+              "el506.second.el506-k15",
+              "el506.base.el506-k25",
+              "el506.base.el506-k26",
+              "el506.second.el506-k25",
+              "el506.second.el506-k26",
+              "el506.second.el506-k31",
+              "el506.second.el506-k32",
+              "el506.second.el506-k46",
+              "el506.hyp.13.inverse"
+            ],
+            "scope": "Measured representative NORMAL trig, fraction, DMS and coordinate sequences, boundary errors, typed snapshots and clearing. Partial independent scalar evidence; not a full-device parity claim."
+          }
+        ],
         "scope": "Explicit mapped assertions only; unlisted coverage is unassessed."
       },
       "goldenTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "baseline-known-differences",
+        "evidence": [
+          {
+            "fixtureId": "phase6-fraction",
+            "status": "known-differences",
+            "assertedFrames": 11
+          }
+        ],
         "scope": "Baseline characterization only; all current supported fixtures have oracle display differences."
       },
       "browserTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "partial",
+        "evidence": [
+          {
+            "kind": "browser",
+            "path": "tests/e2e/phase6.spec.js",
+            "anchor": "Phase 6 mixed fractions retain exact value",
+            "capabilityIds": [
+              "el506.base.el506-k25",
+              "el506.second.el506-k25",
+              "el506.second.el506-k26",
+              "el506.second.el506-k31",
+              "el506.second.el506-k32"
+            ],
+            "scope": "Physical key routing, exact mixed/decimal views, normalized DMS, X/Y recall and two-instance isolation."
+          },
+          {
+            "kind": "browser",
+            "path": "tests/e2e/golden.spec.js",
+            "anchor": "canonical baseline browser replay",
+            "fixtureIds": [
+              "phase6-fraction",
+              "phase6-dms",
+              "phase6-coordinate"
+            ],
+            "scope": "Independent significant native result frames projected to the established browser fraction design; canonical/raw expression differences remain declared.",
+            "capabilityIds": [
+              "el506.base.el506-k25",
+              "el506.second.el506-k25",
+              "el506.base.el506-k26",
+              "el506.second.el506-k26",
+              "el506.second.el506-k31",
+              "el506.second.el506-k32"
+            ]
+          }
+        ],
         "scope": "Explicit canonical baseline browser replays only; legacy regression coverage is not inferred as parity."
       }
     },
@@ -9307,18 +9470,67 @@
         "policy": "Frozen baseline classification; infrastructure refactors do not promote capability parity."
       },
       "unitTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "partial",
+        "evidence": [
+          {
+            "kind": "unit",
+            "path": "tests/unit/phase6.test.js",
+            "anchor": "Phase 6 numeric:",
+            "capabilityIds": [
+              "el506.base.el506-k13",
+              "el506.base.el506-k14",
+              "el506.base.el506-k15",
+              "el506.second.el506-k13",
+              "el506.second.el506-k14",
+              "el506.second.el506-k15",
+              "el506.base.el506-k25",
+              "el506.base.el506-k26",
+              "el506.second.el506-k25",
+              "el506.second.el506-k26",
+              "el506.second.el506-k31",
+              "el506.second.el506-k32",
+              "el506.second.el506-k46",
+              "el506.hyp.13.inverse"
+            ],
+            "scope": "Measured representative NORMAL trig, fraction, DMS and coordinate sequences, boundary errors, typed snapshots and clearing. Partial independent scalar evidence; not a full-device parity claim."
+          }
+        ],
         "scope": "Explicit mapped assertions only; unlisted coverage is unassessed."
       },
       "goldenTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "baseline-known-differences",
+        "evidence": [
+          {
+            "fixtureId": "phase6-dms",
+            "status": "known-differences",
+            "assertedFrames": 13
+          }
+        ],
         "scope": "Baseline characterization only; all current supported fixtures have oracle display differences."
       },
       "browserTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "partial",
+        "evidence": [
+          {
+            "kind": "browser",
+            "path": "tests/e2e/golden.spec.js",
+            "anchor": "canonical baseline browser replay",
+            "fixtureIds": [
+              "phase6-fraction",
+              "phase6-dms",
+              "phase6-coordinate"
+            ],
+            "scope": "Independent significant native result frames projected to the established browser fraction design; canonical/raw expression differences remain declared.",
+            "capabilityIds": [
+              "el506.base.el506-k25",
+              "el506.second.el506-k25",
+              "el506.base.el506-k26",
+              "el506.second.el506-k26",
+              "el506.second.el506-k31",
+              "el506.second.el506-k32"
+            ]
+          }
+        ],
         "scope": "Explicit canonical baseline browser replays only; legacy regression coverage is not inferred as parity."
       }
     },
@@ -10860,8 +11072,31 @@
         "policy": "Frozen baseline classification; infrastructure refactors do not promote capability parity."
       },
       "unitTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "partial",
+        "evidence": [
+          {
+            "kind": "unit",
+            "path": "tests/unit/phase6.test.js",
+            "anchor": "Phase 6 numeric:",
+            "capabilityIds": [
+              "el506.base.el506-k13",
+              "el506.base.el506-k14",
+              "el506.base.el506-k15",
+              "el506.second.el506-k13",
+              "el506.second.el506-k14",
+              "el506.second.el506-k15",
+              "el506.base.el506-k25",
+              "el506.base.el506-k26",
+              "el506.second.el506-k25",
+              "el506.second.el506-k26",
+              "el506.second.el506-k31",
+              "el506.second.el506-k32",
+              "el506.second.el506-k46",
+              "el506.hyp.13.inverse"
+            ],
+            "scope": "Measured representative NORMAL trig, fraction, DMS and coordinate sequences, boundary errors, typed snapshots and clearing. Partial independent scalar evidence; not a full-device parity claim."
+          }
+        ],
         "scope": "Explicit mapped assertions only; unlisted coverage is unassessed."
       },
       "goldenTested": {
@@ -10906,8 +11141,31 @@
         "policy": "Frozen baseline classification; infrastructure refactors do not promote capability parity."
       },
       "unitTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "partial",
+        "evidence": [
+          {
+            "kind": "unit",
+            "path": "tests/unit/phase6.test.js",
+            "anchor": "Phase 6 numeric:",
+            "capabilityIds": [
+              "el506.base.el506-k13",
+              "el506.base.el506-k14",
+              "el506.base.el506-k15",
+              "el506.second.el506-k13",
+              "el506.second.el506-k14",
+              "el506.second.el506-k15",
+              "el506.base.el506-k25",
+              "el506.base.el506-k26",
+              "el506.second.el506-k25",
+              "el506.second.el506-k26",
+              "el506.second.el506-k31",
+              "el506.second.el506-k32",
+              "el506.second.el506-k46",
+              "el506.hyp.13.inverse"
+            ],
+            "scope": "Measured representative NORMAL trig, fraction, DMS and coordinate sequences, boundary errors, typed snapshots and clearing. Partial independent scalar evidence; not a full-device parity claim."
+          }
+        ],
         "scope": "Explicit mapped assertions only; unlisted coverage is unassessed."
       },
       "goldenTested": {
@@ -10952,8 +11210,31 @@
         "policy": "Frozen baseline classification; infrastructure refactors do not promote capability parity."
       },
       "unitTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "partial",
+        "evidence": [
+          {
+            "kind": "unit",
+            "path": "tests/unit/phase6.test.js",
+            "anchor": "Phase 6 numeric:",
+            "capabilityIds": [
+              "el506.base.el506-k13",
+              "el506.base.el506-k14",
+              "el506.base.el506-k15",
+              "el506.second.el506-k13",
+              "el506.second.el506-k14",
+              "el506.second.el506-k15",
+              "el506.base.el506-k25",
+              "el506.base.el506-k26",
+              "el506.second.el506-k25",
+              "el506.second.el506-k26",
+              "el506.second.el506-k31",
+              "el506.second.el506-k32",
+              "el506.second.el506-k46",
+              "el506.hyp.13.inverse"
+            ],
+            "scope": "Measured representative NORMAL trig, fraction, DMS and coordinate sequences, boundary errors, typed snapshots and clearing. Partial independent scalar evidence; not a full-device parity claim."
+          }
+        ],
         "scope": "Explicit mapped assertions only; unlisted coverage is unassessed."
       },
       "goldenTested": {
@@ -11408,18 +11689,80 @@
         "policy": "Frozen baseline classification; infrastructure refactors do not promote capability parity."
       },
       "unitTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "partial",
+        "evidence": [
+          {
+            "kind": "unit",
+            "path": "tests/unit/phase6.test.js",
+            "anchor": "Phase 6 numeric:",
+            "capabilityIds": [
+              "el506.base.el506-k13",
+              "el506.base.el506-k14",
+              "el506.base.el506-k15",
+              "el506.second.el506-k13",
+              "el506.second.el506-k14",
+              "el506.second.el506-k15",
+              "el506.base.el506-k25",
+              "el506.base.el506-k26",
+              "el506.second.el506-k25",
+              "el506.second.el506-k26",
+              "el506.second.el506-k31",
+              "el506.second.el506-k32",
+              "el506.second.el506-k46",
+              "el506.hyp.13.inverse"
+            ],
+            "scope": "Measured representative NORMAL trig, fraction, DMS and coordinate sequences, boundary errors, typed snapshots and clearing. Partial independent scalar evidence; not a full-device parity claim."
+          }
+        ],
         "scope": "Explicit mapped assertions only; unlisted coverage is unassessed."
       },
       "goldenTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "baseline-known-differences",
+        "evidence": [
+          {
+            "fixtureId": "phase6-fraction",
+            "status": "known-differences",
+            "assertedFrames": 11
+          }
+        ],
         "scope": "Baseline characterization only; all current supported fixtures have oracle display differences."
       },
       "browserTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "partial",
+        "evidence": [
+          {
+            "kind": "browser",
+            "path": "tests/e2e/phase6.spec.js",
+            "anchor": "Phase 6 mixed fractions retain exact value",
+            "capabilityIds": [
+              "el506.base.el506-k25",
+              "el506.second.el506-k25",
+              "el506.second.el506-k26",
+              "el506.second.el506-k31",
+              "el506.second.el506-k32"
+            ],
+            "scope": "Physical key routing, exact mixed/decimal views, normalized DMS, X/Y recall and two-instance isolation."
+          },
+          {
+            "kind": "browser",
+            "path": "tests/e2e/golden.spec.js",
+            "anchor": "canonical baseline browser replay",
+            "fixtureIds": [
+              "phase6-fraction",
+              "phase6-dms",
+              "phase6-coordinate"
+            ],
+            "scope": "Independent significant native result frames projected to the established browser fraction design; canonical/raw expression differences remain declared.",
+            "capabilityIds": [
+              "el506.base.el506-k25",
+              "el506.second.el506-k25",
+              "el506.base.el506-k26",
+              "el506.second.el506-k26",
+              "el506.second.el506-k31",
+              "el506.second.el506-k32"
+            ]
+          }
+        ],
         "scope": "Explicit canonical baseline browser replays only; legacy regression coverage is not inferred as parity."
       }
     },
@@ -11454,18 +11797,80 @@
         "policy": "Frozen baseline classification; infrastructure refactors do not promote capability parity."
       },
       "unitTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "partial",
+        "evidence": [
+          {
+            "kind": "unit",
+            "path": "tests/unit/phase6.test.js",
+            "anchor": "Phase 6 numeric:",
+            "capabilityIds": [
+              "el506.base.el506-k13",
+              "el506.base.el506-k14",
+              "el506.base.el506-k15",
+              "el506.second.el506-k13",
+              "el506.second.el506-k14",
+              "el506.second.el506-k15",
+              "el506.base.el506-k25",
+              "el506.base.el506-k26",
+              "el506.second.el506-k25",
+              "el506.second.el506-k26",
+              "el506.second.el506-k31",
+              "el506.second.el506-k32",
+              "el506.second.el506-k46",
+              "el506.hyp.13.inverse"
+            ],
+            "scope": "Measured representative NORMAL trig, fraction, DMS and coordinate sequences, boundary errors, typed snapshots and clearing. Partial independent scalar evidence; not a full-device parity claim."
+          }
+        ],
         "scope": "Explicit mapped assertions only; unlisted coverage is unassessed."
       },
       "goldenTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "baseline-known-differences",
+        "evidence": [
+          {
+            "fixtureId": "phase6-dms",
+            "status": "known-differences",
+            "assertedFrames": 13
+          }
+        ],
         "scope": "Baseline characterization only; all current supported fixtures have oracle display differences."
       },
       "browserTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "partial",
+        "evidence": [
+          {
+            "kind": "browser",
+            "path": "tests/e2e/phase6.spec.js",
+            "anchor": "Phase 6 mixed fractions retain exact value",
+            "capabilityIds": [
+              "el506.base.el506-k25",
+              "el506.second.el506-k25",
+              "el506.second.el506-k26",
+              "el506.second.el506-k31",
+              "el506.second.el506-k32"
+            ],
+            "scope": "Physical key routing, exact mixed/decimal views, normalized DMS, X/Y recall and two-instance isolation."
+          },
+          {
+            "kind": "browser",
+            "path": "tests/e2e/golden.spec.js",
+            "anchor": "canonical baseline browser replay",
+            "fixtureIds": [
+              "phase6-fraction",
+              "phase6-dms",
+              "phase6-coordinate"
+            ],
+            "scope": "Independent significant native result frames projected to the established browser fraction design; canonical/raw expression differences remain declared.",
+            "capabilityIds": [
+              "el506.base.el506-k25",
+              "el506.second.el506-k25",
+              "el506.base.el506-k26",
+              "el506.second.el506-k26",
+              "el506.second.el506-k31",
+              "el506.second.el506-k32"
+            ]
+          }
+        ],
         "scope": "Explicit canonical baseline browser replays only; legacy regression coverage is not inferred as parity."
       }
     },
@@ -11588,18 +11993,80 @@
         "policy": "Frozen baseline classification; infrastructure refactors do not promote capability parity."
       },
       "unitTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "partial",
+        "evidence": [
+          {
+            "kind": "unit",
+            "path": "tests/unit/phase6.test.js",
+            "anchor": "Phase 6 numeric:",
+            "capabilityIds": [
+              "el506.base.el506-k13",
+              "el506.base.el506-k14",
+              "el506.base.el506-k15",
+              "el506.second.el506-k13",
+              "el506.second.el506-k14",
+              "el506.second.el506-k15",
+              "el506.base.el506-k25",
+              "el506.base.el506-k26",
+              "el506.second.el506-k25",
+              "el506.second.el506-k26",
+              "el506.second.el506-k31",
+              "el506.second.el506-k32",
+              "el506.second.el506-k46",
+              "el506.hyp.13.inverse"
+            ],
+            "scope": "Measured representative NORMAL trig, fraction, DMS and coordinate sequences, boundary errors, typed snapshots and clearing. Partial independent scalar evidence; not a full-device parity claim."
+          }
+        ],
         "scope": "Explicit mapped assertions only; unlisted coverage is unassessed."
       },
       "goldenTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "baseline-known-differences",
+        "evidence": [
+          {
+            "fixtureId": "phase6-coordinate",
+            "status": "known-differences",
+            "assertedFrames": 9
+          }
+        ],
         "scope": "Baseline characterization only; all current supported fixtures have oracle display differences."
       },
       "browserTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "partial",
+        "evidence": [
+          {
+            "kind": "browser",
+            "path": "tests/e2e/phase6.spec.js",
+            "anchor": "Phase 6 mixed fractions retain exact value",
+            "capabilityIds": [
+              "el506.base.el506-k25",
+              "el506.second.el506-k25",
+              "el506.second.el506-k26",
+              "el506.second.el506-k31",
+              "el506.second.el506-k32"
+            ],
+            "scope": "Physical key routing, exact mixed/decimal views, normalized DMS, X/Y recall and two-instance isolation."
+          },
+          {
+            "kind": "browser",
+            "path": "tests/e2e/golden.spec.js",
+            "anchor": "canonical baseline browser replay",
+            "fixtureIds": [
+              "phase6-fraction",
+              "phase6-dms",
+              "phase6-coordinate"
+            ],
+            "scope": "Independent significant native result frames projected to the established browser fraction design; canonical/raw expression differences remain declared.",
+            "capabilityIds": [
+              "el506.base.el506-k25",
+              "el506.second.el506-k25",
+              "el506.base.el506-k26",
+              "el506.second.el506-k26",
+              "el506.second.el506-k31",
+              "el506.second.el506-k32"
+            ]
+          }
+        ],
         "scope": "Explicit canonical baseline browser replays only; legacy regression coverage is not inferred as parity."
       }
     },
@@ -11632,18 +12099,80 @@
         "policy": "Frozen baseline classification; infrastructure refactors do not promote capability parity."
       },
       "unitTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "partial",
+        "evidence": [
+          {
+            "kind": "unit",
+            "path": "tests/unit/phase6.test.js",
+            "anchor": "Phase 6 numeric:",
+            "capabilityIds": [
+              "el506.base.el506-k13",
+              "el506.base.el506-k14",
+              "el506.base.el506-k15",
+              "el506.second.el506-k13",
+              "el506.second.el506-k14",
+              "el506.second.el506-k15",
+              "el506.base.el506-k25",
+              "el506.base.el506-k26",
+              "el506.second.el506-k25",
+              "el506.second.el506-k26",
+              "el506.second.el506-k31",
+              "el506.second.el506-k32",
+              "el506.second.el506-k46",
+              "el506.hyp.13.inverse"
+            ],
+            "scope": "Measured representative NORMAL trig, fraction, DMS and coordinate sequences, boundary errors, typed snapshots and clearing. Partial independent scalar evidence; not a full-device parity claim."
+          }
+        ],
         "scope": "Explicit mapped assertions only; unlisted coverage is unassessed."
       },
       "goldenTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "baseline-known-differences",
+        "evidence": [
+          {
+            "fixtureId": "phase6-coordinate",
+            "status": "known-differences",
+            "assertedFrames": 9
+          }
+        ],
         "scope": "Baseline characterization only; all current supported fixtures have oracle display differences."
       },
       "browserTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "partial",
+        "evidence": [
+          {
+            "kind": "browser",
+            "path": "tests/e2e/phase6.spec.js",
+            "anchor": "Phase 6 mixed fractions retain exact value",
+            "capabilityIds": [
+              "el506.base.el506-k25",
+              "el506.second.el506-k25",
+              "el506.second.el506-k26",
+              "el506.second.el506-k31",
+              "el506.second.el506-k32"
+            ],
+            "scope": "Physical key routing, exact mixed/decimal views, normalized DMS, X/Y recall and two-instance isolation."
+          },
+          {
+            "kind": "browser",
+            "path": "tests/e2e/golden.spec.js",
+            "anchor": "canonical baseline browser replay",
+            "fixtureIds": [
+              "phase6-fraction",
+              "phase6-dms",
+              "phase6-coordinate"
+            ],
+            "scope": "Independent significant native result frames projected to the established browser fraction design; canonical/raw expression differences remain declared.",
+            "capabilityIds": [
+              "el506.base.el506-k25",
+              "el506.second.el506-k25",
+              "el506.base.el506-k26",
+              "el506.second.el506-k26",
+              "el506.second.el506-k31",
+              "el506.second.el506-k32"
+            ]
+          }
+        ],
         "scope": "Explicit canonical baseline browser replays only; legacy regression coverage is not inferred as parity."
       }
     },
@@ -12362,8 +12891,31 @@
         "policy": "Frozen baseline classification; infrastructure refactors do not promote capability parity."
       },
       "unitTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "partial",
+        "evidence": [
+          {
+            "kind": "unit",
+            "path": "tests/unit/phase6.test.js",
+            "anchor": "Phase 6 numeric:",
+            "capabilityIds": [
+              "el506.base.el506-k13",
+              "el506.base.el506-k14",
+              "el506.base.el506-k15",
+              "el506.second.el506-k13",
+              "el506.second.el506-k14",
+              "el506.second.el506-k15",
+              "el506.base.el506-k25",
+              "el506.base.el506-k26",
+              "el506.second.el506-k25",
+              "el506.second.el506-k26",
+              "el506.second.el506-k31",
+              "el506.second.el506-k32",
+              "el506.second.el506-k46",
+              "el506.hyp.13.inverse"
+            ],
+            "scope": "Measured representative NORMAL trig, fraction, DMS and coordinate sequences, boundary errors, typed snapshots and clearing. Partial independent scalar evidence; not a full-device parity claim."
+          }
+        ],
         "scope": "Explicit mapped assertions only; unlisted coverage is unassessed."
       },
       "goldenTested": {
@@ -14171,8 +14723,31 @@
         "policy": "Frozen baseline classification; infrastructure refactors do not promote capability parity."
       },
       "unitTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "partial",
+        "evidence": [
+          {
+            "kind": "unit",
+            "path": "tests/unit/phase6.test.js",
+            "anchor": "Phase 6 numeric:",
+            "capabilityIds": [
+              "el506.base.el506-k13",
+              "el506.base.el506-k14",
+              "el506.base.el506-k15",
+              "el506.second.el506-k13",
+              "el506.second.el506-k14",
+              "el506.second.el506-k15",
+              "el506.base.el506-k25",
+              "el506.base.el506-k26",
+              "el506.second.el506-k25",
+              "el506.second.el506-k26",
+              "el506.second.el506-k31",
+              "el506.second.el506-k32",
+              "el506.second.el506-k46",
+              "el506.hyp.13.inverse"
+            ],
+            "scope": "Measured representative NORMAL trig, fraction, DMS and coordinate sequences, boundary errors, typed snapshots and clearing. Partial independent scalar evidence; not a full-device parity claim."
+          }
+        ],
         "scope": "Explicit mapped assertions only; unlisted coverage is unassessed."
       },
       "goldenTested": {

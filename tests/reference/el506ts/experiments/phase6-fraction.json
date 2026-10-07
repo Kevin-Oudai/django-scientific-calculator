@@ -1,0 +1,231 @@
+{
+  "schema_version": 1,
+  "experiment_id": "el506-127-phase6-fraction-v1",
+  "roadmap_item": "EL506-127",
+  "catalog_id": "el506-physical-keys-v1",
+  "simulator": {
+    "profile_id": "sharp-el506ts-pc-simulator-1.0.2.0",
+    "product": "SHARP PC Simulator for EL-506TS",
+    "build": "1.0.2.0",
+    "runtime_sha256": "6bfef4d04900b472892be2d4c54dcfa6013f87232097e32df508ca4c27425530",
+    "locale": "English UI; en-US",
+    "operating_system": "Windows 11"
+  },
+  "capture": {
+    "date": "2026-10-07",
+    "timezone": "America/Port_of_Spain",
+    "method": "Live @oai/sky computer use; significant fraction/DMS/coordinate frames inspected before implementation; pinned runtime hash reverified.",
+    "evidence_kind": "live-simulator",
+    "source_ids": [
+      "live-session"
+    ]
+  },
+  "initial_state": {
+    "reset": {
+      "kind": "documented-state",
+      "description": "ON/C clears the command; NORMAL DEG NORM1; no prior retained constant."
+    },
+    "setup_sequence": [],
+    "mode": {
+      "status": "observed",
+      "value": "NORMAL (pinned reset default)"
+    },
+    "settings": [
+      {
+        "name": "angle",
+        "observation": {
+          "status": "observed",
+          "value": "DEG"
+        }
+      },
+      {
+        "name": "display-format",
+        "observation": {
+          "status": "observed",
+          "value": "NORM1 (pinned reset default)"
+        }
+      }
+    ],
+    "display": {
+      "upper_line": "",
+      "lower_line": "0.",
+      "indicators": [
+        "DEG"
+      ],
+      "scroll_arrows": [],
+      "cursor": {
+        "status": "observed",
+        "value": "not visible"
+      },
+      "insert_mode": {
+        "status": "unknown",
+        "reason": "Insert mode not probed by this MDF sequence."
+      },
+      "prompt": null,
+      "selected_result_component": null
+    },
+    "stores": []
+  },
+  "sequence": [
+    "EL506-K41",
+    "EL506-K25",
+    "EL506-K40",
+    "EL506-K25",
+    "EL506-K42",
+    "EL506-K48",
+    "EL506-K03",
+    "EL506-K25",
+    "EL506-K25",
+    "EL506-K25"
+  ],
+  "frames": [
+    {
+      "after_step": 0,
+      "display": {
+        "upper_line": "",
+        "lower_line": "0.",
+        "indicators": [
+          "DEG"
+        ],
+        "scroll_arrows": [],
+        "cursor": {
+          "status": "observed",
+          "value": "not visible"
+        },
+        "insert_mode": {
+          "status": "unknown",
+          "reason": "Insert mode not probed by this MDF sequence."
+        },
+        "prompt": null,
+        "selected_result_component": null
+      },
+      "result": {
+        "status": "not-applicable",
+        "reason": "Reset before numerical entry."
+      }
+    },
+    {
+      "after_step": 6,
+      "display": {
+        "upper_line": "2 1/3=",
+        "lower_line": "2 1/3",
+        "indicators": [
+          "DEG"
+        ],
+        "scroll_arrows": [],
+        "cursor": {
+          "status": "observed",
+          "value": "not visible"
+        },
+        "insert_mode": {
+          "status": "unknown",
+          "reason": "Insert mode not probed by this MDF sequence."
+        },
+        "prompt": null,
+        "selected_result_component": null
+      },
+      "result": {
+        "status": "unknown",
+        "reason": "Display transcribed; exact internal value not directly exposed by simulator."
+      }
+    },
+    {
+      "after_step": 8,
+      "display": {
+        "upper_line": "2 1/3=",
+        "lower_line": "7/3",
+        "indicators": [
+          "DEG"
+        ],
+        "scroll_arrows": [],
+        "cursor": {
+          "status": "observed",
+          "value": "not visible"
+        },
+        "insert_mode": {
+          "status": "unknown",
+          "reason": "Insert mode not probed by this MDF sequence."
+        },
+        "prompt": null,
+        "selected_result_component": null
+      },
+      "result": {
+        "status": "unknown",
+        "reason": "Display transcribed; exact internal value not directly exposed by simulator."
+      }
+    },
+    {
+      "after_step": 9,
+      "display": {
+        "upper_line": "2 1/3=",
+        "lower_line": "2.333333333",
+        "indicators": [
+          "DEG"
+        ],
+        "scroll_arrows": [],
+        "cursor": {
+          "status": "observed",
+          "value": "not visible"
+        },
+        "insert_mode": {
+          "status": "unknown",
+          "reason": "Insert mode not probed by this MDF sequence."
+        },
+        "prompt": null,
+        "selected_result_component": null
+      },
+      "result": {
+        "status": "unknown",
+        "reason": "Display transcribed; exact internal value not directly exposed by simulator."
+      }
+    },
+    {
+      "after_step": 10,
+      "display": {
+        "upper_line": "2 1/3=",
+        "lower_line": "2 1/3",
+        "indicators": [
+          "DEG"
+        ],
+        "scroll_arrows": [],
+        "cursor": {
+          "status": "observed",
+          "value": "not visible"
+        },
+        "insert_mode": {
+          "status": "unknown",
+          "reason": "Insert mode not probed by this MDF sequence."
+        },
+        "prompt": null,
+        "selected_result_component": null
+      },
+      "result": {
+        "status": "unknown",
+        "reason": "Display transcribed; exact internal value not directly exposed by simulator."
+      }
+    }
+  ],
+  "stored_values": {
+    "coverage": "Numeric and exact retained state asserted separately by unit tests; native hidden values not exposed.",
+    "observations": []
+  },
+  "errors": [],
+  "sources": [
+    {
+      "source_id": "live-session",
+      "kind": "simulator",
+      "reference": "simulator-profile.json",
+      "page": null,
+      "scope": "Phase 6 fraction significant native results and display conversions."
+    }
+  ],
+  "oracle": {
+    "selected_source_id": "live-session",
+    "simulator_exception_ids": [],
+    "disagreements": []
+  },
+  "ambiguities": [],
+  "notes": [
+    "Independent significant native observations. Intermediate golden frames characterize the implementation. Native seven-segment fractions are transcribed semantically; browser retains the established stacked fraction design."
+  ]
+}

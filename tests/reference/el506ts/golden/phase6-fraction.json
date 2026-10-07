@@ -1,0 +1,280 @@
+{
+  "schemaVersion": 1,
+  "id": "phase6-fraction",
+  "dispatch": "physical",
+  "displayProfile": "physical",
+  "status": "baseline-characterization",
+  "reference": "experiments/phase6-fraction.json",
+  "sequence": [
+    "EL506-K41",
+    "EL506-K25",
+    "EL506-K40",
+    "EL506-K25",
+    "EL506-K42",
+    "EL506-K48",
+    "EL506-K03",
+    "EL506-K25",
+    "EL506-K25",
+    "EL506-K25"
+  ],
+  "capabilityIds": [
+    "el506.base.el506-k25",
+    "el506.second.el506-k25"
+  ],
+  "expected": [
+    {
+      "afterStep": 0,
+      "assertions": {
+        "displayExpression": "",
+        "displayResult": "0",
+        "lifecycle": "empty",
+        "answer": 0,
+        "values.last": {
+          "kind": "scalar",
+          "value": 0
+        },
+        "stagedEntry": null,
+        "control.variables.X": 0,
+        "control.variables.Y": 0
+      },
+      "domResultText": "0."
+    },
+    {
+      "afterStep": 1,
+      "assertions": {
+        "displayExpression": "",
+        "displayResult": "2",
+        "lifecycle": "entering",
+        "answer": 0,
+        "values.last": {
+          "kind": "scalar",
+          "value": 0
+        },
+        "stagedEntry": null,
+        "control.variables.X": 0,
+        "control.variables.Y": 0
+      },
+      "domResultText": "2."
+    },
+    {
+      "afterStep": 2,
+      "assertions": {
+        "displayExpression": "",
+        "displayResult": "2/",
+        "lifecycle": "entering",
+        "answer": 0,
+        "values.last": {
+          "kind": "scalar",
+          "value": 0
+        },
+        "stagedEntry": {
+          "type": "physicalFraction",
+          "whole": "",
+          "numerator": "2",
+          "denominator": "",
+          "part": "denominator"
+        },
+        "control.variables.X": 0,
+        "control.variables.Y": 0
+      },
+      "domResultText": "2□"
+    },
+    {
+      "afterStep": 3,
+      "assertions": {
+        "displayExpression": "",
+        "displayResult": "2/1",
+        "lifecycle": "entering",
+        "answer": 0,
+        "values.last": {
+          "kind": "scalar",
+          "value": 0
+        },
+        "stagedEntry": {
+          "type": "physicalFraction",
+          "whole": "",
+          "numerator": "2",
+          "denominator": "1",
+          "part": "denominator"
+        },
+        "control.variables.X": 0,
+        "control.variables.Y": 0
+      },
+      "domResultText": "21"
+    },
+    {
+      "afterStep": 4,
+      "assertions": {
+        "displayExpression": "",
+        "displayResult": "2 1/",
+        "lifecycle": "entering",
+        "answer": 0,
+        "values.last": {
+          "kind": "scalar",
+          "value": 0
+        },
+        "stagedEntry": {
+          "type": "physicalFraction",
+          "whole": "2",
+          "numerator": "1",
+          "denominator": "",
+          "part": "denominator"
+        },
+        "control.variables.X": 0,
+        "control.variables.Y": 0
+      },
+      "domResultText": "21□"
+    },
+    {
+      "afterStep": 5,
+      "assertions": {
+        "displayExpression": "",
+        "displayResult": "2 1/3",
+        "lifecycle": "entering",
+        "answer": 0,
+        "values.last": {
+          "kind": "scalar",
+          "value": 0
+        },
+        "stagedEntry": {
+          "type": "physicalFraction",
+          "whole": "2",
+          "numerator": "1",
+          "denominator": "3",
+          "part": "denominator"
+        },
+        "control.variables.X": 0,
+        "control.variables.Y": 0
+      },
+      "domResultText": "213"
+    },
+    {
+      "afterStep": 6,
+      "assertions": {
+        "displayExpression": "frac(2,1,3)=",
+        "displayResult": "2 1/3",
+        "lifecycle": "evaluated",
+        "answer": 2.3333333333333335,
+        "values.last": {
+          "kind": "rational",
+          "numerator": "7",
+          "denominator": "3"
+        },
+        "stagedEntry": null,
+        "control.variables.X": 0,
+        "control.variables.Y": 0
+      },
+      "domResultText": "213"
+    },
+    {
+      "afterStep": 7,
+      "assertions": {
+        "displayExpression": "frac(2,1,3)=",
+        "displayResult": "2 1/3",
+        "lifecycle": "evaluated",
+        "answer": 2.3333333333333335,
+        "values.last": {
+          "kind": "rational",
+          "numerator": "7",
+          "denominator": "3"
+        },
+        "stagedEntry": null,
+        "control.variables.X": 0,
+        "control.variables.Y": 0
+      },
+      "domResultText": "213"
+    },
+    {
+      "afterStep": 8,
+      "assertions": {
+        "displayExpression": "frac(2,1,3)=",
+        "displayResult": "7/3",
+        "lifecycle": "evaluated",
+        "answer": 2.3333333333333335,
+        "values.last": {
+          "kind": "rational",
+          "numerator": "7",
+          "denominator": "3"
+        },
+        "stagedEntry": null,
+        "control.variables.X": 0,
+        "control.variables.Y": 0
+      },
+      "domResultText": "73"
+    },
+    {
+      "afterStep": 9,
+      "assertions": {
+        "displayExpression": "frac(2,1,3)=",
+        "displayResult": "2.33333333333",
+        "lifecycle": "evaluated",
+        "answer": 2.3333333333333335,
+        "values.last": {
+          "kind": "rational",
+          "numerator": "7",
+          "denominator": "3"
+        },
+        "stagedEntry": null,
+        "control.variables.X": 0,
+        "control.variables.Y": 0
+      },
+      "domResultText": "2.333333333"
+    },
+    {
+      "afterStep": 10,
+      "assertions": {
+        "displayExpression": "frac(2,1,3)=",
+        "displayResult": "2 1/3",
+        "lifecycle": "evaluated",
+        "answer": 2.3333333333333335,
+        "values.last": {
+          "kind": "rational",
+          "numerator": "7",
+          "denominator": "3"
+        },
+        "stagedEntry": null,
+        "control.variables.X": 0,
+        "control.variables.Y": 0
+      },
+      "domResultText": "213"
+    }
+  ],
+  "knownDifferences": [
+    {
+      "afterStep": 0,
+      "field": "displayResult",
+      "expected": "0.",
+      "actual": "0"
+    },
+    {
+      "afterStep": 6,
+      "field": "displayExpression",
+      "expected": "2 1/3=",
+      "actual": "frac(2,1,3)="
+    },
+    {
+      "afterStep": 8,
+      "field": "displayExpression",
+      "expected": "2 1/3=",
+      "actual": "frac(2,1,3)="
+    },
+    {
+      "afterStep": 9,
+      "field": "displayExpression",
+      "expected": "2 1/3=",
+      "actual": "frac(2,1,3)="
+    },
+    {
+      "afterStep": 9,
+      "field": "displayResult",
+      "expected": "2.333333333",
+      "actual": "2.33333333333"
+    },
+    {
+      "afterStep": 10,
+      "field": "displayExpression",
+      "expected": "2 1/3=",
+      "actual": "frac(2,1,3)="
+    }
+  ]
+}

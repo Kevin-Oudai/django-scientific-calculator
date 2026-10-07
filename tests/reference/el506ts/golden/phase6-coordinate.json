@@ -1,0 +1,197 @@
+{
+  "schemaVersion": 1,
+  "id": "phase6-coordinate",
+  "dispatch": "physical",
+  "displayProfile": "physical",
+  "status": "baseline-characterization",
+  "reference": "experiments/phase6-coordinate.json",
+  "sequence": [
+    "EL506-K42",
+    "EL506-K03",
+    "EL506-K28",
+    "EL506-K35",
+    "EL506-K03",
+    "EL506-K31",
+    "EL506-K27",
+    "EL506-K28"
+  ],
+  "capabilityIds": [
+    "el506.second.el506-k31",
+    "el506.second.el506-k32"
+  ],
+  "expected": [
+    {
+      "afterStep": 0,
+      "assertions": {
+        "displayExpression": "",
+        "displayResult": "0",
+        "lifecycle": "empty",
+        "answer": 0,
+        "values.last": {
+          "kind": "scalar",
+          "value": 0
+        },
+        "stagedEntry": null,
+        "control.variables.X": 0,
+        "control.variables.Y": 0
+      },
+      "domResultText": "0."
+    },
+    {
+      "afterStep": 1,
+      "assertions": {
+        "displayExpression": "",
+        "displayResult": "3",
+        "lifecycle": "entering",
+        "answer": 0,
+        "values.last": {
+          "kind": "scalar",
+          "value": 0
+        },
+        "stagedEntry": null,
+        "control.variables.X": 0,
+        "control.variables.Y": 0
+      },
+      "domResultText": "3."
+    },
+    {
+      "afterStep": 2,
+      "assertions": {
+        "displayExpression": "",
+        "displayResult": "3",
+        "lifecycle": "entering",
+        "answer": 0,
+        "values.last": {
+          "kind": "scalar",
+          "value": 0
+        },
+        "stagedEntry": null,
+        "control.variables.X": 0,
+        "control.variables.Y": 0
+      },
+      "domResultText": "3."
+    },
+    {
+      "afterStep": 3,
+      "assertions": {
+        "displayExpression": "3,",
+        "displayResult": "0",
+        "lifecycle": "entering",
+        "answer": 0,
+        "values.last": {
+          "kind": "scalar",
+          "value": 0
+        },
+        "stagedEntry": null,
+        "control.variables.X": 0,
+        "control.variables.Y": 0
+      },
+      "domResultText": "0."
+    },
+    {
+      "afterStep": 4,
+      "assertions": {
+        "displayExpression": "3,",
+        "displayResult": "4",
+        "lifecycle": "entering",
+        "answer": 0,
+        "values.last": {
+          "kind": "scalar",
+          "value": 0
+        },
+        "stagedEntry": null,
+        "control.variables.X": 0,
+        "control.variables.Y": 0
+      },
+      "domResultText": "4."
+    },
+    {
+      "afterStep": 5,
+      "assertions": {
+        "displayExpression": "3,",
+        "displayResult": "4",
+        "lifecycle": "entering",
+        "answer": 0,
+        "values.last": {
+          "kind": "scalar",
+          "value": 0
+        },
+        "stagedEntry": null,
+        "control.variables.X": 0,
+        "control.variables.Y": 0
+      },
+      "domResultText": "4."
+    },
+    {
+      "afterStep": 6,
+      "assertions": {
+        "displayExpression": "r=",
+        "displayResult": "5",
+        "lifecycle": "evaluated",
+        "answer": 5,
+        "values.last": {
+          "kind": "scalar",
+          "value": 5
+        },
+        "stagedEntry": null,
+        "control.variables.X": 5,
+        "control.variables.Y": 53.13010235415598
+      },
+      "domResultText": "5."
+    },
+    {
+      "afterStep": 7,
+      "assertions": {
+        "displayExpression": "r=",
+        "displayResult": "5",
+        "lifecycle": "prompt",
+        "answer": 5,
+        "values.last": {
+          "kind": "scalar",
+          "value": 5
+        },
+        "stagedEntry": null,
+        "control.variables.X": 5,
+        "control.variables.Y": 53.13010235415598
+      },
+      "domResultText": "?"
+    },
+    {
+      "afterStep": 8,
+      "assertions": {
+        "displayExpression": "Y=",
+        "displayResult": "53.1301023542",
+        "lifecycle": "evaluated",
+        "answer": 5,
+        "values.last": {
+          "kind": "scalar",
+          "value": 53.13010235415598
+        },
+        "stagedEntry": null,
+        "control.variables.X": 5,
+        "control.variables.Y": 53.13010235415598
+      },
+      "domResultText": "53.13010235"
+    }
+  ],
+  "knownDifferences": [
+    {
+      "afterStep": 0,
+      "field": "displayResult",
+      "expected": "0.",
+      "actual": "0"
+    },
+    {
+      "afterStep": 6,
+      "field": "displayResult",
+      "expected": "5.",
+      "actual": "5"
+    },
+    {
+      "afterStep": 8,
+      "field": "displayResult",
+      "expected": "53.13010235",
+      "actual": "53.1301023542"
+    }
+  ]
+}

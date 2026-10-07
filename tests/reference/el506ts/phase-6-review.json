@@ -1,0 +1,889 @@
+{
+  "schemaVersion": 1,
+  "reviewId": "phase-6-angle-fraction-coordinate-review-v1",
+  "reviewedOn": "2026-10-07",
+  "simulatorProfile": "sharp-el506ts-pc-simulator-1.0.2.0",
+  "runtimeSha256": "6bfef4d04900b472892be2d4c54dcfa6013f87232097e32df508ca4c27425530",
+  "method": "Live @oai/sky computer use; significant native frames inspected before implementation. ON/C per independent sequence; short sequences continue the preceding stated profile/frame. Listed setup changes persist until changed. Semantic fractions/DMS transcribed without seven-segment glyph shapes. No simulator assets distributed. Independent sequences use their stated angle profile, selected as needed; rows are grouped by feature rather than an uninterrupted replay.",
+  "liveObservations": [
+    {
+      "sequence": [
+        "EL506-K02",
+        "EL506-K42",
+        "EL506-K45",
+        "EL506-K03",
+        "EL506-K46"
+      ],
+      "upper": "30 to RAD",
+      "lower": "0.523598775",
+      "angle": "RAD"
+    },
+    {
+      "sequence": [
+        "EL506-K03",
+        "EL506-K46"
+      ],
+      "upper": "ANS to GRAD",
+      "lower": "33.33333333",
+      "angle": "GRAD"
+    },
+    {
+      "sequence": [
+        "EL506-K03",
+        "EL506-K46"
+      ],
+      "upper": "ANS to DEG",
+      "lower": "30.",
+      "angle": "DEG"
+    },
+    {
+      "sequence": [
+        "EL506-K02",
+        "EL506-K42",
+        "EL506-K45",
+        "EL506-K03",
+        "EL506-K46",
+        "EL506-K48"
+      ],
+      "upper": "30=",
+      "lower": "30.",
+      "angle": "RAD"
+    },
+    {
+      "sequence": [
+        "EL506-K02",
+        "EL506-K41",
+        "EL506-K25",
+        "EL506-K40",
+        "EL506-K25",
+        "EL506-K42",
+        "EL506-K48"
+      ],
+      "upper": "2 1/3=",
+      "lower": "2 1/3",
+      "angle": "DEG"
+    },
+    {
+      "sequence": [
+        "EL506-K03",
+        "EL506-K25"
+      ],
+      "upper": "2 1/3=",
+      "lower": "7/3",
+      "angle": "DEG"
+    },
+    {
+      "sequence": [
+        "EL506-K25"
+      ],
+      "upper": "2 1/3=",
+      "lower": "2.333333333",
+      "angle": "DEG"
+    },
+    {
+      "sequence": [
+        "EL506-K25"
+      ],
+      "upper": "2 1/3=",
+      "lower": "2 1/3",
+      "angle": "DEG"
+    },
+    {
+      "sequence": [
+        "EL506-K02",
+        "EL506-K40",
+        "EL506-K25",
+        "EL506-K41",
+        "EL506-K25",
+        "EL506-K42",
+        "EL506-K25",
+        "EL506-K35",
+        "EL506-K48"
+      ],
+      "upper": "Error 1",
+      "lower": "Error 1",
+      "angle": "DEG"
+    },
+    {
+      "sequence": [
+        "EL506-K02",
+        "EL506-K40",
+        "EL506-K25",
+        "EL506-K45",
+        "EL506-K48"
+      ],
+      "upper": "Error 2",
+      "lower": "Error 2",
+      "angle": "DEG"
+    },
+    {
+      "sequence": [
+        "EL506-K02",
+        "EL506-K40",
+        "EL506-K25",
+        "EL506-K48"
+      ],
+      "upper": "Error 1",
+      "lower": "Error 1",
+      "angle": "DEG"
+    },
+    {
+      "sequence": [
+        "EL506-K02",
+        "EL506-K47",
+        "EL506-K41",
+        "EL506-K25",
+        "EL506-K40",
+        "EL506-K25",
+        "EL506-K42",
+        "EL506-K48"
+      ],
+      "upper": "(-2) 1/3=",
+      "lower": "-2 1/3",
+      "angle": "DEG"
+    },
+    {
+      "sequence": [
+        "EL506-K02",
+        "EL506-K40",
+        "EL506-K41",
+        "EL506-K42",
+        "EL506-K35",
+        "EL506-K25",
+        "EL506-K36",
+        "EL506-K37",
+        "EL506-K30",
+        "EL506-K31",
+        "EL506-K32",
+        "EL506-K48"
+      ],
+      "upper": "1234/56789=",
+      "lower": "1234/56789",
+      "angle": "DEG"
+    },
+    {
+      "sequence": [
+        "EL506-K02",
+        "EL506-K40",
+        "EL506-K41",
+        "EL506-K42",
+        "EL506-K35",
+        "EL506-K36",
+        "EL506-K25",
+        "EL506-K37",
+        "EL506-K30",
+        "EL506-K31",
+        "EL506-K32",
+        "EL506-K40",
+        "EL506-K48"
+      ],
+      "upper": "12345/67891=",
+      "lower": "0.181835589",
+      "angle": "DEG"
+    },
+    {
+      "sequence": [
+        "EL506-K02",
+        "EL506-K40",
+        "EL506-K46",
+        "EL506-K36",
+        "EL506-K25",
+        "EL506-K41",
+        "EL506-K48"
+      ],
+      "upper": "1.5/2=",
+      "lower": "3/4",
+      "angle": "DEG"
+    },
+    {
+      "sequence": [
+        "EL506-K02",
+        "EL506-K40",
+        "EL506-K25",
+        "EL506-K41",
+        "EL506-K46",
+        "EL506-K36",
+        "EL506-K48"
+      ],
+      "upper": "1/2.5=",
+      "lower": "2/5",
+      "angle": "DEG"
+    },
+    {
+      "sequence": [
+        "EL506-K02",
+        "EL506-K40",
+        "EL506-K25",
+        "EL506-K41",
+        "EL506-K43",
+        "EL506-K40",
+        "EL506-K25",
+        "EL506-K42",
+        "EL506-K48"
+      ],
+      "upper": "1/2+1/3=",
+      "lower": "5/6",
+      "angle": "DEG"
+    },
+    {
+      "sequence": [
+        "EL506-K02",
+        "EL506-K40",
+        "EL506-K26",
+        "EL506-K30",
+        "EL506-K45",
+        "EL506-K26",
+        "EL506-K31",
+        "EL506-K45",
+        "EL506-K48"
+      ],
+      "upper": "1deg70min80sec=",
+      "lower": "2deg11min20sec",
+      "angle": "DEG"
+    },
+    {
+      "sequence": [
+        "EL506-K03",
+        "EL506-K26"
+      ],
+      "upper": "1deg70min80sec=",
+      "lower": "2.188888889",
+      "angle": "DEG"
+    },
+    {
+      "sequence": [
+        "EL506-K03",
+        "EL506-K26"
+      ],
+      "upper": "1deg70min80sec=",
+      "lower": "2deg11min20sec",
+      "angle": "DEG"
+    },
+    {
+      "sequence": [
+        "EL506-K02",
+        "EL506-K47",
+        "EL506-K40",
+        "EL506-K26",
+        "EL506-K42",
+        "EL506-K45",
+        "EL506-K26",
+        "EL506-K45",
+        "EL506-K48"
+      ],
+      "upper": "(-1deg30min0sec)=",
+      "lower": "-1deg30min0sec",
+      "angle": "DEG"
+    },
+    {
+      "sequence": [
+        "EL506-K02",
+        "EL506-K40",
+        "EL506-K46",
+        "EL506-K36",
+        "EL506-K26",
+        "EL506-K48"
+      ],
+      "upper": "1.5=",
+      "lower": "1.5",
+      "angle": "DEG"
+    },
+    {
+      "sequence": [
+        "EL506-K02",
+        "EL506-K40",
+        "EL506-K26",
+        "EL506-K42",
+        "EL506-K45",
+        "EL506-K26",
+        "EL506-K45",
+        "EL506-K43",
+        "EL506-K41",
+        "EL506-K26",
+        "EL506-K35",
+        "EL506-K36",
+        "EL506-K26",
+        "EL506-K45",
+        "EL506-K48"
+      ],
+      "upper": "1deg30min0sec+2deg45min0sec=",
+      "lower": "4deg15min0sec",
+      "angle": "DEG"
+    },
+    {
+      "sequence": [
+        "EL506-K02",
+        "EL506-K40",
+        "EL506-K46",
+        "EL506-K36",
+        "EL506-K03",
+        "EL506-K26"
+      ],
+      "upper": "1.5=",
+      "lower": "1deg30min0sec",
+      "angle": "DEG"
+    },
+    {
+      "sequence": [
+        "EL506-K02",
+        "EL506-K40",
+        "EL506-K26",
+        "EL506-K47",
+        "EL506-K41",
+        "EL506-K48"
+      ],
+      "upper": "(-1deg2min0sec)=",
+      "lower": "-1deg2min0sec",
+      "angle": "DEG"
+    },
+    {
+      "sequence": [
+        "EL506-K02",
+        "EL506-K40",
+        "EL506-K26",
+        "EL506-K40",
+        "EL506-K46",
+        "EL506-K36",
+        "EL506-K26",
+        "EL506-K45",
+        "EL506-K48"
+      ],
+      "upper": "1deg15min0sec=",
+      "lower": "1deg15min0sec",
+      "angle": "DEG"
+    },
+    {
+      "sequence": [
+        "EL506-K02",
+        "EL506-K40",
+        "EL506-K24",
+        "EL506-K37",
+        "EL506-K03",
+        "EL506-K26"
+      ],
+      "upper": "1E06=",
+      "lower": "1000000.",
+      "angle": "DEG"
+    },
+    {
+      "sequence": [
+        "EL506-K02",
+        "EL506-K40",
+        "EL506-K24",
+        "EL506-K36",
+        "EL506-K03",
+        "EL506-K26"
+      ],
+      "upper": "1E05=",
+      "lower": "100000deg0min0sec",
+      "angle": "DEG"
+    },
+    {
+      "sequence": [
+        "EL506-K02",
+        "EL506-K40",
+        "EL506-K26",
+        "EL506-K41",
+        "EL506-K26",
+        "EL506-K42",
+        "EL506-K26",
+        "EL506-K35",
+        "EL506-K48"
+      ],
+      "upper": "1deg2min34sec=",
+      "lower": "1deg2min34sec",
+      "angle": "DEG"
+    },
+    {
+      "sequence": [
+        "EL506-K02",
+        "EL506-K42",
+        "EL506-K26",
+        "EL506-K45",
+        "EL506-K26",
+        "EL506-K45",
+        "EL506-K19",
+        "EL506-K41",
+        "EL506-K48"
+      ],
+      "upper": "3deg0min0sec^2=",
+      "lower": "9.",
+      "angle": "DEG"
+    },
+    {
+      "sequence": [
+        "EL506-K02",
+        "EL506-K42",
+        "EL506-K03",
+        "EL506-K28",
+        "EL506-K35",
+        "EL506-K03",
+        "EL506-K31"
+      ],
+      "upper": "r=",
+      "lower": "5.",
+      "angle": "DEG"
+    },
+    {
+      "sequence": [
+        "EL506-K27",
+        "EL506-K28"
+      ],
+      "upper": "Y=",
+      "lower": "53.13010235",
+      "angle": "DEG"
+    },
+    {
+      "sequence": [
+        "EL506-K02",
+        "EL506-K36",
+        "EL506-K03",
+        "EL506-K28",
+        "EL506-K42",
+        "EL506-K45",
+        "EL506-K03",
+        "EL506-K32"
+      ],
+      "upper": "x=",
+      "lower": "4.330127019",
+      "angle": "DEG"
+    },
+    {
+      "sequence": [
+        "EL506-K27",
+        "EL506-K28"
+      ],
+      "upper": "Y=",
+      "lower": "2.5",
+      "angle": "DEG"
+    },
+    {
+      "sequence": [
+        "EL506-K02",
+        "EL506-K45",
+        "EL506-K03",
+        "EL506-K28",
+        "EL506-K45",
+        "EL506-K03",
+        "EL506-K31"
+      ],
+      "upper": "Error 2",
+      "lower": "Error 2",
+      "angle": "DEG"
+    },
+    {
+      "sequence": [
+        "EL506-K02",
+        "EL506-K47",
+        "EL506-K42",
+        "EL506-K03",
+        "EL506-K28",
+        "EL506-K35",
+        "EL506-K03",
+        "EL506-K31",
+        "EL506-K27",
+        "EL506-K28"
+      ],
+      "upper": "Y=",
+      "lower": "126.8698976",
+      "angle": "DEG"
+    },
+    {
+      "sequence": [
+        "EL506-K02",
+        "EL506-K47",
+        "EL506-K36",
+        "EL506-K03",
+        "EL506-K28",
+        "EL506-K42",
+        "EL506-K45",
+        "EL506-K03",
+        "EL506-K32"
+      ],
+      "upper": "Error 2",
+      "lower": "Error 2",
+      "angle": "DEG"
+    },
+    {
+      "sequence": [
+        "EL506-K02",
+        "EL506-K42",
+        "EL506-K03",
+        "EL506-K28",
+        "EL506-K35",
+        "EL506-K03",
+        "EL506-K31",
+        "EL506-K05",
+        "EL506-K48",
+        "EL506-K48"
+      ],
+      "upper": "ANS=",
+      "lower": "5.",
+      "angle": "DEG"
+    },
+    {
+      "sequence": [
+        "EL506-K02",
+        "EL506-K15",
+        "EL506-K32",
+        "EL506-K45",
+        "EL506-K48"
+      ],
+      "upper": "Error 2",
+      "lower": "Error 2",
+      "angle": "DEG"
+    },
+    {
+      "sequence": [
+        "EL506-K02",
+        "EL506-K15",
+        "EL506-K40",
+        "EL506-K31",
+        "EL506-K45",
+        "EL506-K48"
+      ],
+      "upper": "tan180=",
+      "lower": "0.",
+      "angle": "DEG"
+    },
+    {
+      "sequence": [
+        "EL506-K02",
+        "EL506-K13",
+        "EL506-K40",
+        "EL506-K24",
+        "EL506-K40",
+        "EL506-K45",
+        "EL506-K48"
+      ],
+      "upper": "Error 2",
+      "lower": "Error 2",
+      "angle": "DEG"
+    },
+    {
+      "sequence": [
+        "EL506-K02",
+        "EL506-K13",
+        "EL506-K32",
+        "EL506-K24",
+        "EL506-K32",
+        "EL506-K48"
+      ],
+      "upper": "sin9E09=",
+      "lower": "0.",
+      "angle": "DEG"
+    },
+    {
+      "sequence": [
+        "EL506-K02",
+        "EL506-K13",
+        "EL506-K40",
+        "EL506-K24",
+        "EL506-K32",
+        "EL506-K48"
+      ],
+      "upper": "sin1E09=",
+      "lower": "-0.984807753",
+      "angle": "DEG"
+    },
+    {
+      "sequence": [
+        "EL506-K02",
+        "EL506-K06",
+        "EL506-K45",
+        "EL506-K40",
+        "EL506-K13",
+        "EL506-K40",
+        "EL506-K24",
+        "EL506-K32",
+        "EL506-K48"
+      ],
+      "upper": "Error 2",
+      "lower": "Error 2",
+      "angle": "RAD"
+    },
+    {
+      "sequence": [
+        "EL506-K02",
+        "EL506-K13",
+        "EL506-K40",
+        "EL506-K24",
+        "EL506-K31",
+        "EL506-K48"
+      ],
+      "upper": "sin1E08=",
+      "lower": "0.93163923",
+      "angle": "RAD"
+    },
+    {
+      "sequence": [
+        "EL506-K02",
+        "EL506-K06",
+        "EL506-K45",
+        "EL506-K41",
+        "EL506-K15",
+        "EL506-K40",
+        "EL506-K45",
+        "EL506-K45",
+        "EL506-K48"
+      ],
+      "upper": "Error 2",
+      "lower": "Error 2",
+      "angle": "GRAD"
+    },
+    {
+      "sequence": [
+        "EL506-K02",
+        "EL506-K13",
+        "EL506-K40",
+        "EL506-K24",
+        "EL506-K40",
+        "EL506-K45",
+        "EL506-K48"
+      ],
+      "upper": "sin1E10=",
+      "lower": "0.",
+      "angle": "GRAD"
+    },
+    {
+      "sequence": [
+        "EL506-K02",
+        "EL506-K06",
+        "EL506-K45",
+        "EL506-K45",
+        "EL506-K13",
+        "EL506-K42",
+        "EL506-K45",
+        "EL506-K48"
+      ],
+      "upper": "sin30=",
+      "lower": "0.5",
+      "angle": "DEG"
+    },
+    {
+      "sequence": [
+        "EL506-K02",
+        "EL506-K03",
+        "EL506-K14",
+        "EL506-K45",
+        "EL506-K48"
+      ],
+      "upper": "acos0=",
+      "lower": "90.",
+      "angle": "DEG"
+    },
+    {
+      "sequence": [
+        "EL506-K02",
+        "EL506-K03",
+        "EL506-K15",
+        "EL506-K40",
+        "EL506-K48"
+      ],
+      "upper": "atan1=",
+      "lower": "45.",
+      "angle": "DEG"
+    },
+    {
+      "sequence": [
+        "EL506-K02",
+        "EL506-K12",
+        "EL506-K13",
+        "EL506-K40",
+        "EL506-K48"
+      ],
+      "upper": "sinh1=",
+      "lower": "1.175201194",
+      "angle": "DEG"
+    },
+    {
+      "sequence": [
+        "EL506-K02",
+        "EL506-K12",
+        "EL506-K14",
+        "EL506-K45",
+        "EL506-K48"
+      ],
+      "upper": "cosh0=",
+      "lower": "1.",
+      "angle": "DEG"
+    },
+    {
+      "sequence": [
+        "EL506-K02",
+        "EL506-K12",
+        "EL506-K15",
+        "EL506-K40",
+        "EL506-K48"
+      ],
+      "upper": "tanh1=",
+      "lower": "0.761594156",
+      "angle": "DEG"
+    },
+    {
+      "sequence": [
+        "EL506-K02",
+        "EL506-K03",
+        "EL506-K12",
+        "EL506-K13",
+        "EL506-K40",
+        "EL506-K48"
+      ],
+      "upper": "asinh1=",
+      "lower": "0.881373587",
+      "angle": "DEG"
+    },
+    {
+      "sequence": [
+        "EL506-K02",
+        "EL506-K03",
+        "EL506-K12",
+        "EL506-K14",
+        "EL506-K45",
+        "EL506-K48"
+      ],
+      "upper": "Error 2",
+      "lower": "Error 2",
+      "angle": "DEG"
+    },
+    {
+      "sequence": [
+        "EL506-K02",
+        "EL506-K03",
+        "EL506-K12",
+        "EL506-K15",
+        "EL506-K40",
+        "EL506-K48"
+      ],
+      "upper": "Error 2",
+      "lower": "Error 2",
+      "angle": "DEG"
+    },
+    {
+      "sequence": [
+        "EL506-K02",
+        "EL506-K12",
+        "EL506-K13",
+        "EL506-K41",
+        "EL506-K42",
+        "EL506-K45",
+        "EL506-K48"
+      ],
+      "upper": "sinh230=",
+      "lower": "3.86100925E99",
+      "angle": "DEG"
+    },
+    {
+      "sequence": [
+        "EL506-K02",
+        "EL506-K12",
+        "EL506-K13",
+        "EL506-K41",
+        "EL506-K42",
+        "EL506-K40",
+        "EL506-K48"
+      ],
+      "upper": "Error 2",
+      "lower": "Error 2",
+      "angle": "DEG"
+    },
+    {
+      "sequence": [
+        "EL506-K02",
+        "EL506-K06",
+        "EL506-K45",
+        "EL506-K40",
+        "EL506-K13",
+        "EL506-K42",
+        "EL506-K45",
+        "EL506-K26",
+        "EL506-K45",
+        "EL506-K26",
+        "EL506-K45",
+        "EL506-K48"
+      ],
+      "upper": "sin30deg0min0sec=",
+      "lower": "-0.988031624",
+      "angle": "RAD"
+    },
+    {
+      "sequence": [
+        "EL506-K02",
+        "EL506-K40",
+        "EL506-K26",
+        "EL506-K42",
+        "EL506-K45",
+        "EL506-K26",
+        "EL506-K45",
+        "EL506-K38",
+        "EL506-K41",
+        "EL506-K48"
+      ],
+      "upper": "1deg30min0sec*2=",
+      "lower": "3deg0min0sec",
+      "angle": "RAD"
+    },
+    {
+      "sequence": [
+        "EL506-K02",
+        "EL506-K40",
+        "EL506-K25",
+        "EL506-K41",
+        "EL506-K09",
+        "EL506-K07"
+      ],
+      "upper": "1 with cursor at end",
+      "lower": "0.",
+      "angle": "DEG"
+    }
+  ],
+  "notes": [
+    "DRG converts immediately; ENT recomputes original expression in new unit.",
+    "Base FRAC toggles decimal/mixed; shifted FRAC toggles improper/mixed; shifted Exp does not convert fractions.",
+    "Coordinate commands store X/Y and ANS=first component; RCL X/Y shows components. Arrow keys edit the pair rather than page results.",
+    "Minute decimal point ignored; fractional degree input ignores DMS key; decimal display fallback at one million degrees.",
+    "Fraction display capacity includes whole/numerator/denominator digits and separators; capacity10 allowed, capacity11 falls back."
+  ],
+  "itemCoverage": {
+    "EL506-120": "Native observations plus dedicated phase6 unit/browser and golden sequences.",
+    "EL506-121": "Native observations plus dedicated phase6 unit/browser and golden sequences.",
+    "EL506-122": "Native observations plus dedicated phase6 unit/browser and golden sequences.",
+    "EL506-123": "Native observations plus dedicated phase6 unit/browser and golden sequences.",
+    "EL506-124": "Native observations plus dedicated phase6 unit/browser and golden sequences.",
+    "EL506-125": "Native observations plus dedicated phase6 unit/browser and golden sequences.",
+    "EL506-126": "Native observations plus dedicated phase6 unit/browser and golden sequences.",
+    "EL506-127": "Native observations plus dedicated phase6 unit/browser and golden sequences.",
+    "EL506-128": "Native observations plus dedicated phase6 unit/browser and golden sequences.",
+    "EL506-129": "Native observations plus dedicated phase6 unit/browser and golden sequences.",
+    "EL506-130": "Native observations plus dedicated phase6 unit/browser and golden sequences.",
+    "EL506-131": "Native observations plus dedicated phase6 unit/browser and golden sequences.",
+    "EL506-132": "Native observations plus dedicated phase6 unit/browser and golden sequences.",
+    "EL506-133": "Native observations plus dedicated phase6 unit/browser and golden sequences.",
+    "EL506-134": "Native observations plus dedicated phase6 unit/browser and golden sequences.",
+    "EL506-135": "Native observations plus dedicated phase6 unit/browser and golden sequences.",
+    "EL506-136": "Native observations plus dedicated phase6 unit/browser and golden sequences.",
+    "EL506-137": "Native observations plus dedicated phase6 unit/browser and golden sequences."
+  },
+  "verification": {
+    "status": "local checks passed; publication pending",
+    "unitTests": 203,
+    "browserTests": 118,
+    "goldenFrames": 147,
+    "djangoTests": 7,
+    "packagedAssets": 15,
+    "checks": [
+      "compileall",
+      "pip dry run",
+      "Compose config/build/start",
+      "wheel/sdist installed smoke",
+      "rebuilt browser mixed-fraction visual inspection",
+      "screen-reader fraction regression",
+      "git diff --check"
+    ],
+    "limitations": [
+      "Measured NORMAL scalar phase; full-device parity remains independently tracked.",
+      "General STO/RCL memory workflows retain Phase 8; Phase 6 provides coordinate X/Y retrieval.",
+      "Raw canonical expressions and modern stacked fractions differ from the native seven-segment glyph spellings; differences remain declared."
+    ]
+  }
+}

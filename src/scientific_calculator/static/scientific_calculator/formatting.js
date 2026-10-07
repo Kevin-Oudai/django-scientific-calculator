@@ -253,14 +253,14 @@
     source=source.replace(/\((-?\d+(?:\.\d*)?)\*tenpow\((-?\d+)\)\)/g,(_,base,exponent)=>base+'E'+(exponent.startsWith('-')?'-':'')+exponent.replace('-','').padStart(2,'0'));
     let output='';
     for(let i=0;i<source.length;){
-      const match=source.slice(i).match(/^(sqrt|cbrt|log|ln|tenpow|epow|fact|root|npr|ncr|kilo|mega|giga|tera|milli|micro|nano|pico|femto)\(/);
+      const match=source.slice(i).match(/^(sin|cos|tan|asin|acos|atan|sinh|cosh|tanh|asinh|acosh|atanh|frac|sqrt|cbrt|log|ln|tenpow|epow|fact|root|npr|ncr|kilo|mega|giga|tera|milli|micro|nano|pico|femto)\(/);
       if(!match){output+=source[i++];continue;}
       let depth=1,j=i+match[0].length,start=j,args=[];
       for(;j<source.length;j++){if(source[j]==='(')depth++;else if(source[j]===')'){if(--depth===0)break;}else if(source[j]===','&&depth===1){args.push(source.slice(start,j));start=j+1;}}
       args.push(source.slice(start,j));args=args.map(physicalExpression);
       const name=match[1],units={kilo:'k',mega:'M',giga:'G',tera:'T',milli:'m',micro:'µ',nano:'n',pico:'p',femto:'f'};
       const prefixes={sqrt:'√',cbrt:'³√',tenpow:'10^',epow:'e^'};
-      output+=name==='fact'?args[0]+'!':name==='root'?args[0]+'ˣ√'+(args[1]||''):name==='npr'?args[0]+'P'+(args[1]||''):name==='ncr'?args[0]+'C'+(args[1]||''):units[name]?args[0]+units[name]:prefixes[name]?prefixes[name]+args[0]:name+args[0];
+      output+=name==='frac'?(args[0]==='0'?'':args[0]+' ')+args[1]+'/'+(args[2]||''):name==='fact'?args[0]+'!':name==='root'?args[0]+'ˣ√'+(args[1]||''):name==='npr'?args[0]+'P'+(args[1]||''):name==='ncr'?args[0]+'C'+(args[1]||''):units[name]?args[0]+units[name]:prefixes[name]?prefixes[name]+args[0]:({asin:'sin⁻¹',acos:'cos⁻¹',atan:'tan⁻¹',asinh:'sinh⁻¹',acosh:'cosh⁻¹',atanh:'tanh⁻¹'})[name]?( {asin:'sin⁻¹',acos:'cos⁻¹',atan:'tan⁻¹',asinh:'sinh⁻¹',acosh:'cosh⁻¹',atanh:'tanh⁻¹'}[name]+args[0]):name+args[0];
       i=j<source.length?j+1:j;
     }
     return output;
@@ -301,12 +301,14 @@
     };
     if (!options.physical) return view;
     const settings = state.layers.settings;
+    if(state.stagedEntry?.type==='physicalFraction'){const stage=state.stagedEntry;view.resultHtml=(stage.whole?formatExpression(stage.whole):'')+stagedFractionHtml();}
     if(state.stagedEntry?.type==='exp'){
       const stage=state.stagedEntry,exponent=Number(stage.exponent)||0;
       view.resultHtml=sharpEntry(stage.base)+'<span class="scicalc__display-operator">&times;</span>10<sup>'+(stage.exponent.startsWith('-')?'-':'')+String(Math.abs(exponent)).padStart(2,'0')+'</sup>';
     }
     if(!state.stagedEntry && state.lifecycle!=='error'){
       if(state.entry)view.resultHtml=state.entry==='-'||/^-?\d*(?:\.\d*)?$/.test(state.entry)?sharpEntry(state.entry):formatExpression(state.entry);
+      else if(state.lifecycle==='evaluated'&&state.values.last.kind==='dms'&&state.resultMode==='decimal')view.resultHtml=sharpNumber(state.lastValue,settings).html;
       else if(state.lifecycle==='evaluated')view.resultHtml=['NORM1','NORM2'].includes(settings.format)&&['mixed','improper'].includes(state.resultMode)?formatExpression(state.displayResult):formatTyped(state.values.last,settings);
       else if(state.displayResult!=='')view.resultHtml=sharpNumber(Number(state.displayResult)||0,settings).html;
     }

@@ -1,4 +1,4 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>EL-506TS parity evidence report</title><style>body{font:16px system-ui;margin:2rem;color:#162130;background:#f5f7fa}main{max-width:1600px;margin:auto}table{border-collapse:collapse;width:100%;background:white}th,td{padding:12px;border:1px solid #b7c2d0;text-align:left;vertical-align:top}th{background:#163858;color:white}pre{white-space:pre-wrap;overflow-wrap:anywhere;font-size:12px}input{font:inherit;padding:10px;min-width:280px}details{margin-top:8px}summary{cursor:pointer}a{color:#174d80}.scroll{overflow:auto}caption{text-align:left;padding:12px 0;font-weight:bold}</style></head><body><main><h1>EL-506TS parity evidence</h1><p>430 ledger entries. Full verified parity: 0.</p><p>Evidence status is independent across columns. Inventory observation, partial implementation and baseline tests do not establish full calculator parity. Test mappings identify assertions, not a new test execution record. Run npm test for verification.</p><p>Guide: 52 workflows; 1 baseline replay; 51 pending. Golden: 114 asserted frames; 1 pending fixture.</p><details><summary>Column totals</summary><pre>{
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>EL-506TS parity evidence report</title><style>body{font:16px system-ui;margin:2rem;color:#162130;background:#f5f7fa}main{max-width:1600px;margin:auto}table{border-collapse:collapse;width:100%;background:white}th,td{padding:12px;border:1px solid #b7c2d0;text-align:left;vertical-align:top}th{background:#163858;color:white}pre{white-space:pre-wrap;overflow-wrap:anywhere;font-size:12px}input{font:inherit;padding:10px;min-width:280px}details{margin-top:8px}summary{cursor:pointer}a{color:#174d80}.scroll{overflow:auto}caption{text-align:left;padding:12px 0;font-weight:bold}</style></head><body><main><h1>EL-506TS parity evidence</h1><p>430 ledger entries. Full verified parity: 0.</p><p>Evidence status is independent across columns. Inventory observation, partial implementation and baseline tests do not establish full calculator parity. Test mappings identify assertions, not a new test execution record. Run npm test for verification.</p><p>Guide: 52 workflows; 1 baseline replay; 51 pending. Golden: 147 asserted frames; 1 pending fixture.</p><details><summary>Column totals</summary><pre>{
   &quot;documented&quot;: {
     &quot;not-recorded&quot;: 235,
     &quot;documented&quot;: 195
@@ -12,16 +12,16 @@
     &quot;missing&quot;: 307
   },
   &quot;unitTested&quot;: {
-    &quot;pending&quot;: 405,
-    &quot;partial&quot;: 25
+    &quot;pending&quot;: 391,
+    &quot;partial&quot;: 39
   },
   &quot;goldenTested&quot;: {
-    &quot;pending&quot;: 407,
-    &quot;baseline-known-differences&quot;: 23
+    &quot;pending&quot;: 401,
+    &quot;baseline-known-differences&quot;: 29
   },
   &quot;browserTested&quot;: {
-    &quot;partial&quot;: 64,
-    &quot;pending&quot;: 366
+    &quot;partial&quot;: 70,
+    &quot;pending&quot;: 360
   }
 }</pre></details><p><label for="filter">Filter by capability, family, owner or evidence status</label><br><input id="filter" type="search" placeholder="For example: matrix or EL506-146"><span id="count" aria-live="polite"> 430 entries</span></p><div class="scroll"><table><caption>Independent status and scoped evidence</caption><thead><tr><th>Capability</th><th>Documented</th><th>Simulator observed</th><th>Implemented</th><th>Unit tested</th><th>Golden tested</th><th>Browser tested</th></tr></thead><tbody><tr><td>el506.key.el506-k01<br><strong>HOME</strong><br>physical-key / EL506-013</td><td><strong>not-recorded</strong><details><summary>Evidence and scope</summary><p>Ledger documentation evidence only.</p><pre>[]</pre></details></td><td><strong>observed</strong><details><summary>Evidence and scope</summary><p>Position verified under EL506-013; semantic layers listed separately.</p><pre>[
   {
@@ -6242,7 +6242,30 @@
   }
 ]</pre></details></td><td><strong>partial</strong><details><summary>Evidence and scope</summary><p>Related legacy functionality exists, but the canonical key/mode sequence, displays, state rules or precision are incomplete/unverified. No full parity claim.</p><pre>[
   &quot;data-insert:sin(&quot;
-]</pre></details></td><td><strong>pending</strong><details><summary>Evidence and scope</summary><p>Explicit mapped assertions only; unlisted coverage is unassessed.</p><pre>[]</pre></details></td><td><strong>pending</strong><details><summary>Evidence and scope</summary><p>Baseline characterization only; all current supported fixtures have oracle display differences.</p><pre>[]</pre></details></td><td><strong>pending</strong><details><summary>Evidence and scope</summary><p>Explicit canonical baseline browser replays only; legacy regression coverage is not inferred as parity.</p><pre>[]</pre></details></td></tr>
+]</pre></details></td><td><strong>partial</strong><details><summary>Evidence and scope</summary><p>Explicit mapped assertions only; unlisted coverage is unassessed.</p><pre>[
+  {
+    &quot;kind&quot;: &quot;unit&quot;,
+    &quot;path&quot;: &quot;tests/unit/phase6.test.js&quot;,
+    &quot;anchor&quot;: &quot;Phase 6 numeric:&quot;,
+    &quot;capabilityIds&quot;: [
+      &quot;el506.base.el506-k13&quot;,
+      &quot;el506.base.el506-k14&quot;,
+      &quot;el506.base.el506-k15&quot;,
+      &quot;el506.second.el506-k13&quot;,
+      &quot;el506.second.el506-k14&quot;,
+      &quot;el506.second.el506-k15&quot;,
+      &quot;el506.base.el506-k25&quot;,
+      &quot;el506.base.el506-k26&quot;,
+      &quot;el506.second.el506-k25&quot;,
+      &quot;el506.second.el506-k26&quot;,
+      &quot;el506.second.el506-k31&quot;,
+      &quot;el506.second.el506-k32&quot;,
+      &quot;el506.second.el506-k46&quot;,
+      &quot;el506.hyp.13.inverse&quot;
+    ],
+    &quot;scope&quot;: &quot;Measured representative NORMAL trig, fraction, DMS and coordinate sequences, boundary errors, typed snapshots and clearing. Partial independent scalar evidence; not a full-device parity claim.&quot;
+  }
+]</pre></details></td><td><strong>pending</strong><details><summary>Evidence and scope</summary><p>Baseline characterization only; all current supported fixtures have oracle display differences.</p><pre>[]</pre></details></td><td><strong>pending</strong><details><summary>Evidence and scope</summary><p>Explicit canonical baseline browser replays only; legacy regression coverage is not inferred as parity.</p><pre>[]</pre></details></td></tr>
 <tr><td>el506.base.el506-k14<br><strong>cos</strong><br>base / EL506-122</td><td><strong>not-recorded</strong><details><summary>Evidence and scope</summary><p>Ledger documentation evidence only.</p><pre>[]</pre></details></td><td><strong>observed</strong><details><summary>Evidence and scope</summary><p>Numeric behavior, valid modes, state changes, boundaries and application parity require the owning roadmap item.</p><pre>[
   {
     &quot;source_id&quot;: &quot;live-panel&quot;,
@@ -6251,7 +6274,30 @@
   }
 ]</pre></details></td><td><strong>partial</strong><details><summary>Evidence and scope</summary><p>Related legacy functionality exists, but the canonical key/mode sequence, displays, state rules or precision are incomplete/unverified. No full parity claim.</p><pre>[
   &quot;data-insert:cos(&quot;
-]</pre></details></td><td><strong>pending</strong><details><summary>Evidence and scope</summary><p>Explicit mapped assertions only; unlisted coverage is unassessed.</p><pre>[]</pre></details></td><td><strong>pending</strong><details><summary>Evidence and scope</summary><p>Baseline characterization only; all current supported fixtures have oracle display differences.</p><pre>[]</pre></details></td><td><strong>pending</strong><details><summary>Evidence and scope</summary><p>Explicit canonical baseline browser replays only; legacy regression coverage is not inferred as parity.</p><pre>[]</pre></details></td></tr>
+]</pre></details></td><td><strong>partial</strong><details><summary>Evidence and scope</summary><p>Explicit mapped assertions only; unlisted coverage is unassessed.</p><pre>[
+  {
+    &quot;kind&quot;: &quot;unit&quot;,
+    &quot;path&quot;: &quot;tests/unit/phase6.test.js&quot;,
+    &quot;anchor&quot;: &quot;Phase 6 numeric:&quot;,
+    &quot;capabilityIds&quot;: [
+      &quot;el506.base.el506-k13&quot;,
+      &quot;el506.base.el506-k14&quot;,
+      &quot;el506.base.el506-k15&quot;,
+      &quot;el506.second.el506-k13&quot;,
+      &quot;el506.second.el506-k14&quot;,
+      &quot;el506.second.el506-k15&quot;,
+      &quot;el506.base.el506-k25&quot;,
+      &quot;el506.base.el506-k26&quot;,
+      &quot;el506.second.el506-k25&quot;,
+      &quot;el506.second.el506-k26&quot;,
+      &quot;el506.second.el506-k31&quot;,
+      &quot;el506.second.el506-k32&quot;,
+      &quot;el506.second.el506-k46&quot;,
+      &quot;el506.hyp.13.inverse&quot;
+    ],
+    &quot;scope&quot;: &quot;Measured representative NORMAL trig, fraction, DMS and coordinate sequences, boundary errors, typed snapshots and clearing. Partial independent scalar evidence; not a full-device parity claim.&quot;
+  }
+]</pre></details></td><td><strong>pending</strong><details><summary>Evidence and scope</summary><p>Baseline characterization only; all current supported fixtures have oracle display differences.</p><pre>[]</pre></details></td><td><strong>pending</strong><details><summary>Evidence and scope</summary><p>Explicit canonical baseline browser replays only; legacy regression coverage is not inferred as parity.</p><pre>[]</pre></details></td></tr>
 <tr><td>el506.base.el506-k15<br><strong>tan</strong><br>base / EL506-122</td><td><strong>not-recorded</strong><details><summary>Evidence and scope</summary><p>Ledger documentation evidence only.</p><pre>[]</pre></details></td><td><strong>observed</strong><details><summary>Evidence and scope</summary><p>Numeric behavior, valid modes, state changes, boundaries and application parity require the owning roadmap item.</p><pre>[
   {
     &quot;source_id&quot;: &quot;live-panel&quot;,
@@ -6260,7 +6306,30 @@
   }
 ]</pre></details></td><td><strong>partial</strong><details><summary>Evidence and scope</summary><p>Related legacy functionality exists, but the canonical key/mode sequence, displays, state rules or precision are incomplete/unverified. No full parity claim.</p><pre>[
   &quot;data-insert:tan(&quot;
-]</pre></details></td><td><strong>pending</strong><details><summary>Evidence and scope</summary><p>Explicit mapped assertions only; unlisted coverage is unassessed.</p><pre>[]</pre></details></td><td><strong>pending</strong><details><summary>Evidence and scope</summary><p>Baseline characterization only; all current supported fixtures have oracle display differences.</p><pre>[]</pre></details></td><td><strong>pending</strong><details><summary>Evidence and scope</summary><p>Explicit canonical baseline browser replays only; legacy regression coverage is not inferred as parity.</p><pre>[]</pre></details></td></tr>
+]</pre></details></td><td><strong>partial</strong><details><summary>Evidence and scope</summary><p>Explicit mapped assertions only; unlisted coverage is unassessed.</p><pre>[
+  {
+    &quot;kind&quot;: &quot;unit&quot;,
+    &quot;path&quot;: &quot;tests/unit/phase6.test.js&quot;,
+    &quot;anchor&quot;: &quot;Phase 6 numeric:&quot;,
+    &quot;capabilityIds&quot;: [
+      &quot;el506.base.el506-k13&quot;,
+      &quot;el506.base.el506-k14&quot;,
+      &quot;el506.base.el506-k15&quot;,
+      &quot;el506.second.el506-k13&quot;,
+      &quot;el506.second.el506-k14&quot;,
+      &quot;el506.second.el506-k15&quot;,
+      &quot;el506.base.el506-k25&quot;,
+      &quot;el506.base.el506-k26&quot;,
+      &quot;el506.second.el506-k25&quot;,
+      &quot;el506.second.el506-k26&quot;,
+      &quot;el506.second.el506-k31&quot;,
+      &quot;el506.second.el506-k32&quot;,
+      &quot;el506.second.el506-k46&quot;,
+      &quot;el506.hyp.13.inverse&quot;
+    ],
+    &quot;scope&quot;: &quot;Measured representative NORMAL trig, fraction, DMS and coordinate sequences, boundary errors, typed snapshots and clearing. Partial independent scalar evidence; not a full-device parity claim.&quot;
+  }
+]</pre></details></td><td><strong>pending</strong><details><summary>Evidence and scope</summary><p>Baseline characterization only; all current supported fixtures have oracle display differences.</p><pre>[]</pre></details></td><td><strong>pending</strong><details><summary>Evidence and scope</summary><p>Explicit canonical baseline browser replays only; legacy regression coverage is not inferred as parity.</p><pre>[]</pre></details></td></tr>
 <tr><td>el506.base.el506-k16<br><strong>integral dx</strong><br>base / EL506-203</td><td><strong>not-recorded</strong><details><summary>Evidence and scope</summary><p>Ledger documentation evidence only.</p><pre>[]</pre></details></td><td><strong>observed</strong><details><summary>Evidence and scope</summary><p>Numeric behavior, valid modes, state changes, boundaries and application parity require the owning roadmap item.</p><pre>[
   {
     &quot;source_id&quot;: &quot;live-panel&quot;,
@@ -6373,7 +6442,69 @@
   }
 ]</pre></details></td><td><strong>partial</strong><details><summary>Evidence and scope</summary><p>Related legacy functionality exists, but the canonical key/mode sequence, displays, state rules or precision are incomplete/unverified. No full parity claim.</p><pre>[
   &quot;data-action:fraction&quot;
-]</pre></details></td><td><strong>pending</strong><details><summary>Evidence and scope</summary><p>Explicit mapped assertions only; unlisted coverage is unassessed.</p><pre>[]</pre></details></td><td><strong>pending</strong><details><summary>Evidence and scope</summary><p>Baseline characterization only; all current supported fixtures have oracle display differences.</p><pre>[]</pre></details></td><td><strong>pending</strong><details><summary>Evidence and scope</summary><p>Explicit canonical baseline browser replays only; legacy regression coverage is not inferred as parity.</p><pre>[]</pre></details></td></tr>
+]</pre></details></td><td><strong>partial</strong><details><summary>Evidence and scope</summary><p>Explicit mapped assertions only; unlisted coverage is unassessed.</p><pre>[
+  {
+    &quot;kind&quot;: &quot;unit&quot;,
+    &quot;path&quot;: &quot;tests/unit/phase6.test.js&quot;,
+    &quot;anchor&quot;: &quot;Phase 6 numeric:&quot;,
+    &quot;capabilityIds&quot;: [
+      &quot;el506.base.el506-k13&quot;,
+      &quot;el506.base.el506-k14&quot;,
+      &quot;el506.base.el506-k15&quot;,
+      &quot;el506.second.el506-k13&quot;,
+      &quot;el506.second.el506-k14&quot;,
+      &quot;el506.second.el506-k15&quot;,
+      &quot;el506.base.el506-k25&quot;,
+      &quot;el506.base.el506-k26&quot;,
+      &quot;el506.second.el506-k25&quot;,
+      &quot;el506.second.el506-k26&quot;,
+      &quot;el506.second.el506-k31&quot;,
+      &quot;el506.second.el506-k32&quot;,
+      &quot;el506.second.el506-k46&quot;,
+      &quot;el506.hyp.13.inverse&quot;
+    ],
+    &quot;scope&quot;: &quot;Measured representative NORMAL trig, fraction, DMS and coordinate sequences, boundary errors, typed snapshots and clearing. Partial independent scalar evidence; not a full-device parity claim.&quot;
+  }
+]</pre></details></td><td><strong>baseline-known-differences</strong><details><summary>Evidence and scope</summary><p>Baseline characterization only; all current supported fixtures have oracle display differences.</p><pre>[
+  {
+    &quot;fixtureId&quot;: &quot;phase6-fraction&quot;,
+    &quot;status&quot;: &quot;known-differences&quot;,
+    &quot;assertedFrames&quot;: 11
+  }
+]</pre></details></td><td><strong>partial</strong><details><summary>Evidence and scope</summary><p>Explicit canonical baseline browser replays only; legacy regression coverage is not inferred as parity.</p><pre>[
+  {
+    &quot;kind&quot;: &quot;browser&quot;,
+    &quot;path&quot;: &quot;tests/e2e/phase6.spec.js&quot;,
+    &quot;anchor&quot;: &quot;Phase 6 mixed fractions retain exact value&quot;,
+    &quot;capabilityIds&quot;: [
+      &quot;el506.base.el506-k25&quot;,
+      &quot;el506.second.el506-k25&quot;,
+      &quot;el506.second.el506-k26&quot;,
+      &quot;el506.second.el506-k31&quot;,
+      &quot;el506.second.el506-k32&quot;
+    ],
+    &quot;scope&quot;: &quot;Physical key routing, exact mixed/decimal views, normalized DMS, X/Y recall and two-instance isolation.&quot;
+  },
+  {
+    &quot;kind&quot;: &quot;browser&quot;,
+    &quot;path&quot;: &quot;tests/e2e/golden.spec.js&quot;,
+    &quot;anchor&quot;: &quot;canonical baseline browser replay&quot;,
+    &quot;fixtureIds&quot;: [
+      &quot;phase6-fraction&quot;,
+      &quot;phase6-dms&quot;,
+      &quot;phase6-coordinate&quot;
+    ],
+    &quot;scope&quot;: &quot;Independent significant native result frames projected to the established browser fraction design; canonical/raw expression differences remain declared.&quot;,
+    &quot;capabilityIds&quot;: [
+      &quot;el506.base.el506-k25&quot;,
+      &quot;el506.second.el506-k25&quot;,
+      &quot;el506.base.el506-k26&quot;,
+      &quot;el506.second.el506-k26&quot;,
+      &quot;el506.second.el506-k31&quot;,
+      &quot;el506.second.el506-k32&quot;
+    ]
+  }
+]</pre></details></td></tr>
 <tr><td>el506.base.el506-k26<br><strong>DMS</strong><br>base / EL506-132</td><td><strong>not-recorded</strong><details><summary>Evidence and scope</summary><p>Ledger documentation evidence only.</p><pre>[]</pre></details></td><td><strong>observed</strong><details><summary>Evidence and scope</summary><p>Numeric behavior, valid modes, state changes, boundaries and application parity require the owning roadmap item.</p><pre>[
   {
     &quot;source_id&quot;: &quot;live-panel&quot;,
@@ -6382,7 +6513,56 @@
   }
 ]</pre></details></td><td><strong>partial</strong><details><summary>Evidence and scope</summary><p>Related legacy functionality exists, but the canonical key/mode sequence, displays, state rules or precision are incomplete/unverified. No full parity claim.</p><pre>[
   &quot;data-action:dms&quot;
-]</pre></details></td><td><strong>pending</strong><details><summary>Evidence and scope</summary><p>Explicit mapped assertions only; unlisted coverage is unassessed.</p><pre>[]</pre></details></td><td><strong>pending</strong><details><summary>Evidence and scope</summary><p>Baseline characterization only; all current supported fixtures have oracle display differences.</p><pre>[]</pre></details></td><td><strong>pending</strong><details><summary>Evidence and scope</summary><p>Explicit canonical baseline browser replays only; legacy regression coverage is not inferred as parity.</p><pre>[]</pre></details></td></tr>
+]</pre></details></td><td><strong>partial</strong><details><summary>Evidence and scope</summary><p>Explicit mapped assertions only; unlisted coverage is unassessed.</p><pre>[
+  {
+    &quot;kind&quot;: &quot;unit&quot;,
+    &quot;path&quot;: &quot;tests/unit/phase6.test.js&quot;,
+    &quot;anchor&quot;: &quot;Phase 6 numeric:&quot;,
+    &quot;capabilityIds&quot;: [
+      &quot;el506.base.el506-k13&quot;,
+      &quot;el506.base.el506-k14&quot;,
+      &quot;el506.base.el506-k15&quot;,
+      &quot;el506.second.el506-k13&quot;,
+      &quot;el506.second.el506-k14&quot;,
+      &quot;el506.second.el506-k15&quot;,
+      &quot;el506.base.el506-k25&quot;,
+      &quot;el506.base.el506-k26&quot;,
+      &quot;el506.second.el506-k25&quot;,
+      &quot;el506.second.el506-k26&quot;,
+      &quot;el506.second.el506-k31&quot;,
+      &quot;el506.second.el506-k32&quot;,
+      &quot;el506.second.el506-k46&quot;,
+      &quot;el506.hyp.13.inverse&quot;
+    ],
+    &quot;scope&quot;: &quot;Measured representative NORMAL trig, fraction, DMS and coordinate sequences, boundary errors, typed snapshots and clearing. Partial independent scalar evidence; not a full-device parity claim.&quot;
+  }
+]</pre></details></td><td><strong>baseline-known-differences</strong><details><summary>Evidence and scope</summary><p>Baseline characterization only; all current supported fixtures have oracle display differences.</p><pre>[
+  {
+    &quot;fixtureId&quot;: &quot;phase6-dms&quot;,
+    &quot;status&quot;: &quot;known-differences&quot;,
+    &quot;assertedFrames&quot;: 13
+  }
+]</pre></details></td><td><strong>partial</strong><details><summary>Evidence and scope</summary><p>Explicit canonical baseline browser replays only; legacy regression coverage is not inferred as parity.</p><pre>[
+  {
+    &quot;kind&quot;: &quot;browser&quot;,
+    &quot;path&quot;: &quot;tests/e2e/golden.spec.js&quot;,
+    &quot;anchor&quot;: &quot;canonical baseline browser replay&quot;,
+    &quot;fixtureIds&quot;: [
+      &quot;phase6-fraction&quot;,
+      &quot;phase6-dms&quot;,
+      &quot;phase6-coordinate&quot;
+    ],
+    &quot;scope&quot;: &quot;Independent significant native result frames projected to the established browser fraction design; canonical/raw expression differences remain declared.&quot;,
+    &quot;capabilityIds&quot;: [
+      &quot;el506.base.el506-k25&quot;,
+      &quot;el506.second.el506-k25&quot;,
+      &quot;el506.base.el506-k26&quot;,
+      &quot;el506.second.el506-k26&quot;,
+      &quot;el506.second.el506-k31&quot;,
+      &quot;el506.second.el506-k32&quot;
+    ]
+  }
+]</pre></details></td></tr>
 <tr><td>el506.base.el506-k27<br><strong>RCL</strong><br>base / EL506-162</td><td><strong>not-recorded</strong><details><summary>Evidence and scope</summary><p>Ledger documentation evidence only.</p><pre>[]</pre></details></td><td><strong>observed</strong><details><summary>Evidence and scope</summary><p>Numeric behavior, valid modes, state changes, boundaries and application parity require the owning roadmap item.</p><pre>[
   {
     &quot;source_id&quot;: &quot;live-panel&quot;,
@@ -6751,7 +6931,30 @@
   }
 ]</pre></details></td><td><strong>partial</strong><details><summary>Evidence and scope</summary><p>Related legacy functionality exists, but the canonical key/mode sequence, displays, state rules or precision are incomplete/unverified. No full parity claim.</p><pre>[
   &quot;data-second-insert:asin(&quot;
-]</pre></details></td><td><strong>pending</strong><details><summary>Evidence and scope</summary><p>Explicit mapped assertions only; unlisted coverage is unassessed.</p><pre>[]</pre></details></td><td><strong>pending</strong><details><summary>Evidence and scope</summary><p>Baseline characterization only; all current supported fixtures have oracle display differences.</p><pre>[]</pre></details></td><td><strong>pending</strong><details><summary>Evidence and scope</summary><p>Explicit canonical baseline browser replays only; legacy regression coverage is not inferred as parity.</p><pre>[]</pre></details></td></tr>
+]</pre></details></td><td><strong>partial</strong><details><summary>Evidence and scope</summary><p>Explicit mapped assertions only; unlisted coverage is unassessed.</p><pre>[
+  {
+    &quot;kind&quot;: &quot;unit&quot;,
+    &quot;path&quot;: &quot;tests/unit/phase6.test.js&quot;,
+    &quot;anchor&quot;: &quot;Phase 6 numeric:&quot;,
+    &quot;capabilityIds&quot;: [
+      &quot;el506.base.el506-k13&quot;,
+      &quot;el506.base.el506-k14&quot;,
+      &quot;el506.base.el506-k15&quot;,
+      &quot;el506.second.el506-k13&quot;,
+      &quot;el506.second.el506-k14&quot;,
+      &quot;el506.second.el506-k15&quot;,
+      &quot;el506.base.el506-k25&quot;,
+      &quot;el506.base.el506-k26&quot;,
+      &quot;el506.second.el506-k25&quot;,
+      &quot;el506.second.el506-k26&quot;,
+      &quot;el506.second.el506-k31&quot;,
+      &quot;el506.second.el506-k32&quot;,
+      &quot;el506.second.el506-k46&quot;,
+      &quot;el506.hyp.13.inverse&quot;
+    ],
+    &quot;scope&quot;: &quot;Measured representative NORMAL trig, fraction, DMS and coordinate sequences, boundary errors, typed snapshots and clearing. Partial independent scalar evidence; not a full-device parity claim.&quot;
+  }
+]</pre></details></td><td><strong>pending</strong><details><summary>Evidence and scope</summary><p>Baseline characterization only; all current supported fixtures have oracle display differences.</p><pre>[]</pre></details></td><td><strong>pending</strong><details><summary>Evidence and scope</summary><p>Explicit canonical baseline browser replays only; legacy regression coverage is not inferred as parity.</p><pre>[]</pre></details></td></tr>
 <tr><td>el506.second.el506-k14<br><strong>inverse cosine</strong><br>2ndF / EL506-123</td><td><strong>not-recorded</strong><details><summary>Evidence and scope</summary><p>Ledger documentation evidence only.</p><pre>[]</pre></details></td><td><strong>observed</strong><details><summary>Evidence and scope</summary><p>Numeric behavior, valid modes, state changes, boundaries and application parity require the owning roadmap item.</p><pre>[
   {
     &quot;source_id&quot;: &quot;live-panel&quot;,
@@ -6760,7 +6963,30 @@
   }
 ]</pre></details></td><td><strong>partial</strong><details><summary>Evidence and scope</summary><p>Related legacy functionality exists, but the canonical key/mode sequence, displays, state rules or precision are incomplete/unverified. No full parity claim.</p><pre>[
   &quot;data-second-insert:acos(&quot;
-]</pre></details></td><td><strong>pending</strong><details><summary>Evidence and scope</summary><p>Explicit mapped assertions only; unlisted coverage is unassessed.</p><pre>[]</pre></details></td><td><strong>pending</strong><details><summary>Evidence and scope</summary><p>Baseline characterization only; all current supported fixtures have oracle display differences.</p><pre>[]</pre></details></td><td><strong>pending</strong><details><summary>Evidence and scope</summary><p>Explicit canonical baseline browser replays only; legacy regression coverage is not inferred as parity.</p><pre>[]</pre></details></td></tr>
+]</pre></details></td><td><strong>partial</strong><details><summary>Evidence and scope</summary><p>Explicit mapped assertions only; unlisted coverage is unassessed.</p><pre>[
+  {
+    &quot;kind&quot;: &quot;unit&quot;,
+    &quot;path&quot;: &quot;tests/unit/phase6.test.js&quot;,
+    &quot;anchor&quot;: &quot;Phase 6 numeric:&quot;,
+    &quot;capabilityIds&quot;: [
+      &quot;el506.base.el506-k13&quot;,
+      &quot;el506.base.el506-k14&quot;,
+      &quot;el506.base.el506-k15&quot;,
+      &quot;el506.second.el506-k13&quot;,
+      &quot;el506.second.el506-k14&quot;,
+      &quot;el506.second.el506-k15&quot;,
+      &quot;el506.base.el506-k25&quot;,
+      &quot;el506.base.el506-k26&quot;,
+      &quot;el506.second.el506-k25&quot;,
+      &quot;el506.second.el506-k26&quot;,
+      &quot;el506.second.el506-k31&quot;,
+      &quot;el506.second.el506-k32&quot;,
+      &quot;el506.second.el506-k46&quot;,
+      &quot;el506.hyp.13.inverse&quot;
+    ],
+    &quot;scope&quot;: &quot;Measured representative NORMAL trig, fraction, DMS and coordinate sequences, boundary errors, typed snapshots and clearing. Partial independent scalar evidence; not a full-device parity claim.&quot;
+  }
+]</pre></details></td><td><strong>pending</strong><details><summary>Evidence and scope</summary><p>Baseline characterization only; all current supported fixtures have oracle display differences.</p><pre>[]</pre></details></td><td><strong>pending</strong><details><summary>Evidence and scope</summary><p>Explicit canonical baseline browser replays only; legacy regression coverage is not inferred as parity.</p><pre>[]</pre></details></td></tr>
 <tr><td>el506.second.el506-k15<br><strong>inverse tangent</strong><br>2ndF / EL506-123</td><td><strong>not-recorded</strong><details><summary>Evidence and scope</summary><p>Ledger documentation evidence only.</p><pre>[]</pre></details></td><td><strong>observed</strong><details><summary>Evidence and scope</summary><p>Numeric behavior, valid modes, state changes, boundaries and application parity require the owning roadmap item.</p><pre>[
   {
     &quot;source_id&quot;: &quot;live-panel&quot;,
@@ -6769,7 +6995,30 @@
   }
 ]</pre></details></td><td><strong>partial</strong><details><summary>Evidence and scope</summary><p>Related legacy functionality exists, but the canonical key/mode sequence, displays, state rules or precision are incomplete/unverified. No full parity claim.</p><pre>[
   &quot;data-second-insert:atan(&quot;
-]</pre></details></td><td><strong>pending</strong><details><summary>Evidence and scope</summary><p>Explicit mapped assertions only; unlisted coverage is unassessed.</p><pre>[]</pre></details></td><td><strong>pending</strong><details><summary>Evidence and scope</summary><p>Baseline characterization only; all current supported fixtures have oracle display differences.</p><pre>[]</pre></details></td><td><strong>pending</strong><details><summary>Evidence and scope</summary><p>Explicit canonical baseline browser replays only; legacy regression coverage is not inferred as parity.</p><pre>[]</pre></details></td></tr>
+]</pre></details></td><td><strong>partial</strong><details><summary>Evidence and scope</summary><p>Explicit mapped assertions only; unlisted coverage is unassessed.</p><pre>[
+  {
+    &quot;kind&quot;: &quot;unit&quot;,
+    &quot;path&quot;: &quot;tests/unit/phase6.test.js&quot;,
+    &quot;anchor&quot;: &quot;Phase 6 numeric:&quot;,
+    &quot;capabilityIds&quot;: [
+      &quot;el506.base.el506-k13&quot;,
+      &quot;el506.base.el506-k14&quot;,
+      &quot;el506.base.el506-k15&quot;,
+      &quot;el506.second.el506-k13&quot;,
+      &quot;el506.second.el506-k14&quot;,
+      &quot;el506.second.el506-k15&quot;,
+      &quot;el506.base.el506-k25&quot;,
+      &quot;el506.base.el506-k26&quot;,
+      &quot;el506.second.el506-k25&quot;,
+      &quot;el506.second.el506-k26&quot;,
+      &quot;el506.second.el506-k31&quot;,
+      &quot;el506.second.el506-k32&quot;,
+      &quot;el506.second.el506-k46&quot;,
+      &quot;el506.hyp.13.inverse&quot;
+    ],
+    &quot;scope&quot;: &quot;Measured representative NORMAL trig, fraction, DMS and coordinate sequences, boundary errors, typed snapshots and clearing. Partial independent scalar evidence; not a full-device parity claim.&quot;
+  }
+]</pre></details></td><td><strong>pending</strong><details><summary>Evidence and scope</summary><p>Baseline characterization only; all current supported fixtures have oracle display differences.</p><pre>[]</pre></details></td><td><strong>pending</strong><details><summary>Evidence and scope</summary><p>Explicit canonical baseline browser replays only; legacy regression coverage is not inferred as parity.</p><pre>[]</pre></details></td></tr>
 <tr><td>el506.second.el506-k16<br><strong>d/dx</strong><br>2ndF / EL506-200</td><td><strong>not-recorded</strong><details><summary>Evidence and scope</summary><p>Ledger documentation evidence only.</p><pre>[]</pre></details></td><td><strong>observed</strong><details><summary>Evidence and scope</summary><p>Numeric behavior, valid modes, state changes, boundaries and application parity require the owning roadmap item.</p><pre>[
   {
     &quot;source_id&quot;: &quot;live-panel&quot;,
@@ -6855,7 +7104,69 @@
   }
 ]</pre></details></td><td><strong>partial</strong><details><summary>Evidence and scope</summary><p>Related legacy functionality exists, but the canonical key/mode sequence, displays, state rules or precision are incomplete/unverified. No full parity claim.</p><pre>[
   &quot;data-action:fraction&quot;
-]</pre></details></td><td><strong>pending</strong><details><summary>Evidence and scope</summary><p>Explicit mapped assertions only; unlisted coverage is unassessed.</p><pre>[]</pre></details></td><td><strong>pending</strong><details><summary>Evidence and scope</summary><p>Baseline characterization only; all current supported fixtures have oracle display differences.</p><pre>[]</pre></details></td><td><strong>pending</strong><details><summary>Evidence and scope</summary><p>Explicit canonical baseline browser replays only; legacy regression coverage is not inferred as parity.</p><pre>[]</pre></details></td></tr>
+]</pre></details></td><td><strong>partial</strong><details><summary>Evidence and scope</summary><p>Explicit mapped assertions only; unlisted coverage is unassessed.</p><pre>[
+  {
+    &quot;kind&quot;: &quot;unit&quot;,
+    &quot;path&quot;: &quot;tests/unit/phase6.test.js&quot;,
+    &quot;anchor&quot;: &quot;Phase 6 numeric:&quot;,
+    &quot;capabilityIds&quot;: [
+      &quot;el506.base.el506-k13&quot;,
+      &quot;el506.base.el506-k14&quot;,
+      &quot;el506.base.el506-k15&quot;,
+      &quot;el506.second.el506-k13&quot;,
+      &quot;el506.second.el506-k14&quot;,
+      &quot;el506.second.el506-k15&quot;,
+      &quot;el506.base.el506-k25&quot;,
+      &quot;el506.base.el506-k26&quot;,
+      &quot;el506.second.el506-k25&quot;,
+      &quot;el506.second.el506-k26&quot;,
+      &quot;el506.second.el506-k31&quot;,
+      &quot;el506.second.el506-k32&quot;,
+      &quot;el506.second.el506-k46&quot;,
+      &quot;el506.hyp.13.inverse&quot;
+    ],
+    &quot;scope&quot;: &quot;Measured representative NORMAL trig, fraction, DMS and coordinate sequences, boundary errors, typed snapshots and clearing. Partial independent scalar evidence; not a full-device parity claim.&quot;
+  }
+]</pre></details></td><td><strong>baseline-known-differences</strong><details><summary>Evidence and scope</summary><p>Baseline characterization only; all current supported fixtures have oracle display differences.</p><pre>[
+  {
+    &quot;fixtureId&quot;: &quot;phase6-fraction&quot;,
+    &quot;status&quot;: &quot;known-differences&quot;,
+    &quot;assertedFrames&quot;: 11
+  }
+]</pre></details></td><td><strong>partial</strong><details><summary>Evidence and scope</summary><p>Explicit canonical baseline browser replays only; legacy regression coverage is not inferred as parity.</p><pre>[
+  {
+    &quot;kind&quot;: &quot;browser&quot;,
+    &quot;path&quot;: &quot;tests/e2e/phase6.spec.js&quot;,
+    &quot;anchor&quot;: &quot;Phase 6 mixed fractions retain exact value&quot;,
+    &quot;capabilityIds&quot;: [
+      &quot;el506.base.el506-k25&quot;,
+      &quot;el506.second.el506-k25&quot;,
+      &quot;el506.second.el506-k26&quot;,
+      &quot;el506.second.el506-k31&quot;,
+      &quot;el506.second.el506-k32&quot;
+    ],
+    &quot;scope&quot;: &quot;Physical key routing, exact mixed/decimal views, normalized DMS, X/Y recall and two-instance isolation.&quot;
+  },
+  {
+    &quot;kind&quot;: &quot;browser&quot;,
+    &quot;path&quot;: &quot;tests/e2e/golden.spec.js&quot;,
+    &quot;anchor&quot;: &quot;canonical baseline browser replay&quot;,
+    &quot;fixtureIds&quot;: [
+      &quot;phase6-fraction&quot;,
+      &quot;phase6-dms&quot;,
+      &quot;phase6-coordinate&quot;
+    ],
+    &quot;scope&quot;: &quot;Independent significant native result frames projected to the established browser fraction design; canonical/raw expression differences remain declared.&quot;,
+    &quot;capabilityIds&quot;: [
+      &quot;el506.base.el506-k25&quot;,
+      &quot;el506.second.el506-k25&quot;,
+      &quot;el506.base.el506-k26&quot;,
+      &quot;el506.second.el506-k26&quot;,
+      &quot;el506.second.el506-k31&quot;,
+      &quot;el506.second.el506-k32&quot;
+    ]
+  }
+]</pre></details></td></tr>
 <tr><td>el506.second.el506-k26<br><strong>to decimal degrees</strong><br>2ndF / EL506-133</td><td><strong>not-recorded</strong><details><summary>Evidence and scope</summary><p>Ledger documentation evidence only.</p><pre>[]</pre></details></td><td><strong>observed</strong><details><summary>Evidence and scope</summary><p>Numeric behavior, valid modes, state changes, boundaries and application parity require the owning roadmap item.</p><pre>[
   {
     &quot;source_id&quot;: &quot;live-panel&quot;,
@@ -6864,7 +7175,69 @@
   }
 ]</pre></details></td><td><strong>partial</strong><details><summary>Evidence and scope</summary><p>Related legacy functionality exists, but the canonical key/mode sequence, displays, state rules or precision are incomplete/unverified. No full parity claim.</p><pre>[
   &quot;data-action:dms&quot;
-]</pre></details></td><td><strong>pending</strong><details><summary>Evidence and scope</summary><p>Explicit mapped assertions only; unlisted coverage is unassessed.</p><pre>[]</pre></details></td><td><strong>pending</strong><details><summary>Evidence and scope</summary><p>Baseline characterization only; all current supported fixtures have oracle display differences.</p><pre>[]</pre></details></td><td><strong>pending</strong><details><summary>Evidence and scope</summary><p>Explicit canonical baseline browser replays only; legacy regression coverage is not inferred as parity.</p><pre>[]</pre></details></td></tr>
+]</pre></details></td><td><strong>partial</strong><details><summary>Evidence and scope</summary><p>Explicit mapped assertions only; unlisted coverage is unassessed.</p><pre>[
+  {
+    &quot;kind&quot;: &quot;unit&quot;,
+    &quot;path&quot;: &quot;tests/unit/phase6.test.js&quot;,
+    &quot;anchor&quot;: &quot;Phase 6 numeric:&quot;,
+    &quot;capabilityIds&quot;: [
+      &quot;el506.base.el506-k13&quot;,
+      &quot;el506.base.el506-k14&quot;,
+      &quot;el506.base.el506-k15&quot;,
+      &quot;el506.second.el506-k13&quot;,
+      &quot;el506.second.el506-k14&quot;,
+      &quot;el506.second.el506-k15&quot;,
+      &quot;el506.base.el506-k25&quot;,
+      &quot;el506.base.el506-k26&quot;,
+      &quot;el506.second.el506-k25&quot;,
+      &quot;el506.second.el506-k26&quot;,
+      &quot;el506.second.el506-k31&quot;,
+      &quot;el506.second.el506-k32&quot;,
+      &quot;el506.second.el506-k46&quot;,
+      &quot;el506.hyp.13.inverse&quot;
+    ],
+    &quot;scope&quot;: &quot;Measured representative NORMAL trig, fraction, DMS and coordinate sequences, boundary errors, typed snapshots and clearing. Partial independent scalar evidence; not a full-device parity claim.&quot;
+  }
+]</pre></details></td><td><strong>baseline-known-differences</strong><details><summary>Evidence and scope</summary><p>Baseline characterization only; all current supported fixtures have oracle display differences.</p><pre>[
+  {
+    &quot;fixtureId&quot;: &quot;phase6-dms&quot;,
+    &quot;status&quot;: &quot;known-differences&quot;,
+    &quot;assertedFrames&quot;: 13
+  }
+]</pre></details></td><td><strong>partial</strong><details><summary>Evidence and scope</summary><p>Explicit canonical baseline browser replays only; legacy regression coverage is not inferred as parity.</p><pre>[
+  {
+    &quot;kind&quot;: &quot;browser&quot;,
+    &quot;path&quot;: &quot;tests/e2e/phase6.spec.js&quot;,
+    &quot;anchor&quot;: &quot;Phase 6 mixed fractions retain exact value&quot;,
+    &quot;capabilityIds&quot;: [
+      &quot;el506.base.el506-k25&quot;,
+      &quot;el506.second.el506-k25&quot;,
+      &quot;el506.second.el506-k26&quot;,
+      &quot;el506.second.el506-k31&quot;,
+      &quot;el506.second.el506-k32&quot;
+    ],
+    &quot;scope&quot;: &quot;Physical key routing, exact mixed/decimal views, normalized DMS, X/Y recall and two-instance isolation.&quot;
+  },
+  {
+    &quot;kind&quot;: &quot;browser&quot;,
+    &quot;path&quot;: &quot;tests/e2e/golden.spec.js&quot;,
+    &quot;anchor&quot;: &quot;canonical baseline browser replay&quot;,
+    &quot;fixtureIds&quot;: [
+      &quot;phase6-fraction&quot;,
+      &quot;phase6-dms&quot;,
+      &quot;phase6-coordinate&quot;
+    ],
+    &quot;scope&quot;: &quot;Independent significant native result frames projected to the established browser fraction design; canonical/raw expression differences remain declared.&quot;,
+    &quot;capabilityIds&quot;: [
+      &quot;el506.base.el506-k25&quot;,
+      &quot;el506.second.el506-k25&quot;,
+      &quot;el506.base.el506-k26&quot;,
+      &quot;el506.second.el506-k26&quot;,
+      &quot;el506.second.el506-k31&quot;,
+      &quot;el506.second.el506-k32&quot;
+    ]
+  }
+]</pre></details></td></tr>
 <tr><td>el506.second.el506-k29<br><strong>M-</strong><br>2ndF / EL506-163</td><td><strong>not-recorded</strong><details><summary>Evidence and scope</summary><p>Ledger documentation evidence only.</p><pre>[]</pre></details></td><td><strong>observed</strong><details><summary>Evidence and scope</summary><p>Numeric behavior, valid modes, state changes, boundaries and application parity require the owning roadmap item.</p><pre>[
   {
     &quot;source_id&quot;: &quot;live-panel&quot;,
@@ -6887,14 +7260,138 @@
     &quot;key_id&quot;: &quot;EL506-K31&quot;,
     &quot;scope&quot;: &quot;Visible panel legend; action semantics not executed.&quot;
   }
-]</pre></details></td><td><strong>missing</strong><details><summary>Evidence and scope</summary><p>No corresponding mode/controller/function in the frozen 0.3.1 implementation; reference exposure is not implementation evidence.</p><pre>[]</pre></details></td><td><strong>pending</strong><details><summary>Evidence and scope</summary><p>Explicit mapped assertions only; unlisted coverage is unassessed.</p><pre>[]</pre></details></td><td><strong>pending</strong><details><summary>Evidence and scope</summary><p>Baseline characterization only; all current supported fixtures have oracle display differences.</p><pre>[]</pre></details></td><td><strong>pending</strong><details><summary>Evidence and scope</summary><p>Explicit canonical baseline browser replays only; legacy regression coverage is not inferred as parity.</p><pre>[]</pre></details></td></tr>
+]</pre></details></td><td><strong>missing</strong><details><summary>Evidence and scope</summary><p>No corresponding mode/controller/function in the frozen 0.3.1 implementation; reference exposure is not implementation evidence.</p><pre>[]</pre></details></td><td><strong>partial</strong><details><summary>Evidence and scope</summary><p>Explicit mapped assertions only; unlisted coverage is unassessed.</p><pre>[
+  {
+    &quot;kind&quot;: &quot;unit&quot;,
+    &quot;path&quot;: &quot;tests/unit/phase6.test.js&quot;,
+    &quot;anchor&quot;: &quot;Phase 6 numeric:&quot;,
+    &quot;capabilityIds&quot;: [
+      &quot;el506.base.el506-k13&quot;,
+      &quot;el506.base.el506-k14&quot;,
+      &quot;el506.base.el506-k15&quot;,
+      &quot;el506.second.el506-k13&quot;,
+      &quot;el506.second.el506-k14&quot;,
+      &quot;el506.second.el506-k15&quot;,
+      &quot;el506.base.el506-k25&quot;,
+      &quot;el506.base.el506-k26&quot;,
+      &quot;el506.second.el506-k25&quot;,
+      &quot;el506.second.el506-k26&quot;,
+      &quot;el506.second.el506-k31&quot;,
+      &quot;el506.second.el506-k32&quot;,
+      &quot;el506.second.el506-k46&quot;,
+      &quot;el506.hyp.13.inverse&quot;
+    ],
+    &quot;scope&quot;: &quot;Measured representative NORMAL trig, fraction, DMS and coordinate sequences, boundary errors, typed snapshots and clearing. Partial independent scalar evidence; not a full-device parity claim.&quot;
+  }
+]</pre></details></td><td><strong>baseline-known-differences</strong><details><summary>Evidence and scope</summary><p>Baseline characterization only; all current supported fixtures have oracle display differences.</p><pre>[
+  {
+    &quot;fixtureId&quot;: &quot;phase6-coordinate&quot;,
+    &quot;status&quot;: &quot;known-differences&quot;,
+    &quot;assertedFrames&quot;: 9
+  }
+]</pre></details></td><td><strong>partial</strong><details><summary>Evidence and scope</summary><p>Explicit canonical baseline browser replays only; legacy regression coverage is not inferred as parity.</p><pre>[
+  {
+    &quot;kind&quot;: &quot;browser&quot;,
+    &quot;path&quot;: &quot;tests/e2e/phase6.spec.js&quot;,
+    &quot;anchor&quot;: &quot;Phase 6 mixed fractions retain exact value&quot;,
+    &quot;capabilityIds&quot;: [
+      &quot;el506.base.el506-k25&quot;,
+      &quot;el506.second.el506-k25&quot;,
+      &quot;el506.second.el506-k26&quot;,
+      &quot;el506.second.el506-k31&quot;,
+      &quot;el506.second.el506-k32&quot;
+    ],
+    &quot;scope&quot;: &quot;Physical key routing, exact mixed/decimal views, normalized DMS, X/Y recall and two-instance isolation.&quot;
+  },
+  {
+    &quot;kind&quot;: &quot;browser&quot;,
+    &quot;path&quot;: &quot;tests/e2e/golden.spec.js&quot;,
+    &quot;anchor&quot;: &quot;canonical baseline browser replay&quot;,
+    &quot;fixtureIds&quot;: [
+      &quot;phase6-fraction&quot;,
+      &quot;phase6-dms&quot;,
+      &quot;phase6-coordinate&quot;
+    ],
+    &quot;scope&quot;: &quot;Independent significant native result frames projected to the established browser fraction design; canonical/raw expression differences remain declared.&quot;,
+    &quot;capabilityIds&quot;: [
+      &quot;el506.base.el506-k25&quot;,
+      &quot;el506.second.el506-k25&quot;,
+      &quot;el506.base.el506-k26&quot;,
+      &quot;el506.second.el506-k26&quot;,
+      &quot;el506.second.el506-k31&quot;,
+      &quot;el506.second.el506-k32&quot;
+    ]
+  }
+]</pre></details></td></tr>
 <tr><td>el506.second.el506-k32<br><strong>polar to rectangular</strong><br>2ndF / EL506-136</td><td><strong>not-recorded</strong><details><summary>Evidence and scope</summary><p>Ledger documentation evidence only.</p><pre>[]</pre></details></td><td><strong>observed</strong><details><summary>Evidence and scope</summary><p>Numeric behavior, valid modes, state changes, boundaries and application parity require the owning roadmap item.</p><pre>[
   {
     &quot;source_id&quot;: &quot;live-panel&quot;,
     &quot;key_id&quot;: &quot;EL506-K32&quot;,
     &quot;scope&quot;: &quot;Visible panel legend; action semantics not executed.&quot;
   }
-]</pre></details></td><td><strong>missing</strong><details><summary>Evidence and scope</summary><p>No corresponding mode/controller/function in the frozen 0.3.1 implementation; reference exposure is not implementation evidence.</p><pre>[]</pre></details></td><td><strong>pending</strong><details><summary>Evidence and scope</summary><p>Explicit mapped assertions only; unlisted coverage is unassessed.</p><pre>[]</pre></details></td><td><strong>pending</strong><details><summary>Evidence and scope</summary><p>Baseline characterization only; all current supported fixtures have oracle display differences.</p><pre>[]</pre></details></td><td><strong>pending</strong><details><summary>Evidence and scope</summary><p>Explicit canonical baseline browser replays only; legacy regression coverage is not inferred as parity.</p><pre>[]</pre></details></td></tr>
+]</pre></details></td><td><strong>missing</strong><details><summary>Evidence and scope</summary><p>No corresponding mode/controller/function in the frozen 0.3.1 implementation; reference exposure is not implementation evidence.</p><pre>[]</pre></details></td><td><strong>partial</strong><details><summary>Evidence and scope</summary><p>Explicit mapped assertions only; unlisted coverage is unassessed.</p><pre>[
+  {
+    &quot;kind&quot;: &quot;unit&quot;,
+    &quot;path&quot;: &quot;tests/unit/phase6.test.js&quot;,
+    &quot;anchor&quot;: &quot;Phase 6 numeric:&quot;,
+    &quot;capabilityIds&quot;: [
+      &quot;el506.base.el506-k13&quot;,
+      &quot;el506.base.el506-k14&quot;,
+      &quot;el506.base.el506-k15&quot;,
+      &quot;el506.second.el506-k13&quot;,
+      &quot;el506.second.el506-k14&quot;,
+      &quot;el506.second.el506-k15&quot;,
+      &quot;el506.base.el506-k25&quot;,
+      &quot;el506.base.el506-k26&quot;,
+      &quot;el506.second.el506-k25&quot;,
+      &quot;el506.second.el506-k26&quot;,
+      &quot;el506.second.el506-k31&quot;,
+      &quot;el506.second.el506-k32&quot;,
+      &quot;el506.second.el506-k46&quot;,
+      &quot;el506.hyp.13.inverse&quot;
+    ],
+    &quot;scope&quot;: &quot;Measured representative NORMAL trig, fraction, DMS and coordinate sequences, boundary errors, typed snapshots and clearing. Partial independent scalar evidence; not a full-device parity claim.&quot;
+  }
+]</pre></details></td><td><strong>baseline-known-differences</strong><details><summary>Evidence and scope</summary><p>Baseline characterization only; all current supported fixtures have oracle display differences.</p><pre>[
+  {
+    &quot;fixtureId&quot;: &quot;phase6-coordinate&quot;,
+    &quot;status&quot;: &quot;known-differences&quot;,
+    &quot;assertedFrames&quot;: 9
+  }
+]</pre></details></td><td><strong>partial</strong><details><summary>Evidence and scope</summary><p>Explicit canonical baseline browser replays only; legacy regression coverage is not inferred as parity.</p><pre>[
+  {
+    &quot;kind&quot;: &quot;browser&quot;,
+    &quot;path&quot;: &quot;tests/e2e/phase6.spec.js&quot;,
+    &quot;anchor&quot;: &quot;Phase 6 mixed fractions retain exact value&quot;,
+    &quot;capabilityIds&quot;: [
+      &quot;el506.base.el506-k25&quot;,
+      &quot;el506.second.el506-k25&quot;,
+      &quot;el506.second.el506-k26&quot;,
+      &quot;el506.second.el506-k31&quot;,
+      &quot;el506.second.el506-k32&quot;
+    ],
+    &quot;scope&quot;: &quot;Physical key routing, exact mixed/decimal views, normalized DMS, X/Y recall and two-instance isolation.&quot;
+  },
+  {
+    &quot;kind&quot;: &quot;browser&quot;,
+    &quot;path&quot;: &quot;tests/e2e/golden.spec.js&quot;,
+    &quot;anchor&quot;: &quot;canonical baseline browser replay&quot;,
+    &quot;fixtureIds&quot;: [
+      &quot;phase6-fraction&quot;,
+      &quot;phase6-dms&quot;,
+      &quot;phase6-coordinate&quot;
+    ],
+    &quot;scope&quot;: &quot;Independent significant native result frames projected to the established browser fraction design; canonical/raw expression differences remain declared.&quot;,
+    &quot;capabilityIds&quot;: [
+      &quot;el506.base.el506-k25&quot;,
+      &quot;el506.second.el506-k25&quot;,
+      &quot;el506.base.el506-k26&quot;,
+      &quot;el506.second.el506-k26&quot;,
+      &quot;el506.second.el506-k31&quot;,
+      &quot;el506.second.el506-k32&quot;
+    ]
+  }
+]</pre></details></td></tr>
 <tr><td>el506.second.el506-k33<br><strong>estimated x</strong><br>2ndF / EL506-253</td><td><strong>not-recorded</strong><details><summary>Evidence and scope</summary><p>Ledger documentation evidence only.</p><pre>[]</pre></details></td><td><strong>observed</strong><details><summary>Evidence and scope</summary><p>Numeric behavior, valid modes, state changes, boundaries and application parity require the owning roadmap item.</p><pre>[
   {
     &quot;source_id&quot;: &quot;live-panel&quot;,
@@ -7106,7 +7603,30 @@
   }
 ]</pre></details></td><td><strong>partial</strong><details><summary>Evidence and scope</summary><p>Related legacy functionality exists, but the canonical key/mode sequence, displays, state rules or precision are incomplete/unverified. No full parity claim.</p><pre>[
   &quot;data-action:angle&quot;
-]</pre></details></td><td><strong>pending</strong><details><summary>Evidence and scope</summary><p>Explicit mapped assertions only; unlisted coverage is unassessed.</p><pre>[]</pre></details></td><td><strong>pending</strong><details><summary>Evidence and scope</summary><p>Baseline characterization only; all current supported fixtures have oracle display differences.</p><pre>[]</pre></details></td><td><strong>pending</strong><details><summary>Evidence and scope</summary><p>Explicit canonical baseline browser replays only; legacy regression coverage is not inferred as parity.</p><pre>[]</pre></details></td></tr>
+]</pre></details></td><td><strong>partial</strong><details><summary>Evidence and scope</summary><p>Explicit mapped assertions only; unlisted coverage is unassessed.</p><pre>[
+  {
+    &quot;kind&quot;: &quot;unit&quot;,
+    &quot;path&quot;: &quot;tests/unit/phase6.test.js&quot;,
+    &quot;anchor&quot;: &quot;Phase 6 numeric:&quot;,
+    &quot;capabilityIds&quot;: [
+      &quot;el506.base.el506-k13&quot;,
+      &quot;el506.base.el506-k14&quot;,
+      &quot;el506.base.el506-k15&quot;,
+      &quot;el506.second.el506-k13&quot;,
+      &quot;el506.second.el506-k14&quot;,
+      &quot;el506.second.el506-k15&quot;,
+      &quot;el506.base.el506-k25&quot;,
+      &quot;el506.base.el506-k26&quot;,
+      &quot;el506.second.el506-k25&quot;,
+      &quot;el506.second.el506-k26&quot;,
+      &quot;el506.second.el506-k31&quot;,
+      &quot;el506.second.el506-k32&quot;,
+      &quot;el506.second.el506-k46&quot;,
+      &quot;el506.hyp.13.inverse&quot;
+    ],
+    &quot;scope&quot;: &quot;Measured representative NORMAL trig, fraction, DMS and coordinate sequences, boundary errors, typed snapshots and clearing. Partial independent scalar evidence; not a full-device parity claim.&quot;
+  }
+]</pre></details></td><td><strong>pending</strong><details><summary>Evidence and scope</summary><p>Baseline characterization only; all current supported fixtures have oracle display differences.</p><pre>[]</pre></details></td><td><strong>pending</strong><details><summary>Evidence and scope</summary><p>Explicit canonical baseline browser replays only; legacy regression coverage is not inferred as parity.</p><pre>[]</pre></details></td></tr>
 <tr><td>el506.second.el506-k47<br><strong>M-CLR</strong><br>2ndF / EL506-357</td><td><strong>not-recorded</strong><details><summary>Evidence and scope</summary><p>Ledger documentation evidence only.</p><pre>[]</pre></details></td><td><strong>observed</strong><details><summary>Evidence and scope</summary><p>Numeric behavior, valid modes, state changes, boundaries and application parity require the owning roadmap item.</p><pre>[
   {
     &quot;source_id&quot;: &quot;live-panel&quot;,
@@ -7472,7 +7992,30 @@
     &quot;key_id&quot;: &quot;EL506-K12&quot;,
     &quot;scope&quot;: &quot;Visible panel legend; action semantics not executed.&quot;
   }
-]</pre></details></td><td><strong>missing</strong><details><summary>Evidence and scope</summary><p>No corresponding mode/controller/function in the frozen 0.3.1 implementation; reference exposure is not implementation evidence.</p><pre>[]</pre></details></td><td><strong>pending</strong><details><summary>Evidence and scope</summary><p>Explicit mapped assertions only; unlisted coverage is unassessed.</p><pre>[]</pre></details></td><td><strong>baseline-known-differences</strong><details><summary>Evidence and scope</summary><p>Baseline characterization only; all current supported fixtures have oracle display differences.</p><pre>[
+]</pre></details></td><td><strong>missing</strong><details><summary>Evidence and scope</summary><p>No corresponding mode/controller/function in the frozen 0.3.1 implementation; reference exposure is not implementation evidence.</p><pre>[]</pre></details></td><td><strong>partial</strong><details><summary>Evidence and scope</summary><p>Explicit mapped assertions only; unlisted coverage is unassessed.</p><pre>[
+  {
+    &quot;kind&quot;: &quot;unit&quot;,
+    &quot;path&quot;: &quot;tests/unit/phase6.test.js&quot;,
+    &quot;anchor&quot;: &quot;Phase 6 numeric:&quot;,
+    &quot;capabilityIds&quot;: [
+      &quot;el506.base.el506-k13&quot;,
+      &quot;el506.base.el506-k14&quot;,
+      &quot;el506.base.el506-k15&quot;,
+      &quot;el506.second.el506-k13&quot;,
+      &quot;el506.second.el506-k14&quot;,
+      &quot;el506.second.el506-k15&quot;,
+      &quot;el506.base.el506-k25&quot;,
+      &quot;el506.base.el506-k26&quot;,
+      &quot;el506.second.el506-k25&quot;,
+      &quot;el506.second.el506-k26&quot;,
+      &quot;el506.second.el506-k31&quot;,
+      &quot;el506.second.el506-k32&quot;,
+      &quot;el506.second.el506-k46&quot;,
+      &quot;el506.hyp.13.inverse&quot;
+    ],
+    &quot;scope&quot;: &quot;Measured representative NORMAL trig, fraction, DMS and coordinate sequences, boundary errors, typed snapshots and clearing. Partial independent scalar evidence; not a full-device parity claim.&quot;
+  }
+]</pre></details></td><td><strong>baseline-known-differences</strong><details><summary>Evidence and scope</summary><p>Baseline characterization only; all current supported fixtures have oracle display differences.</p><pre>[
   {
     &quot;fixtureId&quot;: &quot;key-layers-foundation-v1&quot;,
     &quot;status&quot;: &quot;known-differences&quot;,

@@ -811,7 +811,7 @@ The compatible `calculator.js` entry now loads local companion modules.
 `browser-adapter.js` owns root events, rendering and focus. Node consumers of
 the existing entry receive the same core API. Existing Django tags and asset
 paths need no template change; collect and deploy all package static assets
-together. State snapshots use schema 6 with the legacy profile; older schemas migrate in memory.
+together. State snapshots use schema 8 with the legacy profile; older schemas migrate in memory.
 
 Multiple template-tag embeds own independent entry, ANS, memory, statistics,
 history, modifiers, settings, token cursors and snapshots. Keyboard input
@@ -903,6 +903,45 @@ reserved for its later controller phase. Domain/range errors retain ANS and
 stores. Fractions, angle functions and the other mode controllers retain their
 later roadmap owners; this is not a claim of complete device parity.
 
-Snapshot schema 7 adds retained arithmetic state and migrates schemas 1–6.
+Snapshot schema 7 introduced retained arithmetic state; schema 8 adds physical
+mixed-fraction templates and migrates schemas 1–7.
 The optional enhanced legacy layout keeps its existing arithmetic grammar.
 The package release remains 0.3.1 during this parity implementation series.
+
+
+### Angles, fractions, DMS, and coordinates
+
+NORMAL supports DEG, RAD, and GRAD through SET UP. 2ndF + decimal point
+(DRG) converts the current value immediately and cycles the angle unit; ENT
+afterward recalculates the original expression using the new unit. The trig
+keys provide sine, cosine, tangent and their inverses; HYP and 2ndF + HYP
+provide hyperbolic functions and their inverses. Singular tangents, out-of-domain
+inverse functions and angles beyond the device limits give Error 2.
+
+Enter `2`, FRAC, `1`, FRAC, `3` for a mixed fraction. Fractions simplify and
+arithmetic retains exact numerator/denominator values. After evaluation, FRAC
+toggles decimal/mixed views; 2ndF + FRAC toggles improper/mixed views. A fraction
+requiring more than ten display positions (including separators) falls back to
+decimal without losing its exact value. FIX/SCI/ENG keep their selected numeric
+format. Existing stacked fractions and the 12px key legends remain unchanged. Screen-reader
+announcements describe the numerator and denominator using “over”.
+
+DMS enters degrees, minutes, then seconds. Carries normalize at evaluation;
+NEG changes the sign of the entire DMS value. Minutes ignore the decimal point;
+fractional degree input ignores the DMS entry key. 2ndF + DMS toggles the result
+between DMS and decimal views; DMS display falls back to decimal at one million
+degrees. DMS arithmetic uses its numeric degree value; trig interprets that
+number in the active angle unit.
+
+For coordinates enter the first component, 2ndF + STO (comma), then the second.
+2ndF + 8 converts rectangular to polar, and 2ndF + 9 converts polar to
+rectangular. Conversion evaluates immediately, displays the first component,
+and stores the components in X/Y. Press RCL then the X or Y key to inspect
+either component; arrow keys edit the pair expression. The active angle unit
+controls polar angles. A zero rectangular pair or negative polar radius gives
+Error 2. General memory, solver, random and catalogue controllers retain their
+later roadmap owners.
+
+Reference evidence: `tests/reference/el506ts/phase-6-review.json` and the three
+`experiments/phase6-*.json` / `golden/phase6-*.json` sequences. The measured
+profile and scoped tests are recorded separately from full capability parity.

@@ -61,9 +61,9 @@
     {
       "afterStep": 3,
       "assertions": {
-        "displayExpression": "",
+        "displayExpression": "asinh(",
         "displayResult": "0",
-        "lifecycle": "empty",
+        "lifecycle": "entering",
         "secondActive": false,
         "layers.alpha": false,
         "layers.hyp": false,
@@ -161,8 +161,8 @@
     {
       "afterStep": 3,
       "field": "displayExpression",
-      "expected": "sinh⁻¹",
-      "actual": ""
+      "expected": "sinh\u207b\u00b9",
+      "actual": "asinh("
     },
     {
       "afterStep": 3,

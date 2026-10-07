@@ -83,8 +83,16 @@
           button.setAttribute('aria-label',`${meanings.join('; ')}${active?`; active: ${active}`:''}`);
         }
         const status=Object.entries(view.indicators).filter(([,active])=>active).map(([label])=>label).join(', ');
-        const pending=['pending','function','symbol','statistic','conversion','catalogue-selection','memory-selection'].includes(state.layers.intent?.kind) ? '. Selected operation awaits its later roadmap implementation.' : '';
-        const text=state.control.power==='off'?'Calculator powered off. Press ON/C to wake.':`Equation: ${expressionEl.textContent || 'empty'}. Result: ${resultEl.textContent || 'empty'}. ${status}${view.pageStatus?`. Page ${view.pageStatus}, ${view.component}`:''}${pending}`;
+        const pending=['pending','symbol','statistic','catalogue-selection','memory-selection'].includes(state.layers.intent?.kind) ? '. Selected operation awaits its later roadmap implementation.' : '';
+        const spokenDisplay=element=>{
+          const copy=element.cloneNode(true);
+          for(const fraction of copy.querySelectorAll('.scicalc__display-fraction')){
+            const [numerator,denominator]=fraction.children;
+            fraction.replaceWith(document.createTextNode(` ${numerator?.textContent||'blank'} over ${denominator?.textContent||'blank'} `));
+          }
+          return copy.textContent.replace(/\s+/g,' ').trim()||'empty';
+        };
+        const text=state.control.power==='off'?'Calculator powered off. Press ON/C to wake.':`Equation: ${spokenDisplay(expressionEl)}. Result: ${spokenDisplay(resultEl)}. ${status}${view.pageStatus?`. Page ${view.pageStatus}, ${view.component}`:''}${pending}`;
         if(announcement.textContent!==text) announcement.textContent=text;
         const error=/^Error/.test(state.displayResult)?state.control.errorCode?'Error '+state.control.errorCode:state.displayResult:'';
         if(errorEl.textContent!==error) errorEl.textContent=error;

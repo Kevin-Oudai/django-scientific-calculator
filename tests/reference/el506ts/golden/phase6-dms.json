@@ -1,0 +1,356 @@
+{
+  "schemaVersion": 1,
+  "id": "phase6-dms",
+  "dispatch": "physical",
+  "displayProfile": "physical",
+  "status": "baseline-characterization",
+  "reference": "experiments/phase6-dms.json",
+  "sequence": [
+    "EL506-K40",
+    "EL506-K26",
+    "EL506-K30",
+    "EL506-K45",
+    "EL506-K26",
+    "EL506-K31",
+    "EL506-K45",
+    "EL506-K48",
+    "EL506-K03",
+    "EL506-K26",
+    "EL506-K03",
+    "EL506-K26"
+  ],
+  "capabilityIds": [
+    "el506.base.el506-k26",
+    "el506.second.el506-k26"
+  ],
+  "expected": [
+    {
+      "afterStep": 0,
+      "assertions": {
+        "displayExpression": "",
+        "displayResult": "0",
+        "lifecycle": "empty",
+        "answer": 0,
+        "values.last": {
+          "kind": "scalar",
+          "value": 0
+        },
+        "stagedEntry": null,
+        "control.variables.X": 0,
+        "control.variables.Y": 0
+      },
+      "domResultText": "0."
+    },
+    {
+      "afterStep": 1,
+      "assertions": {
+        "displayExpression": "",
+        "displayResult": "1",
+        "lifecycle": "entering",
+        "answer": 0,
+        "values.last": {
+          "kind": "scalar",
+          "value": 0
+        },
+        "stagedEntry": null,
+        "control.variables.X": 0,
+        "control.variables.Y": 0
+      },
+      "domResultText": "1."
+    },
+    {
+      "afterStep": 2,
+      "assertions": {
+        "displayExpression": "",
+        "displayResult": "dms(1,0,0)",
+        "lifecycle": "entering",
+        "answer": 0,
+        "values.last": {
+          "kind": "scalar",
+          "value": 0
+        },
+        "stagedEntry": {
+          "type": "dms",
+          "degrees": "1",
+          "minutes": "",
+          "seconds": "",
+          "part": "minutes",
+          "hasMinutes": false,
+          "hasSeconds": false
+        },
+        "control.variables.X": 0,
+        "control.variables.Y": 0
+      },
+      "domResultText": "1°0′0″"
+    },
+    {
+      "afterStep": 3,
+      "assertions": {
+        "displayExpression": "",
+        "displayResult": "dms(1,7,0)",
+        "lifecycle": "entering",
+        "answer": 0,
+        "values.last": {
+          "kind": "scalar",
+          "value": 0
+        },
+        "stagedEntry": {
+          "type": "dms",
+          "degrees": "1",
+          "minutes": "7",
+          "seconds": "",
+          "part": "minutes",
+          "hasMinutes": true,
+          "hasSeconds": false
+        },
+        "control.variables.X": 0,
+        "control.variables.Y": 0
+      },
+      "domResultText": "1°7′0″"
+    },
+    {
+      "afterStep": 4,
+      "assertions": {
+        "displayExpression": "",
+        "displayResult": "dms(1,70,0)",
+        "lifecycle": "entering",
+        "answer": 0,
+        "values.last": {
+          "kind": "scalar",
+          "value": 0
+        },
+        "stagedEntry": {
+          "type": "dms",
+          "degrees": "1",
+          "minutes": "70",
+          "seconds": "",
+          "part": "minutes",
+          "hasMinutes": true,
+          "hasSeconds": false
+        },
+        "control.variables.X": 0,
+        "control.variables.Y": 0
+      },
+      "domResultText": "1°70′0″"
+    },
+    {
+      "afterStep": 5,
+      "assertions": {
+        "displayExpression": "",
+        "displayResult": "dms(1,70,0)",
+        "lifecycle": "entering",
+        "answer": 0,
+        "values.last": {
+          "kind": "scalar",
+          "value": 0
+        },
+        "stagedEntry": {
+          "type": "dms",
+          "degrees": "1",
+          "minutes": "70",
+          "seconds": "",
+          "part": "seconds",
+          "hasMinutes": true,
+          "hasSeconds": false
+        },
+        "control.variables.X": 0,
+        "control.variables.Y": 0
+      },
+      "domResultText": "1°70′0″"
+    },
+    {
+      "afterStep": 6,
+      "assertions": {
+        "displayExpression": "",
+        "displayResult": "dms(1,70,8)",
+        "lifecycle": "entering",
+        "answer": 0,
+        "values.last": {
+          "kind": "scalar",
+          "value": 0
+        },
+        "stagedEntry": {
+          "type": "dms",
+          "degrees": "1",
+          "minutes": "70",
+          "seconds": "8",
+          "part": "seconds",
+          "hasMinutes": true,
+          "hasSeconds": true
+        },
+        "control.variables.X": 0,
+        "control.variables.Y": 0
+      },
+      "domResultText": "1°70′8″"
+    },
+    {
+      "afterStep": 7,
+      "assertions": {
+        "displayExpression": "",
+        "displayResult": "dms(1,70,80)",
+        "lifecycle": "entering",
+        "answer": 0,
+        "values.last": {
+          "kind": "scalar",
+          "value": 0
+        },
+        "stagedEntry": {
+          "type": "dms",
+          "degrees": "1",
+          "minutes": "70",
+          "seconds": "80",
+          "part": "seconds",
+          "hasMinutes": true,
+          "hasSeconds": true
+        },
+        "control.variables.X": 0,
+        "control.variables.Y": 0
+      },
+      "domResultText": "1°70′80″"
+    },
+    {
+      "afterStep": 8,
+      "assertions": {
+        "displayExpression": "dms(1,70,80)=",
+        "displayResult": "2.18888888889",
+        "lifecycle": "evaluated",
+        "answer": 2.188888888888889,
+        "values.last": {
+          "kind": "dms",
+          "sign": 1,
+          "degrees": 2,
+          "minutes": 11,
+          "seconds": 20
+        },
+        "stagedEntry": null,
+        "control.variables.X": 0,
+        "control.variables.Y": 0
+      },
+      "domResultText": "2°11′20″"
+    },
+    {
+      "afterStep": 9,
+      "assertions": {
+        "displayExpression": "dms(1,70,80)=",
+        "displayResult": "2.18888888889",
+        "lifecycle": "evaluated",
+        "answer": 2.188888888888889,
+        "values.last": {
+          "kind": "dms",
+          "sign": 1,
+          "degrees": 2,
+          "minutes": 11,
+          "seconds": 20
+        },
+        "stagedEntry": null,
+        "control.variables.X": 0,
+        "control.variables.Y": 0
+      },
+      "domResultText": "2°11′20″"
+    },
+    {
+      "afterStep": 10,
+      "assertions": {
+        "displayExpression": "dms(1,70,80)=",
+        "displayResult": "2.18888888889",
+        "lifecycle": "evaluated",
+        "answer": 2.188888888888889,
+        "values.last": {
+          "kind": "dms",
+          "sign": 1,
+          "degrees": 2,
+          "minutes": 11,
+          "seconds": 20
+        },
+        "stagedEntry": null,
+        "control.variables.X": 0,
+        "control.variables.Y": 0
+      },
+      "domResultText": "2.188888889"
+    },
+    {
+      "afterStep": 11,
+      "assertions": {
+        "displayExpression": "dms(1,70,80)=",
+        "displayResult": "2.18888888889",
+        "lifecycle": "evaluated",
+        "answer": 2.188888888888889,
+        "values.last": {
+          "kind": "dms",
+          "sign": 1,
+          "degrees": 2,
+          "minutes": 11,
+          "seconds": 20
+        },
+        "stagedEntry": null,
+        "control.variables.X": 0,
+        "control.variables.Y": 0
+      },
+      "domResultText": "2.188888889"
+    },
+    {
+      "afterStep": 12,
+      "assertions": {
+        "displayExpression": "dms(1,70,80)=",
+        "displayResult": "2.18888888889",
+        "lifecycle": "evaluated",
+        "answer": 2.188888888888889,
+        "values.last": {
+          "kind": "dms",
+          "sign": 1,
+          "degrees": 2,
+          "minutes": 11,
+          "seconds": 20
+        },
+        "stagedEntry": null,
+        "control.variables.X": 0,
+        "control.variables.Y": 0
+      },
+      "domResultText": "2°11′20″"
+    }
+  ],
+  "knownDifferences": [
+    {
+      "afterStep": 0,
+      "field": "displayResult",
+      "expected": "0.",
+      "actual": "0"
+    },
+    {
+      "afterStep": 8,
+      "field": "displayExpression",
+      "expected": "1°70°80°=",
+      "actual": "dms(1,70,80)="
+    },
+    {
+      "afterStep": 8,
+      "field": "displayResult",
+      "expected": "2°11′20″",
+      "actual": "2.18888888889"
+    },
+    {
+      "afterStep": 10,
+      "field": "displayExpression",
+      "expected": "1°70°80°=",
+      "actual": "dms(1,70,80)="
+    },
+    {
+      "afterStep": 10,
+      "field": "displayResult",
+      "expected": "2.188888889",
+      "actual": "2.18888888889"
+    },
+    {
+      "afterStep": 12,
+      "field": "displayExpression",
+      "expected": "1°70°80°=",
+      "actual": "dms(1,70,80)="
+    },
+    {
+      "afterStep": 12,
+      "field": "displayResult",
+      "expected": "2°11′20″",
+      "actual": "2.18888888889"
+    }
+  ]
+}

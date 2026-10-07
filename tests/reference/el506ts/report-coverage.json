@@ -195,6 +195,52 @@
         "phase5-power"
       ],
       "scope": "Independent native significant displays and explicit canonical representation differences for NORMAL arithmetic sequences."
+    },
+    {
+      "kind": "unit",
+      "path": "tests/unit/phase6.test.js",
+      "anchor": "Phase 6 numeric:",
+      "capabilityIds": [
+        "el506.base.el506-k13",
+        "el506.base.el506-k14",
+        "el506.base.el506-k15",
+        "el506.second.el506-k13",
+        "el506.second.el506-k14",
+        "el506.second.el506-k15",
+        "el506.base.el506-k25",
+        "el506.base.el506-k26",
+        "el506.second.el506-k25",
+        "el506.second.el506-k26",
+        "el506.second.el506-k31",
+        "el506.second.el506-k32",
+        "el506.second.el506-k46",
+        "el506.hyp.13.inverse"
+      ],
+      "scope": "Measured representative NORMAL trig, fraction, DMS and coordinate sequences, boundary errors, typed snapshots and clearing. Partial independent scalar evidence; not a full-device parity claim."
+    },
+    {
+      "kind": "browser",
+      "path": "tests/e2e/phase6.spec.js",
+      "anchor": "Phase 6 mixed fractions retain exact value",
+      "capabilityIds": [
+        "el506.base.el506-k25",
+        "el506.second.el506-k25",
+        "el506.second.el506-k26",
+        "el506.second.el506-k31",
+        "el506.second.el506-k32"
+      ],
+      "scope": "Physical key routing, exact mixed/decimal views, normalized DMS, X/Y recall and two-instance isolation."
+    },
+    {
+      "kind": "browser",
+      "path": "tests/e2e/golden.spec.js",
+      "anchor": "canonical baseline browser replay",
+      "fixtureIds": [
+        "phase6-fraction",
+        "phase6-dms",
+        "phase6-coordinate"
+      ],
+      "scope": "Independent significant native result frames projected to the established browser fraction design; canonical/raw expression differences remain declared."
     }
   ]
 }

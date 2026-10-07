@@ -73,6 +73,15 @@
     }
     return scalar(scalarOperation(op,toNumber(a),toNumber(b)));
   }
+  function normalizeDms(number){
+    if(!Number.isFinite(number) || Math.abs(number)>=1e6)throw new RangeError('DMS display capacity');
+    const sign=number<0 || Object.is(number,-0)?-1:1;
+    // Work in rounded seconds to carry across minute/degree boundaries.
+    const total=Math.round(Math.abs(number)*3600*1e5)/1e5;
+    const degrees=Math.floor(total/3600),minutes=Math.floor((total-degrees*3600)/60);
+    const seconds=Number((total-degrees*3600-minutes*60).toFixed(5));
+    return copy({kind:'dms',sign,degrees,minutes,seconds});
+  }
   function evaluateAst(ast,semantic,adapter,scope={}){
     return semantic.evaluate(ast,{
       number:text=>scalar(adapter.number(text)),
@@ -86,8 +95,17 @@
         if(v.kind==='rational')return rational((-BigInt(v.numerator)).toString(),v.denominator);
         return scalar(-toNumber(v));
       },
-      binary:(op,a,b)=>binary(op,a,b,adapter.binary),
+      binary:(op,a,b)=>binary(op,scope.physical&&a.kind==='dms'?scalar(toNumber(a)):a,scope.physical&&b.kind==='dms'?scalar(toNumber(b)):b,adapter.binary),
       call:(name,args)=>{
+        if(name==='frac' && scope.physical){
+          const negative=toNumber(args[0])<0||Object.is(toNumber(args[0]),-0);
+          const [whole,numerator,denominator]=args.map(v=>decimal(toNumber(v)));
+          const part=binary('/',numerator,denominator,adapter.binary);
+          const absolute=whole.numerator.startsWith('-')?rational(whole.numerator.slice(1),whole.denominator):whole;
+          const result=binary('+',absolute,part,adapter.binary);
+          return negative?rational((-BigInt(result.numerator)).toString(),result.denominator):result;
+        }
+        if(name==='dms' && scope.physical)return scalar(adapter.call(name,args.map(toNumber),scope));
         if(name==='dms'){
           const [degrees,minutes,seconds]=args.map(toNumber);
           return copy({kind:'dms',sign:degrees<0 || Object.is(degrees,-0)?-1:1,degrees:Math.abs(degrees),minutes,seconds});
@@ -118,5 +136,5 @@
     else if(v.kind==='statistics'){v.rows.forEach((row,i)=>{add(`x${i+1}`,row.x,format(toNumber(row.x)));if(row.y)add(`y${i+1}`,row.y,format(toNumber(row.y)));add(`weight${i+1}`,scalar(row.weight),format(row.weight));});}
     return {sourceKind:v.kind,mode,components};
   }
-  return Object.freeze({scalar,rational,decimal,validate,copy,toNumber,binary,evaluateAst,view});
+  return Object.freeze({scalar,rational,decimal,normalizeDms,validate,copy,toNumber,binary,evaluateAst,view});
 });

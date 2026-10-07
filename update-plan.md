@@ -1650,6 +1650,16 @@ and verified on origin/main. The user explicitly requested this full phase batch
 
 ### Phase 6 - Angles, Trigonometry, Fractions, DMS, and Coordinates
 
+READY_TO_PUSH: User requested the full Phase 6 batch (EL506-120 through
+EL506-137). Local verification passed: 203 unit tests, 118 browser tests,
+147 golden frames, 7 Django tests, compileall, pip dry run, Compose
+config/build/start, installed wheel/sdist smoke (15 assets), browser inspection,
+and git diff --check. Reference evidence is in phase-6-review.json and the
+three Phase 6 experiment/golden fixtures. Snapshot schema 8 migrates schemas
+1-7. Coordinate X/Y recall is included; general memory remains Phase 8.
+The 12px key labels and legacy behavior are preserved. Checklist completion
+and the next item remain unchanged until implementation publication is verified.
+
 - [ ] **EL506-120 - Match DEG, RAD, and GRAD setup selection.**
 - [ ] **EL506-121 - Match DRG cyclic value conversion and indicator changes.**
 - [ ] **EL506-122 - Match sine, cosine, and tangent.**

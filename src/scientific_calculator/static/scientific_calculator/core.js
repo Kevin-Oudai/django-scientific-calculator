@@ -1030,6 +1030,7 @@
     if (state.stagedEntry !== null) {
       const templates = {
         fraction: ["numerator", "denominator", "part"],
+        physicalFraction: ["whole", "numerator", "denominator", "part"],
         power: ["base", "exponent", "hasExponent"],
         exp: ["base", "exponent", "hasExponent"],
         root: ["index", "radicand", "hasRadicand"],
@@ -1048,11 +1049,11 @@
   // part of this contract. Future modes must version and extend these fields.
   function snapshotCalculator(state) {
     validateState(state);
-    return { schemaVersion: 7, profile: "legacy-0.3.1", state: structuredClone(state) };
+    return { schemaVersion: 8, profile: "legacy-0.3.1", state: structuredClone(state) };
   }
 
   function restoreCalculator(snapshot) {
-    if (!snapshot || ![1, 2, 3, 4, 5, 6, 7].includes(snapshot.schemaVersion) || snapshot.profile !== "legacy-0.3.1"
+    if (!snapshot || ![1, 2, 3, 4, 5, 6, 7, 8].includes(snapshot.schemaVersion) || snapshot.profile !== "legacy-0.3.1"
       || Object.keys(snapshot).sort().join() !== "profile,schemaVersion,state") {
       throw new TypeError("Unsupported calculator snapshot");
     }
@@ -1291,6 +1292,7 @@
       else if(s.type==='power'){if(!s.hasExponent)throw new SyntaxError('Missing exponent');const base=/^-/.test(s.base)?`(${s.base})`:s.base;const exponent=/^[\d.]+$/.test(s.exponent)?s.exponent:`(${s.exponent})`;tail=`${base}^${exponent}`;}
       else if(s.type==='root'){if(!s.hasRadicand)throw new SyntaxError('Missing radicand');tail=`root(${s.index},${s.radicand})`;}
       else if(s.type==='binaryFunction'){if(!s.hasRight)throw new SyntaxError('Missing operand');tail=`${s.name}(${s.left},${s.right})`;}
+      else if(s.type==='physicalFraction'){if(!s.numerator||!s.denominator||s.part==='invalid')throw new SyntaxError('Incomplete fraction');tail=s.whole?`frac(${s.whole},${s.numerator},${s.denominator})`:`frac(0,${s.numerator},${s.denominator})`;}
       else if(s.type==='fraction')tail=`(${s.numerator})/(${s.denominator})`;
       else if(s.type==='dms')tail=`dms(${s.degrees},${s.minutes||0},${s.seconds||0})`;
     }
@@ -1317,9 +1319,23 @@
   }
   const physicalAdapter={...legacyNumericAdapter,
     number:text=>physicalNumeric(Number(text)),
+    symbol:(name,scope)=>Object.hasOwn(scope.variables||{},name)?scope.variables[name]:legacyNumericAdapter.symbol(name,scope),
     binary:(op,a,b)=>physicalNumeric(['+','-','*','/'].includes(op)?Number(numericModel.binary(op,String(a),String(b))):legacyNumericAdapter.binary(op,a,b)),
     call:(name,args,scope)=>{
       const [n,r]=args;
+      if(name==='frac'){if(r===undefined||args[2]===0)throw new RangeError('Fraction denominator');return physicalNumeric(n<0||Object.is(n,-0)?-(Math.abs(n)+r/args[2]):n+r/args[2]);}
+      if(name==='dms')return physicalNumeric((n<0||Object.is(n,-0)?-1:1)*(Math.abs(n)+r/60+args[2]/3600));
+      if(['sin','cos','tan'].includes(name)){
+        const unit=scope.angleMode,limit=unit==='RAD'?Math.PI/180*1e10:unit==='GRAD'?1e10*10/9:1e10;
+        if(Math.abs(n)>=limit)throw new RangeError('Angle range');
+        const quarter=unit==='DEG'?90:unit==='GRAD'?100:Math.PI/2,period=quarter*4;
+        const reduced=unit==='RAD'?n:n%period;
+        const q=reduced/quarter,nearest=Math.round(q),exact=Math.abs(q-nearest)<=Number.EPSILON*4;
+        if(exact){const quadrant=((nearest%4)+4)%4;if(name==='tan'&&quadrant%2)throw new RangeError('Tangent singularity');return name==='sin'?[0,1,0,-1][quadrant]:name==='cos'?[1,0,-1,0][quadrant]:0;}
+        const radians=unit==='RAD'?n:reduced*Math.PI/(unit==='DEG'?180:200);
+        return physicalNumeric(Math[name](radians));
+      }
+      if(['sinh','cosh','tanh','asinh','acosh','atanh'].includes(name))return physicalNumeric(Math[name](n));
       const units={kilo:3,mega:6,giga:9,tera:12,milli:-3,micro:-6,nano:-9,pico:-12,femto:-15};
       if(Object.hasOwn(units,name))return physicalNumeric(n*10**units[name]);
       if(name==='root'&&n===0)throw new RangeError('Root index');
@@ -1340,19 +1356,144 @@
       if(/\dE(?![+-]?\d)/.test(closed))throw new SyntaxError('Incomplete scientific literal');
       if(/(?:^|[+*:^(:])\+|[+\-*:^:]-|[+*:^:]$/.test(closed))throw new SyntaxError('Missing operand');
       const ast=semantic.parseTokens(semantic.tokenize(normalizeMixedNumbers(closed).replaceAll(':','/'),{physical:true}),{physical:true});
-      const numericResult=semantic.evaluate(ast,physicalAdapter,{angleMode:previous.angleMode,answer:previous.answer});
-      const typed=values.evaluateAst(ast,semantic,physicalAdapter,{angleMode:previous.angleMode,answer:previous.values.answer});
+      const numericResult=semantic.evaluate(ast,physicalAdapter,{angleMode:previous.angleMode,answer:previous.answer,variables:previous.control.variables});
+      let typed=values.evaluateAst(ast,semantic,physicalAdapter,{angleMode:previous.angleMode,answer:previous.values.answer,physical:true,variables:Object.fromEntries(Object.entries(previous.control.variables).map(([k,v])=>[k,values.scalar(v)]))});
       const number=numericResult===0?0:physicalNumeric(values.toNumber(typed));
       next.expression=closed+'=';next.displayExpression=display+'=';next.entry='';next.stagedEntry=null;next.selectionActive=false;next.cursor=next.expression.length-1;
       next.answer=next.lastValue=number;next.values.answer=next.values.last=number===0?values.scalar(0):typed;
-      next.lastExactDisplay='';next.resultMode=source.includes('/')?'improper':'decimal';next.resultDisplay=next.displayResult=formatValue(number);
+      if(physicalDmsArithmetic(ast)&&Math.abs(number)<1e6)typed=values.normalizeDms(number);
+      next.values.answer=next.values.last=number===0&&typed.kind!=='dms'?values.scalar(0):typed;
+      next.lastExactDisplay='';next.resultMode=source.includes('frac(')?'mixed':source.includes('/')?'improper':'decimal';next.resultDisplay=next.displayResult=formatValue(number);
       if(next.resultMode==='improper')next.resultDisplay=next.displayResult=formatFractionValue(number,false);
+      if(typed.kind==='dms')next.resultMode='exact';
+      if(source.includes('frac('))physicalFractionView(next,'mixed');
       next.editor=semantic.createEditor(semantic.tokenize(closed.replaceAll(':','/'),{physical:true}));next.editor.ast=ast;next.editor.incomplete=false;
       next.lifecycle='evaluated';next.control.errorCode=null;next.control.arithmetic.percent=percent;
       next.history.push({expression:next.expression,value:number,exactDisplay:''});next.values.history.push(values.copy(next.values.answer));
       while(next.history.length>1&&next.history.reduce((total,h)=>total+physicalLength(h.expression),0)>142){next.history.shift();next.values.history.shift();}
       next.historyIndex=null;return next;
     }catch(error){return physicalError(next,error instanceof RangeError?2:1);}
+  }
+  function physicalDmsArithmetic(ast){
+    if(ast.kind==='call')return ast.name==='dms';
+    if(ast.kind==='binary'&&['+','-','*','/'].includes(ast.operator))return physicalDmsArithmetic(ast.left)||physicalDmsArithmetic(ast.right);
+    return ast.kind==='unary'&&physicalDmsArithmetic(ast.operand);
+  }
+  function physicalFractionView(next,mode){
+    const tagged=next.values.last.kind==='rational'?next.values.last:values.decimal(next.lastValue);
+    let n=BigInt(tagged.numerator),d=BigInt(tagged.denominator),sign=n<0n?'-':'';n=n<0n?-n:n;
+    const whole=n/d,remainder=n%d;
+    let text=mode==='mixed'&&whole&&remainder?`${sign}${whole} ${remainder}/${d}`:`${sign}${n}/${d}`;
+    const capacity=text.replace('-','').length;
+    if(mode==='decimal'||!remainder||capacity>10){next.resultMode='decimal';next.displayResult=next.resultDisplay=formatValue(next.lastValue);}
+    else {next.resultMode=mode;next.displayResult=next.resultDisplay=text;}
+    return next;
+  }
+  function physicalStageView(next){
+    next=physicalEditor(next);const stage=next.stagedEntry;
+    if(stage.type==='physicalFraction')next.displayResult=next.resultDisplay=`${stage.whole?stage.whole+' ':''}${stage.numerator}/${stage.denominator}`;
+    else if(stage.type==='dms')next.displayResult=next.resultDisplay=`dms(${stage.degrees},${stage.minutes||0},${stage.seconds||0})`;
+    return next;
+  }
+  function physicalPhase6(previous,next,intent,n){
+    if(previous.layers.mode!=='NORMAL')return null;
+    if(previous.workflow.payload?.id==='RCL'&&[27,28].includes(n)){
+      const slot=n===27?'X':'Y';next.workflow=emptyWorkflow();next.secondActive=false;next.layers.alpha=false;
+      next.expression=slot+'=';next.displayExpression=slot+'=';next.entry='';next.stagedEntry=null;next.selectionActive=false;
+      next.lastValue=next.control.variables[slot];next.values.last=values.scalar(next.lastValue);next.displayResult=next.resultDisplay=formatValue(next.lastValue);next.resultMode='decimal';next.lifecycle='evaluated';next.editor=editorForState(next);return next;
+    }
+    if(previous.workflow.kind!==null)return null;
+    if(intent.kind==='function'){
+      try{next=physicalFlush(next);}catch{return physicalError(next,1);}
+      if(previous.lifecycle==='evaluated')next.expression='';
+      next.expression+=intent.name+'(';next.secondActive=false;next.layers.hyp=false;next.layers.inverseHyp=false;
+      next.control.arithmetic={constant:null,percent:false};next.layers.intent=structuredClone(intent);return physicalEditor(next);
+    }
+    if(previous.layers.alpha)return null;
+    const shifted=previous.secondActive,stage=next.stagedEntry;
+    if(shifted&&n===24){next.secondActive=false;return next;}
+    if(stage&&['physicalFraction','dms'].includes(stage.type)&&!shifted){
+      const digit=DIGIT_KEYS[n];
+      if(digit!==undefined||n===46){
+        const part=stage.part;
+        if(n===46&&(stage.type==='dms'&&part==='minutes'||stage[part]?.includes('.')))return next;
+        if(typeof stage[part]!=='string'||stage[part].replace(/\D/g,'').length>=10)return next;
+        if(n===46)stage[part]=(stage[part]||'0')+'.';
+        else stage[part]=(stage[part]==='0'?digit:stage[part]+digit);
+        if(stage.type==='dms')stage[part==='minutes'?'hasMinutes':'hasSeconds']=true;
+        return physicalStageView(next);
+      }
+      if(n===47){const part=stage.type==='dms'?'degrees':stage.whole?'whole':'numerator';stage[part]=stage[part].startsWith('-')?stage[part].slice(1):'-'+stage[part];return physicalStageView(next);}
+      if([9,10].includes(n)&&stage.type==='physicalFraction'){
+        next.expression+=`${stage.whole?stage.whole+' ':''}${stage.numerator||'0'}/`;next.entry='';next.stagedEntry=null;next.selectionActive=true;next.cursor=n===9?next.expression.length-1:0;next.displayResult=next.resultDisplay='';return physicalEditor(next);
+      }
+      if([8,9,10,11].includes(n)){
+        const parts=stage.type==='physicalFraction'?(stage.whole?['whole','numerator','denominator']:['numerator','denominator']):['degrees','minutes','seconds'];
+        stage.part=parts[Math.max(0,Math.min(parts.length-1,parts.indexOf(stage.part)+([8,9].includes(n)?-1:1)))];return physicalStageView(next);
+      }
+      if(n===7){const part=stage.part;stage[part]=stage[part].slice(0,-1);return physicalStageView(next);}
+    }
+    if(n===25){
+      next.secondActive=false;
+      if(previous.lifecycle==='evaluated'){
+        if(shifted)return physicalFractionView(next,previous.resultMode==='improper'?'mixed':'improper');
+        return physicalFractionView(next,['mixed','improper'].includes(previous.resultMode)?'decimal':'mixed');
+      }
+      if(shifted)return next;
+      if(stage?.type==='power')return null;
+      if(stage?.type==='physicalFraction'){
+        if(stage.whole||stage.part==='invalid')stage.part='invalid';
+        else{stage.whole=stage.numerator;stage.numerator=stage.denominator;stage.denominator='';stage.part='denominator';}
+        return physicalStageView(next);
+      }
+      let numerator=next.entry;
+      if(stage){try{next=physicalFlush(next);}catch{return physicalError(next,1);}}
+      if(!numerator&&next.expression){numerator=physicalLastOperand(next.expression);if(numerator)next.expression=next.expression.slice(0,-numerator.length);}
+      next.stagedEntry={type:'physicalFraction',whole:'',numerator:numerator||'0',denominator:'',part:'denominator'};next.entry='';next.selectionActive=false;
+      return physicalStageView(next);
+    }
+    if(n===26){
+      next.secondActive=false;
+      if(shifted||previous.lifecycle==='evaluated'){
+        if(previous.lifecycle!=='evaluated'){try{next=physicalCalculate(next,physicalSource(previous));}catch{return physicalError(next,1);}}
+        if(next.lifecycle==='error')return next;
+        if(next.values.last.kind==='dms'&&next.resultMode!=='decimal'){next.resultMode='decimal';return next;}
+        if(Math.abs(next.lastValue)>=1e6)return next;
+        next.values.last=values.normalizeDms(next.lastValue);next.resultMode='exact';return next;
+      }
+      if(stage?.type==='dms'){stage.part='seconds';return physicalStageView(next);}
+      if(next.entry.includes('.'))return next;
+      next.stagedEntry={type:'dms',degrees:next.entry||'0',minutes:'',seconds:'',part:'minutes',hasMinutes:false,hasSeconds:false};next.entry='';return physicalStageView(next);
+    }
+    if(shifted&&n===46){
+      try{
+        const source=previous.lifecycle==='evaluated'?'ans':physicalSource(previous),units=['DEG','RAD','GRAD'];
+        const from=previous.angleMode,to=units[(units.indexOf(from)+1)%3];
+        const ast=semantic.parseTokens(semantic.tokenize(closeOpenParentheses(source),{physical:true}),{physical:true});
+        const number=semantic.evaluate(ast,physicalAdapter,{angleMode:from,answer:previous.answer,variables:previous.control.variables});
+        const degrees=from==='RAD'?number*180/Math.PI:from==='GRAD'?number*.9:number;
+        const result=physicalCalculate(next,String(to==='RAD'?degrees*Math.PI/180:to==='GRAD'?degrees*10/9:degrees),source+' to '+to);
+        if(result.lifecycle==='error')return result;
+        result.angleMode=result.layers.settings.angle=to;result.expression=source+'=';result.displayExpression=source+' to '+to;result.editor=editorForState(result);result.control.arithmetic={constant:null,percent:true};result.history.at(-1).expression=result.expression;return result;
+      }catch(error){return physicalError(next,error instanceof RangeError?2:1);}
+    }
+    if(shifted&&n===28){try{next=physicalFlush(next);}catch{return physicalError(next,1);}next.expression+=',';next.secondActive=false;return physicalEditor(next);}
+    if(shifted&&[31,32].includes(n)){
+      try{
+        const source=physicalSource(previous),tokens=semantic.tokenize(closeOpenParentheses(source),{physical:true});
+        let depth=0,separators=[];tokens.forEach((token,i)=>{if(token.value==='(')depth++;if(token.value===')')depth--;if(token.value===','&&depth===0)separators.push(i);});
+        if(separators.length!==1)throw new SyntaxError('Coordinate pair');
+        const at=separators[0],scope={angleMode:previous.angleMode,answer:previous.answer,variables:previous.control.variables};
+        const a=semantic.evaluate(semantic.parseTokens(tokens.slice(0,at),{physical:true}),physicalAdapter,scope),b=semantic.evaluate(semantic.parseTokens(tokens.slice(at+1),{physical:true}),physicalAdapter,scope);
+        let first,second;
+        if(n===31){if(a===0&&b===0)throw new RangeError('Origin polar angle');first=Math.hypot(a,b);second=Math.atan2(b,a)*(scope.angleMode==='DEG'?180/Math.PI:scope.angleMode==='GRAD'?200/Math.PI:1);}
+        else {if(a<0)throw new RangeError('Polar radius');first=a*physicalAdapter.call('cos',[b],scope);second=a*physicalAdapter.call('sin',[b],scope);}
+        first=physicalNumeric(first);second=physicalNumeric(second);
+        const result=physicalCalculate(next,String(first),n===31?'r':'x');if(result.lifecycle==='error')return result;
+        result.expression=source+'=';result.displayExpression=n===31?'r=':'x=';result.editor=editorForState(result);result.control.variables.X=first;result.control.variables.Y=second;result.control.arithmetic={constant:null,percent:false};result.history.at(-1).expression=result.expression;return result;
+      }catch(error){return physicalError(next,error instanceof RangeError?2:1);}
+    }
+    return null;
   }
   function reducePhysicalKey(previous,id){
     const intent=resolvePhysicalKey(previous,id); // Reject malformed identities even while asleep.
@@ -1393,10 +1534,11 @@
       if(n===45||n===48)return previous.workflow.payload.id==='CONFIRM_RESET'?createInitialState():physicalClear(previous,'memory');
       return next;
     }
+    const scalarKey=physicalPhase6(previous,next,intent,n);if(scalarKey)return scalarKey;
     if(previous.layers.mode==='NORMAL'&&previous.workflow.kind===null&&!previous.layers.alpha&&!previous.layers.hyp){
       const shifted=previous.secondActive;
       if(n===48&&!shifted){
-        if(previous.lifecycle==='evaluated'&&!previous.control.arithmetic.percent)return next;
+        if(previous.lifecycle==='evaluated'&&!previous.control.arithmetic.percent&&!['r=','x='].includes(previous.displayExpression))return next;
         try{
           let source=physicalSource(previous),display=source;
           const buffers=physicalBufferUsage(source);
@@ -1409,7 +1551,9 @@
             const ast=result.editor.ast;
             if(ast.kind==='binary'&&!ast.implied&&['+','-','*','/'].includes(ast.operator)){
               const operand=semantic.evaluate(ast.operator==='*'?ast.left:ast.right,physicalAdapter,{angleMode:previous.angleMode,answer:previous.answer});
-              const literal=String(operand).replace('e','E');
+              const operandAst=ast.operator==='*'?ast.left:ast.right;
+              const retained=values.evaluateAst(operandAst,semantic,physicalAdapter,{angleMode:previous.angleMode,answer:previous.values.answer,physical:true,variables:Object.fromEntries(Object.entries(previous.control.variables).map(([k,v])=>[k,values.scalar(v)]))});
+              const literal=retained.kind==='rational'?`frac(0,${retained.numerator},${retained.denominator})`:String(operand).replace('e','E');
               result.control.arithmetic.constant={operator:ast.operator==='/'?':':ast.operator,operand:literal.startsWith('-')?`(${literal})`:literal};
             }
           }
@@ -1454,12 +1598,14 @@
             next.secondActive=false;return physicalEditor(next);
           }catch(error){return physicalError(next,error instanceof RangeError?2:1);}
         }
+        if(insert===')'){try{next=physicalFlush(next,false);}catch{return physicalError(next,1);}next.expression+=')';next.secondActive=false;return physicalEditor(next);}
         if(insert==='('){try{next=physicalFlush(next);}catch{return physicalError(next,1);}next.expression+='(';next.secondActive=false;return physicalEditor(next);}
-        if(['sqrt(','cbrt(','log(','ln(','10^(','e^('].includes(insert)){
+        if(['sin(','cos(','tan(','asin(','acos(','atan(','sqrt(','cbrt(','log(','ln(','10^(','e^('].includes(insert)){
           try{next=physicalFlush(next);}catch{return physicalError(next,1);}
           if(previous.lifecycle==='evaluated'){next.expression='';next.control.arithmetic={constant:null,percent:false};}
           next.expression+=({'10^(':'tenpow(','e^(':'epow('})[insert]||insert;next.secondActive=false;return physicalEditor(next);
         }
+        if(['power','root','npr','ncr'].includes(action)&&['physicalFraction','dms'].includes(previous.stagedEntry?.type)){try{next=physicalFlush(next);}catch{return physicalError(next,1);}const operand=physicalLastOperand(next.expression);next.entry=operand;next.expression=next.expression.slice(0,-operand.length);return reducePhysicalKey(next,id);}
         if(action==='power'&&previous.stagedEntry){try{next=physicalFlush(next);}catch{return physicalError(next,1);}next.expression+='^';next.secondActive=false;return physicalEditor(next);}
         if(['power','root','npr','ncr'].includes(action)&&previous.lifecycle==='evaluated'){next.expression='';next.entry='ans';next.stagedEntry=null;next.control.arithmetic={constant:null,percent:false};}
         if(action==='sign'&&previous.lifecycle==='evaluated'){next.expression='';next.entry='';next.stagedEntry=null;next.control.arithmetic={constant:null,percent:false};}
