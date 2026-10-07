@@ -306,6 +306,8 @@
       "docker compose up --build -d",
       "git diff --check"
     ],
-    "browserProof": "Live demo SET UP/FSE labels and ENG TAB2 result 142.86 times 10^-03; 12px legends and colored modifier buttons preserved."
+    "browserProof": "Live demo SET UP/FSE labels and ENG TAB2 result 142.86 times 10^-03; 12px legends and colored modifier buttons preserved.",
+    "implementationSha": "9ec7e0d308b750aa6a8bfe0fea136c8f094b4e91",
+    "implementationPublication": "Exact tree and commit SHA published via GitHub repository API after three Git transport 500 errors. Main advanced with force=false; git ls-remote verified identical implementation SHA before tracking."
   }
 }

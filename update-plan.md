@@ -4,13 +4,13 @@
 - Plan status: Active
 - Current package baseline: 0.3.1
 - Target release: 1.0.0 after verified parity
-- Next item: EL506-070
+- Next item: EL506-090
 - Last updated: 2026-10-07
 
 ## Progress Overview
 
-As of 2026-10-07, **52 of 245 roadmap tasks are complete (21.2%)**, with
-**193 remaining**. The next task is **EL506-070**. These counts measure
+As of 2026-10-07, **63 of 245 roadmap tasks are complete (25.7%)**, with
+**182 remaining**. The next task is **EL506-090**. These counts measure
 completed checklist items, not elapsed effort or verified calculator parity;
 individual tasks vary in size. The detailed checklist below describes every
 remaining task and preserves its evidence and completion requirements.
@@ -18,7 +18,8 @@ Phase 0 is complete (7/7 reference and traceability items), including its reduce
 and snapshot prerequisites. Phase 1 is complete (14/14 test and emulator
 foundation items). Phase 2 is complete (14/14 physical layout, display, theme,
 and access items). Phase 3 is complete (17/17 power, modes, clearing, editing,
-and playback items). Pending simulator/application behavior is visible
+and playback items). Phase 4 is complete (11/11 display settings and
+formatting items). Pending simulator/application behavior is visible
 in the generated report; phase completion does not establish full parity.
 
 | Roadmap phase | Completed | Remaining |
@@ -27,7 +28,7 @@ in the generated report; phase completion does not establish full parity.
 | Phase 1 - Test and Emulator Foundation | 14 | 0 |
 | Phase 2 - Physical Layout, Display, Theme, and Access | 14 | 0 |
 | Phase 3 - Power, Modes, Clear, Editing, and History | 17 | 0 |
-| Phase 4 - Display Settings and Formatting | 0 | 11 |
+| Phase 4 - Display Settings and Formatting | 11 | 0 |
 | Phase 5 - NORMAL Entry and Arithmetic | 0 | 22 |
 | Phase 6 - Angles, Trigonometry, Fractions, DMS, and Coordinates | 0 | 18 |
 | Phase 7 - Random Numbers, Constants, and Unit Conversions | 0 | 10 |
@@ -42,7 +43,7 @@ in the generated report; phase completion does not establish full parity.
 | Phase 16 - LIST Mode | 0 | 11 |
 | Phase 17 - Errors, Limits, and Cross-mode Parity | 0 | 15 |
 | Phase 18 - Security, Packaging, Compatibility, and Release | 0 | 15 |
-| **Total** | **52** | **193** |
+| **Total** | **63** | **182** |
 
 Refresh this overview's date, counts, percentage, and next task in every
 roadmap completion tracking commit, using the checklist as the source of truth.
@@ -407,7 +408,7 @@ The following order takes precedence over the phase layout and numeric IDs:
 EL506-014 -> EL506-019 -> EL506-003 -> EL506-004 -> EL506-006`
 
 The bootstrap chain and Phase 1 are complete as of 2026-10-05.
-Resume with Phase 4, EL506-070.
+Resume with Phase 5, EL506-090.
 Stable physical-key IDs
 must exist before the experiment schema and capability ledger use them. Capture
 the 0.3.1 baseline before refactoring its behavior. Unit testing, the reducer,
@@ -1285,32 +1286,134 @@ Numerical algorithms and detailed display/error parity retain their later phases
 
 ### Phase 4 - Display Settings and Formatting
 
-READY_TO_PUSH (2026-10-07): EL506-070 through EL506-080 verified as the
-explicitly requested Phase 4 batch. SET UP, NORM thresholds, FIX/SCI/ENG,
-ten-digit formatting, English punctuation, typed result views, and MDF pass
-84 unit tests, 102 browser tests, 88 golden frames, 7 Django tests, and the
-15-asset installed-wheel/sdist smoke. Compileall, pip dry-run, Docker config
-and rebuilt demo, and git diff checks pass. Evidence: phase-4-display-review-v1,
-el506-079-mdf-v1, phase4-display-ties, and phase4-mdf. Raw legacy string
-differences remain explicit; later mode algorithms and other locales remain
-unassessed. Checklist and Next item stay unchanged until the implementation
-push is verified, followed by a separate tracking commit.
+Publication: Git transport returned GitHub internal server errors. The repository
+API created the identical tree and commit, then advanced main without force.
+Exact implementation SHA was verified via git ls-remote before these records.
 
-- [ ] **EL506-070 - Implement the complete SET UP menu flow.**
-- [ ] **EL506-071 - Implement NORM1 and exact boundary behavior.**
-- [ ] **EL506-072 - Implement NORM2 and exact boundary behavior.**
-- [ ] **EL506-073 - Implement FIX and TAB decimal-place selection.**
-- [ ] **EL506-074 - Implement SCI significant-digit selection.**
-- [ ] **EL506-075 - Implement ENG formatting and exponent steps of three.**
-- [ ] **EL506-076 - Match the ten-digit mantissa and two-digit exponent.**
-- [ ] **EL506-077 - Match three-digit punctuation and regional behavior.**
-- [ ] **EL506-078 - Match zeros, decimal points, signs, and trailing-zero
+
+- [x] **EL506-070 - Implement the complete SET UP menu flow.**
+
+    Completed: 2026-10-07, 9ec7e0d308b750aa6a8bfe0fea136c8f094b4e91
+    Evidence: phase-4-display-review-v1 (EL506-070); el506-079-mdf-v1;
+    phase4-display-ties and phase4-mdf; pinned simulator and official guide.
+    Verification: npm test (84 unit, 102 browser, 88 golden frames); Django (7);
+    compileall, pip dry run, Compose config/build/start, wheel/sdist smoke
+    (15 assets), browser inspection, git diff --check; exact SHA verified on origin/main.
+    Notes: DRG/FSE menus, cyclic FSE pages, conditional TAB, numeric/cursor confirmation and workflow resumption.
+
+
+- [x] **EL506-071 - Implement NORM1 and exact boundary behavior.**
+
+    Completed: 2026-10-07, 9ec7e0d308b750aa6a8bfe0fea136c8f094b4e91
+    Evidence: phase-4-display-review-v1 (EL506-071); el506-079-mdf-v1;
+    phase4-display-ties and phase4-mdf; pinned simulator and official guide.
+    Verification: npm test (84 unit, 102 browser, 88 golden frames); Django (7);
+    compileall, pip dry run, Compose config/build/start, wheel/sdist smoke
+    (15 assets), browser inspection, git diff --check; exact SHA verified on origin/main.
+    Notes: Ten-digit truncation; inclusive lower cutoff 1e-9 and exclusive upper cutoff 1e10 verified against live fractional boundary.
+
+
+- [x] **EL506-072 - Implement NORM2 and exact boundary behavior.**
+
+    Completed: 2026-10-07, 9ec7e0d308b750aa6a8bfe0fea136c8f094b4e91
+    Evidence: phase-4-display-review-v1 (EL506-072); el506-079-mdf-v1;
+    phase4-display-ties and phase4-mdf; pinned simulator and official guide.
+    Verification: npm test (84 unit, 102 browser, 88 golden frames); Django (7);
+    compileall, pip dry run, Compose config/build/start, wheel/sdist smoke
+    (15 assets), browser inspection, git diff --check; exact SHA verified on origin/main.
+    Notes: NORM2 lower cutoff .01 inclusive; format selection preserves typed values.
+
+
+- [x] **EL506-073 - Implement FIX and TAB decimal-place selection.**
+
+    Completed: 2026-10-07, 9ec7e0d308b750aa6a8bfe0fea136c8f094b4e91
+    Evidence: phase-4-display-review-v1 (EL506-073); el506-079-mdf-v1;
+    phase4-display-ties and phase4-mdf; pinned simulator and official guide.
+    Verification: npm test (84 unit, 102 browser, 88 golden frames); Django (7);
+    compileall, pip dry run, Compose config/build/start, wheel/sdist smoke
+    (15 assets), browser inspection, git diff --check; exact SHA verified on origin/main.
+    Notes: TAB defaults to 9; decimal places 0-9, half-away ties, capacity, signed rounded zero and overflow notation.
+
+
+- [x] **EL506-074 - Implement SCI significant-digit selection.**
+
+    Completed: 2026-10-07, 9ec7e0d308b750aa6a8bfe0fea136c8f094b4e91
+    Evidence: phase-4-display-review-v1 (EL506-074); el506-079-mdf-v1;
+    phase4-display-ties and phase4-mdf; pinned simulator and official guide.
+    Verification: npm test (84 unit, 102 browser, 88 golden frames); Django (7);
+    compileall, pip dry run, Compose config/build/start, wheel/sdist smoke
+    (15 assets), browser inspection, git diff --check; exact SHA verified on origin/main.
+    Notes: Native TAB n selects n mantissa decimal places, or n+1 significant digits; zero-padded exponents and carry.
+
+
+- [x] **EL506-075 - Implement ENG formatting and exponent steps of three.**
+
+    Completed: 2026-10-07, 9ec7e0d308b750aa6a8bfe0fea136c8f094b4e91
+    Evidence: phase-4-display-review-v1 (EL506-075); el506-079-mdf-v1;
+    phase4-display-ties and phase4-mdf; pinned simulator and official guide.
+    Verification: npm test (84 unit, 102 browser, 88 golden frames); Django (7);
+    compileall, pip dry run, Compose config/build/start, wheel/sdist smoke
+    (15 assets), browser inspection, git diff --check; exact SHA verified on origin/main.
+    Notes: Engineering exponents in multiples of three; capped decimal precision and carry.
+
+
+- [x] **EL506-076 - Match the ten-digit mantissa and two-digit exponent.**
+
+    Completed: 2026-10-07, 9ec7e0d308b750aa6a8bfe0fea136c8f094b4e91
+    Evidence: phase-4-display-review-v1 (EL506-076); el506-079-mdf-v1;
+    phase4-display-ties and phase4-mdf; pinned simulator and official guide.
+    Verification: npm test (84 unit, 102 browser, 88 golden frames); Django (7);
+    compileall, pip dry run, Compose config/build/start, wheel/sdist smoke
+    (15 assets), browser inspection, git diff --check; exact SHA verified on origin/main.
+    Notes: Ten displayed mantissa digits, exponent padding, negative-zero entry exponent and overflow protection.
+
+
+- [x] **EL506-077 - Match three-digit punctuation and regional behavior.**
+
+    Completed: 2026-10-07, 9ec7e0d308b750aa6a8bfe0fea136c8f094b4e91
+    Evidence: phase-4-display-review-v1 (EL506-077); el506-079-mdf-v1;
+    phase4-display-ties and phase4-mdf; pinned simulator and official guide.
+    Verification: npm test (84 unit, 102 browser, 88 golden frames); Django (7);
+    compileall, pip dry run, Compose config/build/start, wheel/sdist smoke
+    (15 assets), browser inspection, git diff --check; exact SHA verified on origin/main.
+    Notes: Pinned English apostrophe grouping and dot decimals; other regional variants remain unassessed.
+
+
+- [x] **EL506-078 - Match zeros, decimal points, signs, and trailing-zero
   presentation in entry and results.**
-- [ ] **EL506-079 - Implement MDF/Modify.** Commit the rounded displayed value
+
+    Completed: 2026-10-07, 9ec7e0d308b750aa6a8bfe0fea136c8f094b4e91
+    Evidence: phase-4-display-review-v1 (EL506-078); el506-079-mdf-v1;
+    phase4-display-ties and phase4-mdf; pinned simulator and official guide.
+    Verification: npm test (84 unit, 102 browser, 88 golden frames); Django (7);
+    compileall, pip dry run, Compose config/build/start, wheel/sdist smoke
+    (15 assets), browser inspection, git diff --check; exact SHA verified on origin/main.
+    Notes: Entry decimal dots/zeros, signed rounded zero, and result trailing zeros; fraction geometry retained.
+
+
+- [x] **EL506-079 - Implement MDF/Modify.** Commit the rounded displayed value
   to internal state and reproduce chained-result differences.
-- [ ] **EL506-080 - Format every typed result.** Add dedicated formatting for
+
+    Completed: 2026-10-07, 9ec7e0d308b750aa6a8bfe0fea136c8f094b4e91
+    Evidence: phase-4-display-review-v1 (EL506-079); el506-079-mdf-v1;
+    phase4-display-ties and phase4-mdf; pinned simulator and official guide.
+    Verification: npm test (84 unit, 102 browser, 88 golden frames); Django (7);
+    compileall, pip dry run, Compose config/build/start, wheel/sdist smoke
+    (15 assets), browser inspection, git diff --check; exact SHA verified on origin/main.
+    Notes: MDF commits displayed numeric precision to current value/ANS; exact NORM fractions and prior history retained.
+
+
+- [x] **EL506-080 - Format every typed result.** Add dedicated formatting for
   rational, DMS, complex, N-base, statistics, equation, matrix, and list
   values.
+
+    Completed: 2026-10-07, 9ec7e0d308b750aa6a8bfe0fea136c8f094b4e91
+    Evidence: phase-4-display-review-v1 (EL506-080); el506-079-mdf-v1;
+    phase4-display-ties and phase4-mdf; pinned simulator and official guide.
+    Verification: npm test (84 unit, 102 browser, 88 golden frames); Django (7);
+    compileall, pip dry run, Compose config/build/start, wheel/sdist smoke
+    (15 assets), browser inspection, git diff --check; exact SHA verified on origin/main.
+    Notes: Dedicated immutable typed views and paged formatting; later statistical/equation/complex/N-base/matrix/list algorithms remain pending.
 
 ### Phase 5 - NORMAL Entry and Arithmetic
 
