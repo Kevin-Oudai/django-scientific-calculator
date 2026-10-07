@@ -4,13 +4,13 @@
 - Plan status: Active
 - Current package baseline: 0.3.1
 - Target release: 1.0.0 after verified parity
-- Next item: EL506-160
+- Next item: EL506-180
 - Last updated: 2026-10-07
 
 ## Progress Overview
 
-As of 2026-10-07, **113 of 245 roadmap tasks are complete (46.1%)**, with
-**132 remaining**. The next task is **EL506-160**. These counts measure
+As of 2026-10-07, **127 of 245 roadmap tasks are complete (51.8%)**, with
+**118 remaining**. The next task is **EL506-180**. These counts measure
 completed checklist items, not elapsed effort or verified calculator parity;
 individual tasks vary in size. The detailed checklist below describes every
 remaining task and preserves its evidence and completion requirements.
@@ -22,7 +22,8 @@ and playback items). Phase 4 is complete (11/11 display settings and
 formatting items). Phase 5 is complete (22/22 NORMAL entry and arithmetic
 items). Phase 6 is complete (18/18 angles, trigonometry, fractions, DMS,
 and coordinate items). Phase 7 is complete (10/10 random, constant and
-conversion items). Pending simulator/application behavior is visible
+conversion items). Phase 8 is complete (14/14 memories, formula simulation,
+and solver items). Pending simulator/application behavior is visible
 in the generated report; phase completion does not establish full parity.
 
 | Roadmap phase | Completed | Remaining |
@@ -35,7 +36,7 @@ in the generated report; phase completion does not establish full parity.
 | Phase 5 - NORMAL Entry and Arithmetic | 22 | 0 |
 | Phase 6 - Angles, Trigonometry, Fractions, DMS, and Coordinates | 18 | 0 |
 | Phase 7 - Random Numbers, Constants, and Unit Conversions | 10 | 0 |
-| Phase 8 - Memories, Formula Memories, Simulation, and Solver | 0 | 14 |
+| Phase 8 - Memories, Formula Memories, Simulation, and Solver | 14 | 0 |
 | Phase 9 - N-base Operations | 0 | 10 |
 | Phase 10 - Numerical Differentiation and Integration | 0 | 8 |
 | Phase 11 - Statistics Data Management | 0 | 12 |
@@ -411,7 +412,7 @@ The following order takes precedence over the phase layout and numeric IDs:
 EL506-014 -> EL506-019 -> EL506-003 -> EL506-004 -> EL506-006`
 
 The bootstrap chain and Phase 1 are complete as of 2026-10-05.
-Resume with Phase 8, EL506-160.
+Resume with Phase 9, EL506-180.
 Stable physical-key IDs
 must exist before the experiment schema and capability ledger use them. Capture
 the 0.3.1 baseline before refactoring its behavior. Unit testing, the reducer,
@@ -1934,48 +1935,190 @@ continue in Phase 8.
 
 ### Phase 8 - Memories, Formula Memories, Simulation, and Solver
 
-READY_TO_PUSH (2026-10-07): user requested the full EL506-160 through
-EL506-173 Phase 8 batch. Temporary/independent memories, typed scalar stores,
-editable token formulas, first-appearance ALGB prompts and generic SOLV are
-implemented. Significant native memory/formula/ALGB/solver frames are recorded
-in phase-8-review.json and Phase 8 experiment/golden fixtures. Blank formula
-STO stores zero; MEM clear/reset delete formulas. Snapshot 9 migrates 1-8.
-Memory eligibility and typed ANS boundaries for later modes are tested;
-their full numerical controllers remain later phases. The solver reproduces
-observed roots and failure but its private native iteration limit/stopping
-criteria are unmeasured; no full numerical parity is claimed.
-Verification: npm test passed (345 unit, 134 browser, 226 golden frames),
-then final full unit suite (350) and focused edge/module/browser rechecks;
-Django (7), compileall, pip dry run, Compose config/build/start, installed
-wheel/sdist smoke (17 assets), report check, actual browser inspection and
-git diff --check. The user-owned OperationGuide_EL506TS.pdf stays untracked.
-Leave all 14 checkboxes unchecked and Next item on EL506-160 until the
-implementation commit is pushed and its exact remote SHA is verified.
+Phase 8 implementation `793fb959fc8fcfd7be1645483b6923566d2aebe6` was pushed
+to origin/main and its exact remote SHA verified on 2026-10-07. This is the
+user-requested EL506-160 through EL506-173 batch. Native significant frames
+remain independent of intermediate implementation characterizations. Snapshot
+9 migrates schemas 1-8. Full later-mode algorithms, unobserved editing edges,
+and private solver iteration/stopping criteria remain explicit parity gaps;
+completion of this phase does not establish full emulator parity.
 
+- [x] **EL506-160 - Implement temporary memories A-F, X, and Y.**
 
-- [ ] **EL506-160 - Implement temporary memories A-F, X, and Y.**
-- [ ] **EL506-161 - Match STO selection, overwrite, cancellation, and display.**
-- [ ] **EL506-162 - Match RCL selection and recalled-value insertion.**
-- [ ] **EL506-163 - Match independent memory M, M+, and M-.**
-- [ ] **EL506-164 - Match the M display indicator.**
-- [ ] **EL506-165 - Match ANS updates and recall for every result type and
+    Completed: 2026-10-07, implementation commit 793fb959fc8fcfd7be1645483b6923566d2aebe6
+    Evidence: phase-8-review.json, Phase 8 memory/solver experiment and golden
+    fixtures, pinned full manual and Operation Guide; phase8 unit/browser tests.
+    Verification: npm test passed (345 unit, 134 browser, 226 golden frames),
+    final full unit suite (350), focused module/memory/solver/browser checks,
+    Django (7), compileall, pip dry run, Compose config/build/start,
+    installed wheel/sdist smoke (17 assets), report and browser checks,
+    git diff --check.
+    Notes: A-F, X and Y retain numeric and exact rational/DMS tagged values; coordinate/random writes keep typed stores synchronized.
+
+- [x] **EL506-161 - Match STO selection, overwrite, cancellation, and display.**
+
+    Completed: 2026-10-07, implementation commit 793fb959fc8fcfd7be1645483b6923566d2aebe6
+    Evidence: phase-8-review.json, Phase 8 memory/solver experiment and golden
+    fixtures, pinned full manual and Operation Guide; phase8 unit/browser tests.
+    Verification: npm test passed (345 unit, 134 browser, 226 golden frames),
+    final full unit suite (350), focused module/memory/solver/browser checks,
+    Django (7), compileall, pip dry run, Compose config/build/start,
+    installed wheel/sdist smoke (17 assets), report and browser checks,
+    git diff --check.
+    Notes: STO selection retains the display with ALPHA, overwrites its target, and ON/C cancels. Evaluated values are stored without recalculating random or ANS-based results.
+
+- [x] **EL506-162 - Match RCL selection and recalled-value insertion.**
+
+    Completed: 2026-10-07, implementation commit 793fb959fc8fcfd7be1645483b6923566d2aebe6
+    Evidence: phase-8-review.json, Phase 8 memory/solver experiment and golden
+    fixtures, pinned full manual and Operation Guide; phase8 unit/browser tests.
+    Verification: npm test passed (345 unit, 134 browser, 226 golden frames),
+    final full unit suite (350), focused module/memory/solver/browser checks,
+    Django (7), compileall, pip dry run, Compose config/build/start,
+    installed wheel/sdist smoke (17 assets), report and browser checks,
+    git diff --check.
+    Notes: Standalone RCL shows slot= without changing ANS. During entry it inserts a late-bound variable and previews its value.
+
+- [x] **EL506-163 - Match independent memory M, M+, and M-.**
+
+    Completed: 2026-10-07, implementation commit 793fb959fc8fcfd7be1645483b6923566d2aebe6
+    Evidence: phase-8-review.json, Phase 8 memory/solver experiment and golden
+    fixtures, pinned full manual and Operation Guide; phase8 unit/browser tests.
+    Verification: npm test passed (345 unit, 134 browser, 226 golden frames),
+    final full unit suite (350), focused module/memory/solver/browser checks,
+    Django (7), compileall, pip dry run, Compose config/build/start,
+    installed wheel/sdist smoke (17 assets), report and browser checks,
+    git diff --check.
+    Notes: M+ and 2ndF M+ accumulate or subtract the current operand; the lower display is the operand. Recall followed by M+ uses the recalled slot, not an older ANS.
+
+- [x] **EL506-164 - Match the M display indicator.**
+
+    Completed: 2026-10-07, implementation commit 793fb959fc8fcfd7be1645483b6923566d2aebe6
+    Evidence: phase-8-review.json, Phase 8 memory/solver experiment and golden
+    fixtures, pinned full manual and Operation Guide; phase8 unit/browser tests.
+    Verification: npm test passed (345 unit, 134 browser, 226 golden frames),
+    final full unit suite (350), focused module/memory/solver/browser checks,
+    Django (7), compileall, pip dry run, Compose config/build/start,
+    installed wheel/sdist smoke (17 assets), report and browser checks,
+    git diff --check.
+    Notes: M indicator covers nonzero real or imaginary independent memory. Complex mode numerical controllers remain Phase 14.
+
+- [x] **EL506-165 - Match ANS updates and recall for every result type and
   mode.**
-- [ ] **EL506-166 - Complete the memory persistence matrix.** Verify ON/C, CA,
+
+    Completed: 2026-10-07, implementation commit 793fb959fc8fcfd7be1645483b6923566d2aebe6
+    Evidence: phase-8-review.json, Phase 8 memory/solver experiment and golden
+    fixtures, pinned full manual and Operation Guide; phase8 unit/browser tests.
+    Verification: npm test passed (345 unit, 134 browser, 226 golden frames),
+    final full unit suite (350), focused module/memory/solver/browser checks,
+    Django (7), compileall, pip dry run, Compose config/build/start,
+    installed wheel/sdist smoke (17 assets), report and browser checks,
+    git diff --check.
+    Notes: Shared typed result boundary applies manual mode eligibility: EQN and formatted matrix/list/statistics pages preserve ANS. Full later-mode numerical controllers remain deferred.
+
+- [x] **EL506-166 - Complete the memory persistence matrix.** Verify ON/C, CA,
   HOME, mode changes, power cycle, and reset for every store.
-- [ ] **EL506-167 - Implement formula memories F1-F4 as token streams.**
-- [ ] **EL506-168 - Match formula capacity, replacement, recall, editing,
+
+    Completed: 2026-10-07, implementation commit 793fb959fc8fcfd7be1645483b6923566d2aebe6
+    Evidence: phase-8-review.json, Phase 8 memory/solver experiment and golden
+    fixtures, pinned full manual and Operation Guide; phase8 unit/browser tests.
+    Verification: npm test passed (345 unit, 134 browser, 226 golden frames),
+    final full unit suite (350), focused module/memory/solver/browser checks,
+    Django (7), compileall, pip dry run, Compose config/build/start,
+    installed wheel/sdist smoke (17 assets), report and browser checks,
+    git diff --check.
+    Notes: Tests cover all eight temporary variables, M, all four formulas, matrix/list slots and statistics across ON/C, CA, HOME, every mode, power/idle and reset. Seeded later-mode data do not claim later-mode calculation parity.
+
+- [x] **EL506-167 - Implement formula memories F1-F4 as token streams.**
+
+    Completed: 2026-10-07, implementation commit 793fb959fc8fcfd7be1645483b6923566d2aebe6
+    Evidence: phase-8-review.json, Phase 8 memory/solver experiment and golden
+    fixtures, pinned full manual and Operation Guide; phase8 unit/browser tests.
+    Verification: npm test passed (345 unit, 134 browser, 226 golden frames),
+    final full unit suite (350), focused module/memory/solver/browser checks,
+    Django (7), compileall, pip dry run, Compose config/build/start,
+    installed wheel/sdist smoke (17 assets), report and browser checks,
+    git diff --check.
+    Notes: F1-F4 store lexical token arrays and recall editable expressions. Snapshot 9 migrates older string stores.
+
+- [x] **EL506-168 - Match formula capacity, replacement, recall, editing,
   deletion, persistence, and late-bound variables.**
-- [ ] **EL506-169 - Match ALGB/simulation variable discovery and prompt order.**
-- [ ] **EL506-170 - Match simulation value entry and repeated runs.** Preserve
+
+    Completed: 2026-10-07, implementation commit 793fb959fc8fcfd7be1645483b6923566d2aebe6
+    Evidence: phase-8-review.json, Phase 8 memory/solver experiment and golden
+    fixtures, pinned full manual and Operation Guide; phase8 unit/browser tests.
+    Verification: npm test passed (345 unit, 134 browser, 226 golden frames),
+    final full unit suite (350), focused module/memory/solver/browser checks,
+    Django (7), compileall, pip dry run, Compose config/build/start,
+    installed wheel/sdist smoke (17 assets), report and browser checks,
+    git diff --check.
+    Notes: Shared 256-character capacity, function atoms, replacement and late binding are tested. Native blank STO replaces a formula with literal 0; MEM clear/reset delete formulas. Live 256-character exhaustion is unmeasured.
+
+- [x] **EL506-169 - Match ALGB/simulation variable discovery and prompt order.**
+
+    Completed: 2026-10-07, implementation commit 793fb959fc8fcfd7be1645483b6923566d2aebe6
+    Evidence: phase-8-review.json, Phase 8 memory/solver experiment and golden
+    fixtures, pinned full manual and Operation Guide; phase8 unit/browser tests.
+    Verification: npm test passed (345 unit, 134 browser, 226 golden frames),
+    final full unit suite (350), focused module/memory/solver/browser checks,
+    Django (7), compileall, pip dry run, Compose config/build/start,
+    installed wheel/sdist smoke (17 assets), report and browser checks,
+    git diff --check.
+    Notes: Token discovery orders variables by first appearance, including beside numeric coefficients. Native B+A prompts B before A.
+
+- [x] **EL506-170 - Match simulation value entry and repeated runs.** Preserve
   previous prompted values exactly where the simulator does.
-- [ ] **EL506-171 - Match simulation navigation, cancellation, errors, and
+
+    Completed: 2026-10-07, implementation commit 793fb959fc8fcfd7be1645483b6923566d2aebe6
+    Evidence: phase-8-review.json, Phase 8 memory/solver experiment and golden
+    fixtures, pinned full manual and Operation Guide; phase8 unit/browser tests.
+    Verification: npm test passed (345 unit, 134 browser, 226 golden frames),
+    final full unit suite (350), focused module/memory/solver/browser checks,
+    Django (7), compileall, pip dry run, Compose config/build/start,
+    installed wheel/sdist smoke (17 assets), report and browser checks,
+    git diff --check.
+    Notes: Numeric values are accepted with ENT, retained in their stores, and offered on repeat. Mantissa/exponent limits follow the existing physical numeric entry behavior.
+
+- [x] **EL506-171 - Match simulation navigation, cancellation, errors, and
   retained inputs.**
-- [ ] **EL506-172 - Discover and implement the advertised generic solver
+
+    Completed: 2026-10-07, implementation commit 793fb959fc8fcfd7be1645483b6923566d2aebe6
+    Evidence: phase-8-review.json, Phase 8 memory/solver experiment and golden
+    fixtures, pinned full manual and Operation Guide; phase8 unit/browser tests.
+    Verification: npm test passed (345 unit, 134 browser, 226 golden frames),
+    final full unit suite (350), focused module/memory/solver/browser checks,
+    Django (7), compileall, pip dry run, Compose config/build/start,
+    installed wheel/sdist smoke (17 assets), report and browser checks,
+    git diff --check.
+    Notes: Observed RIGHT/DOWN do not advance variables. ON/C clears command but retains confirmed values; numeric syntax/domain errors and unconfirmed-entry cancellation are covered. Unobserved editing edges remain explicit.
+
+- [x] **EL506-172 - Discover and implement the advertised generic solver
   workflow.** Capture formula entry, target, initial estimate, prompts, result,
   and repeat sequence.
-- [ ] **EL506-173 - Match solver numerical behavior.** Cover convergence,
+
+    Completed: 2026-10-07, implementation commit 793fb959fc8fcfd7be1645483b6923566d2aebe6
+    Evidence: phase-8-review.json, Phase 8 memory/solver experiment and golden
+    fixtures, pinned full manual and Operation Guide; phase8 unit/browser tests.
+    Verification: npm test passed (345 unit, 134 browser, 226 golden frames),
+    final full unit suite (350), focused module/memory/solver/browser checks,
+    Django (7), compileall, pip dry run, Compose config/build/start,
+    installed wheel/sdist smoke (17 assets), report and browser checks,
+    git diff --check.
+    Notes: MATH 0 solves an X expression for zero; Start defaults to 0 and dx to 0.00001. Success stores X/ANS; ENT repeats with the previous root. Failure clears X and preserves prior ANS.
+
+- [x] **EL506-173 - Match solver numerical behavior.** Cover convergence,
   multiple roots, starting-value sensitivity, tolerance, iteration limit, and
   failure display.
+
+    Completed: 2026-10-07, implementation commit 793fb959fc8fcfd7be1645483b6923566d2aebe6
+    Evidence: phase-8-review.json, Phase 8 memory/solver experiment and golden
+    fixtures, pinned full manual and Operation Guide; phase8 unit/browser tests.
+    Verification: npm test passed (345 unit, 134 browser, 226 golden frames),
+    final full unit suite (350), focused module/memory/solver/browser checks,
+    Django (7), compileall, pip dry run, Compose config/build/start,
+    installed wheel/sdist smoke (17 assets), report and browser checks,
+    git diff --check.
+    Notes: Finite-difference Newton iteration is bounded at 100 iterations. Tests cover convergence, multiple roots, start sensitivity, dx/tolerance/domain failures and bounded work. Exact private native iteration limits/stopping rules are unmeasured, so full numerical algorithm parity is not claimed.
 
 ### Phase 9 - N-base Operations
 
