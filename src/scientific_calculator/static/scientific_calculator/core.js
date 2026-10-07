@@ -915,7 +915,7 @@
   function editorForState(state) {
     const source = normalizeMixedNumbers(state.expression.replace(/=$/, "") + state.entry);
     let tokens = [];
-    try { tokens = semantic.tokenize(source); } catch (error) { if (!(error instanceof TypeError)) throw error; }
+    try { tokens = semantic.tokenize(source,{physical:/E/.test(source)}); } catch (error) { if (!(error instanceof TypeError)) throw error; }
     const editor = semantic.createEditor(tokens);
     if (state.selectionActive) {
       let offset = 0;
@@ -932,7 +932,7 @@
     }
     return editor;
   }
-  function initialControl() { return {power:"on",idleMs:0,submode:null,errorCode:null,variables:Object.fromEntries(["A","B","C","D","E","F","X","Y"].map(k=>[k,0])),formulas:["","","",""],matrices:[null,null,null,null],lists:[null,null,null,null]}; }
+  function initialControl() { return {power:"on",idleMs:0,submode:null,errorCode:null,arithmetic:{constant:null,percent:false},variables:Object.fromEntries(["A","B","C","D","E","F","X","Y"].map(k=>[k,0])),formulas:["","","",""],matrices:[null,null,null,null],lists:[null,null,null,null]}; }
   function createInitialState() {
     const state = { ...createLegacyInitialState(), lifecycle: "empty", workflow: emptyWorkflow(), layers: initialLayers(), control: initialControl() };
     return { ...state, editor: editorForState(state), values: initialValues(state) };
@@ -995,6 +995,9 @@
       || !Array.isArray(c.formulas) || c.formulas.length!==4 || !c.formulas.every(v=>typeof v==='string')
       || !Array.isArray(c.matrices) || c.matrices.length!==4 || !Array.isArray(c.lists) || c.lists.length!==4) throw new TypeError('Invalid calculator control state');
     for(const value of [...c.matrices,...c.lists]) if(value!==null) values.validate(value);
+    if(!c.arithmetic || Object.keys(c.arithmetic).sort().join()!=='constant,percent' || typeof c.arithmetic.percent!=='boolean')throw new TypeError('Invalid arithmetic state');
+    const constant=c.arithmetic.constant;
+    if(constant!==null && (!constant || Object.keys(constant).sort().join()!=='operand,operator' || !['+','-', '*',':'].includes(constant.operator) || typeof constant.operand!=='string'))throw new TypeError('Invalid constant calculation');
     semantic.validateEditor(state.editor);
     if (state.editor.ast !== null) semantic.validateAst(state.editor.ast);
     if (!state.values || Object.keys(state.values).sort().join() !== "answer,history,last,memory,statistics" || !Array.isArray(state.values.history)
@@ -1045,11 +1048,11 @@
   // part of this contract. Future modes must version and extend these fields.
   function snapshotCalculator(state) {
     validateState(state);
-    return { schemaVersion: 6, profile: "legacy-0.3.1", state: structuredClone(state) };
+    return { schemaVersion: 7, profile: "legacy-0.3.1", state: structuredClone(state) };
   }
 
   function restoreCalculator(snapshot) {
-    if (!snapshot || ![1, 2, 3, 4, 5, 6].includes(snapshot.schemaVersion) || snapshot.profile !== "legacy-0.3.1"
+    if (!snapshot || ![1, 2, 3, 4, 5, 6, 7].includes(snapshot.schemaVersion) || snapshot.profile !== "legacy-0.3.1"
       || Object.keys(snapshot).sort().join() !== "profile,schemaVersion,state") {
       throw new TypeError("Unsupported calculator snapshot");
     }
@@ -1065,6 +1068,7 @@
     if (snapshot.schemaVersion < 4) state.editor = editorForState(state);
     if (snapshot.schemaVersion < 5) state.values = initialValues(state);
     if(snapshot.schemaVersion<6) state.control=initialControl();
+    if(snapshot.schemaVersion<7) state.control.arithmetic=initialControl().arithmetic;
     validateState(state);
     return state;
   }
@@ -1156,7 +1160,7 @@
     MODE: ["NORMAL", "STAT", "EQN", "CPLX", "MAT", "LIST"],
     SETUP: ["DRG", "FSE", "TAB"], ANGLE: ["DEG", "RAD", "GRAD"],
     FORMAT: ["FIX", "SCI", "ENG", "NORM1", "NORM2"], TAB: ["0","1","2","3","4","5","6","7","8","9"],
-    MATH: ["SOLV", "ENG", "TO_SECONDS", "TO_MINUTES"], ENG: ["k", "M", "G", "T", "m", "micro", "n", "p", "f"],
+    MATH: ["SOLV", "ENG", "→sec", "→min"], ENG: ["k", "M", "G", "T", "m", "µ", "n", "p", "f"],
     RANDOM: ["RANDOM", "R_INT", "R_DICE", "R_COIN"], CLEAR: ["MEMORY", "RESET"],
   });
   function resolvePhysicalKey(state, id) {
@@ -1183,10 +1187,11 @@
     return BASE_KEYS[n] ? {kind:"operation", event:{...BASE_KEYS[n]}} : {kind:"pending", key:id, layer:"base"};
   }
   const MODE_SUBMENUS={STAT:['SD','LINE','QUAD','EXP','LOG','PWR','INV'],EQN:['2-VLE','3-VLE','QUAD','CUBIC']};
-  const menuGroups={MODE:[2,2,2],STAT:[3,3,1],EQN:[2,2],CLEAR:[2],MEMORY_CLEAR:[2],SETUP:[3],ANGLE:[3],FORMAT:[3,2]};
+  const menuGroups={MODE:[2,2,2],STAT:[3,3,1],EQN:[2,2],CLEAR:[2],MEMORY_CLEAR:[2],SETUP:[3],ANGLE:[3],FORMAT:[3,2],MATH:[2,2],ENG:[4,4,1]};
   function physicalClear(previous,scope='command') {
     const next=createInitialState();next.layers.settings=structuredClone(previous.layers.settings);next.angleMode=previous.angleMode;
     next.layers.mode=previous.layers.mode;next.control=structuredClone(previous.control);next.control.errorCode=null;next.control.idleMs=0;
+    next.control.arithmetic=initialControl().arithmetic;
     if(scope==='command'){
       for(const name of ['answer','lastValue','memoryValue','statsValues','values','history'])next[name]=structuredClone(previous[name]);
       if(previous.layers.mode==='EQN' && previous.workflow.kind==='data-entry'){next.workflow=structuredClone(previous.workflow);next.lifecycle='data-entry';}
@@ -1223,7 +1228,7 @@
     }
     return {calculations,numeric};
   }
-  function physicalEditor(next){next.control.errorCode=null;next.editor=editorForState(next);next.displayExpression=next.expression;next.lifecycle=next.selectionActive?'editing':inferEntryPhase(next);return next;}
+  function physicalEditor(next){if(!next.selectionActive)next.cursor=Math.max(0,next.expression.length-1);next.control.errorCode=null;next.editor=editorForState(next);next.displayExpression=next.expression;next.lifecycle=next.selectionActive?'editing':inferEntryPhase(next);return next;}
   function physicalError(state,code){const next=structuredClone(state);next.control.errorCode=code;next.displayResult='Error';next.resultDisplay='Error';next.lifecycle='error';return next;}
   function physicalMenu(previous,id){
     const next=structuredClone(previous);next.secondActive=false;next.layers.alpha=false;next.layers.hyp=false;next.layers.inverseHyp=false;
@@ -1236,6 +1241,22 @@
   }
   function physicalSelect(previous,index){
     const id=previous.workflow.payload.id;const choice=previous.workflow.payload.choices[index];if(choice===undefined)return previous;
+    if(id==='MATH'||id==='ENG'){
+      if(id==='MATH'&&index===1)return physicalMenu(previous,'ENG');
+      if(id==='MATH'&&index===0){const next=structuredClone(previous);next.workflow={kind:'prompt',payload:{id:'SOLV',keyLayer:true,path:[]},page:0,returnPhase:previous.workflow.returnPhase};next.lifecycle='prompt';return next;}
+      const next=structuredClone(previous);next.workflow=emptyWorkflow();next.lifecycle=previous.workflow.returnPhase;
+      try{
+        if(id==='MATH'){
+          const source=physicalSource(next),ast=semantic.parseTokens(semantic.tokenize(closeOpenParentheses(source).replaceAll(':','/'),{physical:true}),{physical:true});
+          const number=physicalNumeric(semantic.evaluate(ast,physicalAdapter,{angleMode:next.angleMode,answer:next.answer})*(index===2?3600:60));
+          const result=physicalCalculate(next,String(number),source,true);result.expression=source+'=';result.editor=editorForState(result);return result;
+        }
+        const names=['kilo','mega','giga','tera','milli','micro','nano','pico','femto'];
+        const source=physicalSource(next),match=source.match(/(?:\([^()]*\)|(?:pi|ans)|-?\d+(?:\.\d*)?)$/);
+        if(!match)return physicalError(next,1);
+        next.expression=source.slice(0,-match[0].length)+`${names[index]}(${match[0]})`;next.entry='';next.stagedEntry=null;next.displayResult=next.resultDisplay='0';return physicalEditor(next);
+      }catch(error){return physicalError(next,error instanceof RangeError?2:1);}
+    }
     if(id==='SETUP'){
       if(index===2&&!['FIX','SCI','ENG'].includes(previous.layers.settings.format))return previous;
       if(index!==2)return physicalMenu(previous,index===0?'ANGLE':'FORMAT');
@@ -1262,9 +1283,81 @@
     }
     return null;
   }
+  function physicalSource(state){
+    const s=state.stagedEntry;
+    let tail=state.entry;
+    if(s){
+      if(s.type==='exp')tail=`${s.base}E${(s.exponent||'0').startsWith('-')?'-':''}${(s.exponent||'0').replace('-','').padStart(2,'0')}`;
+      else if(s.type==='power'){if(!s.hasExponent)throw new SyntaxError('Missing exponent');const base=/^-/.test(s.base)?`(${s.base})`:s.base;const exponent=/^[\d.]+$/.test(s.exponent)?s.exponent:`(${s.exponent})`;tail=`${base}^${exponent}`;}
+      else if(s.type==='root'){if(!s.hasRadicand)throw new SyntaxError('Missing radicand');tail=`root(${s.index},${s.radicand})`;}
+      else if(s.type==='binaryFunction'){if(!s.hasRight)throw new SyntaxError('Missing operand');tail=`${s.name}(${s.left},${s.right})`;}
+      else if(s.type==='fraction')tail=`(${s.numerator})/(${s.denominator})`;
+      else if(s.type==='dms')tail=`dms(${s.degrees},${s.minutes||0},${s.seconds||0})`;
+    }
+    if(/^-[\d.]+$/.test(tail))tail=`(${tail})`;
+    return state.expression.replace(/=$/,'')+tail;
+  }
+  function physicalLastOperand(source){
+    if(source.endsWith(')')){
+      let depth=0;for(let i=source.length-1;i>=0;i--){if(source[i]===')')depth++;else if(source[i]==='('&&--depth===0){const prefix=source.slice(0,i).match(/[a-z]+$/i);return source.slice(i-(prefix?.[0].length||0));}}
+    }
+    return source.match(/(?:pi|ans|\d+(?:\.\d*)?)$/)?.[0]||null;
+  }
+  function physicalFlush(state,closeFunctions=true){
+    const next=structuredClone(state);next.expression=physicalSource(state);next.entry='';next.stagedEntry=null;
+    // A function key supplies an implicit argument; a separately entered '(' is
+    // an explicit grouping and stays open until ')' or ENT.
+    const stack=[];for(let i=0;i<next.expression.length;i++){if(next.expression[i]==='(')stack.push(/[a-z]$/i.test(next.expression.slice(0,i)));else if(next.expression[i]===')')stack.pop();}
+    if(closeFunctions&&!/[a-z]+\($/i.test(next.expression))while(stack.at(-1)===true){next.expression+=')';stack.pop();}
+    next.cursor=Math.max(0,next.expression.length-1);next.displayResult=next.resultDisplay='0';return physicalEditor(next);
+  }
+  function physicalNumeric(value){
+    if(!Number.isFinite(value)||Math.abs(value)>=1e100)throw new RangeError('Calculation range');
+    return Math.abs(value)<1e-99?0:value;
+  }
+  const physicalAdapter={...legacyNumericAdapter,
+    number:text=>physicalNumeric(Number(text)),
+    binary:(op,a,b)=>physicalNumeric(['+','-','*','/'].includes(op)?Number(numericModel.binary(op,String(a),String(b))):legacyNumericAdapter.binary(op,a,b)),
+    call:(name,args,scope)=>{
+      const [n,r]=args;
+      const units={kilo:3,mega:6,giga:9,tera:12,milli:-3,micro:-6,nano:-9,pico:-12,femto:-15};
+      if(Object.hasOwn(units,name))return physicalNumeric(n*10**units[name]);
+      if(name==='root'&&n===0)throw new RangeError('Root index');
+      if(name==='fact' && (!Number.isInteger(n)||n<0||n>69))throw new RangeError('Factorial domain');
+      if(['npr','ncr'].includes(name)){
+        if(!Number.isInteger(n)||!Number.isInteger(r)||n<0||r<0||r>n||n>=1e10)throw new RangeError('Combinatorial domain');
+        let result=1;const count=name==='ncr'?Math.min(r,n-r):r;
+        for(let i=1;i<=count;i++)result=physicalNumeric(result*(n-count+i)/(name==='ncr'?i:1));
+        return result;
+      }
+      return physicalNumeric(legacyNumericAdapter.call(name,args,scope));
+    }
+  };
+  function physicalCalculate(previous,source,display=source,percent=false){
+    let next=structuredClone(previous);next.secondActive=false;next.layers.alpha=false;next.layers.hyp=false;
+    try{
+      const closed=closeOpenParentheses(source);
+      if(/\dE(?![+-]?\d)/.test(closed))throw new SyntaxError('Incomplete scientific literal');
+      if(/(?:^|[+*:^(:])\+|[+\-*:^:]-|[+*:^:]$/.test(closed))throw new SyntaxError('Missing operand');
+      const ast=semantic.parseTokens(semantic.tokenize(normalizeMixedNumbers(closed).replaceAll(':','/'),{physical:true}),{physical:true});
+      const numericResult=semantic.evaluate(ast,physicalAdapter,{angleMode:previous.angleMode,answer:previous.answer});
+      const typed=values.evaluateAst(ast,semantic,physicalAdapter,{angleMode:previous.angleMode,answer:previous.values.answer});
+      const number=numericResult===0?0:physicalNumeric(values.toNumber(typed));
+      next.expression=closed+'=';next.displayExpression=display+'=';next.entry='';next.stagedEntry=null;next.selectionActive=false;next.cursor=next.expression.length-1;
+      next.answer=next.lastValue=number;next.values.answer=next.values.last=number===0?values.scalar(0):typed;
+      next.lastExactDisplay='';next.resultMode=source.includes('/')?'improper':'decimal';next.resultDisplay=next.displayResult=formatValue(number);
+      if(next.resultMode==='improper')next.resultDisplay=next.displayResult=formatFractionValue(number,false);
+      next.editor=semantic.createEditor(semantic.tokenize(closed.replaceAll(':','/'),{physical:true}));next.editor.ast=ast;next.editor.incomplete=false;
+      next.lifecycle='evaluated';next.control.errorCode=null;next.control.arithmetic.percent=percent;
+      next.history.push({expression:next.expression,value:number,exactDisplay:''});next.values.history.push(values.copy(next.values.answer));
+      while(next.history.length>1&&next.history.reduce((total,h)=>total+physicalLength(h.expression),0)>142){next.history.shift();next.values.history.shift();}
+      next.historyIndex=null;return next;
+    }catch(error){return physicalError(next,error instanceof RangeError?2:1);}
+  }
   function reducePhysicalKey(previous,id){
     const intent=resolvePhysicalKey(previous,id); // Reject malformed identities even while asleep.
     const n=Number(id.slice(-2));let next=structuredClone(previous);next.control.idleMs=0;
+    if(intent.kind==='operation')next.layers.intent=structuredClone(intent);
     if(previous.control.power==='off')return n===2?physicalClear(previous):previous;
     if(n===2 && previous.secondActive)return physicalPowerOff(previous);
     if(n===2)return physicalClear(previous);
@@ -1282,11 +1375,12 @@
     }
     if(n===4)return physicalMenu(previous,'MODE');
     if(n===6)return physicalMenu(previous,'SETUP');
+    if(n===17&&!previous.secondActive)return physicalMenu(previous,'MATH');
     if(previous.workflow.kind==='prompt'&&previous.workflow.payload.id==='TAB'){
       if(DIGIT_KEYS[n]!==undefined){next.layers.settings.tab=Number(DIGIT_KEYS[n]);next.lifecycle=previous.workflow.returnPhase;next.workflow=structuredClone(previous.workflow.payload.resumeWorkflow||emptyWorkflow());}
       return next;
     }
-    if(previous.workflow.kind==='menu'&&['MODE','STAT','EQN','CLEAR','MEMORY_CLEAR','SETUP','ANGLE','FORMAT'].includes(previous.workflow.payload.id)){
+    if(previous.workflow.kind==='menu'&&['MODE','STAT','EQN','CLEAR','MEMORY_CLEAR','SETUP','ANGLE','FORMAT','MATH','ENG'].includes(previous.workflow.payload.id)){
       const w=next.workflow,groups=w.payload.groups;let selected=w.payload.selected;
       if(n===9||n===10){selected=Math.max(0,Math.min(w.payload.choices.length-1,selected+(n===9?-1:1)));}
       else if(n===8||n===11){w.page=w.payload.id==='FORMAT'?(w.page+1)%groups.length:Math.max(0,Math.min(groups.length-1,w.page+(n===8?-1:1)));selected=groups.slice(0,w.page).reduce((a,b)=>a+b,0);}
@@ -1299,9 +1393,87 @@
       if(n===45||n===48)return previous.workflow.payload.id==='CONFIRM_RESET'?createInitialState():physicalClear(previous,'memory');
       return next;
     }
+    if(previous.layers.mode==='NORMAL'&&previous.workflow.kind===null&&!previous.layers.alpha&&!previous.layers.hyp){
+      const shifted=previous.secondActive;
+      if(n===48&&!shifted){
+        if(previous.lifecycle==='evaluated'&&!previous.control.arithmetic.percent)return next;
+        try{
+          let source=physicalSource(previous),display=source;
+          const buffers=physicalBufferUsage(source);
+          if(physicalLength(source)+1>142)return physicalError(next,4);
+          if(buffers.calculations>24||buffers.numeric>10)return physicalError(next,3);
+          const constant=previous.control.arithmetic.constant;
+          if(previous.entry&&!previous.expression&&constant){source=constant.operator==='*'?`${constant.operand}*${source}`:`${source}${constant.operator}${constant.operand}`;display=constant.operator==='*'?`K*${previous.entry}`:`${previous.entry}${constant.operator}K`;}
+          const result=physicalCalculate(next,source,display);
+          if(result.lifecycle==='evaluated'&&!constant){
+            const ast=result.editor.ast;
+            if(ast.kind==='binary'&&!ast.implied&&['+','-','*','/'].includes(ast.operator)){
+              const operand=semantic.evaluate(ast.operator==='*'?ast.left:ast.right,physicalAdapter,{angleMode:previous.angleMode,answer:previous.answer});
+              const literal=String(operand).replace('e','E');
+              result.control.arithmetic.constant={operator:ast.operator==='/'?':':ast.operator,operand:literal.startsWith('-')?`(${literal})`:literal};
+            }
+          }
+          return result;
+        }catch(error){return physicalError(next,error instanceof RangeError?2:1);}
+      }
+      if(shifted&&n===40){
+        try{
+          const source=physicalSource(previous),ast=semantic.parseTokens(semantic.tokenize(closeOpenParentheses(source).replaceAll(':','/'),{physical:true}),{physical:true});
+          if(ast.kind!=='binary'||!['+','-','*','/'].includes(ast.operator))return physicalError(next,1);
+          const a=semantic.evaluate(ast.left,physicalAdapter,{angleMode:previous.angleMode,answer:previous.answer}),b=semantic.evaluate(ast.right,physicalAdapter,{angleMode:previous.angleMode,answer:previous.answer});
+          const number=physicalNumeric(ast.operator==='+'?a+a*b/100:ast.operator==='-'?a-a*b/100:ast.operator==='*'?a*b/100:a/b*100);
+          const result=physicalCalculate(next,String(number),source+'%',true);
+          result.expression=source+'=';result.displayExpression=source+'%';result.editor=editorForState(result);result.control.arithmetic.constant=null;
+          if(result.lifecycle==='evaluated')result.history.at(-1).expression=result.expression;
+          return result;
+        }catch(error){return physicalError(next,error instanceof RangeError?2:1);}
+      }
+      if(intent.kind==='operation'&&!previous.selectionActive){
+        const insert=intent.event.insert,action=intent.event.action;
+        if(insert==='.'&&!previous.stagedEntry&&(!previous.entry||previous.entry==='-'))next.entry=previous.entry==='-'?'-0':'0';
+        if(previous.stagedEntry?.type==='exp'&&insert==='.')return next;
+        if(previous.stagedEntry?.type==='exp'&&/^\d$/.test(insert||'')){
+          const stage=next.stagedEntry,negative=stage.exponent.startsWith('-'),digits=stage.exponent.replace(/\D/g,'');
+          if(stage.hasExponent&&digits.length>=2){stage.exponent=(negative?'-':'')+(digits+insert).slice(-2);next.secondActive=false;next.resultDisplay=next.displayResult=`${stage.base}*10^${stage.exponent}`;return physicalEditor(next);}
+        }
+        if(action==='exp'&&!previous.entry&&!previous.stagedEntry&&previous.lifecycle!=='evaluated')next.entry='1';
+        if(['+','-', '*','/','^2','^3','^(-1)','!'].includes(insert)){
+          try{
+            const postfix=['^2','^3','^(-1)','!'].includes(insert);
+            if(postfix&&previous.stagedEntry?.type==='power'){
+              const stage=next.stagedEntry;if(!stage.hasExponent)return physicalError(next,1);
+              stage.exponent=insert==='!'?`fact(${stage.exponent})`:stage.exponent+insert;next.secondActive=false;return physicalEditor(next);
+            }
+            if(previous.lifecycle==='evaluated'){next.expression='ans';next.entry='';next.stagedEntry=null;next.control.arithmetic={constant:null,percent:false};}
+            next=physicalFlush(next,!postfix);
+            const op=insert==='/'?':':insert;
+            if(insert==='!'){
+              const source=next.expression,operand=physicalLastOperand(source);
+              if(!operand)return physicalError(next,1);next.expression=source.slice(0,-operand.length)+`fact(${operand})`;
+            }else next.expression+=op;
+            next.secondActive=false;return physicalEditor(next);
+          }catch(error){return physicalError(next,error instanceof RangeError?2:1);}
+        }
+        if(insert==='('){try{next=physicalFlush(next);}catch{return physicalError(next,1);}next.expression+='(';next.secondActive=false;return physicalEditor(next);}
+        if(['sqrt(','cbrt(','log(','ln(','10^(','e^('].includes(insert)){
+          try{next=physicalFlush(next);}catch{return physicalError(next,1);}
+          if(previous.lifecycle==='evaluated'){next.expression='';next.control.arithmetic={constant:null,percent:false};}
+          next.expression+=({'10^(':'tenpow(','e^(':'epow('})[insert]||insert;next.secondActive=false;return physicalEditor(next);
+        }
+        if(action==='power'&&previous.stagedEntry){try{next=physicalFlush(next);}catch{return physicalError(next,1);}next.expression+='^';next.secondActive=false;return physicalEditor(next);}
+        if(['power','root','npr','ncr'].includes(action)&&previous.lifecycle==='evaluated'){next.expression='';next.entry='ans';next.stagedEntry=null;next.control.arithmetic={constant:null,percent:false};}
+        if(action==='sign'&&previous.lifecycle==='evaluated'){next.expression='';next.entry='';next.stagedEntry=null;next.control.arithmetic={constant:null,percent:false};}
+        if(previous.lifecycle==='evaluated'&&/^\d$/.test(insert||'')){next.expression='';next.entry='';next.stagedEntry=null;next.control.arithmetic.percent=false;}
+        if(['pi','ans'].includes(insert)){
+          try{next=physicalFlush(next);}catch{return physicalError(next,1);}
+          if(previous.lifecycle==='evaluated')next.expression='';next.expression+=insert;next.secondActive=false;return physicalEditor(next);
+        }
+      }
+    }
     // Structured editor addresses complete functions and individual number digits.
     if([9,10].includes(n)&&previous.stagedEntry&&previous.workflow.kind===null){
       const stage=previous.stagedEntry;
+      if(stage.type==='exp'){next.entry='';next.stagedEntry=null;next.selectionActive=Boolean(next.expression);next.cursor=n===9?physicalCells(next.expression).at(-1)?.start||0:0;next.displayResult=next.resultDisplay=next.expression?'':'0';return physicalEditor(next);}
       const prefix=stage.type==='fraction'?`${stage.numerator||'0'}/`:stage.type==='power'?`${stage.base}^`:stage.type==='exp'?`${stage.base}e`:stage.type==='root'?`root(${stage.index},`:stage.type==='dms'?`dms(${stage.degrees},${stage.part==='seconds'?`${stage.minutes},`:''}`:'';
       if(prefix){next.expression=previous.expression+prefix;next.entry='';next.stagedEntry=null;next.selectionActive=true;next.cursor=n===9?physicalCells(next.expression).at(-1).start:0;next.displayResult=next.resultDisplay='';return physicalEditor(next);}
     }

@@ -25,7 +25,8 @@
           "kind": "scalar",
           "value": 0
         }
-      }
+      },
+      "domResultText": "0."
     },
     {
       "afterStep": 1,
@@ -42,14 +43,15 @@
           "kind": "scalar",
           "value": 0
         }
-      }
+      },
+      "domResultText": "2."
     },
     {
       "afterStep": 2,
-      "domResultText": "2π",
+      "domResultText": "0.",
       "assertions": {
-        "displayExpression": "",
-        "displayResult": "2pi",
+        "displayExpression": "2pi",
+        "displayResult": "0",
         "answer": 0,
         "editor.ast": {
           "kind": "binary",
@@ -76,7 +78,7 @@
       "assertions": {
         "displayExpression": "2pi=",
         "displayResult": "6.28318530718",
-        "answer": 6.283185307179586,
+        "answer": 6.283185307178,
         "editor.ast": {
           "kind": "binary",
           "operator": "*",
@@ -93,9 +95,10 @@
         "editor.incomplete": false,
         "values.answer": {
           "kind": "scalar",
-          "value": 6.283185307179586
+          "value": 6.283185307178
         }
-      }
+      },
+      "domResultText": "6.283185307"
     }
   ],
   "knownDifferences": [
@@ -115,13 +118,13 @@
       "afterStep": 2,
       "field": "displayExpression",
       "expected": "2π",
-      "actual": ""
+      "actual": "2pi"
     },
     {
       "afterStep": 2,
       "field": "displayResult",
       "expected": "0.",
-      "actual": "2pi"
+      "actual": "0"
     },
     {
       "afterStep": 3,
@@ -135,5 +138,6 @@
       "expected": "6.283185307",
       "actual": "6.28318530718"
     }
-  ]
+  ],
+  "displayProfile": "physical"
 }

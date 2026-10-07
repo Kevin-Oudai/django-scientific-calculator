@@ -1417,6 +1417,17 @@ Exact implementation SHA was verified via git ls-remote before these records.
 
 ### Phase 5 - NORMAL Entry and Arithmetic
 
+READY_TO_PUSH (2026-10-07): User explicitly requested the complete Phase 5 batch,
+EL506-090 through EL506-111. All 22 items remain unchecked pending publication.
+Evidence: phase-5-normal-arithmetic-review-v1 and independently transcribed
+percent, constant and power experiments/golden fixtures. Verification: npm test
+(132 unit, 109 browser, 114 golden frames), Django (7), compileall, pip dry run,
+Compose config/build/start, installed wheel/sdist smoke (15 packaged assets),
+rebuilt browser inspection and git diff --check. Snapshot schema 7 migrates 1–6;
+legacy grammar and the requested 12px label layout are preserved. SOLV numerical
+controller retains its Phase 8 owner; Phase 6 scalar/angle/fraction work remains pending.
+
+
 - [ ] **EL506-090 - Match digit and decimal-point entry.**
 - [ ] **EL506-091 - Match Exp scientific-literal entry.** Cover mantissa,
   exponent, cursor editing, sign change, and malformed input.

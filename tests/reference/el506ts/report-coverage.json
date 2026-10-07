@@ -164,6 +164,37 @@
         "phase4-mdf"
       ],
       "scope": "Native lower-line formatting assertions replayed via physical keys; raw reducer upper/lower representation differences remain explicit."
+    },
+    {
+      "kind": "unit",
+      "path": "tests/unit/phase5.test.js",
+      "anchor": "constant state survives snapshot",
+      "capabilityIds": [
+        "el506.base.el506-k43",
+        "el506.base.el506-k48"
+      ],
+      "scope": "Measured NORMAL retained constants, clearing and snapshot isolation; partial scalar evidence only."
+    },
+    {
+      "kind": "browser",
+      "path": "tests/e2e/phase5.spec.js",
+      "anchor": "contextual percent evaluates immediately",
+      "capabilityIds": [
+        "el506.second.el506-k40",
+        "el506.base.el506-k48"
+      ],
+      "scope": "Immediate contextual percent, ENT recomputation and retained K browser displays."
+    },
+    {
+      "kind": "browser",
+      "path": "tests/e2e/golden.spec.js",
+      "anchor": "canonical baseline browser replay",
+      "fixtureIds": [
+        "phase5-constant",
+        "phase5-percent",
+        "phase5-power"
+      ],
+      "scope": "Independent native significant displays and explicit canonical representation differences for NORMAL arithmetic sequences."
     }
   ]
 }

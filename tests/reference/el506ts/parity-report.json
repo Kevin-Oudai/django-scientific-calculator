@@ -23,12 +23,12 @@
         "partial": 25
       },
       "goldenTested": {
-        "pending": 410,
-        "baseline-known-differences": 20
+        "pending": 407,
+        "baseline-known-differences": 23
       },
       "browserTested": {
-        "partial": 60,
-        "pending": 370
+        "partial": 64,
+        "pending": 366
       }
     },
     "guide": {
@@ -38,8 +38,8 @@
       "pending": 51
     },
     "golden": {
-      "fixtures": 11,
-      "assertedFrames": 88,
+      "fixtures": 14,
+      "assertedFrames": 114,
       "pending": 1
     },
     "verifiedFullParity": 0
@@ -95,6 +95,18 @@
       "sha256": "088d1065b736d2fd605bb6ef123b979bd57bc4088f5d8aa8155ffb9d2b4d37fb"
     },
     {
+      "path": "tests/reference/el506ts/experiments/phase5-constant.json",
+      "sha256": "961288224e21a0dcf781a2f48bc9c7b79c04fb0b434243e2db7b423ad7777866"
+    },
+    {
+      "path": "tests/reference/el506ts/experiments/phase5-percent.json",
+      "sha256": "da1721290872cbfbee1f6e616a5515ffded9b676233f2b3b65ff2575da37f240"
+    },
+    {
+      "path": "tests/reference/el506ts/experiments/phase5-power.json",
+      "sha256": "57978be6b0aa014f4de98e4a5c9ebc8aa2044cccea2cf1e45e5a8fcd14378c5d"
+    },
+    {
       "path": "tests/reference/el506ts/experiments/retained-answer.json",
       "sha256": "7ded9b273cf3d756ce11ac3fb5c6344d9f12c1f52219eb461da1a5cf3caceb14"
     },
@@ -120,7 +132,7 @@
     },
     {
       "path": "tests/reference/el506ts/golden/implied-multiplication.json",
-      "sha256": "c6ded7e647535d08f9b0cca107f02f84c46d5de64d11b8054603f3c9f649dceb"
+      "sha256": "6f767fbffe4841ae3f5b252da9971ac3c9e91a6943f8a1df4352a42378212444"
     },
     {
       "path": "tests/reference/el506ts/golden/key-layers.json",
@@ -136,11 +148,23 @@
     },
     {
       "path": "tests/reference/el506ts/golden/phase4-display-ties.json",
-      "sha256": "4d76252119c1f1ec8cfa8b87161308f78df1c4fa2176ecde5f883647aa5fa11b"
+      "sha256": "f28dd4f0dcdf0bf1311a7c4ca10f063ff03bc2a2c424e8ac3177e17266c56f5e"
     },
     {
       "path": "tests/reference/el506ts/golden/phase4-mdf.json",
-      "sha256": "78cdf00146917c45113ce7307b801ccb622c154facb40fd393fc210f33d6988a"
+      "sha256": "7a27864c3bc293cb6a97a5a915f66d69635ca14075b12278428c91ef5060d73e"
+    },
+    {
+      "path": "tests/reference/el506ts/golden/phase5-constant.json",
+      "sha256": "45892eae068edeb33f3c57c47aab3a831e93e051b523e69534082e02e3abefb2"
+    },
+    {
+      "path": "tests/reference/el506ts/golden/phase5-percent.json",
+      "sha256": "5eacbad243ab359b6a2ebcdee8cc66ff9b3aff188de66fd41fb387e050778c73"
+    },
+    {
+      "path": "tests/reference/el506ts/golden/phase5-power.json",
+      "sha256": "936c474e946d9058d54b9016b3922ee54b641e916fe93b809da8dd30ec554cc7"
     },
     {
       "path": "tests/reference/el506ts/golden/physical-lcd-cursor.json",
@@ -156,7 +180,7 @@
     },
     {
       "path": "tests/reference/el506ts/report-coverage.json",
-      "sha256": "e82e02bb4387769680ab3927b1acc0b14df1d4495c5d96a45805fb97ddb33a13"
+      "sha256": "15030dafcf7b8c80a7cf196fcf962f49fc2aaf1c139d7f2ea8a12ef5b75b8a17"
     },
     {
       "path": "tests/reference/el506ts/validate-guide.js",
@@ -171,6 +195,10 @@
       "sha256": "1de1bb5270674c935791db37aa07c805f759428e29033f35bbf665ee5223a067"
     },
     {
+      "path": "tests/e2e/phase5.spec.js",
+      "sha256": "33c06b4d33b2e860a3a1203f2452f89338d5c44ce5809de859b9302e232dcc2f"
+    },
+    {
       "path": "tests/e2e/physical-ui.spec.js",
       "sha256": "1b0b92ff20bef726ed0d183994c69f1ecd42a3b529bcf616e2cad3d8b021b82c"
     },
@@ -181,6 +209,10 @@
     {
       "path": "tests/unit/phase4.test.js",
       "sha256": "5ce6a86c3ba0f684194a1ecefb2019736ec243467a36d115b1438fe182c68cba"
+    },
+    {
+      "path": "tests/unit/phase5.test.js",
+      "sha256": "e5738b1365f06645fc3902d1ffe5be1e22135db9b3cd2090ecb1b1fc27a430c5"
     },
     {
       "path": "tests/unit/physical-ui.test.js",
@@ -8937,13 +8969,36 @@
         "scope": "Explicit mapped assertions only; unlisted coverage is unassessed."
       },
       "goldenTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "baseline-known-differences",
+        "evidence": [
+          {
+            "fixtureId": "phase5-power",
+            "status": "known-differences",
+            "assertedFrames": 7
+          }
+        ],
         "scope": "Baseline characterization only; all current supported fixtures have oracle display differences."
       },
       "browserTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "partial",
+        "evidence": [
+          {
+            "kind": "browser",
+            "path": "tests/e2e/golden.spec.js",
+            "anchor": "canonical baseline browser replay",
+            "fixtureIds": [
+              "phase5-constant",
+              "phase5-percent",
+              "phase5-power"
+            ],
+            "scope": "Independent native significant displays and explicit canonical representation differences for NORMAL arithmetic sequences.",
+            "capabilityIds": [
+              "el506.base.el506-k43",
+              "el506.second.el506-k40",
+              "el506.base.el506-k19"
+            ]
+          }
+        ],
         "scope": "Explicit canonical baseline browser replays only; legacy regression coverage is not inferred as parity."
       }
     },
@@ -10065,18 +10120,51 @@
               "el506.base.el506-k48"
             ],
             "scope": "Baseline addition, equals and M+ state isolation only; simulator persistence and sequencing not established."
+          },
+          {
+            "kind": "unit",
+            "path": "tests/unit/phase5.test.js",
+            "anchor": "constant state survives snapshot",
+            "capabilityIds": [
+              "el506.base.el506-k43",
+              "el506.base.el506-k48"
+            ],
+            "scope": "Measured NORMAL retained constants, clearing and snapshot isolation; partial scalar evidence only."
           }
         ],
         "scope": "Explicit mapped assertions only; unlisted coverage is unassessed."
       },
       "goldenTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "baseline-known-differences",
+        "evidence": [
+          {
+            "fixtureId": "phase5-constant",
+            "status": "known-differences",
+            "assertedFrames": 10
+          }
+        ],
         "scope": "Baseline characterization only; all current supported fixtures have oracle display differences."
       },
       "browserTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "partial",
+        "evidence": [
+          {
+            "kind": "browser",
+            "path": "tests/e2e/golden.spec.js",
+            "anchor": "canonical baseline browser replay",
+            "fixtureIds": [
+              "phase5-constant",
+              "phase5-percent",
+              "phase5-power"
+            ],
+            "scope": "Independent native significant displays and explicit canonical representation differences for NORMAL arithmetic sequences.",
+            "capabilityIds": [
+              "el506.base.el506-k43",
+              "el506.second.el506-k40",
+              "el506.base.el506-k19"
+            ]
+          }
+        ],
         "scope": "Explicit canonical baseline browser replays only; legacy regression coverage is not inferred as parity."
       }
     },
@@ -10307,6 +10395,16 @@
               "el506.base.el506-k48"
             ],
             "scope": "Baseline addition, equals and M+ state isolation only; simulator persistence and sequencing not established."
+          },
+          {
+            "kind": "unit",
+            "path": "tests/unit/phase5.test.js",
+            "anchor": "constant state survives snapshot",
+            "capabilityIds": [
+              "el506.base.el506-k43",
+              "el506.base.el506-k48"
+            ],
+            "scope": "Measured NORMAL retained constants, clearing and snapshot isolation; partial scalar evidence only."
           }
         ],
         "scope": "Explicit mapped assertions only; unlisted coverage is unassessed."
@@ -10317,8 +10415,19 @@
         "scope": "Baseline characterization only; all current supported fixtures have oracle display differences."
       },
       "browserTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "partial",
+        "evidence": [
+          {
+            "kind": "browser",
+            "path": "tests/e2e/phase5.spec.js",
+            "anchor": "contextual percent evaluates immediately",
+            "capabilityIds": [
+              "el506.second.el506-k40",
+              "el506.base.el506-k48"
+            ],
+            "scope": "Immediate contextual percent, ENT recomputation and retained K browser displays."
+          }
+        ],
         "scope": "Explicit canonical baseline browser replays only; legacy regression coverage is not inferred as parity."
       }
     },
@@ -11888,13 +11997,46 @@
         "scope": "Explicit mapped assertions only; unlisted coverage is unassessed."
       },
       "goldenTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "baseline-known-differences",
+        "evidence": [
+          {
+            "fixtureId": "phase5-percent",
+            "status": "known-differences",
+            "assertedFrames": 9
+          }
+        ],
         "scope": "Baseline characterization only; all current supported fixtures have oracle display differences."
       },
       "browserTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "partial",
+        "evidence": [
+          {
+            "kind": "browser",
+            "path": "tests/e2e/phase5.spec.js",
+            "anchor": "contextual percent evaluates immediately",
+            "capabilityIds": [
+              "el506.second.el506-k40",
+              "el506.base.el506-k48"
+            ],
+            "scope": "Immediate contextual percent, ENT recomputation and retained K browser displays."
+          },
+          {
+            "kind": "browser",
+            "path": "tests/e2e/golden.spec.js",
+            "anchor": "canonical baseline browser replay",
+            "fixtureIds": [
+              "phase5-constant",
+              "phase5-percent",
+              "phase5-power"
+            ],
+            "scope": "Independent native significant displays and explicit canonical representation differences for NORMAL arithmetic sequences.",
+            "capabilityIds": [
+              "el506.base.el506-k43",
+              "el506.second.el506-k40",
+              "el506.base.el506-k19"
+            ]
+          }
+        ],
         "scope": "Explicit canonical baseline browser replays only; legacy regression coverage is not inferred as parity."
       }
     },

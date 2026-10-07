@@ -1,0 +1,94 @@
+{
+  "schemaVersion": 1,
+  "id": "phase5-power",
+  "dispatch": "physical",
+  "displayProfile": "physical",
+  "status": "baseline-characterization",
+  "reference": "experiments/phase5-power.json",
+  "sequence": [
+    "EL506-K41",
+    "EL506-K19",
+    "EL506-K42",
+    "EL506-K19",
+    "EL506-K41",
+    "EL506-K48"
+  ],
+  "capabilityIds": [
+    "el506.base.el506-k19"
+  ],
+  "expected": [
+    {
+      "afterStep": 0,
+      "assertions": {
+        "answer": 0,
+        "lifecycle": "empty"
+      },
+      "domResultText": "0."
+    },
+    {
+      "afterStep": 1,
+      "assertions": {
+        "answer": 0,
+        "lifecycle": "entering"
+      },
+      "domResultText": "2."
+    },
+    {
+      "afterStep": 2,
+      "assertions": {
+        "answer": 0,
+        "lifecycle": "entering"
+      },
+      "domResultText": "20"
+    },
+    {
+      "afterStep": 3,
+      "assertions": {
+        "answer": 0,
+        "lifecycle": "entering"
+      },
+      "domResultText": "23"
+    },
+    {
+      "afterStep": 4,
+      "assertions": {
+        "answer": 0,
+        "lifecycle": "entering"
+      },
+      "domResultText": "0."
+    },
+    {
+      "afterStep": 5,
+      "assertions": {
+        "answer": 0,
+        "lifecycle": "entering"
+      },
+      "domResultText": "2."
+    },
+    {
+      "afterStep": 6,
+      "assertions": {
+        "answer": 64,
+        "lifecycle": "evaluated"
+      },
+      "domResultText": "64.",
+      "viewAssertions": {
+        "resultHtml": "64."
+      }
+    }
+  ],
+  "knownDifferences": [
+    {
+      "afterStep": 0,
+      "field": "displayResult",
+      "expected": "0.",
+      "actual": "0"
+    },
+    {
+      "afterStep": 6,
+      "field": "displayResult",
+      "expected": "64.",
+      "actual": "64"
+    }
+  ]
+}

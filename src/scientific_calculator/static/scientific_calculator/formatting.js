@@ -30,6 +30,14 @@
     const format=settings.format||'NORM1',tab=settings.tab??9,absolute=Math.abs(value);
     let exponent=absolute?Number(absolute.toExponential().split('e')[1]):0;
     const scientific=format==='SCI'||format==='ENG'||absolute>=1e10||(['NORM1','NORM2'].includes(format)&&absolute!==0&&absolute<(format==='NORM2'?.01:1e-9));
+    // NORMAL first rounds ten significant digits, then the LCD's ten numeric
+    // positions limit a decimal with leading zeros. Thus sqrt(3) rounds up,
+    // while 1/7 still displays 0.142857142. Keep an in-range decimal at the
+    // upper boundary instead of introducing a display-only overflow.
+    if(['NORM1','NORM2'].includes(format)&&absolute){
+      const rounded=Number(decimalAt(value,9-exponent,true));
+      if(!(absolute<1e10&&Math.abs(rounded)>=1e10))value=rounded;
+    }
     let mantissa,roundedValue;
     if(scientific){
       const engineering=format==='ENG';
@@ -241,6 +249,22 @@
     return output;
   }
 
+  function physicalExpression(source){
+    source=source.replace(/\((-?\d+(?:\.\d*)?)\*tenpow\((-?\d+)\)\)/g,(_,base,exponent)=>base+'E'+(exponent.startsWith('-')?'-':'')+exponent.replace('-','').padStart(2,'0'));
+    let output='';
+    for(let i=0;i<source.length;){
+      const match=source.slice(i).match(/^(sqrt|cbrt|log|ln|tenpow|epow|fact|root|npr|ncr|kilo|mega|giga|tera|milli|micro|nano|pico|femto)\(/);
+      if(!match){output+=source[i++];continue;}
+      let depth=1,j=i+match[0].length,start=j,args=[];
+      for(;j<source.length;j++){if(source[j]==='(')depth++;else if(source[j]===')'){if(--depth===0)break;}else if(source[j]===','&&depth===1){args.push(source.slice(start,j));start=j+1;}}
+      args.push(source.slice(start,j));args=args.map(physicalExpression);
+      const name=match[1],units={kilo:'k',mega:'M',giga:'G',tera:'T',milli:'m',micro:'µ',nano:'n',pico:'p',femto:'f'};
+      const prefixes={sqrt:'√',cbrt:'³√',tenpow:'10^',epow:'e^'};
+      output+=name==='fact'?args[0]+'!':name==='root'?args[0]+'ˣ√'+(args[1]||''):name==='npr'?args[0]+'P'+(args[1]||''):name==='ncr'?args[0]+'C'+(args[1]||''):units[name]?args[0]+units[name]:prefixes[name]?prefixes[name]+args[0]:name+args[0];
+      i=j<source.length?j+1:j;
+    }
+    return output;
+  }
   function renderState(state, options = {}) {
     const expressionForDisplay = () => {
       const { displayExpression: expression, selectionActive, cursor } = state;
@@ -298,7 +322,7 @@
     };
     if (state.values.last.kind === 'nbase') indicators[({2:'BIN',5:'PEN',8:'OCT',10:'DEC',16:'HEX'})[state.values.last.radix]] = true;
     const expression = state.displayExpression;
-    view.expressionHtml = expression ? formatExpression(expressionForDisplay()) : '';
+    view.expressionHtml = expression ? formatExpression(options.physical?physicalExpression(expressionForDisplay()):expressionForDisplay()) : '';
     if(state.lifecycle==='editing'&&state.displayResult==='')view.resultHtml='';
     if(state.layers.mode==='STAT'&&!expression&&!state.entry&&!workflow.kind)view.expressionHtml=escapeHtml('Stat '+(coreSubmodeIndex(state.control?.submode)));
     if(state.lifecycle==='error'&&state.control?.errorCode)view.resultHtml=escapeHtml('Error '+state.control.errorCode);

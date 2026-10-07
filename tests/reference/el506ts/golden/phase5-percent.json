@@ -1,0 +1,112 @@
+{
+  "schemaVersion": 1,
+  "id": "phase5-percent",
+  "dispatch": "physical",
+  "displayProfile": "physical",
+  "status": "baseline-characterization",
+  "reference": "experiments/phase5-percent.json",
+  "sequence": [
+    "EL506-K41",
+    "EL506-K45",
+    "EL506-K45",
+    "EL506-K43",
+    "EL506-K40",
+    "EL506-K45",
+    "EL506-K03",
+    "EL506-K40"
+  ],
+  "capabilityIds": [
+    "el506.second.el506-k40"
+  ],
+  "expected": [
+    {
+      "afterStep": 0,
+      "assertions": {
+        "answer": 0,
+        "lifecycle": "empty"
+      },
+      "domResultText": "0."
+    },
+    {
+      "afterStep": 1,
+      "assertions": {
+        "answer": 0,
+        "lifecycle": "entering"
+      },
+      "domResultText": "2."
+    },
+    {
+      "afterStep": 2,
+      "assertions": {
+        "answer": 0,
+        "lifecycle": "entering"
+      },
+      "domResultText": "20."
+    },
+    {
+      "afterStep": 3,
+      "assertions": {
+        "answer": 0,
+        "lifecycle": "entering"
+      },
+      "domResultText": "200."
+    },
+    {
+      "afterStep": 4,
+      "assertions": {
+        "answer": 0,
+        "lifecycle": "entering"
+      },
+      "domResultText": "0."
+    },
+    {
+      "afterStep": 5,
+      "assertions": {
+        "answer": 0,
+        "lifecycle": "entering"
+      },
+      "domResultText": "1."
+    },
+    {
+      "afterStep": 6,
+      "assertions": {
+        "answer": 0,
+        "lifecycle": "entering"
+      },
+      "domResultText": "10."
+    },
+    {
+      "afterStep": 7,
+      "assertions": {
+        "answer": 0,
+        "lifecycle": "entering"
+      },
+      "domResultText": "10."
+    },
+    {
+      "afterStep": 8,
+      "assertions": {
+        "answer": 220,
+        "lifecycle": "evaluated"
+      },
+      "domResultText": "220.",
+      "viewAssertions": {
+        "resultHtml": "220."
+      }
+    }
+  ],
+  "knownDifferences": [
+    {
+      "afterStep": 0,
+      "field": "displayResult",
+      "expected": "0.",
+      "actual": "0"
+    },
+    {
+      "afterStep": 8,
+      "field": "displayResult",
+      "expected": "220.",
+      "actual": "220"
+    }
+  ]
+}

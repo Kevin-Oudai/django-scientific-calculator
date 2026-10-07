@@ -1,0 +1,736 @@
+{
+  "schemaVersion": 1,
+  "reviewId": "phase-5-normal-arithmetic-review-v1",
+  "reviewedOn": "2026-10-07",
+  "simulatorProfile": "sharp-el506ts-pc-simulator-1.0.2.0",
+  "runtimeSha256": "6bfef4d04900b472892be2d4c54dcfa6013f87232097e32df508ca4c27425530",
+  "method": "Live @oai/sky computer use; NORMAL DEG NORM1; ON/C before each independent sequence. Pinned runtime file hash reverified. Significant native frames transcribed independently before implementation. Sequences containing only ENT continue the preceding stated expression. No simulator screenshots or binaries distributed.",
+  "liveObservations": [
+    {
+      "sequence": [
+        "EL506-K02",
+        "EL506-K41",
+        "EL506-K43",
+        "EL506-K42",
+        "EL506-K48",
+        "EL506-K48"
+      ],
+      "observed": "2+3= remains 5. on repeated ENT; no changing repeat result."
+    },
+    {
+      "sequence": [
+        "EL506-K02",
+        "EL506-K41",
+        "EL506-K43",
+        "EL506-K43",
+        "EL506-K42",
+        "EL506-K48"
+      ],
+      "observed": "2++3 produces Error 1."
+    },
+    {
+      "sequence": [
+        "EL506-K02",
+        "EL506-K41",
+        "EL506-K43",
+        "EL506-K48"
+      ],
+      "observed": "2+= produces Error 1; omitted operand is not supplied."
+    },
+    {
+      "sequence": [
+        "EL506-K02",
+        "EL506-K42",
+        "EL506-K35",
+        "EL506-K43",
+        "EL506-K36",
+        "EL506-K30",
+        "EL506-K48",
+        "EL506-K35",
+        "EL506-K36",
+        "EL506-K48"
+      ],
+      "observed": "34+57=45= produces upper 45+K=, lower 102."
+    },
+    {
+      "sequence": [
+        "EL506-K02",
+        "EL506-K37",
+        "EL506-K39",
+        "EL506-K42",
+        "EL506-K48",
+        "EL506-K32",
+        "EL506-K48"
+      ],
+      "observed": "6÷3=9= produces upper 9÷K=, lower 3."
+    },
+    {
+      "sequence": [
+        "EL506-K02",
+        "EL506-K41",
+        "EL506-K38",
+        "EL506-K42",
+        "EL506-K48",
+        "EL506-K35",
+        "EL506-K48"
+      ],
+      "observed": "2×3=4= produces upper K×4=, lower 8."
+    },
+    {
+      "sequence": [
+        "EL506-K02",
+        "EL506-K41",
+        "EL506-K45",
+        "EL506-K45",
+        "EL506-K43",
+        "EL506-K40",
+        "EL506-K45",
+        "EL506-K03",
+        "EL506-K40"
+      ],
+      "observed": "Percent evaluates immediately: upper 200+10%, lower 220."
+    },
+    {
+      "sequence": [
+        "EL506-K48"
+      ],
+      "observed": "ENT after 200+10% evaluates original operands: upper 200+10=, lower 210."
+    },
+    {
+      "sequence": [
+        "EL506-K02",
+        "EL506-K41",
+        "EL506-K45",
+        "EL506-K45",
+        "EL506-K44",
+        "EL506-K40",
+        "EL506-K45",
+        "EL506-K03",
+        "EL506-K40"
+      ],
+      "observed": "Percent decrease gives 180."
+    },
+    {
+      "sequence": [
+        "EL506-K02",
+        "EL506-K41",
+        "EL506-K45",
+        "EL506-K45",
+        "EL506-K38",
+        "EL506-K40",
+        "EL506-K45",
+        "EL506-K03",
+        "EL506-K40"
+      ],
+      "observed": "Percentage-of gives 20."
+    },
+    {
+      "sequence": [
+        "EL506-K02",
+        "EL506-K41",
+        "EL506-K45",
+        "EL506-K45",
+        "EL506-K39",
+        "EL506-K40",
+        "EL506-K45",
+        "EL506-K03",
+        "EL506-K40"
+      ],
+      "observed": "Reverse percent gives 2000."
+    },
+    {
+      "sequence": [
+        "EL506-K02",
+        "EL506-K40",
+        "EL506-K45",
+        "EL506-K03",
+        "EL506-K40"
+      ],
+      "observed": "Standalone 10% produces Error 1."
+    },
+    {
+      "sequence": [
+        "EL506-K02",
+        "EL506-K47",
+        "EL506-K41",
+        "EL506-K20",
+        "EL506-K48"
+      ],
+      "observed": "NEG 2 squared gives upper (-2)²=, lower 4."
+    },
+    {
+      "sequence": [
+        "EL506-K02",
+        "EL506-K41",
+        "EL506-K44",
+        "EL506-K44",
+        "EL506-K42",
+        "EL506-K48"
+      ],
+      "observed": "Two subtraction keys produce Error 1."
+    },
+    {
+      "sequence": [
+        "EL506-K02",
+        "EL506-K41",
+        "EL506-K44",
+        "EL506-K47",
+        "EL506-K42",
+        "EL506-K48"
+      ],
+      "observed": "Subtraction followed by NEG: 2-(-3)= gives 5."
+    },
+    {
+      "sequence": [
+        "EL506-K02",
+        "EL506-K41",
+        "EL506-K19",
+        "EL506-K42",
+        "EL506-K19",
+        "EL506-K41",
+        "EL506-K48"
+      ],
+      "observed": "Powers chain left to right: 2^3^2= gives 64."
+    },
+    {
+      "sequence": [
+        "EL506-K02",
+        "EL506-K37",
+        "EL506-K39",
+        "EL506-K41",
+        "EL506-K33",
+        "EL506-K40",
+        "EL506-K43",
+        "EL506-K41",
+        "EL506-K34",
+        "EL506-K48"
+      ],
+      "observed": "Implied multiplication precedes division: 6÷2(1+2)= gives 1."
+    },
+    {
+      "sequence": [
+        "EL506-K02",
+        "EL506-K41",
+        "EL506-K03",
+        "EL506-K20",
+        "EL506-K32",
+        "EL506-K48"
+      ],
+      "observed": "A prefix function after an operand multiplies: 2√9= gives 6."
+    },
+    {
+      "sequence": [
+        "EL506-K02",
+        "EL506-K03",
+        "EL506-K20",
+        "EL506-K32",
+        "EL506-K43",
+        "EL506-K40",
+        "EL506-K48"
+      ],
+      "observed": "Implicit prefix argument ends at addition: √9+1= gives 4."
+    },
+    {
+      "sequence": [
+        "EL506-K02",
+        "EL506-K03",
+        "EL506-K20",
+        "EL506-K33",
+        "EL506-K40",
+        "EL506-K43",
+        "EL506-K41",
+        "EL506-K34",
+        "EL506-K48"
+      ],
+      "observed": "Explicit grouped argument √(1+2)= gives 1.732050808."
+    },
+    {
+      "sequence": [
+        "EL506-K02",
+        "EL506-K03",
+        "EL506-K20",
+        "EL506-K32",
+        "EL506-K03",
+        "EL506-K35",
+        "EL506-K48"
+      ],
+      "observed": "Postfix precedes prefix: √9!= gives 602.3952191."
+    },
+    {
+      "sequence": [
+        "EL506-K02",
+        "EL506-K03",
+        "EL506-K20",
+        "EL506-K32",
+        "EL506-K20",
+        "EL506-K48"
+      ],
+      "observed": "√9²= gives 9."
+    },
+    {
+      "sequence": [
+        "EL506-K02",
+        "EL506-K22",
+        "EL506-K40",
+        "EL506-K45",
+        "EL506-K20",
+        "EL506-K48"
+      ],
+      "observed": "log10²= gives 2."
+    },
+    {
+      "sequence": [
+        "EL506-K02",
+        "EL506-K41",
+        "EL506-K19",
+        "EL506-K42",
+        "EL506-K20",
+        "EL506-K48"
+      ],
+      "observed": "Postfix before general power: 2^3²= gives 512."
+    },
+    {
+      "sequence": [
+        "EL506-K02",
+        "EL506-K42",
+        "EL506-K03",
+        "EL506-K19",
+        "EL506-K31",
+        "EL506-K48"
+      ],
+      "observed": "3-th root of 8 gives 2."
+    },
+    {
+      "sequence": [
+        "EL506-K02",
+        "EL506-K42",
+        "EL506-K03",
+        "EL506-K19",
+        "EL506-K47",
+        "EL506-K31",
+        "EL506-K48"
+      ],
+      "observed": "Odd root of negative radicand gives -2."
+    },
+    {
+      "sequence": [
+        "EL506-K02",
+        "EL506-K03",
+        "EL506-K21",
+        "EL506-K47",
+        "EL506-K31",
+        "EL506-K48"
+      ],
+      "observed": "Cube root of -8 gives -2."
+    },
+    {
+      "sequence": [
+        "EL506-K02",
+        "EL506-K41",
+        "EL506-K03",
+        "EL506-K18",
+        "EL506-K48"
+      ],
+      "observed": "Reciprocal of 2 gives 0.5."
+    },
+    {
+      "sequence": [
+        "EL506-K02",
+        "EL506-K41",
+        "EL506-K24",
+        "EL506-K42",
+        "EL506-K48"
+      ],
+      "observed": "2 Exp 3 gives upper 2E03=, lower 2000."
+    },
+    {
+      "sequence": [
+        "EL506-K02",
+        "EL506-K24",
+        "EL506-K42",
+        "EL506-K48"
+      ],
+      "observed": "Bare Exp supplies mantissa 1: 1E03= gives 1000."
+    },
+    {
+      "sequence": [
+        "EL506-K02",
+        "EL506-K41",
+        "EL506-K24",
+        "EL506-K48"
+      ],
+      "observed": "Omitted scientific exponent defaults 00; result 2."
+    },
+    {
+      "sequence": [
+        "EL506-K02",
+        "EL506-K41",
+        "EL506-K24",
+        "EL506-K40",
+        "EL506-K45",
+        "EL506-K45",
+        "EL506-K47",
+        "EL506-K48"
+      ],
+      "observed": "Exponent entry rolls last two digits; input 100 becomes 00, NEG yields -00; result 2."
+    },
+    {
+      "sequence": [
+        "EL506-K02",
+        "EL506-K46",
+        "EL506-K40",
+        "EL506-K46",
+        "EL506-K41"
+      ],
+      "observed": "Duplicate decimal ignored; lower 0.12."
+    },
+    {
+      "sequence": [
+        "EL506-K02",
+        "EL506-K41",
+        "EL506-K18"
+      ],
+      "observed": "π commits current operand to upper line 2π; lower 0."
+    },
+    {
+      "sequence": [
+        "EL506-K48"
+      ],
+      "observed": "ENT after 2π displays 6.283185307."
+    },
+    {
+      "sequence": [
+        "EL506-K02",
+        "EL506-K22",
+        "EL506-K40",
+        "EL506-K45",
+        "EL506-K45",
+        "EL506-K48"
+      ],
+      "observed": "log100= gives 2."
+    },
+    {
+      "sequence": [
+        "EL506-K02",
+        "EL506-K41",
+        "EL506-K22",
+        "EL506-K40",
+        "EL506-K45",
+        "EL506-K45",
+        "EL506-K48"
+      ],
+      "observed": "2log100= gives 4."
+    },
+    {
+      "sequence": [
+        "EL506-K02",
+        "EL506-K03",
+        "EL506-K23",
+        "EL506-K45",
+        "EL506-K48"
+      ],
+      "observed": "e^0= gives 1."
+    },
+    {
+      "sequence": [
+        "EL506-K02",
+        "EL506-K41",
+        "EL506-K45",
+        "EL506-K20",
+        "EL506-K48"
+      ],
+      "observed": "20²= gives 400."
+    },
+    {
+      "sequence": [
+        "EL506-K02",
+        "EL506-K36",
+        "EL506-K03",
+        "EL506-K35",
+        "EL506-K48"
+      ],
+      "observed": "5!= gives 120."
+    },
+    {
+      "sequence": [
+        "EL506-K02",
+        "EL506-K36",
+        "EL506-K03",
+        "EL506-K37",
+        "EL506-K41",
+        "EL506-K48"
+      ],
+      "observed": "5P2= gives 20."
+    },
+    {
+      "sequence": [
+        "EL506-K02",
+        "EL506-K36",
+        "EL506-K03",
+        "EL506-K36",
+        "EL506-K41",
+        "EL506-K48"
+      ],
+      "observed": "5C2= gives 10."
+    },
+    {
+      "sequence": [
+        "EL506-K02",
+        "EL506-K37",
+        "EL506-K32",
+        "EL506-K03",
+        "EL506-K35",
+        "EL506-K48"
+      ],
+      "observed": "69!= displays 1.711224524×10^98."
+    },
+    {
+      "sequence": [
+        "EL506-K02",
+        "EL506-K30",
+        "EL506-K45",
+        "EL506-K03",
+        "EL506-K35",
+        "EL506-K48"
+      ],
+      "observed": "70! gives Error 2."
+    },
+    {
+      "sequence": [
+        "EL506-K02",
+        "EL506-K41",
+        "EL506-K46",
+        "EL506-K36",
+        "EL506-K03",
+        "EL506-K35",
+        "EL506-K48"
+      ],
+      "observed": "Noninteger factorial gives Error 2."
+    },
+    {
+      "sequence": [
+        "EL506-K02",
+        "EL506-K22",
+        "EL506-K45",
+        "EL506-K48"
+      ],
+      "observed": "log0 gives Error 2."
+    },
+    {
+      "sequence": [
+        "EL506-K02",
+        "EL506-K40",
+        "EL506-K39",
+        "EL506-K45",
+        "EL506-K48"
+      ],
+      "observed": "Division by zero gives Error 2."
+    },
+    {
+      "sequence": [
+        "EL506-K02",
+        "EL506-K03",
+        "EL506-K20",
+        "EL506-K47",
+        "EL506-K40",
+        "EL506-K48"
+      ],
+      "observed": "Square root of negative one gives Error 2."
+    },
+    {
+      "sequence": [
+        "EL506-K02",
+        "EL506-K41",
+        "EL506-K19",
+        "EL506-K48"
+      ],
+      "observed": "General power without exponent gives Error 1."
+    },
+    {
+      "sequence": [
+        "EL506-K02",
+        "EL506-K03",
+        "EL506-K19",
+        "EL506-K31",
+        "EL506-K48"
+      ],
+      "observed": "Root without index uses zero; gives Error 2."
+    },
+    {
+      "sequence": [
+        "EL506-K02",
+        "EL506-K17",
+        "EL506-K11"
+      ],
+      "observed": "MATH inventory SOLV ENG (0,1), →sec →min (2,3); no additional scalar functions."
+    },
+    {
+      "sequence": [
+        "EL506-K02",
+        "EL506-K40",
+        "EL506-K45",
+        "EL506-K17",
+        "EL506-K41"
+      ],
+      "observed": "→sec immediately converts 10 to 36000; ENT returns original 10."
+    },
+    {
+      "sequence": [
+        "EL506-K02",
+        "EL506-K41",
+        "EL506-K17",
+        "EL506-K42"
+      ],
+      "observed": "→min immediately converts 2 to 120."
+    },
+    {
+      "sequence": [
+        "EL506-K02",
+        "EL506-K41",
+        "EL506-K17",
+        "EL506-K40",
+        "EL506-K45",
+        "EL506-K48"
+      ],
+      "observed": "ENG has k M G T (0–3), m µ n p (4–7), f (8); 2k= gives 2000."
+    },
+    {
+      "sequence": [
+        "EL506-K02",
+        "EL506-K41",
+        "EL506-K24",
+        "EL506-K42",
+        "EL506-K09"
+      ],
+      "observed": "LEFT discards the entire unfinished scientific literal, including the mantissa; with no committed equation, display is empty cursor and 0."
+    },
+    {
+      "sequence": [
+        "EL506-K02",
+        "EL506-K36",
+        "EL506-K43",
+        "EL506-K41",
+        "EL506-K24",
+        "EL506-K42",
+        "EL506-K09",
+        "EL506-K48"
+      ],
+      "observed": "LEFT discards literal after 5+; remaining 5+ followed by ENT produces Error 1."
+    },
+    {
+      "sequence": [
+        "EL506-K02",
+        "EL506-K41",
+        "EL506-K24",
+        "EL506-K42",
+        "EL506-K48",
+        "EL506-K09"
+      ],
+      "observed": "After ENT commits the literal, LEFT puts cursor after 2E03 with lower 0.; literal remains editable."
+    },
+    {
+      "sequence": [
+        "EL506-K02",
+        "EL506-K22",
+        "EL506-K40",
+        "EL506-K45",
+        "EL506-K19",
+        "EL506-K41",
+        "EL506-K48"
+      ],
+      "observed": "log10^2= gives 2.; power is part of the implicit function argument."
+    },
+    {
+      "sequence": [
+        "EL506-K02",
+        "EL506-K41",
+        "EL506-K19",
+        "EL506-K47",
+        "EL506-K42",
+        "EL506-K48"
+      ],
+      "observed": "2^(-3)= gives 0.125."
+    },
+    {
+      "sequence": [
+        "EL506-K02",
+        "EL506-K41",
+        "EL506-K43",
+        "EL506-K47",
+        "EL506-K42",
+        "EL506-K48",
+        "EL506-K35",
+        "EL506-K48"
+      ],
+      "observed": "2+(-3)=4= displays upper 4+K=, lower 1."
+    },
+    {
+      "sequence": [
+        "EL506-K02",
+        "EL506-K40",
+        "EL506-K24",
+        "EL506-K32",
+        "EL506-K32",
+        "EL506-K38",
+        "EL506-K41",
+        "EL506-K48",
+        "EL506-K42",
+        "EL506-K48"
+      ],
+      "observed": "1E99�2=3= displays upper K�3=, lower 3.�10^99."
+    }
+  ],
+  "itemCoverage": {
+    "EL506-090": "Live transcriptions above, dedicated phase5 unit/browser regressions and native percent/constant/power golden fixtures.",
+    "EL506-091": "Live transcriptions above, dedicated phase5 unit/browser regressions and native percent/constant/power golden fixtures.",
+    "EL506-092": "Live transcriptions above, dedicated phase5 unit/browser regressions and native percent/constant/power golden fixtures.",
+    "EL506-093": "Live transcriptions above, dedicated phase5 unit/browser regressions and native percent/constant/power golden fixtures.",
+    "EL506-094": "Live transcriptions above, dedicated phase5 unit/browser regressions and native percent/constant/power golden fixtures.",
+    "EL506-095": "Live transcriptions above, dedicated phase5 unit/browser regressions and native percent/constant/power golden fixtures.",
+    "EL506-096": "Live transcriptions above, dedicated phase5 unit/browser regressions and native percent/constant/power golden fixtures.",
+    "EL506-097": "Live transcriptions above, dedicated phase5 unit/browser regressions and native percent/constant/power golden fixtures.",
+    "EL506-098": "Live transcriptions above, dedicated phase5 unit/browser regressions and native percent/constant/power golden fixtures.",
+    "EL506-099": "Live transcriptions above, dedicated phase5 unit/browser regressions and native percent/constant/power golden fixtures.",
+    "EL506-100": "Live transcriptions above, dedicated phase5 unit/browser regressions and native percent/constant/power golden fixtures.",
+    "EL506-101": "Live transcriptions above, dedicated phase5 unit/browser regressions and native percent/constant/power golden fixtures.",
+    "EL506-102": "Live transcriptions above, dedicated phase5 unit/browser regressions and native percent/constant/power golden fixtures.",
+    "EL506-103": "Live transcriptions above, dedicated phase5 unit/browser regressions and native percent/constant/power golden fixtures.",
+    "EL506-104": "Live transcriptions above, dedicated phase5 unit/browser regressions and native percent/constant/power golden fixtures.",
+    "EL506-105": "Live transcriptions above, dedicated phase5 unit/browser regressions and native percent/constant/power golden fixtures.",
+    "EL506-106": "Live transcriptions above, dedicated phase5 unit/browser regressions and native percent/constant/power golden fixtures.",
+    "EL506-107": "Inventory includes SOLV deferred to its Phase 8 controller, nine engineering prefixes and the two immediate sec/min scalar conversions.",
+    "EL506-108": "Live transcriptions above, dedicated phase5 unit/browser regressions and native percent/constant/power golden fixtures.",
+    "EL506-109": "Live transcriptions above, dedicated phase5 unit/browser regressions and native percent/constant/power golden fixtures.",
+    "EL506-110": "Live transcriptions above, dedicated phase5 unit/browser regressions and native percent/constant/power golden fixtures.",
+    "EL506-111": "Live transcriptions above, dedicated phase5 unit/browser regressions and native percent/constant/power golden fixtures."
+  },
+  "tests": [
+    "tests/unit/phase5.test.js",
+    "tests/e2e/phase5.spec.js",
+    "golden/phase5-percent.json",
+    "golden/phase5-constant.json",
+    "golden/phase5-power.json"
+  ],
+  "limitations": [
+    "Scalar NORMAL phase only; trigonometry, fraction sequencing and DMS/coordinate parity retain Phase 6 owners.",
+    "Raw internal canonical expressions differ from native display spellings and are explicitly declared by the golden harness; formatted browser assertions cover native significant results.",
+    "SOLV numerical controller remains assigned to Phase 8."
+  ],
+  "verification": {
+    "status": "local checks passed; publication pending",
+    "unitTests": 132,
+    "browserTests": 109,
+    "goldenFrames": 114,
+    "djangoTests": 7,
+    "packagedAssets": 15,
+    "checks": [
+      "compileall",
+      "pip dry run",
+      "Compose config/build/start",
+      "wheel/sdist installed smoke",
+      "git diff --check",
+      "rebuilt in-app browser constant display"
+    ],
+    "numericalProfile": "Measured decimal arithmetic uses the existing 13-digit truncation model; NORMAL results round to ten significant digits before the LCD position limit. Negative and scientific retained constants are covered."
+  }
+}

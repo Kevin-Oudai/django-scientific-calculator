@@ -238,7 +238,7 @@
         "displayExpression": "ans*9=",
         "displayResult": "5.4",
         "lifecycle": "evaluated",
-        "answer": 5.3999999999999995,
+        "answer": 5.4,
         "layers.settings.format": "FIX",
         "layers.settings.tab": 1,
         "workflow.kind": null

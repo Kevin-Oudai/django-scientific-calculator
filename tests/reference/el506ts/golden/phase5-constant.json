@@ -1,0 +1,121 @@
+{
+  "schemaVersion": 1,
+  "id": "phase5-constant",
+  "dispatch": "physical",
+  "displayProfile": "physical",
+  "status": "baseline-characterization",
+  "reference": "experiments/phase5-constant.json",
+  "sequence": [
+    "EL506-K42",
+    "EL506-K35",
+    "EL506-K43",
+    "EL506-K36",
+    "EL506-K30",
+    "EL506-K48",
+    "EL506-K35",
+    "EL506-K36",
+    "EL506-K48"
+  ],
+  "capabilityIds": [
+    "el506.base.el506-k43"
+  ],
+  "expected": [
+    {
+      "afterStep": 0,
+      "assertions": {
+        "answer": 0,
+        "lifecycle": "empty"
+      },
+      "domResultText": "0."
+    },
+    {
+      "afterStep": 1,
+      "assertions": {
+        "answer": 0,
+        "lifecycle": "entering"
+      },
+      "domResultText": "3."
+    },
+    {
+      "afterStep": 2,
+      "assertions": {
+        "answer": 0,
+        "lifecycle": "entering"
+      },
+      "domResultText": "34."
+    },
+    {
+      "afterStep": 3,
+      "assertions": {
+        "answer": 0,
+        "lifecycle": "entering"
+      },
+      "domResultText": "0."
+    },
+    {
+      "afterStep": 4,
+      "assertions": {
+        "answer": 0,
+        "lifecycle": "entering"
+      },
+      "domResultText": "5."
+    },
+    {
+      "afterStep": 5,
+      "assertions": {
+        "answer": 0,
+        "lifecycle": "entering"
+      },
+      "domResultText": "57."
+    },
+    {
+      "afterStep": 6,
+      "assertions": {
+        "answer": 91,
+        "lifecycle": "evaluated"
+      },
+      "domResultText": "91."
+    },
+    {
+      "afterStep": 7,
+      "assertions": {
+        "answer": 91,
+        "lifecycle": "entering"
+      },
+      "domResultText": "4."
+    },
+    {
+      "afterStep": 8,
+      "assertions": {
+        "answer": 91,
+        "lifecycle": "entering"
+      },
+      "domResultText": "45."
+    },
+    {
+      "afterStep": 9,
+      "assertions": {
+        "answer": 102,
+        "lifecycle": "evaluated"
+      },
+      "domResultText": "102.",
+      "viewAssertions": {
+        "resultHtml": "102."
+      }
+    }
+  ],
+  "knownDifferences": [
+    {
+      "afterStep": 0,
+      "field": "displayResult",
+      "expected": "0.",
+      "actual": "0"
+    },
+    {
+      "afterStep": 9,
+      "field": "displayResult",
+      "expected": "102.",
+      "actual": "102"
+    }
+  ]
+}

@@ -4,25 +4,25 @@
   else host.ScientificCalculatorSemantic = api;
 })(typeof globalThis === 'object' ? globalThis : this, function () {
   'use strict';
-  const functions = Object.freeze(['sin','cos','tan','asin','acos','atan','sinh','cosh','tanh','asinh','acosh','atanh','sqrt','cbrt','log','ln','tenpow','epow','recip','abs','pct','fact','root','ncr','npr','dms']);
+  const functions = Object.freeze(['sin','cos','tan','asin','acos','atan','sinh','cosh','tanh','asinh','acosh','atanh','sqrt','cbrt','log','ln','tenpow','epow','recip','abs','pct','fact','root','ncr','npr','dms','kilo','mega','giga','tera','milli','micro','nano','pico','femto']);
   const symbols = Object.freeze(['pi','e','ans','A','B','C','D','E','F','X','Y','M']);
   function validateToken(t) {
     if (!t || Object.keys(t).sort().join() !== 'kind,value' || typeof t.value !== 'string') throw new TypeError('Invalid semantic token');
-    if (t.kind === 'number' && /^(?:\d+(?:\.\d*)?|\.\d+)$/.test(t.value)) return;
+    if (t.kind === 'number' && /^(?:\d+(?:\.\d*)?|\.\d+)(?:E[+-]?\d{1,2})?$/.test(t.value)) return;
     if (t.kind === 'function' && functions.includes(t.value)) return;
     if (t.kind === 'symbol' && symbols.includes(t.value)) return;
     if (t.kind === 'operator' && ['+','-','*','/',':','^'].includes(t.value)) return;
     if (t.kind === 'punctuation' && ['(',')',','].includes(t.value)) return;
     throw new TypeError('Unsupported semantic token');
   }
-  function tokenize(source) {
+  function tokenize(source, options={}) {
     if (typeof source !== 'string' || source.length > 10000) throw new TypeError('Invalid calculator entry');
     const tokens = [];
     let i=0;
     while (i<source.length) {
       if (/\s/.test(source[i])) { i++; continue; }
       const rest=source.slice(i);
-      const match=rest.match(/^(?:\d+(?:\.\d*)?|\.\d+)/) || rest.match(/^[A-Za-z]+/) || rest.match(/^[+\-*/:^(),]/);
+      const match=(options.physical?rest.match(/^(?:\d+(?:\.\d*)?|\.\d+)E[+-]?\d{1,2}(?!\d)/):null) || rest.match(/^(?:\d+(?:\.\d*)?|\.\d+)/) || rest.match(/^[A-Za-z]+/) || rest.match(/^[+\-*/:^(),]/);
       if (!match) throw new TypeError(`Unsupported entry at ${i}`);
       const word=match[0];
       const value=functions.includes(word.toLowerCase()) || ['pi','ans'].includes(word.toLowerCase()) ? word.toLowerCase() : word;
@@ -32,7 +32,7 @@
     return tokens;
   }
   function serialize(tokens) { tokens.forEach(validateToken); return tokens.map(t=>t.value).join(''); }
-  function parseTokens(tokens) {
+  function parseTokens(tokens, options={}) {
     tokens.forEach(validateToken);
     if (tokens.length>1000) throw new TypeError('Expression token limit');
     let i=0, depth=0;
@@ -60,10 +60,13 @@
       depth--; return value;
     };
     const unary=()=>take('+')?{kind:'unary',operator:'+',operand:unary()}:take('-')?{kind:'unary',operator:'-',operand:unary()}:primary();
-    // Preserve the established legacy precedence until EL506-098 measures it.
-    const power=()=>{const left=unary();return take('^')?binary('^',left,power()):left;};
+    // The measured physical profile chains powers left to right. Keep the
+    // enhanced profile's established grammar for existing integrations.
+    const power=()=>{let left=unary();if(options.physical){while(take('^'))left=binary('^',left,unary());return left;}return take('^')?binary('^',left,power()):left;};
     const startsTerm=()=>tokens[i] && ['number','symbol','function'].includes(tokens[i].kind) || peek()==='(';
+    const implied=()=>{let left=power();while(startsTerm())left=binary('*',left,power(),true);return left;};
     const term=()=>{
+      if(options.physical){let left=implied();while(['*','/',':'].includes(peek())){const op=tokens[i++].value;left=binary(op===':'?'/':op,left,implied());}return left;}
       let left=power();
       while(['*','/',':'].includes(peek()) || startsTerm()) {
         const explicit=['*','/',':'].includes(peek()); const operator=explicit?tokens[i++].value:'*';
@@ -127,7 +130,7 @@
   function validateAst(ast, depth=0) {
     if(!ast || depth>100)throw new TypeError('Invalid AST');
     const keys=Object.keys(ast).sort().join();
-    if(ast.kind==='number' && keys==='decimal,kind' && /^(?:\d+(?:\.\d*)?|\.\d+)$/.test(ast.decimal))return;
+    if(ast.kind==='number' && keys==='decimal,kind' && /^(?:\d+(?:\.\d*)?|\.\d+)(?:E[+-]?\d{1,2})?$/.test(ast.decimal))return;
     if(ast.kind==='symbol' && keys==='kind,name' && symbols.includes(ast.name))return;
     if(ast.kind==='unary' && keys==='kind,operand,operator' && ['+','-'].includes(ast.operator)){validateAst(ast.operand,depth+1);return;}
     if(ast.kind==='binary' && keys==='implied,kind,left,operator,right' && ['+','-','*','/','^'].includes(ast.operator) && typeof ast.implied==='boolean'){validateAst(ast.left,depth+1);validateAst(ast.right,depth+1);return;}

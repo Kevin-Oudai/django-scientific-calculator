@@ -62,8 +62,8 @@ test('playback retains ordering, oldest shortcut, boundaries and discards tempor
 test('history budget is 142 device characters, not an arbitrary equation count',()=>{
   let s=core.createInitialState();for(let i=0;i<80;i++)s=sequence([40,48],s);assert.equal(s.history.length,71);assert.equal(s.values.history.length,71);
 });
-test('digit entry stops at ten mantissa digits and exponent entry stops at two',()=>{
-  let s=core.createInitialState();for(let i=0;i<12;i++)s=press(s,40);assert.equal(s.entry,'1111111111');s=sequence([2,40,24,41,42,35],s);assert.equal(s.stagedEntry.exponent,'23');
+test('digit entry stops at ten mantissa digits and exponent entry rolls through two digits',()=>{
+  let s=core.createInitialState();for(let i=0;i<12;i++)s=press(s,40);assert.equal(s.entry,'1111111111');s=sequence([2,40,24,41,42,35],s);assert.equal(s.stagedEntry.exponent,'34');
 });
 test('physical full equation buffer and depth errors preserve the previous input for recovery',()=>{
   let s=core.createInitialState();for(let i=0;i<24;i++)s=press(s,13);s=sequence([40,48],s);assert.equal(s.control.errorCode,null);
@@ -74,7 +74,7 @@ test('post-result digits start fresh, arithmetic continues from ANS, modifier pr
   const s=sequence([41,43,42,48]);assert.equal(press(s,40).entry,'1');assert.equal(sequence([43,41,48],s).answer,7);assert.equal(press(s,3).answer,5);
 });
 test('control snapshots migrate schema 5 and reject malformed power/storage state atomically',()=>{
-  const snap=core.snapshotCalculator(stores());assert.equal(snap.schemaVersion,6);const old=structuredClone(snap);old.schemaVersion=5;delete old.state.control;assert.equal(core.restoreCalculator(old).control.power,'on');
+  const snap=core.snapshotCalculator(stores());assert.equal(snap.schemaVersion,7);const old=structuredClone(snap);old.schemaVersion=5;delete old.state.control;assert.equal(core.restoreCalculator(old).control.power,'on');
   const bad=structuredClone(snap);bad.state.control.power='awake';assert.throws(()=>core.restoreCalculator(bad),TypeError);assert.equal(snap.state.control.power,'on');
 });
 

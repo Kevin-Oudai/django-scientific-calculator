@@ -859,7 +859,8 @@ NORM1 uses decimal notation for magnitudes from `1e-9` inclusive up to
 as the largest ten-digit integer; the simulator also keeps fractional values
 just above that integer in decimal notation until `1e10`. Other magnitudes
 use scientific notation.
-NORM truncates to the ten display digits, including leading fractional zeros.
+NORM first rounds to ten significant digits, then limits the LCD to ten numeric
+positions, including leading fractional zeros.
 FIX rounds to the selected decimal places, capped by the ten-digit capacity.
 SCI uses TAB decimal places in its mantissa (`TAB 2` gives three significant
 digits). ENG uses exponents in multiples of three. FIX/SCI/ENG round ties away
@@ -886,3 +887,22 @@ Reference evidence is in `tests/reference/el506ts/phase-4-review.json` and
 display rules and modified versus unmodified chains. Raw reducer strings
 remain distinct from physical display markup, with those representation
 differences explicitly recorded by the golden runner.
+
+
+The physical NORMAL profile now follows the measured EL-506TS entry and
+arithmetic sequences: left-associative powers, implied multiplication before
+explicit division, implicit scalar-function arguments, scientific literal
+entry, postfix powers/reciprocal/factorial, permutations and combinations.
+Repeated ENT preserves the result. A new operand followed by ENT reuses the
+retained constant (`34+57=45=` displays `45+K=102`); ON/C and a new operation
+clear that constant. Contextual percent evaluates immediately (`200+10%` gives
+220; `200÷10%` gives 2000); ENT afterward evaluates the original operands.
+MATH exposes SOLV/ENG and →sec/→min; engineering prefixes are local scalar
+operations, and seconds/minutes conversions evaluate immediately. SOLV remains
+reserved for its later controller phase. Domain/range errors retain ANS and
+stores. Fractions, angle functions and the other mode controllers retain their
+later roadmap owners; this is not a claim of complete device parity.
+
+Snapshot schema 7 adds retained arithmetic state and migrates schemas 1–6.
+The optional enhanced legacy layout keeps its existing arithmetic grammar.
+The package release remains 0.3.1 during this parity implementation series.
