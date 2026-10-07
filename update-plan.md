@@ -1088,7 +1088,7 @@ Numerical algorithms and detailed display/error parity retain their later phases
 - [x] **EL506-050 - Implement ON/C power-on and wake behavior.**
 
     Completed: 2026-10-07, 5e31f2966b03498bb62342ea7cbef70c3a2c009d
-    Evidence: phase-3-control-review-v1 (EL506-50); el506-050-power-v1;
+    Evidence: phase-3-control-review-v1 (EL506-050); el506-050-power-v1;
     phase3-power-retention-v1; pinned simulator and full manual.
     Verification: npm test (73 unit, 94 browser, 52 golden frames); Django (7);
     compileall, pip dry run, Compose config/build/start, wheel/sdist smoke
@@ -1099,7 +1099,7 @@ Numerical algorithms and detailed display/error parity retain their later phases
 - [x] **EL506-051 - Implement 2ndF plus ON/C power-off behavior.**
 
     Completed: 2026-10-07, 5e31f2966b03498bb62342ea7cbef70c3a2c009d
-    Evidence: phase-3-control-review-v1 (EL506-51); el506-050-power-v1;
+    Evidence: phase-3-control-review-v1 (EL506-051); el506-050-power-v1;
     phase3-power-retention-v1; pinned simulator and full manual.
     Verification: npm test (73 unit, 94 browser, 52 golden frames); Django (7);
     compileall, pip dry run, Compose config/build/start, wheel/sdist smoke
@@ -1110,7 +1110,7 @@ Numerical algorithms and detailed display/error parity retain their later phases
 - [x] **EL506-052 - Implement auto-power-off and power-cycle persistence.**
 
     Completed: 2026-10-07, 5e31f2966b03498bb62342ea7cbef70c3a2c009d
-    Evidence: phase-3-control-review-v1 (EL506-52); el506-050-power-v1;
+    Evidence: phase-3-control-review-v1 (EL506-052); el506-050-power-v1;
     phase3-power-retention-v1; pinned simulator and full manual.
     Verification: npm test (73 unit, 94 browser, 52 golden frames); Django (7);
     compileall, pip dry run, Compose config/build/start, wheel/sdist smoke
@@ -1122,7 +1122,7 @@ Numerical algorithms and detailed display/error parity retain their later phases
   and LIST must use the exact MODE selection sequence and indicators.
 
     Completed: 2026-10-07, 5e31f2966b03498bb62342ea7cbef70c3a2c009d
-    Evidence: phase-3-control-review-v1 (EL506-53); el506-050-power-v1;
+    Evidence: phase-3-control-review-v1 (EL506-053); el506-050-power-v1;
     phase3-power-retention-v1; pinned simulator and full manual.
     Verification: npm test (73 unit, 94 browser, 52 golden frames); Django (7);
     compileall, pip dry run, Compose config/build/start, wheel/sdist smoke
@@ -1134,7 +1134,7 @@ Numerical algorithms and detailed display/error parity retain their later phases
   defaults, cancellation, invalid selection, and retained state.
 
     Completed: 2026-10-07, 5e31f2966b03498bb62342ea7cbef70c3a2c009d
-    Evidence: phase-3-control-review-v1 (EL506-54); el506-050-power-v1;
+    Evidence: phase-3-control-review-v1 (EL506-054); el506-050-power-v1;
     phase3-power-retention-v1; pinned simulator and full manual.
     Verification: npm test (73 unit, 94 browser, 52 golden frames); Django (7);
     compileall, pip dry run, Compose config/build/start, wheel/sdist smoke
@@ -1146,7 +1146,7 @@ Numerical algorithms and detailed display/error parity retain their later phases
   each store exactly as the simulator does.
 
     Completed: 2026-10-07, 5e31f2966b03498bb62342ea7cbef70c3a2c009d
-    Evidence: phase-3-control-review-v1 (EL506-55); el506-050-power-v1;
+    Evidence: phase-3-control-review-v1 (EL506-055); el506-050-power-v1;
     phase3-power-retention-v1; pinned simulator and full manual.
     Verification: npm test (73 unit, 94 browser, 52 golden frames); Django (7);
     compileall, pip dry run, Compose config/build/start, wheel/sdist smoke
@@ -1158,7 +1158,7 @@ Numerical algorithms and detailed display/error parity retain their later phases
   pending command while preserving statistics and memories as verified.
 
     Completed: 2026-10-07, 5e31f2966b03498bb62342ea7cbef70c3a2c009d
-    Evidence: phase-3-control-review-v1 (EL506-56); el506-050-power-v1;
+    Evidence: phase-3-control-review-v1 (EL506-056); el506-050-power-v1;
     phase3-power-retention-v1; pinned simulator and full manual.
     Verification: npm test (73 unit, 94 browser, 52 golden frames); Django (7);
     compileall, pip dry run, Compose config/build/start, wheel/sdist smoke
@@ -1170,7 +1170,7 @@ Numerical algorithms and detailed display/error parity retain their later phases
   other internal values while honoring the simulator's M-memory exception.
 
     Completed: 2026-10-07, 5e31f2966b03498bb62342ea7cbef70c3a2c009d
-    Evidence: phase-3-control-review-v1 (EL506-57); el506-050-power-v1;
+    Evidence: phase-3-control-review-v1 (EL506-057); el506-050-power-v1;
     phase3-power-retention-v1; pinned simulator and full manual.
     Verification: npm test (73 unit, 94 browser, 52 golden frames); Django (7);
     compileall, pip dry run, Compose config/build/start, wheel/sdist smoke
@@ -1182,7 +1182,7 @@ Numerical algorithms and detailed display/error parity retain their later phases
   settings and erase all stored data.
 
     Completed: 2026-10-07, 5e31f2966b03498bb62342ea7cbef70c3a2c009d
-    Evidence: phase-3-control-review-v1 (EL506-58); el506-050-power-v1;
+    Evidence: phase-3-control-review-v1 (EL506-058); el506-050-power-v1;
     phase3-power-retention-v1; pinned simulator and full manual.
     Verification: npm test (73 unit, 94 browser, 52 golden frames); Django (7);
     compileall, pip dry run, Compose config/build/start, wheel/sdist smoke
@@ -1195,7 +1195,7 @@ Numerical algorithms and detailed display/error parity retain their later phases
   behavior for 2ndF, ALPHA, and HYP.
 
     Completed: 2026-10-07, 5e31f2966b03498bb62342ea7cbef70c3a2c009d
-    Evidence: phase-3-control-review-v1 (EL506-59); el506-050-power-v1;
+    Evidence: phase-3-control-review-v1 (EL506-059); el506-050-power-v1;
     phase3-power-retention-v1; pinned simulator and full manual.
     Verification: npm test (73 unit, 94 browser, 52 golden frames); Django (7);
     compileall, pip dry run, Compose config/build/start, wheel/sdist smoke
@@ -1206,7 +1206,7 @@ Numerical algorithms and detailed display/error parity retain their later phases
 - [x] **EL506-060 - Implement left/right structured cursor movement.**
 
     Completed: 2026-10-07, 5e31f2966b03498bb62342ea7cbef70c3a2c009d
-    Evidence: phase-3-control-review-v1 (EL506-60); el506-050-power-v1;
+    Evidence: phase-3-control-review-v1 (EL506-060); el506-050-power-v1;
     phase3-power-retention-v1; pinned simulator and full manual.
     Verification: npm test (73 unit, 94 browser, 52 golden frames); Django (7);
     compileall, pip dry run, Compose config/build/start, wheel/sdist smoke
@@ -1217,7 +1217,7 @@ Numerical algorithms and detailed display/error parity retain their later phases
 - [x] **EL506-061 - Implement DEL at all token and template boundaries.**
 
     Completed: 2026-10-07, 5e31f2966b03498bb62342ea7cbef70c3a2c009d
-    Evidence: phase-3-control-review-v1 (EL506-61); el506-050-power-v1;
+    Evidence: phase-3-control-review-v1 (EL506-061); el506-050-power-v1;
     phase3-power-retention-v1; pinned simulator and full manual.
     Verification: npm test (73 unit, 94 browser, 52 golden frames); Django (7);
     compileall, pip dry run, Compose config/build/start, wheel/sdist smoke
@@ -1228,7 +1228,7 @@ Numerical algorithms and detailed display/error parity retain their later phases
 - [x] **EL506-062 - Implement INS and insert/overwrite lifetime.**
 
     Completed: 2026-10-07, 5e31f2966b03498bb62342ea7cbef70c3a2c009d
-    Evidence: phase-3-control-review-v1 (EL506-62); el506-050-power-v1;
+    Evidence: phase-3-control-review-v1 (EL506-062); el506-050-power-v1;
     phase3-power-retention-v1; pinned simulator and full manual.
     Verification: npm test (73 unit, 94 browser, 52 golden frames); Django (7);
     compileall, pip dry run, Compose config/build/start, wheel/sdist smoke
@@ -1240,7 +1240,7 @@ Numerical algorithms and detailed display/error parity retain their later phases
   boundaries, arrows, capacity, and draft restoration.
 
     Completed: 2026-10-07, 5e31f2966b03498bb62342ea7cbef70c3a2c009d
-    Evidence: phase-3-control-review-v1 (EL506-63); el506-050-power-v1;
+    Evidence: phase-3-control-review-v1 (EL506-063); el506-050-power-v1;
     phase3-power-retention-v1; pinned simulator and full manual.
     Verification: npm test (73 unit, 94 browser, 52 golden frames); Django (7);
     compileall, pip dry run, Compose config/build/start, wheel/sdist smoke
@@ -1251,7 +1251,7 @@ Numerical algorithms and detailed display/error parity retain their later phases
 - [x] **EL506-064 - Implement recalled-expression editing and reevaluation.**
 
     Completed: 2026-10-07, 5e31f2966b03498bb62342ea7cbef70c3a2c009d
-    Evidence: phase-3-control-review-v1 (EL506-64); el506-050-power-v1;
+    Evidence: phase-3-control-review-v1 (EL506-064); el506-050-power-v1;
     phase3-power-retention-v1; pinned simulator and full manual.
     Verification: npm test (73 unit, 94 browser, 52 golden frames); Django (7);
     compileall, pip dry run, Compose config/build/start, wheel/sdist smoke
@@ -1263,7 +1263,7 @@ Numerical algorithms and detailed display/error parity retain their later phases
   start fresh, continue from ANS, transform the result, or repeat a command.
 
     Completed: 2026-10-07, 5e31f2966b03498bb62342ea7cbef70c3a2c009d
-    Evidence: phase-3-control-review-v1 (EL506-65); el506-050-power-v1;
+    Evidence: phase-3-control-review-v1 (EL506-065); el506-050-power-v1;
     phase3-power-retention-v1; pinned simulator and full manual.
     Verification: npm test (73 unit, 94 browser, 52 golden frames); Django (7);
     compileall, pip dry run, Compose config/build/start, wheel/sdist smoke
@@ -1276,7 +1276,7 @@ Numerical algorithms and detailed display/error parity retain their later phases
   errors.
 
     Completed: 2026-10-07, 5e31f2966b03498bb62342ea7cbef70c3a2c009d
-    Evidence: phase-3-control-review-v1 (EL506-66); el506-050-power-v1;
+    Evidence: phase-3-control-review-v1 (EL506-066); el506-050-power-v1;
     phase3-power-retention-v1; pinned simulator and full manual.
     Verification: npm test (73 unit, 94 browser, 52 golden frames); Django (7);
     compileall, pip dry run, Compose config/build/start, wheel/sdist smoke
