@@ -4,13 +4,13 @@
 - Plan status: Active
 - Current package baseline: 0.3.1
 - Target release: 1.0.0 after verified parity
-- Next item: EL506-180
+- Next item: EL506-200
 - Last updated: 2026-10-07
 
 ## Progress Overview
 
-As of 2026-10-07, **127 of 245 roadmap tasks are complete (51.8%)**, with
-**118 remaining**. The next task is **EL506-180**. These counts measure
+As of 2026-10-07, **137 of 245 roadmap tasks are complete (55.9%)**, with
+**108 remaining**. The next task is **EL506-200**. These counts measure
 completed checklist items, not elapsed effort or verified calculator parity;
 individual tasks vary in size. The detailed checklist below describes every
 remaining task and preserves its evidence and completion requirements.
@@ -23,7 +23,8 @@ formatting items). Phase 5 is complete (22/22 NORMAL entry and arithmetic
 items). Phase 6 is complete (18/18 angles, trigonometry, fractions, DMS,
 and coordinate items). Phase 7 is complete (10/10 random, constant and
 conversion items). Phase 8 is complete (14/14 memories, formula simulation,
-and solver items). Pending simulator/application behavior is visible
+and solver items). Phase 9 is complete (10/10 number bases, arithmetic, logic,
+memories and limits). Pending simulator/application behavior is visible
 in the generated report; phase completion does not establish full parity.
 
 | Roadmap phase | Completed | Remaining |
@@ -37,7 +38,7 @@ in the generated report; phase completion does not establish full parity.
 | Phase 6 - Angles, Trigonometry, Fractions, DMS, and Coordinates | 18 | 0 |
 | Phase 7 - Random Numbers, Constants, and Unit Conversions | 10 | 0 |
 | Phase 8 - Memories, Formula Memories, Simulation, and Solver | 14 | 0 |
-| Phase 9 - N-base Operations | 0 | 10 |
+| Phase 9 - N-base Operations | 10 | 0 |
 | Phase 10 - Numerical Differentiation and Integration | 0 | 8 |
 | Phase 11 - Statistics Data Management | 0 | 12 |
 | Phase 12 - Statistics Results and Regressions | 0 | 16 |
@@ -412,7 +413,7 @@ The following order takes precedence over the phase layout and numeric IDs:
 EL506-014 -> EL506-019 -> EL506-003 -> EL506-004 -> EL506-006`
 
 The bootstrap chain and Phase 1 are complete as of 2026-10-05.
-Resume with Phase 9, EL506-180.
+Resume with Phase 10, EL506-200.
 Stable physical-key IDs
 must exist before the experiment schema and capability ledger use them. Capture
 the 0.3.1 baseline before refactoring its behavior. Unit testing, the reducer,
@@ -2123,9 +2124,9 @@ completion of this phase does not establish full emulator parity.
 ### Phase 9 - N-base Operations
 
 User requested the full Phase 9 batch (EL506-180 through EL506-189).
-READY_TO_PUSH: Locally verified Phase 9 batch on 2026-10-07. Items remain
-unchecked and Next item remains EL506-180 until the implementation is published
-and its exact remote commit is verified.
+Completed: 2026-10-07. Implementation commit
+09e34af380be114aab54d737b235762517caef51 was published to origin/main and its
+exact remote SHA verified. All ten Phase 9 items are complete; next is EL506-200.
 
 Verification: npm test passed (403 unit, 140 browser, 293 golden frames); final
 full unit suite passed (404), focused final memory/compatibility/golden checks,
@@ -2143,21 +2144,60 @@ unmeasured pental logical corner cases remain explicit; completion is not full
 simulator parity. Snapshot 10 preserves the selected base and radix-complement
 memories; schemas 1-9 migrate in memory.
 
-- [ ] **EL506-180 - Match DEC, BIN, PEN, OCT, and HEX selection and indicators.**
-- [ ] **EL506-181 - Match base-specific digit entry.** Include hexadecimal
+- [x] **EL506-180 - Match DEC, BIN, PEN, OCT, and HEX selection and indicators.**
+
+    Completed: 2026-10-07, implementation commit 09e34af380be114aab54d737b235762517caef51
+    Evidence and verification: shared Phase 9 completion record above.
+
+- [x] **EL506-181 - Match base-specific digit entry.** Include hexadecimal
   A-F mapping and invalid digits.
-- [ ] **EL506-182 - Match conversion of the displayed value among all five
+
+    Completed: 2026-10-07, implementation commit 09e34af380be114aab54d737b235762517caef51
+    Evidence and verification: shared Phase 9 completion record above.
+
+- [x] **EL506-182 - Match conversion of the displayed value among all five
   bases.**
-- [ ] **EL506-183 - Match arithmetic and parentheses in every base.**
-- [ ] **EL506-184 - Match N-base memory and ANS behavior.**
-- [ ] **EL506-185 - Match AND and OR.**
-- [ ] **EL506-186 - Match XOR and XNOR.**
-- [ ] **EL506-187 - Match NOT and NEG.**
-- [ ] **EL506-188 - Determine and match word width and signed representation.**
+
+    Completed: 2026-10-07, implementation commit 09e34af380be114aab54d737b235762517caef51
+    Evidence and verification: shared Phase 9 completion record above.
+
+- [x] **EL506-183 - Match arithmetic and parentheses in every base.**
+
+    Completed: 2026-10-07, implementation commit 09e34af380be114aab54d737b235762517caef51
+    Evidence and verification: shared Phase 9 completion record above.
+
+- [x] **EL506-184 - Match N-base memory and ANS behavior.**
+
+    Completed: 2026-10-07, implementation commit 09e34af380be114aab54d737b235762517caef51
+    Evidence and verification: shared Phase 9 completion record above.
+
+- [x] **EL506-185 - Match AND and OR.**
+
+    Completed: 2026-10-07, implementation commit 09e34af380be114aab54d737b235762517caef51
+    Evidence and verification: shared Phase 9 completion record above.
+
+- [x] **EL506-186 - Match XOR and XNOR.**
+
+    Completed: 2026-10-07, implementation commit 09e34af380be114aab54d737b235762517caef51
+    Evidence and verification: shared Phase 9 completion record above.
+
+- [x] **EL506-187 - Match NOT and NEG.**
+
+    Completed: 2026-10-07, implementation commit 09e34af380be114aab54d737b235762517caef51
+    Evidence and verification: shared Phase 9 completion record above.
+
+- [x] **EL506-188 - Determine and match word width and signed representation.**
   Cover two's complement, leading digits, negative display, and cross-base
   interpretation.
-- [ ] **EL506-189 - Match N-base limits and errors.** Cover fractions,
+
+    Completed: 2026-10-07, implementation commit 09e34af380be114aab54d737b235762517caef51
+    Evidence and verification: shared Phase 9 completion record above.
+
+- [x] **EL506-189 - Match N-base limits and errors.** Cover fractions,
   overflow, range, invalid syntax, unavailable functions, and conversions.
+
+    Completed: 2026-10-07, implementation commit 09e34af380be114aab54d737b235762517caef51
+    Evidence and verification: shared Phase 9 completion record above.
 
 ### Phase 10 - Numerical Differentiation and Integration
 
