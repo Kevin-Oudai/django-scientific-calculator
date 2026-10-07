@@ -513,7 +513,7 @@
         "tests/unit/phase3.test.js",
         "tests/e2e/phase3.spec.js"
       ],
-      "localStatus": "verified-awaiting-publication"
+      "localStatus": "verified-implementation-published"
     },
     {
       "id": "EL506-051",
@@ -521,7 +521,7 @@
         "tests/unit/phase3.test.js",
         "tests/e2e/phase3.spec.js"
       ],
-      "localStatus": "verified-awaiting-publication"
+      "localStatus": "verified-implementation-published"
     },
     {
       "id": "EL506-052",
@@ -529,7 +529,7 @@
         "tests/unit/phase3.test.js",
         "tests/e2e/phase3.spec.js"
       ],
-      "localStatus": "verified-awaiting-publication"
+      "localStatus": "verified-implementation-published"
     },
     {
       "id": "EL506-053",
@@ -537,7 +537,7 @@
         "tests/unit/phase3.test.js",
         "tests/e2e/phase3.spec.js"
       ],
-      "localStatus": "verified-awaiting-publication"
+      "localStatus": "verified-implementation-published"
     },
     {
       "id": "EL506-054",
@@ -545,7 +545,7 @@
         "tests/unit/phase3.test.js",
         "tests/e2e/phase3.spec.js"
       ],
-      "localStatus": "verified-awaiting-publication"
+      "localStatus": "verified-implementation-published"
     },
     {
       "id": "EL506-055",
@@ -553,7 +553,7 @@
         "tests/unit/phase3.test.js",
         "tests/e2e/phase3.spec.js"
       ],
-      "localStatus": "verified-awaiting-publication"
+      "localStatus": "verified-implementation-published"
     },
     {
       "id": "EL506-056",
@@ -561,7 +561,7 @@
         "tests/unit/phase3.test.js",
         "tests/e2e/phase3.spec.js"
       ],
-      "localStatus": "verified-awaiting-publication"
+      "localStatus": "verified-implementation-published"
     },
     {
       "id": "EL506-057",
@@ -569,7 +569,7 @@
         "tests/unit/phase3.test.js",
         "tests/e2e/phase3.spec.js"
       ],
-      "localStatus": "verified-awaiting-publication"
+      "localStatus": "verified-implementation-published"
     },
     {
       "id": "EL506-058",
@@ -577,7 +577,7 @@
         "tests/unit/phase3.test.js",
         "tests/e2e/phase3.spec.js"
       ],
-      "localStatus": "verified-awaiting-publication"
+      "localStatus": "verified-implementation-published"
     },
     {
       "id": "EL506-059",
@@ -585,7 +585,7 @@
         "tests/unit/phase3.test.js",
         "tests/e2e/phase3.spec.js"
       ],
-      "localStatus": "verified-awaiting-publication"
+      "localStatus": "verified-implementation-published"
     },
     {
       "id": "EL506-060",
@@ -593,7 +593,7 @@
         "tests/unit/phase3.test.js",
         "tests/e2e/phase3.spec.js"
       ],
-      "localStatus": "verified-awaiting-publication"
+      "localStatus": "verified-implementation-published"
     },
     {
       "id": "EL506-061",
@@ -601,7 +601,7 @@
         "tests/unit/phase3.test.js",
         "tests/e2e/phase3.spec.js"
       ],
-      "localStatus": "verified-awaiting-publication"
+      "localStatus": "verified-implementation-published"
     },
     {
       "id": "EL506-062",
@@ -609,7 +609,7 @@
         "tests/unit/phase3.test.js",
         "tests/e2e/phase3.spec.js"
       ],
-      "localStatus": "verified-awaiting-publication"
+      "localStatus": "verified-implementation-published"
     },
     {
       "id": "EL506-063",
@@ -617,7 +617,7 @@
         "tests/unit/phase3.test.js",
         "tests/e2e/phase3.spec.js"
       ],
-      "localStatus": "verified-awaiting-publication"
+      "localStatus": "verified-implementation-published"
     },
     {
       "id": "EL506-064",
@@ -625,7 +625,7 @@
         "tests/unit/phase3.test.js",
         "tests/e2e/phase3.spec.js"
       ],
-      "localStatus": "verified-awaiting-publication"
+      "localStatus": "verified-implementation-published"
     },
     {
       "id": "EL506-065",
@@ -633,7 +633,7 @@
         "tests/unit/phase3.test.js",
         "tests/e2e/phase3.spec.js"
       ],
-      "localStatus": "verified-awaiting-publication"
+      "localStatus": "verified-implementation-published"
     },
     {
       "id": "EL506-066",
@@ -641,7 +641,7 @@
         "tests/unit/phase3.test.js",
         "tests/e2e/phase3.spec.js"
       ],
-      "localStatus": "verified-awaiting-publication"
+      "localStatus": "verified-implementation-published"
     }
   ],
   "runtimeSha256": "6bfef4d04900b472892be2d4c54dcfa6013f87232097e32df508ca4c27425530",
@@ -662,6 +662,8 @@
       "docker compose up --build -d",
       "git diff --check"
     ],
-    "browserProof": "Local browser: EQN a1? retained by ON/C; OFF blank; digit ignored asleep; ON/C wake and ANS=5; STAT submenu inspected."
+    "browserProof": "Local browser: EQN a1? retained by ON/C; OFF blank; digit ignored asleep; ON/C wake and ANS=5; STAT submenu inspected.",
+    "implementationSha": "5e31f2966b03498bb62342ea7cbef70c3a2c009d",
+    "implementationPublication": "Verified exact origin/main SHA before tracking changes."
   }
 }

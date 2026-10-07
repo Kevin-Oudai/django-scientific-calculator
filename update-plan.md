@@ -4,20 +4,21 @@
 - Plan status: Active
 - Current package baseline: 0.3.1
 - Target release: 1.0.0 after verified parity
-- Next item: EL506-050
+- Next item: EL506-070
 - Last updated: 2026-10-07
 
 ## Progress Overview
 
-As of 2026-10-07, **35 of 245 roadmap tasks are complete (14.3%)**, with
-**210 remaining**. The next task is **EL506-050**. These counts measure
+As of 2026-10-07, **52 of 245 roadmap tasks are complete (21.2%)**, with
+**193 remaining**. The next task is **EL506-070**. These counts measure
 completed checklist items, not elapsed effort or verified calculator parity;
 individual tasks vary in size. The detailed checklist below describes every
 remaining task and preserves its evidence and completion requirements.
 Phase 0 is complete (7/7 reference and traceability items), including its reducer
 and snapshot prerequisites. Phase 1 is complete (14/14 test and emulator
 foundation items). Phase 2 is complete (14/14 physical layout, display, theme,
-and access items). Pending simulator/application behavior is visible
+and access items). Phase 3 is complete (17/17 power, modes, clearing, editing,
+and playback items). Pending simulator/application behavior is visible
 in the generated report; phase completion does not establish full parity.
 
 | Roadmap phase | Completed | Remaining |
@@ -25,7 +26,7 @@ in the generated report; phase completion does not establish full parity.
 | Phase 0 - Reference and Traceability | 7 | 0 |
 | Phase 1 - Test and Emulator Foundation | 14 | 0 |
 | Phase 2 - Physical Layout, Display, Theme, and Access | 14 | 0 |
-| Phase 3 - Power, Modes, Clear, Editing, and History | 0 | 17 |
+| Phase 3 - Power, Modes, Clear, Editing, and History | 17 | 0 |
 | Phase 4 - Display Settings and Formatting | 0 | 11 |
 | Phase 5 - NORMAL Entry and Arithmetic | 0 | 22 |
 | Phase 6 - Angles, Trigonometry, Fractions, DMS, and Coordinates | 0 | 18 |
@@ -41,7 +42,7 @@ in the generated report; phase completion does not establish full parity.
 | Phase 16 - LIST Mode | 0 | 11 |
 | Phase 17 - Errors, Limits, and Cross-mode Parity | 0 | 15 |
 | Phase 18 - Security, Packaging, Compatibility, and Release | 0 | 15 |
-| **Total** | **35** | **210** |
+| **Total** | **52** | **193** |
 
 Refresh this overview's date, counts, percentage, and next task in every
 roadmap completion tracking commit, using the checklist as the source of truth.
@@ -406,7 +407,7 @@ The following order takes precedence over the phase layout and numeric IDs:
 EL506-014 -> EL506-019 -> EL506-003 -> EL506-004 -> EL506-006`
 
 The bootstrap chain and Phase 1 are complete as of 2026-10-05.
-Resume with Phase 3, EL506-050.
+Resume with Phase 4, EL506-070.
 Stable physical-key IDs
 must exist before the experiment schema and capability ledger use them. Capture
 the 0.3.1 baseline before refactoring its behavior. Unit testing, the reducer,
@@ -1079,47 +1080,208 @@ The runner's completion does not require implementing the later feature phases.
 
 ### Phase 3 - Power, Modes, Clear, Editing, and History
 
-READY_TO_PUSH 2026-10-07: The user explicitly requested the complete next phase,
-covering EL506-050..066 together. Implemented power/wake/idle persistence,
-mode and subtype menus, command/internal/memory clears and reset, modifiers,
-structured editing, playback and entry capacities. Evidence: phase-3-review-v1,
-el506-050-power-v1 and phase3-power-retention-v1; pinned simulator runtime hash
-reverified. Validation: 73 unit tests, 94 browser tests (including 18 Windows
-visual checks), 52 golden frames, 7 Django integration tests, compileall,
-Compose config/build/start, pip dry run, wheel/sdist smoke (15 assets), and
-browser inspection. Full numerical parity remains in later phases. Items stay
-unchecked until the implementation is pushed and verified.
+Phase completion: 2026-10-07. Full-phase delivery was explicitly requested.
+Implementation 5e31f2966b03498bb62342ea7cbef70c3a2c009d was pushed and verified on origin/main.
+Numerical algorithms and detailed display/error parity retain their later phases.
 
 
-- [ ] **EL506-050 - Implement ON/C power-on and wake behavior.**
-- [ ] **EL506-051 - Implement 2ndF plus ON/C power-off behavior.**
-- [ ] **EL506-052 - Implement auto-power-off and power-cycle persistence.**
-- [ ] **EL506-053 - Implement all six modes.** NORMAL, STAT, EQN, CPLX, MAT,
+- [x] **EL506-050 - Implement ON/C power-on and wake behavior.**
+
+    Completed: 2026-10-07, 5e31f2966b03498bb62342ea7cbef70c3a2c009d
+    Evidence: phase-3-control-review-v1 (EL506-50); el506-050-power-v1;
+    phase3-power-retention-v1; pinned simulator and full manual.
+    Verification: npm test (73 unit, 94 browser, 52 golden frames); Django (7);
+    compileall, pip dry run, Compose config/build/start, wheel/sdist smoke
+    (15 assets), browser inspection, git diff --check; SHA verified on origin/main.
+    Notes: ON/C wake retains stored values; reference power sequence reobserved.
+
+
+- [x] **EL506-051 - Implement 2ndF plus ON/C power-off behavior.**
+
+    Completed: 2026-10-07, 5e31f2966b03498bb62342ea7cbef70c3a2c009d
+    Evidence: phase-3-control-review-v1 (EL506-51); el506-050-power-v1;
+    phase3-power-retention-v1; pinned simulator and full manual.
+    Verification: npm test (73 unit, 94 browser, 52 golden frames); Django (7);
+    compileall, pip dry run, Compose config/build/start, wheel/sdist smoke
+    (15 assets), browser inspection, git diff --check; SHA verified on origin/main.
+    Notes: OFF is a physical key sequence; application close is outside its scope.
+
+
+- [x] **EL506-052 - Implement auto-power-off and power-cycle persistence.**
+
+    Completed: 2026-10-07, 5e31f2966b03498bb62342ea7cbef70c3a2c009d
+    Evidence: phase-3-control-review-v1 (EL506-52); el506-050-power-v1;
+    phase3-power-retention-v1; pinned simulator and full manual.
+    Verification: npm test (73 unit, 94 browser, 52 golden frames); Django (7);
+    compileall, pip dry run, Compose config/build/start, wheel/sdist smoke
+    (15 assets), browser inspection, git diff --check; SHA verified on origin/main.
+    Notes: Deterministic idle event and browser timer; stored values survive instance power cycling.
+
+
+- [x] **EL506-053 - Implement all six modes.** NORMAL, STAT, EQN, CPLX, MAT,
   and LIST must use the exact MODE selection sequence and indicators.
-- [ ] **EL506-054 - Implement mode submenus.** Match numeric selection,
+
+    Completed: 2026-10-07, 5e31f2966b03498bb62342ea7cbef70c3a2c009d
+    Evidence: phase-3-control-review-v1 (EL506-53); el506-050-power-v1;
+    phase3-power-retention-v1; pinned simulator and full manual.
+    Verification: npm test (73 unit, 94 browser, 52 golden frames); Django (7);
+    compileall, pip dry run, Compose config/build/start, wheel/sdist smoke
+    (15 assets), browser inspection, git diff --check; SHA verified on origin/main.
+    Notes: All six mode selectors are implemented; numerical algorithms remain their dedicated phases.
+
+
+- [x] **EL506-054 - Implement mode submenus.** Match numeric selection,
   defaults, cancellation, invalid selection, and retained state.
-- [ ] **EL506-055 - Implement HOME.** Return to NORMAL and preserve or clear
+
+    Completed: 2026-10-07, 5e31f2966b03498bb62342ea7cbef70c3a2c009d
+    Evidence: phase-3-control-review-v1 (EL506-54); el506-050-power-v1;
+    phase3-power-retention-v1; pinned simulator and full manual.
+    Verification: npm test (73 unit, 94 browser, 52 golden frames); Django (7);
+    compileall, pip dry run, Compose config/build/start, wheel/sdist smoke
+    (15 assets), browser inspection, git diff --check; SHA verified on origin/main.
+    Notes: STAT/EQN selection commits only after confirmation; invalid digits and ON/C cancellation preserve stores.
+
+
+- [x] **EL506-055 - Implement HOME.** Return to NORMAL and preserve or clear
   each store exactly as the simulator does.
-- [ ] **EL506-056 - Implement ON/C command clearing.** Clear the display and
+
+    Completed: 2026-10-07, 5e31f2966b03498bb62342ea7cbef70c3a2c009d
+    Evidence: phase-3-control-review-v1 (EL506-55); el506-050-power-v1;
+    phase3-power-retention-v1; pinned simulator and full manual.
+    Verification: npm test (73 unit, 94 browser, 52 golden frames); Django (7);
+    compileall, pip dry run, Compose config/build/start, wheel/sdist smoke
+    (15 assets), browser inspection, git diff --check; SHA verified on origin/main.
+    Notes: HOME in NORMAL preserves ANS; returning from another mode follows mode-clear rules.
+
+
+- [x] **EL506-056 - Implement ON/C command clearing.** Clear the display and
   pending command while preserving statistics and memories as verified.
-- [ ] **EL506-057 - Implement internal clear/CA.** Clear ANS, statistics, and
+
+    Completed: 2026-10-07, 5e31f2966b03498bb62342ea7cbef70c3a2c009d
+    Evidence: phase-3-control-review-v1 (EL506-56); el506-050-power-v1;
+    phase3-power-retention-v1; pinned simulator and full manual.
+    Verification: npm test (73 unit, 94 browser, 52 golden frames); Django (7);
+    compileall, pip dry run, Compose config/build/start, wheel/sdist smoke
+    (15 assets), browser inspection, git diff --check; SHA verified on origin/main.
+    Notes: Command clearing retains stores and the active EQN coefficient prompt.
+
+
+- [x] **EL506-057 - Implement internal clear/CA.** Clear ANS, statistics, and
   other internal values while honoring the simulator's M-memory exception.
-- [ ] **EL506-058 - Implement reset-switch behavior.** Restore initial
+
+    Completed: 2026-10-07, 5e31f2966b03498bb62342ea7cbef70c3a2c009d
+    Evidence: phase-3-control-review-v1 (EL506-57); el506-050-power-v1;
+    phase3-power-retention-v1; pinned simulator and full manual.
+    Verification: npm test (73 unit, 94 browser, 52 golden frames); Django (7);
+    compileall, pip dry run, Compose config/build/start, wheel/sdist smoke
+    (15 assets), browser inspection, git diff --check; SHA verified on origin/main.
+    Notes: CA preserves M and formula memories; mode selection also clears imaginary M according to the manual.
+
+
+- [x] **EL506-058 - Implement reset-switch behavior.** Restore initial
   settings and erase all stored data.
-- [ ] **EL506-059 - Implement modifier-latch rules.** Capture activation,
+
+    Completed: 2026-10-07, 5e31f2966b03498bb62342ea7cbef70c3a2c009d
+    Evidence: phase-3-control-review-v1 (EL506-58); el506-050-power-v1;
+    phase3-power-retention-v1; pinned simulator and full manual.
+    Verification: npm test (73 unit, 94 browser, 52 golden frames); Django (7);
+    compileall, pip dry run, Compose config/build/start, wheel/sdist smoke
+    (15 assets), browser inspection, git diff --check; SHA verified on origin/main.
+    Notes: Reset event and instance reset API model the host reset switch without adding a physical key.
+
+
+- [x] **EL506-059 - Implement modifier-latch rules.** Capture activation,
   indicator, one-shot lifetime, chaining, cancellation, and invalid-key
   behavior for 2ndF, ALPHA, and HYP.
-- [ ] **EL506-060 - Implement left/right structured cursor movement.**
-- [ ] **EL506-061 - Implement DEL at all token and template boundaries.**
-- [ ] **EL506-062 - Implement INS and insert/overwrite lifetime.**
-- [ ] **EL506-063 - Implement Multi-Line Playback.** Match up/down ordering,
+
+    Completed: 2026-10-07, 5e31f2966b03498bb62342ea7cbef70c3a2c009d
+    Evidence: phase-3-control-review-v1 (EL506-59); el506-050-power-v1;
+    phase3-power-retention-v1; pinned simulator and full manual.
+    Verification: npm test (73 unit, 94 browser, 52 golden frames); Django (7);
+    compileall, pip dry run, Compose config/build/start, wheel/sdist smoke
+    (15 assets), browser inspection, git diff --check; SHA verified on origin/main.
+    Notes: One-shot modifiers and inverse HYP ordering covered; unsupported later-phase operations remain explicitly pending.
+
+
+- [x] **EL506-060 - Implement left/right structured cursor movement.**
+
+    Completed: 2026-10-07, 5e31f2966b03498bb62342ea7cbef70c3a2c009d
+    Evidence: phase-3-control-review-v1 (EL506-60); el506-050-power-v1;
+    phase3-power-retention-v1; pinned simulator and full manual.
+    Verification: npm test (73 unit, 94 browser, 52 golden frames); Django (7);
+    compileall, pip dry run, Compose config/build/start, wheel/sdist smoke
+    (15 assets), browser inspection, git diff --check; SHA verified on origin/main.
+    Notes: Function cells move atomically; cursor selection discards unfinished lower-line entry.
+
+
+- [x] **EL506-061 - Implement DEL at all token and template boundaries.**
+
+    Completed: 2026-10-07, 5e31f2966b03498bb62342ea7cbef70c3a2c009d
+    Evidence: phase-3-control-review-v1 (EL506-61); el506-050-power-v1;
+    phase3-power-retention-v1; pinned simulator and full manual.
+    Verification: npm test (73 unit, 94 browser, 52 golden frames); Django (7);
+    compileall, pip dry run, Compose config/build/start, wheel/sdist smoke
+    (15 assets), browser inspection, git diff --check; SHA verified on origin/main.
+    Notes: Selected cells and template components delete; separator deletion retains fraction/power bases.
+
+
+- [x] **EL506-062 - Implement INS and insert/overwrite lifetime.**
+
+    Completed: 2026-10-07, 5e31f2966b03498bb62342ea7cbef70c3a2c009d
+    Evidence: phase-3-control-review-v1 (EL506-62); el506-050-power-v1;
+    phase3-power-retention-v1; pinned simulator and full manual.
+    Verification: npm test (73 unit, 94 browser, 52 golden frames); Django (7);
+    compileall, pip dry run, Compose config/build/start, wheel/sdist smoke
+    (15 assets), browser inspection, git diff --check; SHA verified on origin/main.
+    Notes: Insert/overwrite mode persists until reset, including clear, mode selection and power cycles.
+
+
+- [x] **EL506-063 - Implement Multi-Line Playback.** Match up/down ordering,
   boundaries, arrows, capacity, and draft restoration.
-- [ ] **EL506-064 - Implement recalled-expression editing and reevaluation.**
-- [ ] **EL506-065 - Implement post-result key rules.** Determine which keys
+
+    Completed: 2026-10-07, 5e31f2966b03498bb62342ea7cbef70c3a2c009d
+    Evidence: phase-3-control-review-v1 (EL506-63); el506-050-power-v1;
+    phase3-power-retention-v1; pinned simulator and full manual.
+    Verification: npm test (73 unit, 94 browser, 52 golden frames); Django (7);
+    compileall, pip dry run, Compose config/build/start, wheel/sdist smoke
+    (15 assets), browser inspection, git diff --check; SHA verified on origin/main.
+    Notes: NORMAL playback discards temporary drafts, recalls oldest with 2nd UP and evicts whole equations at 142 characters.
+
+
+- [x] **EL506-064 - Implement recalled-expression editing and reevaluation.**
+
+    Completed: 2026-10-07, 5e31f2966b03498bb62342ea7cbef70c3a2c009d
+    Evidence: phase-3-control-review-v1 (EL506-64); el506-050-power-v1;
+    phase3-power-retention-v1; pinned simulator and full manual.
+    Verification: npm test (73 unit, 94 browser, 52 golden frames); Django (7);
+    compileall, pip dry run, Compose config/build/start, wheel/sdist smoke
+    (15 assets), browser inspection, git diff --check; SHA verified on origin/main.
+    Notes: Recalled equations edit and reevaluate without mutating prior result values.
+
+
+- [x] **EL506-065 - Implement post-result key rules.** Determine which keys
   start fresh, continue from ANS, transform the result, or repeat a command.
-- [ ] **EL506-066 - Match entry capacities.** Cover maximum input length,
+
+    Completed: 2026-10-07, 5e31f2966b03498bb62342ea7cbef70c3a2c009d
+    Evidence: phase-3-control-review-v1 (EL506-65); el506-050-power-v1;
+    phase3-power-retention-v1; pinned simulator and full manual.
+    Verification: npm test (73 unit, 94 browser, 52 golden frames); Django (7);
+    compileall, pip dry run, Compose config/build/start, wheel/sdist smoke
+    (15 assets), browser inspection, git diff --check; SHA verified on origin/main.
+    Notes: Digits start fresh; arithmetic uses ANS; modifiers preserve the answer.
+
+
+- [x] **EL506-066 - Match entry capacities.** Cover maximum input length,
   nesting, history size, visible width, scroll behavior, and full-buffer
   errors.
+
+    Completed: 2026-10-07, 5e31f2966b03498bb62342ea7cbef70c3a2c009d
+    Evidence: phase-3-control-review-v1 (EL506-66); el506-050-power-v1;
+    phase3-power-retention-v1; pinned simulator and full manual.
+    Verification: npm test (73 unit, 94 browser, 52 golden frames); Django (7);
+    compileall, pip dry run, Compose config/build/start, wheel/sdist smoke
+    (15 assets), browser inspection, git diff --check; SHA verified on origin/main.
+    Notes: Capacity errors occur on equals; separate 24-calculation/10-value limits verified with native nesting probes. Exact cross-mode error placement remains Phase 17.
 
 ### Phase 4 - Display Settings and Formatting
 
