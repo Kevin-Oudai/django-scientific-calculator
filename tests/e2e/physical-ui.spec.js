@@ -133,7 +133,11 @@ for(const theme of ['dark','example'])test(`${theme} text and functional legends
     const entries=[];
     for(const button of root.querySelectorAll('[data-key-id]')) {
       const background=getComputedStyle(button).backgroundColor;
-      for(const label of button.querySelectorAll('.scicalc__primary,.scicalc__second-legend,.scicalc__alpha-legend,.scicalc__mode-legend'))if(label.textContent.trim())entries.push({key:button.dataset.keyId,text:label.textContent,ratio:contrast(getComputedStyle(label).color,background)});
+      for(const label of button.querySelectorAll('.scicalc__primary,.scicalc__second-legend,.scicalc__alpha-legend,.scicalc__mode-legend'))if(label.textContent.trim()){
+        const style=getComputedStyle(label),labelBackground=style.backgroundColor;
+        const paintedBackground=labelBackground==='rgba(0, 0, 0, 0)'||labelBackground==='transparent'?background:labelBackground;
+        entries.push({key:button.dataset.keyId,text:label.textContent,ratio:contrast(style.color,paintedBackground)});
+      }
     }
     return entries;
   });
