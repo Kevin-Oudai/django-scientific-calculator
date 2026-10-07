@@ -4,13 +4,13 @@
 - Plan status: Active
 - Current package baseline: 0.3.1
 - Target release: 1.0.0 after verified parity
-- Next item: EL506-090
+- Next item: EL506-120
 - Last updated: 2026-10-07
 
 ## Progress Overview
 
-As of 2026-10-07, **63 of 245 roadmap tasks are complete (25.7%)**, with
-**182 remaining**. The next task is **EL506-090**. These counts measure
+As of 2026-10-07, **85 of 245 roadmap tasks are complete (34.7%)**, with
+**160 remaining**. The next task is **EL506-120**. These counts measure
 completed checklist items, not elapsed effort or verified calculator parity;
 individual tasks vary in size. The detailed checklist below describes every
 remaining task and preserves its evidence and completion requirements.
@@ -19,7 +19,8 @@ and snapshot prerequisites. Phase 1 is complete (14/14 test and emulator
 foundation items). Phase 2 is complete (14/14 physical layout, display, theme,
 and access items). Phase 3 is complete (17/17 power, modes, clearing, editing,
 and playback items). Phase 4 is complete (11/11 display settings and
-formatting items). Pending simulator/application behavior is visible
+formatting items). Phase 5 is complete (22/22 NORMAL entry and arithmetic
+items). Pending simulator/application behavior is visible
 in the generated report; phase completion does not establish full parity.
 
 | Roadmap phase | Completed | Remaining |
@@ -29,7 +30,7 @@ in the generated report; phase completion does not establish full parity.
 | Phase 2 - Physical Layout, Display, Theme, and Access | 14 | 0 |
 | Phase 3 - Power, Modes, Clear, Editing, and History | 17 | 0 |
 | Phase 4 - Display Settings and Formatting | 11 | 0 |
-| Phase 5 - NORMAL Entry and Arithmetic | 0 | 22 |
+| Phase 5 - NORMAL Entry and Arithmetic | 22 | 0 |
 | Phase 6 - Angles, Trigonometry, Fractions, DMS, and Coordinates | 0 | 18 |
 | Phase 7 - Random Numbers, Constants, and Unit Conversions | 0 | 10 |
 | Phase 8 - Memories, Formula Memories, Simulation, and Solver | 0 | 14 |
@@ -43,7 +44,7 @@ in the generated report; phase completion does not establish full parity.
 | Phase 16 - LIST Mode | 0 | 11 |
 | Phase 17 - Errors, Limits, and Cross-mode Parity | 0 | 15 |
 | Phase 18 - Security, Packaging, Compatibility, and Release | 0 | 15 |
-| **Total** | **63** | **182** |
+| **Total** | **85** | **160** |
 
 Refresh this overview's date, counts, percentage, and next task in every
 roadmap completion tracking commit, using the checklist as the source of truth.
@@ -408,7 +409,7 @@ The following order takes precedence over the phase layout and numeric IDs:
 EL506-014 -> EL506-019 -> EL506-003 -> EL506-004 -> EL506-006`
 
 The bootstrap chain and Phase 1 are complete as of 2026-10-05.
-Resume with Phase 5, EL506-090.
+Resume with Phase 6, EL506-120.
 Stable physical-key IDs
 must exist before the experiment schema and capability ledger use them. Capture
 the 0.3.1 baseline before refactoring its behavior. Unit testing, the reducer,
@@ -1417,46 +1418,235 @@ Exact implementation SHA was verified via git ls-remote before these records.
 
 ### Phase 5 - NORMAL Entry and Arithmetic
 
-READY_TO_PUSH (2026-10-07): User explicitly requested the complete Phase 5 batch,
-EL506-090 through EL506-111. All 22 items remain unchecked pending publication.
-Evidence: phase-5-normal-arithmetic-review-v1 and independently transcribed
-percent, constant and power experiments/golden fixtures. Verification: npm test
-(132 unit, 109 browser, 114 golden frames), Django (7), compileall, pip dry run,
-Compose config/build/start, installed wheel/sdist smoke (15 packaged assets),
-rebuilt browser inspection and git diff --check. Snapshot schema 7 migrates 1–6;
-legacy grammar and the requested 12px label layout are preserved. SOLV numerical
-controller retains its Phase 8 owner; Phase 6 scalar/angle/fraction work remains pending.
+Phase 5 implementation `0a16ca6d2fe09fa5a940167044b847ba46d1d64e` was pushed
+and verified on origin/main. The user explicitly requested this full phase batch.
 
+- [x] **EL506-090 - Match digit and decimal-point entry.**
 
-- [ ] **EL506-090 - Match digit and decimal-point entry.**
-- [ ] **EL506-091 - Match Exp scientific-literal entry.** Cover mantissa,
+    Completed: 2026-10-07, 0a16ca6d2fe09fa5a940167044b847ba46d1d64e
+    Evidence: phase-5-normal-arithmetic-review-v1 (EL506-090); native
+    percent/constant/power experiments and golden fixtures; pinned simulator.
+    Verification: npm test (132 unit, 109 browser, 114 golden frames), Django (7),
+    compileall, pip dry run, Compose config/build/start, wheel/sdist installed
+    smoke (15 assets), rebuilt browser inspection and git diff --check.
+    Implementation SHA verified on origin/main; tracking published separately.
+
+- [x] **EL506-091 - Match Exp scientific-literal entry.** Cover mantissa,
   exponent, cursor editing, sign change, and malformed input.
-- [ ] **EL506-092 - Match pi and directly accessible constants.**
-- [ ] **EL506-093 - Distinguish sign-change/NEG from subtraction.**
-- [ ] **EL506-094 - Match addition, subtraction, multiplication, and
+
+    Completed: 2026-10-07, 0a16ca6d2fe09fa5a940167044b847ba46d1d64e
+    Evidence: phase-5-normal-arithmetic-review-v1 (EL506-091); native
+    percent/constant/power experiments and golden fixtures; pinned simulator.
+    Verification: npm test (132 unit, 109 browser, 114 golden frames), Django (7),
+    compileall, pip dry run, Compose config/build/start, wheel/sdist installed
+    smoke (15 assets), rebuilt browser inspection and git diff --check.
+    Implementation SHA verified on origin/main; tracking published separately.
+
+- [x] **EL506-092 - Match pi and directly accessible constants.**
+
+    Completed: 2026-10-07, 0a16ca6d2fe09fa5a940167044b847ba46d1d64e
+    Evidence: phase-5-normal-arithmetic-review-v1 (EL506-092); native
+    percent/constant/power experiments and golden fixtures; pinned simulator.
+    Verification: npm test (132 unit, 109 browser, 114 golden frames), Django (7),
+    compileall, pip dry run, Compose config/build/start, wheel/sdist installed
+    smoke (15 assets), rebuilt browser inspection and git diff --check.
+    Implementation SHA verified on origin/main; tracking published separately.
+
+- [x] **EL506-093 - Distinguish sign-change/NEG from subtraction.**
+
+    Completed: 2026-10-07, 0a16ca6d2fe09fa5a940167044b847ba46d1d64e
+    Evidence: phase-5-normal-arithmetic-review-v1 (EL506-093); native
+    percent/constant/power experiments and golden fixtures; pinned simulator.
+    Verification: npm test (132 unit, 109 browser, 114 golden frames), Django (7),
+    compileall, pip dry run, Compose config/build/start, wheel/sdist installed
+    smoke (15 assets), rebuilt browser inspection and git diff --check.
+    Implementation SHA verified on origin/main; tracking published separately.
+
+- [x] **EL506-094 - Match addition, subtraction, multiplication, and
   division.**
-- [ ] **EL506-095 - Match parentheses, precedence, associativity, and nested
+
+    Completed: 2026-10-07, 0a16ca6d2fe09fa5a940167044b847ba46d1d64e
+    Evidence: phase-5-normal-arithmetic-review-v1 (EL506-094); native
+    percent/constant/power experiments and golden fixtures; pinned simulator.
+    Verification: npm test (132 unit, 109 browser, 114 golden frames), Django (7),
+    compileall, pip dry run, Compose config/build/start, wheel/sdist installed
+    smoke (15 assets), rebuilt browser inspection and git diff --check.
+    Implementation SHA verified on origin/main; tracking published separately.
+
+- [x] **EL506-095 - Match parentheses, precedence, associativity, and nested
   expressions.**
-- [ ] **EL506-096 - Match implied multiplication and automatic closing rules.**
-- [ ] **EL506-097 - Match equals and repeated-equals behavior.**
-- [ ] **EL506-098 - Match Sharp constant calculations.** Include omitted
+
+    Completed: 2026-10-07, 0a16ca6d2fe09fa5a940167044b847ba46d1d64e
+    Evidence: phase-5-normal-arithmetic-review-v1 (EL506-095); native
+    percent/constant/power experiments and golden fixtures; pinned simulator.
+    Verification: npm test (132 unit, 109 browser, 114 golden frames), Django (7),
+    compileall, pip dry run, Compose config/build/start, wheel/sdist installed
+    smoke (15 assets), rebuilt browser inspection and git diff --check.
+    Implementation SHA verified on origin/main; tracking published separately.
+
+- [x] **EL506-096 - Match implied multiplication and automatic closing rules.**
+
+    Completed: 2026-10-07, 0a16ca6d2fe09fa5a940167044b847ba46d1d64e
+    Evidence: phase-5-normal-arithmetic-review-v1 (EL506-096); native
+    percent/constant/power experiments and golden fixtures; pinned simulator.
+    Verification: npm test (132 unit, 109 browser, 114 golden frames), Django (7),
+    compileall, pip dry run, Compose config/build/start, wheel/sdist installed
+    smoke (15 assets), rebuilt browser inspection and git diff --check.
+    Implementation SHA verified on origin/main; tracking published separately.
+
+- [x] **EL506-097 - Match equals and repeated-equals behavior.**
+
+    Completed: 2026-10-07, 0a16ca6d2fe09fa5a940167044b847ba46d1d64e
+    Evidence: phase-5-normal-arithmetic-review-v1 (EL506-097); native
+    percent/constant/power experiments and golden fixtures; pinned simulator.
+    Verification: npm test (132 unit, 109 browser, 114 golden frames), Django (7),
+    compileall, pip dry run, Compose config/build/start, wheel/sdist installed
+    smoke (15 assets), rebuilt browser inspection and git diff --check.
+    Implementation SHA verified on origin/main; tracking published separately.
+
+- [x] **EL506-098 - Match Sharp constant calculations.** Include omitted
   operands, repeated operations, and any K indicator.
-- [ ] **EL506-099 - Match chained calculations and ANS continuation.**
-- [ ] **EL506-100 - Match contextual percent.** Cover increase, decrease,
+
+    Completed: 2026-10-07, 0a16ca6d2fe09fa5a940167044b847ba46d1d64e
+    Evidence: phase-5-normal-arithmetic-review-v1 (EL506-098); native
+    percent/constant/power experiments and golden fixtures; pinned simulator.
+    Verification: npm test (132 unit, 109 browser, 114 golden frames), Django (7),
+    compileall, pip dry run, Compose config/build/start, wheel/sdist installed
+    smoke (15 assets), rebuilt browser inspection and git diff --check.
+    Implementation SHA verified on origin/main; tracking published separately.
+
+- [x] **EL506-099 - Match chained calculations and ANS continuation.**
+
+    Completed: 2026-10-07, 0a16ca6d2fe09fa5a940167044b847ba46d1d64e
+    Evidence: phase-5-normal-arithmetic-review-v1 (EL506-099); native
+    percent/constant/power experiments and golden fixtures; pinned simulator.
+    Verification: npm test (132 unit, 109 browser, 114 golden frames), Django (7),
+    compileall, pip dry run, Compose config/build/start, wheel/sdist installed
+    smoke (15 assets), rebuilt browser inspection and git diff --check.
+    Implementation SHA verified on origin/main; tracking published separately.
+
+- [x] **EL506-100 - Match contextual percent.** Cover increase, decrease,
   percentage-of, and reverse-percentage sequences, including whether percent
   itself evaluates.
-- [ ] **EL506-101 - Match reciprocal.**
-- [ ] **EL506-102 - Match square and cube postfix operations.**
-- [ ] **EL506-103 - Match general power entry and evaluation.**
-- [ ] **EL506-104 - Match square root, cube root, and nth-root sequencing.**
-- [ ] **EL506-105 - Match common logarithm and 10^x.**
-- [ ] **EL506-106 - Match natural logarithm and e^x.**
-- [ ] **EL506-107 - Inventory and match additional NORMAL MATH-menu scalar
+
+    Completed: 2026-10-07, 0a16ca6d2fe09fa5a940167044b847ba46d1d64e
+    Evidence: phase-5-normal-arithmetic-review-v1 (EL506-100); native
+    percent/constant/power experiments and golden fixtures; pinned simulator.
+    Verification: npm test (132 unit, 109 browser, 114 golden frames), Django (7),
+    compileall, pip dry run, Compose config/build/start, wheel/sdist installed
+    smoke (15 assets), rebuilt browser inspection and git diff --check.
+    Implementation SHA verified on origin/main; tracking published separately.
+
+- [x] **EL506-101 - Match reciprocal.**
+
+    Completed: 2026-10-07, 0a16ca6d2fe09fa5a940167044b847ba46d1d64e
+    Evidence: phase-5-normal-arithmetic-review-v1 (EL506-101); native
+    percent/constant/power experiments and golden fixtures; pinned simulator.
+    Verification: npm test (132 unit, 109 browser, 114 golden frames), Django (7),
+    compileall, pip dry run, Compose config/build/start, wheel/sdist installed
+    smoke (15 assets), rebuilt browser inspection and git diff --check.
+    Implementation SHA verified on origin/main; tracking published separately.
+
+- [x] **EL506-102 - Match square and cube postfix operations.**
+
+    Completed: 2026-10-07, 0a16ca6d2fe09fa5a940167044b847ba46d1d64e
+    Evidence: phase-5-normal-arithmetic-review-v1 (EL506-102); native
+    percent/constant/power experiments and golden fixtures; pinned simulator.
+    Verification: npm test (132 unit, 109 browser, 114 golden frames), Django (7),
+    compileall, pip dry run, Compose config/build/start, wheel/sdist installed
+    smoke (15 assets), rebuilt browser inspection and git diff --check.
+    Implementation SHA verified on origin/main; tracking published separately.
+
+- [x] **EL506-103 - Match general power entry and evaluation.**
+
+    Completed: 2026-10-07, 0a16ca6d2fe09fa5a940167044b847ba46d1d64e
+    Evidence: phase-5-normal-arithmetic-review-v1 (EL506-103); native
+    percent/constant/power experiments and golden fixtures; pinned simulator.
+    Verification: npm test (132 unit, 109 browser, 114 golden frames), Django (7),
+    compileall, pip dry run, Compose config/build/start, wheel/sdist installed
+    smoke (15 assets), rebuilt browser inspection and git diff --check.
+    Implementation SHA verified on origin/main; tracking published separately.
+
+- [x] **EL506-104 - Match square root, cube root, and nth-root sequencing.**
+
+    Completed: 2026-10-07, 0a16ca6d2fe09fa5a940167044b847ba46d1d64e
+    Evidence: phase-5-normal-arithmetic-review-v1 (EL506-104); native
+    percent/constant/power experiments and golden fixtures; pinned simulator.
+    Verification: npm test (132 unit, 109 browser, 114 golden frames), Django (7),
+    compileall, pip dry run, Compose config/build/start, wheel/sdist installed
+    smoke (15 assets), rebuilt browser inspection and git diff --check.
+    Implementation SHA verified on origin/main; tracking published separately.
+
+- [x] **EL506-105 - Match common logarithm and 10^x.**
+
+    Completed: 2026-10-07, 0a16ca6d2fe09fa5a940167044b847ba46d1d64e
+    Evidence: phase-5-normal-arithmetic-review-v1 (EL506-105); native
+    percent/constant/power experiments and golden fixtures; pinned simulator.
+    Verification: npm test (132 unit, 109 browser, 114 golden frames), Django (7),
+    compileall, pip dry run, Compose config/build/start, wheel/sdist installed
+    smoke (15 assets), rebuilt browser inspection and git diff --check.
+    Implementation SHA verified on origin/main; tracking published separately.
+
+- [x] **EL506-106 - Match natural logarithm and e^x.**
+
+    Completed: 2026-10-07, 0a16ca6d2fe09fa5a940167044b847ba46d1d64e
+    Evidence: phase-5-normal-arithmetic-review-v1 (EL506-106); native
+    percent/constant/power experiments and golden fixtures; pinned simulator.
+    Verification: npm test (132 unit, 109 browser, 114 golden frames), Django (7),
+    compileall, pip dry run, Compose config/build/start, wheel/sdist installed
+    smoke (15 assets), rebuilt browser inspection and git diff --check.
+    Implementation SHA verified on origin/main; tracking published separately.
+
+- [x] **EL506-107 - Inventory and match additional NORMAL MATH-menu scalar
   functions.**
-- [ ] **EL506-108 - Match factorial.**
-- [ ] **EL506-109 - Match permutations.**
-- [ ] **EL506-110 - Match combinations.**
-- [ ] **EL506-111 - Match domains and boundaries for every NORMAL function.**
+
+    Completed: 2026-10-07, 0a16ca6d2fe09fa5a940167044b847ba46d1d64e
+    Evidence: phase-5-normal-arithmetic-review-v1 (EL506-107); native
+    percent/constant/power experiments and golden fixtures; pinned simulator.
+    Verification: npm test (132 unit, 109 browser, 114 golden frames), Django (7),
+    compileall, pip dry run, Compose config/build/start, wheel/sdist installed
+    smoke (15 assets), rebuilt browser inspection and git diff --check.
+    Implementation SHA verified on origin/main; tracking published separately.
+
+- [x] **EL506-108 - Match factorial.**
+
+    Completed: 2026-10-07, 0a16ca6d2fe09fa5a940167044b847ba46d1d64e
+    Evidence: phase-5-normal-arithmetic-review-v1 (EL506-108); native
+    percent/constant/power experiments and golden fixtures; pinned simulator.
+    Verification: npm test (132 unit, 109 browser, 114 golden frames), Django (7),
+    compileall, pip dry run, Compose config/build/start, wheel/sdist installed
+    smoke (15 assets), rebuilt browser inspection and git diff --check.
+    Implementation SHA verified on origin/main; tracking published separately.
+
+- [x] **EL506-109 - Match permutations.**
+
+    Completed: 2026-10-07, 0a16ca6d2fe09fa5a940167044b847ba46d1d64e
+    Evidence: phase-5-normal-arithmetic-review-v1 (EL506-109); native
+    percent/constant/power experiments and golden fixtures; pinned simulator.
+    Verification: npm test (132 unit, 109 browser, 114 golden frames), Django (7),
+    compileall, pip dry run, Compose config/build/start, wheel/sdist installed
+    smoke (15 assets), rebuilt browser inspection and git diff --check.
+    Implementation SHA verified on origin/main; tracking published separately.
+
+- [x] **EL506-110 - Match combinations.**
+
+    Completed: 2026-10-07, 0a16ca6d2fe09fa5a940167044b847ba46d1d64e
+    Evidence: phase-5-normal-arithmetic-review-v1 (EL506-110); native
+    percent/constant/power experiments and golden fixtures; pinned simulator.
+    Verification: npm test (132 unit, 109 browser, 114 golden frames), Django (7),
+    compileall, pip dry run, Compose config/build/start, wheel/sdist installed
+    smoke (15 assets), rebuilt browser inspection and git diff --check.
+    Implementation SHA verified on origin/main; tracking published separately.
+
+- [x] **EL506-111 - Match domains and boundaries for every NORMAL function.**
+
+    Completed: 2026-10-07, 0a16ca6d2fe09fa5a940167044b847ba46d1d64e
+    Evidence: phase-5-normal-arithmetic-review-v1 (EL506-111); native
+    percent/constant/power experiments and golden fixtures; pinned simulator.
+    Verification: npm test (132 unit, 109 browser, 114 golden frames), Django (7),
+    compileall, pip dry run, Compose config/build/start, wheel/sdist installed
+    smoke (15 assets), rebuilt browser inspection and git diff --check.
+    Implementation SHA verified on origin/main; tracking published separately.
 
 ### Phase 6 - Angles, Trigonometry, Fractions, DMS, and Coordinates
 
