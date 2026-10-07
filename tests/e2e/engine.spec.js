@@ -9,7 +9,7 @@ test('legacy entry loads the pinned engine locally with no general evaluator API
   });
   expect(result).toEqual({version:'15.2.0',keys:['binary','decimalBinary','decimalPlaces','quantize'],decimal:'0.3'});
   expect(requests.some(url=>new URL(url).pathname.endsWith('/math-engine.js'))).toBe(true);
-  expect(requests.filter(url=>new URL(url).pathname.endsWith('.js') && url.includes('/scientific_calculator/')).every(url=>new URL(url).searchParams.get('v')==='phase2-20261007')).toBe(true);
+  expect(requests.filter(url=>new URL(url).pathname.endsWith('.js') && url.includes('/scientific_calculator/')).every(url=>new URL(url).searchParams.get('v')===new URL(requests.find(request=>new URL(request).pathname.endsWith('/calculator.js'))).searchParams.get('v'))).toBe(true);
   expect(requests.every(url=>new URL(url).hostname==='127.0.0.1')).toBe(true);
   expect(errors).toEqual([]);
 });

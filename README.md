@@ -617,6 +617,9 @@ content arrows update after scrolling or resizing. Status, display changes,
 selected pages, and errors have accessible announcements. The package remains
 usable in 320px, 390px, 768px, and desktop viewports without hiding controls.
 Short viewports can scroll the host panel vertically.
+LCD lines expand vertically for stacked fractions during entry and display,
+so numerators and denominators stay visible while horizontal scrolling remains
+available for long expressions.
 
 Phase 2 evidence and the pre-release appearance review are recorded in
 `tests/reference/el506ts/phase-2-review.json`. The review is a release gate,

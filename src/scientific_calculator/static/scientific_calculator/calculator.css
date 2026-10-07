@@ -469,6 +469,9 @@
   scrollbar-width: thin; scrollbar-color: var(--scicalc-screen-ink) transparent;
 }
 .scicalc__physical .scicalc__result { height: 40px; font-size: 1.5rem; text-align: right; }
+/* Stacked entry/result fractions need their full intrinsic line-box height. */
+.scicalc__physical .scicalc__expression:has(.scicalc__display-fraction),
+.scicalc__physical .scicalc__result:has(.scicalc__display-fraction) { height: auto; }
 .scicalc__page-status { min-height: 14px; text-align: right; font-size: .6rem; }
 .scicalc__controls { position: relative; height: 132px; margin-top: 8px; }
 .scicalc__utility { display: grid; grid-template-columns: repeat(6,minmax(0,1fr)); grid-template-rows: repeat(3,44px); gap: 0 4px; }

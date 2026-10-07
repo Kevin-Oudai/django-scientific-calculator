@@ -160,3 +160,22 @@ test('forced colors and doubled text retain every key and native focus',async({p
   await key(root,40).focus();expect(await key(root,40).evaluate(el=>getComputedStyle(el).outlineStyle)).toBe('solid');
   await page.keyboard.press('Enter');expect((await snapshot(root)).state.entry).toBe('1');
 });
+
+for(const width of [320,768,1440]) test(`stacked fractions fit both LCD lines at ${width}px`,async({page})=>{
+  await page.setViewportSize({width,height:1000});const root=await setup(page);
+  const visibleParts=async()=>{
+    const parts=await root.locator('.scicalc__display-fraction > span').evaluateAll(nodes=>nodes.map(node=>{
+      const line=node.closest('[data-result],[data-expression]');const part=node.getBoundingClientRect();const bounds=line.getBoundingClientRect();
+      return {top:part.top,bottom:part.bottom,lineTop:bounds.top,lineBottom:bounds.top+line.clientHeight};
+    }));
+    expect(parts.length).toBeGreaterThanOrEqual(2);
+    for(const part of parts){expect(part.top).toBeGreaterThanOrEqual(part.lineTop);expect(part.bottom).toBeLessThanOrEqual(part.lineBottom+0.5);}
+  };
+  await key(root,40).click();await key(root,25).click();await key(root,41).click();
+  await expect(root.locator('[data-result] .scicalc__display-fraction')).toHaveCount(1);await visibleParts();
+  await key(root,48).click();await visibleParts();
+  // Exercise the upper-line projection without changing fraction-entry semantics.
+  await root.evaluate(el=>{const saved=el.scientificCalculator.snapshot();saved.state.displayExpression='1/2+';saved.state.selectionActive=false;el.scientificCalculator.restore(saved);});
+  await expect(root.locator('[data-expression] .scicalc__display-fraction')).toHaveCount(1);await visibleParts();
+
+});

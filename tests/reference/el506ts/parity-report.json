@@ -144,7 +144,7 @@
     },
     {
       "path": "tests/e2e/physical-ui.spec.js",
-      "sha256": "596bd291316fe6813ecfbbc64172ee1994f9bacd01069ea0c489973de8ffba1c"
+      "sha256": "bdd2c5b121799dc49a4cf092182306da523e98867b7322534e3f756816967efa"
     },
     {
       "path": "tests/unit/calculator.test.js",
