@@ -108,6 +108,62 @@
         "physical-lcd-cursor-v1"
       ],
       "scope": "Actual physical buttons assert the measured cursor/insert/modifier path; legacy lower-line and numeric-format differences are explicitly retained."
+    },
+    {
+      "kind": "unit",
+      "path": "tests/unit/phase4.test.js",
+      "anchor": "NORM1 and NORM2 exact lower and upper boundaries",
+      "capabilityIds": [
+        "el506.setup.format.fix",
+        "el506.setup.format.sci",
+        "el506.setup.format.eng",
+        "el506.setup.format.norm1",
+        "el506.setup.format.norm2",
+        "el506.setup.angle.deg",
+        "el506.setup.angle.rad",
+        "el506.setup.angle.grad",
+        "el506.second.el506-k45",
+        "el506.setup.tab.0",
+        "el506.setup.tab.1",
+        "el506.setup.tab.2",
+        "el506.setup.tab.3",
+        "el506.setup.tab.4",
+        "el506.setup.tab.5",
+        "el506.setup.tab.6",
+        "el506.setup.tab.7",
+        "el506.setup.tab.8",
+        "el506.setup.tab.9"
+      ],
+      "scope": "Display menu, boundary, rounding, typed view, MDF and isolation assertions. Mode algorithms retain their own phases."
+    },
+    {
+      "kind": "browser",
+      "path": "tests/e2e/phase4.spec.js",
+      "anchor": "MDF commits rounded display",
+      "capabilityIds": [
+        "el506.setup.format.fix",
+        "el506.setup.format.sci",
+        "el506.setup.format.eng",
+        "el506.setup.format.norm1",
+        "el506.setup.format.norm2",
+        "el506.setup.angle.rad",
+        "el506.setup.angle.grad",
+        "el506.second.el506-k45",
+        "el506.setup.tab.0",
+        "el506.setup.tab.1",
+        "el506.setup.tab.2"
+      ],
+      "scope": "Physical SET UP, SCI/ENG/FIX/NORM, native lower lines, MDF chain, typed pages and instance isolation."
+    },
+    {
+      "kind": "browser",
+      "path": "tests/e2e/golden.spec.js",
+      "anchor": "canonical baseline browser replay",
+      "fixtureIds": [
+        "phase4-display-ties",
+        "phase4-mdf"
+      ],
+      "scope": "Native lower-line formatting assertions replayed via physical keys; raw reducer upper/lower representation differences remain explicit."
     }
   ]
 }

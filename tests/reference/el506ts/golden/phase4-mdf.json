@@ -1,0 +1,284 @@
+{
+  "schemaVersion": 1,
+  "id": "phase4-mdf",
+  "dispatch": "physical",
+  "displayProfile": "physical",
+  "status": "baseline-characterization",
+  "reference": "experiments/phase4-mdf.json",
+  "sequence": [
+    "EL506-K06",
+    "EL506-K40",
+    "EL506-K45",
+    "EL506-K06",
+    "EL506-K41",
+    "EL506-K40",
+    "EL506-K36",
+    "EL506-K39",
+    "EL506-K32",
+    "EL506-K48",
+    "EL506-K03",
+    "EL506-K45",
+    "EL506-K38",
+    "EL506-K32",
+    "EL506-K48"
+  ],
+  "capabilityIds": [
+    "el506.second.el506-k45",
+    "el506.setup.format.fix",
+    "el506.setup.tab.1"
+  ],
+  "expected": [
+    {
+      "afterStep": 0,
+      "assertions": {
+        "displayExpression": "",
+        "displayResult": "0",
+        "lifecycle": "empty",
+        "answer": 0,
+        "layers.settings.format": "NORM1",
+        "layers.settings.tab": 9,
+        "workflow.kind": null
+      },
+      "domResultText": "0.",
+      "viewAssertions": {
+        "resultHtml": "0."
+      }
+    },
+    {
+      "afterStep": 1,
+      "assertions": {
+        "displayExpression": "",
+        "displayResult": "0",
+        "lifecycle": "menu",
+        "answer": 0,
+        "layers.settings.format": "NORM1",
+        "layers.settings.tab": 9,
+        "workflow.kind": "menu"
+      },
+      "domResultText": "0.   1"
+    },
+    {
+      "afterStep": 2,
+      "assertions": {
+        "displayExpression": "",
+        "displayResult": "0",
+        "lifecycle": "menu",
+        "answer": 0,
+        "layers.settings.format": "NORM1",
+        "layers.settings.tab": 9,
+        "workflow.kind": "menu"
+      },
+      "domResultText": "0.   1   2"
+    },
+    {
+      "afterStep": 3,
+      "assertions": {
+        "displayExpression": "",
+        "displayResult": "0",
+        "lifecycle": "empty",
+        "answer": 0,
+        "layers.settings.format": "FIX",
+        "layers.settings.tab": 9,
+        "workflow.kind": null
+      },
+      "domResultText": "0.000000000"
+    },
+    {
+      "afterStep": 4,
+      "assertions": {
+        "displayExpression": "",
+        "displayResult": "0",
+        "lifecycle": "menu",
+        "answer": 0,
+        "layers.settings.format": "FIX",
+        "layers.settings.tab": 9,
+        "workflow.kind": "menu"
+      },
+      "domResultText": "0.   1   2"
+    },
+    {
+      "afterStep": 5,
+      "assertions": {
+        "displayExpression": "",
+        "displayResult": "0",
+        "lifecycle": "prompt",
+        "answer": 0,
+        "layers.settings.format": "FIX",
+        "layers.settings.tab": 9,
+        "workflow.kind": "prompt"
+      },
+      "domResultText": ""
+    },
+    {
+      "afterStep": 6,
+      "assertions": {
+        "displayExpression": "",
+        "displayResult": "0",
+        "lifecycle": "empty",
+        "answer": 0,
+        "layers.settings.format": "FIX",
+        "layers.settings.tab": 1,
+        "workflow.kind": null
+      },
+      "domResultText": "0.0"
+    },
+    {
+      "afterStep": 7,
+      "assertions": {
+        "displayExpression": "",
+        "displayResult": "5",
+        "lifecycle": "entering",
+        "answer": 0,
+        "layers.settings.format": "FIX",
+        "layers.settings.tab": 1,
+        "workflow.kind": null
+      },
+      "domResultText": "5."
+    },
+    {
+      "afterStep": 8,
+      "assertions": {
+        "displayExpression": "5:",
+        "displayResult": "0",
+        "lifecycle": "entering",
+        "answer": 0,
+        "layers.settings.format": "FIX",
+        "layers.settings.tab": 1,
+        "workflow.kind": null
+      },
+      "domResultText": "0.0"
+    },
+    {
+      "afterStep": 9,
+      "assertions": {
+        "displayExpression": "5:",
+        "displayResult": "9",
+        "lifecycle": "entering",
+        "answer": 0,
+        "layers.settings.format": "FIX",
+        "layers.settings.tab": 1,
+        "workflow.kind": null
+      },
+      "domResultText": "9."
+    },
+    {
+      "afterStep": 10,
+      "assertions": {
+        "displayExpression": "5:9=",
+        "displayResult": "0.555555555556",
+        "lifecycle": "evaluated",
+        "answer": 0.5555555555555556,
+        "layers.settings.format": "FIX",
+        "layers.settings.tab": 1,
+        "workflow.kind": null
+      },
+      "domResultText": "0.6",
+      "viewAssertions": {
+        "resultHtml": "0.6"
+      }
+    },
+    {
+      "afterStep": 11,
+      "assertions": {
+        "displayExpression": "5:9=",
+        "displayResult": "0.555555555556",
+        "lifecycle": "evaluated",
+        "answer": 0.5555555555555556,
+        "layers.settings.format": "FIX",
+        "layers.settings.tab": 1,
+        "workflow.kind": null
+      },
+      "domResultText": "0.6"
+    },
+    {
+      "afterStep": 12,
+      "assertions": {
+        "displayExpression": "5:9=",
+        "displayResult": "0.6",
+        "lifecycle": "evaluated",
+        "answer": 0.6,
+        "layers.settings.format": "FIX",
+        "layers.settings.tab": 1,
+        "workflow.kind": null
+      },
+      "domResultText": "0.6",
+      "viewAssertions": {
+        "resultHtml": "0.6"
+      }
+    },
+    {
+      "afterStep": 13,
+      "assertions": {
+        "displayExpression": "ans*",
+        "displayResult": "0",
+        "lifecycle": "entering",
+        "answer": 0.6,
+        "layers.settings.format": "FIX",
+        "layers.settings.tab": 1,
+        "workflow.kind": null
+      },
+      "domResultText": "0.0"
+    },
+    {
+      "afterStep": 14,
+      "assertions": {
+        "displayExpression": "ans*",
+        "displayResult": "9",
+        "lifecycle": "entering",
+        "answer": 0.6,
+        "layers.settings.format": "FIX",
+        "layers.settings.tab": 1,
+        "workflow.kind": null
+      },
+      "domResultText": "9."
+    },
+    {
+      "afterStep": 15,
+      "assertions": {
+        "displayExpression": "ans*9=",
+        "displayResult": "5.4",
+        "lifecycle": "evaluated",
+        "answer": 5.3999999999999995,
+        "layers.settings.format": "FIX",
+        "layers.settings.tab": 1,
+        "workflow.kind": null
+      },
+      "domResultText": "5.4",
+      "viewAssertions": {
+        "resultHtml": "5.4"
+      }
+    }
+  ],
+  "knownDifferences": [
+    {
+      "afterStep": 0,
+      "field": "displayResult",
+      "expected": "0.",
+      "actual": "0"
+    },
+    {
+      "afterStep": 10,
+      "field": "displayExpression",
+      "expected": "5÷9=",
+      "actual": "5:9="
+    },
+    {
+      "afterStep": 10,
+      "field": "displayResult",
+      "expected": "0.6",
+      "actual": "0.555555555556"
+    },
+    {
+      "afterStep": 12,
+      "field": "displayExpression",
+      "expected": "5÷9=",
+      "actual": "5:9="
+    },
+    {
+      "afterStep": 15,
+      "field": "displayExpression",
+      "expected": "ANS×9=",
+      "actual": "ans*9="
+    }
+  ]
+}

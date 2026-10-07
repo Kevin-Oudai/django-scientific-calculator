@@ -23,7 +23,7 @@ test('physical display independently projects LCD lines and modifiers, formats a
   assert.equal(view(initial).expressionHtml,'');
   for(const [name,sequence] of [['2ndF',[3]],['ALPHA',[5]],['HYP',[12]]]) {
     let s=initial;for(const n of sequence)s=press(s,n);
-    assert.equal(view(s).indicators[name],true);assert.equal(view(s).resultHtml,'0');
+    assert.equal(view(s).indicators[name],true);assert.equal(view(s).resultHtml,'0.');
   }
   for(const mode of ['CPLX','MAT','LIST','STAT']) {
     const s=structuredClone(initial);s.layers.mode=mode;

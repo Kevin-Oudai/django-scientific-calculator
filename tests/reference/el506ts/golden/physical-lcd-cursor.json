@@ -35,7 +35,8 @@
         "insertMode": "insert",
         "indicators.DEG": true,
         "indicators.2ndF": false
-      }
+      },
+      "domResultText": "0."
     },
     {
       "afterStep": 1,
@@ -51,7 +52,8 @@
         "insertMode": "insert",
         "indicators.DEG": true,
         "indicators.2ndF": false
-      }
+      },
+      "domResultText": "1."
     },
     {
       "afterStep": 2,
@@ -67,7 +69,8 @@
         "insertMode": "insert",
         "indicators.DEG": true,
         "indicators.2ndF": false
-      }
+      },
+      "domResultText": "0."
     },
     {
       "afterStep": 3,
@@ -83,7 +86,8 @@
         "insertMode": "insert",
         "indicators.DEG": true,
         "indicators.2ndF": false
-      }
+      },
+      "domResultText": ""
     },
     {
       "afterStep": 4,
@@ -99,7 +103,8 @@
         "insertMode": "insert",
         "indicators.DEG": true,
         "indicators.2ndF": true
-      }
+      },
+      "domResultText": ""
     },
     {
       "afterStep": 5,
@@ -116,7 +121,8 @@
         "insertMode": "overwrite",
         "indicators.DEG": true,
         "indicators.2ndF": false
-      }
+      },
+      "domResultText": ""
     }
   ],
   "knownDifferences": [

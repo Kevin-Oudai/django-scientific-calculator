@@ -26,7 +26,7 @@ test('three state branches isolate nested editors, menus, stores, snapshots and 
   second.workflow.payload.choices[0]='changed';second.workflow.payload.path.push('x');
   first.history[0].expression='changed';first.editor.tokens[0].value='7';first.values.memory.value=9;
   assert.deepEqual(core.snapshotCalculator(states[2]),snapshots[2]);
-  assert.deepEqual(key(states[2],'EL506-K06').workflow.payload.choices,['ANGLE','FORMAT','TAB']);
+  assert.deepEqual(key(states[2],'EL506-K06').workflow.payload.choices,['DRG','FSE','TAB']);
   const restored=core.restoreCalculator(snapshots[0]);restored.layers.settings.tab=9;restored.values.answer.value=99;
   assert.deepEqual(states.map(core.snapshotCalculator),snapshots);
 });

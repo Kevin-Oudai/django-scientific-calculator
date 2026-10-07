@@ -1285,6 +1285,17 @@ Numerical algorithms and detailed display/error parity retain their later phases
 
 ### Phase 4 - Display Settings and Formatting
 
+READY_TO_PUSH (2026-10-07): EL506-070 through EL506-080 verified as the
+explicitly requested Phase 4 batch. SET UP, NORM thresholds, FIX/SCI/ENG,
+ten-digit formatting, English punctuation, typed result views, and MDF pass
+84 unit tests, 102 browser tests, 88 golden frames, 7 Django tests, and the
+15-asset installed-wheel/sdist smoke. Compileall, pip dry-run, Docker config
+and rebuilt demo, and git diff checks pass. Evidence: phase-4-display-review-v1,
+el506-079-mdf-v1, phase4-display-ties, and phase4-mdf. Raw legacy string
+differences remain explicit; later mode algorithms and other locales remain
+unassessed. Checklist and Next item stay unchanged until the implementation
+push is verified, followed by a separate tracking commit.
+
 - [ ] **EL506-070 - Implement the complete SET UP menu flow.**
 - [ ] **EL506-071 - Implement NORM1 and exact boundary behavior.**
 - [ ] **EL506-072 - Implement NORM2 and exact boundary behavior.**

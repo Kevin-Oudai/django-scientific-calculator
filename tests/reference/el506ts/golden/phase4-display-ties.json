@@ -1,0 +1,458 @@
+{
+  "schemaVersion": 1,
+  "id": "phase4-display-ties",
+  "dispatch": "physical",
+  "displayProfile": "physical",
+  "status": "baseline-characterization",
+  "reference": "experiments/numeric-display-ties.json",
+  "sequence": [
+    "EL506-K40",
+    "EL506-K39",
+    "EL506-K30",
+    "EL506-K48",
+    "EL506-K06",
+    "EL506-K40",
+    "EL506-K45",
+    "EL506-K06",
+    "EL506-K41",
+    "EL506-K40",
+    "EL506-K36",
+    "EL506-K39",
+    "EL506-K35",
+    "EL506-K48",
+    "EL506-K47",
+    "EL506-K36",
+    "EL506-K39",
+    "EL506-K35",
+    "EL506-K48"
+  ],
+  "capabilityIds": [
+    "el506.setup.format.fix",
+    "el506.setup.tab.1",
+    "el506.setup.tab.9",
+    "el506.setup.format.norm1"
+  ],
+  "expected": [
+    {
+      "afterStep": 0,
+      "assertions": {
+        "displayExpression": "",
+        "displayResult": "0",
+        "lifecycle": "empty",
+        "answer": 0,
+        "layers.settings.format": "NORM1",
+        "layers.settings.tab": 9,
+        "workflow.kind": null
+      },
+      "domResultText": "0.",
+      "viewAssertions": {
+        "resultHtml": "0."
+      }
+    },
+    {
+      "afterStep": 1,
+      "assertions": {
+        "displayExpression": "",
+        "displayResult": "1",
+        "lifecycle": "entering",
+        "answer": 0,
+        "layers.settings.format": "NORM1",
+        "layers.settings.tab": 9,
+        "workflow.kind": null
+      },
+      "domResultText": "1."
+    },
+    {
+      "afterStep": 2,
+      "assertions": {
+        "displayExpression": "1:",
+        "displayResult": "0",
+        "lifecycle": "entering",
+        "answer": 0,
+        "layers.settings.format": "NORM1",
+        "layers.settings.tab": 9,
+        "workflow.kind": null
+      },
+      "domResultText": "0."
+    },
+    {
+      "afterStep": 3,
+      "assertions": {
+        "displayExpression": "1:",
+        "displayResult": "7",
+        "lifecycle": "entering",
+        "answer": 0,
+        "layers.settings.format": "NORM1",
+        "layers.settings.tab": 9,
+        "workflow.kind": null
+      },
+      "domResultText": "7."
+    },
+    {
+      "afterStep": 4,
+      "assertions": {
+        "displayExpression": "1:7=",
+        "displayResult": "0.142857142857",
+        "lifecycle": "evaluated",
+        "answer": 0.14285714285714285,
+        "layers.settings.format": "NORM1",
+        "layers.settings.tab": 9,
+        "workflow.kind": null
+      },
+      "domResultText": "0.142857142",
+      "viewAssertions": {
+        "resultHtml": "0.142857142"
+      }
+    },
+    {
+      "afterStep": 5,
+      "assertions": {
+        "displayExpression": "1:7=",
+        "displayResult": "0.142857142857",
+        "lifecycle": "menu",
+        "answer": 0.14285714285714285,
+        "layers.settings.format": "NORM1",
+        "layers.settings.tab": 9,
+        "workflow.kind": "menu"
+      },
+      "domResultText": "0.   1",
+      "viewAssertions": {
+        "resultHtml": "0.   1"
+      }
+    },
+    {
+      "afterStep": 6,
+      "assertions": {
+        "displayExpression": "1:7=",
+        "displayResult": "0.142857142857",
+        "lifecycle": "menu",
+        "answer": 0.14285714285714285,
+        "layers.settings.format": "NORM1",
+        "layers.settings.tab": 9,
+        "workflow.kind": "menu"
+      },
+      "domResultText": "0.   1   2",
+      "viewAssertions": {
+        "resultHtml": "0.   1   2"
+      }
+    },
+    {
+      "afterStep": 7,
+      "assertions": {
+        "displayExpression": "1:7=",
+        "displayResult": "0.142857142857",
+        "lifecycle": "evaluated",
+        "answer": 0.14285714285714285,
+        "layers.settings.format": "FIX",
+        "layers.settings.tab": 9,
+        "workflow.kind": null
+      },
+      "domResultText": "0.142857143",
+      "viewAssertions": {
+        "resultHtml": "0.142857143"
+      }
+    },
+    {
+      "afterStep": 8,
+      "assertions": {
+        "displayExpression": "1:7=",
+        "displayResult": "0.142857142857",
+        "lifecycle": "menu",
+        "answer": 0.14285714285714285,
+        "layers.settings.format": "FIX",
+        "layers.settings.tab": 9,
+        "workflow.kind": "menu"
+      },
+      "domResultText": "0.   1   2",
+      "viewAssertions": {
+        "resultHtml": "0.   1   2"
+      }
+    },
+    {
+      "afterStep": 9,
+      "assertions": {
+        "displayExpression": "1:7=",
+        "displayResult": "0.142857142857",
+        "lifecycle": "prompt",
+        "answer": 0.14285714285714285,
+        "layers.settings.format": "FIX",
+        "layers.settings.tab": 9,
+        "workflow.kind": "prompt"
+      },
+      "domResultText": "",
+      "viewAssertions": {
+        "resultHtml": ""
+      }
+    },
+    {
+      "afterStep": 10,
+      "assertions": {
+        "displayExpression": "1:7=",
+        "displayResult": "0.142857142857",
+        "lifecycle": "evaluated",
+        "answer": 0.14285714285714285,
+        "layers.settings.format": "FIX",
+        "layers.settings.tab": 1,
+        "workflow.kind": null
+      },
+      "domResultText": "0.1",
+      "viewAssertions": {
+        "resultHtml": "0.1"
+      }
+    },
+    {
+      "afterStep": 11,
+      "assertions": {
+        "displayExpression": "",
+        "displayResult": "5",
+        "lifecycle": "entering",
+        "answer": 0.14285714285714285,
+        "layers.settings.format": "FIX",
+        "layers.settings.tab": 1,
+        "workflow.kind": null
+      },
+      "domResultText": "5."
+    },
+    {
+      "afterStep": 12,
+      "assertions": {
+        "displayExpression": "5:",
+        "displayResult": "0",
+        "lifecycle": "entering",
+        "answer": 0.14285714285714285,
+        "layers.settings.format": "FIX",
+        "layers.settings.tab": 1,
+        "workflow.kind": null
+      },
+      "domResultText": "0.0"
+    },
+    {
+      "afterStep": 13,
+      "assertions": {
+        "displayExpression": "5:",
+        "displayResult": "4",
+        "lifecycle": "entering",
+        "answer": 0.14285714285714285,
+        "layers.settings.format": "FIX",
+        "layers.settings.tab": 1,
+        "workflow.kind": null
+      },
+      "domResultText": "4."
+    },
+    {
+      "afterStep": 14,
+      "assertions": {
+        "displayExpression": "5:4=",
+        "displayResult": "1.25",
+        "lifecycle": "evaluated",
+        "answer": 1.25,
+        "layers.settings.format": "FIX",
+        "layers.settings.tab": 1,
+        "workflow.kind": null
+      },
+      "domResultText": "1.3",
+      "viewAssertions": {
+        "resultHtml": "1.3"
+      }
+    },
+    {
+      "afterStep": 15,
+      "assertions": {
+        "displayExpression": "5:4=",
+        "displayResult": "-",
+        "lifecycle": "evaluated",
+        "answer": 1.25,
+        "layers.settings.format": "FIX",
+        "layers.settings.tab": 1,
+        "workflow.kind": null
+      },
+      "domResultText": "-0.",
+      "viewAssertions": {
+        "resultHtml": "-0."
+      }
+    },
+    {
+      "afterStep": 16,
+      "assertions": {
+        "displayExpression": "",
+        "displayResult": "-5",
+        "lifecycle": "entering",
+        "answer": 1.25,
+        "layers.settings.format": "FIX",
+        "layers.settings.tab": 1,
+        "workflow.kind": null
+      },
+      "domResultText": "-5."
+    },
+    {
+      "afterStep": 17,
+      "assertions": {
+        "displayExpression": "-5:",
+        "displayResult": "0",
+        "lifecycle": "entering",
+        "answer": 1.25,
+        "layers.settings.format": "FIX",
+        "layers.settings.tab": 1,
+        "workflow.kind": null
+      },
+      "domResultText": "0.0"
+    },
+    {
+      "afterStep": 18,
+      "assertions": {
+        "displayExpression": "-5:",
+        "displayResult": "4",
+        "lifecycle": "entering",
+        "answer": 1.25,
+        "layers.settings.format": "FIX",
+        "layers.settings.tab": 1,
+        "workflow.kind": null
+      },
+      "domResultText": "4."
+    },
+    {
+      "afterStep": 19,
+      "assertions": {
+        "displayExpression": "-5:4=",
+        "displayResult": "-1.25",
+        "lifecycle": "evaluated",
+        "answer": -1.25,
+        "layers.settings.format": "FIX",
+        "layers.settings.tab": 1,
+        "workflow.kind": null
+      },
+      "domResultText": "-1.3",
+      "viewAssertions": {
+        "resultHtml": "-1.3"
+      }
+    }
+  ],
+  "knownDifferences": [
+    {
+      "afterStep": 0,
+      "field": "displayResult",
+      "expected": "0.",
+      "actual": "0"
+    },
+    {
+      "afterStep": 4,
+      "field": "displayExpression",
+      "expected": "1÷7=",
+      "actual": "1:7="
+    },
+    {
+      "afterStep": 4,
+      "field": "displayResult",
+      "expected": "0.142857142",
+      "actual": "0.142857142857"
+    },
+    {
+      "afterStep": 5,
+      "field": "displayExpression",
+      "expected": "DRG FSE TAB",
+      "actual": "1:7="
+    },
+    {
+      "afterStep": 5,
+      "field": "displayResult",
+      "expected": "0. 1",
+      "actual": "0.142857142857"
+    },
+    {
+      "afterStep": 6,
+      "field": "displayExpression",
+      "expected": "FIX SCI ENG",
+      "actual": "1:7="
+    },
+    {
+      "afterStep": 6,
+      "field": "displayResult",
+      "expected": "0. 1 2",
+      "actual": "0.142857142857"
+    },
+    {
+      "afterStep": 7,
+      "field": "displayExpression",
+      "expected": "1÷7=",
+      "actual": "1:7="
+    },
+    {
+      "afterStep": 7,
+      "field": "displayResult",
+      "expected": "0.142857143",
+      "actual": "0.142857142857"
+    },
+    {
+      "afterStep": 8,
+      "field": "displayExpression",
+      "expected": "DRG FSE TAB",
+      "actual": "1:7="
+    },
+    {
+      "afterStep": 8,
+      "field": "displayResult",
+      "expected": "0. 1 2",
+      "actual": "0.142857142857"
+    },
+    {
+      "afterStep": 9,
+      "field": "displayExpression",
+      "expected": "TAB(0-9)?",
+      "actual": "1:7="
+    },
+    {
+      "afterStep": 9,
+      "field": "displayResult",
+      "expected": "",
+      "actual": "0.142857142857"
+    },
+    {
+      "afterStep": 10,
+      "field": "displayExpression",
+      "expected": "1÷7=",
+      "actual": "1:7="
+    },
+    {
+      "afterStep": 10,
+      "field": "displayResult",
+      "expected": "0.1",
+      "actual": "0.142857142857"
+    },
+    {
+      "afterStep": 14,
+      "field": "displayExpression",
+      "expected": "5÷4=",
+      "actual": "5:4="
+    },
+    {
+      "afterStep": 14,
+      "field": "displayResult",
+      "expected": "1.3",
+      "actual": "1.25"
+    },
+    {
+      "afterStep": 15,
+      "field": "displayExpression",
+      "expected": "",
+      "actual": "5:4="
+    },
+    {
+      "afterStep": 15,
+      "field": "displayResult",
+      "expected": "-0.",
+      "actual": "-"
+    },
+    {
+      "afterStep": 19,
+      "field": "displayExpression",
+      "expected": "(-5)÷4=",
+      "actual": "-5:4="
+    },
+    {
+      "afterStep": 19,
+      "field": "displayResult",
+      "expected": "-1.3",
+      "actual": "-1.25"
+    }
+  ]
+}

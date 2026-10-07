@@ -29,7 +29,7 @@
         "memoryValue": 0,
         "secondActive": false
       },
-      "domResultText": "0"
+      "domResultText": "0."
     },
     {
       "afterStep": 1,
@@ -41,7 +41,7 @@
         "memoryValue": 0,
         "secondActive": false
       },
-      "domResultText": "7"
+      "domResultText": "7."
     },
     {
       "afterStep": 2,
@@ -53,7 +53,7 @@
         "memoryValue": 7,
         "secondActive": false
       },
-      "domResultText": "7"
+      "domResultText": "7."
     },
     {
       "afterStep": 3,
@@ -65,7 +65,7 @@
         "memoryValue": 7,
         "secondActive": true
       },
-      "domResultText": "7"
+      "domResultText": "7."
     },
     {
       "afterStep": 4,
@@ -101,7 +101,7 @@
         "memoryValue": 7,
         "secondActive": false
       },
-      "domResultText": "0"
+      "domResultText": "0."
     },
     {
       "afterStep": 7,
@@ -125,7 +125,7 @@
         "memoryValue": 7,
         "secondActive": false
       },
-      "domResultText": "0"
+      "domResultText": "0."
     }
   ],
   "knownDifferences": [

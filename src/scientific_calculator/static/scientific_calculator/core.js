@@ -144,7 +144,7 @@
       }
 
       const value = first;
-      const inverseTrigResult = (radians) => this.angleMode === "DEG" ? (radians * 180) / Math.PI : radians;
+      const inverseTrigResult = (radians) => this.angleMode === "DEG" ? (radians * 180) / Math.PI : this.angleMode === "GRAD" ? radians*200/Math.PI : radians;
       const requireSingleArgument = () => {
         if (second !== null) {
           throw new Error("Function only accepts one argument");
@@ -160,11 +160,11 @@
 
       switch (name) {
         case "sin":
-          return Math.sin(this.angleMode === "DEG" ? (requireSingleArgument() * Math.PI) / 180 : requireSingleArgument());
+          return Math.sin(this.angleMode === "DEG" ? (requireSingleArgument() * Math.PI) / 180 : this.angleMode === "GRAD" ? requireSingleArgument()*Math.PI/200 : requireSingleArgument());
         case "cos":
-          return Math.cos(this.angleMode === "DEG" ? (requireSingleArgument() * Math.PI) / 180 : requireSingleArgument());
+          return Math.cos(this.angleMode === "DEG" ? (requireSingleArgument() * Math.PI) / 180 : this.angleMode === "GRAD" ? requireSingleArgument()*Math.PI/200 : requireSingleArgument());
         case "tan":
-          return Math.tan(this.angleMode === "DEG" ? (requireSingleArgument() * Math.PI) / 180 : requireSingleArgument());
+          return Math.tan(this.angleMode === "DEG" ? (requireSingleArgument() * Math.PI) / 180 : this.angleMode === "GRAD" ? requireSingleArgument()*Math.PI/200 : requireSingleArgument());
         case "asin":
           return inverseTrigResult(Math.asin(requireSingleArgument()));
         case "acos":
@@ -861,8 +861,8 @@
     binary: (op, a, b) => engine.binary(op, a, b),
     call: (name, args, scope) => {
       const [a,b,c] = args;
-      const radians = scope.angleMode === "DEG" ? a*Math.PI/180 : a;
-      const inverse = value => scope.angleMode === "DEG" ? value*180/Math.PI : value;
+      const radians = scope.angleMode === "DEG" ? a*Math.PI/180 : scope.angleMode === "GRAD" ? a*Math.PI/200 : a;
+      const inverse = value => scope.angleMode === "DEG" ? value*180/Math.PI : scope.angleMode === "GRAD" ? value*200/Math.PI : value;
       const calls = {sin:()=>Math.sin(radians),cos:()=>Math.cos(radians),tan:()=>Math.tan(radians),
         asin:()=>inverse(Math.asin(a)),acos:()=>inverse(Math.acos(a)),atan:()=>inverse(Math.atan(a)),
         sqrt:()=>Math.sqrt(a),cbrt:()=>Math.cbrt(a),log:()=>Math.log10(a),ln:()=>Math.log(a),
@@ -911,7 +911,7 @@
 
   const ENTRY_PHASES = Object.freeze(["empty", "entering", "editing", "evaluated", "prompt", "menu", "data-entry", "multi-result", "error"]);
   function emptyWorkflow() { return { kind: null, payload: null, page: 0, returnPhase: "empty" }; }
-  function initialLayers() { return { alpha: false, hyp: false, inverseHyp: false, mode: "NORMAL", settings: { angle: "DEG", format: "NORM1", tab: 0 }, intent: null }; }
+  function initialLayers() { return { alpha: false, hyp: false, inverseHyp: false, mode: "NORMAL", settings: { angle: "DEG", format: "NORM1", tab: 9 }, intent: null }; }
   function editorForState(state) {
     const source = normalizeMixedNumbers(state.expression.replace(/=$/, "") + state.entry);
     let tokens = [];
@@ -1017,7 +1017,7 @@
     }
     if (!Number.isInteger(state.cursor) || state.cursor < 0
       || !(state.historyIndex === null || Number.isInteger(state.historyIndex))
-      || !["DEG", "RAD"].includes(state.angleMode)
+      || !["DEG", "RAD", "GRAD"].includes(state.angleMode)
       || !["decimal", "exact", "mixed", "improper"].includes(state.resultMode)
       || !Array.isArray(state.statsValues) || !state.statsValues.every(v => typeof v === "number")
       || !Array.isArray(state.history) || !state.history.every(h => h && typeof h.expression === "string"
@@ -1154,7 +1154,7 @@
   const ALPHA_STATS = Object.freeze({30:"mean-y",31:"sample-deviation-y",32:"population-deviation-y",33:"coefficient-a",34:"coefficient-b",35:"mean-x",36:"sample-deviation-x",37:"population-deviation-x",38:"coefficient-c",39:"correlation-r",40:"sum-xy",41:"sum-y",42:"sum-y-squared",45:"count-n",46:"sum-x",47:"sum-x-squared"});
   const KEY_MENUS = Object.freeze({
     MODE: ["NORMAL", "STAT", "EQN", "CPLX", "MAT", "LIST"],
-    SETUP: ["ANGLE", "FORMAT", "TAB"], ANGLE: ["DEG", "RAD", "GRAD"],
+    SETUP: ["DRG", "FSE", "TAB"], ANGLE: ["DEG", "RAD", "GRAD"],
     FORMAT: ["FIX", "SCI", "ENG", "NORM1", "NORM2"], TAB: ["0","1","2","3","4","5","6","7","8","9"],
     MATH: ["SOLV", "ENG", "TO_SECONDS", "TO_MINUTES"], ENG: ["k", "M", "G", "T", "m", "micro", "n", "p", "f"],
     RANDOM: ["RANDOM", "R_INT", "R_DICE", "R_COIN"], CLEAR: ["MEMORY", "RESET"],
@@ -1183,7 +1183,7 @@
     return BASE_KEYS[n] ? {kind:"operation", event:{...BASE_KEYS[n]}} : {kind:"pending", key:id, layer:"base"};
   }
   const MODE_SUBMENUS={STAT:['SD','LINE','QUAD','EXP','LOG','PWR','INV'],EQN:['2-VLE','3-VLE','QUAD','CUBIC']};
-  const menuGroups={MODE:[2,2,2],STAT:[3,3,1],EQN:[2,2],CLEAR:[2],MEMORY_CLEAR:[2]};
+  const menuGroups={MODE:[2,2,2],STAT:[3,3,1],EQN:[2,2],CLEAR:[2],MEMORY_CLEAR:[2],SETUP:[3],ANGLE:[3],FORMAT:[3,2]};
   function physicalClear(previous,scope='command') {
     const next=createInitialState();next.layers.settings=structuredClone(previous.layers.settings);next.angleMode=previous.angleMode;
     next.layers.mode=previous.layers.mode;next.control=structuredClone(previous.control);next.control.errorCode=null;next.control.idleMs=0;
@@ -1227,11 +1227,25 @@
   function physicalError(state,code){const next=structuredClone(state);next.control.errorCode=code;next.displayResult='Error';next.resultDisplay='Error';next.lifecycle='error';return next;}
   function physicalMenu(previous,id){
     const next=structuredClone(previous);next.secondActive=false;next.layers.alpha=false;next.layers.hyp=false;next.layers.inverseHyp=false;
-    next.workflow={kind:'menu',payload:{id,keyLayer:true,choices:id==='MEMORY_CLEAR'?['MEM','RESET']:MODE_SUBMENUS[id]||KEY_MENUS[id]||[],path:[],selected:0,groups:menuGroups[id]||[2]},page:0,returnPhase:previous.workflow.kind?previous.workflow.returnPhase:previous.lifecycle};
+    next.workflow={kind:'menu',payload:{id,keyLayer:true,choices:structuredClone(id==='MEMORY_CLEAR'?['MEM','RESET']:MODE_SUBMENUS[id]||KEY_MENUS[id]||[]),path:[],selected:0,groups:structuredClone(menuGroups[id]||[2])},page:0,returnPhase:previous.workflow.kind?previous.workflow.returnPhase:previous.lifecycle};
+    if(['SETUP','ANGLE','FORMAT'].includes(id)){
+      const resume=previous.workflow.payload?.resumeWorkflow||(['multi-result','data-entry'].includes(previous.workflow.kind)?previous.workflow:null);
+      if(resume){next.workflow.payload.resumeWorkflow=structuredClone(resume);next.workflow.returnPhase=resume.kind;}
+    }
     next.lifecycle='menu';return next;
   }
   function physicalSelect(previous,index){
     const id=previous.workflow.payload.id;const choice=previous.workflow.payload.choices[index];if(choice===undefined)return previous;
+    if(id==='SETUP'){
+      if(index===2&&!['FIX','SCI','ENG'].includes(previous.layers.settings.format))return previous;
+      if(index!==2)return physicalMenu(previous,index===0?'ANGLE':'FORMAT');
+      const next=structuredClone(previous);next.workflow={kind:'prompt',payload:{id:'TAB',label:'TAB(0-9)?',keyLayer:true,...(previous.workflow.payload.resumeWorkflow?{resumeWorkflow:structuredClone(previous.workflow.payload.resumeWorkflow)}:{})},page:0,returnPhase:previous.workflow.returnPhase};next.lifecycle='prompt';return next;
+    }
+    if(id==='ANGLE'||id==='FORMAT'){
+      const next=structuredClone(previous);next.workflow=structuredClone(previous.workflow.payload.resumeWorkflow||emptyWorkflow());next.lifecycle=previous.workflow.returnPhase;
+      if(id==='ANGLE'){next.angleMode=choice;next.layers.settings.angle=choice;}else next.layers.settings.format=choice;
+      return next;
+    }
     if(id==='MODE'){
       if(MODE_SUBMENUS[choice])return physicalMenu(previous,choice);
       const next=physicalClear(previous,'mode');next.layers.mode=choice;next.control.submode=null;
@@ -1257,11 +1271,25 @@
     if(n===1){next=physicalClear(previous,previous.layers.mode==='NORMAL'?'command':'mode');next.layers.mode='NORMAL';next.control.submode=null;return next;}
     if(previous.secondActive&&n===4)return physicalClear(previous,'internal');
     if(previous.secondActive&&n===47)return physicalMenu(previous,'MEMORY_CLEAR');
+    if(previous.secondActive&&n===45){
+      next.secondActive=false;
+      if(previous.lifecycle==='evaluated'&&!previous.stagedEntry&&['scalar','rational'].includes(previous.values.last.kind)&&!(['NORM1','NORM2'].includes(previous.layers.settings.format)&&['mixed','improper'].includes(previous.resultMode))){
+        const modified=formatting.sharpNumber(values.toNumber(previous.values.last),previous.layers.settings).roundedValue;
+        if(!Number.isFinite(modified))return physicalError(next,2);
+        next.answer=next.lastValue=modified;next.values.answer=next.values.last=values.scalar(modified);next.lastExactDisplay='';next.resultMode='decimal';next.resultDisplay=next.displayResult=formatValue(modified);
+      }
+      return next;
+    }
     if(n===4)return physicalMenu(previous,'MODE');
-    if(previous.workflow.kind==='menu'&&['MODE','STAT','EQN','CLEAR','MEMORY_CLEAR'].includes(previous.workflow.payload.id)){
+    if(n===6)return physicalMenu(previous,'SETUP');
+    if(previous.workflow.kind==='prompt'&&previous.workflow.payload.id==='TAB'){
+      if(DIGIT_KEYS[n]!==undefined){next.layers.settings.tab=Number(DIGIT_KEYS[n]);next.lifecycle=previous.workflow.returnPhase;next.workflow=structuredClone(previous.workflow.payload.resumeWorkflow||emptyWorkflow());}
+      return next;
+    }
+    if(previous.workflow.kind==='menu'&&['MODE','STAT','EQN','CLEAR','MEMORY_CLEAR','SETUP','ANGLE','FORMAT'].includes(previous.workflow.payload.id)){
       const w=next.workflow,groups=w.payload.groups;let selected=w.payload.selected;
       if(n===9||n===10){selected=Math.max(0,Math.min(w.payload.choices.length-1,selected+(n===9?-1:1)));}
-      else if(n===8||n===11){w.page=Math.max(0,Math.min(groups.length-1,w.page+(n===8?-1:1)));selected=groups.slice(0,w.page).reduce((a,b)=>a+b,0);}
+      else if(n===8||n===11){w.page=w.payload.id==='FORMAT'?(w.page+1)%groups.length:Math.max(0,Math.min(groups.length-1,w.page+(n===8?-1:1)));selected=groups.slice(0,w.page).reduce((a,b)=>a+b,0);}
       else if(n===48||DIGIT_KEYS[n]!==undefined)return physicalSelect(next,n===48?selected:Number(DIGIT_KEYS[n]))||next;
       w.payload.selected=selected;
       if(n===9||n===10){let total=0;w.page=groups.findIndex(size=>(total+=size)>selected);}

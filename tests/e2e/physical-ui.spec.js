@@ -61,6 +61,8 @@ test('LCD horizontal scrolling is independent and follows a selected cursor',asy
     const s=el.scientificCalculator.snapshot();
     s.state.expression='1+'.repeat(50)+'1';s.state.displayExpression=s.state.expression;
     s.state.displayResult='1234567890'.repeat(8);s.state.resultDisplay=s.state.displayResult;
+    // Oversized restored entry tests scrolling; numerical results now use ten-digit notation.
+    s.state.entry=s.state.displayResult;
     s.state.cursor=0;s.state.selectionActive=true;s.state.lifecycle='editing';
     el.scientificCalculator.restore(s);
   });
@@ -82,13 +84,13 @@ test('result pages display components and boundaries without evaluation or store
     s.state.workflow={kind:'multi-result',payload:{pages:[{label:'real',component:'xy',value:2},{label:'imaginary',component:'i',value:3}]},page:0,returnPhase:'empty'};
     el.scientificCalculator.restore(s);
   });
-  const before=await snapshot(root);await expect(root.locator('[data-result]')).toHaveText('2');
-  await key(root,11).click();await expect(root.locator('[data-result]')).toHaveText('3');
+  const before=await snapshot(root);await expect(root.locator('[data-result]')).toHaveText('2.');
+  await key(root,11).click();await expect(root.locator('[data-result]')).toHaveText('3.');
   await expect(root.locator('[data-indicator="i"]')).toBeVisible();
   await expect(root.locator('[data-announcement]')).toContainText('Page 2 / 2');
   const after=await snapshot(root);expect(after.state.values).toEqual(before.state.values);expect(after.state.answer).toBe(before.state.answer);
   await key(root,11).click();expect((await snapshot(root)).state.workflow.page).toBe(1);
-  await key(root,8).click();await expect(root.locator('[data-result]')).toHaveText('2');
+  await key(root,8).click();await expect(root.locator('[data-result]')).toHaveText('2.');
 });
 test('display errors announce and unsupported mode calculations do not produce console errors',async({page})=>{
   const errors=[];page.on('pageerror',error=>errors.push(error.message));

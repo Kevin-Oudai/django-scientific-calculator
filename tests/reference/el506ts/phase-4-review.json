@@ -1,0 +1,311 @@
+{
+  "schemaVersion": 1,
+  "reviewId": "phase-4-display-review-v1",
+  "reviewedOn": "2026-10-07",
+  "simulatorProfile": "sharp-el506ts-pc-simulator-1.0.2.0",
+  "runtimeSha256": "6bfef4d04900b472892be2d4c54dcfa6013f87232097e32df508ca4c27425530",
+  "method": "Live computer use via @oai/sky, observed physical coordinates and fresh state following each click; significant frames inspected. Canonical ID sequences below are ordered physical presses, with setup state explicitly stated. No simulator images distributed.",
+  "sources": [
+    "experiments/numeric-display-ties.json",
+    "experiments/phase4-mdf.json",
+    "https://global.sharp/contents/calculator/support/guidebook/documents/OperationGuide_EL506TS.pdf",
+    "https://res.cloudinary.com/hnymxdy5j/raw/upload/v1743873557/media/00d7f000004ckruua4/EL506TSBWH_English_manual.pdf"
+  ],
+  "liveObservations": [
+    {
+      "setup": "Fresh simulator Reset, NORMAL, DEG, NORM1",
+      "sequence": [
+        "EL506-K06",
+        "EL506-K11",
+        "EL506-K11",
+        "EL506-K41",
+        "EL506-K02"
+      ],
+      "observed": "SET UP labels DRG FSE TAB; lower 0. 1; TAB numeric shortcut ignored under NORM; UP/DOWN do not change this single page; ON/C cancels and clears command."
+    },
+    {
+      "setup": "NORMAL NORM1",
+      "sequence": [
+        "EL506-K06",
+        "EL506-K40",
+        "EL506-K11",
+        "EL506-K11",
+        "EL506-K08"
+      ],
+      "observed": "FSE begins FIX SCI ENG, indices 0. 1 2; DOWN shows NORM1 NORM2, indices 3. 4; another DOWN returns first page; UP also cycles pages."
+    },
+    {
+      "setup": "FSE menu, reset TAB9",
+      "sequence": [
+        "EL506-K45",
+        "EL506-K06",
+        "EL506-K41",
+        "EL506-K48",
+        "EL506-K41"
+      ],
+      "observed": "FIX selection returns directly to 0.000000000, without TAB prompt. SET UP 2 opens TAB(0-9)? with blank lower. ENT leaves prompt unchanged. Digit 2 commits 0.00. FIX DEG indicators."
+    },
+    {
+      "setup": "FIX TAB2",
+      "sequence": [
+        "EL506-K40",
+        "EL506-K39",
+        "EL506-K42",
+        "EL506-K48",
+        "EL506-K06",
+        "EL506-K40",
+        "EL506-K40"
+      ],
+      "observed": "1/3 displays 0.33; SCI selection reformats same current result to 3.33 times 10^-01; SCI DEG indicators. Entry digits keep their own decimal point rather than TAB zeros."
+    },
+    {
+      "setup": "SCI TAB2, current 1/3",
+      "sequence": [
+        "EL506-K06",
+        "EL506-K41",
+        "EL506-K45",
+        "EL506-K06",
+        "EL506-K40",
+        "EL506-K41"
+      ],
+      "observed": "TAB0 SCI is 3. times 10^-01; ENG then displays 333. times 10^-03. ENG DEG indicators."
+    },
+    {
+      "setup": "ENG TAB0",
+      "sequence": [
+        "EL506-K06",
+        "EL506-K45",
+        "EL506-K02"
+      ],
+      "observed": "DRG opens DEG RAD GRAD, indices 0. 1 2. ON/C returns to blank command, 0. times 10^00."
+    },
+    {
+      "setup": "NORMAL NORM2",
+      "sequence": [
+        "EL506-K02",
+        "EL506-K40",
+        "EL506-K41",
+        "EL506-K42",
+        "EL506-K35",
+        "EL506-K36",
+        "EL506-K37",
+        "EL506-K30",
+        "EL506-K31",
+        "EL506-K32",
+        "EL506-K45",
+        "EL506-K48"
+      ],
+      "observed": "Entry and result show 1'234'567'890.; expression 1234567890= carries no grouping punctuation. Ten mantissa digits; apostrophe grouping and decimal dot on English pinned simulator."
+    },
+    {
+      "setup": "NORMAL NORM1",
+      "sequence": [
+        "EL506-K02",
+        "EL506-K40",
+        "EL506-K24",
+        "EL506-K32",
+        "EL506-K47",
+        "EL506-K48",
+        "EL506-K06",
+        "EL506-K40",
+        "EL506-K35"
+      ],
+      "observed": "1E-09 displays 0.000000001 in NORM1; switching to NORM2 displays 1. times 10^-09. Both retain same value."
+    },
+    {
+      "setup": "NORMAL NORM1",
+      "sequence": [
+        "EL506-K02",
+        "EL506-K40",
+        "EL506-K46",
+        "EL506-K41",
+        "EL506-K42",
+        "EL506-K35",
+        "EL506-K24",
+        "EL506-K32",
+        "EL506-K47",
+        "EL506-K48"
+      ],
+      "observed": "1.234E-09 displays 0.000000001, confirming the ten LCD digits include the leading zero and fractional leading zeros."
+    },
+    {
+      "setup": "Current 1.234E-09",
+      "sequence": [
+        "EL506-K06",
+        "EL506-K40",
+        "EL506-K45",
+        "EL506-K06",
+        "EL506-K41",
+        "EL506-K40"
+      ],
+      "observed": "FIX TAB1 displays 0.0 while retaining internal value; not forced scientific notation for a small number."
+    },
+    {
+      "setup": "FIX TAB1",
+      "sequence": [
+        "EL506-K02",
+        "EL506-K40",
+        "EL506-K24",
+        "EL506-K40",
+        "EL506-K45",
+        "EL506-K48"
+      ],
+      "observed": "1E10 overflows decimal capacity and displays 1. times 10^10, with FIX indicator and no forced TAB trailing zero in this overflow view."
+    },
+    {
+      "setup": "FIX TAB2",
+      "sequence": [
+        "EL506-K02",
+        "EL506-K40",
+        "EL506-K41",
+        "EL506-K42",
+        "EL506-K35",
+        "EL506-K36",
+        "EL506-K37",
+        "EL506-K30",
+        "EL506-K31",
+        "EL506-K32",
+        "EL506-K43",
+        "EL506-K46",
+        "EL506-K32",
+        "EL506-K36",
+        "EL506-K48"
+      ],
+      "observed": "123456789 + .95 displays 123456790.0; nine integer digits leave one fractional digit, which is rounded."
+    },
+    {
+      "setup": "FIX TAB1",
+      "sequence": [
+        "EL506-K02",
+        "EL506-K47",
+        "EL506-K40",
+        "EL506-K39",
+        "EL506-K40",
+        "EL506-K45",
+        "EL506-K45",
+        "EL506-K48"
+      ],
+      "observed": "(-1)/100 displays -0.0. Negative sign survives nonzero values rounded to zero."
+    },
+    {
+      "setup": "FIX TAB1",
+      "sequence": [
+        "EL506-K02",
+        "EL506-K40",
+        "EL506-K41",
+        "EL506-K42",
+        "EL506-K35",
+        "EL506-K48"
+      ],
+      "observed": "1234 result displays 1'234.0, retaining three-digit punctuation in FIX."
+    },
+    {
+      "setup": "ENG TAB2, current 1/7, display 142.86 times 10^-03",
+      "sequence": [
+        "EL506-K03",
+        "EL506-K45",
+        "EL506-K06",
+        "EL506-K40",
+        "EL506-K42",
+        "EL506-K38",
+        "EL506-K30",
+        "EL506-K48"
+      ],
+      "observed": "MDF leaves display unchanged, switching to NORM1 shows .14286; ANS times 7 gives 1.00002, confirming modified internal precision."
+    },
+    {
+      "setup": "NORMAL NORM1, fresh ON/C after setting NORM1",
+      "sequence": [
+        "EL506-K02",
+        "EL506-K40",
+        "EL506-K25",
+        "EL506-K42",
+        "EL506-K48",
+        "EL506-K03",
+        "EL506-K45",
+        "EL506-K38",
+        "EL506-K42",
+        "EL506-K48"
+      ],
+      "observed": "1 a/b 3 ENT displays exact 1/3; MDF leaves this fraction unchanged; ANS times 3 gives 1., so MDF does not truncate an exact fraction to the decimal NORM mantissa."
+    },
+    {
+      "setup": "Fresh reopened simulator, NORMAL NORM1",
+      "sequence": [
+        "EL506-K32",
+        "EL506-K32",
+        "EL506-K32",
+        "EL506-K32",
+        "EL506-K32",
+        "EL506-K32",
+        "EL506-K32",
+        "EL506-K32",
+        "EL506-K32",
+        "EL506-K32",
+        "EL506-K43",
+        "EL506-K46",
+        "EL506-K40",
+        "EL506-K48"
+      ],
+      "observed": "9999999999 + .1 remains decimal, displayed 9'999'999'999. Fractional values above the manual's printed largest ten-digit integer remain decimal until 1e10; simulator measurement resolves the precise threshold."
+    },
+    {
+      "setup": "NORMAL NORM1",
+      "sequence": [
+        "EL506-K02",
+        "EL506-K40",
+        "EL506-K24",
+        "EL506-K47"
+      ],
+      "observed": "Scientific literal entry preserves a negative exponent sign at zero: 1. times 10^-00."
+    }
+  ],
+  "manualRules": {
+    "guidePage5": "NORM1 decimal interval is 1e-9 through 9999999999 inclusive by magnitude; NORM2 is .01 through 9999999999 inclusive. Outside use ten-digit mantissa and two-digit exponent. Live simulator refinement: 9999999999 + .1 still uses decimal notation, so actual upper decimal cutoff is 1e10 exclusive; the printed maximum describes ten-digit integer capacity.",
+    "guidePage11": "FIX TAB1: 5/9 is displayed .6; ordinary times 9 produces 5.0. MDF commits .6 and times 9 produces 5.4.",
+    "engineering": "Engineering exponent is a multiple of three; TAB counts mantissa decimal places, capped by the ten-digit LCD capacity.",
+    "locale": "English pinned simulator uses apostrophes for integer groups and dot decimals. No regional toggle was exposed or measured; other locales are unassessed. Host locale does not change this reference profile."
+  },
+  "coverage": {
+    "EL506-070": "Physical SET UP, DRG/FSE submenus, TAB availability/prompt, numeric and cursor selection, page cycling, cancellation and persistence.",
+    "EL506-071": "NORM1 inclusive thresholds and truncation, positive/negative boundary assertions.",
+    "EL506-072": "NORM2 inclusive thresholds and format switching preserves internal values.",
+    "EL506-073": "TAB 0-9; FIX half-away rounding, capacity clipping, trailing zeros and overflow notation.",
+    "EL506-074": "SCI TAB n means n mantissa decimal places (n+1 significant digits), including TAB0 and carry.",
+    "EL506-075": "ENG auto exponent multiples of three, one through three integer mantissa digits, capped fractional precision and carry.",
+    "EL506-076": "Ten-digit mantissa, decimal capacity, scientific exponent zero padding and upper-range overflow protection.",
+    "EL506-077": "Pinned English grouping and decimal punctuation on entry/results; locale limitations stated.",
+    "EL506-078": "Integer decimal dots, explicit entry zeros, signed rounded zero and configured trailing zeros.",
+    "EL506-079": "Live MDF fixture and unit/browser modified vs unmodified chains; immutable prior history and other stores.",
+    "EL506-080": "Dedicated pure typed formatting and paged views for scalar/rational/DMS/complex/N-base/statistics/equation/matrix/list; immutable typed source. Numerical mode algorithms and their native paging semantics remain assigned to subsequent phases."
+  },
+  "tests": [
+    "tests/unit/phase4.test.js",
+    "tests/e2e/phase4.spec.js",
+    "golden/phase4-display-ties.json",
+    "golden/phase4-mdf.json"
+  ],
+  "limitations": [
+    "Raw legacy reducer strings remain separate from the physical formatted view and are explicitly reported as golden differences.",
+    "This completes formatting infrastructure, not statistical, equation, complex, N-base, matrix or list calculations. Those controllers have later roadmap owners."
+  ],
+  "verification": {
+    "unitTests": 84,
+    "browserTests": 102,
+    "goldenFrames": 88,
+    "djangoTests": 7,
+    "packagedAssets": 15,
+    "checks": [
+      "npm test",
+      "npm run pretest",
+      "python -m compileall src/scientific_calculator",
+      "python -m unittest discover -s tests/django -v",
+      "python tests/ci/check-package.py",
+      "python -m pip install --dry-run --no-deps .",
+      "docker compose config",
+      "docker compose up --build -d",
+      "git diff --check"
+    ],
+    "browserProof": "Live demo SET UP/FSE labels and ENG TAB2 result 142.86 times 10^-03; 12px legends and colored modifier buttons preserved."
+  }
+}

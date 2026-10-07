@@ -1,0 +1,227 @@
+{
+  "schema_version": 1,
+  "experiment_id": "el506-079-mdf-v1",
+  "roadmap_item": "EL506-079",
+  "catalog_id": "el506-physical-keys-v1",
+  "simulator": {
+    "profile_id": "sharp-el506ts-pc-simulator-1.0.2.0",
+    "product": "SHARP PC Simulator for EL-506TS",
+    "build": "1.0.2.0",
+    "runtime_sha256": "6bfef4d04900b472892be2d4c54dcfa6013f87232097e32df508ca4c27425530",
+    "locale": "English UI; en-US",
+    "operating_system": "Windows 11"
+  },
+  "capture": {
+    "date": "2026-10-07",
+    "timezone": "America/Port_of_Spain",
+    "method": "Computer use @oai/sky: fresh simulator chrome Reset, exact physical positions and fresh state after every click; inspected significant displayed frames. Runtime hash verified this session.",
+    "evidence_kind": "live-simulator",
+    "source_ids": [
+      "live-session"
+    ]
+  },
+  "initial_state": {
+    "reset": {
+      "kind": "simulator-chrome-reset",
+      "description": "Clicked simulator chrome Reset before step 1; host control excluded from physical sequence."
+    },
+    "setup_sequence": [],
+    "mode": {
+      "status": "observed",
+      "value": "NORMAL (pinned reset default)"
+    },
+    "settings": [
+      {
+        "name": "angle",
+        "observation": {
+          "status": "observed",
+          "value": "DEG"
+        }
+      },
+      {
+        "name": "display-format",
+        "observation": {
+          "status": "observed",
+          "value": "NORM1 (pinned reset default)"
+        }
+      }
+    ],
+    "display": {
+      "upper_line": "",
+      "lower_line": "0.",
+      "indicators": [
+        "DEG"
+      ],
+      "scroll_arrows": [],
+      "cursor": {
+        "status": "observed",
+        "value": "not visible"
+      },
+      "insert_mode": {
+        "status": "unknown",
+        "reason": "Insert mode not probed by this MDF sequence."
+      },
+      "prompt": null,
+      "selected_result_component": null
+    },
+    "stores": []
+  },
+  "sequence": [
+    "EL506-K06",
+    "EL506-K40",
+    "EL506-K45",
+    "EL506-K06",
+    "EL506-K41",
+    "EL506-K40",
+    "EL506-K36",
+    "EL506-K39",
+    "EL506-K32",
+    "EL506-K48",
+    "EL506-K03",
+    "EL506-K45",
+    "EL506-K38",
+    "EL506-K32",
+    "EL506-K48"
+  ],
+  "frames": [
+    {
+      "after_step": 0,
+      "display": {
+        "upper_line": "",
+        "lower_line": "0.",
+        "indicators": [
+          "DEG"
+        ],
+        "scroll_arrows": [],
+        "cursor": {
+          "status": "observed",
+          "value": "not visible"
+        },
+        "insert_mode": {
+          "status": "unknown",
+          "reason": "Insert mode not probed by this MDF sequence."
+        },
+        "prompt": null,
+        "selected_result_component": null
+      },
+      "result": {
+        "status": "not-applicable",
+        "reason": "Reset before numerical entry."
+      }
+    },
+    {
+      "after_step": 10,
+      "display": {
+        "upper_line": "5÷9=",
+        "lower_line": "0.6",
+        "indicators": [
+          "FIX",
+          "DEG"
+        ],
+        "scroll_arrows": [],
+        "cursor": {
+          "status": "observed",
+          "value": "not visible"
+        },
+        "insert_mode": {
+          "status": "unknown",
+          "reason": "Insert mode not probed by this MDF sequence."
+        },
+        "prompt": null,
+        "selected_result_component": null
+      },
+      "result": {
+        "status": "observed",
+        "value": {
+          "encoding": "decimal-string",
+          "value": "0.6",
+          "basis": "displayed"
+        }
+      }
+    },
+    {
+      "after_step": 12,
+      "display": {
+        "upper_line": "5÷9=",
+        "lower_line": "0.6",
+        "indicators": [
+          "FIX",
+          "DEG"
+        ],
+        "scroll_arrows": [],
+        "cursor": {
+          "status": "observed",
+          "value": "not visible"
+        },
+        "insert_mode": {
+          "status": "unknown",
+          "reason": "Insert mode not probed by this MDF sequence."
+        },
+        "prompt": null,
+        "selected_result_component": null
+      },
+      "result": {
+        "status": "observed",
+        "value": {
+          "encoding": "decimal-string",
+          "value": "0.6",
+          "basis": "displayed"
+        }
+      }
+    },
+    {
+      "after_step": 15,
+      "display": {
+        "upper_line": "ANS×9=",
+        "lower_line": "5.4",
+        "indicators": [
+          "FIX",
+          "DEG"
+        ],
+        "scroll_arrows": [],
+        "cursor": {
+          "status": "observed",
+          "value": "not visible"
+        },
+        "insert_mode": {
+          "status": "unknown",
+          "reason": "Insert mode not probed by this MDF sequence."
+        },
+        "prompt": null,
+        "selected_result_component": null
+      },
+      "result": {
+        "status": "observed",
+        "value": {
+          "encoding": "decimal-string",
+          "value": "5.4",
+          "basis": "displayed"
+        }
+      }
+    }
+  ],
+  "stored_values": {
+    "coverage": "MDF changes the current displayed number to an internal rounded value; subsequent ANS multiplication provides the indirect probe (.6 times 9 = 5.4). Other stores were not read back.",
+    "observations": []
+  },
+  "errors": [],
+  "sources": [
+    {
+      "source_id": "live-session",
+      "kind": "simulator",
+      "reference": "simulator-profile.json",
+      "page": null,
+      "scope": "Live reset, FIX TAB1, 5/9, MDF, and ANS times 9; displayed .6 commits to a chained result 5.4."
+    }
+  ],
+  "oracle": {
+    "selected_source_id": "live-session",
+    "simulator_exception_ids": [],
+    "disagreements": []
+  },
+  "ambiguities": [],
+  "notes": [
+    "Manual operation guide page 11 provides the corresponding unmodified chain result 5.0 and MDF result 5.4.",
+    "Only significant frames transcribed; no simulator images or executable included. English pinned simulator; no evidence of another locale setting."
+  ]
+}

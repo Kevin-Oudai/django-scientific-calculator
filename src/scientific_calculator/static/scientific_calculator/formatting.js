@@ -5,6 +5,92 @@
 })(globalThis,function(){
   'use strict';
   const SELECT_START="\uE000", SELECT_END="\uE001", DIVIDE_TOKEN=":";
+  // Decimal display rounding is independent of the evaluator. Work on base-10
+  // integers so ties (including negative ties) do not depend on binary floats.
+  function decimalParts(value) {
+    const match=String(Math.abs(value)).match(/^(\d+)(?:\.(\d*))?(?:e([+-]?\d+))?$/i);
+    return {digits:BigInt(match[1]+(match[2]||'')),scale:(match[2]||'').length-Number(match[3]||0)};
+  }
+  function decimalAt(value, places, round=false) {
+    const {digits,scale}=decimalParts(value),shift=places-scale;
+    let integer;
+    if(shift>=0)integer=digits*10n**BigInt(shift);
+    else {const divisor=10n**BigInt(-shift);integer=digits/divisor;if(round && digits%divisor*2n>=divisor)integer++;}
+    let text=integer.toString();
+    if(places>0){text=text.padStart(places+1,'0');text=text.slice(0,-places)+'.'+text.slice(-places);}
+    else if(places<0)text+='0'.repeat(-places);
+    return value<0?'-'+text:text;
+  }
+  const grouped=text=>text.replace(/^(\-?)(\d+)/,(_,sign,digits)=>sign+digits.replace(/\B(?=(\d{3})+(?!\d))/g,"'"));
+  const trimDecimal=text=>text.includes('.')?text.replace(/0+$/,'').replace(/\.$/,'.'):text+'.';
+  function sharpNumber(value,settings={format:'NORM1',tab:9}) {
+    value=Number(value);
+    if(!Number.isFinite(value)||Math.abs(value)>=1e100)return {text:'Error 2',html:'Error 2',roundedValue:value};
+    if(Math.abs(value)<1e-99)value=0;
+    const format=settings.format||'NORM1',tab=settings.tab??9,absolute=Math.abs(value);
+    let exponent=absolute?Number(absolute.toExponential().split('e')[1]):0;
+    const scientific=format==='SCI'||format==='ENG'||absolute>=1e10||(['NORM1','NORM2'].includes(format)&&absolute!==0&&absolute<(format==='NORM2'?.01:1e-9));
+    let mantissa,roundedValue;
+    if(scientific){
+      const engineering=format==='ENG';
+      if(engineering)exponent=Math.floor(exponent/3)*3;
+      // Decimal shifting avoids introducing a binary multiplication rounding error.
+      const scaled=Number(value.toExponential().replace(/e([+-]?\d+)$/,(_,e)=>'e'+(Number(e)-exponent)));
+      const norm=format==='NORM1'||format==='NORM2'||format==='FIX';
+      let places=norm?9:Math.min(tab,10-Math.max(1,Math.floor(Math.log10(Math.abs(scaled)||1))+1));
+      mantissa=decimalAt(scaled,places,!norm);
+      if(Math.abs(Number(mantissa))>=(engineering?1000:10)){
+        exponent+=engineering?3:1;
+        mantissa=decimalAt(Number(mantissa)/(engineering?1000:10),norm?9:Math.min(tab,9),!norm);
+      }
+      if(norm)mantissa=trimDecimal(mantissa);else if(!mantissa.includes('.'))mantissa+='.';
+      roundedValue=Number(mantissa+'e'+exponent);
+      if(exponent>99)return {text:'Error 2',html:'Error 2',roundedValue:Infinity};
+      const exp=(exponent<0?'-':'')+String(Math.abs(exponent)).padStart(2,'0');
+      const text=mantissa+'×10'+exp;
+      return {text,html:escapeHtml(mantissa)+'<span class="scicalc__display-operator">&times;</span>10<sup>'+exp+'</sup>',roundedValue,mantissa,exponent};
+    }
+    const places=format==='FIX'?Math.min(tab,10-Math.max(1,exponent+1)):Math.max(0,10-Math.max(1,exponent+1));
+    mantissa=decimalAt(value,places,format==='FIX');
+    if(format!=='FIX')mantissa=trimDecimal(mantissa);else if(!mantissa.includes('.'))mantissa+='.';
+    if(Math.abs(Number(mantissa))>=1e10)return sharpNumber(Number(mantissa),{format:'SCI',tab:Math.min(tab,9)});
+    roundedValue=Number(mantissa);
+    const text=grouped(mantissa);
+    return {text,html:escapeHtml(text),roundedValue,mantissa,exponent:null};
+  }
+  function sharpEntry(text){
+    if(text==='-')return '-0.';
+    if(!/^-?\d*(?:\.\d*)?$/.test(text)||text==='')return escapeHtml(text);
+    return escapeHtml(grouped(text.includes('.')?text:text+'.'));
+  }
+  function formatTyped(value,settings,options={}) {
+    if(typeof value==='number')return sharpNumber(value,settings).html;
+    if(typeof value==='string')return escapeHtml(value);
+    if(!value)return '';
+    if(value.kind==='scalar')return sharpNumber(value.value,settings).html;
+    if(value.kind==='rational'){
+      let numeric=Number(value.numerator)/Number(value.denominator);
+      if(Number.isNaN(numeric)){
+        const negative=value.numerator.startsWith('-'),n=value.numerator.replace(/^-/,''),d=value.denominator;
+        numeric=(negative?-1:1)*Number(n.slice(0,16))/Number(d.slice(0,16))*10**(n.length-Math.min(16,n.length)-d.length+Math.min(16,d.length));
+      }
+      return options.fraction?formatExpression(value.numerator+'/'+value.denominator):sharpNumber(numeric,settings).html;
+    }
+    if(value.kind==='dms')return `${value.sign<0?'-':''}${value.degrees}<sup>&deg;</sup>${value.minutes}&#8242;${sharpNumber(value.seconds,settings).html.replace(/\.$/,'')}&#8243;`;
+    if(value.kind==='nbase'){
+      const integer=BigInt(value.integer),encoded=integer<0n&&value.radix!==10?integer+(1n<<BigInt(value.width)):integer;
+      return escapeHtml(encoded.toString(value.radix).toUpperCase());
+    }
+    if(value.kind==='complex'){
+      const imaginary=formatTyped(value.imaginary,settings,options);
+      return formatTyped(value.real,settings,options)+(imaginary.startsWith('-')?' &minus; '+imaginary.slice(1):' + '+imaginary)+'i';
+    }
+    if(value.kind==='equation')return value.components.map(c=>escapeHtml(c.label)+' = '+formatTyped(c.value,settings,options)).join('; ');
+    if(value.kind==='matrix')return Array.from({length:value.rows},(_,row)=>value.elements.slice(row*value.columns,(row+1)*value.columns).map(v=>formatTyped(v,settings,options)).join(', ')).join('; ');
+    if(value.kind==='list')return value.elements.map(v=>formatTyped(v,settings,options)).join(', ');
+    if(value.kind==='statistics')return value.rows.map((r,i)=>'x'+(i+1)+' = '+formatTyped(r.x,settings,options)+(r.y?' y'+(i+1)+' = '+formatTyped(r.y,settings,options):'')+' w = '+sharpNumber(r.weight,settings).html).join('; ');
+    throw new TypeError('Unsupported display value');
+  }
   function formatValue(value) {
     if (!Number.isFinite(value)) {
       return "Error";
@@ -191,6 +277,15 @@
     };
     if (!options.physical) return view;
     const settings = state.layers.settings;
+    if(state.stagedEntry?.type==='exp'){
+      const stage=state.stagedEntry,exponent=Number(stage.exponent)||0;
+      view.resultHtml=sharpEntry(stage.base)+'<span class="scicalc__display-operator">&times;</span>10<sup>'+(stage.exponent.startsWith('-')?'-':'')+String(Math.abs(exponent)).padStart(2,'0')+'</sup>';
+    }
+    if(!state.stagedEntry && state.lifecycle!=='error'){
+      if(state.entry)view.resultHtml=state.entry==='-'||/^-?\d*(?:\.\d*)?$/.test(state.entry)?sharpEntry(state.entry):formatExpression(state.entry);
+      else if(state.lifecycle==='evaluated')view.resultHtml=['NORM1','NORM2'].includes(settings.format)&&['mixed','improper'].includes(state.resultMode)?formatExpression(state.displayResult):formatTyped(state.values.last,settings);
+      else if(state.displayResult!=='')view.resultHtml=sharpNumber(Number(state.displayResult)||0,settings).html;
+    }
     const workflow = state.workflow;
     const mode = state.layers.mode;
     const indicators = {
@@ -219,7 +314,7 @@
       const page = workflow.payload.pages[workflow.page];
       const label = String(page.label ?? '');
       view.expressionHtml = escapeHtml(label);
-      view.resultHtml = formatPageValue(page.value);
+      view.resultHtml = formatTyped(page.value,settings);
       view.component = String(page.component ?? '');
       view.pageStatus = `${workflow.page + 1} / ${workflow.payload.pages.length}`;
       view.previousPage = workflow.page > 0;
@@ -234,12 +329,14 @@
       const shown = choices.slice(start, start + size);
       view.expressionHtml = shown.map(choice => escapeHtml(String(choice))).join('   ');
       view.resultHtml = shown.map((choice,index) => `${start + index}${workflow.payload.selected!==undefined?workflow.payload.selected===start+index?'•':'':choice === mode || choice === settings.angle || choice === settings.format ? '•' : ''}`).join('   ');
+      if(['SETUP','ANGLE','FORMAT'].includes(workflow.payload.id))view.resultHtml=shown.map((choice,index)=>workflow.payload.id==='SETUP'&&index===2&&!['FIX','SCI','ENG'].includes(settings.format)?'':`${start+index}${workflow.payload.selected===start+index?'.':''}`).filter(Boolean).join('   ');
       view.previousPage = start > 0;
       view.nextPage = start + size < choices.length;
       view.cursorVisible = false;
     } else if (workflow.kind === 'prompt' || workflow.kind === 'data-entry') {
       view.expressionHtml = escapeHtml(String(workflow.payload.label||workflow.payload.id));
       view.resultHtml = workflow.payload.label?escapeHtml(state.entry||'0'):escapeHtml((workflow.payload.path || []).join('') || '?');
+      if(workflow.payload.id==='TAB')view.resultHtml='';
       view.cursorVisible = false;
     }
     if(state.historyIndex!==null){view.previousPage=state.historyIndex>0;view.nextPage=state.historyIndex<state.history.length-1;view.pageStatus=`${state.historyIndex+1} / ${state.history.length}`;}
@@ -260,5 +357,5 @@
     if (value?.kind === 'nbase') return escapeHtml(BigInt(value.integer).toString(value.radix).toUpperCase());
     return escapeHtml(String(value ?? ''));
   }
-  return Object.freeze({formatValue,formatExpression,renderState,formatPageValue});
+  return Object.freeze({formatValue,formatExpression,renderState,formatPageValue,sharpNumber,sharpEntry,formatTyped});
 });

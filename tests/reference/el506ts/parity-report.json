@@ -19,16 +19,16 @@
         "missing": 307
       },
       "unitTested": {
-        "pending": 424,
-        "partial": 6
+        "pending": 405,
+        "partial": 25
       },
       "goldenTested": {
-        "pending": 415,
-        "baseline-known-differences": 15
+        "pending": 410,
+        "baseline-known-differences": 20
       },
       "browserTested": {
-        "partial": 48,
-        "pending": 382
+        "partial": 60,
+        "pending": 370
       }
     },
     "guide": {
@@ -38,8 +38,8 @@
       "pending": 51
     },
     "golden": {
-      "fixtures": 9,
-      "assertedFrames": 52,
+      "fixtures": 11,
+      "assertedFrames": 88,
       "pending": 1
     },
     "verifiedFullParity": 0
@@ -83,8 +83,16 @@
       "sha256": "3d04bfe39ec1508b6d3cdc25c900aad974a293209b1b76160da36ce2bd77d353"
     },
     {
+      "path": "tests/reference/el506ts/experiments/numeric-display-ties.json",
+      "sha256": "0b9b4a747142f6c027a6095acd38f7701a856bd03d3aad32aa612c15f430893e"
+    },
+    {
       "path": "tests/reference/el506ts/experiments/phase3-power.json",
       "sha256": "0e8b45821064e425031f0bbe12a4d731af5552a9abc3212c5ac9dd742643feb9"
+    },
+    {
+      "path": "tests/reference/el506ts/experiments/phase4-mdf.json",
+      "sha256": "088d1065b736d2fd605bb6ef123b979bd57bc4088f5d8aa8155ffb9d2b4d37fb"
     },
     {
       "path": "tests/reference/el506ts/experiments/retained-answer.json",
@@ -124,11 +132,19 @@
     },
     {
       "path": "tests/reference/el506ts/golden/phase3-power.json",
-      "sha256": "ece12e823aecdcc4df9eeac877c414f325890caede7d75fb9ad411502880098c"
+      "sha256": "3154c16b9999a593e67b9bf2384f739840bc86416aac8014694efd37304f0cdd"
+    },
+    {
+      "path": "tests/reference/el506ts/golden/phase4-display-ties.json",
+      "sha256": "4d76252119c1f1ec8cfa8b87161308f78df1c4fa2176ecde5f883647aa5fa11b"
+    },
+    {
+      "path": "tests/reference/el506ts/golden/phase4-mdf.json",
+      "sha256": "78cdf00146917c45113ce7307b801ccb622c154facb40fd393fc210f33d6988a"
     },
     {
       "path": "tests/reference/el506ts/golden/physical-lcd-cursor.json",
-      "sha256": "1c41b2a58af35f54b69527b7ad31dfeca44005c068097a9b489c8d51c631e09d"
+      "sha256": "30fe88e63d335349ce2a018ad4f43028edc13e3541a54e27a916a7b381cf878a"
     },
     {
       "path": "tests/reference/el506ts/golden/retained-answer.json",
@@ -140,7 +156,7 @@
     },
     {
       "path": "tests/reference/el506ts/report-coverage.json",
-      "sha256": "d09c6f6090565a6a77bb8a644eb1db1072585534b05169b98cdb8e49f650ec07"
+      "sha256": "e82e02bb4387769680ab3927b1acc0b14df1d4495c5d96a45805fb97ddb33a13"
     },
     {
       "path": "tests/reference/el506ts/validate-guide.js",
@@ -151,16 +167,24 @@
       "sha256": "ab17f0979f3a091c993773ab4f21955c3c1781314b7ed26d718a3529dbd86dba"
     },
     {
+      "path": "tests/e2e/phase4.spec.js",
+      "sha256": "1de1bb5270674c935791db37aa07c805f759428e29033f35bbf665ee5223a067"
+    },
+    {
       "path": "tests/e2e/physical-ui.spec.js",
-      "sha256": "f2f01c7a6aa57b529dbfae8b15af5db496be5c16e49474f8020637f3b4f3c7e8"
+      "sha256": "1b0b92ff20bef726ed0d183994c69f1ecd42a3b529bcf616e2cad3d8b021b82c"
     },
     {
       "path": "tests/unit/calculator.test.js",
       "sha256": "614e78c3b7d74d2e732a21af69db615faa525da196885091d50b49ddb1816edd"
     },
     {
+      "path": "tests/unit/phase4.test.js",
+      "sha256": "5ce6a86c3ba0f684194a1ecefb2019736ec243467a36d115b1438fe182c68cba"
+    },
+    {
       "path": "tests/unit/physical-ui.test.js",
-      "sha256": "1712d81c1680ea0a78a0800364cc49665abeafb8d0ef6798ef523b9e3944bff2"
+      "sha256": "0e885e313e58741933726801aeddfcad3adf09f92776c7ca569dd744f5cafc62"
     },
     {
       "path": "tests/unit/reducer.test.js",
@@ -12079,18 +12103,89 @@
         "policy": "Frozen baseline classification; infrastructure refactors do not promote capability parity."
       },
       "unitTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "partial",
+        "evidence": [
+          {
+            "kind": "unit",
+            "path": "tests/unit/phase4.test.js",
+            "anchor": "NORM1 and NORM2 exact lower and upper boundaries",
+            "capabilityIds": [
+              "el506.setup.format.fix",
+              "el506.setup.format.sci",
+              "el506.setup.format.eng",
+              "el506.setup.format.norm1",
+              "el506.setup.format.norm2",
+              "el506.setup.angle.deg",
+              "el506.setup.angle.rad",
+              "el506.setup.angle.grad",
+              "el506.second.el506-k45",
+              "el506.setup.tab.0",
+              "el506.setup.tab.1",
+              "el506.setup.tab.2",
+              "el506.setup.tab.3",
+              "el506.setup.tab.4",
+              "el506.setup.tab.5",
+              "el506.setup.tab.6",
+              "el506.setup.tab.7",
+              "el506.setup.tab.8",
+              "el506.setup.tab.9"
+            ],
+            "scope": "Display menu, boundary, rounding, typed view, MDF and isolation assertions. Mode algorithms retain their own phases."
+          }
+        ],
         "scope": "Explicit mapped assertions only; unlisted coverage is unassessed."
       },
       "goldenTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "baseline-known-differences",
+        "evidence": [
+          {
+            "fixtureId": "phase4-mdf",
+            "status": "known-differences",
+            "assertedFrames": 16
+          }
+        ],
         "scope": "Baseline characterization only; all current supported fixtures have oracle display differences."
       },
       "browserTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "partial",
+        "evidence": [
+          {
+            "kind": "browser",
+            "path": "tests/e2e/phase4.spec.js",
+            "anchor": "MDF commits rounded display",
+            "capabilityIds": [
+              "el506.setup.format.fix",
+              "el506.setup.format.sci",
+              "el506.setup.format.eng",
+              "el506.setup.format.norm1",
+              "el506.setup.format.norm2",
+              "el506.setup.angle.rad",
+              "el506.setup.angle.grad",
+              "el506.second.el506-k45",
+              "el506.setup.tab.0",
+              "el506.setup.tab.1",
+              "el506.setup.tab.2"
+            ],
+            "scope": "Physical SET UP, SCI/ENG/FIX/NORM, native lower lines, MDF chain, typed pages and instance isolation."
+          },
+          {
+            "kind": "browser",
+            "path": "tests/e2e/golden.spec.js",
+            "anchor": "canonical baseline browser replay",
+            "fixtureIds": [
+              "phase4-display-ties",
+              "phase4-mdf"
+            ],
+            "scope": "Native lower-line formatting assertions replayed via physical keys; raw reducer upper/lower representation differences remain explicit.",
+            "capabilityIds": [
+              "el506.setup.format.fix",
+              "el506.setup.tab.1",
+              "el506.setup.tab.9",
+              "el506.setup.format.norm1",
+              "el506.second.el506-k45"
+            ]
+          }
+        ],
         "scope": "Explicit canonical baseline browser replays only; legacy regression coverage is not inferred as parity."
       }
     },
@@ -15000,8 +15095,36 @@
         "policy": "Frozen baseline classification; infrastructure refactors do not promote capability parity."
       },
       "unitTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "partial",
+        "evidence": [
+          {
+            "kind": "unit",
+            "path": "tests/unit/phase4.test.js",
+            "anchor": "NORM1 and NORM2 exact lower and upper boundaries",
+            "capabilityIds": [
+              "el506.setup.format.fix",
+              "el506.setup.format.sci",
+              "el506.setup.format.eng",
+              "el506.setup.format.norm1",
+              "el506.setup.format.norm2",
+              "el506.setup.angle.deg",
+              "el506.setup.angle.rad",
+              "el506.setup.angle.grad",
+              "el506.second.el506-k45",
+              "el506.setup.tab.0",
+              "el506.setup.tab.1",
+              "el506.setup.tab.2",
+              "el506.setup.tab.3",
+              "el506.setup.tab.4",
+              "el506.setup.tab.5",
+              "el506.setup.tab.6",
+              "el506.setup.tab.7",
+              "el506.setup.tab.8",
+              "el506.setup.tab.9"
+            ],
+            "scope": "Display menu, boundary, rounding, typed view, MDF and isolation assertions. Mode algorithms retain their own phases."
+          }
+        ],
         "scope": "Explicit mapped assertions only; unlisted coverage is unassessed."
       },
       "goldenTested": {
@@ -15046,8 +15169,36 @@
         "policy": "Frozen baseline classification; infrastructure refactors do not promote capability parity."
       },
       "unitTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "partial",
+        "evidence": [
+          {
+            "kind": "unit",
+            "path": "tests/unit/phase4.test.js",
+            "anchor": "NORM1 and NORM2 exact lower and upper boundaries",
+            "capabilityIds": [
+              "el506.setup.format.fix",
+              "el506.setup.format.sci",
+              "el506.setup.format.eng",
+              "el506.setup.format.norm1",
+              "el506.setup.format.norm2",
+              "el506.setup.angle.deg",
+              "el506.setup.angle.rad",
+              "el506.setup.angle.grad",
+              "el506.second.el506-k45",
+              "el506.setup.tab.0",
+              "el506.setup.tab.1",
+              "el506.setup.tab.2",
+              "el506.setup.tab.3",
+              "el506.setup.tab.4",
+              "el506.setup.tab.5",
+              "el506.setup.tab.6",
+              "el506.setup.tab.7",
+              "el506.setup.tab.8",
+              "el506.setup.tab.9"
+            ],
+            "scope": "Display menu, boundary, rounding, typed view, MDF and isolation assertions. Mode algorithms retain their own phases."
+          }
+        ],
         "scope": "Explicit mapped assertions only; unlisted coverage is unassessed."
       },
       "goldenTested": {
@@ -15056,8 +15207,28 @@
         "scope": "Baseline characterization only; all current supported fixtures have oracle display differences."
       },
       "browserTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "partial",
+        "evidence": [
+          {
+            "kind": "browser",
+            "path": "tests/e2e/phase4.spec.js",
+            "anchor": "MDF commits rounded display",
+            "capabilityIds": [
+              "el506.setup.format.fix",
+              "el506.setup.format.sci",
+              "el506.setup.format.eng",
+              "el506.setup.format.norm1",
+              "el506.setup.format.norm2",
+              "el506.setup.angle.rad",
+              "el506.setup.angle.grad",
+              "el506.second.el506-k45",
+              "el506.setup.tab.0",
+              "el506.setup.tab.1",
+              "el506.setup.tab.2"
+            ],
+            "scope": "Physical SET UP, SCI/ENG/FIX/NORM, native lower lines, MDF chain, typed pages and instance isolation."
+          }
+        ],
         "scope": "Explicit canonical baseline browser replays only; legacy regression coverage is not inferred as parity."
       }
     },
@@ -15090,8 +15261,36 @@
         "policy": "Frozen baseline classification; infrastructure refactors do not promote capability parity."
       },
       "unitTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "partial",
+        "evidence": [
+          {
+            "kind": "unit",
+            "path": "tests/unit/phase4.test.js",
+            "anchor": "NORM1 and NORM2 exact lower and upper boundaries",
+            "capabilityIds": [
+              "el506.setup.format.fix",
+              "el506.setup.format.sci",
+              "el506.setup.format.eng",
+              "el506.setup.format.norm1",
+              "el506.setup.format.norm2",
+              "el506.setup.angle.deg",
+              "el506.setup.angle.rad",
+              "el506.setup.angle.grad",
+              "el506.second.el506-k45",
+              "el506.setup.tab.0",
+              "el506.setup.tab.1",
+              "el506.setup.tab.2",
+              "el506.setup.tab.3",
+              "el506.setup.tab.4",
+              "el506.setup.tab.5",
+              "el506.setup.tab.6",
+              "el506.setup.tab.7",
+              "el506.setup.tab.8",
+              "el506.setup.tab.9"
+            ],
+            "scope": "Display menu, boundary, rounding, typed view, MDF and isolation assertions. Mode algorithms retain their own phases."
+          }
+        ],
         "scope": "Explicit mapped assertions only; unlisted coverage is unassessed."
       },
       "goldenTested": {
@@ -15100,8 +15299,28 @@
         "scope": "Baseline characterization only; all current supported fixtures have oracle display differences."
       },
       "browserTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "partial",
+        "evidence": [
+          {
+            "kind": "browser",
+            "path": "tests/e2e/phase4.spec.js",
+            "anchor": "MDF commits rounded display",
+            "capabilityIds": [
+              "el506.setup.format.fix",
+              "el506.setup.format.sci",
+              "el506.setup.format.eng",
+              "el506.setup.format.norm1",
+              "el506.setup.format.norm2",
+              "el506.setup.angle.rad",
+              "el506.setup.angle.grad",
+              "el506.second.el506-k45",
+              "el506.setup.tab.0",
+              "el506.setup.tab.1",
+              "el506.setup.tab.2"
+            ],
+            "scope": "Physical SET UP, SCI/ENG/FIX/NORM, native lower lines, MDF chain, typed pages and instance isolation."
+          }
+        ],
         "scope": "Explicit canonical baseline browser replays only; legacy regression coverage is not inferred as parity."
       }
     },
@@ -15134,18 +15353,94 @@
         "policy": "Frozen baseline classification; infrastructure refactors do not promote capability parity."
       },
       "unitTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "partial",
+        "evidence": [
+          {
+            "kind": "unit",
+            "path": "tests/unit/phase4.test.js",
+            "anchor": "NORM1 and NORM2 exact lower and upper boundaries",
+            "capabilityIds": [
+              "el506.setup.format.fix",
+              "el506.setup.format.sci",
+              "el506.setup.format.eng",
+              "el506.setup.format.norm1",
+              "el506.setup.format.norm2",
+              "el506.setup.angle.deg",
+              "el506.setup.angle.rad",
+              "el506.setup.angle.grad",
+              "el506.second.el506-k45",
+              "el506.setup.tab.0",
+              "el506.setup.tab.1",
+              "el506.setup.tab.2",
+              "el506.setup.tab.3",
+              "el506.setup.tab.4",
+              "el506.setup.tab.5",
+              "el506.setup.tab.6",
+              "el506.setup.tab.7",
+              "el506.setup.tab.8",
+              "el506.setup.tab.9"
+            ],
+            "scope": "Display menu, boundary, rounding, typed view, MDF and isolation assertions. Mode algorithms retain their own phases."
+          }
+        ],
         "scope": "Explicit mapped assertions only; unlisted coverage is unassessed."
       },
       "goldenTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "baseline-known-differences",
+        "evidence": [
+          {
+            "fixtureId": "phase4-display-ties",
+            "status": "known-differences",
+            "assertedFrames": 20
+          },
+          {
+            "fixtureId": "phase4-mdf",
+            "status": "known-differences",
+            "assertedFrames": 16
+          }
+        ],
         "scope": "Baseline characterization only; all current supported fixtures have oracle display differences."
       },
       "browserTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "partial",
+        "evidence": [
+          {
+            "kind": "browser",
+            "path": "tests/e2e/phase4.spec.js",
+            "anchor": "MDF commits rounded display",
+            "capabilityIds": [
+              "el506.setup.format.fix",
+              "el506.setup.format.sci",
+              "el506.setup.format.eng",
+              "el506.setup.format.norm1",
+              "el506.setup.format.norm2",
+              "el506.setup.angle.rad",
+              "el506.setup.angle.grad",
+              "el506.second.el506-k45",
+              "el506.setup.tab.0",
+              "el506.setup.tab.1",
+              "el506.setup.tab.2"
+            ],
+            "scope": "Physical SET UP, SCI/ENG/FIX/NORM, native lower lines, MDF chain, typed pages and instance isolation."
+          },
+          {
+            "kind": "browser",
+            "path": "tests/e2e/golden.spec.js",
+            "anchor": "canonical baseline browser replay",
+            "fixtureIds": [
+              "phase4-display-ties",
+              "phase4-mdf"
+            ],
+            "scope": "Native lower-line formatting assertions replayed via physical keys; raw reducer upper/lower representation differences remain explicit.",
+            "capabilityIds": [
+              "el506.setup.format.fix",
+              "el506.setup.tab.1",
+              "el506.setup.tab.9",
+              "el506.setup.format.norm1",
+              "el506.second.el506-k45"
+            ]
+          }
+        ],
         "scope": "Explicit canonical baseline browser replays only; legacy regression coverage is not inferred as parity."
       }
     },
@@ -15178,8 +15473,36 @@
         "policy": "Frozen baseline classification; infrastructure refactors do not promote capability parity."
       },
       "unitTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "partial",
+        "evidence": [
+          {
+            "kind": "unit",
+            "path": "tests/unit/phase4.test.js",
+            "anchor": "NORM1 and NORM2 exact lower and upper boundaries",
+            "capabilityIds": [
+              "el506.setup.format.fix",
+              "el506.setup.format.sci",
+              "el506.setup.format.eng",
+              "el506.setup.format.norm1",
+              "el506.setup.format.norm2",
+              "el506.setup.angle.deg",
+              "el506.setup.angle.rad",
+              "el506.setup.angle.grad",
+              "el506.second.el506-k45",
+              "el506.setup.tab.0",
+              "el506.setup.tab.1",
+              "el506.setup.tab.2",
+              "el506.setup.tab.3",
+              "el506.setup.tab.4",
+              "el506.setup.tab.5",
+              "el506.setup.tab.6",
+              "el506.setup.tab.7",
+              "el506.setup.tab.8",
+              "el506.setup.tab.9"
+            ],
+            "scope": "Display menu, boundary, rounding, typed view, MDF and isolation assertions. Mode algorithms retain their own phases."
+          }
+        ],
         "scope": "Explicit mapped assertions only; unlisted coverage is unassessed."
       },
       "goldenTested": {
@@ -15188,8 +15511,28 @@
         "scope": "Baseline characterization only; all current supported fixtures have oracle display differences."
       },
       "browserTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "partial",
+        "evidence": [
+          {
+            "kind": "browser",
+            "path": "tests/e2e/phase4.spec.js",
+            "anchor": "MDF commits rounded display",
+            "capabilityIds": [
+              "el506.setup.format.fix",
+              "el506.setup.format.sci",
+              "el506.setup.format.eng",
+              "el506.setup.format.norm1",
+              "el506.setup.format.norm2",
+              "el506.setup.angle.rad",
+              "el506.setup.angle.grad",
+              "el506.second.el506-k45",
+              "el506.setup.tab.0",
+              "el506.setup.tab.1",
+              "el506.setup.tab.2"
+            ],
+            "scope": "Physical SET UP, SCI/ENG/FIX/NORM, native lower lines, MDF chain, typed pages and instance isolation."
+          }
+        ],
         "scope": "Explicit canonical baseline browser replays only; legacy regression coverage is not inferred as parity."
       }
     },
@@ -15222,8 +15565,36 @@
         "policy": "Frozen baseline classification; infrastructure refactors do not promote capability parity."
       },
       "unitTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "partial",
+        "evidence": [
+          {
+            "kind": "unit",
+            "path": "tests/unit/phase4.test.js",
+            "anchor": "NORM1 and NORM2 exact lower and upper boundaries",
+            "capabilityIds": [
+              "el506.setup.format.fix",
+              "el506.setup.format.sci",
+              "el506.setup.format.eng",
+              "el506.setup.format.norm1",
+              "el506.setup.format.norm2",
+              "el506.setup.angle.deg",
+              "el506.setup.angle.rad",
+              "el506.setup.angle.grad",
+              "el506.second.el506-k45",
+              "el506.setup.tab.0",
+              "el506.setup.tab.1",
+              "el506.setup.tab.2",
+              "el506.setup.tab.3",
+              "el506.setup.tab.4",
+              "el506.setup.tab.5",
+              "el506.setup.tab.6",
+              "el506.setup.tab.7",
+              "el506.setup.tab.8",
+              "el506.setup.tab.9"
+            ],
+            "scope": "Display menu, boundary, rounding, typed view, MDF and isolation assertions. Mode algorithms retain their own phases."
+          }
+        ],
         "scope": "Explicit mapped assertions only; unlisted coverage is unassessed."
       },
       "goldenTested": {
@@ -15232,8 +15603,28 @@
         "scope": "Baseline characterization only; all current supported fixtures have oracle display differences."
       },
       "browserTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "partial",
+        "evidence": [
+          {
+            "kind": "browser",
+            "path": "tests/e2e/phase4.spec.js",
+            "anchor": "MDF commits rounded display",
+            "capabilityIds": [
+              "el506.setup.format.fix",
+              "el506.setup.format.sci",
+              "el506.setup.format.eng",
+              "el506.setup.format.norm1",
+              "el506.setup.format.norm2",
+              "el506.setup.angle.rad",
+              "el506.setup.angle.grad",
+              "el506.second.el506-k45",
+              "el506.setup.tab.0",
+              "el506.setup.tab.1",
+              "el506.setup.tab.2"
+            ],
+            "scope": "Physical SET UP, SCI/ENG/FIX/NORM, native lower lines, MDF chain, typed pages and instance isolation."
+          }
+        ],
         "scope": "Explicit canonical baseline browser replays only; legacy regression coverage is not inferred as parity."
       }
     },
@@ -15266,18 +15657,89 @@
         "policy": "Frozen baseline classification; infrastructure refactors do not promote capability parity."
       },
       "unitTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "partial",
+        "evidence": [
+          {
+            "kind": "unit",
+            "path": "tests/unit/phase4.test.js",
+            "anchor": "NORM1 and NORM2 exact lower and upper boundaries",
+            "capabilityIds": [
+              "el506.setup.format.fix",
+              "el506.setup.format.sci",
+              "el506.setup.format.eng",
+              "el506.setup.format.norm1",
+              "el506.setup.format.norm2",
+              "el506.setup.angle.deg",
+              "el506.setup.angle.rad",
+              "el506.setup.angle.grad",
+              "el506.second.el506-k45",
+              "el506.setup.tab.0",
+              "el506.setup.tab.1",
+              "el506.setup.tab.2",
+              "el506.setup.tab.3",
+              "el506.setup.tab.4",
+              "el506.setup.tab.5",
+              "el506.setup.tab.6",
+              "el506.setup.tab.7",
+              "el506.setup.tab.8",
+              "el506.setup.tab.9"
+            ],
+            "scope": "Display menu, boundary, rounding, typed view, MDF and isolation assertions. Mode algorithms retain their own phases."
+          }
+        ],
         "scope": "Explicit mapped assertions only; unlisted coverage is unassessed."
       },
       "goldenTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "baseline-known-differences",
+        "evidence": [
+          {
+            "fixtureId": "phase4-display-ties",
+            "status": "known-differences",
+            "assertedFrames": 20
+          }
+        ],
         "scope": "Baseline characterization only; all current supported fixtures have oracle display differences."
       },
       "browserTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "partial",
+        "evidence": [
+          {
+            "kind": "browser",
+            "path": "tests/e2e/phase4.spec.js",
+            "anchor": "MDF commits rounded display",
+            "capabilityIds": [
+              "el506.setup.format.fix",
+              "el506.setup.format.sci",
+              "el506.setup.format.eng",
+              "el506.setup.format.norm1",
+              "el506.setup.format.norm2",
+              "el506.setup.angle.rad",
+              "el506.setup.angle.grad",
+              "el506.second.el506-k45",
+              "el506.setup.tab.0",
+              "el506.setup.tab.1",
+              "el506.setup.tab.2"
+            ],
+            "scope": "Physical SET UP, SCI/ENG/FIX/NORM, native lower lines, MDF chain, typed pages and instance isolation."
+          },
+          {
+            "kind": "browser",
+            "path": "tests/e2e/golden.spec.js",
+            "anchor": "canonical baseline browser replay",
+            "fixtureIds": [
+              "phase4-display-ties",
+              "phase4-mdf"
+            ],
+            "scope": "Native lower-line formatting assertions replayed via physical keys; raw reducer upper/lower representation differences remain explicit.",
+            "capabilityIds": [
+              "el506.setup.format.fix",
+              "el506.setup.tab.1",
+              "el506.setup.tab.9",
+              "el506.setup.format.norm1",
+              "el506.second.el506-k45"
+            ]
+          }
+        ],
         "scope": "Explicit canonical baseline browser replays only; legacy regression coverage is not inferred as parity."
       }
     },
@@ -15310,8 +15772,36 @@
         "policy": "Frozen baseline classification; infrastructure refactors do not promote capability parity."
       },
       "unitTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "partial",
+        "evidence": [
+          {
+            "kind": "unit",
+            "path": "tests/unit/phase4.test.js",
+            "anchor": "NORM1 and NORM2 exact lower and upper boundaries",
+            "capabilityIds": [
+              "el506.setup.format.fix",
+              "el506.setup.format.sci",
+              "el506.setup.format.eng",
+              "el506.setup.format.norm1",
+              "el506.setup.format.norm2",
+              "el506.setup.angle.deg",
+              "el506.setup.angle.rad",
+              "el506.setup.angle.grad",
+              "el506.second.el506-k45",
+              "el506.setup.tab.0",
+              "el506.setup.tab.1",
+              "el506.setup.tab.2",
+              "el506.setup.tab.3",
+              "el506.setup.tab.4",
+              "el506.setup.tab.5",
+              "el506.setup.tab.6",
+              "el506.setup.tab.7",
+              "el506.setup.tab.8",
+              "el506.setup.tab.9"
+            ],
+            "scope": "Display menu, boundary, rounding, typed view, MDF and isolation assertions. Mode algorithms retain their own phases."
+          }
+        ],
         "scope": "Explicit mapped assertions only; unlisted coverage is unassessed."
       },
       "goldenTested": {
@@ -15320,8 +15810,28 @@
         "scope": "Baseline characterization only; all current supported fixtures have oracle display differences."
       },
       "browserTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "partial",
+        "evidence": [
+          {
+            "kind": "browser",
+            "path": "tests/e2e/phase4.spec.js",
+            "anchor": "MDF commits rounded display",
+            "capabilityIds": [
+              "el506.setup.format.fix",
+              "el506.setup.format.sci",
+              "el506.setup.format.eng",
+              "el506.setup.format.norm1",
+              "el506.setup.format.norm2",
+              "el506.setup.angle.rad",
+              "el506.setup.angle.grad",
+              "el506.second.el506-k45",
+              "el506.setup.tab.0",
+              "el506.setup.tab.1",
+              "el506.setup.tab.2"
+            ],
+            "scope": "Physical SET UP, SCI/ENG/FIX/NORM, native lower lines, MDF chain, typed pages and instance isolation."
+          }
+        ],
         "scope": "Explicit canonical baseline browser replays only; legacy regression coverage is not inferred as parity."
       }
     },
@@ -15354,8 +15864,36 @@
         "policy": "Frozen baseline classification; infrastructure refactors do not promote capability parity."
       },
       "unitTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "partial",
+        "evidence": [
+          {
+            "kind": "unit",
+            "path": "tests/unit/phase4.test.js",
+            "anchor": "NORM1 and NORM2 exact lower and upper boundaries",
+            "capabilityIds": [
+              "el506.setup.format.fix",
+              "el506.setup.format.sci",
+              "el506.setup.format.eng",
+              "el506.setup.format.norm1",
+              "el506.setup.format.norm2",
+              "el506.setup.angle.deg",
+              "el506.setup.angle.rad",
+              "el506.setup.angle.grad",
+              "el506.second.el506-k45",
+              "el506.setup.tab.0",
+              "el506.setup.tab.1",
+              "el506.setup.tab.2",
+              "el506.setup.tab.3",
+              "el506.setup.tab.4",
+              "el506.setup.tab.5",
+              "el506.setup.tab.6",
+              "el506.setup.tab.7",
+              "el506.setup.tab.8",
+              "el506.setup.tab.9"
+            ],
+            "scope": "Display menu, boundary, rounding, typed view, MDF and isolation assertions. Mode algorithms retain their own phases."
+          }
+        ],
         "scope": "Explicit mapped assertions only; unlisted coverage is unassessed."
       },
       "goldenTested": {
@@ -15364,8 +15902,28 @@
         "scope": "Baseline characterization only; all current supported fixtures have oracle display differences."
       },
       "browserTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "partial",
+        "evidence": [
+          {
+            "kind": "browser",
+            "path": "tests/e2e/phase4.spec.js",
+            "anchor": "MDF commits rounded display",
+            "capabilityIds": [
+              "el506.setup.format.fix",
+              "el506.setup.format.sci",
+              "el506.setup.format.eng",
+              "el506.setup.format.norm1",
+              "el506.setup.format.norm2",
+              "el506.setup.angle.rad",
+              "el506.setup.angle.grad",
+              "el506.second.el506-k45",
+              "el506.setup.tab.0",
+              "el506.setup.tab.1",
+              "el506.setup.tab.2"
+            ],
+            "scope": "Physical SET UP, SCI/ENG/FIX/NORM, native lower lines, MDF chain, typed pages and instance isolation."
+          }
+        ],
         "scope": "Explicit canonical baseline browser replays only; legacy regression coverage is not inferred as parity."
       }
     },
@@ -15398,18 +15956,94 @@
         "policy": "Frozen baseline classification; infrastructure refactors do not promote capability parity."
       },
       "unitTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "partial",
+        "evidence": [
+          {
+            "kind": "unit",
+            "path": "tests/unit/phase4.test.js",
+            "anchor": "NORM1 and NORM2 exact lower and upper boundaries",
+            "capabilityIds": [
+              "el506.setup.format.fix",
+              "el506.setup.format.sci",
+              "el506.setup.format.eng",
+              "el506.setup.format.norm1",
+              "el506.setup.format.norm2",
+              "el506.setup.angle.deg",
+              "el506.setup.angle.rad",
+              "el506.setup.angle.grad",
+              "el506.second.el506-k45",
+              "el506.setup.tab.0",
+              "el506.setup.tab.1",
+              "el506.setup.tab.2",
+              "el506.setup.tab.3",
+              "el506.setup.tab.4",
+              "el506.setup.tab.5",
+              "el506.setup.tab.6",
+              "el506.setup.tab.7",
+              "el506.setup.tab.8",
+              "el506.setup.tab.9"
+            ],
+            "scope": "Display menu, boundary, rounding, typed view, MDF and isolation assertions. Mode algorithms retain their own phases."
+          }
+        ],
         "scope": "Explicit mapped assertions only; unlisted coverage is unassessed."
       },
       "goldenTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "baseline-known-differences",
+        "evidence": [
+          {
+            "fixtureId": "phase4-display-ties",
+            "status": "known-differences",
+            "assertedFrames": 20
+          },
+          {
+            "fixtureId": "phase4-mdf",
+            "status": "known-differences",
+            "assertedFrames": 16
+          }
+        ],
         "scope": "Baseline characterization only; all current supported fixtures have oracle display differences."
       },
       "browserTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "partial",
+        "evidence": [
+          {
+            "kind": "browser",
+            "path": "tests/e2e/phase4.spec.js",
+            "anchor": "MDF commits rounded display",
+            "capabilityIds": [
+              "el506.setup.format.fix",
+              "el506.setup.format.sci",
+              "el506.setup.format.eng",
+              "el506.setup.format.norm1",
+              "el506.setup.format.norm2",
+              "el506.setup.angle.rad",
+              "el506.setup.angle.grad",
+              "el506.second.el506-k45",
+              "el506.setup.tab.0",
+              "el506.setup.tab.1",
+              "el506.setup.tab.2"
+            ],
+            "scope": "Physical SET UP, SCI/ENG/FIX/NORM, native lower lines, MDF chain, typed pages and instance isolation."
+          },
+          {
+            "kind": "browser",
+            "path": "tests/e2e/golden.spec.js",
+            "anchor": "canonical baseline browser replay",
+            "fixtureIds": [
+              "phase4-display-ties",
+              "phase4-mdf"
+            ],
+            "scope": "Native lower-line formatting assertions replayed via physical keys; raw reducer upper/lower representation differences remain explicit.",
+            "capabilityIds": [
+              "el506.setup.format.fix",
+              "el506.setup.tab.1",
+              "el506.setup.tab.9",
+              "el506.setup.format.norm1",
+              "el506.second.el506-k45"
+            ]
+          }
+        ],
         "scope": "Explicit canonical baseline browser replays only; legacy regression coverage is not inferred as parity."
       }
     },
@@ -15442,8 +16076,36 @@
         "policy": "Frozen baseline classification; infrastructure refactors do not promote capability parity."
       },
       "unitTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "partial",
+        "evidence": [
+          {
+            "kind": "unit",
+            "path": "tests/unit/phase4.test.js",
+            "anchor": "NORM1 and NORM2 exact lower and upper boundaries",
+            "capabilityIds": [
+              "el506.setup.format.fix",
+              "el506.setup.format.sci",
+              "el506.setup.format.eng",
+              "el506.setup.format.norm1",
+              "el506.setup.format.norm2",
+              "el506.setup.angle.deg",
+              "el506.setup.angle.rad",
+              "el506.setup.angle.grad",
+              "el506.second.el506-k45",
+              "el506.setup.tab.0",
+              "el506.setup.tab.1",
+              "el506.setup.tab.2",
+              "el506.setup.tab.3",
+              "el506.setup.tab.4",
+              "el506.setup.tab.5",
+              "el506.setup.tab.6",
+              "el506.setup.tab.7",
+              "el506.setup.tab.8",
+              "el506.setup.tab.9"
+            ],
+            "scope": "Display menu, boundary, rounding, typed view, MDF and isolation assertions. Mode algorithms retain their own phases."
+          }
+        ],
         "scope": "Explicit mapped assertions only; unlisted coverage is unassessed."
       },
       "goldenTested": {
@@ -15452,8 +16114,28 @@
         "scope": "Baseline characterization only; all current supported fixtures have oracle display differences."
       },
       "browserTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "partial",
+        "evidence": [
+          {
+            "kind": "browser",
+            "path": "tests/e2e/phase4.spec.js",
+            "anchor": "MDF commits rounded display",
+            "capabilityIds": [
+              "el506.setup.format.fix",
+              "el506.setup.format.sci",
+              "el506.setup.format.eng",
+              "el506.setup.format.norm1",
+              "el506.setup.format.norm2",
+              "el506.setup.angle.rad",
+              "el506.setup.angle.grad",
+              "el506.second.el506-k45",
+              "el506.setup.tab.0",
+              "el506.setup.tab.1",
+              "el506.setup.tab.2"
+            ],
+            "scope": "Physical SET UP, SCI/ENG/FIX/NORM, native lower lines, MDF chain, typed pages and instance isolation."
+          }
+        ],
         "scope": "Explicit canonical baseline browser replays only; legacy regression coverage is not inferred as parity."
       }
     },
@@ -15486,8 +16168,36 @@
         "policy": "Frozen baseline classification; infrastructure refactors do not promote capability parity."
       },
       "unitTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "partial",
+        "evidence": [
+          {
+            "kind": "unit",
+            "path": "tests/unit/phase4.test.js",
+            "anchor": "NORM1 and NORM2 exact lower and upper boundaries",
+            "capabilityIds": [
+              "el506.setup.format.fix",
+              "el506.setup.format.sci",
+              "el506.setup.format.eng",
+              "el506.setup.format.norm1",
+              "el506.setup.format.norm2",
+              "el506.setup.angle.deg",
+              "el506.setup.angle.rad",
+              "el506.setup.angle.grad",
+              "el506.second.el506-k45",
+              "el506.setup.tab.0",
+              "el506.setup.tab.1",
+              "el506.setup.tab.2",
+              "el506.setup.tab.3",
+              "el506.setup.tab.4",
+              "el506.setup.tab.5",
+              "el506.setup.tab.6",
+              "el506.setup.tab.7",
+              "el506.setup.tab.8",
+              "el506.setup.tab.9"
+            ],
+            "scope": "Display menu, boundary, rounding, typed view, MDF and isolation assertions. Mode algorithms retain their own phases."
+          }
+        ],
         "scope": "Explicit mapped assertions only; unlisted coverage is unassessed."
       },
       "goldenTested": {
@@ -15530,8 +16240,36 @@
         "policy": "Frozen baseline classification; infrastructure refactors do not promote capability parity."
       },
       "unitTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "partial",
+        "evidence": [
+          {
+            "kind": "unit",
+            "path": "tests/unit/phase4.test.js",
+            "anchor": "NORM1 and NORM2 exact lower and upper boundaries",
+            "capabilityIds": [
+              "el506.setup.format.fix",
+              "el506.setup.format.sci",
+              "el506.setup.format.eng",
+              "el506.setup.format.norm1",
+              "el506.setup.format.norm2",
+              "el506.setup.angle.deg",
+              "el506.setup.angle.rad",
+              "el506.setup.angle.grad",
+              "el506.second.el506-k45",
+              "el506.setup.tab.0",
+              "el506.setup.tab.1",
+              "el506.setup.tab.2",
+              "el506.setup.tab.3",
+              "el506.setup.tab.4",
+              "el506.setup.tab.5",
+              "el506.setup.tab.6",
+              "el506.setup.tab.7",
+              "el506.setup.tab.8",
+              "el506.setup.tab.9"
+            ],
+            "scope": "Display menu, boundary, rounding, typed view, MDF and isolation assertions. Mode algorithms retain their own phases."
+          }
+        ],
         "scope": "Explicit mapped assertions only; unlisted coverage is unassessed."
       },
       "goldenTested": {
@@ -15574,8 +16312,36 @@
         "policy": "Frozen baseline classification; infrastructure refactors do not promote capability parity."
       },
       "unitTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "partial",
+        "evidence": [
+          {
+            "kind": "unit",
+            "path": "tests/unit/phase4.test.js",
+            "anchor": "NORM1 and NORM2 exact lower and upper boundaries",
+            "capabilityIds": [
+              "el506.setup.format.fix",
+              "el506.setup.format.sci",
+              "el506.setup.format.eng",
+              "el506.setup.format.norm1",
+              "el506.setup.format.norm2",
+              "el506.setup.angle.deg",
+              "el506.setup.angle.rad",
+              "el506.setup.angle.grad",
+              "el506.second.el506-k45",
+              "el506.setup.tab.0",
+              "el506.setup.tab.1",
+              "el506.setup.tab.2",
+              "el506.setup.tab.3",
+              "el506.setup.tab.4",
+              "el506.setup.tab.5",
+              "el506.setup.tab.6",
+              "el506.setup.tab.7",
+              "el506.setup.tab.8",
+              "el506.setup.tab.9"
+            ],
+            "scope": "Display menu, boundary, rounding, typed view, MDF and isolation assertions. Mode algorithms retain their own phases."
+          }
+        ],
         "scope": "Explicit mapped assertions only; unlisted coverage is unassessed."
       },
       "goldenTested": {
@@ -15618,8 +16384,36 @@
         "policy": "Frozen baseline classification; infrastructure refactors do not promote capability parity."
       },
       "unitTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "partial",
+        "evidence": [
+          {
+            "kind": "unit",
+            "path": "tests/unit/phase4.test.js",
+            "anchor": "NORM1 and NORM2 exact lower and upper boundaries",
+            "capabilityIds": [
+              "el506.setup.format.fix",
+              "el506.setup.format.sci",
+              "el506.setup.format.eng",
+              "el506.setup.format.norm1",
+              "el506.setup.format.norm2",
+              "el506.setup.angle.deg",
+              "el506.setup.angle.rad",
+              "el506.setup.angle.grad",
+              "el506.second.el506-k45",
+              "el506.setup.tab.0",
+              "el506.setup.tab.1",
+              "el506.setup.tab.2",
+              "el506.setup.tab.3",
+              "el506.setup.tab.4",
+              "el506.setup.tab.5",
+              "el506.setup.tab.6",
+              "el506.setup.tab.7",
+              "el506.setup.tab.8",
+              "el506.setup.tab.9"
+            ],
+            "scope": "Display menu, boundary, rounding, typed view, MDF and isolation assertions. Mode algorithms retain their own phases."
+          }
+        ],
         "scope": "Explicit mapped assertions only; unlisted coverage is unassessed."
       },
       "goldenTested": {
@@ -15662,8 +16456,36 @@
         "policy": "Frozen baseline classification; infrastructure refactors do not promote capability parity."
       },
       "unitTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "partial",
+        "evidence": [
+          {
+            "kind": "unit",
+            "path": "tests/unit/phase4.test.js",
+            "anchor": "NORM1 and NORM2 exact lower and upper boundaries",
+            "capabilityIds": [
+              "el506.setup.format.fix",
+              "el506.setup.format.sci",
+              "el506.setup.format.eng",
+              "el506.setup.format.norm1",
+              "el506.setup.format.norm2",
+              "el506.setup.angle.deg",
+              "el506.setup.angle.rad",
+              "el506.setup.angle.grad",
+              "el506.second.el506-k45",
+              "el506.setup.tab.0",
+              "el506.setup.tab.1",
+              "el506.setup.tab.2",
+              "el506.setup.tab.3",
+              "el506.setup.tab.4",
+              "el506.setup.tab.5",
+              "el506.setup.tab.6",
+              "el506.setup.tab.7",
+              "el506.setup.tab.8",
+              "el506.setup.tab.9"
+            ],
+            "scope": "Display menu, boundary, rounding, typed view, MDF and isolation assertions. Mode algorithms retain their own phases."
+          }
+        ],
         "scope": "Explicit mapped assertions only; unlisted coverage is unassessed."
       },
       "goldenTested": {
@@ -15706,8 +16528,36 @@
         "policy": "Frozen baseline classification; infrastructure refactors do not promote capability parity."
       },
       "unitTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "partial",
+        "evidence": [
+          {
+            "kind": "unit",
+            "path": "tests/unit/phase4.test.js",
+            "anchor": "NORM1 and NORM2 exact lower and upper boundaries",
+            "capabilityIds": [
+              "el506.setup.format.fix",
+              "el506.setup.format.sci",
+              "el506.setup.format.eng",
+              "el506.setup.format.norm1",
+              "el506.setup.format.norm2",
+              "el506.setup.angle.deg",
+              "el506.setup.angle.rad",
+              "el506.setup.angle.grad",
+              "el506.second.el506-k45",
+              "el506.setup.tab.0",
+              "el506.setup.tab.1",
+              "el506.setup.tab.2",
+              "el506.setup.tab.3",
+              "el506.setup.tab.4",
+              "el506.setup.tab.5",
+              "el506.setup.tab.6",
+              "el506.setup.tab.7",
+              "el506.setup.tab.8",
+              "el506.setup.tab.9"
+            ],
+            "scope": "Display menu, boundary, rounding, typed view, MDF and isolation assertions. Mode algorithms retain their own phases."
+          }
+        ],
         "scope": "Explicit mapped assertions only; unlisted coverage is unassessed."
       },
       "goldenTested": {
@@ -15750,18 +16600,70 @@
         "policy": "Frozen baseline classification; infrastructure refactors do not promote capability parity."
       },
       "unitTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "partial",
+        "evidence": [
+          {
+            "kind": "unit",
+            "path": "tests/unit/phase4.test.js",
+            "anchor": "NORM1 and NORM2 exact lower and upper boundaries",
+            "capabilityIds": [
+              "el506.setup.format.fix",
+              "el506.setup.format.sci",
+              "el506.setup.format.eng",
+              "el506.setup.format.norm1",
+              "el506.setup.format.norm2",
+              "el506.setup.angle.deg",
+              "el506.setup.angle.rad",
+              "el506.setup.angle.grad",
+              "el506.second.el506-k45",
+              "el506.setup.tab.0",
+              "el506.setup.tab.1",
+              "el506.setup.tab.2",
+              "el506.setup.tab.3",
+              "el506.setup.tab.4",
+              "el506.setup.tab.5",
+              "el506.setup.tab.6",
+              "el506.setup.tab.7",
+              "el506.setup.tab.8",
+              "el506.setup.tab.9"
+            ],
+            "scope": "Display menu, boundary, rounding, typed view, MDF and isolation assertions. Mode algorithms retain their own phases."
+          }
+        ],
         "scope": "Explicit mapped assertions only; unlisted coverage is unassessed."
       },
       "goldenTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "baseline-known-differences",
+        "evidence": [
+          {
+            "fixtureId": "phase4-display-ties",
+            "status": "known-differences",
+            "assertedFrames": 20
+          }
+        ],
         "scope": "Baseline characterization only; all current supported fixtures have oracle display differences."
       },
       "browserTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "partial",
+        "evidence": [
+          {
+            "kind": "browser",
+            "path": "tests/e2e/golden.spec.js",
+            "anchor": "canonical baseline browser replay",
+            "fixtureIds": [
+              "phase4-display-ties",
+              "phase4-mdf"
+            ],
+            "scope": "Native lower-line formatting assertions replayed via physical keys; raw reducer upper/lower representation differences remain explicit.",
+            "capabilityIds": [
+              "el506.setup.format.fix",
+              "el506.setup.tab.1",
+              "el506.setup.tab.9",
+              "el506.setup.format.norm1",
+              "el506.second.el506-k45"
+            ]
+          }
+        ],
         "scope": "Explicit canonical baseline browser replays only; legacy regression coverage is not inferred as parity."
       }
     },

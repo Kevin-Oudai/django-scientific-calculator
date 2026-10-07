@@ -844,3 +844,45 @@ the oldest retained equation. Playback discards unfinished drafts and shares
 ten mantissa digits and two exponent digits. Buffer errors are reported when
 equals is pressed. Snapshot schema 6 adds power, idle, subtype, error, and
 internal store state; restore validates these fields before changing the UI.
+
+### Display settings and Modify
+
+SET UP exposes DRG (DEG/RAD/GRAD), FSE (FIX/SCI/ENG/NORM1/NORM2), and
+TAB. FSE pages cycle with UP/DOWN; numeric shortcuts or the selected item and
+ENT commit a setting. TAB is available under FIX, SCI, and ENG; its prompt
+accepts 0–9 directly. Reset defaults to DEG, NORM1, and TAB 9. Formatting
+changes preserve the current calculation, ANS, memory, history, and typed
+values, and resume any existing result page or coefficient prompt.
+
+NORM1 uses decimal notation for magnitudes from `1e-9` inclusive up to
+`1e10` exclusive; NORM2 starts at `.01`. The guide prints `9999999999`
+as the largest ten-digit integer; the simulator also keeps fractional values
+just above that integer in decimal notation until `1e10`. Other magnitudes
+use scientific notation.
+NORM truncates to the ten display digits, including leading fractional zeros.
+FIX rounds to the selected decimal places, capped by the ten-digit capacity.
+SCI uses TAB decimal places in its mantissa (`TAB 2` gives three significant
+digits). ENG uses exponents in multiples of three. FIX/SCI/ENG round ties away
+from zero; scientific exponents have two digits. The pinned English display
+uses decimal dots and apostrophes between integer groups. Host locale does
+not change that profile; other regional simulator variants remain unassessed.
+Entry preserves explicit decimal zeros; results follow their selected format.
+
+2ndF + 0 (MDF) commits the rounded displayed numeric result to the current
+value and ANS. For example, `5 ÷ 9` in FIX TAB 1 displays `0.6`. Multiplying
+by 9 gives `5.0`; pressing MDF first gives `5.4`. Prior history and other
+stores remain intact. MDF leaves an exact fraction in NORM unchanged.
+
+Pure typed formatting covers rational, DMS, complex, N-base, statistics,
+equation, matrix, and list values and their result pages without replacing
+their stored representation. Fraction views remain available under NORM;
+FIX/SCI/ENG display their decimal values. The numerical controllers for these
+modes are built in subsequent phases. The optional legacy layout retains its
+existing display behavior. Snapshot schema 6 remains compatible; explicit
+TAB settings in older snapshots are retained.
+
+Reference evidence is in `tests/reference/el506ts/phase-4-review.json` and
+`experiments/phase4-mdf.json`; unit, browser, and golden checks cover the
+display rules and modified versus unmodified chains. Raw reducer strings
+remain distinct from physical display markup, with those representation
+differences explicitly recorded by the golden runner.
