@@ -4,13 +4,13 @@
 - Plan status: Active
 - Current package baseline: 0.3.1
 - Target release: 1.0.0 after verified parity
-- Next item: EL506-120
+- Next item: EL506-140
 - Last updated: 2026-10-07
 
 ## Progress Overview
 
-As of 2026-10-07, **85 of 245 roadmap tasks are complete (34.7%)**, with
-**160 remaining**. The next task is **EL506-120**. These counts measure
+As of 2026-10-07, **103 of 245 roadmap tasks are complete (42.0%)**, with
+**142 remaining**. The next task is **EL506-140**. These counts measure
 completed checklist items, not elapsed effort or verified calculator parity;
 individual tasks vary in size. The detailed checklist below describes every
 remaining task and preserves its evidence and completion requirements.
@@ -20,7 +20,8 @@ foundation items). Phase 2 is complete (14/14 physical layout, display, theme,
 and access items). Phase 3 is complete (17/17 power, modes, clearing, editing,
 and playback items). Phase 4 is complete (11/11 display settings and
 formatting items). Phase 5 is complete (22/22 NORMAL entry and arithmetic
-items). Pending simulator/application behavior is visible
+items). Phase 6 is complete (18/18 angles, trigonometry, fractions, DMS,
+and coordinate items). Pending simulator/application behavior is visible
 in the generated report; phase completion does not establish full parity.
 
 | Roadmap phase | Completed | Remaining |
@@ -31,7 +32,7 @@ in the generated report; phase completion does not establish full parity.
 | Phase 3 - Power, Modes, Clear, Editing, and History | 17 | 0 |
 | Phase 4 - Display Settings and Formatting | 11 | 0 |
 | Phase 5 - NORMAL Entry and Arithmetic | 22 | 0 |
-| Phase 6 - Angles, Trigonometry, Fractions, DMS, and Coordinates | 0 | 18 |
+| Phase 6 - Angles, Trigonometry, Fractions, DMS, and Coordinates | 18 | 0 |
 | Phase 7 - Random Numbers, Constants, and Unit Conversions | 0 | 10 |
 | Phase 8 - Memories, Formula Memories, Simulation, and Solver | 0 | 14 |
 | Phase 9 - N-base Operations | 0 | 10 |
@@ -44,7 +45,7 @@ in the generated report; phase completion does not establish full parity.
 | Phase 16 - LIST Mode | 0 | 11 |
 | Phase 17 - Errors, Limits, and Cross-mode Parity | 0 | 15 |
 | Phase 18 - Security, Packaging, Compatibility, and Release | 0 | 15 |
-| **Total** | **85** | **160** |
+| **Total** | **103** | **142** |
 
 Refresh this overview's date, counts, percentage, and next task in every
 roadmap completion tracking commit, using the checklist as the source of truth.
@@ -409,7 +410,7 @@ The following order takes precedence over the phase layout and numeric IDs:
 EL506-014 -> EL506-019 -> EL506-003 -> EL506-004 -> EL506-006`
 
 The bootstrap chain and Phase 1 are complete as of 2026-10-05.
-Resume with Phase 6, EL506-120.
+Resume with Phase 7, EL506-140.
 Stable physical-key IDs
 must exist before the experiment schema and capability ledger use them. Capture
 the 0.3.1 baseline before refactoring its behavior. Unit testing, the reducer,
@@ -1650,38 +1651,157 @@ and verified on origin/main. The user explicitly requested this full phase batch
 
 ### Phase 6 - Angles, Trigonometry, Fractions, DMS, and Coordinates
 
-READY_TO_PUSH: User requested the full Phase 6 batch (EL506-120 through
-EL506-137). Local verification passed: 203 unit tests, 118 browser tests,
-147 golden frames, 7 Django tests, compileall, pip dry run, Compose
-config/build/start, installed wheel/sdist smoke (15 assets), browser inspection,
-and git diff --check. Reference evidence is in phase-6-review.json and the
-three Phase 6 experiment/golden fixtures. Snapshot schema 8 migrates schemas
-1-7. Coordinate X/Y recall is included; general memory remains Phase 8.
-The 12px key labels and legacy behavior are preserved. Checklist completion
-and the next item remain unchanged until implementation publication is verified.
+Implementation: 77d65b5b29964504e6a4cd90c585c66aaea187ef verified on origin/main.
+User requested the full Phase 6 batch. General memory remains Phase 8;
+coordinate X/Y recall is included here. Full device parity is still pending.
 
-- [ ] **EL506-120 - Match DEG, RAD, and GRAD setup selection.**
-- [ ] **EL506-121 - Match DRG cyclic value conversion and indicator changes.**
-- [ ] **EL506-122 - Match sine, cosine, and tangent.**
-- [ ] **EL506-123 - Match inverse sine, cosine, and tangent.**
-- [ ] **EL506-124 - Match hyperbolic sine, cosine, and tangent.**
-- [ ] **EL506-125 - Match inverse hyperbolic functions.**
-- [ ] **EL506-126 - Match trig singularities, large angles, inverse domains,
+- [x] **EL506-120 - Match DEG, RAD, and GRAD setup selection.**
+    Completed: 2026-10-07, commit 77d65b5b29964504e6a4cd90c585c66aaea187ef.
+    Evidence: phase-6-review.json and Phase 6 coordinate, DMS, and fraction
+    experiment/golden fixtures, with independent simulator observations.
+    Verification: npm test (203 unit, 118 browser, 147 golden frames),
+    Django (7), compileall, pip dry run, Compose config/build/start, installed
+    wheel/sdist smoke (15 assets), browser inspection and git diff --check.
+
+- [x] **EL506-121 - Match DRG cyclic value conversion and indicator changes.**
+    Completed: 2026-10-07, commit 77d65b5b29964504e6a4cd90c585c66aaea187ef.
+    Evidence: phase-6-review.json and Phase 6 coordinate, DMS, and fraction
+    experiment/golden fixtures, with independent simulator observations.
+    Verification: npm test (203 unit, 118 browser, 147 golden frames),
+    Django (7), compileall, pip dry run, Compose config/build/start, installed
+    wheel/sdist smoke (15 assets), browser inspection and git diff --check.
+
+- [x] **EL506-122 - Match sine, cosine, and tangent.**
+    Completed: 2026-10-07, commit 77d65b5b29964504e6a4cd90c585c66aaea187ef.
+    Evidence: phase-6-review.json and Phase 6 coordinate, DMS, and fraction
+    experiment/golden fixtures, with independent simulator observations.
+    Verification: npm test (203 unit, 118 browser, 147 golden frames),
+    Django (7), compileall, pip dry run, Compose config/build/start, installed
+    wheel/sdist smoke (15 assets), browser inspection and git diff --check.
+
+- [x] **EL506-123 - Match inverse sine, cosine, and tangent.**
+    Completed: 2026-10-07, commit 77d65b5b29964504e6a4cd90c585c66aaea187ef.
+    Evidence: phase-6-review.json and Phase 6 coordinate, DMS, and fraction
+    experiment/golden fixtures, with independent simulator observations.
+    Verification: npm test (203 unit, 118 browser, 147 golden frames),
+    Django (7), compileall, pip dry run, Compose config/build/start, installed
+    wheel/sdist smoke (15 assets), browser inspection and git diff --check.
+
+- [x] **EL506-124 - Match hyperbolic sine, cosine, and tangent.**
+    Completed: 2026-10-07, commit 77d65b5b29964504e6a4cd90c585c66aaea187ef.
+    Evidence: phase-6-review.json and Phase 6 coordinate, DMS, and fraction
+    experiment/golden fixtures, with independent simulator observations.
+    Verification: npm test (203 unit, 118 browser, 147 golden frames),
+    Django (7), compileall, pip dry run, Compose config/build/start, installed
+    wheel/sdist smoke (15 assets), browser inspection and git diff --check.
+
+- [x] **EL506-125 - Match inverse hyperbolic functions.**
+    Completed: 2026-10-07, commit 77d65b5b29964504e6a4cd90c585c66aaea187ef.
+    Evidence: phase-6-review.json and Phase 6 coordinate, DMS, and fraction
+    experiment/golden fixtures, with independent simulator observations.
+    Verification: npm test (203 unit, 118 browser, 147 golden frames),
+    Django (7), compileall, pip dry run, Compose config/build/start, installed
+    wheel/sdist smoke (15 assets), browser inspection and git diff --check.
+
+- [x] **EL506-126 - Match trig singularities, large angles, inverse domains,
   and mode-dependent rounding.**
-- [ ] **EL506-127 - Match fraction-entry grammar.** Cover simple, mixed,
+    Completed: 2026-10-07, commit 77d65b5b29964504e6a4cd90c585c66aaea187ef.
+    Evidence: phase-6-review.json and Phase 6 coordinate, DMS, and fraction
+    experiment/golden fixtures, with independent simulator observations.
+    Verification: npm test (203 unit, 118 browser, 147 golden frames),
+    Django (7), compileall, pip dry run, Compose config/build/start, installed
+    wheel/sdist smoke (15 assets), browser inspection and git diff --check.
+
+- [x] **EL506-127 - Match fraction-entry grammar.** Cover simple, mixed,
   negative, nested, and in-expression fractions.
-- [ ] **EL506-128 - Match exact rational arithmetic and simplification.**
-- [ ] **EL506-129 - Match fraction/decimal display toggling without losing the
+    Completed: 2026-10-07, commit 77d65b5b29964504e6a4cd90c585c66aaea187ef.
+    Evidence: phase-6-review.json and Phase 6 coordinate, DMS, and fraction
+    experiment/golden fixtures, with independent simulator observations.
+    Verification: npm test (203 unit, 118 browser, 147 golden frames),
+    Django (7), compileall, pip dry run, Compose config/build/start, installed
+    wheel/sdist smoke (15 assets), browser inspection and git diff --check.
+
+- [x] **EL506-128 - Match exact rational arithmetic and simplification.**
+    Completed: 2026-10-07, commit 77d65b5b29964504e6a4cd90c585c66aaea187ef.
+    Evidence: phase-6-review.json and Phase 6 coordinate, DMS, and fraction
+    experiment/golden fixtures, with independent simulator observations.
+    Verification: npm test (203 unit, 118 browser, 147 golden frames),
+    Django (7), compileall, pip dry run, Compose config/build/start, installed
+    wheel/sdist smoke (15 assets), browser inspection and git diff --check.
+
+- [x] **EL506-129 - Match fraction/decimal display toggling without losing the
   exact value.**
-- [ ] **EL506-130 - Match mixed/improper fraction toggling and restoration.**
-- [ ] **EL506-131 - Match fraction capacity, overflow, and decimal fallback.**
-- [ ] **EL506-132 - Match DMS entry, validation, normalization, and carry.**
-- [ ] **EL506-133 - Match reversible DMS/decimal display conversion.**
-- [ ] **EL506-134 - Match DMS arithmetic, signs, and angle-mode interaction.**
-- [ ] **EL506-135 - Match rectangular-to-polar conversion.**
-- [ ] **EL506-136 - Match polar-to-rectangular conversion.**
-- [ ] **EL506-137 - Match pair separator, component paging, quadrants, signs,
+    Completed: 2026-10-07, commit 77d65b5b29964504e6a4cd90c585c66aaea187ef.
+    Evidence: phase-6-review.json and Phase 6 coordinate, DMS, and fraction
+    experiment/golden fixtures, with independent simulator observations.
+    Verification: npm test (203 unit, 118 browser, 147 golden frames),
+    Django (7), compileall, pip dry run, Compose config/build/start, installed
+    wheel/sdist smoke (15 assets), browser inspection and git diff --check.
+
+- [x] **EL506-130 - Match mixed/improper fraction toggling and restoration.**
+    Completed: 2026-10-07, commit 77d65b5b29964504e6a4cd90c585c66aaea187ef.
+    Evidence: phase-6-review.json and Phase 6 coordinate, DMS, and fraction
+    experiment/golden fixtures, with independent simulator observations.
+    Verification: npm test (203 unit, 118 browser, 147 golden frames),
+    Django (7), compileall, pip dry run, Compose config/build/start, installed
+    wheel/sdist smoke (15 assets), browser inspection and git diff --check.
+
+- [x] **EL506-131 - Match fraction capacity, overflow, and decimal fallback.**
+    Completed: 2026-10-07, commit 77d65b5b29964504e6a4cd90c585c66aaea187ef.
+    Evidence: phase-6-review.json and Phase 6 coordinate, DMS, and fraction
+    experiment/golden fixtures, with independent simulator observations.
+    Verification: npm test (203 unit, 118 browser, 147 golden frames),
+    Django (7), compileall, pip dry run, Compose config/build/start, installed
+    wheel/sdist smoke (15 assets), browser inspection and git diff --check.
+
+- [x] **EL506-132 - Match DMS entry, validation, normalization, and carry.**
+    Completed: 2026-10-07, commit 77d65b5b29964504e6a4cd90c585c66aaea187ef.
+    Evidence: phase-6-review.json and Phase 6 coordinate, DMS, and fraction
+    experiment/golden fixtures, with independent simulator observations.
+    Verification: npm test (203 unit, 118 browser, 147 golden frames),
+    Django (7), compileall, pip dry run, Compose config/build/start, installed
+    wheel/sdist smoke (15 assets), browser inspection and git diff --check.
+
+- [x] **EL506-133 - Match reversible DMS/decimal display conversion.**
+    Completed: 2026-10-07, commit 77d65b5b29964504e6a4cd90c585c66aaea187ef.
+    Evidence: phase-6-review.json and Phase 6 coordinate, DMS, and fraction
+    experiment/golden fixtures, with independent simulator observations.
+    Verification: npm test (203 unit, 118 browser, 147 golden frames),
+    Django (7), compileall, pip dry run, Compose config/build/start, installed
+    wheel/sdist smoke (15 assets), browser inspection and git diff --check.
+
+- [x] **EL506-134 - Match DMS arithmetic, signs, and angle-mode interaction.**
+    Completed: 2026-10-07, commit 77d65b5b29964504e6a4cd90c585c66aaea187ef.
+    Evidence: phase-6-review.json and Phase 6 coordinate, DMS, and fraction
+    experiment/golden fixtures, with independent simulator observations.
+    Verification: npm test (203 unit, 118 browser, 147 golden frames),
+    Django (7), compileall, pip dry run, Compose config/build/start, installed
+    wheel/sdist smoke (15 assets), browser inspection and git diff --check.
+
+- [x] **EL506-135 - Match rectangular-to-polar conversion.**
+    Completed: 2026-10-07, commit 77d65b5b29964504e6a4cd90c585c66aaea187ef.
+    Evidence: phase-6-review.json and Phase 6 coordinate, DMS, and fraction
+    experiment/golden fixtures, with independent simulator observations.
+    Verification: npm test (203 unit, 118 browser, 147 golden frames),
+    Django (7), compileall, pip dry run, Compose config/build/start, installed
+    wheel/sdist smoke (15 assets), browser inspection and git diff --check.
+
+- [x] **EL506-136 - Match polar-to-rectangular conversion.**
+    Completed: 2026-10-07, commit 77d65b5b29964504e6a4cd90c585c66aaea187ef.
+    Evidence: phase-6-review.json and Phase 6 coordinate, DMS, and fraction
+    experiment/golden fixtures, with independent simulator observations.
+    Verification: npm test (203 unit, 118 browser, 147 golden frames),
+    Django (7), compileall, pip dry run, Compose config/build/start, installed
+    wheel/sdist smoke (15 assets), browser inspection and git diff --check.
+
+- [x] **EL506-137 - Match pair separator, component paging, quadrants, signs,
   and active angle-unit behavior.**
+    Completed: 2026-10-07, commit 77d65b5b29964504e6a4cd90c585c66aaea187ef.
+    Evidence: phase-6-review.json and Phase 6 coordinate, DMS, and fraction
+    experiment/golden fixtures, with independent simulator observations.
+    Verification: npm test (203 unit, 118 browser, 147 golden frames),
+    Django (7), compileall, pip dry run, Compose config/build/start, installed
+    wheel/sdist smoke (15 assets), browser inspection and git diff --check.
 
 ### Phase 7 - Random Numbers, Constants, and Unit Conversions
 
