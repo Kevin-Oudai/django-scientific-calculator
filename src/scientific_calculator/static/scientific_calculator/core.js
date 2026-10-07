@@ -1,8 +1,8 @@
 (function(host,factory){
   if(typeof module==='object' && module.exports && typeof document==='undefined')
-    module.exports=factory(require('./semantic-editor.js'),require('./values.js'),require('./math-engine.js'),require('./numeric-model.js'),require('./formatting.js'),require('./catalogues.js'));
-  else host.ScientificCalculatorCore=factory(host.ScientificCalculatorSemantic,host.ScientificCalculatorValues,host.ScientificCalculatorEngine,host.ScientificCalculatorNumericModel,host.ScientificCalculatorFormatting,host.ScientificCalculatorCatalogues);
-})(globalThis,function(semantic,values,bundle,numericModel,formatting,catalogues){
+    module.exports=factory(require('./semantic-editor.js'),require('./values.js'),require('./math-engine.js'),require('./numeric-model.js'),require('./formatting.js'),require('./catalogues.js'),require('./solver.js'));
+  else host.ScientificCalculatorCore=factory(host.ScientificCalculatorSemantic,host.ScientificCalculatorValues,host.ScientificCalculatorEngine,host.ScientificCalculatorNumericModel,host.ScientificCalculatorFormatting,host.ScientificCalculatorCatalogues,host.ScientificCalculatorSolver);
+})(globalThis,function(semantic,values,bundle,numericModel,formatting,catalogues,solver){
   'use strict';
   const engine=bundle.createEngine();
   const {formatValue}=formatting;
@@ -932,12 +932,12 @@
     }
     return editor;
   }
-  function initialControl() { return {power:"on",idleMs:0,submode:null,errorCode:null,arithmetic:{constant:null,percent:false},variables:Object.fromEntries(["A","B","C","D","E","F","X","Y"].map(k=>[k,0])),formulas:["","","",""],matrices:[null,null,null,null],lists:[null,null,null,null]}; }
+  function initialControl() { return {power:"on",idleMs:0,submode:null,errorCode:null,arithmetic:{constant:null,percent:false},variables:Object.fromEntries(["A","B","C","D","E","F","X","Y"].map(k=>[k,0])),formulas:[[],[],[],[]],matrices:[null,null,null,null],lists:[null,null,null,null]}; }
   function createInitialState() {
     const state = { ...createLegacyInitialState(), lifecycle: "empty", workflow: emptyWorkflow(), layers: initialLayers(), control: initialControl() };
     return { ...state, editor: editorForState(state), values: initialValues(state) };
   }
-  function initialValues(state) { return {answer:values.scalar(state.answer),last:values.scalar(state.lastValue),memory:values.scalar(state.memoryValue),statistics:{kind:"statistics",rows:state.statsValues.map(x=>({x:values.scalar(x),y:null,weight:1}))},history:state.history.map(h=>values.scalar(h.value))}; }
+  function initialValues(state) { return {variables:Object.fromEntries(["A","B","C","D","E","F","X","Y"].map(k=>[k,values.scalar(0)])),answer:values.scalar(state.answer),last:values.scalar(state.lastValue),memory:values.scalar(state.memoryValue),statistics:{kind:"statistics",rows:state.statsValues.map(x=>({x:values.scalar(x),y:null,weight:1}))},history:state.history.map(h=>values.scalar(h.value))}; }
   function evaluateTypedAst(ast, scope = {}) { return values.evaluateAst(ast, semantic, legacyNumericAdapter, scope); }
   function valuesForState(next, previous, event) {
     const typed = structuredClone(previous.values);
@@ -978,6 +978,12 @@
       if (state.lifecycle !== w.kind || !w.payload || typeof w.payload !== "object") throw new TypeError("Invalid active workflow");
       if (w.kind === "multi-result" && (!Array.isArray(w.payload.pages) || !w.payload.pages.length || w.page >= w.payload.pages.length)) throw new TypeError("Invalid result pages");
       if (w.kind !== "multi-result" && (typeof w.payload.id !== "string" || !w.payload.id)) throw new TypeError("Invalid workflow identity");
+      if(w.kind==='prompt'&&['ALGB','SOLV'].includes(w.payload.id)){
+        const p=w.payload;
+        if(typeof p.source!=='string'||p.source.length>10000||typeof p.input!=='string'||p.input.length>24||!Number.isFinite(p.defaultValue))throw new TypeError('Invalid numeric workflow');
+        if(p.id==='ALGB'&&(!Array.isArray(p.variables)||!p.variables.length||p.variables.length>9||!p.variables.every(k=>/^[A-FXYM]$/.test(k))||!Number.isInteger(p.index)||p.index<0||p.index>=p.variables.length))throw new TypeError('Invalid simulation workflow');
+        if(p.id==='SOLV'){if(!['start','dx'].includes(p.stage)||!Number.isFinite(p.start)||!Number.isFinite(p.dx))throw new TypeError('Invalid solver workflow');semantic.validateAst(p.ast);}
+      }
     }
   }
   function validateState(state) {
@@ -992,19 +998,22 @@
       || !['on','off'].includes(c.power) || !Number.isFinite(c.idleMs) || c.idleMs<0
       || !(c.submode===null || typeof c.submode==='string') || !(c.errorCode===null || Number.isInteger(c.errorCode)&&c.errorCode>=1&&c.errorCode<=10)
       || Object.keys(c.variables).sort().join()!=='A,B,C,D,E,F,X,Y' || !Object.values(c.variables).every(v=>typeof v==='number'&&Number.isFinite(v))
-      || !Array.isArray(c.formulas) || c.formulas.length!==4 || !c.formulas.every(v=>typeof v==='string')
+      || !Array.isArray(c.formulas) || c.formulas.length!==4 || !c.formulas.every(v=>Array.isArray(v))
       || !Array.isArray(c.matrices) || c.matrices.length!==4 || !Array.isArray(c.lists) || c.lists.length!==4) throw new TypeError('Invalid calculator control state');
+    if(c.formulas.reduce((n,t)=>n+physicalFormulaLength(t),0)>256)throw new TypeError('Formula memory capacity');
     for(const value of [...c.matrices,...c.lists]) if(value!==null) values.validate(value);
     if(!c.arithmetic || Object.keys(c.arithmetic).sort().join()!=='constant,percent' || typeof c.arithmetic.percent!=='boolean')throw new TypeError('Invalid arithmetic state');
     const constant=c.arithmetic.constant;
     if(constant!==null && (!constant || Object.keys(constant).sort().join()!=='operand,operator' || !['+','-', '*',':'].includes(constant.operator) || typeof constant.operand!=='string'))throw new TypeError('Invalid constant calculation');
     semantic.validateEditor(state.editor);
     if (state.editor.ast !== null) semantic.validateAst(state.editor.ast);
-    if (!state.values || Object.keys(state.values).sort().join() !== "answer,history,last,memory,statistics" || !Array.isArray(state.values.history)
+    if (!state.values || Object.keys(state.values).sort().join() !== "answer,history,last,memory,statistics,variables" || !Array.isArray(state.values.history)
       || state.values.history.length !== state.history.length || state.values.statistics?.kind !== "statistics"
       || state.values.statistics.rows.length !== state.statsValues.length) throw new TypeError("Invalid typed stores");
     for (const name of ["answer","last","memory","statistics"]) values.validate(state.values[name]);
     state.values.history.forEach(value => values.validate(value));
+    if(!state.values.variables||Object.keys(state.values.variables).sort().join()!=='A,B,C,D,E,F,X,Y')throw new TypeError('Invalid variable stores');
+    for(const v of Object.values(state.values.variables)){values.validate(v);if(!['scalar','rational','dms'].includes(v.kind)||!Number.isFinite(values.toNumber(v)))throw new TypeError('Invalid variable value');}
     const layers = state.layers;
     if (!layers || Object.keys(layers).sort().join() !== "alpha,hyp,intent,inverseHyp,mode,settings"
       || !["alpha", "hyp", "inverseHyp"].every(k => typeof layers[k] === "boolean")
@@ -1049,11 +1058,11 @@
   // part of this contract. Future modes must version and extend these fields.
   function snapshotCalculator(state) {
     validateState(state);
-    return { schemaVersion: 8, profile: "legacy-0.3.1", state: structuredClone(state) };
+    return { schemaVersion: 9, profile: "legacy-0.3.1", state: structuredClone(state) };
   }
 
   function restoreCalculator(snapshot) {
-    if (!snapshot || ![1, 2, 3, 4, 5, 6, 7, 8].includes(snapshot.schemaVersion) || snapshot.profile !== "legacy-0.3.1"
+    if (!snapshot || ![1, 2, 3, 4, 5, 6, 7, 8, 9].includes(snapshot.schemaVersion) || snapshot.profile !== "legacy-0.3.1"
       || Object.keys(snapshot).sort().join() !== "profile,schemaVersion,state") {
       throw new TypeError("Unsupported calculator snapshot");
     }
@@ -1070,6 +1079,10 @@
     if (snapshot.schemaVersion < 5) state.values = initialValues(state);
     if(snapshot.schemaVersion<6) state.control=initialControl();
     if(snapshot.schemaVersion<7) state.control.arithmetic=initialControl().arithmetic;
+    if(snapshot.schemaVersion<9){
+      if(snapshot.schemaVersion>=6)state.control.formulas=state.control.formulas.map(t=>semantic.tokenize(t,{physical:true}));
+      state.values.variables=Object.fromEntries(Object.entries(state.control.variables).map(([k,v])=>[k,values.scalar(v)]));
+    }
     validateState(state);
     return state;
   }
@@ -1211,6 +1224,11 @@
     return [...source.matchAll(pattern)].map(m=>({start:m.index,end:m.index+m[0].length,text:m[0]}));
   }
   function physicalLength(source){return physicalCells(source).length;}
+  function physicalFormulaLength(tokens){
+    const source=semantic.serialize(tokens).replace(/(?:random|dice|coin|rint)\(\)/g,'0')
+      .replace(new RegExp('\\b(?:'+semantic.functions.join('|')+')\\(','g'),'(');
+    return physicalLength(source);
+  }
   function physicalBufferUsage(source){
     // Separate pending calculations from saved left operands. Sharp specifies
     // 24 calculation slots and 10 numeric slots in NORMAL mode.
@@ -1251,7 +1269,7 @@
     const id=previous.workflow.payload.id;const choice=previous.workflow.payload.choices[index];if(choice===undefined)return previous;
     if(id==='MATH'||id==='ENG'){
       if(id==='MATH'&&index===1)return physicalMenu(previous,'ENG');
-      if(id==='MATH'&&index===0){const next=structuredClone(previous);next.workflow={kind:'prompt',payload:{id:'SOLV',keyLayer:true,path:[]},page:0,returnPhase:previous.workflow.returnPhase};next.lifecycle='prompt';return next;}
+      if(id==='MATH'&&index===0)return physicalSolverPrompt(previous,0,1e-5);
       const next=structuredClone(previous);next.workflow=emptyWorkflow();next.lifecycle=previous.workflow.returnPhase;
       try{
         if(id==='MATH'){
@@ -1310,7 +1328,7 @@
     if(source.endsWith(')')){
       let depth=0;for(let i=source.length-1;i>=0;i--){if(source[i]===')')depth++;else if(source[i]==='('&&--depth===0){const prefix=source.slice(0,i).match(/[a-z]+$/i);return source.slice(i-(prefix?.[0].length||0));}}
     }
-    return source.match(/(?:pi|ans|\d+(?:\.\d*)?(?:E[+-]?\d{1,2})?)$/)?.[0]||null;
+    return source.match(/(?:pi|ans|[A-FXYM]|\d+(?:\.\d*)?(?:E[+-]?\d{1,2})?)$/)?.[0]||null;
   }
   function physicalFlush(state,closeFunctions=true){
     const next=structuredClone(state);next.expression=physicalSource(state);next.entry='';next.stagedEntry=null;
@@ -1370,9 +1388,9 @@
       const ast=semantic.parseTokens(semantic.tokenize(normalizeMixedNumbers(closed).replaceAll(':','/'),{physical:true}),{physical:true});
       const draws=[];let cursor=0,seed=Math.floor(Math.abs(previous.control.variables.Y%1)*4294967296)>>>0;
       const random=()=>{if(cursor>=draws.length){seed=(Math.imul(seed,1664525)+1013904223)>>>0;draws.push(draws.length===0&&randomSample!==undefined?randomSample:seed/4294967296);}return draws[cursor++];};
-      const numericResult=semantic.evaluate(ast,physicalAdapter,{angleMode:previous.angleMode,answer:previous.answer,variables:previous.control.variables,random});
+      const numericResult=semantic.evaluate(ast,physicalAdapter,{angleMode:previous.angleMode,answer:previous.answer,variables:physicalVariables(previous),random});
       cursor=0;
-      let typed=values.evaluateAst(ast,semantic,physicalAdapter,{angleMode:previous.angleMode,answer:previous.values.answer,physical:true,random,variables:Object.fromEntries(Object.entries(previous.control.variables).map(([k,v])=>[k,values.scalar(v)]))});
+      let typed=values.evaluateAst(ast,semantic,physicalAdapter,{angleMode:previous.angleMode,answer:previous.values.answer,physical:true,random,variables:physicalTypedVariables(previous)});
       const number=numericResult===0?0:physicalNumeric(values.toNumber(typed));
       next.expression=closed+'=';next.displayExpression=display+'=';next.entry='';next.stagedEntry=null;next.selectionActive=false;next.cursor=next.expression.length-1;
       next.answer=next.lastValue=number;next.values.answer=next.values.last=number===0?values.scalar(0):typed;
@@ -1386,7 +1404,7 @@
       next.lifecycle='evaluated';next.control.errorCode=null;next.control.arithmetic.percent=percent;
       next.history.push({expression:next.expression,value:number,exactDisplay:''});next.values.history.push(values.copy(next.values.answer));
       while(next.history.length>1&&next.history.reduce((total,h)=>total+physicalLength(h.expression),0)>142){next.history.shift();next.values.history.shift();}
-      next.historyIndex=null;if(draws.length)next.control.variables.Y=draws.at(-1);return next;
+      next.historyIndex=null;if(draws.length)physicalStore(next,'Y',values.scalar(draws.at(-1)));return next;
     }catch(error){return physicalError(next,error instanceof RangeError?2:1);}
   }
   function physicalDmsArithmetic(ast){
@@ -1410,26 +1428,154 @@
     else if(stage.type==='dms')next.displayResult=next.resultDisplay=`dms(${stage.degrees},${stage.minutes||0},${stage.seconds||0})`;
     return next;
   }
+  function memoryPolicy(mode){
+    if(!['NORMAL','STAT','EQN','CPLX','MAT','LIST'].includes(mode))throw new TypeError('Unknown memory mode');
+    return {temporary:['NORMAL','MAT','LIST'].includes(mode),independent:['NORMAL','CPLX'].includes(mode),formula:['NORMAL','CPLX'].includes(mode),answer:mode!=='EQN'};
+  }
+  // Shared result boundary for the later mode controllers. Structured matrix,
+  // list and equation pages do not replace the previous usable ANS value.
+  function commitTypedResult(previous,value){
+    values.validate(value);const next=structuredClone(previous);next.values.last=values.copy(value);
+    if(memoryPolicy(previous.layers.mode).answer&&['scalar','rational','dms','nbase','complex'].includes(value.kind)){
+      next.values.answer=values.copy(value);next.answer=values.toNumber(value.kind==='complex'?value.real:value);
+    }
+    next.lastValue=values.toNumber(value.kind==='complex'?value.real:['matrix','list','equation','statistics'].includes(value.kind)?values.scalar(previous.lastValue):value);
+    return next;
+  }
+  function physicalVariables(state){return {...state.control.variables,M:state.memoryValue};}
+  function physicalTypedVariables(state){
+    return Object.fromEntries(Object.entries(physicalVariables(state)).map(([k,n])=>{
+      const tagged=k==='M'?state.values.memory:state.values.variables[k];
+      return [k,tagged&&tagged.kind!=='complex'&&values.toNumber(tagged)===n?values.copy(tagged):values.scalar(n)];
+    }));
+  }
+  function physicalStore(state,slot,value){
+    physicalNumeric(values.toNumber(value.kind==='complex'?value.real:value));
+    if(value.kind==='complex')physicalNumeric(values.toNumber(value.imaginary));
+    if(slot==='M'){state.values.memory=values.copy(value);state.memoryValue=values.toNumber(value.kind==='complex'?value.real:value);}
+    else {state.values.variables[slot]=values.copy(value);state.control.variables[slot]=values.toNumber(value);}
+  }
+  function physicalSolverPrompt(previous,start,dx){
+    if(previous.layers.mode!=='NORMAL')return previous;
+    const next=structuredClone(previous);
+    try{
+      const source=previous.layers.intent?.kind==='solver-result'?previous.layers.intent.source:physicalSource(previous);
+      const ast=semantic.parseTokens(semantic.tokenize(closeOpenParentheses(source).replaceAll(':','/'),{physical:true}),{physical:true});
+      if(!semantic.serialize(semantic.tokenize(source,{physical:true})).includes('X')||/(?:random|dice|coin|rint)\(/.test(source))throw new SyntaxError('Solver variable');
+      next.workflow={kind:'prompt',payload:{id:'SOLV',keyLayer:true,source,stage:'start',start,dx,input:'',defaultValue:start,ast},page:0,returnPhase:'editing'};
+      next.lifecycle='prompt';next.secondActive=false;next.layers.alpha=false;return next;
+    }catch(error){next.workflow=emptyWorkflow();return physicalError(next,error instanceof RangeError?2:1);}
+  }
+  function physicalSimulationPrompt(previous){
+    const next=structuredClone(previous);
+    try{
+      const source=physicalSource(previous);
+      semantic.parseTokens(semantic.tokenize(closeOpenParentheses(source).replaceAll(':','/'),{physical:true}),{physical:true});
+      if(/(?:random|dice|coin|rint)\(/.test(source))throw new SyntaxError('Simulation random');
+      const variables=[...new Set(semantic.tokenize(source,{physical:true}).filter(t=>t.kind==='symbol'&&/^[A-FXYM]$/.test(t.value)).map(t=>t.value))];
+      if(!variables.length)throw new SyntaxError('Simulation variables');
+      next.workflow={kind:'prompt',payload:{id:'ALGB',keyLayer:true,source,variables,index:0,input:'',defaultValue:physicalVariables(previous)[variables[0]]},page:0,returnPhase:'editing'};
+      next.lifecycle='prompt';next.secondActive=false;next.layers.alpha=false;return next;
+    }catch(error){return physicalError(next,error instanceof RangeError?2:1);}
+  }
+  function physicalPhase8Prompt(previous,next,n){
+    const p=previous.workflow.payload;
+    if(previous.workflow.kind!=='prompt'||!['ALGB','SOLV'].includes(p?.id))return null;
+    if(DIGIT_KEYS[n]!==undefined){
+      const parts=p.input.split('E'),digits=parts.at(-1).replace(/\D/g,''),digit=DIGIT_KEYS[n];
+      if(parts.length===2&&digits.length>=2)next.workflow.payload.input=parts[0]+'E'+(parts[1].startsWith('-')?'-':'')+(digits+digit).slice(-2);
+      else if(digits.length<(parts.length===2?2:10))next.workflow.payload.input+=digit;
+      return next;
+    }
+    if(n===46){if(!p.input.includes('.')&&!p.input.includes('E'))next.workflow.payload.input+=(p.input?'':'0')+'.';return next;}
+    if(n===24){if(!p.input.includes('E'))next.workflow.payload.input=(p.input||'1')+'E';return next;}
+    if(n===7){next.workflow.payload.input=p.input.slice(0,-1);return next;}
+    if(n===47){const at=p.input.indexOf('E')+1;if(at){next.workflow.payload.input=p.input.slice(0,at)+(p.input[at]==='-'?p.input.slice(at+1):'-'+p.input.slice(at));}else next.workflow.payload.input=p.input?p.input.startsWith('-')?p.input.slice(1):'-'+p.input:String(-p.defaultValue);return next;}
+    if(n!==48)return next;
+    try{
+      if(p.input&& !/^-?\d+(?:\.\d*)?(?:E-?\d+)?$/.test(p.input))throw new SyntaxError('Prompt number');
+      const number=physicalNumeric(p.input?Number(p.input):p.defaultValue);
+      if(p.id==='ALGB'){
+        physicalStore(next,p.variables[p.index],p.input?values.scalar(number):physicalTypedVariables(previous)[p.variables[p.index]]);
+        const index=p.index+1;
+        if(index<p.variables.length){next.workflow.payload.index=index;next.workflow.payload.input='';next.workflow.payload.defaultValue=physicalVariables(next)[p.variables[index]];return next;}
+        next.workflow=emptyWorkflow();return physicalCalculate(next,p.source);
+      }
+      if(p.stage==='start'){next.workflow.payload.stage='dx';next.workflow.payload.start=number;next.workflow.payload.defaultValue=p.dx;next.workflow.payload.input='';return next;}
+      const scope={angleMode:previous.angleMode,answer:previous.answer,variables:physicalVariables(previous)};
+      const root=solver.solve(x=>physicalNumeric(semantic.evaluate(p.ast,physicalAdapter,{...scope,variables:{...scope.variables,X:x}})),p.start,number,previous.control.variables.X);
+      next.workflow=emptyWorkflow();physicalStore(next,'X',values.scalar(root));
+      next=physicalCalculate(next,String(root),p.source);next.expression=p.source+'=';next.displayExpression='X=';next.editor=editorForState(next);
+      if(next.history.length)next.history.at(-1).expression=next.expression;
+      next.layers.intent={kind:'solver-result',source:p.source,dx:number};return next;
+    }catch(error){
+      if(p.id==='SOLV')physicalStore(next,'X',values.scalar(0));
+      next.workflow=emptyWorkflow();next=physicalError(next,error instanceof RangeError?2:1);
+      if(p.id==='SOLV')next.layers.intent={kind:'solver-error'};return next;
+    }
+  }
+  function physicalPhase8(previous,next,intent,n,randomSample){
+    const w=previous.workflow,mode=previous.layers.mode;
+    if(intent.kind==='symbol'&&!w.kind&&['NORMAL','MAT','LIST'].includes(mode)){
+      try{
+        if(previous.lifecycle==='evaluated'){next.expression='';next.entry='';next.stagedEntry=null;}
+        next=physicalFlush(next,false);next.expression+=intent.name;next.layers.alpha=false;next.secondActive=false;next.control.arithmetic={constant:null,percent:false};return physicalEditor(next);
+      }catch(error){return physicalError(next,error instanceof RangeError?2:1);}
+    }
+    if(previous.secondActive&&n===17&&mode==='NORMAL')return physicalSimulationPrompt(previous);
+    if(n===48&&previous.lifecycle==='evaluated'&&previous.layers.intent?.kind==='solver-result')return physicalSolverPrompt(previous,previous.lastValue,previous.layers.intent.dx);
+    if(['STO','RCL'].includes(w.payload?.id)){
+      const formula={8:0,9:1,10:2,11:3}[n],slot=MEMORY_KEYS[n];
+      if(formula===undefined&&!slot)return next;
+      const policy=memoryPolicy(mode);
+      if(formula!==undefined&&!policy.formula||slot==='M'&&!policy.independent||slot&&slot!=='M'&&!policy.temporary)return next;
+      next.workflow=emptyWorkflow();next.lifecycle=w.returnPhase;next.secondActive=false;next.layers.alpha=false;
+      try{
+        const source=physicalSource(next);
+        if(formula!==undefined){
+          if(w.payload.id==='STO'){
+            const storedSource=source||'0',tokens=semantic.tokenize(storedSource,{physical:true});
+            const capacity=next.control.formulas.reduce((total,t,i)=>total+physicalFormulaLength(i===formula?tokens:t),0);
+            if(capacity>256)throw new RangeError('Formula capacity');
+            next.control.formulas[formula]=tokens;next.displayExpression=storedSource+'→';next.resultDisplay=next.displayResult='F'+(formula+1);
+            next.lifecycle='evaluated';next.layers.intent={kind:'formula-store',slot:formula};return next;
+          }
+          const recalled=semantic.serialize(previous.control.formulas[formula]);
+          if(!recalled)return next;
+          next.expression=(w.returnPhase==='evaluated'?'':source)+recalled;next.entry='';next.stagedEntry=null;next.selectionActive=false;next.control.arithmetic={constant:null,percent:false};
+          return physicalEditor(next);
+        }
+        if(w.payload.id==='STO'){
+          const result=w.returnPhase==='evaluated'?next:physicalCalculate(next,source||'0',source||'0',false,randomSample);
+          if(result.lifecycle==='error')return result;
+          physicalStore(result,slot,result.values.last);result.displayExpression=(source||'0')+'→'+slot;result.layers.intent={kind:'memory-value',operation:'STO',slot};return result;
+        }
+        const value=slot==='M'?values.copy(previous.values.memory):physicalTypedVariables(previous)[slot];
+        if(source&&w.returnPhase!=='evaluated'){
+          next.expression=source+slot;next.entry='';next.stagedEntry=null;next=physicalEditor(next);
+          next.resultDisplay=next.displayResult=formatValue(values.toNumber(value));return next;
+        }
+        next.expression=next.displayExpression=slot+'=';next.entry='';next.stagedEntry=null;next.selectionActive=false;
+        next.lastValue=values.toNumber(value.kind==='complex'?value.real:value);next.values.last=values.copy(value);next.resultDisplay=next.displayResult=formatValue(next.lastValue);next.resultMode=value.kind==='complex'?'exact':'decimal';next.lifecycle='evaluated';next.editor=editorForState(next);next.layers.intent={kind:'memory-value',operation:'RCL',slot};return next;
+      }catch(error){return physicalError(next,error instanceof RangeError?2:1);}
+    }
+    if(n===29&&!previous.layers.alpha&&!previous.layers.hyp&&['NORMAL','CPLX'].includes(mode)&&!w.kind){
+      try{
+        const recalled=previous.layers.intent?.kind==='memory-value'&&previous.layers.intent.operation==='RCL';
+        const source=previous.lifecycle==='evaluated'?(recalled?previous.layers.intent.slot:'ans'):physicalSource(previous)||'0';
+        const result=mode==='CPLX'&&previous.lifecycle==='evaluated'?commitTypedResult(next,previous.values.last):physicalCalculate(next,source,source,false,randomSample);if(result.lifecycle==='error')return result;
+        const op=previous.secondActive?'-':'+';
+        const numeric=v=>v.kind==='dms'?values.scalar(values.toNumber(v)):v;
+        const combine=(a,b)=>values.binary(op,numeric(a),numeric(b),physicalAdapter.binary);
+        const a=previous.values.memory,b=result.values.last;
+        const combined=a.kind==='complex'||b.kind==='complex'?{kind:'complex',real:combine(a.kind==='complex'?a.real:a,b.kind==='complex'?b.real:b),imaginary:combine(a.kind==='complex'?a.imaginary:values.scalar(0),b.kind==='complex'?b.imaginary:values.scalar(0))}:combine(a,b);
+        physicalStore(result,'M',combined);if(result.values.last.kind==='complex')result.resultMode='exact';result.displayExpression=source+(previous.secondActive?'M−':'M+');result.layers.intent={kind:'memory-value',operation:previous.secondActive?'M-':'M+',slot:'M'};return result;
+      }catch(error){return physicalError(next,error instanceof RangeError?2:1);}
+    }
+    return null;
+  }
   function physicalPhase7(previous,next,intent,n,randomSample){
     const w=previous.workflow,mode=previous.layers.mode;
-    if(mode==='NORMAL'&&w.payload?.id==='RCL'&&MEMORY_KEYS[n]){
-      const slot=MEMORY_KEYS[n],value=slot==='M'?previous.memoryValue:previous.control.variables[slot];
-      next.workflow=emptyWorkflow();next.secondActive=false;next.layers.alpha=false;
-      next.expression=next.displayExpression=slot+'=';next.entry='';next.stagedEntry=null;next.selectionActive=false;
-      next.lastValue=value;next.values.last=slot==='M'?values.copy(previous.values.memory):values.scalar(value);
-      next.displayResult=next.resultDisplay=formatValue(value);next.resultMode='decimal';next.lifecycle='evaluated';next.editor=editorForState(next);
-      next.layers.intent={kind:'memory-value',operation:'RCL',slot};return next;
-    }
-    // Phase 7 catalogue results use the scalar stores already present in the
-    // foundation. General STO entry/formula workflows retain their Phase 8 owner.
-    if(mode==='NORMAL'&&w.payload?.id==='STO'&&MEMORY_KEYS[n]&&(previous.layers.intent?.kind==='catalogue-value'||previous.expression.includes('cv(')||w.returnPhase==='evaluated')){
-      const slot=MEMORY_KEYS[n];next.workflow=emptyWorkflow();next.lifecycle=w.returnPhase;
-      let source;try{source=physicalSource(next);}catch{return physicalError(next,1);}
-      const result=w.returnPhase==='evaluated'?next:physicalCalculate(next,source,source,false,randomSample);if(result.lifecycle==='error')return result;
-      if(slot==='M'){result.memoryValue=result.lastValue;result.values.memory=values.copy(result.values.last);}
-      else result.control.variables[slot]=result.lastValue;
-      result.displayExpression=source+'→'+slot;result.layers.intent={kind:'memory-value',operation:'STO',slot};return result;
-    }
     if(w.payload?.id==='CNST'){
       const digit=DIGIT_KEYS[n];if(digit===undefined)return next;
       next.workflow.payload.path.push(digit);
@@ -1554,7 +1700,7 @@
         const source=previous.lifecycle==='evaluated'?'ans':physicalSource(previous),units=['DEG','RAD','GRAD'];
         const from=previous.angleMode,to=units[(units.indexOf(from)+1)%3];
         const ast=semantic.parseTokens(semantic.tokenize(closeOpenParentheses(source),{physical:true}),{physical:true});
-        const number=semantic.evaluate(ast,physicalAdapter,{angleMode:from,answer:previous.answer,variables:previous.control.variables});
+        const number=semantic.evaluate(ast,physicalAdapter,{angleMode:from,answer:previous.answer,variables:physicalVariables(previous)});
         const degrees=from==='RAD'?number*180/Math.PI:from==='GRAD'?number*.9:number;
         const result=physicalCalculate(next,String(to==='RAD'?degrees*Math.PI/180:to==='GRAD'?degrees*10/9:degrees),source+' to '+to);
         if(result.lifecycle==='error')return result;
@@ -1567,14 +1713,14 @@
         const source=physicalSource(previous),tokens=semantic.tokenize(closeOpenParentheses(source),{physical:true});
         let depth=0,separators=[];tokens.forEach((token,i)=>{if(token.value==='(')depth++;if(token.value===')')depth--;if(token.value===','&&depth===0)separators.push(i);});
         if(separators.length!==1)throw new SyntaxError('Coordinate pair');
-        const at=separators[0],scope={angleMode:previous.angleMode,answer:previous.answer,variables:previous.control.variables};
+        const at=separators[0],scope={angleMode:previous.angleMode,answer:previous.answer,variables:physicalVariables(previous)};
         const a=semantic.evaluate(semantic.parseTokens(tokens.slice(0,at),{physical:true}),physicalAdapter,scope),b=semantic.evaluate(semantic.parseTokens(tokens.slice(at+1),{physical:true}),physicalAdapter,scope);
         let first,second;
         if(n===31){if(a===0&&b===0)throw new RangeError('Origin polar angle');first=Math.hypot(a,b);second=Math.atan2(b,a)*(scope.angleMode==='DEG'?180/Math.PI:scope.angleMode==='GRAD'?200/Math.PI:1);}
         else {if(a<0)throw new RangeError('Polar radius');first=a*physicalAdapter.call('cos',[b],scope);second=a*physicalAdapter.call('sin',[b],scope);}
         first=physicalNumeric(first);second=physicalNumeric(second);
         const result=physicalCalculate(next,String(first),n===31?'r':'x');if(result.lifecycle==='error')return result;
-        result.expression=source+'=';result.displayExpression=n===31?'r=':'x=';result.editor=editorForState(result);result.control.variables.X=first;result.control.variables.Y=second;result.control.arithmetic={constant:null,percent:false};result.history.at(-1).expression=result.expression;return result;
+        result.expression=source+'=';result.displayExpression=n===31?'r=':'x=';result.editor=editorForState(result);physicalStore(result,'X',values.scalar(first));physicalStore(result,'Y',values.scalar(second));result.control.arithmetic={constant:null,percent:false};result.history.at(-1).expression=result.expression;return result;
       }catch(error){return physicalError(next,error instanceof RangeError?2:1);}
     }
     return null;
@@ -1599,6 +1745,7 @@
       }
       return next;
     }
+    const promptKey=physicalPhase8Prompt(previous,next,n);if(promptKey)return promptKey;
     if(n===4)return physicalMenu(previous,'MODE');
     if(n===6)return physicalMenu(previous,'SETUP');
     if(n===17&&!previous.secondActive)return physicalMenu(previous,'MATH');
@@ -1619,6 +1766,7 @@
       if(n===45||n===48)return previous.workflow.payload.id==='CONFIRM_RESET'?createInitialState():physicalClear(previous,'memory');
       return next;
     }
+    const memoryKey=physicalPhase8(previous,next,intent,n,randomSample);if(memoryKey)return memoryKey;
     const catalogueKey=physicalPhase7(previous,next,intent,n,randomSample);if(catalogueKey)return catalogueKey;
     const scalarKey=physicalPhase6(previous,next,intent,n);if(scalarKey)return scalarKey;
     if(previous.layers.mode==='NORMAL'&&previous.workflow.kind===null&&!previous.layers.alpha&&!previous.layers.hyp){
@@ -1636,9 +1784,9 @@
           if(result.lifecycle==='evaluated'&&!constant){
             const ast=result.editor.ast;
             if(ast.kind==='binary'&&!ast.implied&&['+','-','*','/'].includes(ast.operator)){
-              const operand=semantic.evaluate(ast.operator==='*'?ast.left:ast.right,physicalAdapter,{angleMode:previous.angleMode,answer:previous.answer});
+              const operand=semantic.evaluate(ast.operator==='*'?ast.left:ast.right,physicalAdapter,{angleMode:previous.angleMode,answer:previous.answer,variables:physicalVariables(previous)});
               const operandAst=ast.operator==='*'?ast.left:ast.right;
-              const retained=values.evaluateAst(operandAst,semantic,physicalAdapter,{angleMode:previous.angleMode,answer:previous.values.answer,physical:true,variables:Object.fromEntries(Object.entries(previous.control.variables).map(([k,v])=>[k,values.scalar(v)]))});
+              const retained=values.evaluateAst(operandAst,semantic,physicalAdapter,{angleMode:previous.angleMode,answer:previous.values.answer,physical:true,variables:physicalTypedVariables(previous)});
               const literal=retained.kind==='rational'?`frac(0,${retained.numerator},${retained.denominator})`:String(operand).replace('e','E');
               result.control.arithmetic.constant={operator:ast.operator==='/'?':':ast.operator,operand:literal.startsWith('-')?`(${literal})`:literal};
             }
@@ -2692,7 +2840,7 @@
   return Object.freeze({
     createInitialState, reduceCalculator, snapshotCalculator, restoreCalculator,
     resolvePhysicalKey, semanticEditor: semantic, valueTypes: values, numericModel,
-    catalogues, evaluateTypedAst, evaluateExpression, evaluateExactExpression, formatValue,
+    catalogues, memoryPolicy, commitTypedResult, evaluateTypedAst, evaluateExpression, evaluateExactExpression, formatValue,
     closeOpenParentheses,
   });
 });

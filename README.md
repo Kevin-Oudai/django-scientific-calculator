@@ -811,7 +811,7 @@ The compatible `calculator.js` entry now loads local companion modules.
 `browser-adapter.js` owns root events, rendering and focus. Node consumers of
 the existing entry receive the same core API. Existing Django tags and asset
 paths need no template change; collect and deploy all package static assets
-together. State snapshots use schema 8 with the legacy profile; older schemas migrate in memory.
+together. State snapshots use schema 9 with the legacy profile; older schemas migrate in memory.
 
 Multiple template-tag embeds own independent entry, ANS, memory, statistics,
 history, modifiers, settings, token cursors and snapshots. Keyboard input
@@ -983,12 +983,12 @@ the numeric range gives Error 2. DEL corrects an entered ID; ON/C cancels.
 Physical constants and conversions can be inserted into NORMAL, STAT, EQN,
 MAT, and LIST scalar entry; CPLX excludes them. EQN coefficient entry resumes
 its existing prompt. In NORMAL, store a recalled constant or converted result with STO then A-F,
-X, Y, or M; RCL then the slot reads it without replacing ANS. Broader memory
-entry, formula memories, persistence audits and the numerical algorithms
-of later modes remain their separate roadmap phases.
+X, Y, or M; RCL then the slot reads it without replacing ANS. Broader memory entry, formula memories and persistence are described in the
+Phase 8 section below. Numerical algorithms of later modes remain their
+separate roadmap phases.
 
 The reusable package includes `catalogues.js`; the loader loads it before
-the core. Existing version 0.3.1 and snapshot schema 8 remain compatible.
+the core. Existing version 0.3.1 and earlier snapshot schemas remain compatible through migration.
 The 12px key legends, fraction layout and legacy entry points are retained.
 
 Reference evidence is recorded in `tests/reference/el506ts/phase-7-review.json`,
@@ -1084,3 +1084,59 @@ IDs reverse that pair.
 | 39/40 | atm | Pa |
 | 41/42 | mmHg (Torr) | Pa |
 | 43/44 | kgf m | J |
+
+
+## Memories, formula simulation, and solver (Phase 8)
+
+NORMAL supports A-F, X, Y and independent memory M. Press STO followed by the
+key bearing the green variable label to replace its value. Press RCL followed
+by that key to inspect a value; during an expression, RCL inserts the variable
+so it remains late bound. ALPHA followed by the variable key also inserts a
+variable. Recalling a value does not change ANS. Successful calculations and
+numeric STO update ANS. Fractions retain exact rational values in the stores.
+M+ adds the current operand to M; 2ndF M+ subtracts it. The lower display shows
+the operand, while the M indicator reflects the accumulated independent store.
+
+F1-F4 hold editable token streams, using STO followed by UP, LEFT, RIGHT or
+DOWN respectively. RCL with the same direction expands the saved expression.
+Their shared capacity is 256 calculator characters; function atoms count as
+one character. Replacement frees the previous slot's capacity. Blank STO
+stores literal zero, as observed in the simulator. MEM clear and reset delete
+the formulas. Storing a formula does not evaluate it or change ANS.
+
+For simulation, enter or recall an expression containing variables, then press
+2ndF MATH (ALGB). Variables are prompted in their order of first appearance.
+The active variable is underlined and the lower display offers its current
+stored value. Enter a numeric value and press ENT, or press ENT to retain it.
+After the last variable, ENT calculates the result. Repeat ALGB to run again
+with the retained values. ON/C cancels; previously confirmed inputs remain.
+Random expressions and formula input inside numeric prompts are rejected.
+
+For generic solving, enter an expression containing X, then MATH 0 (SOLV).
+It solves expression = 0. Enter the Start estimate (initially 0), press ENT,
+then accept or replace dx (initially 0.00001) and press ENT. Successful roots
+are stored in X and ANS. ENT repeats with the last root as the offered Start.
+A fresh MATH 0 starts at 0. Non-convergence reports Error 2 on the upper display,
+clears X, and preserves the last successful ANS. ON/C recovers or cancels.
+
+The solver uses bounded finite-difference Newton iteration (100 iterations,
+residual and relative-step checks). Positive/negative roots, repeat, zero start,
+and no-real-root failure have native observations. The simulator's private
+iteration limit and stopping criteria are unmeasured; this is not full numerical
+solver parity. Shared memory capacity is tested against the manual specification;
+a live exhaustion of all 256 characters has not been measured.
+
+ON/C, NORMAL HOME and power off/on retain memory, formulas and ANS. CA and mode
+changes clear temporary variables and ANS, while retaining M and formulas; mode
+changes clear imaginary M. MEM clear/reset clear all stores. Temporary memories
+are available in NORMAL/MAT/LIST; M and formulas in NORMAL/CPLX. ANS is available
+in NORMAL/STAT/CPLX/MAT/LIST, excluding formatted matrix/list results; EQN does
+not replace ANS. The shared typed result boundary and mode eligibility are tested;
+full numerical controllers for the later modes remain their roadmap phases.
+
+Snapshot schema 9 adds typed temporary variables and token formula stores.
+Schemas 1-8 migrate in memory, including the earlier string formula stores.
+Deploy the new `solver.js` alongside the other reusable package assets. Native
+observations and explicit gaps are recorded in `tests/reference/el506ts/phase-8-review.json`
+and the Phase 8 experiment/golden fixtures. Tests cover physical controls,
+keyboard numeric prompts, persistence, exact fractions and embed isolation.

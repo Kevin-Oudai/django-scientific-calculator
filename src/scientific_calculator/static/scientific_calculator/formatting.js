@@ -333,7 +333,7 @@
       FIX: settings.format === 'FIX', SCI: settings.format === 'SCI', ENG: settings.format === 'ENG',
       DEG: settings.angle === 'DEG', RAD: settings.angle === 'RAD', GRAD: settings.angle === 'GRAD',
       CPLX: mode === 'CPLX', MAT: mode === 'MAT', LIST: mode === 'LIST', STAT: mode === 'STAT',
-      M: state.memoryValue !== 0, BIN: false, PEN: false, OCT: false, DEC: false, HEX: false,
+      M: state.memoryValue !== 0 || state.values.memory.kind==='complex'&&(state.values.memory.imaginary.kind==='rational'?state.values.memory.imaginary.numerator!=='0':state.values.memory.imaginary.value!==0), BIN: false, PEN: false, OCT: false, DEC: false, HEX: false,
       'xy': false, 'rθ': false, '?': workflow.kind === 'prompt', '∠': false, 'i': false,
     };
     if (state.values.last.kind === 'nbase') indicators[({2:'BIN',5:'PEN',8:'OCT',10:'DEC',16:'HEX'})[state.values.last.radix]] = true;
@@ -374,8 +374,21 @@
       view.nextPage = start + size < choices.length;
       view.cursorVisible = false;
     } else if (workflow.kind === 'prompt' || workflow.kind === 'data-entry') {
+      const retainedResultHtml=view.resultHtml;
       view.expressionHtml = escapeHtml(String(workflow.payload.label||workflow.payload.id));
       view.resultHtml = workflow.payload.label?escapeHtml(state.entry||'0'):escapeHtml((workflow.payload.path || []).join('') || '?');
+      if(['STO','RCL'].includes(workflow.payload.id)){
+        view.expressionHtml=expression?formatExpression(physicalExpression(expressionForDisplay())):'';
+        view.resultHtml=state.stagedEntry?retainedResultHtml:workflow.returnPhase==='evaluated'
+          ? ['mixed','improper'].includes(state.resultMode)?formatExpression(state.displayResult):formatTyped(state.values.last,settings)
+          :retainedResultHtml;indicators['?']=false;
+      }
+      if(['ALGB','SOLV'].includes(workflow.payload.id)){
+        const p=workflow.payload;
+        view.expressionHtml=p.id==='SOLV'?escapeHtml(p.stage==='start'?'Start?':'dx?'):formatExpression(physicalExpression(p.source)).replace(new RegExp('(?<![a-zA-Z])'+p.variables[p.index]+'(?![a-zA-Z])','g'),'<u>'+p.variables[p.index]+'</u>');
+        view.resultHtml=p.input?sharpEntry(p.input):sharpNumber(p.defaultValue,settings).html;
+        view.cursorVisible=false;indicators['?']=p.id==='ALGB';
+      }
       if(workflow.payload.id==='TAB')view.resultHtml='';
       if(workflow.payload.id==='CNST'){view.expressionHtml='';view.resultHtml=escapeHtml('01-52 ['+(workflow.payload.path||[]).join('')+']');}
       if(workflow.payload.id==='CONV'){view.expressionHtml=formatExpression(physicalExpression(workflow.payload.source)+'→cv');view.resultHtml=sharpEntry((workflow.payload.path||[]).join('')||'0');indicators['?']=false;}
@@ -386,6 +399,9 @@
       view.expressionHtml='';view.resultHtml='';view.cursorVisible=false;view.pageStatus='';view.previousPage=false;view.nextPage=false;
       for(const key of Object.keys(indicators))indicators[key]=false;
     }
+    if(options.physical&&state.layers.intent?.kind==='memory-value'&&['M+','M-'].includes(state.layers.intent.operation))view.expressionHtml=view.expressionHtml.replace('Ans','ANS');
+    if(state.layers.intent?.kind==='formula-store'){view.resultHtml=escapeHtml(state.displayResult);view.cursorVisible=false;}
+    if(state.layers.intent?.kind==='solver-error'){view.expressionHtml=escapeHtml('Error '+state.control.errorCode);view.resultHtml='';}
     view.indicators = indicators;
     if (!view.cursorVisible) view.cursorPosition = null;
     return view;

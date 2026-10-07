@@ -3,7 +3,7 @@ const core=require('../../src/scientific_calculator/static/scientific_calculator
 const fmt=require('../../src/scientific_calculator/static/scientific_calculator/formatting.js');
 const press=(s,n)=>core.reduceCalculator(s,{type:'physical-key',id:`EL506-K${String(n).padStart(2,'0')}`});
 const sequence=(numbers,s=core.createInitialState())=>numbers.reduce(press,s);
-function stores(){const s=sequence([41,43,42,48]);s.memoryValue=7;s.values.memory=core.valueTypes.scalar(7);s.statsValues=[2];s.values.statistics.rows=[{x:core.valueTypes.scalar(2),y:null,weight:1}];s.control.variables.A=8;s.control.formulas[0]='2+3';s.control.matrices[0]={kind:'matrix',rows:1,columns:1,elements:[core.valueTypes.scalar(1)]};return s;}
+function stores(){const s=sequence([41,43,42,48]);s.memoryValue=7;s.values.memory=core.valueTypes.scalar(7);s.statsValues=[2];s.values.statistics.rows=[{x:core.valueTypes.scalar(2),y:null,weight:1}];s.control.variables.A=8;s.control.formulas[0]=core.semanticEditor.tokenize('2+3',{physical:true});s.control.matrices[0]={kind:'matrix',rows:1,columns:1,elements:[core.valueTypes.scalar(1)]};return s;}
 test('OFF blanks all display state, ignores other keys and ON/C wakes with retained values',()=>{
   const s=stores(),off=sequence([3,2],s),view=fmt.renderState(off,{physical:true});
   assert.equal(off.control.power,'off');assert.equal(view.resultHtml,'');assert.ok(Object.values(view.indicators).every(v=>!v));assert.deepEqual(press(off,40),off);
@@ -15,7 +15,7 @@ test('idle uses deterministic elapsed time and activity resets the ten-minute in
 });
 test('ON/C preserves all stores while CA preserves only M and formulas',()=>{
   const s=stores();assert.equal(press(s,2).answer,5);assert.equal(press(s,2).statsValues.length,1);
-  const clear=sequence([3,4],s);assert.equal(clear.answer,0);assert.equal(clear.memoryValue,7);assert.equal(clear.statsValues.length,0);assert.equal(clear.control.variables.A,0);assert.equal(clear.control.matrices[0],null);assert.equal(clear.control.formulas[0],'2+3');assert.equal(clear.history.length,0);
+  const clear=sequence([3,4],s);assert.equal(clear.answer,0);assert.equal(clear.memoryValue,7);assert.equal(clear.statsValues.length,0);assert.equal(clear.control.variables.A,0);assert.equal(clear.control.matrices[0],null);assert.equal(core.semanticEditor.serialize(clear.control.formulas[0]),'2+3');assert.equal(clear.history.length,0);
 });
 test('HOME in NORMAL retains ANS, HOME from another mode follows mode clearing',()=>{
   const s=stores();assert.equal(press(s,1).answer,5);s.layers.mode='STAT';assert.equal(press(s,1).answer,0);assert.equal(press(s,1).layers.mode,'NORMAL');assert.equal(press(s,1).memoryValue,7);
@@ -36,7 +36,7 @@ test('M-CLR confirms with zero or ENT and reset restores settings and every stor
   const s=stores();s.layers.settings.insert=false;s.layers.settings.angle='RAD';s.angleMode='RAD';
   const pending=sequence([3,47,40],s);assert.equal(pending.workflow.payload.label,'RESET?');assert.equal(press(pending,2).memoryValue,7);
   assert.deepEqual(press(pending,48),core.createInitialState());assert.deepEqual(core.reduceCalculator(s,{type:'reset'}),core.createInitialState());
-  const clear=sequence([3,47,45,45],s);assert.equal(clear.memoryValue,0);assert.equal(clear.control.formulas[0],'');assert.equal(clear.layers.settings.angle,'RAD');assert.equal(clear.layers.settings.insert,false);
+  const clear=sequence([3,47,45,45],s);assert.equal(clear.memoryValue,0);assert.deepEqual(clear.control.formulas[0],[]);assert.equal(clear.layers.settings.angle,'RAD');assert.equal(clear.layers.settings.insert,false);
 });
 test('modifier consumption, inverse HYP ordering and INS survive clear and mode changes',()=>{
   const s=sequence([12,3]);assert.equal(core.resolvePhysicalKey(s,'EL506-K13').name,'asinh');assert.equal(press(s,2).layers.hyp,false);
@@ -74,7 +74,7 @@ test('post-result digits start fresh, arithmetic continues from ANS, modifier pr
   const s=sequence([41,43,42,48]);assert.equal(press(s,40).entry,'1');assert.equal(sequence([43,41,48],s).answer,7);assert.equal(press(s,3).answer,5);
 });
 test('control snapshots migrate schema 5 and reject malformed power/storage state atomically',()=>{
-  const snap=core.snapshotCalculator(stores());assert.equal(snap.schemaVersion,8);const old=structuredClone(snap);old.schemaVersion=5;delete old.state.control;assert.equal(core.restoreCalculator(old).control.power,'on');
+  const snap=core.snapshotCalculator(stores());assert.equal(snap.schemaVersion,9);const old=structuredClone(snap);old.schemaVersion=5;delete old.state.control;assert.equal(core.restoreCalculator(old).control.power,'on');
   const bad=structuredClone(snap);bad.state.control.power='awake';assert.throws(()=>core.restoreCalculator(bad),TypeError);assert.equal(snap.state.control.power,'on');
 });
 

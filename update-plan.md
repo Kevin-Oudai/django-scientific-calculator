@@ -1934,6 +1934,25 @@ continue in Phase 8.
 
 ### Phase 8 - Memories, Formula Memories, Simulation, and Solver
 
+READY_TO_PUSH (2026-10-07): user requested the full EL506-160 through
+EL506-173 Phase 8 batch. Temporary/independent memories, typed scalar stores,
+editable token formulas, first-appearance ALGB prompts and generic SOLV are
+implemented. Significant native memory/formula/ALGB/solver frames are recorded
+in phase-8-review.json and Phase 8 experiment/golden fixtures. Blank formula
+STO stores zero; MEM clear/reset delete formulas. Snapshot 9 migrates 1-8.
+Memory eligibility and typed ANS boundaries for later modes are tested;
+their full numerical controllers remain later phases. The solver reproduces
+observed roots and failure but its private native iteration limit/stopping
+criteria are unmeasured; no full numerical parity is claimed.
+Verification: npm test passed (345 unit, 134 browser, 226 golden frames),
+then final full unit suite (350) and focused edge/module/browser rechecks;
+Django (7), compileall, pip dry run, Compose config/build/start, installed
+wheel/sdist smoke (17 assets), report check, actual browser inspection and
+git diff --check. The user-owned OperationGuide_EL506TS.pdf stays untracked.
+Leave all 14 checkboxes unchecked and Next item on EL506-160 until the
+implementation commit is pushed and its exact remote SHA is verified.
+
+
 - [ ] **EL506-160 - Implement temporary memories A-F, X, and Y.**
 - [ ] **EL506-161 - Match STO selection, overwrite, cancellation, and display.**
 - [ ] **EL506-162 - Match RCL selection and recalled-value insertion.**

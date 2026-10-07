@@ -5,7 +5,7 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "django-scientific-calculator"
 version = "0.3.1"
-description = "Reusable Django scientific calculator with physical keys, NORMAL arithmetic, angles, fractions, DMS, coordinates, random numbers, constants, unit conversions, and local themes."
+description = "Reusable Django scientific calculator with physical keys, NORMAL arithmetic, angles, fractions, DMS, coordinates, random numbers, constants, unit conversions, memories, formula simulation, a numerical solver, and local themes."
 readme = "README.md"
 requires-python = ">=3.10"
 authors = [

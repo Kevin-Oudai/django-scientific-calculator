@@ -83,7 +83,7 @@
           button.setAttribute('aria-label',`${meanings.join('; ')}${active?`; active: ${active}`:''}`);
         }
         const status=Object.entries(view.indicators).filter(([,active])=>active).map(([label])=>label).join(', ');
-        const pending=['pending','symbol','statistic','memory-selection'].includes(state.layers.intent?.kind) ? '. Selected operation awaits its later roadmap implementation.' : '';
+        const pending=['pending','statistic','memory-selection'].includes(state.layers.intent?.kind) ? '. Selected operation awaits its later roadmap implementation.' : '';
         const spokenDisplay=element=>{
           const copy=element.cloneNode(true);
           for(const fraction of copy.querySelectorAll('.scicalc__display-fraction')){

@@ -46,7 +46,7 @@
     {
       "afterStep": 2,
       "assertions": {
-        "displayExpression": "M=",
+        "displayExpression": "7M+",
         "displayResult": "7",
         "lifecycle": "evaluated",
         "control.power": "on",
@@ -58,7 +58,7 @@
     {
       "afterStep": 3,
       "assertions": {
-        "displayExpression": "M=",
+        "displayExpression": "7M+",
         "displayResult": "7",
         "lifecycle": "evaluated",
         "control.power": "on",
@@ -113,7 +113,7 @@
         "memoryValue": 7,
         "secondActive": false
       },
-      "domResultText": "?"
+      "domResultText": "0."
     },
     {
       "afterStep": 8,
@@ -143,21 +143,9 @@
     },
     {
       "afterStep": 2,
-      "field": "displayExpression",
-      "expected": "7M+",
-      "actual": "M="
-    },
-    {
-      "afterStep": 2,
       "field": "displayResult",
       "expected": "7.",
       "actual": "7"
-    },
-    {
-      "afterStep": 3,
-      "field": "displayExpression",
-      "expected": "7M+",
-      "actual": "M="
     },
     {
       "afterStep": 3,

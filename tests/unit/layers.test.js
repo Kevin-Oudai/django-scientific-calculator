@@ -24,7 +24,7 @@ test('menus and memory prompts accept only their declared physical selections', 
   assert.equal(s.angleMode,'RAD');
   s=press(s,2); assert.equal(s.layers.settings.angle,'RAD');
   s=press(s,28); assert.equal(s.lifecycle,'prompt');
-  s=press(s,18); assert.deepEqual(s.layers.intent,{kind:'memory-selection',operation:'STO',slot:'A'});
+  s=press(s,18); assert.deepEqual(s.layers.intent,{kind:'memory-value',operation:'STO',slot:'A'});
   for(const n of [3,41,45,40]) s=press(s,n);
   assert.deepEqual(s.layers.intent,{kind:'catalogue-value',menu:'CNST',index:1});
   assert.deepEqual(core.restoreCalculator(core.snapshotCalculator(s)),s);

@@ -7,6 +7,8 @@ test('compatible Node entry exports the same DOM-independent core and formatter'
   const sandbox={document:new Proxy({}, {get(){throw new Error('Unexpected DOM dependency');}}),module:{exports:{host:true}},structuredClone,
     ScientificCalculatorSemantic:core.semanticEditor,ScientificCalculatorValues:core.valueTypes,
     ScientificCalculatorEngine:require(path.join(dir,'math-engine.js')),ScientificCalculatorNumericModel:core.numericModel,ScientificCalculatorFormatting:formatting,ScientificCalculatorCatalogues:core.catalogues};
+  vm.runInNewContext(fs.readFileSync(path.join(dir,'solver.js'),'utf8'),sandbox);
+  assert.equal(typeof sandbox.ScientificCalculatorSolver.solve,'function');
   vm.runInNewContext(fs.readFileSync(path.join(dir,'core.js'),'utf8'),sandbox);
   assert.deepEqual(sandbox.module.exports,{host:true});
   assert.equal(sandbox.ScientificCalculatorCore.evaluateExpression('1+2','DEG',0),3);

@@ -1,0 +1,619 @@
+{
+  "schemaVersion": 1,
+  "id": "phase8-memory",
+  "dispatch": "physical",
+  "displayProfile": "physical",
+  "status": "baseline-characterization",
+  "reference": "experiments/phase8-memory.json",
+  "sequence": [
+    "EL506-K30",
+    "EL506-K28",
+    "EL506-K18",
+    "EL506-K02",
+    "EL506-K41",
+    "EL506-K43",
+    "EL506-K27",
+    "EL506-K18",
+    "EL506-K48",
+    "EL506-K29",
+    "EL506-K02",
+    "EL506-K05",
+    "EL506-K19",
+    "EL506-K43",
+    "EL506-K05",
+    "EL506-K18",
+    "EL506-K28",
+    "EL506-K08",
+    "EL506-K02",
+    "EL506-K27",
+    "EL506-K08",
+    "EL506-K03",
+    "EL506-K17",
+    "EL506-K10",
+    "EL506-K11",
+    "EL506-K41",
+    "EL506-K48",
+    "EL506-K48",
+    "EL506-K03",
+    "EL506-K17",
+    "EL506-K02"
+  ],
+  "capabilityIds": [
+    "el506.formula.f1",
+    "el506.memory.a.store"
+  ],
+  "expected": [
+    {
+      "afterStep": 0,
+      "assertions": {
+        "displayExpression": "",
+        "displayResult": "0",
+        "lifecycle": "empty",
+        "answer": 0,
+        "memoryValue": 0,
+        "workflow.kind": null,
+        "control.variables.A": 0,
+        "control.variables.B": 0,
+        "control.variables.X": 0
+      },
+      "domResultText": "0."
+    },
+    {
+      "afterStep": 1,
+      "assertions": {
+        "displayExpression": "",
+        "displayResult": "7",
+        "lifecycle": "entering",
+        "answer": 0,
+        "memoryValue": 0,
+        "workflow.kind": null,
+        "control.variables.A": 0,
+        "control.variables.B": 0,
+        "control.variables.X": 0
+      },
+      "domResultText": "7."
+    },
+    {
+      "afterStep": 2,
+      "assertions": {
+        "displayExpression": "",
+        "displayResult": "7",
+        "lifecycle": "prompt",
+        "answer": 0,
+        "memoryValue": 0,
+        "workflow.kind": "prompt",
+        "control.variables.A": 0,
+        "control.variables.B": 0,
+        "control.variables.X": 0
+      },
+      "domResultText": "7."
+    },
+    {
+      "afterStep": 3,
+      "assertions": {
+        "displayExpression": "7→A",
+        "displayResult": "7",
+        "lifecycle": "evaluated",
+        "answer": 7,
+        "memoryValue": 0,
+        "workflow.kind": null,
+        "control.variables.A": 7,
+        "control.variables.B": 0,
+        "control.variables.X": 0
+      },
+      "domResultText": "7."
+    },
+    {
+      "afterStep": 4,
+      "assertions": {
+        "displayExpression": "",
+        "displayResult": "0",
+        "lifecycle": "empty",
+        "answer": 7,
+        "memoryValue": 0,
+        "workflow.kind": null,
+        "control.variables.A": 7,
+        "control.variables.B": 0,
+        "control.variables.X": 0
+      },
+      "domResultText": "0."
+    },
+    {
+      "afterStep": 5,
+      "assertions": {
+        "displayExpression": "",
+        "displayResult": "2",
+        "lifecycle": "entering",
+        "answer": 7,
+        "memoryValue": 0,
+        "workflow.kind": null,
+        "control.variables.A": 7,
+        "control.variables.B": 0,
+        "control.variables.X": 0
+      },
+      "domResultText": "2."
+    },
+    {
+      "afterStep": 6,
+      "assertions": {
+        "displayExpression": "2+",
+        "displayResult": "0",
+        "lifecycle": "entering",
+        "answer": 7,
+        "memoryValue": 0,
+        "workflow.kind": null,
+        "control.variables.A": 7,
+        "control.variables.B": 0,
+        "control.variables.X": 0
+      },
+      "domResultText": "0."
+    },
+    {
+      "afterStep": 7,
+      "assertions": {
+        "displayExpression": "2+",
+        "displayResult": "0",
+        "lifecycle": "prompt",
+        "answer": 7,
+        "memoryValue": 0,
+        "workflow.kind": "prompt",
+        "control.variables.A": 7,
+        "control.variables.B": 0,
+        "control.variables.X": 0
+      },
+      "domResultText": "0."
+    },
+    {
+      "afterStep": 8,
+      "assertions": {
+        "displayExpression": "2+A",
+        "displayResult": "7",
+        "lifecycle": "entering",
+        "answer": 7,
+        "memoryValue": 0,
+        "workflow.kind": null,
+        "control.variables.A": 7,
+        "control.variables.B": 0,
+        "control.variables.X": 0
+      },
+      "domResultText": "7."
+    },
+    {
+      "afterStep": 9,
+      "assertions": {
+        "displayExpression": "2+A=",
+        "displayResult": "9",
+        "lifecycle": "evaluated",
+        "answer": 9,
+        "memoryValue": 0,
+        "workflow.kind": null,
+        "control.variables.A": 7,
+        "control.variables.B": 0,
+        "control.variables.X": 0
+      },
+      "domResultText": "9."
+    },
+    {
+      "afterStep": 10,
+      "assertions": {
+        "displayExpression": "ansM+",
+        "displayResult": "9",
+        "lifecycle": "evaluated",
+        "answer": 9,
+        "memoryValue": 9,
+        "workflow.kind": null,
+        "control.variables.A": 7,
+        "control.variables.B": 0,
+        "control.variables.X": 0
+      },
+      "domResultText": "9."
+    },
+    {
+      "afterStep": 11,
+      "assertions": {
+        "displayExpression": "",
+        "displayResult": "0",
+        "lifecycle": "empty",
+        "answer": 9,
+        "memoryValue": 9,
+        "workflow.kind": null,
+        "control.variables.A": 7,
+        "control.variables.B": 0,
+        "control.variables.X": 0
+      },
+      "domResultText": "0."
+    },
+    {
+      "afterStep": 12,
+      "assertions": {
+        "displayExpression": "",
+        "displayResult": "0",
+        "lifecycle": "empty",
+        "answer": 9,
+        "memoryValue": 9,
+        "workflow.kind": null,
+        "control.variables.A": 7,
+        "control.variables.B": 0,
+        "control.variables.X": 0
+      },
+      "domResultText": "0."
+    },
+    {
+      "afterStep": 13,
+      "assertions": {
+        "displayExpression": "B",
+        "displayResult": "0",
+        "lifecycle": "entering",
+        "answer": 9,
+        "memoryValue": 9,
+        "workflow.kind": null,
+        "control.variables.A": 7,
+        "control.variables.B": 0,
+        "control.variables.X": 0
+      },
+      "domResultText": "0."
+    },
+    {
+      "afterStep": 14,
+      "assertions": {
+        "displayExpression": "B+",
+        "displayResult": "0",
+        "lifecycle": "entering",
+        "answer": 9,
+        "memoryValue": 9,
+        "workflow.kind": null,
+        "control.variables.A": 7,
+        "control.variables.B": 0,
+        "control.variables.X": 0
+      },
+      "domResultText": "0."
+    },
+    {
+      "afterStep": 15,
+      "assertions": {
+        "displayExpression": "B+",
+        "displayResult": "0",
+        "lifecycle": "entering",
+        "answer": 9,
+        "memoryValue": 9,
+        "workflow.kind": null,
+        "control.variables.A": 7,
+        "control.variables.B": 0,
+        "control.variables.X": 0
+      },
+      "domResultText": "0."
+    },
+    {
+      "afterStep": 16,
+      "assertions": {
+        "displayExpression": "B+A",
+        "displayResult": "0",
+        "lifecycle": "entering",
+        "answer": 9,
+        "memoryValue": 9,
+        "workflow.kind": null,
+        "control.variables.A": 7,
+        "control.variables.B": 0,
+        "control.variables.X": 0
+      },
+      "domResultText": "0."
+    },
+    {
+      "afterStep": 17,
+      "assertions": {
+        "displayExpression": "B+A",
+        "displayResult": "0",
+        "lifecycle": "prompt",
+        "answer": 9,
+        "memoryValue": 9,
+        "workflow.kind": "prompt",
+        "control.variables.A": 7,
+        "control.variables.B": 0,
+        "control.variables.X": 0
+      },
+      "domResultText": "0."
+    },
+    {
+      "afterStep": 18,
+      "assertions": {
+        "displayExpression": "B+A→",
+        "displayResult": "F1",
+        "lifecycle": "evaluated",
+        "answer": 9,
+        "memoryValue": 9,
+        "workflow.kind": null,
+        "control.variables.A": 7,
+        "control.variables.B": 0,
+        "control.variables.X": 0
+      },
+      "domResultText": "F1"
+    },
+    {
+      "afterStep": 19,
+      "assertions": {
+        "displayExpression": "",
+        "displayResult": "0",
+        "lifecycle": "empty",
+        "answer": 9,
+        "memoryValue": 9,
+        "workflow.kind": null,
+        "control.variables.A": 7,
+        "control.variables.B": 0,
+        "control.variables.X": 0
+      },
+      "domResultText": "0."
+    },
+    {
+      "afterStep": 20,
+      "assertions": {
+        "displayExpression": "",
+        "displayResult": "0",
+        "lifecycle": "prompt",
+        "answer": 9,
+        "memoryValue": 9,
+        "workflow.kind": "prompt",
+        "control.variables.A": 7,
+        "control.variables.B": 0,
+        "control.variables.X": 0
+      },
+      "domResultText": "0."
+    },
+    {
+      "afterStep": 21,
+      "assertions": {
+        "displayExpression": "B+A",
+        "displayResult": "0",
+        "lifecycle": "entering",
+        "answer": 9,
+        "memoryValue": 9,
+        "workflow.kind": null,
+        "control.variables.A": 7,
+        "control.variables.B": 0,
+        "control.variables.X": 0
+      },
+      "domResultText": "0."
+    },
+    {
+      "afterStep": 22,
+      "assertions": {
+        "displayExpression": "B+A",
+        "displayResult": "0",
+        "lifecycle": "entering",
+        "answer": 9,
+        "memoryValue": 9,
+        "workflow.kind": null,
+        "control.variables.A": 7,
+        "control.variables.B": 0,
+        "control.variables.X": 0
+      },
+      "domResultText": "0."
+    },
+    {
+      "afterStep": 23,
+      "assertions": {
+        "displayExpression": "B+A",
+        "displayResult": "0",
+        "lifecycle": "prompt",
+        "answer": 9,
+        "memoryValue": 9,
+        "workflow.kind": "prompt",
+        "control.variables.A": 7,
+        "control.variables.B": 0,
+        "control.variables.X": 0
+      },
+      "domResultText": "0."
+    },
+    {
+      "afterStep": 24,
+      "assertions": {
+        "displayExpression": "B+A",
+        "displayResult": "0",
+        "lifecycle": "prompt",
+        "answer": 9,
+        "memoryValue": 9,
+        "workflow.kind": "prompt",
+        "control.variables.A": 7,
+        "control.variables.B": 0,
+        "control.variables.X": 0
+      },
+      "domResultText": "0."
+    },
+    {
+      "afterStep": 25,
+      "assertions": {
+        "displayExpression": "B+A",
+        "displayResult": "0",
+        "lifecycle": "prompt",
+        "answer": 9,
+        "memoryValue": 9,
+        "workflow.kind": "prompt",
+        "control.variables.A": 7,
+        "control.variables.B": 0,
+        "control.variables.X": 0
+      },
+      "domResultText": "0."
+    },
+    {
+      "afterStep": 26,
+      "assertions": {
+        "displayExpression": "B+A",
+        "displayResult": "0",
+        "lifecycle": "prompt",
+        "answer": 9,
+        "memoryValue": 9,
+        "workflow.kind": "prompt",
+        "control.variables.A": 7,
+        "control.variables.B": 0,
+        "control.variables.X": 0
+      },
+      "domResultText": "2."
+    },
+    {
+      "afterStep": 27,
+      "assertions": {
+        "displayExpression": "B+A",
+        "displayResult": "0",
+        "lifecycle": "prompt",
+        "answer": 9,
+        "memoryValue": 9,
+        "workflow.kind": "prompt",
+        "control.variables.A": 7,
+        "control.variables.B": 2,
+        "control.variables.X": 0
+      },
+      "domResultText": "7."
+    },
+    {
+      "afterStep": 28,
+      "assertions": {
+        "displayExpression": "B+A=",
+        "displayResult": "9",
+        "lifecycle": "evaluated",
+        "answer": 9,
+        "memoryValue": 9,
+        "workflow.kind": null,
+        "control.variables.A": 7,
+        "control.variables.B": 2,
+        "control.variables.X": 0
+      },
+      "domResultText": "9."
+    },
+    {
+      "afterStep": 29,
+      "assertions": {
+        "displayExpression": "B+A=",
+        "displayResult": "9",
+        "lifecycle": "evaluated",
+        "answer": 9,
+        "memoryValue": 9,
+        "workflow.kind": null,
+        "control.variables.A": 7,
+        "control.variables.B": 2,
+        "control.variables.X": 0
+      },
+      "domResultText": "9."
+    },
+    {
+      "afterStep": 30,
+      "assertions": {
+        "displayExpression": "B+A=",
+        "displayResult": "9",
+        "lifecycle": "prompt",
+        "answer": 9,
+        "memoryValue": 9,
+        "workflow.kind": "prompt",
+        "control.variables.A": 7,
+        "control.variables.B": 2,
+        "control.variables.X": 0
+      },
+      "domResultText": "2."
+    },
+    {
+      "afterStep": 31,
+      "assertions": {
+        "displayExpression": "",
+        "displayResult": "0",
+        "lifecycle": "empty",
+        "answer": 9,
+        "memoryValue": 9,
+        "workflow.kind": null,
+        "control.variables.A": 7,
+        "control.variables.B": 2,
+        "control.variables.X": 0
+      },
+      "domResultText": "0."
+    }
+  ],
+  "knownDifferences": [
+    {
+      "afterStep": 0,
+      "field": "displayResult",
+      "expected": "0.",
+      "actual": "0"
+    },
+    {
+      "afterStep": 1,
+      "field": "displayResult",
+      "expected": "7.",
+      "actual": "7"
+    },
+    {
+      "afterStep": 2,
+      "field": "displayResult",
+      "expected": "7.",
+      "actual": "7"
+    },
+    {
+      "afterStep": 3,
+      "field": "displayResult",
+      "expected": "7.",
+      "actual": "7"
+    },
+    {
+      "afterStep": 8,
+      "field": "displayResult",
+      "expected": "7.",
+      "actual": "7"
+    },
+    {
+      "afterStep": 9,
+      "field": "displayResult",
+      "expected": "9.",
+      "actual": "9"
+    },
+    {
+      "afterStep": 10,
+      "field": "displayExpression",
+      "expected": "ANSM+",
+      "actual": "ansM+"
+    },
+    {
+      "afterStep": 10,
+      "field": "displayResult",
+      "expected": "9.",
+      "actual": "9"
+    },
+    {
+      "afterStep": 21,
+      "field": "displayResult",
+      "expected": "0.",
+      "actual": "0"
+    },
+    {
+      "afterStep": 23,
+      "field": "displayResult",
+      "expected": "0.",
+      "actual": "0"
+    },
+    {
+      "afterStep": 27,
+      "field": "displayResult",
+      "expected": "7.",
+      "actual": "0"
+    },
+    {
+      "afterStep": 28,
+      "field": "displayResult",
+      "expected": "9.",
+      "actual": "9"
+    },
+    {
+      "afterStep": 30,
+      "field": "displayExpression",
+      "expected": "B+A",
+      "actual": "B+A="
+    },
+    {
+      "afterStep": 30,
+      "field": "displayResult",
+      "expected": "2.",
+      "actual": "9"
+    },
+    {
+      "afterStep": 31,
+      "field": "displayResult",
+      "expected": "0.",
+      "actual": "0"
+    }
+  ]
+}

@@ -72,11 +72,11 @@ test('all NORMAL domains reject invalid inputs with Error 2 and preserve stores'
 test('constant state survives snapshot and new numeric entry, clears on ON/C or a new operator',()=>{
  let s=seq([37,39,42,48,32,48]);assert.equal(s.answer,3);assert.equal(s.displayExpression,'9:K=');s=core.restoreCalculator(core.snapshotCalculator(s));assert.equal(seq([35,36,48],s).answer,15);
  assert.equal(press(s,2).control.arithmetic.constant,null);assert.equal(seq([43,41,48],s).answer,5);
- const old=core.snapshotCalculator(s);old.schemaVersion=6;delete old.state.control.arithmetic;assert.equal(core.restoreCalculator(old).control.arithmetic.constant,null);
+ const old=core.snapshotCalculator(s);old.schemaVersion=6;delete old.state.values.variables;old.state.control.formulas=old.state.control.formulas.map(core.semanticEditor.serialize);delete old.state.control.arithmetic;assert.equal(core.restoreCalculator(old).control.arithmetic.constant,null);
  const bad=core.snapshotCalculator(s);bad.state.control.arithmetic.constant.operator='eval';assert.throws(()=>core.restoreCalculator(bad));
 });
-test('MATH inventory has two pages, ENG has four/four/one; deferred solver remains a prompt',()=>{
- let s=seq([17]);assert.deepEqual(s.workflow.payload.choices,['SOLV','ENG','→sec','→min']);assert.equal(seq([45],s).workflow.kind,'prompt');
+test('MATH inventory has two pages, ENG has four/four/one; solver rejects an empty expression',()=>{
+ let s=seq([17]);assert.deepEqual(s.workflow.payload.choices,['SOLV','ENG','→sec','→min']);assert.equal(seq([45],s).control.errorCode,1);
  s=seq([40],s);assert.deepEqual(s.workflow.payload.groups,[4,4,1]);s=press(s,11);assert.equal(s.workflow.page,1);assert.equal(press(s,11).workflow.page,2);
 });
 test('retained negative and scientific constants remain numeric operands',()=>{

@@ -19,16 +19,16 @@
         "missing": 307
       },
       "unitTested": {
-        "pending": 291,
-        "partial": 139
+        "pending": 287,
+        "partial": 143
       },
       "goldenTested": {
-        "pending": 399,
-        "baseline-known-differences": 31
+        "pending": 396,
+        "baseline-known-differences": 34
       },
       "browserTested": {
-        "partial": 170,
-        "pending": 260
+        "partial": 173,
+        "pending": 257
       }
     },
     "guide": {
@@ -38,8 +38,8 @@
       "pending": 51
     },
     "golden": {
-      "fixtures": 19,
-      "assertedFrames": 160,
+      "fixtures": 21,
+      "assertedFrames": 226,
       "pending": 1
     },
     "verifiedFullParity": 0
@@ -127,6 +127,14 @@
       "sha256": "7813ed4c3b9f254d527f8e4a4a0484b7ba20c5d87f017a7b53fa42af6101271a"
     },
     {
+      "path": "tests/reference/el506ts/experiments/phase8-memory.json",
+      "sha256": "7f48060c550811f965269f2ab8e5060b3db6d1ffe08b48e73d8008098711accd"
+    },
+    {
+      "path": "tests/reference/el506ts/experiments/phase8-solver.json",
+      "sha256": "92240598f64770b5bc9d5e941972916c1fbd8b19f170dfbdf19a59ed20f9ee9e"
+    },
+    {
       "path": "tests/reference/el506ts/experiments/retained-answer.json",
       "sha256": "7ded9b273cf3d756ce11ac3fb5c6344d9f12c1f52219eb461da1a5cf3caceb14"
     },
@@ -164,7 +172,7 @@
     },
     {
       "path": "tests/reference/el506ts/golden/phase3-power.json",
-      "sha256": "04d2cf0fd3d2771da76bade2a217807974b0f52bf353c1d5597a5e50450fe0f4"
+      "sha256": "e56f7424510e986ff8fb10642052c086177790b0d15fee9f55582011265745ff"
     },
     {
       "path": "tests/reference/el506ts/golden/phase4-display-ties.json",
@@ -188,7 +196,7 @@
     },
     {
       "path": "tests/reference/el506ts/golden/phase6-coordinate.json",
-      "sha256": "26e36ccc13da9d3574d691ac79ddf303e0b7eb7ab7ac6838d24941994d1b9dbb"
+      "sha256": "35f1b26ea08b40aa7c3c07d76c76348e1945798bb23ac47186c3aa7e42480753"
     },
     {
       "path": "tests/reference/el506ts/golden/phase6-dms.json",
@@ -207,6 +215,14 @@
       "sha256": "11496d13582d762a563aef2eaa1bac88a1bd9809eddf8d1fcaf672869976e8b5"
     },
     {
+      "path": "tests/reference/el506ts/golden/phase8-memory.json",
+      "sha256": "f4318cb300d7cd3f233fc6baabe98233d06d64d321d222fb5ac6c94d17f5c490"
+    },
+    {
+      "path": "tests/reference/el506ts/golden/phase8-solver.json",
+      "sha256": "6799ae6c72523f19bbd157b88270926aef1c6335b825714b8d181c6c2162e2db"
+    },
+    {
       "path": "tests/reference/el506ts/golden/physical-lcd-cursor.json",
       "sha256": "30fe88e63d335349ce2a018ad4f43028edc13e3541a54e27a916a7b381cf878a"
     },
@@ -220,7 +236,7 @@
     },
     {
       "path": "tests/reference/el506ts/report-coverage.json",
-      "sha256": "870318ba525ae5a1e0398cf2daf50f55d2882861e3b164b0c7d017f8a595ad4a"
+      "sha256": "a129cbd9634b323876304531eb11e283bff111782f401da64a08057fa8f34345"
     },
     {
       "path": "tests/reference/el506ts/validate-guide.js",
@@ -247,6 +263,10 @@
       "sha256": "516f8810cd218e42b1fde95a5870506af1598a11f319bdae5b7da42e2c933d94"
     },
     {
+      "path": "tests/e2e/phase8.spec.js",
+      "sha256": "2a1148989c89c91dd5216b992ac585d3deca4ddf60b2f61d524eee4c99dada92"
+    },
+    {
       "path": "tests/e2e/physical-ui.spec.js",
       "sha256": "1b0b92ff20bef726ed0d183994c69f1ecd42a3b529bcf616e2cad3d8b021b82c"
     },
@@ -260,15 +280,19 @@
     },
     {
       "path": "tests/unit/phase5.test.js",
-      "sha256": "e5738b1365f06645fc3902d1ffe5be1e22135db9b3cd2090ecb1b1fc27a430c5"
+      "sha256": "3361c0baf7f1079d6c978db1d0f01054df76c5db136ce2dd8fb53539e330f65f"
     },
     {
       "path": "tests/unit/phase6.test.js",
-      "sha256": "8595fd915ac6057342993cf836b3005b44b08df00ded055f0f9e756092456a08"
+      "sha256": "a93726561fed10fc84b0915a375be9455c04035785cb2cfba211ab0ac014f7c9"
     },
     {
       "path": "tests/unit/phase7.test.js",
       "sha256": "5dd2c4036ef6e04a3be0d89dba98adebb550e2d541a2109b6500b1887218e5a3"
+    },
+    {
+      "path": "tests/unit/phase8.test.js",
+      "sha256": "83c52a5a645eddfc27742876ced5763612d792e5ead6fac79004e1fad3fc1284"
     },
     {
       "path": "tests/unit/physical-ui.test.js",
@@ -10874,18 +10898,71 @@
         "policy": "Frozen baseline classification; infrastructure refactors do not promote capability parity."
       },
       "unitTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "partial",
+        "evidence": [
+          {
+            "kind": "unit",
+            "path": "tests/unit/phase8.test.js",
+            "anchor": "Phase 8 native memory sequence",
+            "capabilityIds": [
+              "el506.memory.a.store",
+              "el506.memory.m.store",
+              "el506.formula.f1"
+            ],
+            "scope": "Native NORMAL store/recall insertion, M accumulation, indicators and exact rational stores. General mode eligibility has pure policy tests, not full later-mode numerical parity."
+          },
+          {
+            "kind": "unit",
+            "path": "tests/unit/phase8.test.js",
+            "anchor": "Phase 8 native ALGB order",
+            "capabilityIds": [
+              "el506.formula.f1"
+            ],
+            "scope": "First appearance prompt order, ignored direction keys, retained values, confirmed-input cancellation, numeric prompt errors and repeat. Unobserved editing edges remain explicit."
+          }
+        ],
         "scope": "Explicit mapped assertions only; unlisted coverage is unassessed."
       },
       "goldenTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "baseline-known-differences",
+        "evidence": [
+          {
+            "fixtureId": "phase8-memory",
+            "status": "known-differences",
+            "assertedFrames": 32
+          }
+        ],
         "scope": "Baseline characterization only; all current supported fixtures have oracle display differences."
       },
       "browserTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "partial",
+        "evidence": [
+          {
+            "kind": "browser",
+            "path": "tests/e2e/phase8.spec.js",
+            "anchor": "Phase 8 editable formula memories",
+            "capabilityIds": [
+              "el506.formula.f1",
+              "el506.memory.a.store"
+            ],
+            "scope": "Actual STO/RCL, editable expression recall, variable underline, repeated ALGB and snapshot preservation."
+          },
+          {
+            "kind": "browser",
+            "path": "tests/e2e/golden.spec.js",
+            "anchor": "canonical baseline browser replay",
+            "fixtureIds": [
+              "phase8-memory",
+              "phase8-solver"
+            ],
+            "scope": "Significant independent native memory/formula/ALGB/solver frames. Intermediate implementation characterizations and all raw LCD differences remain declared.",
+            "capabilityIds": [
+              "el506.formula.f1",
+              "el506.memory.a.store",
+              "el506.normal.solv"
+            ]
+          }
+        ],
         "scope": "Explicit canonical baseline browser replays only; legacy regression coverage is not inferred as parity."
       }
     },
@@ -17437,18 +17514,59 @@
         "policy": "Frozen baseline classification; infrastructure refactors do not promote capability parity."
       },
       "unitTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "partial",
+        "evidence": [
+          {
+            "kind": "unit",
+            "path": "tests/unit/phase8.test.js",
+            "anchor": "Phase 8 solver native Start",
+            "capabilityIds": [
+              "el506.normal.solv"
+            ],
+            "scope": "Independent native Start/dx, positive/negative roots, repeat, zero start and Error 2/X clearing. Bounded numerical domain/tolerance tests do not establish private solver algorithm parity."
+          }
+        ],
         "scope": "Explicit mapped assertions only; unlisted coverage is unassessed."
       },
       "goldenTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "baseline-known-differences",
+        "evidence": [
+          {
+            "fixtureId": "phase8-solver",
+            "status": "known-differences",
+            "assertedFrames": 34
+          }
+        ],
         "scope": "Baseline characterization only; all current supported fixtures have oracle display differences."
       },
       "browserTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "partial",
+        "evidence": [
+          {
+            "kind": "browser",
+            "path": "tests/e2e/phase8.spec.js",
+            "anchor": "Phase 8 solver renders",
+            "capabilityIds": [
+              "el506.normal.solv"
+            ],
+            "scope": "Actual button workflow, 10-digit root projection, repeat, upper-line failure and recovery."
+          },
+          {
+            "kind": "browser",
+            "path": "tests/e2e/golden.spec.js",
+            "anchor": "canonical baseline browser replay",
+            "fixtureIds": [
+              "phase8-memory",
+              "phase8-solver"
+            ],
+            "scope": "Significant independent native memory/formula/ALGB/solver frames. Intermediate implementation characterizations and all raw LCD differences remain declared.",
+            "capabilityIds": [
+              "el506.formula.f1",
+              "el506.memory.a.store",
+              "el506.normal.solv"
+            ]
+          }
+        ],
         "scope": "Explicit canonical baseline browser replays only; legacy regression coverage is not inferred as parity."
       }
     },
@@ -37327,18 +37445,62 @@
         "policy": "Frozen baseline classification; infrastructure refactors do not promote capability parity."
       },
       "unitTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "partial",
+        "evidence": [
+          {
+            "kind": "unit",
+            "path": "tests/unit/phase8.test.js",
+            "anchor": "Phase 8 native memory sequence",
+            "capabilityIds": [
+              "el506.memory.a.store",
+              "el506.memory.m.store",
+              "el506.formula.f1"
+            ],
+            "scope": "Native NORMAL store/recall insertion, M accumulation, indicators and exact rational stores. General mode eligibility has pure policy tests, not full later-mode numerical parity."
+          }
+        ],
         "scope": "Explicit mapped assertions only; unlisted coverage is unassessed."
       },
       "goldenTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "baseline-known-differences",
+        "evidence": [
+          {
+            "fixtureId": "phase8-memory",
+            "status": "known-differences",
+            "assertedFrames": 32
+          }
+        ],
         "scope": "Baseline characterization only; all current supported fixtures have oracle display differences."
       },
       "browserTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "partial",
+        "evidence": [
+          {
+            "kind": "browser",
+            "path": "tests/e2e/phase8.spec.js",
+            "anchor": "Phase 8 editable formula memories",
+            "capabilityIds": [
+              "el506.formula.f1",
+              "el506.memory.a.store"
+            ],
+            "scope": "Actual STO/RCL, editable expression recall, variable underline, repeated ALGB and snapshot preservation."
+          },
+          {
+            "kind": "browser",
+            "path": "tests/e2e/golden.spec.js",
+            "anchor": "canonical baseline browser replay",
+            "fixtureIds": [
+              "phase8-memory",
+              "phase8-solver"
+            ],
+            "scope": "Significant independent native memory/formula/ALGB/solver frames. Intermediate implementation characterizations and all raw LCD differences remain declared.",
+            "capabilityIds": [
+              "el506.formula.f1",
+              "el506.memory.a.store",
+              "el506.normal.solv"
+            ]
+          }
+        ],
         "scope": "Explicit canonical baseline browser replays only; legacy regression coverage is not inferred as parity."
       }
     },
@@ -38031,8 +38193,20 @@
         "policy": "Frozen baseline classification; infrastructure refactors do not promote capability parity."
       },
       "unitTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "partial",
+        "evidence": [
+          {
+            "kind": "unit",
+            "path": "tests/unit/phase8.test.js",
+            "anchor": "Phase 8 native memory sequence",
+            "capabilityIds": [
+              "el506.memory.a.store",
+              "el506.memory.m.store",
+              "el506.formula.f1"
+            ],
+            "scope": "Native NORMAL store/recall insertion, M accumulation, indicators and exact rational stores. General mode eligibility has pure policy tests, not full later-mode numerical parity."
+          }
+        ],
         "scope": "Explicit mapped assertions only; unlisted coverage is unassessed."
       },
       "goldenTested": {
