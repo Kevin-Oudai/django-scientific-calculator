@@ -4,26 +4,27 @@
 - Plan status: Active
 - Current package baseline: 0.3.1
 - Target release: 1.0.0 after verified parity
-- Next item: EL506-030
-- Last updated: 2026-10-05
+- Next item: EL506-050
+- Last updated: 2026-10-07
 
 ## Progress Overview
 
-As of 2026-10-05, **21 of 245 roadmap tasks are complete (8.6%)**, with
-**224 remaining**. The next task is **EL506-030**. These counts measure
+As of 2026-10-07, **35 of 245 roadmap tasks are complete (14.3%)**, with
+**210 remaining**. The next task is **EL506-050**. These counts measure
 completed checklist items, not elapsed effort or verified calculator parity;
 individual tasks vary in size. The detailed checklist below describes every
 remaining task and preserves its evidence and completion requirements.
 Phase 0 is complete (7/7 reference and traceability items), including its reducer
 and snapshot prerequisites. Phase 1 is complete (14/14 test and emulator
-foundation items). Pending simulator/application behavior is visible
+foundation items). Phase 2 is complete (14/14 physical layout, display, theme,
+and access items). Pending simulator/application behavior is visible
 in the generated report; phase completion does not establish full parity.
 
 | Roadmap phase | Completed | Remaining |
 | --- | ---: | ---: |
 | Phase 0 - Reference and Traceability | 7 | 0 |
 | Phase 1 - Test and Emulator Foundation | 14 | 0 |
-| Phase 2 - Physical Layout, Display, Theme, and Access | 0 | 14 |
+| Phase 2 - Physical Layout, Display, Theme, and Access | 14 | 0 |
 | Phase 3 - Power, Modes, Clear, Editing, and History | 0 | 17 |
 | Phase 4 - Display Settings and Formatting | 0 | 11 |
 | Phase 5 - NORMAL Entry and Arithmetic | 0 | 22 |
@@ -40,7 +41,7 @@ in the generated report; phase completion does not establish full parity.
 | Phase 16 - LIST Mode | 0 | 11 |
 | Phase 17 - Errors, Limits, and Cross-mode Parity | 0 | 15 |
 | Phase 18 - Security, Packaging, Compatibility, and Release | 0 | 15 |
-| **Total** | **21** | **224** |
+| **Total** | **35** | **210** |
 
 Refresh this overview's date, counts, percentage, and next task in every
 roadmap completion tracking commit, using the checklist as the source of truth.
@@ -405,7 +406,7 @@ The following order takes precedence over the phase layout and numeric IDs:
 EL506-014 -> EL506-019 -> EL506-003 -> EL506-004 -> EL506-006`
 
 The bootstrap chain and Phase 1 are complete as of 2026-10-05.
-Resume with Phase 2, EL506-030.
+Resume with Phase 3, EL506-050.
 Stable physical-key IDs
 must exist before the experiment schema and capability ledger use them. Capture
 the 0.3.1 baseline before refactoring its behavior. Unit testing, the reducer,
@@ -881,55 +882,200 @@ The runner's completion does not require implementing the later feature phases.
 
 ### Phase 2 - Physical Layout, Display, Theme, and Access
 
-READY_TO_PUSH: 2026-10-07, EL506-030 through EL506-043. Full Phase 2
-was explicitly authorized as one delivery; item scopes are recorded separately
-in tests/reference/el506ts/phase-2-review.json. Local gates: 52 unit tests,
-79 browser tests (18 visual baselines), 7 Django integration tests, reference
-and golden validation (43 asserted frames), package wheel/sdist installation,
-compileall, pip dry-run, Docker config/build/start, and git diff --check.
-Live simulator/manual cursor evidence and in-app demo verification recorded.
-Numerical algorithms and remaining LCD lifecycle differences retain later gates.
 
-- [ ] **EL506-030 - Reproduce physical key positions.** Match the EL-506TS
+- [x] **EL506-030 - Reproduce physical key positions.** Match the EL-506TS
   instructional layout and key grouping without importing Sharp artwork.
-- [ ] **EL506-031 - Reproduce functional labels.** Add verified primary,
+
+    Completed: 2026-10-07, d37c763cec8610d44a9f4ff8c7e4b9d4b10946db
+    Evidence: phase-2-ui-review-v1 (EL506-030); physical-key-reference.json, tests/e2e/physical-ui.spec.js.
+    Verification: npm test (52 unit, 79 browser including 18 visual cases);
+    reference/golden checks (43 asserted frames); Django integration (7);
+    compileall, pip dry-run, Docker config/build/start, package wheel/sdist
+    clean installation (15 assets), git diff --check; implementation SHA
+    verified on origin/main.
+    Notes: 48 native buttons in verified regions and row groups; navigation has no center key. Full-phase delivery explicitly authorized;
+    numerical algorithms and known LCD lifecycle differences remain in later phases.
+
+- [x] **EL506-031 - Reproduce functional labels.** Add verified primary,
   orange 2ndF, and green ALPHA legends at their teaching positions.
-- [ ] **EL506-032 - Build the two-line LCD model.** Give the upper equation
+
+    Completed: 2026-10-07, d37c763cec8610d44a9f4ff8c7e4b9d4b10946db
+    Evidence: phase-2-ui-review-v1 (EL506-031); capability-ledger.json, tests/unit/physical-ui.test.js.
+    Verification: npm test (52 unit, 79 browser including 18 visual cases);
+    reference/golden checks (43 asserted frames); Django integration (7);
+    compileall, pip dry-run, Docker config/build/start, package wheel/sdist
+    clean installation (15 assets), git diff --check; implementation SHA
+    verified on origin/main.
+    Notes: All orange 2ndF and green ALPHA legend keys covered by catalog and browser accessible names; mode/formula labels retained. Full-phase delivery explicitly authorized;
+    numerical algorithms and known LCD lifecycle differences remain in later phases.
+
+- [x] **EL506-032 - Build the two-line LCD model.** Give the upper equation
   and lower result lines independent content, alignment, clipping, and
   horizontal scrolling.
-- [ ] **EL506-033 - Implement all display indicators.** Include 2ndF, HYP,
+
+    Completed: 2026-10-07, d37c763cec8610d44a9f4ff8c7e4b9d4b10946db
+    Evidence: phase-2-ui-review-v1 (EL506-032); experiments/lcd-cursor.json, tests/e2e/physical-ui.spec.js.
+    Verification: npm test (52 unit, 79 browser including 18 visual cases);
+    reference/golden checks (43 asserted frames); Django integration (7);
+    compileall, pip dry-run, Docker config/build/start, package wheel/sdist
+    clean installation (15 assets), git diff --check; implementation SHA
+    verified on origin/main.
+    Notes: Independent upper/lower content, clipping, alignment, user scrolling and hidden-content indicators. Full-phase delivery explicitly authorized;
+    numerical algorithms and known LCD lifecycle differences remain in later phases.
+
+- [x] **EL506-033 - Implement all display indicators.** Include 2ndF, HYP,
   ALPHA, FIX, SCI, ENG, DEG, RAD, GRAD, CPLX, MAT, LIST, STAT, M, base,
   hidden-content arrows, and component indicators.
-- [ ] **EL506-034 - Implement display cursor and insert marker.** Match
+
+    Completed: 2026-10-07, d37c763cec8610d44a9f4ff8c7e4b9d4b10946db
+    Evidence: phase-2-ui-review-v1 (EL506-033); tests/unit/physical-ui.test.js, tests/e2e/physical-ui.spec.js.
+    Verification: npm test (52 unit, 79 browser including 18 visual cases);
+    reference/golden checks (43 asserted frames); Django integration (7);
+    compileall, pip dry-run, Docker config/build/start, package wheel/sdist
+    clean installation (15 assets), git diff --check; implementation SHA
+    verified on origin/main.
+    Notes: Projects every requested modifier, angle, format, mode, memory, N-base and component flag from represented state; future algorithms own their state transitions. Full-phase delivery explicitly authorized;
+    numerical algorithms and known LCD lifecycle differences remain in later phases.
+
+- [x] **EL506-034 - Implement display cursor and insert marker.** Match
   simulator positions, selection, and horizontal follow. Use the full manual
   or physical device for blinking; the simulator's non-blinking cursor is a
   documented exception.
-- [ ] **EL506-035 - Implement multi-result paging UI.** Support coordinate
+
+    Completed: 2026-10-07, d37c763cec8610d44a9f4ff8c7e4b9d4b10946db
+    Evidence: phase-2-ui-review-v1 (EL506-034); experiments/lcd-cursor.json, golden/physical-lcd-cursor.json, tests/unit/physical-ui.test.js.
+    Verification: npm test (52 unit, 79 browser including 18 visual cases);
+    reference/golden checks (43 asserted frames); Django integration (7);
+    compileall, pip dry-run, Docker config/build/start, package wheel/sdist
+    clean installation (15 assets), git diff --check; implementation SHA
+    verified on origin/main.
+    Notes: Measured end/selection coordinates, INS toggle, cursor follow, overwrite marker, blinking manual exception and reduced motion. Full-phase delivery explicitly authorized;
+    numerical algorithms and known LCD lifecycle differences remain in later phases.
+
+- [x] **EL506-035 - Implement multi-result paging UI.** Support coordinate
   pairs, complex components, equation solutions, matrix cells, and list
   elements without recalculation.
-- [ ] **EL506-036 - Create the dark default theme.** Use an original,
+
+    Completed: 2026-10-07, d37c763cec8610d44a9f4ff8c7e4b9d4b10946db
+    Evidence: phase-2-ui-review-v1 (EL506-035); tests/unit/physical-ui.test.js, tests/e2e/physical-ui.spec.js.
+    Verification: npm test (52 unit, 79 browser including 18 visual cases);
+    reference/golden checks (43 asserted frames); Django integration (7);
+    compileall, pip dry-run, Docker config/build/start, package wheel/sdist
+    clean installation (15 assets), git diff --check; implementation SHA
+    verified on origin/main.
+    Notes: Five supplied page families share bounded canonical arrow dispatch, without evaluation or store mutation. Full-phase delivery explicitly authorized;
+    numerical algorithms and known LCD lifecycle differences remain in later phases.
+
+- [x] **EL506-036 - Create the dark default theme.** Use an original,
   high-contrast, Sharp-familiar but unbranded visual treatment.
-- [ ] **EL506-037 - Add the theme override contract.** Ship documented CSS
+
+    Completed: 2026-10-07, d37c763cec8610d44a9f4ff8c7e4b9d4b10946db
+    Evidence: phase-2-ui-review-v1 (EL506-036); tests/e2e/physical-visual.spec.js, tests/e2e/physical-ui.spec.js.
+    Verification: npm test (52 unit, 79 browser including 18 visual cases);
+    reference/golden checks (43 asserted frames); Django integration (7);
+    compileall, pip dry-run, Docker config/build/start, package wheel/sdist
+    clean installation (15 assets), git diff --check; implementation SHA
+    verified on origin/main.
+    Notes: Original unbranded dark case, accessible legend contrast and visible focus. Full-phase delivery explicitly authorized;
+    numerical algorithms and known LCD lifecycle differences remain in later phases.
+
+- [x] **EL506-037 - Add the theme override contract.** Ship documented CSS
   custom properties and calculator-theme.example.css without changing key
   geometry or semantics.
-- [ ] **EL506-038 - Add safe branding customization.** Keep the existing tag
+
+    Completed: 2026-10-07, d37c763cec8610d44a9f4ff8c7e4b9d4b10946db
+    Evidence: phase-2-ui-review-v1 (EL506-037); README.md, src/scientific_calculator/static/scientific_calculator/calculator-theme.example.css, tests/e2e/physical-ui.spec.js.
+    Verification: npm test (52 unit, 79 browser including 18 visual cases);
+    reference/golden checks (43 asserted frames); Django integration (7);
+    compileall, pip dry-run, Docker config/build/start, package wheel/sdist
+    clean installation (15 assets), git diff --check; implementation SHA
+    verified on origin/main.
+    Notes: Documented color/font/surface/shadow custom properties and shipped example; tests compare all key bounds unchanged. Full-phase delivery explicitly authorized;
+    numerical algorithms and known LCD lifecycle differences remain in later phases.
+
+- [x] **EL506-038 - Add safe branding customization.** Keep the existing tag
   valid while allowing safely escaped brand text and documented template
   override hooks.
-- [ ] **EL506-039 - Add responsive layouts.** Preserve exact key order and
+
+    Completed: 2026-10-07, d37c763cec8610d44a9f4ff8c7e4b9d4b10946db
+    Evidence: phase-2-ui-review-v1 (EL506-038); tests/django/test_integration.py, README.md.
+    Verification: npm test (52 unit, 79 browser including 18 visual cases);
+    reference/golden checks (43 asserted frames); Django integration (7);
+    compileall, pip dry-run, Docker config/build/start, package wheel/sdist
+    clean installation (15 assets), git diff --check; implementation SHA
+    verified on origin/main.
+    Notes: No-argument tag remains valid; brand text force-escaped even when marked safe; narrow template blocks tested. Full-phase delivery explicitly authorized;
+    numerical algorithms and known LCD lifecycle differences remain in later phases.
+
+- [x] **EL506-039 - Add responsive layouts.** Preserve exact key order and
   sequencing on desktop, tablet, and phone without hiding controls.
-- [ ] **EL506-040 - Add accessible key semantics.** Expose primary and shifted
+
+    Completed: 2026-10-07, d37c763cec8610d44a9f4ff8c7e4b9d4b10946db
+    Evidence: phase-2-ui-review-v1 (EL506-039); tests/e2e/physical-ui.spec.js, tests/e2e/physical-visual.spec.js.
+    Verification: npm test (52 unit, 79 browser including 18 visual cases);
+    reference/golden checks (43 asserted frames); Django integration (7);
+    compileall, pip dry-run, Docker config/build/start, package wheel/sdist
+    clean installation (15 assets), git diff --check; implementation SHA
+    verified on origin/main.
+    Notes: 320/390/768/1440px bounds, original ordering, all controls visible and pairwise nonoverlap; short host panels scroll. Full-phase delivery explicitly authorized;
+    numerical algorithms and known LCD lifecycle differences remain in later phases.
+
+- [x] **EL506-040 - Add accessible key semantics.** Expose primary and shifted
   purposes, state changes, display updates, and errors to assistive
   technologies.
-- [ ] **EL506-041 - Unify pointer, touch, and keyboard dispatch.** All input
+
+    Completed: 2026-10-07, d37c763cec8610d44a9f4ff8c7e4b9d4b10946db
+    Evidence: phase-2-ui-review-v1 (EL506-040); tests/e2e/physical-ui.spec.js.
+    Verification: npm test (52 unit, 79 browser including 18 visual cases);
+    reference/golden checks (43 asserted frames); Django integration (7);
+    compileall, pip dry-run, Docker config/build/start, package wheel/sdist
+    clean installation (15 assets), git diff --check; implementation SHA
+    verified on origin/main.
+    Notes: Native buttons, primary and modifier purposes, modifier pressed states, display/page status and error announcements, focus, text zoom, forced colors. Full-phase delivery explicitly authorized;
+    numerical algorithms and known LCD lifecycle differences remain in later phases.
+
+- [x] **EL506-041 - Unify pointer, touch, and keyboard dispatch.** All input
   methods must emit the same canonical key events and support verified
   two-key rollover where applicable.
-- [ ] **EL506-042 - Add visual regression coverage.** Cover the default dark
+
+    Completed: 2026-10-07, d37c763cec8610d44a9f4ff8c7e4b9d4b10946db
+    Evidence: phase-2-ui-review-v1 (EL506-041); tests/unit/physical-ui.test.js, tests/e2e/physical-ui.spec.js.
+    Verification: npm test (52 unit, 79 browser including 18 visual cases);
+    reference/golden checks (43 asserted frames); Django integration (7);
+    compileall, pip dry-run, Docker config/build/start, package wheel/sdist
+    clean installation (15 assets), git diff --check; implementation SHA
+    verified on origin/main.
+    Notes: Pointer-down, touch, keyboard and assistive button activation produce physical-key events; independent focus, host shortcuts and overlapping touch tested. Full-phase delivery explicitly authorized;
+    numerical algorithms and known LCD lifecycle differences remain in later phases.
+
+- [x] **EL506-042 - Add visual regression coverage.** Cover the default dark
   theme, example override theme, focus, modifiers, menus, errors, long
   expressions, and responsive sizes.
-- [ ] **EL506-043 - Complete pre-release trade-dress review.** Confirm the
+
+    Completed: 2026-10-07, d37c763cec8610d44a9f4ff8c7e4b9d4b10946db
+    Evidence: phase-2-ui-review-v1 (EL506-042); tests/e2e/physical-visual.spec.js, .github/workflows/checks.yml.
+    Verification: npm test (52 unit, 79 browser including 18 visual cases);
+    reference/golden checks (43 asserted frames); Django integration (7);
+    compileall, pip dry-run, Docker config/build/start, package wheel/sdist
+    clean installation (15 assets), git diff --check; implementation SHA
+    verified on origin/main.
+    Notes: 18 original Windows Chromium baselines: both themes with default, focus, 2ndF, ALPHA, menu, error, long expression, phone and tablet. Full-phase delivery explicitly authorized;
+    numerical algorithms and known LCD lifecycle differences remain in later phases.
+
+- [x] **EL506-043 - Complete pre-release trade-dress review.** Confirm the
   distributed appearance and wording remain educationally compatible without
   Sharp logos, false affiliation, copied assets, or unnecessary ornamental
   duplication. Record that this is a release gate, not legal advice.
+
+    Completed: 2026-10-07, d37c763cec8610d44a9f4ff8c7e4b9d4b10946db
+    Evidence: phase-2-ui-review-v1 (EL506-043); README.md, tests/ci/check-package.py.
+    Verification: npm test (52 unit, 79 browser including 18 visual cases);
+    reference/golden checks (43 asserted frames); Django integration (7);
+    compileall, pip dry-run, Docker config/build/start, package wheel/sdist
+    clean installation (15 assets), git diff --check; implementation SHA
+    verified on origin/main.
+    Notes: Completed review of the package and original screenshots; release-gate findings above, not legal advice. Full-phase delivery explicitly authorized;
+    numerical algorithms and known LCD lifecycle differences remain in later phases.
 
 ### Phase 3 - Power, Modes, Clear, Editing, and History
 
