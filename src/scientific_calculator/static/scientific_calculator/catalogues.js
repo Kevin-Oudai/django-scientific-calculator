@@ -1,0 +1,685 @@
+(function(host,factory){
+  const api=factory();
+  if(typeof module==='object'&&module.exports&&typeof document==='undefined')module.exports=api;
+  else host.ScientificCalculatorCatalogues=api;
+})(globalThis,function(){
+  'use strict';
+  // Historical CODATA 2014 values, with the pinned EL-506TS manual numbering.
+  // These are an immutable educational catalogue, not current SI definitions.
+  const constants=Object.freeze([
+  {
+    "id": 1,
+    "name": "speed of light in vacuum",
+    "value": "299792458",
+    "unit": "m s^-1"
+  },
+  {
+    "id": 2,
+    "name": "Newtonian constant of gravitation",
+    "value": "6.67408e-11",
+    "unit": "m^3 kg^-1 s^-2"
+  },
+  {
+    "id": 3,
+    "name": "standard acceleration of gravity",
+    "value": "9.80665",
+    "unit": "m s^-2"
+  },
+  {
+    "id": 4,
+    "name": "electron mass",
+    "value": "9.10938356e-31",
+    "unit": "kg"
+  },
+  {
+    "id": 5,
+    "name": "proton mass",
+    "value": "1.672621898e-27",
+    "unit": "kg"
+  },
+  {
+    "id": 6,
+    "name": "neutron mass",
+    "value": "1.674927471e-27",
+    "unit": "kg"
+  },
+  {
+    "id": 7,
+    "name": "muon mass",
+    "value": "1.883531594e-28",
+    "unit": "kg"
+  },
+  {
+    "id": 8,
+    "name": "atomic mass unit-kilogram relationship",
+    "value": "1.660539040e-27",
+    "unit": "kg"
+  },
+  {
+    "id": 9,
+    "name": "elementary charge",
+    "value": "1.6021766208e-19",
+    "unit": "C"
+  },
+  {
+    "id": 10,
+    "name": "Planck constant",
+    "value": "6.626070040e-34",
+    "unit": "J s"
+  },
+  {
+    "id": 11,
+    "name": "Boltzmann constant",
+    "value": "1.38064852e-23",
+    "unit": "J K^-1"
+  },
+  {
+    "id": 12,
+    "name": "magnetic constant",
+    "value": "1.2566370614359e-6",
+    "unit": "N A^-2"
+  },
+  {
+    "id": 13,
+    "name": "electric constant",
+    "value": "8.8541878176204e-12",
+    "unit": "F m^-1"
+  },
+  {
+    "id": 14,
+    "name": "classical electron radius",
+    "value": "2.8179403227e-15",
+    "unit": "m"
+  },
+  {
+    "id": 15,
+    "name": "fine-structure constant",
+    "value": "7.2973525664e-3",
+    "unit": "1"
+  },
+  {
+    "id": 16,
+    "name": "Bohr radius",
+    "value": "5.2917721067e-11",
+    "unit": "m"
+  },
+  {
+    "id": 17,
+    "name": "Rydberg constant",
+    "value": "10973731.568508",
+    "unit": "m^-1"
+  },
+  {
+    "id": 18,
+    "name": "magnetic flux quantum",
+    "value": "2.067833831e-15",
+    "unit": "Wb"
+  },
+  {
+    "id": 19,
+    "name": "Bohr magneton",
+    "value": "9.274009994e-24",
+    "unit": "J T^-1"
+  },
+  {
+    "id": 20,
+    "name": "electron magnetic moment",
+    "value": "-9.284764620e-24",
+    "unit": "J T^-1"
+  },
+  {
+    "id": 21,
+    "name": "nuclear magneton",
+    "value": "5.050783699e-27",
+    "unit": "J T^-1"
+  },
+  {
+    "id": 22,
+    "name": "proton magnetic moment",
+    "value": "1.4106067873e-26",
+    "unit": "J T^-1"
+  },
+  {
+    "id": 23,
+    "name": "neutron magnetic moment",
+    "value": "-9.6623650e-27",
+    "unit": "J T^-1"
+  },
+  {
+    "id": 24,
+    "name": "muon magnetic moment",
+    "value": "-4.49044826e-26",
+    "unit": "J T^-1"
+  },
+  {
+    "id": 25,
+    "name": "Compton wavelength",
+    "value": "2.4263102367e-12",
+    "unit": "m"
+  },
+  {
+    "id": 26,
+    "name": "proton Compton wavelength",
+    "value": "1.32140985396e-15",
+    "unit": "m"
+  },
+  {
+    "id": 27,
+    "name": "Stefan-Boltzmann constant",
+    "value": "5.670367e-8",
+    "unit": "W m^-2 K^-4"
+  },
+  {
+    "id": 28,
+    "name": "Avogadro constant",
+    "value": "6.022140857e23",
+    "unit": "mol^-1"
+  },
+  {
+    "id": 29,
+    "name": "molar volume of ideal gas",
+    "value": "0.022413962",
+    "unit": "m^3 mol^-1"
+  },
+  {
+    "id": 30,
+    "name": "molar gas constant",
+    "value": "8.3144598",
+    "unit": "J mol^-1 K^-1"
+  },
+  {
+    "id": 31,
+    "name": "Faraday constant",
+    "value": "96485.33289",
+    "unit": "C mol^-1"
+  },
+  {
+    "id": 32,
+    "name": "von Klitzing constant",
+    "value": "25812.8074555",
+    "unit": "ohm"
+  },
+  {
+    "id": 33,
+    "name": "electron charge-to-mass quotient",
+    "value": "-1.758820024e11",
+    "unit": "C kg^-1"
+  },
+  {
+    "id": 34,
+    "name": "quantum of circulation",
+    "value": "3.6369475486e-4",
+    "unit": "m^2 s^-1"
+  },
+  {
+    "id": 35,
+    "name": "proton gyromagnetic ratio",
+    "value": "2.675221900e8",
+    "unit": "s^-1 T^-1"
+  },
+  {
+    "id": 36,
+    "name": "Josephson constant",
+    "value": "4.835978525e14",
+    "unit": "Hz V^-1"
+  },
+  {
+    "id": 37,
+    "name": "electron volt",
+    "value": "1.6021766208e-19",
+    "unit": "J"
+  },
+  {
+    "id": 38,
+    "name": "Celsius temperature",
+    "value": "273.15",
+    "unit": "K"
+  },
+  {
+    "id": 39,
+    "name": "astronomical unit",
+    "value": "149597870700",
+    "unit": "m"
+  },
+  {
+    "id": 40,
+    "name": "parsec",
+    "value": "3.0856775814914e16",
+    "unit": "m"
+  },
+  {
+    "id": 41,
+    "name": "molar mass of carbon-12",
+    "value": "0.012",
+    "unit": "kg mol^-1"
+  },
+  {
+    "id": 42,
+    "name": "Planck constant over 2 pi",
+    "value": "1.054571800e-34",
+    "unit": "J s"
+  },
+  {
+    "id": 43,
+    "name": "Hartree energy",
+    "value": "4.359744650e-18",
+    "unit": "J"
+  },
+  {
+    "id": 44,
+    "name": "conductance quantum",
+    "value": "7.7480917310e-5",
+    "unit": "S"
+  },
+  {
+    "id": 45,
+    "name": "inverse fine-structure constant",
+    "value": "137.035999139",
+    "unit": "1"
+  },
+  {
+    "id": 46,
+    "name": "proton-electron mass ratio",
+    "value": "1836.15267389",
+    "unit": "1"
+  },
+  {
+    "id": 47,
+    "name": "molar mass constant",
+    "value": "0.001",
+    "unit": "kg mol^-1"
+  },
+  {
+    "id": 48,
+    "name": "neutron Compton wavelength",
+    "value": "1.31959090481e-15",
+    "unit": "m"
+  },
+  {
+    "id": 49,
+    "name": "first radiation constant",
+    "value": "3.741771790e-16",
+    "unit": "W m^2"
+  },
+  {
+    "id": 50,
+    "name": "second radiation constant",
+    "value": "0.0143877736",
+    "unit": "m K"
+  },
+  {
+    "id": 51,
+    "name": "characteristic impedance of vacuum",
+    "value": "376.73031346177",
+    "unit": "ohm"
+  },
+  {
+    "id": 52,
+    "name": "standard atmosphere",
+    "value": "101325",
+    "unit": "Pa"
+  }
+].map(row=>Object.freeze(row)));
+  const conversions=Object.freeze([
+  {
+    "id": 1,
+    "name": "in to cm",
+    "inputUnit": "in",
+    "outputUnit": "cm",
+    "factor": "2.54",
+    "inverse": false
+  },
+  {
+    "id": 2,
+    "name": "cm to in",
+    "inputUnit": "cm",
+    "outputUnit": "in",
+    "factor": "2.54",
+    "inverse": true
+  },
+  {
+    "id": 3,
+    "name": "ft to m",
+    "inputUnit": "ft",
+    "outputUnit": "m",
+    "factor": "0.3048",
+    "inverse": false
+  },
+  {
+    "id": 4,
+    "name": "m to ft",
+    "inputUnit": "m",
+    "outputUnit": "ft",
+    "factor": "0.3048",
+    "inverse": true
+  },
+  {
+    "id": 5,
+    "name": "yd to m",
+    "inputUnit": "yd",
+    "outputUnit": "m",
+    "factor": "0.9144",
+    "inverse": false
+  },
+  {
+    "id": 6,
+    "name": "m to yd",
+    "inputUnit": "m",
+    "outputUnit": "yd",
+    "factor": "0.9144",
+    "inverse": true
+  },
+  {
+    "id": 7,
+    "name": "mile to km",
+    "inputUnit": "mile",
+    "outputUnit": "km",
+    "factor": "1.609344",
+    "inverse": false
+  },
+  {
+    "id": 8,
+    "name": "km to mile",
+    "inputUnit": "km",
+    "outputUnit": "mile",
+    "factor": "1.609344",
+    "inverse": true
+  },
+  {
+    "id": 9,
+    "name": "nautical mile to m",
+    "inputUnit": "nautical mile",
+    "outputUnit": "m",
+    "factor": "1852",
+    "inverse": false
+  },
+  {
+    "id": 10,
+    "name": "m to nautical mile",
+    "inputUnit": "m",
+    "outputUnit": "nautical mile",
+    "factor": "1852",
+    "inverse": true
+  },
+  {
+    "id": 11,
+    "name": "acre to square meter",
+    "inputUnit": "acre",
+    "outputUnit": "square meter",
+    "factor": "4046.8564224",
+    "inverse": false
+  },
+  {
+    "id": 12,
+    "name": "square meter to acre",
+    "inputUnit": "square meter",
+    "outputUnit": "acre",
+    "factor": "4046.8564224",
+    "inverse": true
+  },
+  {
+    "id": 13,
+    "name": "oz to g",
+    "inputUnit": "oz",
+    "outputUnit": "g",
+    "factor": "28.349523125",
+    "inverse": false
+  },
+  {
+    "id": 14,
+    "name": "g to oz",
+    "inputUnit": "g",
+    "outputUnit": "oz",
+    "factor": "28.349523125",
+    "inverse": true
+  },
+  {
+    "id": 15,
+    "name": "lb to kg",
+    "inputUnit": "lb",
+    "outputUnit": "kg",
+    "factor": "0.45359237",
+    "inverse": false
+  },
+  {
+    "id": 16,
+    "name": "kg to lb",
+    "inputUnit": "kg",
+    "outputUnit": "lb",
+    "factor": "0.45359237",
+    "inverse": true
+  },
+  {
+    "id": 17,
+    "name": "deg F to deg C",
+    "inputUnit": "deg F",
+    "outputUnit": "deg C",
+    "factor": null,
+    "inverse": false
+  },
+  {
+    "id": 18,
+    "name": "deg C to deg F",
+    "inputUnit": "deg C",
+    "outputUnit": "deg F",
+    "factor": null,
+    "inverse": true
+  },
+  {
+    "id": 19,
+    "name": "US gal to L",
+    "inputUnit": "US gal",
+    "outputUnit": "L",
+    "factor": "3.785411784",
+    "inverse": false
+  },
+  {
+    "id": 20,
+    "name": "L to US gal",
+    "inputUnit": "L",
+    "outputUnit": "US gal",
+    "factor": "3.785411784",
+    "inverse": true
+  },
+  {
+    "id": 21,
+    "name": "UK gal to L",
+    "inputUnit": "UK gal",
+    "outputUnit": "L",
+    "factor": "4.54609",
+    "inverse": false
+  },
+  {
+    "id": 22,
+    "name": "L to UK gal",
+    "inputUnit": "L",
+    "outputUnit": "UK gal",
+    "factor": "4.54609",
+    "inverse": true
+  },
+  {
+    "id": 23,
+    "name": "US fluid oz to mL",
+    "inputUnit": "US fluid oz",
+    "outputUnit": "mL",
+    "factor": "29.5735295625",
+    "inverse": false
+  },
+  {
+    "id": 24,
+    "name": "mL to US fluid oz",
+    "inputUnit": "mL",
+    "outputUnit": "US fluid oz",
+    "factor": "29.5735295625",
+    "inverse": true
+  },
+  {
+    "id": 25,
+    "name": "UK fluid oz to mL",
+    "inputUnit": "UK fluid oz",
+    "outputUnit": "mL",
+    "factor": "28.4130625",
+    "inverse": false
+  },
+  {
+    "id": 26,
+    "name": "mL to UK fluid oz",
+    "inputUnit": "mL",
+    "outputUnit": "UK fluid oz",
+    "factor": "28.4130625",
+    "inverse": true
+  },
+  {
+    "id": 27,
+    "name": "J to cal thermochemical",
+    "inputUnit": "J",
+    "outputUnit": "cal thermochemical",
+    "factor": "4.184",
+    "inverse": true
+  },
+  {
+    "id": 28,
+    "name": "cal thermochemical to J",
+    "inputUnit": "cal thermochemical",
+    "outputUnit": "J",
+    "factor": "4.184",
+    "inverse": false
+  },
+  {
+    "id": 29,
+    "name": "J to cal 15 deg C",
+    "inputUnit": "J",
+    "outputUnit": "cal 15 deg C",
+    "factor": "4.1855",
+    "inverse": true
+  },
+  {
+    "id": 30,
+    "name": "cal 15 deg C to J",
+    "inputUnit": "cal 15 deg C",
+    "outputUnit": "J",
+    "factor": "4.1855",
+    "inverse": false
+  },
+  {
+    "id": 31,
+    "name": "J to cal IT",
+    "inputUnit": "J",
+    "outputUnit": "cal IT",
+    "factor": "4.1868",
+    "inverse": true
+  },
+  {
+    "id": 32,
+    "name": "cal IT to J",
+    "inputUnit": "cal IT",
+    "outputUnit": "J",
+    "factor": "4.1868",
+    "inverse": false
+  },
+  {
+    "id": 33,
+    "name": "hp to W",
+    "inputUnit": "hp",
+    "outputUnit": "W",
+    "factor": "745.69987158227",
+    "inverse": false
+  },
+  {
+    "id": 34,
+    "name": "W to hp",
+    "inputUnit": "W",
+    "outputUnit": "hp",
+    "factor": "745.69987158227",
+    "inverse": true
+  },
+  {
+    "id": 35,
+    "name": "ps to W",
+    "inputUnit": "ps",
+    "outputUnit": "W",
+    "factor": "735.49875",
+    "inverse": false
+  },
+  {
+    "id": 36,
+    "name": "W to ps",
+    "inputUnit": "W",
+    "outputUnit": "ps",
+    "factor": "735.49875",
+    "inverse": true
+  },
+  {
+    "id": 37,
+    "name": "kgf/cm2 to Pa",
+    "inputUnit": "kgf/cm2",
+    "outputUnit": "Pa",
+    "factor": "98066.5",
+    "inverse": false
+  },
+  {
+    "id": 38,
+    "name": "Pa to kgf/cm2",
+    "inputUnit": "Pa",
+    "outputUnit": "kgf/cm2",
+    "factor": "98066.5",
+    "inverse": true
+  },
+  {
+    "id": 39,
+    "name": "atm to Pa",
+    "inputUnit": "atm",
+    "outputUnit": "Pa",
+    "factor": "101325",
+    "inverse": false
+  },
+  {
+    "id": 40,
+    "name": "Pa to atm",
+    "inputUnit": "Pa",
+    "outputUnit": "atm",
+    "factor": "101325",
+    "inverse": true
+  },
+  {
+    "id": 41,
+    "name": "mmHg (Torr) to Pa",
+    "inputUnit": "mmHg (Torr)",
+    "outputUnit": "Pa",
+    "factor": "133.32236842105",
+    "inverse": false
+  },
+  {
+    "id": 42,
+    "name": "Pa to mmHg (Torr)",
+    "inputUnit": "Pa",
+    "outputUnit": "mmHg (Torr)",
+    "factor": "133.32236842105",
+    "inverse": true
+  },
+  {
+    "id": 43,
+    "name": "kgf m to J",
+    "inputUnit": "kgf m",
+    "outputUnit": "J",
+    "factor": "9.80665",
+    "inverse": false
+  },
+  {
+    "id": 44,
+    "name": "J to kgf m",
+    "inputUnit": "J",
+    "outputUnit": "kgf m",
+    "factor": "9.80665",
+    "inverse": true
+  }
+].map(row=>Object.freeze(row)));
+  function convert(value,index){
+    const row=conversions[index-1];
+    if(!Number.isInteger(index)||!row)throw new RangeError('Conversion index');
+    if(index===17)return (value-32)*5/9;
+    if(index===18)return value*9/5+32;
+    return row.inverse?value/Number(row.factor):value*Number(row.factor);
+  }
+  return Object.freeze({constants,conversions,convert});
+});

@@ -118,14 +118,14 @@
     {
       "afterStep": 8,
       "assertions": {
-        "displayExpression": "",
-        "displayResult": "0",
-        "lifecycle": "empty",
+        "displayExpression": "M=",
+        "displayResult": "7",
+        "lifecycle": "evaluated",
         "control.power": "on",
         "memoryValue": 7,
         "secondActive": false
       },
-      "domResultText": "0."
+      "domResultText": "7."
     }
   ],
   "knownDifferences": [
@@ -191,15 +191,9 @@
     },
     {
       "afterStep": 8,
-      "field": "displayExpression",
-      "expected": "M=",
-      "actual": ""
-    },
-    {
-      "afterStep": 8,
       "field": "displayResult",
       "expected": "7.",
-      "actual": "0"
+      "actual": "7"
     }
   ]
 }

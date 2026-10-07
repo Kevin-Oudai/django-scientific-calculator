@@ -1,8 +1,8 @@
 (function(host,factory){
   if(typeof module==='object' && module.exports && typeof document==='undefined')
-    module.exports=factory(require('./semantic-editor.js'),require('./values.js'),require('./math-engine.js'),require('./numeric-model.js'),require('./formatting.js'));
-  else host.ScientificCalculatorCore=factory(host.ScientificCalculatorSemantic,host.ScientificCalculatorValues,host.ScientificCalculatorEngine,host.ScientificCalculatorNumericModel,host.ScientificCalculatorFormatting);
-})(globalThis,function(semantic,values,bundle,numericModel,formatting){
+    module.exports=factory(require('./semantic-editor.js'),require('./values.js'),require('./math-engine.js'),require('./numeric-model.js'),require('./formatting.js'),require('./catalogues.js'));
+  else host.ScientificCalculatorCore=factory(host.ScientificCalculatorSemantic,host.ScientificCalculatorValues,host.ScientificCalculatorEngine,host.ScientificCalculatorNumericModel,host.ScientificCalculatorFormatting,host.ScientificCalculatorCatalogues);
+})(globalThis,function(semantic,values,bundle,numericModel,formatting,catalogues){
   'use strict';
   const engine=bundle.createEngine();
   const {formatValue}=formatting;
@@ -1090,7 +1090,7 @@
       if(next.control.power==='on'){next.control.idleMs+=event.elapsedMs;if(next.control.idleMs>=600000)return physicalPowerOff(next);}
       return next;
     }
-    if (event.type === "physical-key") return reducePhysicalKey(previous, event.id);
+    if (event.type === "physical-key") return reducePhysicalKey(previous, event.id, event.randomSample);
     if (event.type === "token-edit") {
       if (previous.workflow.kind !== null) throw new TypeError("Cannot edit during a workflow");
       const next = structuredClone(previous);
@@ -1162,7 +1162,7 @@
     SETUP: ["DRG", "FSE", "TAB"], ANGLE: ["DEG", "RAD", "GRAD"],
     FORMAT: ["FIX", "SCI", "ENG", "NORM1", "NORM2"], TAB: ["0","1","2","3","4","5","6","7","8","9"],
     MATH: ["SOLV", "ENG", "→sec", "→min"], ENG: ["k", "M", "G", "T", "m", "µ", "n", "p", "f"],
-    RANDOM: ["RANDOM", "R_INT", "R_DICE", "R_COIN"], CLEAR: ["MEMORY", "RESET"],
+    RANDOM: ["RAND", "R-DICE", "R-COIN", "R-INT"], CLEAR: ["MEMORY", "RESET"],
   });
   function resolvePhysicalKey(state, id) {
     if (!/^EL506-K(?:0[1-9]|[1-3][0-9]|4[0-8])$/.test(id)) throw new TypeError("Unknown physical key");
@@ -1188,7 +1188,7 @@
     return BASE_KEYS[n] ? {kind:"operation", event:{...BASE_KEYS[n]}} : {kind:"pending", key:id, layer:"base"};
   }
   const MODE_SUBMENUS={STAT:['SD','LINE','QUAD','EXP','LOG','PWR','INV'],EQN:['2-VLE','3-VLE','QUAD','CUBIC']};
-  const menuGroups={MODE:[2,2,2],STAT:[3,3,1],EQN:[2,2],CLEAR:[2],MEMORY_CLEAR:[2],SETUP:[3],ANGLE:[3],FORMAT:[3,2],MATH:[2,2],ENG:[4,4,1]};
+  const menuGroups={MODE:[2,2,2],STAT:[3,3,1],EQN:[2,2],CLEAR:[2],MEMORY_CLEAR:[2],SETUP:[3],ANGLE:[3],FORMAT:[3,2],MATH:[2,2],ENG:[4,4,1],RANDOM:[2,2]};
   function physicalClear(previous,scope='command') {
     const next=createInitialState();next.layers.settings=structuredClone(previous.layers.settings);next.angleMode=previous.angleMode;
     next.layers.mode=previous.layers.mode;next.control=structuredClone(previous.control);next.control.errorCode=null;next.control.idleMs=0;
@@ -1207,7 +1207,7 @@
   }
   function physicalPowerOff(previous){const next=physicalClear(previous);next.control.power='off';next.secondActive=false;return next;}
   function physicalCells(source){
-    const pattern=/(?:asin|acos|atan|sinh|cosh|tanh|asinh|acosh|atanh|sqrt|cbrt|recip|tenpow|epow|sin|cos|tan|log|ln|abs|fact|pct)\(|ans|pi|\^\(-1\)|\^\d|./g;
+    const pattern=/(?:random|dice|coin|rint)\(\)|(?:cv|asin|acos|atan|sinh|cosh|tanh|asinh|acosh|atanh|sqrt|cbrt|recip|tenpow|epow|sin|cos|tan|log|ln|abs|fact|pct)\(|ans|pi|\^\(-1\)|\^\d|./g;
     return [...source.matchAll(pattern)].map(m=>({start:m.index,end:m.index+m[0].length,text:m[0]}));
   }
   function physicalLength(source){return physicalCells(source).length;}
@@ -1241,6 +1241,13 @@
     next.lifecycle='menu';return next;
   }
   function physicalSelect(previous,index){
+    if(previous.workflow.payload.id==='RANDOM'){
+      const names=['random','dice','coin','rint'],name=names[index];if(!name)return previous;
+      let next=structuredClone(previous);next.workflow=emptyWorkflow();next.lifecycle=previous.workflow.returnPhase;
+      if(next.lifecycle==='evaluated'){next.expression='';next.entry='';next.stagedEntry=null;}
+      try{next=physicalFlush(next);}catch{return physicalError(next,1);}
+      next.expression+=name+'()';next.displayResult=next.resultDisplay='0';return physicalEditor(next);
+    }
     const id=previous.workflow.payload.id;const choice=previous.workflow.payload.choices[index];if(choice===undefined)return previous;
     if(id==='MATH'||id==='ENG'){
       if(id==='MATH'&&index===1)return physicalMenu(previous,'ENG');
@@ -1303,7 +1310,7 @@
     if(source.endsWith(')')){
       let depth=0;for(let i=source.length-1;i>=0;i--){if(source[i]===')')depth++;else if(source[i]==='('&&--depth===0){const prefix=source.slice(0,i).match(/[a-z]+$/i);return source.slice(i-(prefix?.[0].length||0));}}
     }
-    return source.match(/(?:pi|ans|\d+(?:\.\d*)?)$/)?.[0]||null;
+    return source.match(/(?:pi|ans|\d+(?:\.\d*)?(?:E[+-]?\d{1,2})?)$/)?.[0]||null;
   }
   function physicalFlush(state,closeFunctions=true){
     const next=structuredClone(state);next.expression=physicalSource(state);next.entry='';next.stagedEntry=null;
@@ -1336,6 +1343,11 @@
         return physicalNumeric(Math[name](radians));
       }
       if(['sinh','cosh','tanh','asinh','acosh','atanh'].includes(name))return physicalNumeric(Math[name](n));
+      if(name==='cv')return physicalNumeric(catalogues.convert(n,r));
+      if(['random','dice','coin','rint'].includes(name)){
+        const sample=scope.random();
+        return name==='random'?Math.floor(sample*1000)/1000:name==='dice'?Math.floor(sample*6)+1:name==='coin'?Math.floor(sample*2):Math.floor(sample*100);
+      }
       const units={kilo:3,mega:6,giga:9,tera:12,milli:-3,micro:-6,nano:-9,pico:-12,femto:-15};
       if(Object.hasOwn(units,name))return physicalNumeric(n*10**units[name]);
       if(name==='root'&&n===0)throw new RangeError('Root index');
@@ -1349,29 +1361,32 @@
       return physicalNumeric(legacyNumericAdapter.call(name,args,scope));
     }
   };
-  function physicalCalculate(previous,source,display=source,percent=false){
+  function physicalCalculate(previous,source,display=source,percent=false,randomSample){
     let next=structuredClone(previous);next.secondActive=false;next.layers.alpha=false;next.layers.hyp=false;
     try{
       const closed=closeOpenParentheses(source);
       if(/\dE(?![+-]?\d)/.test(closed))throw new SyntaxError('Incomplete scientific literal');
       if(/(?:^|[+*:^(:])\+|[+\-*:^:]-|[+*:^:]$/.test(closed))throw new SyntaxError('Missing operand');
       const ast=semantic.parseTokens(semantic.tokenize(normalizeMixedNumbers(closed).replaceAll(':','/'),{physical:true}),{physical:true});
-      const numericResult=semantic.evaluate(ast,physicalAdapter,{angleMode:previous.angleMode,answer:previous.answer,variables:previous.control.variables});
-      let typed=values.evaluateAst(ast,semantic,physicalAdapter,{angleMode:previous.angleMode,answer:previous.values.answer,physical:true,variables:Object.fromEntries(Object.entries(previous.control.variables).map(([k,v])=>[k,values.scalar(v)]))});
+      const draws=[];let cursor=0,seed=Math.floor(Math.abs(previous.control.variables.Y%1)*4294967296)>>>0;
+      const random=()=>{if(cursor>=draws.length){seed=(Math.imul(seed,1664525)+1013904223)>>>0;draws.push(draws.length===0&&randomSample!==undefined?randomSample:seed/4294967296);}return draws[cursor++];};
+      const numericResult=semantic.evaluate(ast,physicalAdapter,{angleMode:previous.angleMode,answer:previous.answer,variables:previous.control.variables,random});
+      cursor=0;
+      let typed=values.evaluateAst(ast,semantic,physicalAdapter,{angleMode:previous.angleMode,answer:previous.values.answer,physical:true,random,variables:Object.fromEntries(Object.entries(previous.control.variables).map(([k,v])=>[k,values.scalar(v)]))});
       const number=numericResult===0?0:physicalNumeric(values.toNumber(typed));
       next.expression=closed+'=';next.displayExpression=display+'=';next.entry='';next.stagedEntry=null;next.selectionActive=false;next.cursor=next.expression.length-1;
       next.answer=next.lastValue=number;next.values.answer=next.values.last=number===0?values.scalar(0):typed;
       if(physicalDmsArithmetic(ast)&&Math.abs(number)<1e6)typed=values.normalizeDms(number);
       next.values.answer=next.values.last=number===0&&typed.kind!=='dms'?values.scalar(0):typed;
-      next.lastExactDisplay='';next.resultMode=source.includes('frac(')?'mixed':source.includes('/')?'improper':'decimal';next.resultDisplay=next.displayResult=formatValue(number);
+      next.lastExactDisplay='';next.resultMode=source.includes('frac(')&&!source.includes('cv(')?'mixed':source.includes('/')?'improper':'decimal';next.resultDisplay=next.displayResult=formatValue(number);
       if(next.resultMode==='improper')next.resultDisplay=next.displayResult=formatFractionValue(number,false);
       if(typed.kind==='dms')next.resultMode='exact';
-      if(source.includes('frac('))physicalFractionView(next,'mixed');
+      if(source.includes('frac(')&&!source.includes('cv('))physicalFractionView(next,'mixed');
       next.editor=semantic.createEditor(semantic.tokenize(closed.replaceAll(':','/'),{physical:true}));next.editor.ast=ast;next.editor.incomplete=false;
       next.lifecycle='evaluated';next.control.errorCode=null;next.control.arithmetic.percent=percent;
       next.history.push({expression:next.expression,value:number,exactDisplay:''});next.values.history.push(values.copy(next.values.answer));
       while(next.history.length>1&&next.history.reduce((total,h)=>total+physicalLength(h.expression),0)>142){next.history.shift();next.values.history.shift();}
-      next.historyIndex=null;return next;
+      next.historyIndex=null;if(draws.length)next.control.variables.Y=draws.at(-1);return next;
     }catch(error){return physicalError(next,error instanceof RangeError?2:1);}
   }
   function physicalDmsArithmetic(ast){
@@ -1394,6 +1409,75 @@
     if(stage.type==='physicalFraction')next.displayResult=next.resultDisplay=`${stage.whole?stage.whole+' ':''}${stage.numerator}/${stage.denominator}`;
     else if(stage.type==='dms')next.displayResult=next.resultDisplay=`dms(${stage.degrees},${stage.minutes||0},${stage.seconds||0})`;
     return next;
+  }
+  function physicalPhase7(previous,next,intent,n,randomSample){
+    const w=previous.workflow,mode=previous.layers.mode;
+    if(mode==='NORMAL'&&w.payload?.id==='RCL'&&MEMORY_KEYS[n]){
+      const slot=MEMORY_KEYS[n],value=slot==='M'?previous.memoryValue:previous.control.variables[slot];
+      next.workflow=emptyWorkflow();next.secondActive=false;next.layers.alpha=false;
+      next.expression=next.displayExpression=slot+'=';next.entry='';next.stagedEntry=null;next.selectionActive=false;
+      next.lastValue=value;next.values.last=slot==='M'?values.copy(previous.values.memory):values.scalar(value);
+      next.displayResult=next.resultDisplay=formatValue(value);next.resultMode='decimal';next.lifecycle='evaluated';next.editor=editorForState(next);
+      next.layers.intent={kind:'memory-value',operation:'RCL',slot};return next;
+    }
+    // Phase 7 catalogue results use the scalar stores already present in the
+    // foundation. General STO entry/formula workflows retain their Phase 8 owner.
+    if(mode==='NORMAL'&&w.payload?.id==='STO'&&MEMORY_KEYS[n]&&(previous.layers.intent?.kind==='catalogue-value'||previous.expression.includes('cv(')||w.returnPhase==='evaluated')){
+      const slot=MEMORY_KEYS[n];next.workflow=emptyWorkflow();next.lifecycle=w.returnPhase;
+      let source;try{source=physicalSource(next);}catch{return physicalError(next,1);}
+      const result=w.returnPhase==='evaluated'?next:physicalCalculate(next,source,source,false,randomSample);if(result.lifecycle==='error')return result;
+      if(slot==='M'){result.memoryValue=result.lastValue;result.values.memory=values.copy(result.values.last);}
+      else result.control.variables[slot]=result.lastValue;
+      result.displayExpression=source+'→'+slot;result.layers.intent={kind:'memory-value',operation:'STO',slot};return result;
+    }
+    if(w.payload?.id==='CNST'){
+      const digit=DIGIT_KEYS[n];if(digit===undefined)return next;
+      next.workflow.payload.path.push(digit);
+      if(next.workflow.payload.path.length<2)return next;
+      const index=Number(next.workflow.payload.path.join('')),row=catalogues.constants[index-1];
+      if(!row){next.workflow.payload.path.pop();return next;}
+      const resume=w.payload.resumeWorkflow;
+      next.workflow=structuredClone(resume||emptyWorkflow());next.lifecycle=resume?.kind||w.returnPhase;
+      if(previous.workflow.returnPhase==='evaluated'){next.expression='';next.entry='';next.stagedEntry=null;}
+      const value=Number(row.value),literal=Math.abs(value)>=1e8||Math.abs(value)<1e-3?value.toExponential().replace('e','E').replace(/E\+?(-?)(\d+)$/,(_,sign,digits)=>'E'+sign+digits.padStart(2,'0')):String(value);
+      next.entry=literal;next.stagedEntry=null;next.displayResult=next.resultDisplay=formatValue(value);
+      next.secondActive=false;next.layers.intent={kind:'catalogue-value',menu:'CNST',index};
+      if(!resume)return physicalEditor(next);return next;
+    }
+    if(w.payload?.id==='CONV'){
+      const digit=DIGIT_KEYS[n];
+      if(digit!==undefined){if(next.workflow.payload.path.length<10)next.workflow.payload.path.push(digit);return next;}
+      if(n===7){next.workflow.payload.path.pop();return next;}
+      if(n===48||[38,39,43,44,34].includes(n)){
+        const index=Number(next.workflow.payload.path.join('')||'0');
+        if(!catalogues.conversions[index-1]){next.workflow=emptyWorkflow();return physicalError(next,2);}
+        const source=w.payload.source,operand=physicalLastOperand(source);
+        if(!operand){next.workflow=emptyWorkflow();return physicalError(next,1);}
+        next.workflow=emptyWorkflow();next.entry='';next.stagedEntry=null;next.expression=source.slice(0,-operand.length)+'cv('+operand+','+index+')';next.lifecycle='entering';
+        if(n!==48)return reducePhysicalKey(physicalEditor(next),physicalId(n),randomSample);
+        const result=physicalCalculate(next,next.expression,source+'→cv'+index,false,randomSample);
+        if(w.payload.resumeWorkflow&&result.lifecycle!=='error'){
+          result.workflow=structuredClone(w.payload.resumeWorkflow);result.lifecycle=result.workflow.kind;
+          result.entry=String(result.lastValue);result.answer=previous.answer;result.values.answer=values.copy(previous.values.answer);result.history=structuredClone(previous.history);result.values.history=structuredClone(previous.values.history);
+        }
+        return result;
+      }
+      return next;
+    }
+    if(previous.secondActive&&[30,41,42].includes(n)&&!previous.layers.alpha){
+      const name=n===30?'RANDOM':n===41?'CNST':'CONV';
+      if(mode==='CPLX'||name==='RANDOM'&&mode==='EQN'||previous.values.last.kind==='nbase'&&previous.values.last.radix!==10){next.secondActive=false;return next;}
+      if(name==='RANDOM')return physicalMenu(previous,name);
+      let source;try{source=previous.lifecycle==='evaluated'?'ans':physicalSource(previous);}catch{return physicalError(next,1);}
+      const resume=w.kind==='data-entry'?structuredClone(w):null;
+      next.secondActive=false;next.layers.alpha=false;
+      next.workflow={kind:'prompt',payload:{id:name,keyLayer:true,path:[],source,resumeWorkflow:resume},page:0,returnPhase:previous.lifecycle};
+      next.lifecycle='prompt';return next;
+    }
+    if(n===48&&mode!=='NORMAL'&&w.kind===null&&/(?:cv\(|random\(\)|dice\(\)|coin\(\)|rint\(\))/.test(previous.expression)){
+      return physicalCalculate(next,physicalSource(previous),physicalSource(previous),false,randomSample);
+    }
+    return null;
   }
   function physicalPhase6(previous,next,intent,n){
     if(previous.layers.mode!=='NORMAL')return null;
@@ -1495,7 +1579,8 @@
     }
     return null;
   }
-  function reducePhysicalKey(previous,id){
+  function reducePhysicalKey(previous,id,randomSample){
+    if(randomSample!==undefined&&(!Number.isFinite(randomSample)||randomSample<0||randomSample>=1))throw new TypeError("Invalid random sample");
     const intent=resolvePhysicalKey(previous,id); // Reject malformed identities even while asleep.
     const n=Number(id.slice(-2));let next=structuredClone(previous);next.control.idleMs=0;
     if(intent.kind==='operation')next.layers.intent=structuredClone(intent);
@@ -1521,7 +1606,7 @@
       if(DIGIT_KEYS[n]!==undefined){next.layers.settings.tab=Number(DIGIT_KEYS[n]);next.lifecycle=previous.workflow.returnPhase;next.workflow=structuredClone(previous.workflow.payload.resumeWorkflow||emptyWorkflow());}
       return next;
     }
-    if(previous.workflow.kind==='menu'&&['MODE','STAT','EQN','CLEAR','MEMORY_CLEAR','SETUP','ANGLE','FORMAT','MATH','ENG'].includes(previous.workflow.payload.id)){
+    if(previous.workflow.kind==='menu'&&['MODE','STAT','EQN','CLEAR','MEMORY_CLEAR','SETUP','ANGLE','FORMAT','MATH','ENG','RANDOM'].includes(previous.workflow.payload.id)){
       const w=next.workflow,groups=w.payload.groups;let selected=w.payload.selected;
       if(n===9||n===10){selected=Math.max(0,Math.min(w.payload.choices.length-1,selected+(n===9?-1:1)));}
       else if(n===8||n===11){w.page=w.payload.id==='FORMAT'?(w.page+1)%groups.length:Math.max(0,Math.min(groups.length-1,w.page+(n===8?-1:1)));selected=groups.slice(0,w.page).reduce((a,b)=>a+b,0);}
@@ -1534,11 +1619,12 @@
       if(n===45||n===48)return previous.workflow.payload.id==='CONFIRM_RESET'?createInitialState():physicalClear(previous,'memory');
       return next;
     }
+    const catalogueKey=physicalPhase7(previous,next,intent,n,randomSample);if(catalogueKey)return catalogueKey;
     const scalarKey=physicalPhase6(previous,next,intent,n);if(scalarKey)return scalarKey;
     if(previous.layers.mode==='NORMAL'&&previous.workflow.kind===null&&!previous.layers.alpha&&!previous.layers.hyp){
       const shifted=previous.secondActive;
       if(n===48&&!shifted){
-        if(previous.lifecycle==='evaluated'&&!previous.control.arithmetic.percent&&!['r=','x='].includes(previous.displayExpression))return next;
+        if(previous.lifecycle==='evaluated'&&!previous.control.arithmetic.percent&&!['r=','x='].includes(previous.displayExpression)&&!/(?:random|dice|coin|rint)\(\)/.test(previous.expression))return next;
         try{
           let source=physicalSource(previous),display=source;
           const buffers=physicalBufferUsage(source);
@@ -1546,7 +1632,7 @@
           if(buffers.calculations>24||buffers.numeric>10)return physicalError(next,3);
           const constant=previous.control.arithmetic.constant;
           if(previous.entry&&!previous.expression&&constant){source=constant.operator==='*'?`${constant.operand}*${source}`:`${source}${constant.operator}${constant.operand}`;display=constant.operator==='*'?`K*${previous.entry}`:`${previous.entry}${constant.operator}K`;}
-          const result=physicalCalculate(next,source,display);
+          const result=physicalCalculate(next,source,display,false,randomSample);
           if(result.lifecycle==='evaluated'&&!constant){
             const ast=result.editor.ast;
             if(ast.kind==='binary'&&!ast.implied&&['+','-','*','/'].includes(ast.operator)){
@@ -2606,7 +2692,7 @@
   return Object.freeze({
     createInitialState, reduceCalculator, snapshotCalculator, restoreCalculator,
     resolvePhysicalKey, semanticEditor: semantic, valueTypes: values, numericModel,
-    evaluateTypedAst, evaluateExpression, evaluateExactExpression, formatValue,
+    catalogues, evaluateTypedAst, evaluateExpression, evaluateExactExpression, formatValue,
     closeOpenParentheses,
   });
 });

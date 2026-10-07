@@ -1,0 +1,154 @@
+{
+  "schemaVersion": 1,
+  "id": "phase7-constant",
+  "dispatch": "physical",
+  "displayProfile": "physical",
+  "status": "baseline-characterization",
+  "reference": "experiments/phase7-constant.json",
+  "sequence": [
+    "EL506-K03",
+    "EL506-K41",
+    "EL506-K45",
+    "EL506-K40",
+    "EL506-K48"
+  ],
+  "capabilityIds": [
+    "el506.constant.01"
+  ],
+  "expected": [
+    {
+      "afterStep": 0,
+      "assertions": {
+        "displayExpression": "",
+        "displayResult": "0",
+        "lifecycle": "empty",
+        "answer": 0,
+        "entry": "",
+        "workflow.kind": null,
+        "values.last": {
+          "kind": "scalar",
+          "value": 0
+        }
+      },
+      "domResultText": "0."
+    },
+    {
+      "afterStep": 1,
+      "assertions": {
+        "displayExpression": "",
+        "displayResult": "0",
+        "lifecycle": "empty",
+        "answer": 0,
+        "entry": "",
+        "workflow.kind": null,
+        "values.last": {
+          "kind": "scalar",
+          "value": 0
+        }
+      },
+      "domResultText": "0."
+    },
+    {
+      "afterStep": 2,
+      "assertions": {
+        "displayExpression": "",
+        "displayResult": "0",
+        "lifecycle": "prompt",
+        "answer": 0,
+        "entry": "",
+        "workflow.kind": "prompt",
+        "values.last": {
+          "kind": "scalar",
+          "value": 0
+        }
+      },
+      "domResultText": "01-52 []"
+    },
+    {
+      "afterStep": 3,
+      "assertions": {
+        "displayExpression": "",
+        "displayResult": "0",
+        "lifecycle": "prompt",
+        "answer": 0,
+        "entry": "",
+        "workflow.kind": "prompt",
+        "values.last": {
+          "kind": "scalar",
+          "value": 0
+        }
+      },
+      "domResultText": "01-52 [0]"
+    },
+    {
+      "afterStep": 4,
+      "assertions": {
+        "displayExpression": "",
+        "displayResult": "299792458",
+        "lifecycle": "entering",
+        "answer": 0,
+        "entry": "2.99792458E08",
+        "workflow.kind": null,
+        "values.last": {
+          "kind": "scalar",
+          "value": 0
+        }
+      },
+      "domResultText": "2.99792458×1008"
+    },
+    {
+      "afterStep": 5,
+      "assertions": {
+        "displayExpression": "2.99792458E08=",
+        "displayResult": "299792458",
+        "lifecycle": "evaluated",
+        "answer": 299792458,
+        "entry": "",
+        "workflow.kind": null,
+        "values.last": {
+          "kind": "scalar",
+          "value": 299792458
+        }
+      },
+      "domResultText": "299'792'458."
+    }
+  ],
+  "knownDifferences": [
+    {
+      "afterStep": 0,
+      "field": "displayResult",
+      "expected": "0.",
+      "actual": "0"
+    },
+    {
+      "afterStep": 2,
+      "field": "displayResult",
+      "expected": "01-52 [ ]",
+      "actual": "0"
+    },
+    {
+      "afterStep": 3,
+      "field": "displayResult",
+      "expected": "01-52 [0_ ]",
+      "actual": "0"
+    },
+    {
+      "afterStep": 4,
+      "field": "displayResult",
+      "expected": "2.99792458 ×10^08",
+      "actual": "299792458"
+    },
+    {
+      "afterStep": 5,
+      "field": "displayExpression",
+      "expected": "299792458=",
+      "actual": "2.99792458E08="
+    },
+    {
+      "afterStep": 5,
+      "field": "displayResult",
+      "expected": "299792458.",
+      "actual": "299792458"
+    }
+  ]
+}

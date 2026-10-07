@@ -939,9 +939,148 @@ rectangular. Conversion evaluates immediately, displays the first component,
 and stores the components in X/Y. Press RCL then the X or Y key to inspect
 either component; arrow keys edit the pair expression. The active angle unit
 controls polar angles. A zero rectangular pair or negative polar radius gives
-Error 2. General memory, solver, random and catalogue controllers retain their
-later roadmap owners.
+Error 2. General memory and solver controllers retain their later roadmap owners.
 
 Reference evidence: `tests/reference/el506ts/phase-6-review.json` and the three
 `experiments/phase6-*.json` / `golden/phase6-*.json` sequences. The measured
 profile and scoped tests are recorded separately from full capability parity.
+
+
+### Random numbers, physical constants, and unit conversions
+
+Press 2ndF + 7 to open RAND / R-DICE / R-COIN / R-INT. Select 0, 1, 2,
+or 3, then ENT. ENT generates another sample using the same expression.
+RAND produces a three-decimal value from 0 through 0.999; dice gives 1-6,
+coin gives 0 or 1, and integer gives 0-99. ON/C exits the command. Each
+sample replaces Y with the underlying value in [0, 1); ANS contains the
+evaluated expression result. Random commands may be multiplied or added
+within an expression. NORMAL, STAT, MAT, and LIST expose these scalar
+commands; EQN and CPLX do not.
+
+The browser supplies an independent random sample from Web Crypto at ENT.
+The DOM-independent reducer also supports an explicit `randomSample` on a
+physical-key event for reproducible tests, and uses a deterministic generator
+derived from Y when no sample is supplied. Snapshots retain Y and the command;
+the browser continues with new samples after restoration. No claim is made
+that this reproduces the simulator's private generator or sample stream.
+
+Press 2ndF + 2 (CNST), followed by the two-digit ID 01-52, to insert a
+physical constant. Selection preserves ANS until ENT calculates the expression.
+For example CNST 03 inserts standard gravity, 9.80665 m/s²; CNST 52 inserts
+standard atmosphere, 101325 Pa. Invalid second digits leave the first digit
+available for correction. ON/C cancels. The immutable catalogue uses the
+historical CODATA 2014 values designated by the EL-506TS manual, including
+its older Planck, Boltzmann, and Avogadro values. It is not a catalogue of
+current SI definitions. Names, units, values, and IDs are available through
+`ScientificCalculatorCore.catalogues.constants` and the lookup table below.
+
+For conversions, enter the value, then 2ndF + 3 (CONV), the numbered conversion,
+then ENT. Example: `1 →cv 1` gives 2.54 cm. Conversions accept simple fractions,
+negative numbers, scientific notation, arithmetic operands and ANS; successive
+reverse conversions use the current result. Fahrenheit/Celsius conversion
+includes the 32-degree offset. An invalid conversion ID or result outside
+the numeric range gives Error 2. DEL corrects an entered ID; ON/C cancels.
+Physical constants and conversions can be inserted into NORMAL, STAT, EQN,
+MAT, and LIST scalar entry; CPLX excludes them. EQN coefficient entry resumes
+its existing prompt. In NORMAL, store a recalled constant or converted result with STO then A-F,
+X, Y, or M; RCL then the slot reads it without replacing ANS. Broader memory
+entry, formula memories, persistence audits and the numerical algorithms
+of later modes remain their separate roadmap phases.
+
+The reusable package includes `catalogues.js`; the loader loads it before
+the core. Existing version 0.3.1 and snapshot schema 8 remain compatible.
+The 12px key legends, fraction layout and legacy entry points are retained.
+
+Reference evidence is recorded in `tests/reference/el506ts/phase-7-review.json`,
+`phase-7-catalogue-reference.json`, and the Phase 7 experiment/golden files.
+The catalogue is cross-checked against the manual and
+[NIST's 2014 archive](https://physics.nist.gov/cuu/Constants/ArchiveASCII/allascii_2014.txt).
+Representative native menu, result, repeat, and Y recall frames were inspected
+on the pinned simulator. Hidden internal digits and full cross-mode numerical
+parity are not established by these scoped tests; the final parity audit
+remains pending.
+
+Physical constant lookup (SI units unless shown otherwise):
+
+| ID | Constant | Value | Unit |
+| --- | --- | ---: | --- |
+| 01 | speed of light in vacuum | 299792458 | m s^-1 |
+| 02 | Newtonian constant of gravitation | 6.67408e-11 | m^3 kg^-1 s^-2 |
+| 03 | standard acceleration of gravity | 9.80665 | m s^-2 |
+| 04 | electron mass | 9.10938356e-31 | kg |
+| 05 | proton mass | 1.672621898e-27 | kg |
+| 06 | neutron mass | 1.674927471e-27 | kg |
+| 07 | muon mass | 1.883531594e-28 | kg |
+| 08 | atomic mass unit-kilogram relationship | 1.660539040e-27 | kg |
+| 09 | elementary charge | 1.6021766208e-19 | C |
+| 10 | Planck constant | 6.626070040e-34 | J s |
+| 11 | Boltzmann constant | 1.38064852e-23 | J K^-1 |
+| 12 | magnetic constant | 1.2566370614359e-6 | N A^-2 |
+| 13 | electric constant | 8.8541878176204e-12 | F m^-1 |
+| 14 | classical electron radius | 2.8179403227e-15 | m |
+| 15 | fine-structure constant | 7.2973525664e-3 | 1 |
+| 16 | Bohr radius | 5.2917721067e-11 | m |
+| 17 | Rydberg constant | 10973731.568508 | m^-1 |
+| 18 | magnetic flux quantum | 2.067833831e-15 | Wb |
+| 19 | Bohr magneton | 9.274009994e-24 | J T^-1 |
+| 20 | electron magnetic moment | -9.284764620e-24 | J T^-1 |
+| 21 | nuclear magneton | 5.050783699e-27 | J T^-1 |
+| 22 | proton magnetic moment | 1.4106067873e-26 | J T^-1 |
+| 23 | neutron magnetic moment | -9.6623650e-27 | J T^-1 |
+| 24 | muon magnetic moment | -4.49044826e-26 | J T^-1 |
+| 25 | Compton wavelength | 2.4263102367e-12 | m |
+| 26 | proton Compton wavelength | 1.32140985396e-15 | m |
+| 27 | Stefan-Boltzmann constant | 5.670367e-8 | W m^-2 K^-4 |
+| 28 | Avogadro constant | 6.022140857e23 | mol^-1 |
+| 29 | molar volume of ideal gas | 0.022413962 | m^3 mol^-1 |
+| 30 | molar gas constant | 8.3144598 | J mol^-1 K^-1 |
+| 31 | Faraday constant | 96485.33289 | C mol^-1 |
+| 32 | von Klitzing constant | 25812.8074555 | ohm |
+| 33 | electron charge-to-mass quotient | -1.758820024e11 | C kg^-1 |
+| 34 | quantum of circulation | 3.6369475486e-4 | m^2 s^-1 |
+| 35 | proton gyromagnetic ratio | 2.675221900e8 | s^-1 T^-1 |
+| 36 | Josephson constant | 4.835978525e14 | Hz V^-1 |
+| 37 | electron volt | 1.6021766208e-19 | J |
+| 38 | Celsius temperature | 273.15 | K |
+| 39 | astronomical unit | 149597870700 | m |
+| 40 | parsec | 3.0856775814914e16 | m |
+| 41 | molar mass of carbon-12 | 0.012 | kg mol^-1 |
+| 42 | Planck constant over 2 pi | 1.054571800e-34 | J s |
+| 43 | Hartree energy | 4.359744650e-18 | J |
+| 44 | conductance quantum | 7.7480917310e-5 | S |
+| 45 | inverse fine-structure constant | 137.035999139 | 1 |
+| 46 | proton-electron mass ratio | 1836.15267389 | 1 |
+| 47 | molar mass constant | 0.001 | kg mol^-1 |
+| 48 | neutron Compton wavelength | 1.31959090481e-15 | m |
+| 49 | first radiation constant | 3.741771790e-16 | W m^2 |
+| 50 | second radiation constant | 0.0143877736 | m K |
+| 51 | characteristic impedance of vacuum | 376.73031346177 | ohm |
+| 52 | standard atmosphere | 101325 | Pa |
+
+Conversion lookup: odd IDs convert from the first unit to the second; even
+IDs reverse that pair.
+
+| IDs | First unit | Second unit |
+| --- | --- | --- |
+| 01/02 | in | cm |
+| 03/04 | ft | m |
+| 05/06 | yd | m |
+| 07/08 | mile | km |
+| 09/10 | nautical mile | m |
+| 11/12 | acre | square meter |
+| 13/14 | oz | g |
+| 15/16 | lb | kg |
+| 17/18 | deg F | deg C |
+| 19/20 | US gal | L |
+| 21/22 | UK gal | L |
+| 23/24 | US fluid oz | mL |
+| 25/26 | UK fluid oz | mL |
+| 27/28 | J | cal thermochemical |
+| 29/30 | J | cal 15 deg C |
+| 31/32 | J | cal IT |
+| 33/34 | hp | W |
+| 35/36 | ps | W |
+| 37/38 | kgf/cm2 | Pa |
+| 39/40 | atm | Pa |
+| 41/42 | mmHg (Torr) | Pa |
+| 43/44 | kgf m | J |

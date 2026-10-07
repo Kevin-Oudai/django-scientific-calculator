@@ -1,0 +1,218 @@
+{
+  "schemaVersion": 1,
+  "reviewId": "phase-7-random-constant-conversion-review-v1",
+  "reviewedOn": "2026-10-07",
+  "simulatorProfile": "sharp-el506ts-pc-simulator-1.0.2.0",
+  "runtimeSha256": "6bfef4d04900b472892be2d4c54dcfa6013f87232097e32df508ca4c27425530",
+  "method": "Live @oai/sky one input and refreshed screenshot per action; runtime fingerprint reverified. Significant native frames independently transcribed before implementation. Catalogue names/IDs/units are from the pinned full manual; numerical constants use its explicitly designated CODATA 2014 primary NIST archive. All 52 implementation IDs and 44 conversions are tested. This is not a claim that all hidden simulator digits or every mode algorithm were independently measured.",
+  "liveObservations": [
+    {
+      "sequence": [
+        3,
+        41
+      ],
+      "upper": "",
+      "lower": "01-52 [ ]",
+      "indicator": "?"
+    },
+    {
+      "sequence": [
+        45
+      ],
+      "upper": "",
+      "lower": "01-52 [0_ ]",
+      "context": "Continuation of CNST prompt"
+    },
+    {
+      "sequence": [
+        40
+      ],
+      "upper": "",
+      "lower": "2.99792458 ×10^08",
+      "context": "CNST 01 insertion"
+    },
+    {
+      "sequence": [
+        48
+      ],
+      "upper": "299792458=",
+      "lower": "299792458."
+    },
+    {
+      "sequence": [
+        3,
+        41,
+        45,
+        41
+      ],
+      "upper": "",
+      "lower": "6.67408 ×10^-11",
+      "context": "From evaluated preceding result; CNST 02"
+    },
+    {
+      "sequence": [
+        3,
+        41,
+        45,
+        42
+      ],
+      "upper": "",
+      "lower": "9.80665",
+      "context": "Replaces current numeric entry; CNST 03"
+    },
+    {
+      "sequence": [
+        3,
+        30
+      ],
+      "upper": "RAND R-DICE",
+      "lower": "0. 1",
+      "context": "Following CNST 03; first random page"
+    },
+    {
+      "sequence": [
+        45
+      ],
+      "upper": "9.80665RANDOM",
+      "lower": "0.",
+      "context": "Appended random operand, before ENT"
+    },
+    {
+      "sequence": [
+        48
+      ],
+      "upper": "9.80665RANDOM=",
+      "lower": "5.6290171",
+      "inference": "Evaluated random decimal .574 multiplied by 9.80665"
+    },
+    {
+      "sequence": [
+        2,
+        40,
+        3,
+        42
+      ],
+      "upper": "1→cv",
+      "lower": "0."
+    },
+    {
+      "sequence": [
+        45
+      ],
+      "upper": "1→cv",
+      "lower": "0.",
+      "context": "Leading zero in conversion index"
+    },
+    {
+      "sequence": [
+        40
+      ],
+      "upper": "1→cv",
+      "lower": "1."
+    },
+    {
+      "sequence": [
+        48
+      ],
+      "upper": "1→cv1=",
+      "lower": "2.54"
+    },
+    {
+      "sequence": [
+        27,
+        28
+      ],
+      "upper": "Y=",
+      "lower": "0.57446862",
+      "context": "Retained random underlying sample after conversion; ANS was conversion result"
+    },
+    {
+      "sequence": [
+        2,
+        3,
+        30,
+        45
+      ],
+      "upper": "RANDOM",
+      "lower": "0."
+    },
+    {
+      "sequence": [
+        48
+      ],
+      "upper": "RANDOM=",
+      "lower": "0.752"
+    },
+    {
+      "sequence": [
+        48
+      ],
+      "upper": "RANDOM=",
+      "lower": "0.017",
+      "context": "ENT repeats random expression"
+    },
+    {
+      "sequence": [
+        2,
+        3,
+        41,
+        45,
+        45
+      ],
+      "upper": "",
+      "lower": "01-52 [0_ ]",
+      "context": "Invalid second digit ignored"
+    },
+    {
+      "sequence": [
+        40
+      ],
+      "upper": "",
+      "lower": "2.99792458 ×10^08",
+      "context": "Recovery selects CNST 01"
+    },
+    {
+      "sequence": [
+        28,
+        18
+      ],
+      "upper": "299792458→A",
+      "lower": "299792458.",
+      "context": "STO A after CNST 01 inserts and calculates the constant; precision is retained in scalar store."
+    },
+    {
+      "sequence": [
+        27,
+        18
+      ],
+      "upper": "A=",
+      "lower": "299792458.",
+      "context": "RCL A after CNST 01 and STO A retains the constant."
+    }
+  ],
+  "priorEvidence": {
+    "reference": "experiments/menu-inventory.json",
+    "frames": [
+      77,
+      78,
+      93,
+      96
+    ],
+    "scope": "Native random page 2 R-COIN / R-INT and numbered conversion workflow"
+  },
+  "catalogueSources": [
+    "https://physics.nist.gov/cuu/Constants/ArchiveASCII/allascii_2014.txt",
+    "https://res.cloudinary.com/hnymxdy5j/raw/upload/v1743873557/media/00d7f000004ckruua4/EL506TSBWH_English_manual.pdf"
+  ],
+  "randomPolicy": "Compare range, output precision and state effects, not exact private PRNG stream. Browser Web Crypto supplies independent samples; pure reducer has reproducible fallback state from Y.",
+  "limitations": [
+    "Hidden stored digits in all catalogue constants are not directly measured; historical primary-source values remain explicit.",
+    "Full STAT, EQN, MAT, LIST numerical algorithms and general memory workflows remain their later phases. Catalogue scalar entry and existing EQN prompt continuation are covered here.",
+    "N-base restrictions are represented for tagged non-decimal state; the physical N-base controller remains Phase 9."
+  ],
+  "verification": "Passed: npm test (312 unit tests, 127 browser tests, 160 golden frames); 7 Django integration tests; compileall; Compose config/build/start; pip dry run; installed wheel/sdist smoke with 16 packaged assets; current parity report; browser inspection; git diff --check.",
+  "integrationNotes": [
+    "Catalogue scalar STO/RCL is covered in NORMAL, including evaluated ANS-based conversions and random results without recalculation. General Phase 8 memory workflows retain their owner.",
+    "The Phase 3 power-retention golden now returns M=7 after RCL M, matching its existing independent native reference; its remaining raw LCD differences are still declared."
+  ]
+}

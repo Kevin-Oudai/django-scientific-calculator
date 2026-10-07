@@ -71,6 +71,10 @@
     if(!/^-?\d*(?:\.\d*)?$/.test(text)||text==='')return escapeHtml(text);
     return escapeHtml(grouped(text.includes('.')?text:text+'.'));
   }
+  function catalogueNumber(entry,settings){
+    if(!entry.includes('E')||!['NORM1','NORM2'].includes(settings.format))return sharpNumber(Number(entry),settings).html;
+    return sharpNumber(Number(entry),{format:'SCI',tab:9}).html.replace(/^(-?\d+\.\d*?)0+(?=<span)/,'$1');
+  }
   function formatTyped(value,settings,options={}) {
     if(typeof value==='number')return sharpNumber(value,settings).html;
     if(typeof value==='string')return escapeHtml(value);
@@ -174,6 +178,8 @@
         index += 1;
         continue;
       }
+      const randomLabel=expression.slice(index).match(/^R-(?:DICE|COIN|INT)/);
+      if(randomLabel){output+=escapeHtml(randomLabel[0]);index+=randomLabel[0].length;continue;}
       const dmsMatch = expression.slice(index).match(/^dms\((-?\d+(?:\.\d+)?),(\d+(?:\.\d+)?),(\d+(?:\.\d+)?)\)/);
       if (dmsMatch) {
         output += `${escapeHtml(dmsMatch[1])}<sup>&deg;</sup>${escapeHtml(dmsMatch[2])}&#8242;${escapeHtml(dmsMatch[3])}&#8243;`;
@@ -250,17 +256,24 @@
   }
 
   function physicalExpression(source){
+    source=source.replace(/(?:random|dice|coin|rint)\(\)/g,name=>({'random()':'RANDOM','dice()':'R-DICE','coin()':'R-COIN','rint()':'R-INT'}[name]));
+    // Internal calls remain evaluable; the physical display uses postfix notation.
+    for(let count=0;count<20&&/cv\(/.test(source);count++){
+      const changed=source.replace(/cv\(([^(),]+),(\d+)\)/g,(_,operand,index)=>operand+'→cv'+index);
+      if(changed===source)break;source=changed;
+    }
+
     source=source.replace(/\((-?\d+(?:\.\d*)?)\*tenpow\((-?\d+)\)\)/g,(_,base,exponent)=>base+'E'+(exponent.startsWith('-')?'-':'')+exponent.replace('-','').padStart(2,'0'));
     let output='';
     for(let i=0;i<source.length;){
-      const match=source.slice(i).match(/^(sin|cos|tan|asin|acos|atan|sinh|cosh|tanh|asinh|acosh|atanh|frac|sqrt|cbrt|log|ln|tenpow|epow|fact|root|npr|ncr|kilo|mega|giga|tera|milli|micro|nano|pico|femto)\(/);
+      const match=source.slice(i).match(/^(cv|sin|cos|tan|asin|acos|atan|sinh|cosh|tanh|asinh|acosh|atanh|frac|sqrt|cbrt|log|ln|tenpow|epow|fact|root|npr|ncr|kilo|mega|giga|tera|milli|micro|nano|pico|femto)\(/);
       if(!match){output+=source[i++];continue;}
       let depth=1,j=i+match[0].length,start=j,args=[];
       for(;j<source.length;j++){if(source[j]==='(')depth++;else if(source[j]===')'){if(--depth===0)break;}else if(source[j]===','&&depth===1){args.push(source.slice(start,j));start=j+1;}}
       args.push(source.slice(start,j));args=args.map(physicalExpression);
       const name=match[1],units={kilo:'k',mega:'M',giga:'G',tera:'T',milli:'m',micro:'µ',nano:'n',pico:'p',femto:'f'};
       const prefixes={sqrt:'√',cbrt:'³√',tenpow:'10^',epow:'e^'};
-      output+=name==='frac'?(args[0]==='0'?'':args[0]+' ')+args[1]+'/'+(args[2]||''):name==='fact'?args[0]+'!':name==='root'?args[0]+'ˣ√'+(args[1]||''):name==='npr'?args[0]+'P'+(args[1]||''):name==='ncr'?args[0]+'C'+(args[1]||''):units[name]?args[0]+units[name]:prefixes[name]?prefixes[name]+args[0]:({asin:'sin⁻¹',acos:'cos⁻¹',atan:'tan⁻¹',asinh:'sinh⁻¹',acosh:'cosh⁻¹',atanh:'tanh⁻¹'})[name]?( {asin:'sin⁻¹',acos:'cos⁻¹',atan:'tan⁻¹',asinh:'sinh⁻¹',acosh:'cosh⁻¹',atanh:'tanh⁻¹'}[name]+args[0]):name+args[0];
+      output+=name==='cv'?args[0]+'→cv'+args[1]:name==='frac'?(args[0]==='0'?'':args[0]+' ')+args[1]+'/'+(args[2]||''):name==='fact'?args[0]+'!':name==='root'?args[0]+'ˣ√'+(args[1]||''):name==='npr'?args[0]+'P'+(args[1]||''):name==='ncr'?args[0]+'C'+(args[1]||''):units[name]?args[0]+units[name]:prefixes[name]?prefixes[name]+args[0]:({asin:'sin⁻¹',acos:'cos⁻¹',atan:'tan⁻¹',asinh:'sinh⁻¹',acosh:'cosh⁻¹',atanh:'tanh⁻¹'})[name]?( {asin:'sin⁻¹',acos:'cos⁻¹',atan:'tan⁻¹',asinh:'sinh⁻¹',acosh:'cosh⁻¹',atanh:'tanh⁻¹'}[name]+args[0]):name+args[0];
       i=j<source.length?j+1:j;
     }
     return output;
@@ -307,7 +320,8 @@
       view.resultHtml=sharpEntry(stage.base)+'<span class="scicalc__display-operator">&times;</span>10<sup>'+(stage.exponent.startsWith('-')?'-':'')+String(Math.abs(exponent)).padStart(2,'0')+'</sup>';
     }
     if(!state.stagedEntry && state.lifecycle!=='error'){
-      if(state.entry)view.resultHtml=state.entry==='-'||/^-?\d*(?:\.\d*)?$/.test(state.entry)?sharpEntry(state.entry):formatExpression(state.entry);
+      if(state.entry&&state.layers.intent?.kind==='catalogue-value')view.resultHtml=catalogueNumber(state.entry,settings);
+      else if(state.entry)view.resultHtml=state.entry==='-'||/^-?\d*(?:\.\d*)?$/.test(state.entry)?sharpEntry(state.entry):formatExpression(state.entry);
       else if(state.lifecycle==='evaluated'&&state.values.last.kind==='dms'&&state.resultMode==='decimal')view.resultHtml=sharpNumber(state.lastValue,settings).html;
       else if(state.lifecycle==='evaluated')view.resultHtml=['NORM1','NORM2'].includes(settings.format)&&['mixed','improper'].includes(state.resultMode)?formatExpression(state.displayResult):formatTyped(state.values.last,settings);
       else if(state.displayResult!=='')view.resultHtml=sharpNumber(Number(state.displayResult)||0,settings).html;
@@ -355,7 +369,7 @@
       const shown = choices.slice(start, start + size);
       view.expressionHtml = shown.map(choice => escapeHtml(String(choice))).join('   ');
       view.resultHtml = shown.map((choice,index) => `${start + index}${workflow.payload.selected!==undefined?workflow.payload.selected===start+index?'•':'':choice === mode || choice === settings.angle || choice === settings.format ? '•' : ''}`).join('   ');
-      if(['SETUP','ANGLE','FORMAT'].includes(workflow.payload.id))view.resultHtml=shown.map((choice,index)=>workflow.payload.id==='SETUP'&&index===2&&!['FIX','SCI','ENG'].includes(settings.format)?'':`${start+index}${workflow.payload.selected===start+index?'.':''}`).filter(Boolean).join('   ');
+      if(['SETUP','ANGLE','FORMAT','RANDOM'].includes(workflow.payload.id))view.resultHtml=shown.map((choice,index)=>workflow.payload.id==='SETUP'&&index===2&&!['FIX','SCI','ENG'].includes(settings.format)?'':`${start+index}${workflow.payload.selected===start+index?'.':''}`).filter(Boolean).join('   ');
       view.previousPage = start > 0;
       view.nextPage = start + size < choices.length;
       view.cursorVisible = false;
@@ -363,6 +377,8 @@
       view.expressionHtml = escapeHtml(String(workflow.payload.label||workflow.payload.id));
       view.resultHtml = workflow.payload.label?escapeHtml(state.entry||'0'):escapeHtml((workflow.payload.path || []).join('') || '?');
       if(workflow.payload.id==='TAB')view.resultHtml='';
+      if(workflow.payload.id==='CNST'){view.expressionHtml='';view.resultHtml=escapeHtml('01-52 ['+(workflow.payload.path||[]).join('')+']');}
+      if(workflow.payload.id==='CONV'){view.expressionHtml=formatExpression(physicalExpression(workflow.payload.source)+'→cv');view.resultHtml=sharpEntry((workflow.payload.path||[]).join('')||'0');indicators['?']=false;}
       view.cursorVisible = false;
     }
     if(state.historyIndex!==null){view.previousPage=state.historyIndex>0;view.nextPage=state.historyIndex<state.history.length-1;view.pageStatus=`${state.historyIndex+1} / ${state.history.length}`;}

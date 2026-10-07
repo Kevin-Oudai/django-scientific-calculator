@@ -83,7 +83,7 @@
           button.setAttribute('aria-label',`${meanings.join('; ')}${active?`; active: ${active}`:''}`);
         }
         const status=Object.entries(view.indicators).filter(([,active])=>active).map(([label])=>label).join(', ');
-        const pending=['pending','symbol','statistic','catalogue-selection','memory-selection'].includes(state.layers.intent?.kind) ? '. Selected operation awaits its later roadmap implementation.' : '';
+        const pending=['pending','symbol','statistic','memory-selection'].includes(state.layers.intent?.kind) ? '. Selected operation awaits its later roadmap implementation.' : '';
         const spokenDisplay=element=>{
           const copy=element.cloneNode(true);
           for(const fraction of copy.querySelectorAll('.scicalc__display-fraction')){
@@ -110,6 +110,7 @@
       });
     };
     const dispatch=event=>{
+      if(physical&&event.type==='physical-key'&&event.id==='EL506-K48')event={...event,randomSample:document.defaultView.crypto.getRandomValues(new Uint32Array(1))[0]/4294967296};
       try { if(physical&&state.control.power==='on'&&Date.now()-activityAt>=600000)state=reduceCalculator(state,{type:'idle',elapsedMs:Date.now()-activityAt});state=reduceCalculator(state,event); render();schedulePower(); }
       catch(error) {
         // Pending later-phase operations must not throw from a DOM event.

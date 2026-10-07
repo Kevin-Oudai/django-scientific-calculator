@@ -1805,6 +1805,23 @@ coordinate X/Y recall is included here. Full device parity is still pending.
 
 ### Phase 7 - Random Numbers, Constants, and Unit Conversions
 
+
+READY_TO_PUSH: 2026-10-07, user-requested Phase 7 batch EL506-140 through
+EL506-149. Implementation gates passed; items remain unchecked and Next item
+remains EL506-140 until the implementation commit is published and verified.
+Implemented four random commands, native menus, 52 historical constants,
+44 conversions, expression/mode entry and scalar memory integration.
+Evidence: phase-7-review.json, phase-7-catalogue-reference.json, the pinned
+manual and NIST CODATA 2014 archive, and Phase 7 native experiment/golden files.
+Verification: npm test (312 unit, 127 browser, 160 golden frames), Django (7),
+compileall, pip dry run, Compose config/build/start, installed wheel/sdist
+smoke (16 assets), current generated report, browser inspection and
+git diff --check. Historical primary values cover all 52 IDs; hidden native
+digits and full later-mode algorithms remain explicitly unassessed.
+Private random streams are compared by properties, not identical samples.
+General memory/formula, solver and full cross-mode audits retain later owners.
+
+
 - [ ] **EL506-140 - Match random decimal generation.** Verify range
   0.000-0.999, three-decimal display, repeat command, and state effects.
 - [ ] **EL506-141 - Match Random Dice generation and repeat sequencing.**

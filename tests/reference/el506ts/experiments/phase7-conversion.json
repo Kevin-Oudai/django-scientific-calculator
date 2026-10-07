@@ -1,0 +1,227 @@
+{
+  "schema_version": 1,
+  "experiment_id": "el506-148-phase7-conversion-v1",
+  "roadmap_item": "EL506-148",
+  "catalog_id": "el506-physical-keys-v1",
+  "simulator": {
+    "profile_id": "sharp-el506ts-pc-simulator-1.0.2.0",
+    "product": "SHARP PC Simulator for EL-506TS",
+    "build": "1.0.2.0",
+    "runtime_sha256": "6bfef4d04900b472892be2d4c54dcfa6013f87232097e32df508ca4c27425530",
+    "locale": "English UI; en-US",
+    "operating_system": "Windows 11"
+  },
+  "capture": {
+    "date": "2026-10-07",
+    "timezone": "America/Port_of_Spain",
+    "method": "Live @oai/sky refreshed significant native frames; runtime fingerprint reverified. Text transcript only.",
+    "evidence_kind": "live-simulator",
+    "source_ids": [
+      "live-session"
+    ]
+  },
+  "initial_state": {
+    "reset": {
+      "kind": "documented-state",
+      "description": "Independent NORMAL DEG NORM1 command after ON/C, no retained constant."
+    },
+    "setup_sequence": [],
+    "mode": {
+      "status": "observed",
+      "value": "NORMAL (pinned reset default)"
+    },
+    "settings": [
+      {
+        "name": "angle",
+        "observation": {
+          "status": "observed",
+          "value": "DEG"
+        }
+      },
+      {
+        "name": "display-format",
+        "observation": {
+          "status": "observed",
+          "value": "NORM1 (pinned reset default)"
+        }
+      }
+    ],
+    "display": {
+      "upper_line": "",
+      "lower_line": "0.",
+      "indicators": [
+        "DEG"
+      ],
+      "scroll_arrows": [],
+      "cursor": {
+        "status": "observed",
+        "value": "not visible"
+      },
+      "insert_mode": {
+        "status": "unknown",
+        "reason": "Insert mode not probed by this MDF sequence."
+      },
+      "prompt": null,
+      "selected_result_component": null
+    },
+    "stores": []
+  },
+  "sequence": [
+    "EL506-K40",
+    "EL506-K03",
+    "EL506-K42",
+    "EL506-K45",
+    "EL506-K40",
+    "EL506-K48"
+  ],
+  "frames": [
+    {
+      "after_step": 0,
+      "display": {
+        "upper_line": "",
+        "lower_line": "0.",
+        "indicators": [
+          "DEG"
+        ],
+        "scroll_arrows": [],
+        "cursor": {
+          "status": "observed",
+          "value": "not visible"
+        },
+        "insert_mode": {
+          "status": "unknown",
+          "reason": "Insert mode not probed by this MDF sequence."
+        },
+        "prompt": null,
+        "selected_result_component": null
+      },
+      "result": {
+        "status": "not-applicable",
+        "reason": "Before numerical entry."
+      }
+    },
+    {
+      "after_step": 3,
+      "display": {
+        "upper_line": "1→cv",
+        "lower_line": "0.",
+        "indicators": [
+          "DEG"
+        ],
+        "scroll_arrows": [],
+        "cursor": {
+          "status": "observed",
+          "value": "not visible"
+        },
+        "insert_mode": {
+          "status": "unknown",
+          "reason": "Insert mode not probed by this MDF sequence."
+        },
+        "prompt": null,
+        "selected_result_component": null
+      },
+      "result": {
+        "status": "unknown",
+        "reason": "Display inspected; hidden simulator digits not directly read."
+      }
+    },
+    {
+      "after_step": 4,
+      "display": {
+        "upper_line": "1→cv",
+        "lower_line": "0.",
+        "indicators": [
+          "DEG"
+        ],
+        "scroll_arrows": [],
+        "cursor": {
+          "status": "observed",
+          "value": "not visible"
+        },
+        "insert_mode": {
+          "status": "unknown",
+          "reason": "Insert mode not probed by this MDF sequence."
+        },
+        "prompt": null,
+        "selected_result_component": null
+      },
+      "result": {
+        "status": "unknown",
+        "reason": "Display inspected; hidden simulator digits not directly read."
+      }
+    },
+    {
+      "after_step": 5,
+      "display": {
+        "upper_line": "1→cv",
+        "lower_line": "1.",
+        "indicators": [
+          "DEG"
+        ],
+        "scroll_arrows": [],
+        "cursor": {
+          "status": "observed",
+          "value": "not visible"
+        },
+        "insert_mode": {
+          "status": "unknown",
+          "reason": "Insert mode not probed by this MDF sequence."
+        },
+        "prompt": null,
+        "selected_result_component": null
+      },
+      "result": {
+        "status": "unknown",
+        "reason": "Display inspected; hidden simulator digits not directly read."
+      }
+    },
+    {
+      "after_step": 6,
+      "display": {
+        "upper_line": "1→cv1=",
+        "lower_line": "2.54",
+        "indicators": [
+          "DEG"
+        ],
+        "scroll_arrows": [],
+        "cursor": {
+          "status": "observed",
+          "value": "not visible"
+        },
+        "insert_mode": {
+          "status": "unknown",
+          "reason": "Insert mode not probed by this MDF sequence."
+        },
+        "prompt": null,
+        "selected_result_component": null
+      },
+      "result": {
+        "status": "unknown",
+        "reason": "Display inspected; hidden simulator digits not directly read."
+      }
+    }
+  ],
+  "stored_values": {
+    "coverage": "ANS preserved on insertion; successful ENT computes numeric result. Other stores unmeasured in this fixture.",
+    "observations": []
+  },
+  "errors": [],
+  "sources": [
+    {
+      "source_id": "live-session",
+      "kind": "simulator",
+      "reference": "simulator-profile.json",
+      "page": null,
+      "scope": "Phase 7 native CNST/CONV significant menu, entry and result frames."
+    }
+  ],
+  "oracle": {
+    "selected_source_id": "live-session",
+    "simulator_exception_ids": [],
+    "disagreements": []
+  },
+  "ambiguities": [],
+  "notes": [
+    "Significant native frames are independent. Intermediate golden frames characterize the implementation. Scientific stored literals and host digit grouping differ from the native raw LCD transcript and are explicitly reported."
+  ]
+}
