@@ -4,13 +4,13 @@
 - Plan status: Active
 - Current package baseline: 0.3.1
 - Target release: 1.0.0 after verified parity
-- Next item: EL506-140
+- Next item: EL506-160
 - Last updated: 2026-10-07
 
 ## Progress Overview
 
-As of 2026-10-07, **103 of 245 roadmap tasks are complete (42.0%)**, with
-**142 remaining**. The next task is **EL506-140**. These counts measure
+As of 2026-10-07, **113 of 245 roadmap tasks are complete (46.1%)**, with
+**132 remaining**. The next task is **EL506-160**. These counts measure
 completed checklist items, not elapsed effort or verified calculator parity;
 individual tasks vary in size. The detailed checklist below describes every
 remaining task and preserves its evidence and completion requirements.
@@ -21,7 +21,8 @@ and access items). Phase 3 is complete (17/17 power, modes, clearing, editing,
 and playback items). Phase 4 is complete (11/11 display settings and
 formatting items). Phase 5 is complete (22/22 NORMAL entry and arithmetic
 items). Phase 6 is complete (18/18 angles, trigonometry, fractions, DMS,
-and coordinate items). Pending simulator/application behavior is visible
+and coordinate items). Phase 7 is complete (10/10 random, constant and
+conversion items). Pending simulator/application behavior is visible
 in the generated report; phase completion does not establish full parity.
 
 | Roadmap phase | Completed | Remaining |
@@ -33,7 +34,7 @@ in the generated report; phase completion does not establish full parity.
 | Phase 4 - Display Settings and Formatting | 11 | 0 |
 | Phase 5 - NORMAL Entry and Arithmetic | 22 | 0 |
 | Phase 6 - Angles, Trigonometry, Fractions, DMS, and Coordinates | 18 | 0 |
-| Phase 7 - Random Numbers, Constants, and Unit Conversions | 0 | 10 |
+| Phase 7 - Random Numbers, Constants, and Unit Conversions | 10 | 0 |
 | Phase 8 - Memories, Formula Memories, Simulation, and Solver | 0 | 14 |
 | Phase 9 - N-base Operations | 0 | 10 |
 | Phase 10 - Numerical Differentiation and Integration | 0 | 8 |
@@ -45,7 +46,7 @@ in the generated report; phase completion does not establish full parity.
 | Phase 16 - LIST Mode | 0 | 11 |
 | Phase 17 - Errors, Limits, and Cross-mode Parity | 0 | 15 |
 | Phase 18 - Security, Packaging, Compatibility, and Release | 0 | 15 |
-| **Total** | **103** | **142** |
+| **Total** | **113** | **132** |
 
 Refresh this overview's date, counts, percentage, and next task in every
 roadmap completion tracking commit, using the checklist as the source of truth.
@@ -410,7 +411,7 @@ The following order takes precedence over the phase layout and numeric IDs:
 EL506-014 -> EL506-019 -> EL506-003 -> EL506-004 -> EL506-006`
 
 The bootstrap chain and Phase 1 are complete as of 2026-10-05.
-Resume with Phase 7, EL506-140.
+Resume with Phase 8, EL506-160.
 Stable physical-key IDs
 must exist before the experiment schema and capability ledger use them. Capture
 the 0.3.1 baseline before refactoring its behavior. Unit testing, the reducer,
@@ -1806,39 +1807,130 @@ coordinate X/Y recall is included here. Full device parity is still pending.
 ### Phase 7 - Random Numbers, Constants, and Unit Conversions
 
 
-READY_TO_PUSH: 2026-10-07, user-requested Phase 7 batch EL506-140 through
-EL506-149. Implementation gates passed; items remain unchecked and Next item
-remains EL506-140 until the implementation commit is published and verified.
-Implemented four random commands, native menus, 52 historical constants,
-44 conversions, expression/mode entry and scalar memory integration.
-Evidence: phase-7-review.json, phase-7-catalogue-reference.json, the pinned
-manual and NIST CODATA 2014 archive, and Phase 7 native experiment/golden files.
-Verification: npm test (312 unit, 127 browser, 160 golden frames), Django (7),
-compileall, pip dry run, Compose config/build/start, installed wheel/sdist
-smoke (16 assets), current generated report, browser inspection and
-git diff --check. Historical primary values cover all 52 IDs; hidden native
-digits and full later-mode algorithms remain explicitly unassessed.
-Private random streams are compared by properties, not identical samples.
-General memory/formula, solver and full cross-mode audits retain later owners.
+Phase 7 implementation `d2200d6a93b62d5a224c49d20cc442677033b435` was pushed to
+origin/main and its exact remote SHA verified on 2026-10-07. This is the
+user-requested EL506-140 through EL506-149 phase batch. The historical primary
+catalogue and significant native observations remain distinct evidence;
+completion does not establish every hidden native digit or full later-mode
+algorithm parity. General memories, formula memories, simulation and solver
+continue in Phase 8.
 
-
-- [ ] **EL506-140 - Match random decimal generation.** Verify range
+- [x] **EL506-140 - Match random decimal generation.** Verify range
   0.000-0.999, three-decimal display, repeat command, and state effects.
-- [ ] **EL506-141 - Match Random Dice generation and repeat sequencing.**
-- [ ] **EL506-142 - Match Random Coin generation and repeat sequencing.**
-- [ ] **EL506-143 - Match Random Integer generation and repeat sequencing.**
-- [ ] **EL506-144 - Add random property tests.** Test range and distribution
+
+    Completed: 2026-10-07, implementation commit d2200d6a93b62d5a224c49d20cc442677033b435
+    Evidence: phase-7-review.json, phase-7-catalogue-reference.json and
+    Phase 7 experiment/golden fixtures; pinned manual and primary archive.
+    Verification: npm test (312 unit, 127 browser, 160 golden frames),
+    Django (7), compileall, pip dry run, Compose config/build/start,
+    installed wheel/sdist smoke (16 assets), report and browser checks,
+    and git diff --check.
+    Notes: RAND produces thousandths in 0..0.999; ENT repeats the expression, Y keeps the raw sample, and ANS keeps its result.
+
+- [x] **EL506-141 - Match Random Dice generation and repeat sequencing.**
+
+    Completed: 2026-10-07, implementation commit d2200d6a93b62d5a224c49d20cc442677033b435
+    Evidence: phase-7-review.json, phase-7-catalogue-reference.json and
+    Phase 7 experiment/golden fixtures; pinned manual and primary archive.
+    Verification: npm test (312 unit, 127 browser, 160 golden frames),
+    Django (7), compileall, pip dry run, Compose config/build/start,
+    installed wheel/sdist smoke (16 assets), report and browser checks,
+    and git diff --check.
+    Notes: R-DICE produces 1..6 and repeats with ENT through the native menu order.
+
+- [x] **EL506-142 - Match Random Coin generation and repeat sequencing.**
+
+    Completed: 2026-10-07, implementation commit d2200d6a93b62d5a224c49d20cc442677033b435
+    Evidence: phase-7-review.json, phase-7-catalogue-reference.json and
+    Phase 7 experiment/golden fixtures; pinned manual and primary archive.
+    Verification: npm test (312 unit, 127 browser, 160 golden frames),
+    Django (7), compileall, pip dry run, Compose config/build/start,
+    installed wheel/sdist smoke (16 assets), report and browser checks,
+    and git diff --check.
+    Notes: R-COIN produces 0 or 1 and repeats with ENT.
+
+- [x] **EL506-143 - Match Random Integer generation and repeat sequencing.**
+
+    Completed: 2026-10-07, implementation commit d2200d6a93b62d5a224c49d20cc442677033b435
+    Evidence: phase-7-review.json, phase-7-catalogue-reference.json and
+    Phase 7 experiment/golden fixtures; pinned manual and primary archive.
+    Verification: npm test (312 unit, 127 browser, 160 golden frames),
+    Django (7), compileall, pip dry run, Compose config/build/start,
+    installed wheel/sdist smoke (16 assets), report and browser checks,
+    and git diff --check.
+    Notes: R-INT produces 0..99 and repeats with ENT.
+
+- [x] **EL506-144 - Add random property tests.** Test range and distribution
   without requiring the same random stream unless the simulator proves it is
   deterministic and reproducible.
-- [ ] **EL506-145 - Match physical-constant menu navigation.**
-- [ ] **EL506-146 - Match all 52 physical constants.** Record simulator
+
+    Completed: 2026-10-07, implementation commit d2200d6a93b62d5a224c49d20cc442677033b435
+    Evidence: phase-7-review.json, phase-7-catalogue-reference.json and
+    Phase 7 experiment/golden fixtures; pinned manual and primary archive.
+    Verification: npm test (312 unit, 127 browser, 160 golden frames),
+    Django (7), compileall, pip dry run, Compose config/build/start,
+    installed wheel/sdist smoke (16 assets), report and browser checks,
+    and git diff --check.
+    Notes: 24,000 range/distribution samples plus endpoint and snapshot checks; no identical private random stream claim.
+
+- [x] **EL506-145 - Match physical-constant menu navigation.**
+
+    Completed: 2026-10-07, implementation commit d2200d6a93b62d5a224c49d20cc442677033b435
+    Evidence: phase-7-review.json, phase-7-catalogue-reference.json and
+    Phase 7 experiment/golden fixtures; pinned manual and primary archive.
+    Verification: npm test (312 unit, 127 browser, 160 golden frames),
+    Django (7), compileall, pip dry run, Compose config/build/start,
+    installed wheel/sdist smoke (16 assets), report and browser checks,
+    and git diff --check.
+    Notes: Two-digit CNST selection, invalid digit correction, cancellation and current display settings are covered.
+
+- [x] **EL506-146 - Match all 52 physical constants.** Record simulator
   identifier, value, units, significant digits, valid modes, and historical
   constant set rather than silently substituting current CODATA values.
-- [ ] **EL506-147 - Match metric-conversion menu navigation.**
-- [ ] **EL506-148 - Match all 44 metric conversions.** Verify both directions,
+
+    Completed: 2026-10-07, implementation commit d2200d6a93b62d5a224c49d20cc442677033b435
+    Evidence: phase-7-review.json, phase-7-catalogue-reference.json and
+    Phase 7 experiment/golden fixtures; pinned manual and primary archive.
+    Verification: npm test (312 unit, 127 browser, 160 golden frames),
+    Django (7), compileall, pip dry run, Compose config/build/start,
+    installed wheel/sdist smoke (16 assets), report and browser checks,
+    and git diff --check.
+    Notes: All 52 IDs, names, units and historical values use the manual-designated CODATA 2014 primary catalogue. Hidden simulator digits for every value remain unmeasured.
+
+- [x] **EL506-147 - Match metric-conversion menu navigation.**
+
+    Completed: 2026-10-07, implementation commit d2200d6a93b62d5a224c49d20cc442677033b435
+    Evidence: phase-7-review.json, phase-7-catalogue-reference.json and
+    Phase 7 experiment/golden fixtures; pinned manual and primary archive.
+    Verification: npm test (312 unit, 127 browser, 160 golden frames),
+    Django (7), compileall, pip dry run, Compose config/build/start,
+    installed wheel/sdist smoke (16 assets), report and browser checks,
+    and git diff --check.
+    Notes: CONV numbered entry, DEL correction, cancellation and immediate successful calculation match significant native frames.
+
+- [x] **EL506-148 - Match all 44 metric conversions.** Verify both directions,
   labels, units, rounding, modes, and errors.
-- [ ] **EL506-149 - Match constants and conversions inside expressions,
+
+    Completed: 2026-10-07, implementation commit d2200d6a93b62d5a224c49d20cc442677033b435
+    Evidence: phase-7-review.json, phase-7-catalogue-reference.json and
+    Phase 7 experiment/golden fixtures; pinned manual and primary archive.
+    Verification: npm test (312 unit, 127 browser, 160 golden frames),
+    Django (7), compileall, pip dry run, Compose config/build/start,
+    installed wheel/sdist smoke (16 assets), report and browser checks,
+    and git diff --check.
+    Notes: All 44 directions, inverse pairs, Fahrenheit offset, fractions, ANS, scientific input, output rounding and Error 2 boundaries are covered.
+
+- [x] **EL506-149 - Match constants and conversions inside expressions,
   memories, and every permitted mode.**
+
+    Completed: 2026-10-07, implementation commit d2200d6a93b62d5a224c49d20cc442677033b435
+    Evidence: phase-7-review.json, phase-7-catalogue-reference.json and
+    Phase 7 experiment/golden fixtures; pinned manual and primary archive.
+    Verification: npm test (312 unit, 127 browser, 160 golden frames),
+    Django (7), compileall, pip dry run, Compose config/build/start,
+    installed wheel/sdist smoke (16 assets), report and browser checks,
+    and git diff --check.
+    Notes: NORMAL scalar STO/RCL retains catalogue precision and evaluated results without recalculation. Documented scalar entry/mode gates and EQN prompt continuation are covered; complete later-mode algorithms and general memory audits retain their later owners.
 
 ### Phase 8 - Memories, Formula Memories, Simulation, and Solver
 
