@@ -1,0 +1,764 @@
+{
+  "schema_version": 1,
+  "experiment_id": "el506-180-phase9-nbase-v1",
+  "roadmap_item": "EL506-180",
+  "catalog_id": "el506-physical-keys-v1",
+  "simulator": {
+    "profile_id": "sharp-el506ts-pc-simulator-1.0.2.0",
+    "product": "SHARP PC Simulator for EL-506TS",
+    "build": "1.0.2.0",
+    "runtime_sha256": "6bfef4d04900b472892be2d4c54dcfa6013f87232097e32df508ca4c27425530",
+    "locale": "English UI; en-US",
+    "operating_system": "Windows 11"
+  },
+  "capture": {
+    "date": "2026-10-07",
+    "timezone": "America/Port_of_Spain",
+    "method": "Live @oai/sky, one physical input then refreshed native screenshot. Significant visible LCD frames independently transcribed. Native small base result suffixes are represented in indicators. Intermediate golden frames characterize implementation.",
+    "evidence_kind": "live-simulator",
+    "source_ids": [
+      "live-session"
+    ]
+  },
+  "initial_state": {
+    "reset": {
+      "kind": "documented-state",
+      "description": "Fresh native simulator Reset button, confirmed empty NORMAL DEG display."
+    },
+    "setup_sequence": [],
+    "mode": {
+      "status": "observed",
+      "value": "NORMAL (pinned reset default)"
+    },
+    "settings": [
+      {
+        "name": "angle",
+        "observation": {
+          "status": "observed",
+          "value": "DEG"
+        }
+      },
+      {
+        "name": "display-format",
+        "observation": {
+          "status": "observed",
+          "value": "NORM1 (pinned reset default)"
+        }
+      }
+    ],
+    "display": {
+      "upper_line": "",
+      "lower_line": "0.",
+      "indicators": [
+        "DEG"
+      ],
+      "scroll_arrows": [],
+      "cursor": {
+        "status": "unknown",
+        "reason": "Native cursor blink timing not measured in this sequence."
+      },
+      "insert_mode": {
+        "status": "unknown",
+        "reason": "Insert mode not probed."
+      },
+      "prompt": null,
+      "selected_result_component": null
+    },
+    "stores": []
+  },
+  "sequence": [
+    "EL506-K41",
+    "EL506-K03",
+    "EL506-K38",
+    "EL506-K18",
+    "EL506-K43",
+    "EL506-K23",
+    "EL506-K48",
+    "EL506-K03",
+    "EL506-K39",
+    "EL506-K41",
+    "EL506-K02",
+    "EL506-K40",
+    "EL506-K47",
+    "EL506-K48",
+    "EL506-K02",
+    "EL506-K47",
+    "EL506-K40",
+    "EL506-K48",
+    "EL506-K03",
+    "EL506-K38",
+    "EL506-K03",
+    "EL506-K43",
+    "EL506-K03",
+    "EL506-K44",
+    "EL506-K03",
+    "EL506-K48",
+    "EL506-K03",
+    "EL506-K39",
+    "EL506-K02",
+    "EL506-K12",
+    "EL506-K45",
+    "EL506-K48",
+    "EL506-K02",
+    "EL506-K40",
+    "EL506-K14",
+    "EL506-K40",
+    "EL506-K13",
+    "EL506-K45",
+    "EL506-K48",
+    "EL506-K02",
+    "EL506-K03",
+    "EL506-K38",
+    "EL506-K42",
+    "EL506-K39",
+    "EL506-K41",
+    "EL506-K38",
+    "EL506-K41",
+    "EL506-K48",
+    "EL506-K01",
+    "EL506-K36",
+    "EL506-K40",
+    "EL506-K41",
+    "EL506-K03",
+    "EL506-K39",
+    "EL506-K02",
+    "EL506-K03",
+    "EL506-K39",
+    "EL506-K40",
+    "EL506-K16",
+    "EL506-K45",
+    "EL506-K48",
+    "EL506-K02",
+    "EL506-K40",
+    "EL506-K15",
+    "EL506-K40",
+    "EL506-K48"
+  ],
+  "frames": [
+    {
+      "after_step": 0,
+      "display": {
+        "upper_line": "",
+        "lower_line": "0.",
+        "indicators": [
+          "DEG"
+        ],
+        "scroll_arrows": [],
+        "cursor": {
+          "status": "unknown",
+          "reason": "Native cursor blink timing not measured in this sequence."
+        },
+        "insert_mode": {
+          "status": "unknown",
+          "reason": "Insert mode not probed."
+        },
+        "prompt": null,
+        "selected_result_component": null
+      },
+      "result": {
+        "status": "unknown",
+        "reason": "LCD transcribed; hidden stored digits not measured."
+      }
+    },
+    {
+      "after_step": 3,
+      "display": {
+        "upper_line": "2→HEX",
+        "lower_line": "2",
+        "indicators": [
+          "DEG",
+          "HEX"
+        ],
+        "scroll_arrows": [],
+        "cursor": {
+          "status": "unknown",
+          "reason": "Native cursor blink timing not measured in this sequence."
+        },
+        "insert_mode": {
+          "status": "unknown",
+          "reason": "Insert mode not probed."
+        },
+        "prompt": null,
+        "selected_result_component": null
+      },
+      "result": {
+        "status": "unknown",
+        "reason": "LCD transcribed; hidden stored digits not measured."
+      }
+    },
+    {
+      "after_step": 4,
+      "display": {
+        "upper_line": "",
+        "lower_line": "A",
+        "indicators": [
+          "DEG",
+          "HEX"
+        ],
+        "scroll_arrows": [],
+        "cursor": {
+          "status": "unknown",
+          "reason": "Native cursor blink timing not measured in this sequence."
+        },
+        "insert_mode": {
+          "status": "unknown",
+          "reason": "Insert mode not probed."
+        },
+        "prompt": null,
+        "selected_result_component": null
+      },
+      "result": {
+        "status": "unknown",
+        "reason": "LCD transcribed; hidden stored digits not measured."
+      }
+    },
+    {
+      "after_step": 7,
+      "display": {
+        "upper_line": "A+F=",
+        "lower_line": "19",
+        "indicators": [
+          "DEG",
+          "HEX"
+        ],
+        "scroll_arrows": [],
+        "cursor": {
+          "status": "unknown",
+          "reason": "Native cursor blink timing not measured in this sequence."
+        },
+        "insert_mode": {
+          "status": "unknown",
+          "reason": "Insert mode not probed."
+        },
+        "prompt": null,
+        "selected_result_component": null
+      },
+      "result": {
+        "status": "unknown",
+        "reason": "LCD transcribed; hidden stored digits not measured."
+      }
+    },
+    {
+      "after_step": 9,
+      "display": {
+        "upper_line": "19→BIN",
+        "lower_line": "11001",
+        "indicators": [
+          "DEG",
+          "BIN"
+        ],
+        "scroll_arrows": [],
+        "cursor": {
+          "status": "unknown",
+          "reason": "Native cursor blink timing not measured in this sequence."
+        },
+        "insert_mode": {
+          "status": "unknown",
+          "reason": "Insert mode not probed."
+        },
+        "prompt": null,
+        "selected_result_component": null
+      },
+      "result": {
+        "status": "unknown",
+        "reason": "LCD transcribed; hidden stored digits not measured."
+      }
+    },
+    {
+      "after_step": 10,
+      "display": {
+        "upper_line": "19→BIN",
+        "lower_line": "11001",
+        "indicators": [
+          "DEG",
+          "BIN"
+        ],
+        "scroll_arrows": [],
+        "cursor": {
+          "status": "unknown",
+          "reason": "Native cursor blink timing not measured in this sequence."
+        },
+        "insert_mode": {
+          "status": "unknown",
+          "reason": "Insert mode not probed."
+        },
+        "prompt": null,
+        "selected_result_component": null
+      },
+      "result": {
+        "status": "unknown",
+        "reason": "LCD transcribed; hidden stored digits not measured."
+      }
+    },
+    {
+      "after_step": 11,
+      "display": {
+        "upper_line": "",
+        "lower_line": "0",
+        "indicators": [
+          "DEG",
+          "BIN"
+        ],
+        "scroll_arrows": [],
+        "cursor": {
+          "status": "unknown",
+          "reason": "Native cursor blink timing not measured in this sequence."
+        },
+        "insert_mode": {
+          "status": "unknown",
+          "reason": "Insert mode not probed."
+        },
+        "prompt": null,
+        "selected_result_component": null
+      },
+      "result": {
+        "status": "unknown",
+        "reason": "LCD transcribed; hidden stored digits not measured."
+      }
+    },
+    {
+      "after_step": 14,
+      "display": {
+        "upper_line": "Error 1",
+        "lower_line": "",
+        "indicators": [
+          "DEG",
+          "BIN"
+        ],
+        "scroll_arrows": [],
+        "cursor": {
+          "status": "unknown",
+          "reason": "Native cursor blink timing not measured in this sequence."
+        },
+        "insert_mode": {
+          "status": "unknown",
+          "reason": "Insert mode not probed."
+        },
+        "prompt": null,
+        "selected_result_component": null
+      },
+      "result": {
+        "status": "unknown",
+        "reason": "LCD transcribed; hidden stored digits not measured."
+      }
+    },
+    {
+      "after_step": 18,
+      "display": {
+        "upper_line": "NEG1=",
+        "lower_line": "1111111111",
+        "indicators": [
+          "DEG",
+          "BIN"
+        ],
+        "scroll_arrows": [],
+        "cursor": {
+          "status": "unknown",
+          "reason": "Native cursor blink timing not measured in this sequence."
+        },
+        "insert_mode": {
+          "status": "unknown",
+          "reason": "Insert mode not probed."
+        },
+        "prompt": null,
+        "selected_result_component": null
+      },
+      "result": {
+        "status": "unknown",
+        "reason": "LCD transcribed; hidden stored digits not measured."
+      }
+    },
+    {
+      "after_step": 20,
+      "display": {
+        "upper_line": "11111111→H",
+        "lower_line": "FFFFFFFFFF",
+        "indicators": [
+          "DEG",
+          "HEX"
+        ],
+        "scroll_arrows": [
+          "right"
+        ],
+        "cursor": {
+          "status": "unknown",
+          "reason": "Native cursor blink timing not measured in this sequence."
+        },
+        "insert_mode": {
+          "status": "unknown",
+          "reason": "Insert mode not probed."
+        },
+        "prompt": null,
+        "selected_result_component": null
+      },
+      "result": {
+        "status": "unknown",
+        "reason": "LCD transcribed; hidden stored digits not measured."
+      }
+    },
+    {
+      "after_step": 22,
+      "display": {
+        "upper_line": "FFFFFFFF→P",
+        "lower_line": "4444444444",
+        "indicators": [
+          "DEG",
+          "PEN"
+        ],
+        "scroll_arrows": [
+          "right"
+        ],
+        "cursor": {
+          "status": "unknown",
+          "reason": "Native cursor blink timing not measured in this sequence."
+        },
+        "insert_mode": {
+          "status": "unknown",
+          "reason": "Insert mode not probed."
+        },
+        "prompt": null,
+        "selected_result_component": null
+      },
+      "result": {
+        "status": "unknown",
+        "reason": "LCD transcribed; hidden stored digits not measured."
+      }
+    },
+    {
+      "after_step": 24,
+      "display": {
+        "upper_line": "44444444→O",
+        "lower_line": "7777777777",
+        "indicators": [
+          "DEG",
+          "OCT"
+        ],
+        "scroll_arrows": [
+          "right"
+        ],
+        "cursor": {
+          "status": "unknown",
+          "reason": "Native cursor blink timing not measured in this sequence."
+        },
+        "insert_mode": {
+          "status": "unknown",
+          "reason": "Insert mode not probed."
+        },
+        "prompt": null,
+        "selected_result_component": null
+      },
+      "result": {
+        "status": "unknown",
+        "reason": "LCD transcribed; hidden stored digits not measured."
+      }
+    },
+    {
+      "after_step": 26,
+      "display": {
+        "upper_line": "77777777→D",
+        "lower_line": "-1.",
+        "indicators": [
+          "DEG"
+        ],
+        "scroll_arrows": [
+          "right"
+        ],
+        "cursor": {
+          "status": "unknown",
+          "reason": "Native cursor blink timing not measured in this sequence."
+        },
+        "insert_mode": {
+          "status": "unknown",
+          "reason": "Insert mode not probed."
+        },
+        "prompt": null,
+        "selected_result_component": null
+      },
+      "result": {
+        "status": "unknown",
+        "reason": "LCD transcribed; hidden stored digits not measured."
+      }
+    },
+    {
+      "after_step": 28,
+      "display": {
+        "upper_line": "(-1)→BIN",
+        "lower_line": "1111111111",
+        "indicators": [
+          "DEG",
+          "BIN"
+        ],
+        "scroll_arrows": [],
+        "cursor": {
+          "status": "unknown",
+          "reason": "Native cursor blink timing not measured in this sequence."
+        },
+        "insert_mode": {
+          "status": "unknown",
+          "reason": "Insert mode not probed."
+        },
+        "prompt": null,
+        "selected_result_component": null
+      },
+      "result": {
+        "status": "unknown",
+        "reason": "LCD transcribed; hidden stored digits not measured."
+      }
+    },
+    {
+      "after_step": 32,
+      "display": {
+        "upper_line": "NOT0=",
+        "lower_line": "1111111111",
+        "indicators": [
+          "DEG",
+          "BIN"
+        ],
+        "scroll_arrows": [],
+        "cursor": {
+          "status": "unknown",
+          "reason": "Native cursor blink timing not measured in this sequence."
+        },
+        "insert_mode": {
+          "status": "unknown",
+          "reason": "Insert mode not probed."
+        },
+        "prompt": null,
+        "selected_result_component": null
+      },
+      "result": {
+        "status": "unknown",
+        "reason": "LCD transcribed; hidden stored digits not measured."
+      }
+    },
+    {
+      "after_step": 39,
+      "display": {
+        "upper_line": "1OR1AND0=",
+        "lower_line": "1",
+        "indicators": [
+          "DEG",
+          "BIN"
+        ],
+        "scroll_arrows": [],
+        "cursor": {
+          "status": "unknown",
+          "reason": "Native cursor blink timing not measured in this sequence."
+        },
+        "insert_mode": {
+          "status": "unknown",
+          "reason": "Insert mode not probed."
+        },
+        "prompt": null,
+        "selected_result_component": null
+      },
+      "result": {
+        "status": "unknown",
+        "reason": "LCD transcribed; hidden stored digits not measured."
+      }
+    },
+    {
+      "after_step": 42,
+      "display": {
+        "upper_line": "0→HEX",
+        "lower_line": "0",
+        "indicators": [
+          "DEG",
+          "HEX"
+        ],
+        "scroll_arrows": [],
+        "cursor": {
+          "status": "unknown",
+          "reason": "Native cursor blink timing not measured in this sequence."
+        },
+        "insert_mode": {
+          "status": "unknown",
+          "reason": "Insert mode not probed."
+        },
+        "prompt": null,
+        "selected_result_component": null
+      },
+      "result": {
+        "status": "unknown",
+        "reason": "LCD transcribed; hidden stored digits not measured."
+      }
+    },
+    {
+      "after_step": 48,
+      "display": {
+        "upper_line": "3÷2×2=",
+        "lower_line": "2",
+        "indicators": [
+          "DEG",
+          "HEX"
+        ],
+        "scroll_arrows": [],
+        "cursor": {
+          "status": "unknown",
+          "reason": "Native cursor blink timing not measured in this sequence."
+        },
+        "insert_mode": {
+          "status": "unknown",
+          "reason": "Insert mode not probed."
+        },
+        "prompt": null,
+        "selected_result_component": null
+      },
+      "result": {
+        "status": "unknown",
+        "reason": "LCD transcribed; hidden stored digits not measured."
+      }
+    },
+    {
+      "after_step": 49,
+      "display": {
+        "upper_line": "",
+        "lower_line": "0.",
+        "indicators": [
+          "DEG"
+        ],
+        "scroll_arrows": [],
+        "cursor": {
+          "status": "unknown",
+          "reason": "Native cursor blink timing not measured in this sequence."
+        },
+        "insert_mode": {
+          "status": "unknown",
+          "reason": "Insert mode not probed."
+        },
+        "prompt": null,
+        "selected_result_component": null
+      },
+      "result": {
+        "status": "unknown",
+        "reason": "LCD transcribed; hidden stored digits not measured."
+      }
+    },
+    {
+      "after_step": 54,
+      "display": {
+        "upper_line": "Error 2",
+        "lower_line": "",
+        "indicators": [
+          "DEG"
+        ],
+        "scroll_arrows": [],
+        "cursor": {
+          "status": "unknown",
+          "reason": "Native cursor blink timing not measured in this sequence."
+        },
+        "insert_mode": {
+          "status": "unknown",
+          "reason": "Insert mode not probed."
+        },
+        "prompt": null,
+        "selected_result_component": null
+      },
+      "result": {
+        "status": "unknown",
+        "reason": "LCD transcribed; hidden stored digits not measured."
+      }
+    },
+    {
+      "after_step": 57,
+      "display": {
+        "upper_line": "0→BIN",
+        "lower_line": "0",
+        "indicators": [
+          "DEG",
+          "BIN"
+        ],
+        "scroll_arrows": [],
+        "cursor": {
+          "status": "unknown",
+          "reason": "Native cursor blink timing not measured in this sequence."
+        },
+        "insert_mode": {
+          "status": "unknown",
+          "reason": "Insert mode not probed."
+        },
+        "prompt": null,
+        "selected_result_component": null
+      },
+      "result": {
+        "status": "unknown",
+        "reason": "LCD transcribed; hidden stored digits not measured."
+      }
+    },
+    {
+      "after_step": 61,
+      "display": {
+        "upper_line": "1XNOR0=",
+        "lower_line": "1111111110",
+        "indicators": [
+          "DEG",
+          "BIN"
+        ],
+        "scroll_arrows": [],
+        "cursor": {
+          "status": "unknown",
+          "reason": "Native cursor blink timing not measured in this sequence."
+        },
+        "insert_mode": {
+          "status": "unknown",
+          "reason": "Insert mode not probed."
+        },
+        "prompt": null,
+        "selected_result_component": null
+      },
+      "result": {
+        "status": "unknown",
+        "reason": "LCD transcribed; hidden stored digits not measured."
+      }
+    },
+    {
+      "after_step": 66,
+      "display": {
+        "upper_line": "1XOR1=",
+        "lower_line": "0",
+        "indicators": [
+          "DEG",
+          "BIN"
+        ],
+        "scroll_arrows": [],
+        "cursor": {
+          "status": "unknown",
+          "reason": "Native cursor blink timing not measured in this sequence."
+        },
+        "insert_mode": {
+          "status": "unknown",
+          "reason": "Insert mode not probed."
+        },
+        "prompt": null,
+        "selected_result_component": null
+      },
+      "result": {
+        "status": "unknown",
+        "reason": "LCD transcribed; hidden stored digits not measured."
+      }
+    }
+  ],
+  "stored_values": {
+    "coverage": "ANS inferred through observed calculations; manual memory policy tested separately.",
+    "observations": []
+  },
+  "errors": [],
+  "sources": [
+    {
+      "source_id": "live-session",
+      "kind": "simulator",
+      "reference": "simulator-profile.json",
+      "page": null,
+      "scope": "Phase 9 live five-base conversion, complement, precedence, truncation, HOME, and boundary error frames."
+    }
+  ],
+  "oracle": {
+    "selected_source_id": "live-session",
+    "simulator_exception_ids": [],
+    "disagreements": []
+  },
+  "ambiguities": [],
+  "notes": [
+    "See phase-9-review.json. Native viewport crops are visible LCD strings, not inferred full expressions. Small base suffixes are represented as named indicators. Cursor blink timing and deep buffer transitions are unmeasured."
+  ]
+}

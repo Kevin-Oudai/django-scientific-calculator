@@ -811,7 +811,7 @@ The compatible `calculator.js` entry now loads local companion modules.
 `browser-adapter.js` owns root events, rendering and focus. Node consumers of
 the existing entry receive the same core API. Existing Django tags and asset
 paths need no template change; collect and deploy all package static assets
-together. State snapshots use schema 9 with the legacy profile; older schemas migrate in memory.
+together. State snapshots use schema 10 with the legacy profile; older schemas migrate in memory.
 
 Multiple template-tag embeds own independent entry, ANS, memory, statistics,
 history, modifiers, settings, token cursors and snapshots. Keyboard input
@@ -1140,3 +1140,32 @@ Deploy the new `solver.js` alongside the other reusable package assets. Native
 observations and explicit gaps are recorded in `tests/reference/el506ts/phase-8-review.json`
 and the Phase 8 experiment/golden fixtures. Tests cover physical controls,
 keyboard numeric prompts, persistence, exact fractions and embed isolation.
+
+## Number bases and logic (Phase 9)
+
+In NORMAL mode, press 2nd F and HEX, BIN, PEN, OCT, or DEC to convert the
+current value. The result shows H, b, P, or o beside nondecimal digits. ON/C
+clears the entry and retains its base; HOME returns to decimal. In HEX, the
+pi through ln keys enter A through F directly; keyboard A-F works too. Invalid
+digits, decimal points, fractions, and scientific functions are ignored in
+nondecimal bases. Native LCD hexadecimal b and d are rendered in lowercase.
+
+Arithmetic supports parentheses and truncates division toward zero at each
+step. The hyp, sin, cos, tan, and integral keys provide NOT, AND, OR, XOR,
+and XNOR; the sign key inserts prefix NEG. AND precedes OR/XOR/XNOR, which
+associate left to right. All four nondecimal bases use ten digits, with
+radix complements for negative values. BigInt preserves the 40-bit hexadecimal
+and 30-bit octal words without JavaScript's 32-bit operator coercion.
+
+STO/RCL A-F, X, Y and M, M+/M-, ANS, and F1-F4 formula memories work in
+nondecimal bases. A hexadecimal literal A is distinct from an ALPHA memory A.
+Formula recall with unavailable functions or invalid digits reports Error 5.
+Range/division errors report Error 2; malformed expressions report Error 1.
+Errors retain the previous answer and recover with ON/C. Decimal conversions
+truncate fractional parts. Snapshot 10 adds the selected base and preserves
+radix-complement typed memories; snapshots 1-9 migrate in memory.
+
+Reference observations and limitations are recorded in
+`tests/reference/el506ts/phase-9-review.json`. Native display transcripts are
+kept separate from implementation regression assertions; this phase does not
+claim full simulator parity for unmeasured cursor timing or scrolling.

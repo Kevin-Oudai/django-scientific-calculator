@@ -19,16 +19,16 @@
         "missing": 307
       },
       "unitTested": {
-        "pending": 287,
-        "partial": 143
+        "pending": 274,
+        "partial": 156
       },
       "goldenTested": {
-        "pending": 396,
-        "baseline-known-differences": 34
+        "pending": 383,
+        "baseline-known-differences": 47
       },
       "browserTested": {
-        "partial": 173,
-        "pending": 257
+        "partial": 186,
+        "pending": 244
       }
     },
     "guide": {
@@ -38,8 +38,8 @@
       "pending": 51
     },
     "golden": {
-      "fixtures": 21,
-      "assertedFrames": 226,
+      "fixtures": 22,
+      "assertedFrames": 293,
       "pending": 1
     },
     "verifiedFullParity": 0
@@ -135,6 +135,10 @@
       "sha256": "92240598f64770b5bc9d5e941972916c1fbd8b19f170dfbdf19a59ed20f9ee9e"
     },
     {
+      "path": "tests/reference/el506ts/experiments/phase9-nbase.json",
+      "sha256": "df998b8a03855cfa9d6f81fe0b5a93d9cf860c56c7071e2bcd38ea9450df7561"
+    },
+    {
       "path": "tests/reference/el506ts/experiments/retained-answer.json",
       "sha256": "7ded9b273cf3d756ce11ac3fb5c6344d9f12c1f52219eb461da1a5cf3caceb14"
     },
@@ -223,6 +227,10 @@
       "sha256": "6799ae6c72523f19bbd157b88270926aef1c6335b825714b8d181c6c2162e2db"
     },
     {
+      "path": "tests/reference/el506ts/golden/phase9-nbase.json",
+      "sha256": "9df5ed9885e289c1ed3a97fbaafaf1b8728eaada74080a2b099fceba86df97df"
+    },
+    {
       "path": "tests/reference/el506ts/golden/physical-lcd-cursor.json",
       "sha256": "30fe88e63d335349ce2a018ad4f43028edc13e3541a54e27a916a7b381cf878a"
     },
@@ -236,7 +244,7 @@
     },
     {
       "path": "tests/reference/el506ts/report-coverage.json",
-      "sha256": "a129cbd9634b323876304531eb11e283bff111782f401da64a08057fa8f34345"
+      "sha256": "998103b7b065232aefd2b1997e8e4718ef80ffd51722dc7aa0443a7649cbf5ad"
     },
     {
       "path": "tests/reference/el506ts/validate-guide.js",
@@ -264,7 +272,11 @@
     },
     {
       "path": "tests/e2e/phase8.spec.js",
-      "sha256": "2a1148989c89c91dd5216b992ac585d3deca4ddf60b2f61d524eee4c99dada92"
+      "sha256": "68dca8ca04a1d96a64d6eb84345c8b38973ab55e86b327834dbe812a680a15ef"
+    },
+    {
+      "path": "tests/e2e/phase9.spec.js",
+      "sha256": "36559ce572008dddf850756f9819e3e812def98b85178dd54b30b4e408581ade"
     },
     {
       "path": "tests/e2e/physical-ui.spec.js",
@@ -284,7 +296,7 @@
     },
     {
       "path": "tests/unit/phase6.test.js",
-      "sha256": "a93726561fed10fc84b0915a375be9455c04035785cb2cfba211ab0ac014f7c9"
+      "sha256": "10934ecb9479dfc1cf2396f75cb1937ccaec8ff32fdad4a37946fb6e27888225"
     },
     {
       "path": "tests/unit/phase7.test.js",
@@ -292,11 +304,15 @@
     },
     {
       "path": "tests/unit/phase8.test.js",
-      "sha256": "83c52a5a645eddfc27742876ced5763612d792e5ead6fac79004e1fad3fc1284"
+      "sha256": "bdadc8e7cd6f0cf3c962991a8a934b0ef2345f19bfc9e2eb814346634ec51d08"
+    },
+    {
+      "path": "tests/unit/phase9.test.js",
+      "sha256": "17b7a3b267d9b052942b98c9ea28ee8389c4da2f42b06f3a354c55ff28181181"
     },
     {
       "path": "tests/unit/physical-ui.test.js",
-      "sha256": "0e885e313e58741933726801aeddfcad3adf09f92776c7ca569dd744f5cafc62"
+      "sha256": "0c330aa9c7164c14cea7d3703ae965247dbfa3040b0bb91d4e9ebb3aa265043d"
     },
     {
       "path": "tests/unit/reducer.test.js",
@@ -12532,18 +12548,83 @@
         "policy": "Frozen baseline classification; infrastructure refactors do not promote capability parity."
       },
       "unitTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "partial",
+        "evidence": [
+          {
+            "kind": "unit",
+            "path": "tests/unit/phase9.test.js",
+            "anchor": "N-base",
+            "capabilityIds": [
+              "el506.second.el506-k38",
+              "el506.second.el506-k39",
+              "el506.second.el506-k43",
+              "el506.second.el506-k44",
+              "el506.second.el506-k48",
+              "el506.context.nbase.12",
+              "el506.context.nbase.13",
+              "el506.context.nbase.14",
+              "el506.context.nbase.15",
+              "el506.context.nbase.16",
+              "el506.context.nbase.47",
+              "el506.nbase.digit.a",
+              "el506.nbase.digit.f"
+            ],
+            "scope": "Physical five-base conversion and integer parser tests, ten-digit signed limits, logical truth tables, memories, ANS, unavailable formula recall, snapshots and recovery. Native observations supplement manual policy; all private cursor/buffer transitions are not full parity."
+          }
+        ],
         "scope": "Explicit mapped assertions only; unlisted coverage is unassessed."
       },
       "goldenTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "baseline-known-differences",
+        "evidence": [
+          {
+            "fixtureId": "phase9-nbase",
+            "status": "known-differences",
+            "assertedFrames": 67
+          }
+        ],
         "scope": "Baseline characterization only; all current supported fixtures have oracle display differences."
       },
       "browserTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "partial",
+        "evidence": [
+          {
+            "kind": "browser",
+            "path": "tests/e2e/phase9.spec.js",
+            "anchor": "N-base HEX keyboard",
+            "capabilityIds": [
+              "el506.second.el506-k38",
+              "el506.second.el506-k39",
+              "el506.nbase.digit.a",
+              "el506.nbase.digit.f"
+            ],
+            "scope": "Pointer and keyboard HEX digits, arithmetic, conversion, small base marker, ten-digit visibility, isolated widgets and snapshot preservation."
+          },
+          {
+            "kind": "browser",
+            "path": "tests/e2e/golden.spec.js",
+            "anchor": "canonical baseline browser replay",
+            "fixtureIds": [
+              "phase9-nbase"
+            ],
+            "scope": "67 canonical implementation frames including 23 independently observed native frames. Native viewport/raw-state differences remain explicitly recorded.",
+            "capabilityIds": [
+              "el506.second.el506-k38",
+              "el506.second.el506-k39",
+              "el506.second.el506-k43",
+              "el506.second.el506-k44",
+              "el506.second.el506-k48",
+              "el506.context.nbase.12",
+              "el506.context.nbase.13",
+              "el506.context.nbase.14",
+              "el506.context.nbase.15",
+              "el506.context.nbase.16",
+              "el506.context.nbase.47",
+              "el506.nbase.digit.a",
+              "el506.nbase.digit.f"
+            ]
+          }
+        ],
         "scope": "Explicit canonical baseline browser replays only; legacy regression coverage is not inferred as parity."
       }
     },
@@ -12576,18 +12657,83 @@
         "policy": "Frozen baseline classification; infrastructure refactors do not promote capability parity."
       },
       "unitTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "partial",
+        "evidence": [
+          {
+            "kind": "unit",
+            "path": "tests/unit/phase9.test.js",
+            "anchor": "N-base",
+            "capabilityIds": [
+              "el506.second.el506-k38",
+              "el506.second.el506-k39",
+              "el506.second.el506-k43",
+              "el506.second.el506-k44",
+              "el506.second.el506-k48",
+              "el506.context.nbase.12",
+              "el506.context.nbase.13",
+              "el506.context.nbase.14",
+              "el506.context.nbase.15",
+              "el506.context.nbase.16",
+              "el506.context.nbase.47",
+              "el506.nbase.digit.a",
+              "el506.nbase.digit.f"
+            ],
+            "scope": "Physical five-base conversion and integer parser tests, ten-digit signed limits, logical truth tables, memories, ANS, unavailable formula recall, snapshots and recovery. Native observations supplement manual policy; all private cursor/buffer transitions are not full parity."
+          }
+        ],
         "scope": "Explicit mapped assertions only; unlisted coverage is unassessed."
       },
       "goldenTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "baseline-known-differences",
+        "evidence": [
+          {
+            "fixtureId": "phase9-nbase",
+            "status": "known-differences",
+            "assertedFrames": 67
+          }
+        ],
         "scope": "Baseline characterization only; all current supported fixtures have oracle display differences."
       },
       "browserTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "partial",
+        "evidence": [
+          {
+            "kind": "browser",
+            "path": "tests/e2e/phase9.spec.js",
+            "anchor": "N-base HEX keyboard",
+            "capabilityIds": [
+              "el506.second.el506-k38",
+              "el506.second.el506-k39",
+              "el506.nbase.digit.a",
+              "el506.nbase.digit.f"
+            ],
+            "scope": "Pointer and keyboard HEX digits, arithmetic, conversion, small base marker, ten-digit visibility, isolated widgets and snapshot preservation."
+          },
+          {
+            "kind": "browser",
+            "path": "tests/e2e/golden.spec.js",
+            "anchor": "canonical baseline browser replay",
+            "fixtureIds": [
+              "phase9-nbase"
+            ],
+            "scope": "67 canonical implementation frames including 23 independently observed native frames. Native viewport/raw-state differences remain explicitly recorded.",
+            "capabilityIds": [
+              "el506.second.el506-k38",
+              "el506.second.el506-k39",
+              "el506.second.el506-k43",
+              "el506.second.el506-k44",
+              "el506.second.el506-k48",
+              "el506.context.nbase.12",
+              "el506.context.nbase.13",
+              "el506.context.nbase.14",
+              "el506.context.nbase.15",
+              "el506.context.nbase.16",
+              "el506.context.nbase.47",
+              "el506.nbase.digit.a",
+              "el506.nbase.digit.f"
+            ]
+          }
+        ],
         "scope": "Explicit canonical baseline browser replays only; legacy regression coverage is not inferred as parity."
       }
     },
@@ -12787,18 +12933,71 @@
         "policy": "Frozen baseline classification; infrastructure refactors do not promote capability parity."
       },
       "unitTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "partial",
+        "evidence": [
+          {
+            "kind": "unit",
+            "path": "tests/unit/phase9.test.js",
+            "anchor": "N-base",
+            "capabilityIds": [
+              "el506.second.el506-k38",
+              "el506.second.el506-k39",
+              "el506.second.el506-k43",
+              "el506.second.el506-k44",
+              "el506.second.el506-k48",
+              "el506.context.nbase.12",
+              "el506.context.nbase.13",
+              "el506.context.nbase.14",
+              "el506.context.nbase.15",
+              "el506.context.nbase.16",
+              "el506.context.nbase.47",
+              "el506.nbase.digit.a",
+              "el506.nbase.digit.f"
+            ],
+            "scope": "Physical five-base conversion and integer parser tests, ten-digit signed limits, logical truth tables, memories, ANS, unavailable formula recall, snapshots and recovery. Native observations supplement manual policy; all private cursor/buffer transitions are not full parity."
+          }
+        ],
         "scope": "Explicit mapped assertions only; unlisted coverage is unassessed."
       },
       "goldenTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "baseline-known-differences",
+        "evidence": [
+          {
+            "fixtureId": "phase9-nbase",
+            "status": "known-differences",
+            "assertedFrames": 67
+          }
+        ],
         "scope": "Baseline characterization only; all current supported fixtures have oracle display differences."
       },
       "browserTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "partial",
+        "evidence": [
+          {
+            "kind": "browser",
+            "path": "tests/e2e/golden.spec.js",
+            "anchor": "canonical baseline browser replay",
+            "fixtureIds": [
+              "phase9-nbase"
+            ],
+            "scope": "67 canonical implementation frames including 23 independently observed native frames. Native viewport/raw-state differences remain explicitly recorded.",
+            "capabilityIds": [
+              "el506.second.el506-k38",
+              "el506.second.el506-k39",
+              "el506.second.el506-k43",
+              "el506.second.el506-k44",
+              "el506.second.el506-k48",
+              "el506.context.nbase.12",
+              "el506.context.nbase.13",
+              "el506.context.nbase.14",
+              "el506.context.nbase.15",
+              "el506.context.nbase.16",
+              "el506.context.nbase.47",
+              "el506.nbase.digit.a",
+              "el506.nbase.digit.f"
+            ]
+          }
+        ],
         "scope": "Explicit canonical baseline browser replays only; legacy regression coverage is not inferred as parity."
       }
     },
@@ -12831,18 +13030,71 @@
         "policy": "Frozen baseline classification; infrastructure refactors do not promote capability parity."
       },
       "unitTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "partial",
+        "evidence": [
+          {
+            "kind": "unit",
+            "path": "tests/unit/phase9.test.js",
+            "anchor": "N-base",
+            "capabilityIds": [
+              "el506.second.el506-k38",
+              "el506.second.el506-k39",
+              "el506.second.el506-k43",
+              "el506.second.el506-k44",
+              "el506.second.el506-k48",
+              "el506.context.nbase.12",
+              "el506.context.nbase.13",
+              "el506.context.nbase.14",
+              "el506.context.nbase.15",
+              "el506.context.nbase.16",
+              "el506.context.nbase.47",
+              "el506.nbase.digit.a",
+              "el506.nbase.digit.f"
+            ],
+            "scope": "Physical five-base conversion and integer parser tests, ten-digit signed limits, logical truth tables, memories, ANS, unavailable formula recall, snapshots and recovery. Native observations supplement manual policy; all private cursor/buffer transitions are not full parity."
+          }
+        ],
         "scope": "Explicit mapped assertions only; unlisted coverage is unassessed."
       },
       "goldenTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "baseline-known-differences",
+        "evidence": [
+          {
+            "fixtureId": "phase9-nbase",
+            "status": "known-differences",
+            "assertedFrames": 67
+          }
+        ],
         "scope": "Baseline characterization only; all current supported fixtures have oracle display differences."
       },
       "browserTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "partial",
+        "evidence": [
+          {
+            "kind": "browser",
+            "path": "tests/e2e/golden.spec.js",
+            "anchor": "canonical baseline browser replay",
+            "fixtureIds": [
+              "phase9-nbase"
+            ],
+            "scope": "67 canonical implementation frames including 23 independently observed native frames. Native viewport/raw-state differences remain explicitly recorded.",
+            "capabilityIds": [
+              "el506.second.el506-k38",
+              "el506.second.el506-k39",
+              "el506.second.el506-k43",
+              "el506.second.el506-k44",
+              "el506.second.el506-k48",
+              "el506.context.nbase.12",
+              "el506.context.nbase.13",
+              "el506.context.nbase.14",
+              "el506.context.nbase.15",
+              "el506.context.nbase.16",
+              "el506.context.nbase.47",
+              "el506.nbase.digit.a",
+              "el506.nbase.digit.f"
+            ]
+          }
+        ],
         "scope": "Explicit canonical baseline browser replays only; legacy regression coverage is not inferred as parity."
       }
     },
@@ -13103,18 +13355,71 @@
         "policy": "Frozen baseline classification; infrastructure refactors do not promote capability parity."
       },
       "unitTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "partial",
+        "evidence": [
+          {
+            "kind": "unit",
+            "path": "tests/unit/phase9.test.js",
+            "anchor": "N-base",
+            "capabilityIds": [
+              "el506.second.el506-k38",
+              "el506.second.el506-k39",
+              "el506.second.el506-k43",
+              "el506.second.el506-k44",
+              "el506.second.el506-k48",
+              "el506.context.nbase.12",
+              "el506.context.nbase.13",
+              "el506.context.nbase.14",
+              "el506.context.nbase.15",
+              "el506.context.nbase.16",
+              "el506.context.nbase.47",
+              "el506.nbase.digit.a",
+              "el506.nbase.digit.f"
+            ],
+            "scope": "Physical five-base conversion and integer parser tests, ten-digit signed limits, logical truth tables, memories, ANS, unavailable formula recall, snapshots and recovery. Native observations supplement manual policy; all private cursor/buffer transitions are not full parity."
+          }
+        ],
         "scope": "Explicit mapped assertions only; unlisted coverage is unassessed."
       },
       "goldenTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "baseline-known-differences",
+        "evidence": [
+          {
+            "fixtureId": "phase9-nbase",
+            "status": "known-differences",
+            "assertedFrames": 67
+          }
+        ],
         "scope": "Baseline characterization only; all current supported fixtures have oracle display differences."
       },
       "browserTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "partial",
+        "evidence": [
+          {
+            "kind": "browser",
+            "path": "tests/e2e/golden.spec.js",
+            "anchor": "canonical baseline browser replay",
+            "fixtureIds": [
+              "phase9-nbase"
+            ],
+            "scope": "67 canonical implementation frames including 23 independently observed native frames. Native viewport/raw-state differences remain explicitly recorded.",
+            "capabilityIds": [
+              "el506.second.el506-k38",
+              "el506.second.el506-k39",
+              "el506.second.el506-k43",
+              "el506.second.el506-k44",
+              "el506.second.el506-k48",
+              "el506.context.nbase.12",
+              "el506.context.nbase.13",
+              "el506.context.nbase.14",
+              "el506.context.nbase.15",
+              "el506.context.nbase.16",
+              "el506.context.nbase.47",
+              "el506.nbase.digit.a",
+              "el506.nbase.digit.f"
+            ]
+          }
+        ],
         "scope": "Explicit canonical baseline browser replays only; legacy regression coverage is not inferred as parity."
       }
     },
@@ -14467,18 +14772,71 @@
         "policy": "Frozen baseline classification; infrastructure refactors do not promote capability parity."
       },
       "unitTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "partial",
+        "evidence": [
+          {
+            "kind": "unit",
+            "path": "tests/unit/phase9.test.js",
+            "anchor": "N-base",
+            "capabilityIds": [
+              "el506.second.el506-k38",
+              "el506.second.el506-k39",
+              "el506.second.el506-k43",
+              "el506.second.el506-k44",
+              "el506.second.el506-k48",
+              "el506.context.nbase.12",
+              "el506.context.nbase.13",
+              "el506.context.nbase.14",
+              "el506.context.nbase.15",
+              "el506.context.nbase.16",
+              "el506.context.nbase.47",
+              "el506.nbase.digit.a",
+              "el506.nbase.digit.f"
+            ],
+            "scope": "Physical five-base conversion and integer parser tests, ten-digit signed limits, logical truth tables, memories, ANS, unavailable formula recall, snapshots and recovery. Native observations supplement manual policy; all private cursor/buffer transitions are not full parity."
+          }
+        ],
         "scope": "Explicit mapped assertions only; unlisted coverage is unassessed."
       },
       "goldenTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "baseline-known-differences",
+        "evidence": [
+          {
+            "fixtureId": "phase9-nbase",
+            "status": "known-differences",
+            "assertedFrames": 67
+          }
+        ],
         "scope": "Baseline characterization only; all current supported fixtures have oracle display differences."
       },
       "browserTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "partial",
+        "evidence": [
+          {
+            "kind": "browser",
+            "path": "tests/e2e/golden.spec.js",
+            "anchor": "canonical baseline browser replay",
+            "fixtureIds": [
+              "phase9-nbase"
+            ],
+            "scope": "67 canonical implementation frames including 23 independently observed native frames. Native viewport/raw-state differences remain explicitly recorded.",
+            "capabilityIds": [
+              "el506.second.el506-k38",
+              "el506.second.el506-k39",
+              "el506.second.el506-k43",
+              "el506.second.el506-k44",
+              "el506.second.el506-k48",
+              "el506.context.nbase.12",
+              "el506.context.nbase.13",
+              "el506.context.nbase.14",
+              "el506.context.nbase.15",
+              "el506.context.nbase.16",
+              "el506.context.nbase.47",
+              "el506.nbase.digit.a",
+              "el506.nbase.digit.f"
+            ]
+          }
+        ],
         "scope": "Explicit canonical baseline browser replays only; legacy regression coverage is not inferred as parity."
       }
     },
@@ -14518,18 +14876,71 @@
         "policy": "Frozen baseline classification; infrastructure refactors do not promote capability parity."
       },
       "unitTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "partial",
+        "evidence": [
+          {
+            "kind": "unit",
+            "path": "tests/unit/phase9.test.js",
+            "anchor": "N-base",
+            "capabilityIds": [
+              "el506.second.el506-k38",
+              "el506.second.el506-k39",
+              "el506.second.el506-k43",
+              "el506.second.el506-k44",
+              "el506.second.el506-k48",
+              "el506.context.nbase.12",
+              "el506.context.nbase.13",
+              "el506.context.nbase.14",
+              "el506.context.nbase.15",
+              "el506.context.nbase.16",
+              "el506.context.nbase.47",
+              "el506.nbase.digit.a",
+              "el506.nbase.digit.f"
+            ],
+            "scope": "Physical five-base conversion and integer parser tests, ten-digit signed limits, logical truth tables, memories, ANS, unavailable formula recall, snapshots and recovery. Native observations supplement manual policy; all private cursor/buffer transitions are not full parity."
+          }
+        ],
         "scope": "Explicit mapped assertions only; unlisted coverage is unassessed."
       },
       "goldenTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "baseline-known-differences",
+        "evidence": [
+          {
+            "fixtureId": "phase9-nbase",
+            "status": "known-differences",
+            "assertedFrames": 67
+          }
+        ],
         "scope": "Baseline characterization only; all current supported fixtures have oracle display differences."
       },
       "browserTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "partial",
+        "evidence": [
+          {
+            "kind": "browser",
+            "path": "tests/e2e/golden.spec.js",
+            "anchor": "canonical baseline browser replay",
+            "fixtureIds": [
+              "phase9-nbase"
+            ],
+            "scope": "67 canonical implementation frames including 23 independently observed native frames. Native viewport/raw-state differences remain explicitly recorded.",
+            "capabilityIds": [
+              "el506.second.el506-k38",
+              "el506.second.el506-k39",
+              "el506.second.el506-k43",
+              "el506.second.el506-k44",
+              "el506.second.el506-k48",
+              "el506.context.nbase.12",
+              "el506.context.nbase.13",
+              "el506.context.nbase.14",
+              "el506.context.nbase.15",
+              "el506.context.nbase.16",
+              "el506.context.nbase.47",
+              "el506.nbase.digit.a",
+              "el506.nbase.digit.f"
+            ]
+          }
+        ],
         "scope": "Explicit canonical baseline browser replays only; legacy regression coverage is not inferred as parity."
       }
     },
@@ -14569,18 +14980,71 @@
         "policy": "Frozen baseline classification; infrastructure refactors do not promote capability parity."
       },
       "unitTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "partial",
+        "evidence": [
+          {
+            "kind": "unit",
+            "path": "tests/unit/phase9.test.js",
+            "anchor": "N-base",
+            "capabilityIds": [
+              "el506.second.el506-k38",
+              "el506.second.el506-k39",
+              "el506.second.el506-k43",
+              "el506.second.el506-k44",
+              "el506.second.el506-k48",
+              "el506.context.nbase.12",
+              "el506.context.nbase.13",
+              "el506.context.nbase.14",
+              "el506.context.nbase.15",
+              "el506.context.nbase.16",
+              "el506.context.nbase.47",
+              "el506.nbase.digit.a",
+              "el506.nbase.digit.f"
+            ],
+            "scope": "Physical five-base conversion and integer parser tests, ten-digit signed limits, logical truth tables, memories, ANS, unavailable formula recall, snapshots and recovery. Native observations supplement manual policy; all private cursor/buffer transitions are not full parity."
+          }
+        ],
         "scope": "Explicit mapped assertions only; unlisted coverage is unassessed."
       },
       "goldenTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "baseline-known-differences",
+        "evidence": [
+          {
+            "fixtureId": "phase9-nbase",
+            "status": "known-differences",
+            "assertedFrames": 67
+          }
+        ],
         "scope": "Baseline characterization only; all current supported fixtures have oracle display differences."
       },
       "browserTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "partial",
+        "evidence": [
+          {
+            "kind": "browser",
+            "path": "tests/e2e/golden.spec.js",
+            "anchor": "canonical baseline browser replay",
+            "fixtureIds": [
+              "phase9-nbase"
+            ],
+            "scope": "67 canonical implementation frames including 23 independently observed native frames. Native viewport/raw-state differences remain explicitly recorded.",
+            "capabilityIds": [
+              "el506.second.el506-k38",
+              "el506.second.el506-k39",
+              "el506.second.el506-k43",
+              "el506.second.el506-k44",
+              "el506.second.el506-k48",
+              "el506.context.nbase.12",
+              "el506.context.nbase.13",
+              "el506.context.nbase.14",
+              "el506.context.nbase.15",
+              "el506.context.nbase.16",
+              "el506.context.nbase.47",
+              "el506.nbase.digit.a",
+              "el506.nbase.digit.f"
+            ]
+          }
+        ],
         "scope": "Explicit canonical baseline browser replays only; legacy regression coverage is not inferred as parity."
       }
     },
@@ -14620,18 +15084,71 @@
         "policy": "Frozen baseline classification; infrastructure refactors do not promote capability parity."
       },
       "unitTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "partial",
+        "evidence": [
+          {
+            "kind": "unit",
+            "path": "tests/unit/phase9.test.js",
+            "anchor": "N-base",
+            "capabilityIds": [
+              "el506.second.el506-k38",
+              "el506.second.el506-k39",
+              "el506.second.el506-k43",
+              "el506.second.el506-k44",
+              "el506.second.el506-k48",
+              "el506.context.nbase.12",
+              "el506.context.nbase.13",
+              "el506.context.nbase.14",
+              "el506.context.nbase.15",
+              "el506.context.nbase.16",
+              "el506.context.nbase.47",
+              "el506.nbase.digit.a",
+              "el506.nbase.digit.f"
+            ],
+            "scope": "Physical five-base conversion and integer parser tests, ten-digit signed limits, logical truth tables, memories, ANS, unavailable formula recall, snapshots and recovery. Native observations supplement manual policy; all private cursor/buffer transitions are not full parity."
+          }
+        ],
         "scope": "Explicit mapped assertions only; unlisted coverage is unassessed."
       },
       "goldenTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "baseline-known-differences",
+        "evidence": [
+          {
+            "fixtureId": "phase9-nbase",
+            "status": "known-differences",
+            "assertedFrames": 67
+          }
+        ],
         "scope": "Baseline characterization only; all current supported fixtures have oracle display differences."
       },
       "browserTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "partial",
+        "evidence": [
+          {
+            "kind": "browser",
+            "path": "tests/e2e/golden.spec.js",
+            "anchor": "canonical baseline browser replay",
+            "fixtureIds": [
+              "phase9-nbase"
+            ],
+            "scope": "67 canonical implementation frames including 23 independently observed native frames. Native viewport/raw-state differences remain explicitly recorded.",
+            "capabilityIds": [
+              "el506.second.el506-k38",
+              "el506.second.el506-k39",
+              "el506.second.el506-k43",
+              "el506.second.el506-k44",
+              "el506.second.el506-k48",
+              "el506.context.nbase.12",
+              "el506.context.nbase.13",
+              "el506.context.nbase.14",
+              "el506.context.nbase.15",
+              "el506.context.nbase.16",
+              "el506.context.nbase.47",
+              "el506.nbase.digit.a",
+              "el506.nbase.digit.f"
+            ]
+          }
+        ],
         "scope": "Explicit canonical baseline browser replays only; legacy regression coverage is not inferred as parity."
       }
     },
@@ -14671,18 +15188,71 @@
         "policy": "Frozen baseline classification; infrastructure refactors do not promote capability parity."
       },
       "unitTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "partial",
+        "evidence": [
+          {
+            "kind": "unit",
+            "path": "tests/unit/phase9.test.js",
+            "anchor": "N-base",
+            "capabilityIds": [
+              "el506.second.el506-k38",
+              "el506.second.el506-k39",
+              "el506.second.el506-k43",
+              "el506.second.el506-k44",
+              "el506.second.el506-k48",
+              "el506.context.nbase.12",
+              "el506.context.nbase.13",
+              "el506.context.nbase.14",
+              "el506.context.nbase.15",
+              "el506.context.nbase.16",
+              "el506.context.nbase.47",
+              "el506.nbase.digit.a",
+              "el506.nbase.digit.f"
+            ],
+            "scope": "Physical five-base conversion and integer parser tests, ten-digit signed limits, logical truth tables, memories, ANS, unavailable formula recall, snapshots and recovery. Native observations supplement manual policy; all private cursor/buffer transitions are not full parity."
+          }
+        ],
         "scope": "Explicit mapped assertions only; unlisted coverage is unassessed."
       },
       "goldenTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "baseline-known-differences",
+        "evidence": [
+          {
+            "fixtureId": "phase9-nbase",
+            "status": "known-differences",
+            "assertedFrames": 67
+          }
+        ],
         "scope": "Baseline characterization only; all current supported fixtures have oracle display differences."
       },
       "browserTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "partial",
+        "evidence": [
+          {
+            "kind": "browser",
+            "path": "tests/e2e/golden.spec.js",
+            "anchor": "canonical baseline browser replay",
+            "fixtureIds": [
+              "phase9-nbase"
+            ],
+            "scope": "67 canonical implementation frames including 23 independently observed native frames. Native viewport/raw-state differences remain explicitly recorded.",
+            "capabilityIds": [
+              "el506.second.el506-k38",
+              "el506.second.el506-k39",
+              "el506.second.el506-k43",
+              "el506.second.el506-k44",
+              "el506.second.el506-k48",
+              "el506.context.nbase.12",
+              "el506.context.nbase.13",
+              "el506.context.nbase.14",
+              "el506.context.nbase.15",
+              "el506.context.nbase.16",
+              "el506.context.nbase.47",
+              "el506.nbase.digit.a",
+              "el506.nbase.digit.f"
+            ]
+          }
+        ],
         "scope": "Explicit canonical baseline browser replays only; legacy regression coverage is not inferred as parity."
       }
     },
@@ -14722,18 +15292,71 @@
         "policy": "Frozen baseline classification; infrastructure refactors do not promote capability parity."
       },
       "unitTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "partial",
+        "evidence": [
+          {
+            "kind": "unit",
+            "path": "tests/unit/phase9.test.js",
+            "anchor": "N-base",
+            "capabilityIds": [
+              "el506.second.el506-k38",
+              "el506.second.el506-k39",
+              "el506.second.el506-k43",
+              "el506.second.el506-k44",
+              "el506.second.el506-k48",
+              "el506.context.nbase.12",
+              "el506.context.nbase.13",
+              "el506.context.nbase.14",
+              "el506.context.nbase.15",
+              "el506.context.nbase.16",
+              "el506.context.nbase.47",
+              "el506.nbase.digit.a",
+              "el506.nbase.digit.f"
+            ],
+            "scope": "Physical five-base conversion and integer parser tests, ten-digit signed limits, logical truth tables, memories, ANS, unavailable formula recall, snapshots and recovery. Native observations supplement manual policy; all private cursor/buffer transitions are not full parity."
+          }
+        ],
         "scope": "Explicit mapped assertions only; unlisted coverage is unassessed."
       },
       "goldenTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "baseline-known-differences",
+        "evidence": [
+          {
+            "fixtureId": "phase9-nbase",
+            "status": "known-differences",
+            "assertedFrames": 67
+          }
+        ],
         "scope": "Baseline characterization only; all current supported fixtures have oracle display differences."
       },
       "browserTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "partial",
+        "evidence": [
+          {
+            "kind": "browser",
+            "path": "tests/e2e/golden.spec.js",
+            "anchor": "canonical baseline browser replay",
+            "fixtureIds": [
+              "phase9-nbase"
+            ],
+            "scope": "67 canonical implementation frames including 23 independently observed native frames. Native viewport/raw-state differences remain explicitly recorded.",
+            "capabilityIds": [
+              "el506.second.el506-k38",
+              "el506.second.el506-k39",
+              "el506.second.el506-k43",
+              "el506.second.el506-k44",
+              "el506.second.el506-k48",
+              "el506.context.nbase.12",
+              "el506.context.nbase.13",
+              "el506.context.nbase.14",
+              "el506.context.nbase.15",
+              "el506.context.nbase.16",
+              "el506.context.nbase.47",
+              "el506.nbase.digit.a",
+              "el506.nbase.digit.f"
+            ]
+          }
+        ],
         "scope": "Explicit canonical baseline browser replays only; legacy regression coverage is not inferred as parity."
       }
     },
@@ -38302,18 +38925,83 @@
         "policy": "Frozen baseline classification; infrastructure refactors do not promote capability parity."
       },
       "unitTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "partial",
+        "evidence": [
+          {
+            "kind": "unit",
+            "path": "tests/unit/phase9.test.js",
+            "anchor": "N-base",
+            "capabilityIds": [
+              "el506.second.el506-k38",
+              "el506.second.el506-k39",
+              "el506.second.el506-k43",
+              "el506.second.el506-k44",
+              "el506.second.el506-k48",
+              "el506.context.nbase.12",
+              "el506.context.nbase.13",
+              "el506.context.nbase.14",
+              "el506.context.nbase.15",
+              "el506.context.nbase.16",
+              "el506.context.nbase.47",
+              "el506.nbase.digit.a",
+              "el506.nbase.digit.f"
+            ],
+            "scope": "Physical five-base conversion and integer parser tests, ten-digit signed limits, logical truth tables, memories, ANS, unavailable formula recall, snapshots and recovery. Native observations supplement manual policy; all private cursor/buffer transitions are not full parity."
+          }
+        ],
         "scope": "Explicit mapped assertions only; unlisted coverage is unassessed."
       },
       "goldenTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "baseline-known-differences",
+        "evidence": [
+          {
+            "fixtureId": "phase9-nbase",
+            "status": "known-differences",
+            "assertedFrames": 67
+          }
+        ],
         "scope": "Baseline characterization only; all current supported fixtures have oracle display differences."
       },
       "browserTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "partial",
+        "evidence": [
+          {
+            "kind": "browser",
+            "path": "tests/e2e/phase9.spec.js",
+            "anchor": "N-base HEX keyboard",
+            "capabilityIds": [
+              "el506.second.el506-k38",
+              "el506.second.el506-k39",
+              "el506.nbase.digit.a",
+              "el506.nbase.digit.f"
+            ],
+            "scope": "Pointer and keyboard HEX digits, arithmetic, conversion, small base marker, ten-digit visibility, isolated widgets and snapshot preservation."
+          },
+          {
+            "kind": "browser",
+            "path": "tests/e2e/golden.spec.js",
+            "anchor": "canonical baseline browser replay",
+            "fixtureIds": [
+              "phase9-nbase"
+            ],
+            "scope": "67 canonical implementation frames including 23 independently observed native frames. Native viewport/raw-state differences remain explicitly recorded.",
+            "capabilityIds": [
+              "el506.second.el506-k38",
+              "el506.second.el506-k39",
+              "el506.second.el506-k43",
+              "el506.second.el506-k44",
+              "el506.second.el506-k48",
+              "el506.context.nbase.12",
+              "el506.context.nbase.13",
+              "el506.context.nbase.14",
+              "el506.context.nbase.15",
+              "el506.context.nbase.16",
+              "el506.context.nbase.47",
+              "el506.nbase.digit.a",
+              "el506.nbase.digit.f"
+            ]
+          }
+        ],
         "scope": "Explicit canonical baseline browser replays only; legacy regression coverage is not inferred as parity."
       }
     },
@@ -38557,18 +39245,83 @@
         "policy": "Frozen baseline classification; infrastructure refactors do not promote capability parity."
       },
       "unitTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "partial",
+        "evidence": [
+          {
+            "kind": "unit",
+            "path": "tests/unit/phase9.test.js",
+            "anchor": "N-base",
+            "capabilityIds": [
+              "el506.second.el506-k38",
+              "el506.second.el506-k39",
+              "el506.second.el506-k43",
+              "el506.second.el506-k44",
+              "el506.second.el506-k48",
+              "el506.context.nbase.12",
+              "el506.context.nbase.13",
+              "el506.context.nbase.14",
+              "el506.context.nbase.15",
+              "el506.context.nbase.16",
+              "el506.context.nbase.47",
+              "el506.nbase.digit.a",
+              "el506.nbase.digit.f"
+            ],
+            "scope": "Physical five-base conversion and integer parser tests, ten-digit signed limits, logical truth tables, memories, ANS, unavailable formula recall, snapshots and recovery. Native observations supplement manual policy; all private cursor/buffer transitions are not full parity."
+          }
+        ],
         "scope": "Explicit mapped assertions only; unlisted coverage is unassessed."
       },
       "goldenTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "baseline-known-differences",
+        "evidence": [
+          {
+            "fixtureId": "phase9-nbase",
+            "status": "known-differences",
+            "assertedFrames": 67
+          }
+        ],
         "scope": "Baseline characterization only; all current supported fixtures have oracle display differences."
       },
       "browserTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "partial",
+        "evidence": [
+          {
+            "kind": "browser",
+            "path": "tests/e2e/phase9.spec.js",
+            "anchor": "N-base HEX keyboard",
+            "capabilityIds": [
+              "el506.second.el506-k38",
+              "el506.second.el506-k39",
+              "el506.nbase.digit.a",
+              "el506.nbase.digit.f"
+            ],
+            "scope": "Pointer and keyboard HEX digits, arithmetic, conversion, small base marker, ten-digit visibility, isolated widgets and snapshot preservation."
+          },
+          {
+            "kind": "browser",
+            "path": "tests/e2e/golden.spec.js",
+            "anchor": "canonical baseline browser replay",
+            "fixtureIds": [
+              "phase9-nbase"
+            ],
+            "scope": "67 canonical implementation frames including 23 independently observed native frames. Native viewport/raw-state differences remain explicitly recorded.",
+            "capabilityIds": [
+              "el506.second.el506-k38",
+              "el506.second.el506-k39",
+              "el506.second.el506-k43",
+              "el506.second.el506-k44",
+              "el506.second.el506-k48",
+              "el506.context.nbase.12",
+              "el506.context.nbase.13",
+              "el506.context.nbase.14",
+              "el506.context.nbase.15",
+              "el506.context.nbase.16",
+              "el506.context.nbase.47",
+              "el506.nbase.digit.a",
+              "el506.nbase.digit.f"
+            ]
+          }
+        ],
         "scope": "Explicit canonical baseline browser replays only; legacy regression coverage is not inferred as parity."
       }
     }

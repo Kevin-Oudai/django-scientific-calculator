@@ -78,7 +78,7 @@ test('Phase 8 Newton iteration handles multiple roots, domain errors and bounded
 });
 test('Phase 8 snapshot 9 migrates published scalar variables and string formula stores',()=>{
  let s=seq([30,28,18,2,5,18,43,40,28,8]);const old=core.snapshotCalculator(s);old.schemaVersion=8;delete old.state.values.variables;old.state.control.formulas=old.state.control.formulas.map(core.semanticEditor.serialize);
- const restored=core.restoreCalculator(old);assert.equal(restored.values.variables.A.value,7);assert.equal(core.semanticEditor.serialize(restored.control.formulas[0]),'A+1');assert.equal(core.snapshotCalculator(restored).schemaVersion,9);
+ const restored=core.restoreCalculator(old);assert.equal(restored.values.variables.A.value,7);assert.equal(core.semanticEditor.serialize(restored.control.formulas[0]),'A+1');assert.equal(core.snapshotCalculator(restored).schemaVersion,10);
 });
 test('Phase 8 memory and ANS policy covers every mode and structured result type',()=>{
  const v=core.valueTypes;

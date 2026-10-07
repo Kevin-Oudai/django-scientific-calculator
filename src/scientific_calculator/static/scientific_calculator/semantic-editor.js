@@ -8,6 +8,7 @@
   const symbols = Object.freeze(['pi','e','ans','A','B','C','D','E','F','X','Y','M']);
   function validateToken(t) {
     if (!t || Object.keys(t).sort().join() !== 'kind,value' || typeof t.value !== 'string') throw new TypeError('Invalid semantic token');
+    if(t.kind==='nbase'&&/^(?:[0-9A-F]{1,10}|AND|OR|XOR|XNOR|NOT|NEG|ans|\$[A-FXYM])$/.test(t.value))return;
     if (t.kind === 'number' && /^(?:\d+(?:\.\d*)?|\.\d+)(?:E[+-]?\d{1,2})?$/.test(t.value)) return;
     if (t.kind === 'function' && functions.includes(t.value)) return;
     if (t.kind === 'symbol' && symbols.includes(t.value)) return;

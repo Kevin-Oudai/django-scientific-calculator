@@ -31,9 +31,9 @@
       && Number.isSafeInteger(v.degrees) && v.degrees>=0 && Number.isInteger(v.minutes) && v.minutes>=0 && v.minutes<60
       && typeof v.seconds==='number' && v.seconds>=0 && v.seconds<60)return;
     if(v.kind==='complex' && keys==='imaginary,kind,real'){numeric(v.real);numeric(v.imaginary);return;}
-    if(v.kind==='nbase' && keys==='integer,kind,radix,signed,width' && integer(v.integer) && [2,5,8,10,16].includes(v.radix)
+    if(v.kind==='nbase' && ((keys==='integer,kind,radix,signed,width'||keys==='digits,integer,kind,radix,signed,width'&&v.digits===10&&v.signed&&v.width===Math.ceil(Math.log2(v.radix**10)))||keys==='digits,integer,kind,radix,signed,width'&&v.digits===10&&v.signed&&v.width===Math.ceil(Math.log2(v.radix**10))) && integer(v.integer) && [2,5,8,10,16].includes(v.radix)
       && Number.isInteger(v.width) && v.width>0 && v.width<=256 && typeof v.signed==='boolean'){
-      const n=BigInt(v.integer),bits=BigInt(v.width),lower=v.signed?-(1n<<(bits-1n)):0n,upper=v.signed?(1n<<(bits-1n))-1n:(1n<<bits)-1n;
+      const n=BigInt(v.integer),modulus=v.digits?BigInt(v.radix)**BigInt(v.digits):1n<<BigInt(v.width),lower=v.signed?-(modulus/2n):0n,upper=v.signed?(modulus-1n)/2n:modulus-1n;
       if(n<lower || n>upper)throw new RangeError('Fixed-width integer overflow');return;
     }
     if(v.kind==='statistics' && keys==='kind,rows' && Array.isArray(v.rows) && v.rows.length<=10000){
@@ -120,9 +120,9 @@
     const add=(label,value,text)=>components.push({label,value:copy(value),text});
     if(v.kind==='scalar')add('',v,format(v.value));
     else if(v.kind==='rational')add('',v,mode==='decimal'?format(toNumber(v)):`${v.numerator}/${v.denominator}`);
-    else if(v.kind==='dms')add('',v,mode==='decimal'?format(toNumber(v)):`${v.sign<0?'-':''}${v.degrees}°${v.minutes}′${v.seconds}″`);
+    else if(v.kind==='dms')add('',v,mode==='decimal'?format(toNumber(v)):`${v.sign<0?'-':''}${v.degrees}Â°${v.minutes}â€²${v.seconds}â€³`);
     else if(v.kind==='nbase'){
-      const n=BigInt(v.integer),encoded=n<0n?n+(1n<<BigInt(v.width)):n;
+      const n=BigInt(v.integer),encoded=n<0n?n+(v.digits?BigInt(v.radix)**BigInt(v.digits):1n<<BigInt(v.width)):n;
       add('',v,encoded.toString(v.radix).toUpperCase());
     } else if(v.kind==='complex'){
       if(mode==='polar'){

@@ -1,4 +1,4 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>EL-506TS parity evidence report</title><style>body{font:16px system-ui;margin:2rem;color:#162130;background:#f5f7fa}main{max-width:1600px;margin:auto}table{border-collapse:collapse;width:100%;background:white}th,td{padding:12px;border:1px solid #b7c2d0;text-align:left;vertical-align:top}th{background:#163858;color:white}pre{white-space:pre-wrap;overflow-wrap:anywhere;font-size:12px}input{font:inherit;padding:10px;min-width:280px}details{margin-top:8px}summary{cursor:pointer}a{color:#174d80}.scroll{overflow:auto}caption{text-align:left;padding:12px 0;font-weight:bold}</style></head><body><main><h1>EL-506TS parity evidence</h1><p>430 ledger entries. Full verified parity: 0.</p><p>Evidence status is independent across columns. Inventory observation, partial implementation and baseline tests do not establish full calculator parity. Test mappings identify assertions, not a new test execution record. Run npm test for verification.</p><p>Guide: 52 workflows; 1 baseline replay; 51 pending. Golden: 226 asserted frames; 1 pending fixture.</p><details><summary>Column totals</summary><pre>{
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>EL-506TS parity evidence report</title><style>body{font:16px system-ui;margin:2rem;color:#162130;background:#f5f7fa}main{max-width:1600px;margin:auto}table{border-collapse:collapse;width:100%;background:white}th,td{padding:12px;border:1px solid #b7c2d0;text-align:left;vertical-align:top}th{background:#163858;color:white}pre{white-space:pre-wrap;overflow-wrap:anywhere;font-size:12px}input{font:inherit;padding:10px;min-width:280px}details{margin-top:8px}summary{cursor:pointer}a{color:#174d80}.scroll{overflow:auto}caption{text-align:left;padding:12px 0;font-weight:bold}</style></head><body><main><h1>EL-506TS parity evidence</h1><p>430 ledger entries. Full verified parity: 0.</p><p>Evidence status is independent across columns. Inventory observation, partial implementation and baseline tests do not establish full calculator parity. Test mappings identify assertions, not a new test execution record. Run npm test for verification.</p><p>Guide: 52 workflows; 1 baseline replay; 51 pending. Golden: 293 asserted frames; 1 pending fixture.</p><details><summary>Column totals</summary><pre>{
   &quot;documented&quot;: {
     &quot;not-recorded&quot;: 235,
     &quot;documented&quot;: 195
@@ -12,16 +12,16 @@
     &quot;missing&quot;: 307
   },
   &quot;unitTested&quot;: {
-    &quot;pending&quot;: 287,
-    &quot;partial&quot;: 143
+    &quot;pending&quot;: 274,
+    &quot;partial&quot;: 156
   },
   &quot;goldenTested&quot;: {
-    &quot;pending&quot;: 396,
-    &quot;baseline-known-differences&quot;: 34
+    &quot;pending&quot;: 383,
+    &quot;baseline-known-differences&quot;: 47
   },
   &quot;browserTested&quot;: {
-    &quot;partial&quot;: 173,
-    &quot;pending&quot;: 257
+    &quot;partial&quot;: 186,
+    &quot;pending&quot;: 244
   }
 }</pre></details><p><label for="filter">Filter by capability, family, owner or evidence status</label><br><input id="filter" type="search" placeholder="For example: matrix or EL506-146"><span id="count" aria-live="polite"> 430 entries</span></p><div class="scroll"><table><caption>Independent status and scoped evidence</caption><thead><tr><th>Capability</th><th>Documented</th><th>Simulator observed</th><th>Implemented</th><th>Unit tested</th><th>Golden tested</th><th>Browser tested</th></tr></thead><tbody><tr><td>el506.key.el506-k01<br><strong>HOME</strong><br>physical-key / EL506-013</td><td><strong>not-recorded</strong><details><summary>Evidence and scope</summary><p>Ledger documentation evidence only.</p><pre>[]</pre></details></td><td><strong>observed</strong><details><summary>Evidence and scope</summary><p>Position verified under EL506-013; semantic layers listed separately.</p><pre>[
   {
@@ -7492,14 +7492,144 @@
     &quot;key_id&quot;: &quot;EL506-K38&quot;,
     &quot;scope&quot;: &quot;Visible panel legend; action semantics not executed.&quot;
   }
-]</pre></details></td><td><strong>missing</strong><details><summary>Evidence and scope</summary><p>No corresponding mode/controller/function in the frozen 0.3.1 implementation; reference exposure is not implementation evidence.</p><pre>[]</pre></details></td><td><strong>pending</strong><details><summary>Evidence and scope</summary><p>Explicit mapped assertions only; unlisted coverage is unassessed.</p><pre>[]</pre></details></td><td><strong>pending</strong><details><summary>Evidence and scope</summary><p>Baseline characterization only; all current supported fixtures have oracle display differences.</p><pre>[]</pre></details></td><td><strong>pending</strong><details><summary>Evidence and scope</summary><p>Explicit canonical baseline browser replays only; legacy regression coverage is not inferred as parity.</p><pre>[]</pre></details></td></tr>
+]</pre></details></td><td><strong>missing</strong><details><summary>Evidence and scope</summary><p>No corresponding mode/controller/function in the frozen 0.3.1 implementation; reference exposure is not implementation evidence.</p><pre>[]</pre></details></td><td><strong>partial</strong><details><summary>Evidence and scope</summary><p>Explicit mapped assertions only; unlisted coverage is unassessed.</p><pre>[
+  {
+    &quot;kind&quot;: &quot;unit&quot;,
+    &quot;path&quot;: &quot;tests/unit/phase9.test.js&quot;,
+    &quot;anchor&quot;: &quot;N-base&quot;,
+    &quot;capabilityIds&quot;: [
+      &quot;el506.second.el506-k38&quot;,
+      &quot;el506.second.el506-k39&quot;,
+      &quot;el506.second.el506-k43&quot;,
+      &quot;el506.second.el506-k44&quot;,
+      &quot;el506.second.el506-k48&quot;,
+      &quot;el506.context.nbase.12&quot;,
+      &quot;el506.context.nbase.13&quot;,
+      &quot;el506.context.nbase.14&quot;,
+      &quot;el506.context.nbase.15&quot;,
+      &quot;el506.context.nbase.16&quot;,
+      &quot;el506.context.nbase.47&quot;,
+      &quot;el506.nbase.digit.a&quot;,
+      &quot;el506.nbase.digit.f&quot;
+    ],
+    &quot;scope&quot;: &quot;Physical five-base conversion and integer parser tests, ten-digit signed limits, logical truth tables, memories, ANS, unavailable formula recall, snapshots and recovery. Native observations supplement manual policy; all private cursor/buffer transitions are not full parity.&quot;
+  }
+]</pre></details></td><td><strong>baseline-known-differences</strong><details><summary>Evidence and scope</summary><p>Baseline characterization only; all current supported fixtures have oracle display differences.</p><pre>[
+  {
+    &quot;fixtureId&quot;: &quot;phase9-nbase&quot;,
+    &quot;status&quot;: &quot;known-differences&quot;,
+    &quot;assertedFrames&quot;: 67
+  }
+]</pre></details></td><td><strong>partial</strong><details><summary>Evidence and scope</summary><p>Explicit canonical baseline browser replays only; legacy regression coverage is not inferred as parity.</p><pre>[
+  {
+    &quot;kind&quot;: &quot;browser&quot;,
+    &quot;path&quot;: &quot;tests/e2e/phase9.spec.js&quot;,
+    &quot;anchor&quot;: &quot;N-base HEX keyboard&quot;,
+    &quot;capabilityIds&quot;: [
+      &quot;el506.second.el506-k38&quot;,
+      &quot;el506.second.el506-k39&quot;,
+      &quot;el506.nbase.digit.a&quot;,
+      &quot;el506.nbase.digit.f&quot;
+    ],
+    &quot;scope&quot;: &quot;Pointer and keyboard HEX digits, arithmetic, conversion, small base marker, ten-digit visibility, isolated widgets and snapshot preservation.&quot;
+  },
+  {
+    &quot;kind&quot;: &quot;browser&quot;,
+    &quot;path&quot;: &quot;tests/e2e/golden.spec.js&quot;,
+    &quot;anchor&quot;: &quot;canonical baseline browser replay&quot;,
+    &quot;fixtureIds&quot;: [
+      &quot;phase9-nbase&quot;
+    ],
+    &quot;scope&quot;: &quot;67 canonical implementation frames including 23 independently observed native frames. Native viewport/raw-state differences remain explicitly recorded.&quot;,
+    &quot;capabilityIds&quot;: [
+      &quot;el506.second.el506-k38&quot;,
+      &quot;el506.second.el506-k39&quot;,
+      &quot;el506.second.el506-k43&quot;,
+      &quot;el506.second.el506-k44&quot;,
+      &quot;el506.second.el506-k48&quot;,
+      &quot;el506.context.nbase.12&quot;,
+      &quot;el506.context.nbase.13&quot;,
+      &quot;el506.context.nbase.14&quot;,
+      &quot;el506.context.nbase.15&quot;,
+      &quot;el506.context.nbase.16&quot;,
+      &quot;el506.context.nbase.47&quot;,
+      &quot;el506.nbase.digit.a&quot;,
+      &quot;el506.nbase.digit.f&quot;
+    ]
+  }
+]</pre></details></td></tr>
 <tr><td>el506.second.el506-k39<br><strong>BIN</strong><br>2ndF / EL506-180</td><td><strong>not-recorded</strong><details><summary>Evidence and scope</summary><p>Ledger documentation evidence only.</p><pre>[]</pre></details></td><td><strong>observed</strong><details><summary>Evidence and scope</summary><p>Numeric behavior, valid modes, state changes, boundaries and application parity require the owning roadmap item.</p><pre>[
   {
     &quot;source_id&quot;: &quot;live-panel&quot;,
     &quot;key_id&quot;: &quot;EL506-K39&quot;,
     &quot;scope&quot;: &quot;Visible panel legend; action semantics not executed.&quot;
   }
-]</pre></details></td><td><strong>missing</strong><details><summary>Evidence and scope</summary><p>No corresponding mode/controller/function in the frozen 0.3.1 implementation; reference exposure is not implementation evidence.</p><pre>[]</pre></details></td><td><strong>pending</strong><details><summary>Evidence and scope</summary><p>Explicit mapped assertions only; unlisted coverage is unassessed.</p><pre>[]</pre></details></td><td><strong>pending</strong><details><summary>Evidence and scope</summary><p>Baseline characterization only; all current supported fixtures have oracle display differences.</p><pre>[]</pre></details></td><td><strong>pending</strong><details><summary>Evidence and scope</summary><p>Explicit canonical baseline browser replays only; legacy regression coverage is not inferred as parity.</p><pre>[]</pre></details></td></tr>
+]</pre></details></td><td><strong>missing</strong><details><summary>Evidence and scope</summary><p>No corresponding mode/controller/function in the frozen 0.3.1 implementation; reference exposure is not implementation evidence.</p><pre>[]</pre></details></td><td><strong>partial</strong><details><summary>Evidence and scope</summary><p>Explicit mapped assertions only; unlisted coverage is unassessed.</p><pre>[
+  {
+    &quot;kind&quot;: &quot;unit&quot;,
+    &quot;path&quot;: &quot;tests/unit/phase9.test.js&quot;,
+    &quot;anchor&quot;: &quot;N-base&quot;,
+    &quot;capabilityIds&quot;: [
+      &quot;el506.second.el506-k38&quot;,
+      &quot;el506.second.el506-k39&quot;,
+      &quot;el506.second.el506-k43&quot;,
+      &quot;el506.second.el506-k44&quot;,
+      &quot;el506.second.el506-k48&quot;,
+      &quot;el506.context.nbase.12&quot;,
+      &quot;el506.context.nbase.13&quot;,
+      &quot;el506.context.nbase.14&quot;,
+      &quot;el506.context.nbase.15&quot;,
+      &quot;el506.context.nbase.16&quot;,
+      &quot;el506.context.nbase.47&quot;,
+      &quot;el506.nbase.digit.a&quot;,
+      &quot;el506.nbase.digit.f&quot;
+    ],
+    &quot;scope&quot;: &quot;Physical five-base conversion and integer parser tests, ten-digit signed limits, logical truth tables, memories, ANS, unavailable formula recall, snapshots and recovery. Native observations supplement manual policy; all private cursor/buffer transitions are not full parity.&quot;
+  }
+]</pre></details></td><td><strong>baseline-known-differences</strong><details><summary>Evidence and scope</summary><p>Baseline characterization only; all current supported fixtures have oracle display differences.</p><pre>[
+  {
+    &quot;fixtureId&quot;: &quot;phase9-nbase&quot;,
+    &quot;status&quot;: &quot;known-differences&quot;,
+    &quot;assertedFrames&quot;: 67
+  }
+]</pre></details></td><td><strong>partial</strong><details><summary>Evidence and scope</summary><p>Explicit canonical baseline browser replays only; legacy regression coverage is not inferred as parity.</p><pre>[
+  {
+    &quot;kind&quot;: &quot;browser&quot;,
+    &quot;path&quot;: &quot;tests/e2e/phase9.spec.js&quot;,
+    &quot;anchor&quot;: &quot;N-base HEX keyboard&quot;,
+    &quot;capabilityIds&quot;: [
+      &quot;el506.second.el506-k38&quot;,
+      &quot;el506.second.el506-k39&quot;,
+      &quot;el506.nbase.digit.a&quot;,
+      &quot;el506.nbase.digit.f&quot;
+    ],
+    &quot;scope&quot;: &quot;Pointer and keyboard HEX digits, arithmetic, conversion, small base marker, ten-digit visibility, isolated widgets and snapshot preservation.&quot;
+  },
+  {
+    &quot;kind&quot;: &quot;browser&quot;,
+    &quot;path&quot;: &quot;tests/e2e/golden.spec.js&quot;,
+    &quot;anchor&quot;: &quot;canonical baseline browser replay&quot;,
+    &quot;fixtureIds&quot;: [
+      &quot;phase9-nbase&quot;
+    ],
+    &quot;scope&quot;: &quot;67 canonical implementation frames including 23 independently observed native frames. Native viewport/raw-state differences remain explicitly recorded.&quot;,
+    &quot;capabilityIds&quot;: [
+      &quot;el506.second.el506-k38&quot;,
+      &quot;el506.second.el506-k39&quot;,
+      &quot;el506.second.el506-k43&quot;,
+      &quot;el506.second.el506-k44&quot;,
+      &quot;el506.second.el506-k48&quot;,
+      &quot;el506.context.nbase.12&quot;,
+      &quot;el506.context.nbase.13&quot;,
+      &quot;el506.context.nbase.14&quot;,
+      &quot;el506.context.nbase.15&quot;,
+      &quot;el506.context.nbase.16&quot;,
+      &quot;el506.context.nbase.47&quot;,
+      &quot;el506.nbase.digit.a&quot;,
+      &quot;el506.nbase.digit.f&quot;
+    ]
+  }
+]</pre></details></td></tr>
 <tr><td>el506.second.el506-k40<br><strong>percent</strong><br>2ndF / EL506-100</td><td><strong>not-recorded</strong><details><summary>Evidence and scope</summary><p>Ledger documentation evidence only.</p><pre>[]</pre></details></td><td><strong>observed</strong><details><summary>Evidence and scope</summary><p>Numeric behavior, valid modes, state changes, boundaries and application parity require the owning roadmap item.</p><pre>[
   {
     &quot;source_id&quot;: &quot;live-panel&quot;,
@@ -7562,14 +7692,120 @@
     &quot;key_id&quot;: &quot;EL506-K43&quot;,
     &quot;scope&quot;: &quot;Visible panel legend; action semantics not executed.&quot;
   }
-]</pre></details></td><td><strong>missing</strong><details><summary>Evidence and scope</summary><p>No corresponding mode/controller/function in the frozen 0.3.1 implementation; reference exposure is not implementation evidence.</p><pre>[]</pre></details></td><td><strong>pending</strong><details><summary>Evidence and scope</summary><p>Explicit mapped assertions only; unlisted coverage is unassessed.</p><pre>[]</pre></details></td><td><strong>pending</strong><details><summary>Evidence and scope</summary><p>Baseline characterization only; all current supported fixtures have oracle display differences.</p><pre>[]</pre></details></td><td><strong>pending</strong><details><summary>Evidence and scope</summary><p>Explicit canonical baseline browser replays only; legacy regression coverage is not inferred as parity.</p><pre>[]</pre></details></td></tr>
+]</pre></details></td><td><strong>missing</strong><details><summary>Evidence and scope</summary><p>No corresponding mode/controller/function in the frozen 0.3.1 implementation; reference exposure is not implementation evidence.</p><pre>[]</pre></details></td><td><strong>partial</strong><details><summary>Evidence and scope</summary><p>Explicit mapped assertions only; unlisted coverage is unassessed.</p><pre>[
+  {
+    &quot;kind&quot;: &quot;unit&quot;,
+    &quot;path&quot;: &quot;tests/unit/phase9.test.js&quot;,
+    &quot;anchor&quot;: &quot;N-base&quot;,
+    &quot;capabilityIds&quot;: [
+      &quot;el506.second.el506-k38&quot;,
+      &quot;el506.second.el506-k39&quot;,
+      &quot;el506.second.el506-k43&quot;,
+      &quot;el506.second.el506-k44&quot;,
+      &quot;el506.second.el506-k48&quot;,
+      &quot;el506.context.nbase.12&quot;,
+      &quot;el506.context.nbase.13&quot;,
+      &quot;el506.context.nbase.14&quot;,
+      &quot;el506.context.nbase.15&quot;,
+      &quot;el506.context.nbase.16&quot;,
+      &quot;el506.context.nbase.47&quot;,
+      &quot;el506.nbase.digit.a&quot;,
+      &quot;el506.nbase.digit.f&quot;
+    ],
+    &quot;scope&quot;: &quot;Physical five-base conversion and integer parser tests, ten-digit signed limits, logical truth tables, memories, ANS, unavailable formula recall, snapshots and recovery. Native observations supplement manual policy; all private cursor/buffer transitions are not full parity.&quot;
+  }
+]</pre></details></td><td><strong>baseline-known-differences</strong><details><summary>Evidence and scope</summary><p>Baseline characterization only; all current supported fixtures have oracle display differences.</p><pre>[
+  {
+    &quot;fixtureId&quot;: &quot;phase9-nbase&quot;,
+    &quot;status&quot;: &quot;known-differences&quot;,
+    &quot;assertedFrames&quot;: 67
+  }
+]</pre></details></td><td><strong>partial</strong><details><summary>Evidence and scope</summary><p>Explicit canonical baseline browser replays only; legacy regression coverage is not inferred as parity.</p><pre>[
+  {
+    &quot;kind&quot;: &quot;browser&quot;,
+    &quot;path&quot;: &quot;tests/e2e/golden.spec.js&quot;,
+    &quot;anchor&quot;: &quot;canonical baseline browser replay&quot;,
+    &quot;fixtureIds&quot;: [
+      &quot;phase9-nbase&quot;
+    ],
+    &quot;scope&quot;: &quot;67 canonical implementation frames including 23 independently observed native frames. Native viewport/raw-state differences remain explicitly recorded.&quot;,
+    &quot;capabilityIds&quot;: [
+      &quot;el506.second.el506-k38&quot;,
+      &quot;el506.second.el506-k39&quot;,
+      &quot;el506.second.el506-k43&quot;,
+      &quot;el506.second.el506-k44&quot;,
+      &quot;el506.second.el506-k48&quot;,
+      &quot;el506.context.nbase.12&quot;,
+      &quot;el506.context.nbase.13&quot;,
+      &quot;el506.context.nbase.14&quot;,
+      &quot;el506.context.nbase.15&quot;,
+      &quot;el506.context.nbase.16&quot;,
+      &quot;el506.context.nbase.47&quot;,
+      &quot;el506.nbase.digit.a&quot;,
+      &quot;el506.nbase.digit.f&quot;
+    ]
+  }
+]</pre></details></td></tr>
 <tr><td>el506.second.el506-k44<br><strong>OCT</strong><br>2ndF / EL506-180</td><td><strong>not-recorded</strong><details><summary>Evidence and scope</summary><p>Ledger documentation evidence only.</p><pre>[]</pre></details></td><td><strong>observed</strong><details><summary>Evidence and scope</summary><p>Numeric behavior, valid modes, state changes, boundaries and application parity require the owning roadmap item.</p><pre>[
   {
     &quot;source_id&quot;: &quot;live-panel&quot;,
     &quot;key_id&quot;: &quot;EL506-K44&quot;,
     &quot;scope&quot;: &quot;Visible panel legend; action semantics not executed.&quot;
   }
-]</pre></details></td><td><strong>missing</strong><details><summary>Evidence and scope</summary><p>No corresponding mode/controller/function in the frozen 0.3.1 implementation; reference exposure is not implementation evidence.</p><pre>[]</pre></details></td><td><strong>pending</strong><details><summary>Evidence and scope</summary><p>Explicit mapped assertions only; unlisted coverage is unassessed.</p><pre>[]</pre></details></td><td><strong>pending</strong><details><summary>Evidence and scope</summary><p>Baseline characterization only; all current supported fixtures have oracle display differences.</p><pre>[]</pre></details></td><td><strong>pending</strong><details><summary>Evidence and scope</summary><p>Explicit canonical baseline browser replays only; legacy regression coverage is not inferred as parity.</p><pre>[]</pre></details></td></tr>
+]</pre></details></td><td><strong>missing</strong><details><summary>Evidence and scope</summary><p>No corresponding mode/controller/function in the frozen 0.3.1 implementation; reference exposure is not implementation evidence.</p><pre>[]</pre></details></td><td><strong>partial</strong><details><summary>Evidence and scope</summary><p>Explicit mapped assertions only; unlisted coverage is unassessed.</p><pre>[
+  {
+    &quot;kind&quot;: &quot;unit&quot;,
+    &quot;path&quot;: &quot;tests/unit/phase9.test.js&quot;,
+    &quot;anchor&quot;: &quot;N-base&quot;,
+    &quot;capabilityIds&quot;: [
+      &quot;el506.second.el506-k38&quot;,
+      &quot;el506.second.el506-k39&quot;,
+      &quot;el506.second.el506-k43&quot;,
+      &quot;el506.second.el506-k44&quot;,
+      &quot;el506.second.el506-k48&quot;,
+      &quot;el506.context.nbase.12&quot;,
+      &quot;el506.context.nbase.13&quot;,
+      &quot;el506.context.nbase.14&quot;,
+      &quot;el506.context.nbase.15&quot;,
+      &quot;el506.context.nbase.16&quot;,
+      &quot;el506.context.nbase.47&quot;,
+      &quot;el506.nbase.digit.a&quot;,
+      &quot;el506.nbase.digit.f&quot;
+    ],
+    &quot;scope&quot;: &quot;Physical five-base conversion and integer parser tests, ten-digit signed limits, logical truth tables, memories, ANS, unavailable formula recall, snapshots and recovery. Native observations supplement manual policy; all private cursor/buffer transitions are not full parity.&quot;
+  }
+]</pre></details></td><td><strong>baseline-known-differences</strong><details><summary>Evidence and scope</summary><p>Baseline characterization only; all current supported fixtures have oracle display differences.</p><pre>[
+  {
+    &quot;fixtureId&quot;: &quot;phase9-nbase&quot;,
+    &quot;status&quot;: &quot;known-differences&quot;,
+    &quot;assertedFrames&quot;: 67
+  }
+]</pre></details></td><td><strong>partial</strong><details><summary>Evidence and scope</summary><p>Explicit canonical baseline browser replays only; legacy regression coverage is not inferred as parity.</p><pre>[
+  {
+    &quot;kind&quot;: &quot;browser&quot;,
+    &quot;path&quot;: &quot;tests/e2e/golden.spec.js&quot;,
+    &quot;anchor&quot;: &quot;canonical baseline browser replay&quot;,
+    &quot;fixtureIds&quot;: [
+      &quot;phase9-nbase&quot;
+    ],
+    &quot;scope&quot;: &quot;67 canonical implementation frames including 23 independently observed native frames. Native viewport/raw-state differences remain explicitly recorded.&quot;,
+    &quot;capabilityIds&quot;: [
+      &quot;el506.second.el506-k38&quot;,
+      &quot;el506.second.el506-k39&quot;,
+      &quot;el506.second.el506-k43&quot;,
+      &quot;el506.second.el506-k44&quot;,
+      &quot;el506.second.el506-k48&quot;,
+      &quot;el506.context.nbase.12&quot;,
+      &quot;el506.context.nbase.13&quot;,
+      &quot;el506.context.nbase.14&quot;,
+      &quot;el506.context.nbase.15&quot;,
+      &quot;el506.context.nbase.16&quot;,
+      &quot;el506.context.nbase.47&quot;,
+      &quot;el506.nbase.digit.a&quot;,
+      &quot;el506.nbase.digit.f&quot;
+    ]
+  }
+]</pre></details></td></tr>
 <tr><td>el506.second.el506-k45<br><strong>MDF</strong><br>2ndF / EL506-079</td><td><strong>not-recorded</strong><details><summary>Evidence and scope</summary><p>Ledger documentation evidence only.</p><pre>[]</pre></details></td><td><strong>observed</strong><details><summary>Evidence and scope</summary><p>Numeric behavior, valid modes, state changes, boundaries and application parity require the owning roadmap item.</p><pre>[
   {
     &quot;source_id&quot;: &quot;live-panel&quot;,
@@ -7693,7 +7929,60 @@
     &quot;key_id&quot;: &quot;EL506-K48&quot;,
     &quot;scope&quot;: &quot;Visible panel legend; action semantics not executed.&quot;
   }
-]</pre></details></td><td><strong>missing</strong><details><summary>Evidence and scope</summary><p>No corresponding mode/controller/function in the frozen 0.3.1 implementation; reference exposure is not implementation evidence.</p><pre>[]</pre></details></td><td><strong>pending</strong><details><summary>Evidence and scope</summary><p>Explicit mapped assertions only; unlisted coverage is unassessed.</p><pre>[]</pre></details></td><td><strong>pending</strong><details><summary>Evidence and scope</summary><p>Baseline characterization only; all current supported fixtures have oracle display differences.</p><pre>[]</pre></details></td><td><strong>pending</strong><details><summary>Evidence and scope</summary><p>Explicit canonical baseline browser replays only; legacy regression coverage is not inferred as parity.</p><pre>[]</pre></details></td></tr>
+]</pre></details></td><td><strong>missing</strong><details><summary>Evidence and scope</summary><p>No corresponding mode/controller/function in the frozen 0.3.1 implementation; reference exposure is not implementation evidence.</p><pre>[]</pre></details></td><td><strong>partial</strong><details><summary>Evidence and scope</summary><p>Explicit mapped assertions only; unlisted coverage is unassessed.</p><pre>[
+  {
+    &quot;kind&quot;: &quot;unit&quot;,
+    &quot;path&quot;: &quot;tests/unit/phase9.test.js&quot;,
+    &quot;anchor&quot;: &quot;N-base&quot;,
+    &quot;capabilityIds&quot;: [
+      &quot;el506.second.el506-k38&quot;,
+      &quot;el506.second.el506-k39&quot;,
+      &quot;el506.second.el506-k43&quot;,
+      &quot;el506.second.el506-k44&quot;,
+      &quot;el506.second.el506-k48&quot;,
+      &quot;el506.context.nbase.12&quot;,
+      &quot;el506.context.nbase.13&quot;,
+      &quot;el506.context.nbase.14&quot;,
+      &quot;el506.context.nbase.15&quot;,
+      &quot;el506.context.nbase.16&quot;,
+      &quot;el506.context.nbase.47&quot;,
+      &quot;el506.nbase.digit.a&quot;,
+      &quot;el506.nbase.digit.f&quot;
+    ],
+    &quot;scope&quot;: &quot;Physical five-base conversion and integer parser tests, ten-digit signed limits, logical truth tables, memories, ANS, unavailable formula recall, snapshots and recovery. Native observations supplement manual policy; all private cursor/buffer transitions are not full parity.&quot;
+  }
+]</pre></details></td><td><strong>baseline-known-differences</strong><details><summary>Evidence and scope</summary><p>Baseline characterization only; all current supported fixtures have oracle display differences.</p><pre>[
+  {
+    &quot;fixtureId&quot;: &quot;phase9-nbase&quot;,
+    &quot;status&quot;: &quot;known-differences&quot;,
+    &quot;assertedFrames&quot;: 67
+  }
+]</pre></details></td><td><strong>partial</strong><details><summary>Evidence and scope</summary><p>Explicit canonical baseline browser replays only; legacy regression coverage is not inferred as parity.</p><pre>[
+  {
+    &quot;kind&quot;: &quot;browser&quot;,
+    &quot;path&quot;: &quot;tests/e2e/golden.spec.js&quot;,
+    &quot;anchor&quot;: &quot;canonical baseline browser replay&quot;,
+    &quot;fixtureIds&quot;: [
+      &quot;phase9-nbase&quot;
+    ],
+    &quot;scope&quot;: &quot;67 canonical implementation frames including 23 independently observed native frames. Native viewport/raw-state differences remain explicitly recorded.&quot;,
+    &quot;capabilityIds&quot;: [
+      &quot;el506.second.el506-k38&quot;,
+      &quot;el506.second.el506-k39&quot;,
+      &quot;el506.second.el506-k43&quot;,
+      &quot;el506.second.el506-k44&quot;,
+      &quot;el506.second.el506-k48&quot;,
+      &quot;el506.context.nbase.12&quot;,
+      &quot;el506.context.nbase.13&quot;,
+      &quot;el506.context.nbase.14&quot;,
+      &quot;el506.context.nbase.15&quot;,
+      &quot;el506.context.nbase.16&quot;,
+      &quot;el506.context.nbase.47&quot;,
+      &quot;el506.nbase.digit.a&quot;,
+      &quot;el506.nbase.digit.f&quot;
+    ]
+  }
+]</pre></details></td></tr>
 <tr><td>el506.alpha.el506-k18<br><strong>A</strong><br>ALPHA / EL506-160</td><td><strong>not-recorded</strong><details><summary>Evidence and scope</summary><p>Ledger documentation evidence only.</p><pre>[]</pre></details></td><td><strong>observed</strong><details><summary>Evidence and scope</summary><p>Numeric behavior, valid modes, state changes, boundaries and application parity require the owning roadmap item.</p><pre>[
   {
     &quot;source_id&quot;: &quot;live-panel&quot;,
@@ -7947,7 +8236,60 @@
     &quot;key_id&quot;: &quot;EL506-K12&quot;,
     &quot;scope&quot;: &quot;Visible panel legend; action semantics not executed.&quot;
   }
-]</pre></details></td><td><strong>missing</strong><details><summary>Evidence and scope</summary><p>No corresponding mode/controller/function in the frozen 0.3.1 implementation; reference exposure is not implementation evidence.</p><pre>[]</pre></details></td><td><strong>pending</strong><details><summary>Evidence and scope</summary><p>Explicit mapped assertions only; unlisted coverage is unassessed.</p><pre>[]</pre></details></td><td><strong>pending</strong><details><summary>Evidence and scope</summary><p>Baseline characterization only; all current supported fixtures have oracle display differences.</p><pre>[]</pre></details></td><td><strong>pending</strong><details><summary>Evidence and scope</summary><p>Explicit canonical baseline browser replays only; legacy regression coverage is not inferred as parity.</p><pre>[]</pre></details></td></tr>
+]</pre></details></td><td><strong>missing</strong><details><summary>Evidence and scope</summary><p>No corresponding mode/controller/function in the frozen 0.3.1 implementation; reference exposure is not implementation evidence.</p><pre>[]</pre></details></td><td><strong>partial</strong><details><summary>Evidence and scope</summary><p>Explicit mapped assertions only; unlisted coverage is unassessed.</p><pre>[
+  {
+    &quot;kind&quot;: &quot;unit&quot;,
+    &quot;path&quot;: &quot;tests/unit/phase9.test.js&quot;,
+    &quot;anchor&quot;: &quot;N-base&quot;,
+    &quot;capabilityIds&quot;: [
+      &quot;el506.second.el506-k38&quot;,
+      &quot;el506.second.el506-k39&quot;,
+      &quot;el506.second.el506-k43&quot;,
+      &quot;el506.second.el506-k44&quot;,
+      &quot;el506.second.el506-k48&quot;,
+      &quot;el506.context.nbase.12&quot;,
+      &quot;el506.context.nbase.13&quot;,
+      &quot;el506.context.nbase.14&quot;,
+      &quot;el506.context.nbase.15&quot;,
+      &quot;el506.context.nbase.16&quot;,
+      &quot;el506.context.nbase.47&quot;,
+      &quot;el506.nbase.digit.a&quot;,
+      &quot;el506.nbase.digit.f&quot;
+    ],
+    &quot;scope&quot;: &quot;Physical five-base conversion and integer parser tests, ten-digit signed limits, logical truth tables, memories, ANS, unavailable formula recall, snapshots and recovery. Native observations supplement manual policy; all private cursor/buffer transitions are not full parity.&quot;
+  }
+]</pre></details></td><td><strong>baseline-known-differences</strong><details><summary>Evidence and scope</summary><p>Baseline characterization only; all current supported fixtures have oracle display differences.</p><pre>[
+  {
+    &quot;fixtureId&quot;: &quot;phase9-nbase&quot;,
+    &quot;status&quot;: &quot;known-differences&quot;,
+    &quot;assertedFrames&quot;: 67
+  }
+]</pre></details></td><td><strong>partial</strong><details><summary>Evidence and scope</summary><p>Explicit canonical baseline browser replays only; legacy regression coverage is not inferred as parity.</p><pre>[
+  {
+    &quot;kind&quot;: &quot;browser&quot;,
+    &quot;path&quot;: &quot;tests/e2e/golden.spec.js&quot;,
+    &quot;anchor&quot;: &quot;canonical baseline browser replay&quot;,
+    &quot;fixtureIds&quot;: [
+      &quot;phase9-nbase&quot;
+    ],
+    &quot;scope&quot;: &quot;67 canonical implementation frames including 23 independently observed native frames. Native viewport/raw-state differences remain explicitly recorded.&quot;,
+    &quot;capabilityIds&quot;: [
+      &quot;el506.second.el506-k38&quot;,
+      &quot;el506.second.el506-k39&quot;,
+      &quot;el506.second.el506-k43&quot;,
+      &quot;el506.second.el506-k44&quot;,
+      &quot;el506.second.el506-k48&quot;,
+      &quot;el506.context.nbase.12&quot;,
+      &quot;el506.context.nbase.13&quot;,
+      &quot;el506.context.nbase.14&quot;,
+      &quot;el506.context.nbase.15&quot;,
+      &quot;el506.context.nbase.16&quot;,
+      &quot;el506.context.nbase.47&quot;,
+      &quot;el506.nbase.digit.a&quot;,
+      &quot;el506.nbase.digit.f&quot;
+    ]
+  }
+]</pre></details></td></tr>
 <tr><td>el506.context.nbase.13<br><strong>AND</strong><br>mode-key / EL506-185</td><td><strong>documented</strong><details><summary>Evidence and scope</summary><p>Ledger documentation evidence only.</p><pre>[
   {
     &quot;source_id&quot;: &quot;full-manual&quot;,
@@ -7961,7 +8303,60 @@
     &quot;key_id&quot;: &quot;EL506-K13&quot;,
     &quot;scope&quot;: &quot;Visible panel legend; action semantics not executed.&quot;
   }
-]</pre></details></td><td><strong>missing</strong><details><summary>Evidence and scope</summary><p>No corresponding mode/controller/function in the frozen 0.3.1 implementation; reference exposure is not implementation evidence.</p><pre>[]</pre></details></td><td><strong>pending</strong><details><summary>Evidence and scope</summary><p>Explicit mapped assertions only; unlisted coverage is unassessed.</p><pre>[]</pre></details></td><td><strong>pending</strong><details><summary>Evidence and scope</summary><p>Baseline characterization only; all current supported fixtures have oracle display differences.</p><pre>[]</pre></details></td><td><strong>pending</strong><details><summary>Evidence and scope</summary><p>Explicit canonical baseline browser replays only; legacy regression coverage is not inferred as parity.</p><pre>[]</pre></details></td></tr>
+]</pre></details></td><td><strong>missing</strong><details><summary>Evidence and scope</summary><p>No corresponding mode/controller/function in the frozen 0.3.1 implementation; reference exposure is not implementation evidence.</p><pre>[]</pre></details></td><td><strong>partial</strong><details><summary>Evidence and scope</summary><p>Explicit mapped assertions only; unlisted coverage is unassessed.</p><pre>[
+  {
+    &quot;kind&quot;: &quot;unit&quot;,
+    &quot;path&quot;: &quot;tests/unit/phase9.test.js&quot;,
+    &quot;anchor&quot;: &quot;N-base&quot;,
+    &quot;capabilityIds&quot;: [
+      &quot;el506.second.el506-k38&quot;,
+      &quot;el506.second.el506-k39&quot;,
+      &quot;el506.second.el506-k43&quot;,
+      &quot;el506.second.el506-k44&quot;,
+      &quot;el506.second.el506-k48&quot;,
+      &quot;el506.context.nbase.12&quot;,
+      &quot;el506.context.nbase.13&quot;,
+      &quot;el506.context.nbase.14&quot;,
+      &quot;el506.context.nbase.15&quot;,
+      &quot;el506.context.nbase.16&quot;,
+      &quot;el506.context.nbase.47&quot;,
+      &quot;el506.nbase.digit.a&quot;,
+      &quot;el506.nbase.digit.f&quot;
+    ],
+    &quot;scope&quot;: &quot;Physical five-base conversion and integer parser tests, ten-digit signed limits, logical truth tables, memories, ANS, unavailable formula recall, snapshots and recovery. Native observations supplement manual policy; all private cursor/buffer transitions are not full parity.&quot;
+  }
+]</pre></details></td><td><strong>baseline-known-differences</strong><details><summary>Evidence and scope</summary><p>Baseline characterization only; all current supported fixtures have oracle display differences.</p><pre>[
+  {
+    &quot;fixtureId&quot;: &quot;phase9-nbase&quot;,
+    &quot;status&quot;: &quot;known-differences&quot;,
+    &quot;assertedFrames&quot;: 67
+  }
+]</pre></details></td><td><strong>partial</strong><details><summary>Evidence and scope</summary><p>Explicit canonical baseline browser replays only; legacy regression coverage is not inferred as parity.</p><pre>[
+  {
+    &quot;kind&quot;: &quot;browser&quot;,
+    &quot;path&quot;: &quot;tests/e2e/golden.spec.js&quot;,
+    &quot;anchor&quot;: &quot;canonical baseline browser replay&quot;,
+    &quot;fixtureIds&quot;: [
+      &quot;phase9-nbase&quot;
+    ],
+    &quot;scope&quot;: &quot;67 canonical implementation frames including 23 independently observed native frames. Native viewport/raw-state differences remain explicitly recorded.&quot;,
+    &quot;capabilityIds&quot;: [
+      &quot;el506.second.el506-k38&quot;,
+      &quot;el506.second.el506-k39&quot;,
+      &quot;el506.second.el506-k43&quot;,
+      &quot;el506.second.el506-k44&quot;,
+      &quot;el506.second.el506-k48&quot;,
+      &quot;el506.context.nbase.12&quot;,
+      &quot;el506.context.nbase.13&quot;,
+      &quot;el506.context.nbase.14&quot;,
+      &quot;el506.context.nbase.15&quot;,
+      &quot;el506.context.nbase.16&quot;,
+      &quot;el506.context.nbase.47&quot;,
+      &quot;el506.nbase.digit.a&quot;,
+      &quot;el506.nbase.digit.f&quot;
+    ]
+  }
+]</pre></details></td></tr>
 <tr><td>el506.context.nbase.14<br><strong>OR</strong><br>mode-key / EL506-185</td><td><strong>documented</strong><details><summary>Evidence and scope</summary><p>Ledger documentation evidence only.</p><pre>[
   {
     &quot;source_id&quot;: &quot;full-manual&quot;,
@@ -7975,7 +8370,60 @@
     &quot;key_id&quot;: &quot;EL506-K14&quot;,
     &quot;scope&quot;: &quot;Visible panel legend; action semantics not executed.&quot;
   }
-]</pre></details></td><td><strong>missing</strong><details><summary>Evidence and scope</summary><p>No corresponding mode/controller/function in the frozen 0.3.1 implementation; reference exposure is not implementation evidence.</p><pre>[]</pre></details></td><td><strong>pending</strong><details><summary>Evidence and scope</summary><p>Explicit mapped assertions only; unlisted coverage is unassessed.</p><pre>[]</pre></details></td><td><strong>pending</strong><details><summary>Evidence and scope</summary><p>Baseline characterization only; all current supported fixtures have oracle display differences.</p><pre>[]</pre></details></td><td><strong>pending</strong><details><summary>Evidence and scope</summary><p>Explicit canonical baseline browser replays only; legacy regression coverage is not inferred as parity.</p><pre>[]</pre></details></td></tr>
+]</pre></details></td><td><strong>missing</strong><details><summary>Evidence and scope</summary><p>No corresponding mode/controller/function in the frozen 0.3.1 implementation; reference exposure is not implementation evidence.</p><pre>[]</pre></details></td><td><strong>partial</strong><details><summary>Evidence and scope</summary><p>Explicit mapped assertions only; unlisted coverage is unassessed.</p><pre>[
+  {
+    &quot;kind&quot;: &quot;unit&quot;,
+    &quot;path&quot;: &quot;tests/unit/phase9.test.js&quot;,
+    &quot;anchor&quot;: &quot;N-base&quot;,
+    &quot;capabilityIds&quot;: [
+      &quot;el506.second.el506-k38&quot;,
+      &quot;el506.second.el506-k39&quot;,
+      &quot;el506.second.el506-k43&quot;,
+      &quot;el506.second.el506-k44&quot;,
+      &quot;el506.second.el506-k48&quot;,
+      &quot;el506.context.nbase.12&quot;,
+      &quot;el506.context.nbase.13&quot;,
+      &quot;el506.context.nbase.14&quot;,
+      &quot;el506.context.nbase.15&quot;,
+      &quot;el506.context.nbase.16&quot;,
+      &quot;el506.context.nbase.47&quot;,
+      &quot;el506.nbase.digit.a&quot;,
+      &quot;el506.nbase.digit.f&quot;
+    ],
+    &quot;scope&quot;: &quot;Physical five-base conversion and integer parser tests, ten-digit signed limits, logical truth tables, memories, ANS, unavailable formula recall, snapshots and recovery. Native observations supplement manual policy; all private cursor/buffer transitions are not full parity.&quot;
+  }
+]</pre></details></td><td><strong>baseline-known-differences</strong><details><summary>Evidence and scope</summary><p>Baseline characterization only; all current supported fixtures have oracle display differences.</p><pre>[
+  {
+    &quot;fixtureId&quot;: &quot;phase9-nbase&quot;,
+    &quot;status&quot;: &quot;known-differences&quot;,
+    &quot;assertedFrames&quot;: 67
+  }
+]</pre></details></td><td><strong>partial</strong><details><summary>Evidence and scope</summary><p>Explicit canonical baseline browser replays only; legacy regression coverage is not inferred as parity.</p><pre>[
+  {
+    &quot;kind&quot;: &quot;browser&quot;,
+    &quot;path&quot;: &quot;tests/e2e/golden.spec.js&quot;,
+    &quot;anchor&quot;: &quot;canonical baseline browser replay&quot;,
+    &quot;fixtureIds&quot;: [
+      &quot;phase9-nbase&quot;
+    ],
+    &quot;scope&quot;: &quot;67 canonical implementation frames including 23 independently observed native frames. Native viewport/raw-state differences remain explicitly recorded.&quot;,
+    &quot;capabilityIds&quot;: [
+      &quot;el506.second.el506-k38&quot;,
+      &quot;el506.second.el506-k39&quot;,
+      &quot;el506.second.el506-k43&quot;,
+      &quot;el506.second.el506-k44&quot;,
+      &quot;el506.second.el506-k48&quot;,
+      &quot;el506.context.nbase.12&quot;,
+      &quot;el506.context.nbase.13&quot;,
+      &quot;el506.context.nbase.14&quot;,
+      &quot;el506.context.nbase.15&quot;,
+      &quot;el506.context.nbase.16&quot;,
+      &quot;el506.context.nbase.47&quot;,
+      &quot;el506.nbase.digit.a&quot;,
+      &quot;el506.nbase.digit.f&quot;
+    ]
+  }
+]</pre></details></td></tr>
 <tr><td>el506.context.nbase.15<br><strong>XOR</strong><br>mode-key / EL506-186</td><td><strong>documented</strong><details><summary>Evidence and scope</summary><p>Ledger documentation evidence only.</p><pre>[
   {
     &quot;source_id&quot;: &quot;full-manual&quot;,
@@ -7989,7 +8437,60 @@
     &quot;key_id&quot;: &quot;EL506-K15&quot;,
     &quot;scope&quot;: &quot;Visible panel legend; action semantics not executed.&quot;
   }
-]</pre></details></td><td><strong>missing</strong><details><summary>Evidence and scope</summary><p>No corresponding mode/controller/function in the frozen 0.3.1 implementation; reference exposure is not implementation evidence.</p><pre>[]</pre></details></td><td><strong>pending</strong><details><summary>Evidence and scope</summary><p>Explicit mapped assertions only; unlisted coverage is unassessed.</p><pre>[]</pre></details></td><td><strong>pending</strong><details><summary>Evidence and scope</summary><p>Baseline characterization only; all current supported fixtures have oracle display differences.</p><pre>[]</pre></details></td><td><strong>pending</strong><details><summary>Evidence and scope</summary><p>Explicit canonical baseline browser replays only; legacy regression coverage is not inferred as parity.</p><pre>[]</pre></details></td></tr>
+]</pre></details></td><td><strong>missing</strong><details><summary>Evidence and scope</summary><p>No corresponding mode/controller/function in the frozen 0.3.1 implementation; reference exposure is not implementation evidence.</p><pre>[]</pre></details></td><td><strong>partial</strong><details><summary>Evidence and scope</summary><p>Explicit mapped assertions only; unlisted coverage is unassessed.</p><pre>[
+  {
+    &quot;kind&quot;: &quot;unit&quot;,
+    &quot;path&quot;: &quot;tests/unit/phase9.test.js&quot;,
+    &quot;anchor&quot;: &quot;N-base&quot;,
+    &quot;capabilityIds&quot;: [
+      &quot;el506.second.el506-k38&quot;,
+      &quot;el506.second.el506-k39&quot;,
+      &quot;el506.second.el506-k43&quot;,
+      &quot;el506.second.el506-k44&quot;,
+      &quot;el506.second.el506-k48&quot;,
+      &quot;el506.context.nbase.12&quot;,
+      &quot;el506.context.nbase.13&quot;,
+      &quot;el506.context.nbase.14&quot;,
+      &quot;el506.context.nbase.15&quot;,
+      &quot;el506.context.nbase.16&quot;,
+      &quot;el506.context.nbase.47&quot;,
+      &quot;el506.nbase.digit.a&quot;,
+      &quot;el506.nbase.digit.f&quot;
+    ],
+    &quot;scope&quot;: &quot;Physical five-base conversion and integer parser tests, ten-digit signed limits, logical truth tables, memories, ANS, unavailable formula recall, snapshots and recovery. Native observations supplement manual policy; all private cursor/buffer transitions are not full parity.&quot;
+  }
+]</pre></details></td><td><strong>baseline-known-differences</strong><details><summary>Evidence and scope</summary><p>Baseline characterization only; all current supported fixtures have oracle display differences.</p><pre>[
+  {
+    &quot;fixtureId&quot;: &quot;phase9-nbase&quot;,
+    &quot;status&quot;: &quot;known-differences&quot;,
+    &quot;assertedFrames&quot;: 67
+  }
+]</pre></details></td><td><strong>partial</strong><details><summary>Evidence and scope</summary><p>Explicit canonical baseline browser replays only; legacy regression coverage is not inferred as parity.</p><pre>[
+  {
+    &quot;kind&quot;: &quot;browser&quot;,
+    &quot;path&quot;: &quot;tests/e2e/golden.spec.js&quot;,
+    &quot;anchor&quot;: &quot;canonical baseline browser replay&quot;,
+    &quot;fixtureIds&quot;: [
+      &quot;phase9-nbase&quot;
+    ],
+    &quot;scope&quot;: &quot;67 canonical implementation frames including 23 independently observed native frames. Native viewport/raw-state differences remain explicitly recorded.&quot;,
+    &quot;capabilityIds&quot;: [
+      &quot;el506.second.el506-k38&quot;,
+      &quot;el506.second.el506-k39&quot;,
+      &quot;el506.second.el506-k43&quot;,
+      &quot;el506.second.el506-k44&quot;,
+      &quot;el506.second.el506-k48&quot;,
+      &quot;el506.context.nbase.12&quot;,
+      &quot;el506.context.nbase.13&quot;,
+      &quot;el506.context.nbase.14&quot;,
+      &quot;el506.context.nbase.15&quot;,
+      &quot;el506.context.nbase.16&quot;,
+      &quot;el506.context.nbase.47&quot;,
+      &quot;el506.nbase.digit.a&quot;,
+      &quot;el506.nbase.digit.f&quot;
+    ]
+  }
+]</pre></details></td></tr>
 <tr><td>el506.context.nbase.16<br><strong>XNOR</strong><br>mode-key / EL506-186</td><td><strong>documented</strong><details><summary>Evidence and scope</summary><p>Ledger documentation evidence only.</p><pre>[
   {
     &quot;source_id&quot;: &quot;full-manual&quot;,
@@ -8003,7 +8504,60 @@
     &quot;key_id&quot;: &quot;EL506-K16&quot;,
     &quot;scope&quot;: &quot;Visible panel legend; action semantics not executed.&quot;
   }
-]</pre></details></td><td><strong>missing</strong><details><summary>Evidence and scope</summary><p>No corresponding mode/controller/function in the frozen 0.3.1 implementation; reference exposure is not implementation evidence.</p><pre>[]</pre></details></td><td><strong>pending</strong><details><summary>Evidence and scope</summary><p>Explicit mapped assertions only; unlisted coverage is unassessed.</p><pre>[]</pre></details></td><td><strong>pending</strong><details><summary>Evidence and scope</summary><p>Baseline characterization only; all current supported fixtures have oracle display differences.</p><pre>[]</pre></details></td><td><strong>pending</strong><details><summary>Evidence and scope</summary><p>Explicit canonical baseline browser replays only; legacy regression coverage is not inferred as parity.</p><pre>[]</pre></details></td></tr>
+]</pre></details></td><td><strong>missing</strong><details><summary>Evidence and scope</summary><p>No corresponding mode/controller/function in the frozen 0.3.1 implementation; reference exposure is not implementation evidence.</p><pre>[]</pre></details></td><td><strong>partial</strong><details><summary>Evidence and scope</summary><p>Explicit mapped assertions only; unlisted coverage is unassessed.</p><pre>[
+  {
+    &quot;kind&quot;: &quot;unit&quot;,
+    &quot;path&quot;: &quot;tests/unit/phase9.test.js&quot;,
+    &quot;anchor&quot;: &quot;N-base&quot;,
+    &quot;capabilityIds&quot;: [
+      &quot;el506.second.el506-k38&quot;,
+      &quot;el506.second.el506-k39&quot;,
+      &quot;el506.second.el506-k43&quot;,
+      &quot;el506.second.el506-k44&quot;,
+      &quot;el506.second.el506-k48&quot;,
+      &quot;el506.context.nbase.12&quot;,
+      &quot;el506.context.nbase.13&quot;,
+      &quot;el506.context.nbase.14&quot;,
+      &quot;el506.context.nbase.15&quot;,
+      &quot;el506.context.nbase.16&quot;,
+      &quot;el506.context.nbase.47&quot;,
+      &quot;el506.nbase.digit.a&quot;,
+      &quot;el506.nbase.digit.f&quot;
+    ],
+    &quot;scope&quot;: &quot;Physical five-base conversion and integer parser tests, ten-digit signed limits, logical truth tables, memories, ANS, unavailable formula recall, snapshots and recovery. Native observations supplement manual policy; all private cursor/buffer transitions are not full parity.&quot;
+  }
+]</pre></details></td><td><strong>baseline-known-differences</strong><details><summary>Evidence and scope</summary><p>Baseline characterization only; all current supported fixtures have oracle display differences.</p><pre>[
+  {
+    &quot;fixtureId&quot;: &quot;phase9-nbase&quot;,
+    &quot;status&quot;: &quot;known-differences&quot;,
+    &quot;assertedFrames&quot;: 67
+  }
+]</pre></details></td><td><strong>partial</strong><details><summary>Evidence and scope</summary><p>Explicit canonical baseline browser replays only; legacy regression coverage is not inferred as parity.</p><pre>[
+  {
+    &quot;kind&quot;: &quot;browser&quot;,
+    &quot;path&quot;: &quot;tests/e2e/golden.spec.js&quot;,
+    &quot;anchor&quot;: &quot;canonical baseline browser replay&quot;,
+    &quot;fixtureIds&quot;: [
+      &quot;phase9-nbase&quot;
+    ],
+    &quot;scope&quot;: &quot;67 canonical implementation frames including 23 independently observed native frames. Native viewport/raw-state differences remain explicitly recorded.&quot;,
+    &quot;capabilityIds&quot;: [
+      &quot;el506.second.el506-k38&quot;,
+      &quot;el506.second.el506-k39&quot;,
+      &quot;el506.second.el506-k43&quot;,
+      &quot;el506.second.el506-k44&quot;,
+      &quot;el506.second.el506-k48&quot;,
+      &quot;el506.context.nbase.12&quot;,
+      &quot;el506.context.nbase.13&quot;,
+      &quot;el506.context.nbase.14&quot;,
+      &quot;el506.context.nbase.15&quot;,
+      &quot;el506.context.nbase.16&quot;,
+      &quot;el506.context.nbase.47&quot;,
+      &quot;el506.nbase.digit.a&quot;,
+      &quot;el506.nbase.digit.f&quot;
+    ]
+  }
+]</pre></details></td></tr>
 <tr><td>el506.context.nbase.47<br><strong>NEG</strong><br>mode-key / EL506-187</td><td><strong>documented</strong><details><summary>Evidence and scope</summary><p>Ledger documentation evidence only.</p><pre>[
   {
     &quot;source_id&quot;: &quot;full-manual&quot;,
@@ -8017,7 +8571,60 @@
     &quot;key_id&quot;: &quot;EL506-K47&quot;,
     &quot;scope&quot;: &quot;Visible panel legend; action semantics not executed.&quot;
   }
-]</pre></details></td><td><strong>missing</strong><details><summary>Evidence and scope</summary><p>No corresponding mode/controller/function in the frozen 0.3.1 implementation; reference exposure is not implementation evidence.</p><pre>[]</pre></details></td><td><strong>pending</strong><details><summary>Evidence and scope</summary><p>Explicit mapped assertions only; unlisted coverage is unassessed.</p><pre>[]</pre></details></td><td><strong>pending</strong><details><summary>Evidence and scope</summary><p>Baseline characterization only; all current supported fixtures have oracle display differences.</p><pre>[]</pre></details></td><td><strong>pending</strong><details><summary>Evidence and scope</summary><p>Explicit canonical baseline browser replays only; legacy regression coverage is not inferred as parity.</p><pre>[]</pre></details></td></tr>
+]</pre></details></td><td><strong>missing</strong><details><summary>Evidence and scope</summary><p>No corresponding mode/controller/function in the frozen 0.3.1 implementation; reference exposure is not implementation evidence.</p><pre>[]</pre></details></td><td><strong>partial</strong><details><summary>Evidence and scope</summary><p>Explicit mapped assertions only; unlisted coverage is unassessed.</p><pre>[
+  {
+    &quot;kind&quot;: &quot;unit&quot;,
+    &quot;path&quot;: &quot;tests/unit/phase9.test.js&quot;,
+    &quot;anchor&quot;: &quot;N-base&quot;,
+    &quot;capabilityIds&quot;: [
+      &quot;el506.second.el506-k38&quot;,
+      &quot;el506.second.el506-k39&quot;,
+      &quot;el506.second.el506-k43&quot;,
+      &quot;el506.second.el506-k44&quot;,
+      &quot;el506.second.el506-k48&quot;,
+      &quot;el506.context.nbase.12&quot;,
+      &quot;el506.context.nbase.13&quot;,
+      &quot;el506.context.nbase.14&quot;,
+      &quot;el506.context.nbase.15&quot;,
+      &quot;el506.context.nbase.16&quot;,
+      &quot;el506.context.nbase.47&quot;,
+      &quot;el506.nbase.digit.a&quot;,
+      &quot;el506.nbase.digit.f&quot;
+    ],
+    &quot;scope&quot;: &quot;Physical five-base conversion and integer parser tests, ten-digit signed limits, logical truth tables, memories, ANS, unavailable formula recall, snapshots and recovery. Native observations supplement manual policy; all private cursor/buffer transitions are not full parity.&quot;
+  }
+]</pre></details></td><td><strong>baseline-known-differences</strong><details><summary>Evidence and scope</summary><p>Baseline characterization only; all current supported fixtures have oracle display differences.</p><pre>[
+  {
+    &quot;fixtureId&quot;: &quot;phase9-nbase&quot;,
+    &quot;status&quot;: &quot;known-differences&quot;,
+    &quot;assertedFrames&quot;: 67
+  }
+]</pre></details></td><td><strong>partial</strong><details><summary>Evidence and scope</summary><p>Explicit canonical baseline browser replays only; legacy regression coverage is not inferred as parity.</p><pre>[
+  {
+    &quot;kind&quot;: &quot;browser&quot;,
+    &quot;path&quot;: &quot;tests/e2e/golden.spec.js&quot;,
+    &quot;anchor&quot;: &quot;canonical baseline browser replay&quot;,
+    &quot;fixtureIds&quot;: [
+      &quot;phase9-nbase&quot;
+    ],
+    &quot;scope&quot;: &quot;67 canonical implementation frames including 23 independently observed native frames. Native viewport/raw-state differences remain explicitly recorded.&quot;,
+    &quot;capabilityIds&quot;: [
+      &quot;el506.second.el506-k38&quot;,
+      &quot;el506.second.el506-k39&quot;,
+      &quot;el506.second.el506-k43&quot;,
+      &quot;el506.second.el506-k44&quot;,
+      &quot;el506.second.el506-k48&quot;,
+      &quot;el506.context.nbase.12&quot;,
+      &quot;el506.context.nbase.13&quot;,
+      &quot;el506.context.nbase.14&quot;,
+      &quot;el506.context.nbase.15&quot;,
+      &quot;el506.context.nbase.16&quot;,
+      &quot;el506.context.nbase.47&quot;,
+      &quot;el506.nbase.digit.a&quot;,
+      &quot;el506.nbase.digit.f&quot;
+    ]
+  }
+]</pre></details></td></tr>
 <tr><td>el506.hyp.13<br><strong>sin hyperbolic</strong><br>HYP / EL506-124</td><td><strong>documented</strong><details><summary>Evidence and scope</summary><p>Ledger documentation evidence only.</p><pre>[
   {
     &quot;source_id&quot;: &quot;full-manual&quot;,
@@ -22310,7 +22917,72 @@
     &quot;key_id&quot;: &quot;EL506-K18&quot;,
     &quot;scope&quot;: &quot;Visible panel legend; action semantics not executed.&quot;
   }
-]</pre></details></td><td><strong>missing</strong><details><summary>Evidence and scope</summary><p>No corresponding mode/controller/function in the frozen 0.3.1 implementation; reference exposure is not implementation evidence.</p><pre>[]</pre></details></td><td><strong>pending</strong><details><summary>Evidence and scope</summary><p>Explicit mapped assertions only; unlisted coverage is unassessed.</p><pre>[]</pre></details></td><td><strong>pending</strong><details><summary>Evidence and scope</summary><p>Baseline characterization only; all current supported fixtures have oracle display differences.</p><pre>[]</pre></details></td><td><strong>pending</strong><details><summary>Evidence and scope</summary><p>Explicit canonical baseline browser replays only; legacy regression coverage is not inferred as parity.</p><pre>[]</pre></details></td></tr>
+]</pre></details></td><td><strong>missing</strong><details><summary>Evidence and scope</summary><p>No corresponding mode/controller/function in the frozen 0.3.1 implementation; reference exposure is not implementation evidence.</p><pre>[]</pre></details></td><td><strong>partial</strong><details><summary>Evidence and scope</summary><p>Explicit mapped assertions only; unlisted coverage is unassessed.</p><pre>[
+  {
+    &quot;kind&quot;: &quot;unit&quot;,
+    &quot;path&quot;: &quot;tests/unit/phase9.test.js&quot;,
+    &quot;anchor&quot;: &quot;N-base&quot;,
+    &quot;capabilityIds&quot;: [
+      &quot;el506.second.el506-k38&quot;,
+      &quot;el506.second.el506-k39&quot;,
+      &quot;el506.second.el506-k43&quot;,
+      &quot;el506.second.el506-k44&quot;,
+      &quot;el506.second.el506-k48&quot;,
+      &quot;el506.context.nbase.12&quot;,
+      &quot;el506.context.nbase.13&quot;,
+      &quot;el506.context.nbase.14&quot;,
+      &quot;el506.context.nbase.15&quot;,
+      &quot;el506.context.nbase.16&quot;,
+      &quot;el506.context.nbase.47&quot;,
+      &quot;el506.nbase.digit.a&quot;,
+      &quot;el506.nbase.digit.f&quot;
+    ],
+    &quot;scope&quot;: &quot;Physical five-base conversion and integer parser tests, ten-digit signed limits, logical truth tables, memories, ANS, unavailable formula recall, snapshots and recovery. Native observations supplement manual policy; all private cursor/buffer transitions are not full parity.&quot;
+  }
+]</pre></details></td><td><strong>baseline-known-differences</strong><details><summary>Evidence and scope</summary><p>Baseline characterization only; all current supported fixtures have oracle display differences.</p><pre>[
+  {
+    &quot;fixtureId&quot;: &quot;phase9-nbase&quot;,
+    &quot;status&quot;: &quot;known-differences&quot;,
+    &quot;assertedFrames&quot;: 67
+  }
+]</pre></details></td><td><strong>partial</strong><details><summary>Evidence and scope</summary><p>Explicit canonical baseline browser replays only; legacy regression coverage is not inferred as parity.</p><pre>[
+  {
+    &quot;kind&quot;: &quot;browser&quot;,
+    &quot;path&quot;: &quot;tests/e2e/phase9.spec.js&quot;,
+    &quot;anchor&quot;: &quot;N-base HEX keyboard&quot;,
+    &quot;capabilityIds&quot;: [
+      &quot;el506.second.el506-k38&quot;,
+      &quot;el506.second.el506-k39&quot;,
+      &quot;el506.nbase.digit.a&quot;,
+      &quot;el506.nbase.digit.f&quot;
+    ],
+    &quot;scope&quot;: &quot;Pointer and keyboard HEX digits, arithmetic, conversion, small base marker, ten-digit visibility, isolated widgets and snapshot preservation.&quot;
+  },
+  {
+    &quot;kind&quot;: &quot;browser&quot;,
+    &quot;path&quot;: &quot;tests/e2e/golden.spec.js&quot;,
+    &quot;anchor&quot;: &quot;canonical baseline browser replay&quot;,
+    &quot;fixtureIds&quot;: [
+      &quot;phase9-nbase&quot;
+    ],
+    &quot;scope&quot;: &quot;67 canonical implementation frames including 23 independently observed native frames. Native viewport/raw-state differences remain explicitly recorded.&quot;,
+    &quot;capabilityIds&quot;: [
+      &quot;el506.second.el506-k38&quot;,
+      &quot;el506.second.el506-k39&quot;,
+      &quot;el506.second.el506-k43&quot;,
+      &quot;el506.second.el506-k44&quot;,
+      &quot;el506.second.el506-k48&quot;,
+      &quot;el506.context.nbase.12&quot;,
+      &quot;el506.context.nbase.13&quot;,
+      &quot;el506.context.nbase.14&quot;,
+      &quot;el506.context.nbase.15&quot;,
+      &quot;el506.context.nbase.16&quot;,
+      &quot;el506.context.nbase.47&quot;,
+      &quot;el506.nbase.digit.a&quot;,
+      &quot;el506.nbase.digit.f&quot;
+    ]
+  }
+]</pre></details></td></tr>
 <tr><td>el506.nbase.digit.b<br><strong>hexadecimal digit B</strong><br>mode-key / EL506-181</td><td><strong>documented</strong><details><summary>Evidence and scope</summary><p>Ledger documentation evidence only.</p><pre>[
   {
     &quot;source_id&quot;: &quot;full-manual&quot;,
@@ -22380,4 +23052,69 @@
     &quot;key_id&quot;: &quot;EL506-K23&quot;,
     &quot;scope&quot;: &quot;Visible panel legend; action semantics not executed.&quot;
   }
-]</pre></details></td><td><strong>missing</strong><details><summary>Evidence and scope</summary><p>No corresponding mode/controller/function in the frozen 0.3.1 implementation; reference exposure is not implementation evidence.</p><pre>[]</pre></details></td><td><strong>pending</strong><details><summary>Evidence and scope</summary><p>Explicit mapped assertions only; unlisted coverage is unassessed.</p><pre>[]</pre></details></td><td><strong>pending</strong><details><summary>Evidence and scope</summary><p>Baseline characterization only; all current supported fixtures have oracle display differences.</p><pre>[]</pre></details></td><td><strong>pending</strong><details><summary>Evidence and scope</summary><p>Explicit canonical baseline browser replays only; legacy regression coverage is not inferred as parity.</p><pre>[]</pre></details></td></tr></tbody></table></div><p>Generated from repository reference artifacts. Regenerate with npm run report:parity. JSON: parity-report.json.</p></main><script>const filter=document.getElementById('filter');const rows=[...document.querySelectorAll('tbody tr')];filter.addEventListener('input',()=>{const query=filter.value.toLowerCase();let count=0;for(const row of rows){row.hidden=!row.textContent.toLowerCase().includes(query);if(!row.hidden)count++;}document.getElementById('count').textContent=' '+count+' entries';});</script></body></html>
+]</pre></details></td><td><strong>missing</strong><details><summary>Evidence and scope</summary><p>No corresponding mode/controller/function in the frozen 0.3.1 implementation; reference exposure is not implementation evidence.</p><pre>[]</pre></details></td><td><strong>partial</strong><details><summary>Evidence and scope</summary><p>Explicit mapped assertions only; unlisted coverage is unassessed.</p><pre>[
+  {
+    &quot;kind&quot;: &quot;unit&quot;,
+    &quot;path&quot;: &quot;tests/unit/phase9.test.js&quot;,
+    &quot;anchor&quot;: &quot;N-base&quot;,
+    &quot;capabilityIds&quot;: [
+      &quot;el506.second.el506-k38&quot;,
+      &quot;el506.second.el506-k39&quot;,
+      &quot;el506.second.el506-k43&quot;,
+      &quot;el506.second.el506-k44&quot;,
+      &quot;el506.second.el506-k48&quot;,
+      &quot;el506.context.nbase.12&quot;,
+      &quot;el506.context.nbase.13&quot;,
+      &quot;el506.context.nbase.14&quot;,
+      &quot;el506.context.nbase.15&quot;,
+      &quot;el506.context.nbase.16&quot;,
+      &quot;el506.context.nbase.47&quot;,
+      &quot;el506.nbase.digit.a&quot;,
+      &quot;el506.nbase.digit.f&quot;
+    ],
+    &quot;scope&quot;: &quot;Physical five-base conversion and integer parser tests, ten-digit signed limits, logical truth tables, memories, ANS, unavailable formula recall, snapshots and recovery. Native observations supplement manual policy; all private cursor/buffer transitions are not full parity.&quot;
+  }
+]</pre></details></td><td><strong>baseline-known-differences</strong><details><summary>Evidence and scope</summary><p>Baseline characterization only; all current supported fixtures have oracle display differences.</p><pre>[
+  {
+    &quot;fixtureId&quot;: &quot;phase9-nbase&quot;,
+    &quot;status&quot;: &quot;known-differences&quot;,
+    &quot;assertedFrames&quot;: 67
+  }
+]</pre></details></td><td><strong>partial</strong><details><summary>Evidence and scope</summary><p>Explicit canonical baseline browser replays only; legacy regression coverage is not inferred as parity.</p><pre>[
+  {
+    &quot;kind&quot;: &quot;browser&quot;,
+    &quot;path&quot;: &quot;tests/e2e/phase9.spec.js&quot;,
+    &quot;anchor&quot;: &quot;N-base HEX keyboard&quot;,
+    &quot;capabilityIds&quot;: [
+      &quot;el506.second.el506-k38&quot;,
+      &quot;el506.second.el506-k39&quot;,
+      &quot;el506.nbase.digit.a&quot;,
+      &quot;el506.nbase.digit.f&quot;
+    ],
+    &quot;scope&quot;: &quot;Pointer and keyboard HEX digits, arithmetic, conversion, small base marker, ten-digit visibility, isolated widgets and snapshot preservation.&quot;
+  },
+  {
+    &quot;kind&quot;: &quot;browser&quot;,
+    &quot;path&quot;: &quot;tests/e2e/golden.spec.js&quot;,
+    &quot;anchor&quot;: &quot;canonical baseline browser replay&quot;,
+    &quot;fixtureIds&quot;: [
+      &quot;phase9-nbase&quot;
+    ],
+    &quot;scope&quot;: &quot;67 canonical implementation frames including 23 independently observed native frames. Native viewport/raw-state differences remain explicitly recorded.&quot;,
+    &quot;capabilityIds&quot;: [
+      &quot;el506.second.el506-k38&quot;,
+      &quot;el506.second.el506-k39&quot;,
+      &quot;el506.second.el506-k43&quot;,
+      &quot;el506.second.el506-k44&quot;,
+      &quot;el506.second.el506-k48&quot;,
+      &quot;el506.context.nbase.12&quot;,
+      &quot;el506.context.nbase.13&quot;,
+      &quot;el506.context.nbase.14&quot;,
+      &quot;el506.context.nbase.15&quot;,
+      &quot;el506.context.nbase.16&quot;,
+      &quot;el506.context.nbase.47&quot;,
+      &quot;el506.nbase.digit.a&quot;,
+      &quot;el506.nbase.digit.f&quot;
+    ]
+  }
+]</pre></details></td></tr></tbody></table></div><p>Generated from repository reference artifacts. Regenerate with npm run report:parity. JSON: parity-report.json.</p></main><script>const filter=document.getElementById('filter');const rows=[...document.querySelectorAll('tbody tr')];filter.addEventListener('input',()=>{const query=filter.value.toLowerCase();let count=0;for(const row of rows){row.hidden=!row.textContent.toLowerCase().includes(query);if(!row.hidden)count++;}document.getElementById('count').textContent=' '+count+' entries';});</script></body></html>

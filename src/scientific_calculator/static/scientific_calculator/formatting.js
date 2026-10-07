@@ -90,7 +90,7 @@
     }
     if(value.kind==='dms')return `${value.sign<0?'-':''}${value.degrees}<sup>&deg;</sup>${value.minutes}&#8242;${sharpNumber(value.seconds,settings).html.replace(/\.$/,'')}&#8243;`;
     if(value.kind==='nbase'){
-      const integer=BigInt(value.integer),encoded=integer<0n&&value.radix!==10?integer+(1n<<BigInt(value.width)):integer;
+      const integer=BigInt(value.integer),encoded=integer<0n&&value.radix!==10?integer+(value.digits?BigInt(value.radix)**BigInt(value.digits):1n<<BigInt(value.width)):integer;
       return escapeHtml(encoded.toString(value.radix).toUpperCase());
     }
     if(value.kind==='complex'){
@@ -336,7 +336,7 @@
       M: state.memoryValue !== 0 || state.values.memory.kind==='complex'&&(state.values.memory.imaginary.kind==='rational'?state.values.memory.imaginary.numerator!=='0':state.values.memory.imaginary.value!==0), BIN: false, PEN: false, OCT: false, DEC: false, HEX: false,
       'xy': false, 'rθ': false, '?': workflow.kind === 'prompt', '∠': false, 'i': false,
     };
-    if (state.values.last.kind === 'nbase') indicators[({2:'BIN',5:'PEN',8:'OCT',10:'DEC',16:'HEX'})[state.values.last.radix]] = true;
+    if(state.control?.nbase?.radix!==10&&state.control?.nbase)indicators[({2:'BIN',5:'PEN',8:'OCT',16:'HEX'})[state.control.nbase.radix]]=true;
     const expression = state.displayExpression;
     view.expressionHtml = expression ? formatExpression(options.physical?physicalExpression(expressionForDisplay()):expressionForDisplay()) : '';
     if(state.lifecycle==='editing'&&state.displayResult==='')view.resultHtml='';
@@ -401,7 +401,15 @@
     }
     if(options.physical&&state.layers.intent?.kind==='memory-value'&&['M+','M-'].includes(state.layers.intent.operation))view.expressionHtml=view.expressionHtml.replace('Ans','ANS');
     if(state.layers.intent?.kind==='formula-store'){view.resultHtml=escapeHtml(state.displayResult);view.cursorVisible=false;}
+    if(state.layers.intent?.kind==='nbase-error'){view.expressionHtml=escapeHtml('Error '+state.control.errorCode);view.resultHtml='';view.cursorVisible=false;}
     if(state.layers.intent?.kind==='solver-error'){view.expressionHtml=escapeHtml('Error '+state.control.errorCode);view.resultHtml='';}
+    if(state.control?.nbase?.radix!==10&&state.control?.nbase&&state.control.power==='on'&&(!workflow.kind||workflow.kind==='prompt'&&['STO','RCL'].includes(workflow.payload.id))){
+      const base=state.control.nbase.radix,name=({2:'BIN',5:'PEN',8:'OCT',16:'HEX'})[base];
+      for(const k of ['BIN','PEN','OCT','DEC','HEX'])indicators[k]=k===name;
+      const lcd=text=>escapeHtml(text.replace(/ans/g,'ANS').replace(/XNOR|XOR|AND|OR|NOT|NEG|BIN|DEC|PEN|OCT|HEX|\$[A-FXYM]|[0-9A-F]+/g,t=>t.startsWith('$')?t.slice(1):/^[0-9A-F]+$/.test(t)?t.replace(/B/g,'b').replace(/D/g,'d'):t));
+      view.expressionHtml=state.lifecycle==='error'?escapeHtml('Error '+state.control.errorCode):lcd(state.displayExpression).replace(/:/g,'&divide;').replace(/\*/g,'&times;')+(view.cursorVisible?'<span class="scicalc__cursor" aria-hidden="true"></span>':'');
+      view.resultHtml=(state.lifecycle==='error'?'':lcd(state.entry||(state.lifecycle==='evaluated'?state.displayResult:'0')))+'<sup class="scicalc__base-marker" aria-label="'+name+'">'+({2:'b',5:'P',8:'o',16:'H'})[base]+'</sup>';
+    }
     view.indicators = indicators;
     if (!view.cursorVisible) view.cursorPosition = null;
     return view;

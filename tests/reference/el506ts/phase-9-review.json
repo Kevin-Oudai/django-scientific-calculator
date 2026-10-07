@@ -1,0 +1,47 @@
+{
+  "schemaVersion": 1,
+  "reviewId": "phase-9-nbase-review",
+  "reviewedOn": "2026-10-07",
+  "simulatorProfile": "sharp-el506ts-pc-simulator-1.0.2.0",
+  "runtimeSha256": "6bfef4d04900b472892be2d4c54dcfa6013f87232097e32df508ca4c27425530",
+  "method": "Live @oai/sky physical input, one input followed by refreshed native screenshot. Significant visible LCD frames independently transcribed; implementation golden assertions are not independent oracle measurements. Pinned manual section 14 and guide supplied locally supplement the live observations.",
+  "observations": [
+    "2 then 2nd HEX displays 2-to-HEX, lower 2 and H marker.",
+    "Direct keys pi and ln enter A and F without ALPHA; A+F evaluates to HEX 19.",
+    "Converting displayed HEX 19 gives BIN 11001; invalid digit 2 is ignored.",
+    "ON/C clears entry while retaining BIN; HOME returns to NORMAL decimal.",
+    "Sign key inserts prefix NEG; 1NEG followed by ENT reports upper Error 1 and blank lower; NEG1 gives binary 1111111111.",
+    "Negative one converts to HEX FFFFFFFFFF, PEN 4444444444, OCT 7777777777, then decimal -1. Native visible upper viewport scrolls on these conversions.",
+    "NOT0 in BIN gives 1111111111.",
+    "1OR1AND0 in BIN gives 1; AND precedes OR.",
+    "HEX 3 divided by 2 multiplied by 2 gives 2, proving intermediate truncation.",
+    "Decimal 512 to BIN reports upper Error 2, blank lower, and no nondecimal marker; failed conversion leaves decimal selected.",
+    "BIN 1XNOR0 evaluates to 1111111110 (-2); BIN 1XOR1 evaluates to 0."
+  ],
+  "manualPolicy": [
+    "Five-base conversions, basic four operations, parentheses, and memories are available. Nondecimal fractions cannot be entered; fractional decimal conversions and nondecimal divisions truncate.",
+    "AND, OR, XOR, XNOR, NOT, NEG are nondecimal operations.",
+    "Hexadecimal digits use direct A-F keys; B and D render b and d.",
+    "Saved equation recall containing unavailable functions or digits reports Error 5."
+  ],
+  "limitations": [
+    "Ten-digit radix-complement ranges follow the observed negative-one words; exact positive and negative boundary cases are covered by integer tests, with native measured conversion boundary recorded separately.",
+    "Long native LCD source viewports are transcribed as visible and retained as raw-state known differences; web display scrolls rather than reproducing native pixel clipping.",
+    "Unmeasured native editor cursor/blink timing, deep pending-buffer transitions and all pental bitwise corner cases do not constitute full native parity.",
+    "Formula and memory regression coverage supplements pinned manual policy; every base/store pair was not individually measured in this native run."
+  ],
+  "verification": {
+    "unit": "tests/unit/phase9.test.js",
+    "browser": "tests/e2e/phase9.spec.js",
+    "native": "experiments/phase9-nbase.json",
+    "golden": "golden/phase9-nbase.json",
+    "result": {
+      "npmTest": "passed: 403 unit, 140 browser, 293 golden frames",
+      "finalUnit": "404 passed",
+      "django": "7 passed",
+      "package": "18 assets in installed wheel and sdist; no local PDF/runtime files",
+      "other": "compileall, pip dry run, Compose config/build/start, report and diff checks passed; refreshed user tab shows HEX A+F converted to BIN 11001, no console errors",
+      "cleanup": "Agent-opened native runtime and extractor closed normally."
+    }
+  }
+}

@@ -2122,6 +2122,27 @@ completion of this phase does not establish full emulator parity.
 
 ### Phase 9 - N-base Operations
 
+User requested the full Phase 9 batch (EL506-180 through EL506-189).
+READY_TO_PUSH: Locally verified Phase 9 batch on 2026-10-07. Items remain
+unchecked and Next item remains EL506-180 until the implementation is published
+and its exact remote commit is verified.
+
+Verification: npm test passed (403 unit, 140 browser, 293 golden frames); final
+full unit suite passed (404), focused final memory/compatibility/golden checks,
+Django (7), compileall, pip dry run, Compose config/build/start, installed
+wheel/sdist smoke (18 assets), report and open browser checks, git diff --check.
+Native runtime and agent-opened extractor were closed after verification.
+
+Evidence: `tests/reference/el506ts/phase-9-review.json`, Phase 9 experiment and
+67-frame golden fixture, pinned full manual, unit/browser coverage and generated
+parity report. Native ten-digit complements, invalid BIN digits, OR/AND priority,
+XOR/XNOR, NOT/NEG, HOME and DEC 512-to-BIN Error 2 were observed. Other boundaries
+and all memory/base pairs supplement native evidence with manual-backed tests.
+Native viewport/raw-state differences, cursor timing, deep buffer transitions and
+unmeasured pental logical corner cases remain explicit; completion is not full
+simulator parity. Snapshot 10 preserves the selected base and radix-complement
+memories; schemas 1-9 migrate in memory.
+
 - [ ] **EL506-180 - Match DEC, BIN, PEN, OCT, and HEX selection and indicators.**
 - [ ] **EL506-181 - Match base-specific digit entry.** Include hexadecimal
   A-F mapping and invalid digits.

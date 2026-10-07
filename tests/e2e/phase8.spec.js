@@ -32,5 +32,5 @@ test('Phase 8 keyboard numeric prompt input and cancellation preserve confirmed 
 test('Phase 8 memories remain isolated between two embedded calculators',async({page})=>{
  const root=await setup(page);await root.evaluate(el=>{const copy=el.cloneNode(true);el.after(copy);ScientificCalculatorBrowser.mount(copy,ScientificCalculatorCore,ScientificCalculatorFormatting);});const other=page.locator('[data-scientific-calculator]').nth(1);
  await seq(root,[30,28,18,2,5,18,43,40,28,8]);await seq(other,[41,28,18,2,5,18,43,41,28,8]);
- await seq(root,[2,27,8,48]);await seq(other,[2,27,8,48]);await expect(root.locator('[data-result]')).toHaveText('8.');await expect(other.locator('[data-result]')).toHaveText('4.');expect((await snap(root)).schemaVersion).toBe(9);
+ await seq(root,[2,27,8,48]);await seq(other,[2,27,8,48]);await expect(root.locator('[data-result]')).toHaveText('8.');await expect(other.locator('[data-result]')).toHaveText('4.');expect((await snap(root)).schemaVersion).toBe(10);
 });

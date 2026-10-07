@@ -10,9 +10,9 @@
     Enter:48,'=':48,Backspace:7,Delete:7,Escape:2,Home:1,
     ArrowUp:8,ArrowLeft:9,ArrowRight:10,ArrowDown:11,F2:3,F3:5,F4:12,
   });
-  function keyboardKeyId(event) {
+  function keyboardKeyId(event,radix=10) {
     if(event.ctrlKey || event.metaKey || event.altKey || event.isComposing) return null;
-    const number=keyboardKeys[event.key];
+    const number=radix===16&&/^[a-f]$/i.test(event.key)?18+'ABCDEF'.indexOf(event.key.toUpperCase()):keyboardKeys[event.key];
     return number ? `EL506-K${String(number).padStart(2,'0')}` : null;
   }
   function mount(root, core, formatting) {
@@ -150,7 +150,7 @@
       if(physical) {
         if(event.target.closest('[data-expression],[data-result]') && ['ArrowLeft','ArrowRight','Home','End'].includes(event.key)) return;
         if(event.target.closest('button') && ['Enter',' '].includes(event.key)) return;
-        const id=keyboardKeyId(event);
+        const id=keyboardKeyId(event,state.control.nbase.radix);
         if(!id) return;
         event.preventDefault();
         if(event.repeat && ['F2','F3','F4'].includes(event.key)) return;

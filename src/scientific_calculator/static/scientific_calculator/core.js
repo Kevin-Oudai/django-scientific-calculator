@@ -1,8 +1,8 @@
 (function(host,factory){
   if(typeof module==='object' && module.exports && typeof document==='undefined')
-    module.exports=factory(require('./semantic-editor.js'),require('./values.js'),require('./math-engine.js'),require('./numeric-model.js'),require('./formatting.js'),require('./catalogues.js'),require('./solver.js'));
-  else host.ScientificCalculatorCore=factory(host.ScientificCalculatorSemantic,host.ScientificCalculatorValues,host.ScientificCalculatorEngine,host.ScientificCalculatorNumericModel,host.ScientificCalculatorFormatting,host.ScientificCalculatorCatalogues,host.ScientificCalculatorSolver);
-})(globalThis,function(semantic,values,bundle,numericModel,formatting,catalogues,solver){
+    module.exports=factory(require('./semantic-editor.js'),require('./values.js'),require('./math-engine.js'),require('./numeric-model.js'),require('./formatting.js'),require('./catalogues.js'),require('./solver.js'),require('./nbase.js'));
+  else host.ScientificCalculatorCore=factory(host.ScientificCalculatorSemantic,host.ScientificCalculatorValues,host.ScientificCalculatorEngine,host.ScientificCalculatorNumericModel,host.ScientificCalculatorFormatting,host.ScientificCalculatorCatalogues,host.ScientificCalculatorSolver,host.ScientificCalculatorNbase);
+})(globalThis,function(semantic,values,bundle,numericModel,formatting,catalogues,solver,nbase){
   'use strict';
   const engine=bundle.createEngine();
   const {formatValue}=formatting;
@@ -932,7 +932,7 @@
     }
     return editor;
   }
-  function initialControl() { return {power:"on",idleMs:0,submode:null,errorCode:null,arithmetic:{constant:null,percent:false},variables:Object.fromEntries(["A","B","C","D","E","F","X","Y"].map(k=>[k,0])),formulas:[[],[],[],[]],matrices:[null,null,null,null],lists:[null,null,null,null]}; }
+  function initialControl() { return {power:"on",idleMs:0,submode:null,errorCode:null,arithmetic:{constant:null,percent:false},nbase:{radix:10},variables:Object.fromEntries(["A","B","C","D","E","F","X","Y"].map(k=>[k,0])),formulas:[[],[],[],[]],matrices:[null,null,null,null],lists:[null,null,null,null]}; }
   function createInitialState() {
     const state = { ...createLegacyInitialState(), lifecycle: "empty", workflow: emptyWorkflow(), layers: initialLayers(), control: initialControl() };
     return { ...state, editor: editorForState(state), values: initialValues(state) };
@@ -1005,6 +1005,7 @@
     if(!c.arithmetic || Object.keys(c.arithmetic).sort().join()!=='constant,percent' || typeof c.arithmetic.percent!=='boolean')throw new TypeError('Invalid arithmetic state');
     const constant=c.arithmetic.constant;
     if(constant!==null && (!constant || Object.keys(constant).sort().join()!=='operand,operator' || !['+','-', '*',':'].includes(constant.operator) || typeof constant.operand!=='string'))throw new TypeError('Invalid constant calculation');
+    if(!c.nbase || Object.keys(c.nbase).join()!=='radix'||![2,5,8,10,16].includes(c.nbase.radix))throw new TypeError('Invalid N-base state');
     semantic.validateEditor(state.editor);
     if (state.editor.ast !== null) semantic.validateAst(state.editor.ast);
     if (!state.values || Object.keys(state.values).sort().join() !== "answer,history,last,memory,statistics,variables" || !Array.isArray(state.values.history)
@@ -1013,7 +1014,7 @@
     for (const name of ["answer","last","memory","statistics"]) values.validate(state.values[name]);
     state.values.history.forEach(value => values.validate(value));
     if(!state.values.variables||Object.keys(state.values.variables).sort().join()!=='A,B,C,D,E,F,X,Y')throw new TypeError('Invalid variable stores');
-    for(const v of Object.values(state.values.variables)){values.validate(v);if(!['scalar','rational','dms'].includes(v.kind)||!Number.isFinite(values.toNumber(v)))throw new TypeError('Invalid variable value');}
+    for(const v of Object.values(state.values.variables)){values.validate(v);if(!['scalar','rational','dms','nbase'].includes(v.kind)||!Number.isFinite(values.toNumber(v)))throw new TypeError('Invalid variable value');}
     const layers = state.layers;
     if (!layers || Object.keys(layers).sort().join() !== "alpha,hyp,intent,inverseHyp,mode,settings"
       || !["alpha", "hyp", "inverseHyp"].every(k => typeof layers[k] === "boolean")
@@ -1058,11 +1059,11 @@
   // part of this contract. Future modes must version and extend these fields.
   function snapshotCalculator(state) {
     validateState(state);
-    return { schemaVersion: 9, profile: "legacy-0.3.1", state: structuredClone(state) };
+    return { schemaVersion: 10, profile: "legacy-0.3.1", state: structuredClone(state) };
   }
 
   function restoreCalculator(snapshot) {
-    if (!snapshot || ![1, 2, 3, 4, 5, 6, 7, 8, 9].includes(snapshot.schemaVersion) || snapshot.profile !== "legacy-0.3.1"
+    if (!snapshot || ![1, 2, 3, 4, 5, 6, 7, 8, 9, 10].includes(snapshot.schemaVersion) || snapshot.profile !== "legacy-0.3.1"
       || Object.keys(snapshot).sort().join() !== "profile,schemaVersion,state") {
       throw new TypeError("Unsupported calculator snapshot");
     }
@@ -1079,6 +1080,7 @@
     if (snapshot.schemaVersion < 5) state.values = initialValues(state);
     if(snapshot.schemaVersion<6) state.control=initialControl();
     if(snapshot.schemaVersion<7) state.control.arithmetic=initialControl().arithmetic;
+    if(snapshot.schemaVersion<10)state.control.nbase={radix:10};
     if(snapshot.schemaVersion<9){
       if(snapshot.schemaVersion>=6)state.control.formulas=state.control.formulas.map(t=>semantic.tokenize(t,{physical:true}));
       state.values.variables=Object.fromEntries(Object.entries(state.control.variables).map(([k,v])=>[k,values.scalar(v)]));
@@ -1206,6 +1208,7 @@
     const next=createInitialState();next.layers.settings=structuredClone(previous.layers.settings);next.angleMode=previous.angleMode;
     next.layers.mode=previous.layers.mode;next.control=structuredClone(previous.control);next.control.errorCode=null;next.control.idleMs=0;
     next.control.arithmetic=initialControl().arithmetic;
+    if(scope!=='command')next.control.nbase={radix:10};
     if(scope==='command'){
       for(const name of ['answer','lastValue','memoryValue','statsValues','values','history'])next[name]=structuredClone(previous[name]);
       if(previous.layers.mode==='EQN' && previous.workflow.kind==='data-entry'){next.workflow=structuredClone(previous.workflow);next.lifecycle='data-entry';}
@@ -1225,6 +1228,7 @@
   }
   function physicalLength(source){return physicalCells(source).length;}
   function physicalFormulaLength(tokens){
+    if(tokens.some(t=>t.kind==='nbase'))return tokens.reduce((n,t)=>n+(/^[0-9A-F]+$/.test(t.value)?t.value.length:1),0);
     const source=semantic.serialize(tokens).replace(/(?:random|dice|coin|rint)\(\)/g,'0')
       .replace(new RegExp('\\b(?:'+semantic.functions.join('|')+')\\(','g'),'(');
     return physicalLength(source);
@@ -1390,7 +1394,7 @@
       const random=()=>{if(cursor>=draws.length){seed=(Math.imul(seed,1664525)+1013904223)>>>0;draws.push(draws.length===0&&randomSample!==undefined?randomSample:seed/4294967296);}return draws[cursor++];};
       const numericResult=semantic.evaluate(ast,physicalAdapter,{angleMode:previous.angleMode,answer:previous.answer,variables:physicalVariables(previous),random});
       cursor=0;
-      let typed=values.evaluateAst(ast,semantic,physicalAdapter,{angleMode:previous.angleMode,answer:previous.values.answer,physical:true,random,variables:physicalTypedVariables(previous)});
+      let typed=values.evaluateAst(ast,semantic,physicalAdapter,{angleMode:previous.angleMode,answer:previous.values.answer.kind==='nbase'?values.scalar(previous.answer):previous.values.answer,physical:true,random,variables:physicalTypedVariables(previous)});
       const number=numericResult===0?0:physicalNumeric(values.toNumber(typed));
       next.expression=closed+'=';next.displayExpression=display+'=';next.entry='';next.stagedEntry=null;next.selectionActive=false;next.cursor=next.expression.length-1;
       next.answer=next.lastValue=number;next.values.answer=next.values.last=number===0?values.scalar(0):typed;
@@ -1446,7 +1450,7 @@
   function physicalTypedVariables(state){
     return Object.fromEntries(Object.entries(physicalVariables(state)).map(([k,n])=>{
       const tagged=k==='M'?state.values.memory:state.values.variables[k];
-      return [k,tagged&&tagged.kind!=='complex'&&values.toNumber(tagged)===n?values.copy(tagged):values.scalar(n)];
+      return [k,tagged&&tagged.kind!=='complex'&&!(tagged.kind==='nbase'&&state.control.nbase.radix===10)&&values.toNumber(tagged)===n?values.copy(tagged):values.scalar(n)];
     }));
   }
   function physicalStore(state,slot,value){
@@ -1540,6 +1544,7 @@
             next.control.formulas[formula]=tokens;next.displayExpression=storedSource+'→';next.resultDisplay=next.displayResult='F'+(formula+1);
             next.lifecycle='evaluated';next.layers.intent={kind:'formula-store',slot:formula};return next;
           }
+          if(previous.control.formulas[formula].some(t=>t.kind==='nbase'))return physicalError(next,5);
           const recalled=semantic.serialize(previous.control.formulas[formula]);
           if(!recalled)return next;
           next.expression=(w.returnPhase==='evaluated'?'':source)+recalled;next.entry='';next.stagedEntry=null;next.selectionActive=false;next.control.arithmetic={constant:null,percent:false};
@@ -1725,6 +1730,67 @@
     }
     return null;
   }
+  // N-base has its own integer grammar: A-F are digits, not decimal variables.
+  function physicalPhase9(previous,next,n){
+    if(previous.layers.mode!=='NORMAL'||previous.workflow.kind==='menu')return null;
+    const phase=previous.workflow.kind==='prompt'?previous.workflow.returnPhase:previous.lifecycle;
+    const radix=previous.control.nbase.radix,conversion=previous.secondActive?({38:16,39:2,43:5,44:8,48:10})[n]:undefined;
+    if(radix===10&&!conversion)return null;
+    const stores=Object.fromEntries(Object.entries(physicalTypedVariables(previous)).map(([k,v])=>[k,BigInt(Math.trunc(values.toNumber(v)))]));
+    stores.ANS=Number.isFinite(previous.answer)?BigInt(Math.trunc(previous.answer)):0n;stores.M=BigInt(Math.trunc(previous.memoryValue));
+    const source=()=>phase==='evaluated'?nbase.encode(BigInt(Math.trunc(previous.lastValue)),radix):previous.expression+previous.entry||'0';
+    const number=()=>phase==='evaluated'?BigInt(Math.trunc(previous.lastValue)):nbase.evaluate(source(),radix,stores);
+    const publish=(value,base,display,updateAnswer=true)=>{
+      next.control.nbase.radix=base;next.lastValue=Number(value);next.values.last=base===10?values.scalar(Number(value)):nbase.typed(value,base);
+      if(updateAnswer){next.answer=next.lastValue;next.values.answer=values.copy(next.values.last);}
+      next.expression=display.endsWith('=')?display.slice(0,-1):base===10?String(value):nbase.encode(value,base);next.entry='';next.stagedEntry=null;next.editor=semantic.createEditor([]);next.displayExpression=display;next.displayResult=next.resultDisplay=base===10?formatValue(Number(value)):nbase.encode(value,base);next.lifecycle='evaluated';next.workflow=emptyWorkflow();next.secondActive=false;next.layers.alpha=false;next.control.errorCode=null;next.selectionActive=false;next.layers.intent={kind:'nbase-value'};return next;
+    };
+    const editing=()=>{next.lifecycle='entering';next.displayExpression=next.expression;next.displayResult=next.resultDisplay=next.entry||'0';next.editor=semantic.createEditor([]);next.control.errorCode=null;next.layers.intent={kind:'nbase-entry'};return next;};
+    try{
+      if(conversion){
+        let value,display;
+        if(radix===10){const result=phase==='evaluated'?previous:physicalCalculate(next,physicalSource(previous)||'0');if(result.lifecycle==='error')return result;value=BigInt(Math.trunc(result.lastValue));display=formatValue(result.lastValue);if(display.startsWith('-'))display='('+display+')';}
+        else {value=number();display=nbase.encode(value,radix);}
+        if(conversion!==10)nbase.checked(value,conversion);
+        return publish(value,conversion,display+'→'+nbase.names[conversion]);
+      }
+      if(previous.workflow.kind==='prompt'&&['STO','RCL'].includes(previous.workflow.payload.id)){
+        const slot=({18:'A',19:'B',20:'C',21:'D',22:'E',23:'F',27:'X',28:'Y',29:'M'})[n];
+        const formula=({8:0,9:1,10:2,11:3})[n];
+        if(formula!==undefined){
+          if(previous.workflow.payload.id==='STO'){
+            const raw=previous.expression+previous.entry||'0',tokens=nbase.tokens(raw).map(value=>({kind:'+-*:/'.includes(value)?'operator':'()'.includes(value)?'punctuation':'nbase',value}));
+            if(next.control.formulas.reduce((sum,t,i)=>sum+physicalFormulaLength(i===formula?tokens:t),0)>256)throw new RangeError('Formula capacity');
+            next.control.formulas[formula]=tokens;next.workflow=emptyWorkflow();next.lifecycle='evaluated';next.displayExpression=raw+'→';next.displayResult=next.resultDisplay='F'+(formula+1);next.layers.intent={kind:'formula-store'};return next;
+          }
+          const stored=previous.control.formulas[formula],raw=stored.map(t=>t.kind==='symbol'&&/^[A-FXYM]$/.test(t.value)?'$'+t.value:t.value).join('');
+          try{if(stored.some(t=>t.kind==='number'&&!/^\d+$/.test(t.value)))throw new SyntaxError('Unavailable literal');for(const token of nbase.tokens(raw))if(/^[0-9A-F]+$/.test(token))nbase.literal(token,radix);}catch{next=physicalError(next,5);next.layers.intent={kind:'nbase-error'};next.workflow=emptyWorkflow();return next;}
+          next.workflow=emptyWorkflow();next.expression=raw;next.entry='';return editing();
+        }
+        if(!slot)return next;
+        if(previous.workflow.payload.id==='STO'){const value=number(),display=source();publish(value,radix,display+'→'+slot);physicalStore(next,slot,next.values.last);return next;}
+        const value=nbase.checked(stores[slot],radix);
+        if(phase!=='evaluated'&&(previous.expression||previous.entry)){next.workflow=emptyWorkflow();next.expression+=next.entry+'$'+slot;next.entry='';return editing();}
+        publish(value,radix,slot+'=',false);next.layers.intent={kind:'memory-value',operation:'RCL',slot};next.expression='$'+slot;return next;
+      }
+      if(n===3){next.secondActive=!previous.secondActive;return next;}
+      if(n===5){next.layers.alpha=!previous.layers.alpha;next.secondActive=false;return next;}
+      if(n===4||n===6)return null;
+      if((n===27||n===28)&&!previous.secondActive&&!previous.layers.alpha){next.workflow={kind:'prompt',payload:{id:n===28?'STO':'RCL'},page:0,returnPhase:previous.lifecycle};next.lifecycle='prompt';return next;}
+      if(n===29&&!previous.layers.alpha){const value=number(),sum=nbase.checked(stores.M+(previous.secondActive?-value:value),radix);publish(value,radix,source()+(previous.secondActive?'M−':'M+'));physicalStore(next,'M',nbase.typed(sum,radix));return next;}
+      if(n===48&&!previous.secondActive&&!previous.layers.alpha){if(phase==='evaluated')return next;if(nbase.tokens(source()).reduce((sum,t)=>sum+(/^[0-9A-F]+$/.test(t)?t.length:1),0)+1>142){next=physicalError(next,4);next.layers.intent={kind:'nbase-error'};return next;}return publish(number(),radix,source()+'=');}
+      if(n===7&&!previous.secondActive){if(next.entry)next.entry=next.entry.slice(0,-1);else{const cells=nbase.tokens(next.expression);cells.pop();next.expression=cells.join('');}return editing();}
+      if(n===9||n===10)return next;
+      let digit=previous.secondActive||previous.layers.alpha?undefined:DIGIT_KEYS[n];
+      if(!previous.secondActive&&!previous.layers.alpha&&radix===16&&n>=18&&n<=23)digit='ABCDEF'[n-18];
+      if(digit!==undefined){if(parseInt(digit,16)>=radix)return next;if(phase==='evaluated'||previous.lifecycle==='error'){next.expression='';next.entry='';}if(next.entry.length>=10)return next;next.entry+=digit;next.secondActive=false;return editing();}
+      const memorySlot=previous.layers.alpha?({18:'A',19:'B',20:'C',21:'D',22:'E',23:'F',27:'X',28:'Y',29:'M'})[n]:undefined;
+      const op=!previous.secondActive&&!previous.layers.alpha?({12:'NOT',13:'AND',14:'OR',15:'XOR',16:'XNOR',47:'NEG',38:'*',39:':',43:'+',44:'-',33:'(',34:')'})[n]:undefined;
+      const atom=memorySlot?'$'+memorySlot:previous.layers.alpha&&n===48?'ans':op;
+      if(atom){if(previous.lifecycle==='error'){next.expression='';next.entry='';}if(phase==='evaluated'){next.expression=['NOT','NEG','(','ans'].includes(atom)||memorySlot?'':previous.layers.intent?.operation==='RCL'?'$'+previous.layers.intent.slot:'ans';next.entry='';}next.expression+=next.entry+atom;next.entry='';next.secondActive=false;next.layers.alpha=false;return editing();}
+      next.secondActive=false;return next; // Scientific functions and fractional digits are unavailable.
+    }catch(error){next=physicalError(next,error instanceof RangeError?2:1);next.layers.intent={kind:'nbase-error'};next.secondActive=false;next.workflow=emptyWorkflow();return next;}
+  }
   function reducePhysicalKey(previous,id,randomSample){
     if(randomSample!==undefined&&(!Number.isFinite(randomSample)||randomSample<0||randomSample>=1))throw new TypeError("Invalid random sample");
     const intent=resolvePhysicalKey(previous,id); // Reject malformed identities even while asleep.
@@ -1733,7 +1799,7 @@
     if(previous.control.power==='off')return n===2?physicalClear(previous):previous;
     if(n===2 && previous.secondActive)return physicalPowerOff(previous);
     if(n===2)return physicalClear(previous);
-    if(n===1){next=physicalClear(previous,previous.layers.mode==='NORMAL'?'command':'mode');next.layers.mode='NORMAL';next.control.submode=null;return next;}
+    if(n===1){next=physicalClear(previous,previous.layers.mode==='NORMAL'?'command':'mode');next.layers.mode='NORMAL';next.control.submode=null;next.control.nbase={radix:10};return next;}
     if(previous.secondActive&&n===4)return physicalClear(previous,'internal');
     if(previous.secondActive&&n===47)return physicalMenu(previous,'MEMORY_CLEAR');
     if(previous.secondActive&&n===45){
@@ -1745,6 +1811,7 @@
       }
       return next;
     }
+    const baseKey=physicalPhase9(previous,next,n);if(baseKey)return baseKey;
     const promptKey=physicalPhase8Prompt(previous,next,n);if(promptKey)return promptKey;
     if(n===4)return physicalMenu(previous,'MODE');
     if(n===6)return physicalMenu(previous,'SETUP');
@@ -1786,7 +1853,7 @@
             if(ast.kind==='binary'&&!ast.implied&&['+','-','*','/'].includes(ast.operator)){
               const operand=semantic.evaluate(ast.operator==='*'?ast.left:ast.right,physicalAdapter,{angleMode:previous.angleMode,answer:previous.answer,variables:physicalVariables(previous)});
               const operandAst=ast.operator==='*'?ast.left:ast.right;
-              const retained=values.evaluateAst(operandAst,semantic,physicalAdapter,{angleMode:previous.angleMode,answer:previous.values.answer,physical:true,variables:physicalTypedVariables(previous)});
+              const retained=values.evaluateAst(operandAst,semantic,physicalAdapter,{angleMode:previous.angleMode,answer:previous.values.answer.kind==='nbase'?values.scalar(previous.answer):previous.values.answer,physical:true,variables:physicalTypedVariables(previous)});
               const literal=retained.kind==='rational'?`frac(0,${retained.numerator},${retained.denominator})`:String(operand).replace('e','E');
               result.control.arithmetic.constant={operator:ast.operator==='/'?':':ast.operator,operand:literal.startsWith('-')?`(${literal})`:literal};
             }

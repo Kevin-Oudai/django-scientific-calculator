@@ -540,3 +540,5 @@
   .scicalc__physical .scicalc__screen { background: Canvas; color: CanvasText; }
   .scicalc__physical .scicalc__expression, .scicalc__physical .scicalc__result { color: CanvasText; }
 }
+
+.scicalc__base-marker { font-size: 0.48em; margin-left: 0.35em; vertical-align: super; }

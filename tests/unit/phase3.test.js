@@ -74,7 +74,7 @@ test('post-result digits start fresh, arithmetic continues from ANS, modifier pr
   const s=sequence([41,43,42,48]);assert.equal(press(s,40).entry,'1');assert.equal(sequence([43,41,48],s).answer,7);assert.equal(press(s,3).answer,5);
 });
 test('control snapshots migrate schema 5 and reject malformed power/storage state atomically',()=>{
-  const snap=core.snapshotCalculator(stores());assert.equal(snap.schemaVersion,9);const old=structuredClone(snap);old.schemaVersion=5;delete old.state.control;assert.equal(core.restoreCalculator(old).control.power,'on');
+  const snap=core.snapshotCalculator(stores());assert.equal(snap.schemaVersion,10);const old=structuredClone(snap);old.schemaVersion=5;delete old.state.control;assert.equal(core.restoreCalculator(old).control.power,'on');
   const bad=structuredClone(snap);bad.state.control.power='awake';assert.throws(()=>core.restoreCalculator(bad),TypeError);assert.equal(snap.state.control.power,'on');
 });
 

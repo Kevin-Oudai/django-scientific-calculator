@@ -38,8 +38,8 @@ test('physical display independently projects LCD lines and modifiers, formats a
     assert.equal(view(s).indicators[angle],true);
   }
   for(const [radix,label] of [[2,'BIN'],[5,'PEN'],[8,'OCT'],[10,'DEC'],[16,'HEX']]) {
-    const s=structuredClone(initial);s.values.last={kind:'nbase',integer:'1',radix,signed:true,width:8};
-    assert.equal(view(s).indicators[label],true);
+    const s=structuredClone(initial);s.control.nbase.radix=radix;s.values.last={kind:'nbase',integer:'1',radix,signed:true,width:8};
+    assert.equal(view(s).indicators[label],radix!==10);
   }
   const s=press(press(initial,40),29);assert.equal(view(s).indicators.M,true);
 });

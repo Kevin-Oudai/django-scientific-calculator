@@ -1,0 +1,1239 @@
+{
+  "schemaVersion": 1,
+  "id": "phase9-nbase",
+  "dispatch": "physical",
+  "displayProfile": "physical",
+  "status": "baseline-characterization",
+  "reference": "experiments/phase9-nbase.json",
+  "sequence": [
+    "EL506-K41",
+    "EL506-K03",
+    "EL506-K38",
+    "EL506-K18",
+    "EL506-K43",
+    "EL506-K23",
+    "EL506-K48",
+    "EL506-K03",
+    "EL506-K39",
+    "EL506-K41",
+    "EL506-K02",
+    "EL506-K40",
+    "EL506-K47",
+    "EL506-K48",
+    "EL506-K02",
+    "EL506-K47",
+    "EL506-K40",
+    "EL506-K48",
+    "EL506-K03",
+    "EL506-K38",
+    "EL506-K03",
+    "EL506-K43",
+    "EL506-K03",
+    "EL506-K44",
+    "EL506-K03",
+    "EL506-K48",
+    "EL506-K03",
+    "EL506-K39",
+    "EL506-K02",
+    "EL506-K12",
+    "EL506-K45",
+    "EL506-K48",
+    "EL506-K02",
+    "EL506-K40",
+    "EL506-K14",
+    "EL506-K40",
+    "EL506-K13",
+    "EL506-K45",
+    "EL506-K48",
+    "EL506-K02",
+    "EL506-K03",
+    "EL506-K38",
+    "EL506-K42",
+    "EL506-K39",
+    "EL506-K41",
+    "EL506-K38",
+    "EL506-K41",
+    "EL506-K48",
+    "EL506-K01",
+    "EL506-K36",
+    "EL506-K40",
+    "EL506-K41",
+    "EL506-K03",
+    "EL506-K39",
+    "EL506-K02",
+    "EL506-K03",
+    "EL506-K39",
+    "EL506-K40",
+    "EL506-K16",
+    "EL506-K45",
+    "EL506-K48",
+    "EL506-K02",
+    "EL506-K40",
+    "EL506-K15",
+    "EL506-K40",
+    "EL506-K48"
+  ],
+  "capabilityIds": [
+    "el506.second.el506-k38",
+    "el506.second.el506-k39",
+    "el506.second.el506-k43",
+    "el506.second.el506-k44",
+    "el506.second.el506-k48",
+    "el506.context.nbase.12",
+    "el506.context.nbase.13",
+    "el506.context.nbase.14",
+    "el506.context.nbase.15",
+    "el506.context.nbase.16",
+    "el506.context.nbase.47",
+    "el506.nbase.digit.a",
+    "el506.nbase.digit.f"
+  ],
+  "expected": [
+    {
+      "afterStep": 0,
+      "assertions": {
+        "displayExpression": "",
+        "displayResult": "0",
+        "lifecycle": "empty",
+        "answer": 0,
+        "control.nbase.radix": 10,
+        "control.errorCode": null
+      },
+      "viewAssertions": {
+        "expressionHtml": "",
+        "resultHtml": "0."
+      },
+      "domResultText": "0."
+    },
+    {
+      "afterStep": 1,
+      "assertions": {
+        "displayExpression": "",
+        "displayResult": "2",
+        "lifecycle": "entering",
+        "answer": 0,
+        "control.nbase.radix": 10,
+        "control.errorCode": null
+      },
+      "viewAssertions": {
+        "expressionHtml": "",
+        "resultHtml": "2."
+      },
+      "domResultText": "2."
+    },
+    {
+      "afterStep": 2,
+      "assertions": {
+        "displayExpression": "",
+        "displayResult": "2",
+        "lifecycle": "entering",
+        "answer": 0,
+        "control.nbase.radix": 10,
+        "control.errorCode": null
+      },
+      "viewAssertions": {
+        "expressionHtml": "",
+        "resultHtml": "2."
+      },
+      "domResultText": "2."
+    },
+    {
+      "afterStep": 3,
+      "assertions": {
+        "displayExpression": "2→HEX",
+        "displayResult": "2",
+        "lifecycle": "evaluated",
+        "answer": 2,
+        "control.nbase.radix": 16,
+        "control.errorCode": null
+      },
+      "viewAssertions": {
+        "expressionHtml": "2→HEX",
+        "resultHtml": "2<sup class=\"scicalc__base-marker\" aria-label=\"HEX\">H</sup>"
+      },
+      "domResultText": "2H"
+    },
+    {
+      "afterStep": 4,
+      "assertions": {
+        "displayExpression": "",
+        "displayResult": "A",
+        "lifecycle": "entering",
+        "answer": 2,
+        "control.nbase.radix": 16,
+        "control.errorCode": null
+      },
+      "viewAssertions": {
+        "expressionHtml": "",
+        "resultHtml": "A<sup class=\"scicalc__base-marker\" aria-label=\"HEX\">H</sup>"
+      },
+      "domResultText": "AH"
+    },
+    {
+      "afterStep": 5,
+      "assertions": {
+        "displayExpression": "A+",
+        "displayResult": "0",
+        "lifecycle": "entering",
+        "answer": 2,
+        "control.nbase.radix": 16,
+        "control.errorCode": null
+      },
+      "viewAssertions": {
+        "expressionHtml": "A+<span class=\"scicalc__cursor\" aria-hidden=\"true\"></span>",
+        "resultHtml": "0<sup class=\"scicalc__base-marker\" aria-label=\"HEX\">H</sup>"
+      },
+      "domResultText": "0H"
+    },
+    {
+      "afterStep": 6,
+      "assertions": {
+        "displayExpression": "A+",
+        "displayResult": "F",
+        "lifecycle": "entering",
+        "answer": 2,
+        "control.nbase.radix": 16,
+        "control.errorCode": null
+      },
+      "viewAssertions": {
+        "expressionHtml": "A+<span class=\"scicalc__cursor\" aria-hidden=\"true\"></span>",
+        "resultHtml": "F<sup class=\"scicalc__base-marker\" aria-label=\"HEX\">H</sup>"
+      },
+      "domResultText": "FH"
+    },
+    {
+      "afterStep": 7,
+      "assertions": {
+        "displayExpression": "A+F=",
+        "displayResult": "19",
+        "lifecycle": "evaluated",
+        "answer": 25,
+        "control.nbase.radix": 16,
+        "control.errorCode": null
+      },
+      "viewAssertions": {
+        "expressionHtml": "A+F=",
+        "resultHtml": "19<sup class=\"scicalc__base-marker\" aria-label=\"HEX\">H</sup>"
+      },
+      "domResultText": "19H"
+    },
+    {
+      "afterStep": 8,
+      "assertions": {
+        "displayExpression": "A+F=",
+        "displayResult": "19",
+        "lifecycle": "evaluated",
+        "answer": 25,
+        "control.nbase.radix": 16,
+        "control.errorCode": null
+      },
+      "viewAssertions": {
+        "expressionHtml": "A+F=",
+        "resultHtml": "19<sup class=\"scicalc__base-marker\" aria-label=\"HEX\">H</sup>"
+      },
+      "domResultText": "19H"
+    },
+    {
+      "afterStep": 9,
+      "assertions": {
+        "displayExpression": "19→BIN",
+        "displayResult": "11001",
+        "lifecycle": "evaluated",
+        "answer": 25,
+        "control.nbase.radix": 2,
+        "control.errorCode": null
+      },
+      "viewAssertions": {
+        "expressionHtml": "19→BIN",
+        "resultHtml": "11001<sup class=\"scicalc__base-marker\" aria-label=\"BIN\">b</sup>"
+      },
+      "domResultText": "11001b"
+    },
+    {
+      "afterStep": 10,
+      "assertions": {
+        "displayExpression": "19→BIN",
+        "displayResult": "11001",
+        "lifecycle": "evaluated",
+        "answer": 25,
+        "control.nbase.radix": 2,
+        "control.errorCode": null
+      },
+      "viewAssertions": {
+        "expressionHtml": "19→BIN",
+        "resultHtml": "11001<sup class=\"scicalc__base-marker\" aria-label=\"BIN\">b</sup>"
+      },
+      "domResultText": "11001b"
+    },
+    {
+      "afterStep": 11,
+      "assertions": {
+        "displayExpression": "",
+        "displayResult": "0",
+        "lifecycle": "empty",
+        "answer": 25,
+        "control.nbase.radix": 2,
+        "control.errorCode": null
+      },
+      "viewAssertions": {
+        "expressionHtml": "",
+        "resultHtml": "0<sup class=\"scicalc__base-marker\" aria-label=\"BIN\">b</sup>"
+      },
+      "domResultText": "0b"
+    },
+    {
+      "afterStep": 12,
+      "assertions": {
+        "displayExpression": "",
+        "displayResult": "1",
+        "lifecycle": "entering",
+        "answer": 25,
+        "control.nbase.radix": 2,
+        "control.errorCode": null
+      },
+      "viewAssertions": {
+        "expressionHtml": "",
+        "resultHtml": "1<sup class=\"scicalc__base-marker\" aria-label=\"BIN\">b</sup>"
+      },
+      "domResultText": "1b"
+    },
+    {
+      "afterStep": 13,
+      "assertions": {
+        "displayExpression": "1NEG",
+        "displayResult": "0",
+        "lifecycle": "entering",
+        "answer": 25,
+        "control.nbase.radix": 2,
+        "control.errorCode": null
+      },
+      "viewAssertions": {
+        "expressionHtml": "1NEG<span class=\"scicalc__cursor\" aria-hidden=\"true\"></span>",
+        "resultHtml": "0<sup class=\"scicalc__base-marker\" aria-label=\"BIN\">b</sup>"
+      },
+      "domResultText": "0b"
+    },
+    {
+      "afterStep": 14,
+      "assertions": {
+        "displayExpression": "1NEG",
+        "displayResult": "Error",
+        "lifecycle": "error",
+        "answer": 25,
+        "control.nbase.radix": 2,
+        "control.errorCode": 1
+      },
+      "viewAssertions": {
+        "expressionHtml": "Error 1",
+        "resultHtml": "<sup class=\"scicalc__base-marker\" aria-label=\"BIN\">b</sup>"
+      },
+      "domResultText": "b"
+    },
+    {
+      "afterStep": 15,
+      "assertions": {
+        "displayExpression": "",
+        "displayResult": "0",
+        "lifecycle": "empty",
+        "answer": 25,
+        "control.nbase.radix": 2,
+        "control.errorCode": null
+      },
+      "viewAssertions": {
+        "expressionHtml": "",
+        "resultHtml": "0<sup class=\"scicalc__base-marker\" aria-label=\"BIN\">b</sup>"
+      },
+      "domResultText": "0b"
+    },
+    {
+      "afterStep": 16,
+      "assertions": {
+        "displayExpression": "NEG",
+        "displayResult": "0",
+        "lifecycle": "entering",
+        "answer": 25,
+        "control.nbase.radix": 2,
+        "control.errorCode": null
+      },
+      "viewAssertions": {
+        "expressionHtml": "NEG<span class=\"scicalc__cursor\" aria-hidden=\"true\"></span>",
+        "resultHtml": "0<sup class=\"scicalc__base-marker\" aria-label=\"BIN\">b</sup>"
+      },
+      "domResultText": "0b"
+    },
+    {
+      "afterStep": 17,
+      "assertions": {
+        "displayExpression": "NEG",
+        "displayResult": "1",
+        "lifecycle": "entering",
+        "answer": 25,
+        "control.nbase.radix": 2,
+        "control.errorCode": null
+      },
+      "viewAssertions": {
+        "expressionHtml": "NEG<span class=\"scicalc__cursor\" aria-hidden=\"true\"></span>",
+        "resultHtml": "1<sup class=\"scicalc__base-marker\" aria-label=\"BIN\">b</sup>"
+      },
+      "domResultText": "1b"
+    },
+    {
+      "afterStep": 18,
+      "assertions": {
+        "displayExpression": "NEG1=",
+        "displayResult": "1111111111",
+        "lifecycle": "evaluated",
+        "answer": -1,
+        "control.nbase.radix": 2,
+        "control.errorCode": null
+      },
+      "viewAssertions": {
+        "expressionHtml": "NEG1=",
+        "resultHtml": "1111111111<sup class=\"scicalc__base-marker\" aria-label=\"BIN\">b</sup>"
+      },
+      "domResultText": "1111111111b"
+    },
+    {
+      "afterStep": 19,
+      "assertions": {
+        "displayExpression": "NEG1=",
+        "displayResult": "1111111111",
+        "lifecycle": "evaluated",
+        "answer": -1,
+        "control.nbase.radix": 2,
+        "control.errorCode": null
+      },
+      "viewAssertions": {
+        "expressionHtml": "NEG1=",
+        "resultHtml": "1111111111<sup class=\"scicalc__base-marker\" aria-label=\"BIN\">b</sup>"
+      },
+      "domResultText": "1111111111b"
+    },
+    {
+      "afterStep": 20,
+      "assertions": {
+        "displayExpression": "1111111111→HEX",
+        "displayResult": "FFFFFFFFFF",
+        "lifecycle": "evaluated",
+        "answer": -1,
+        "control.nbase.radix": 16,
+        "control.errorCode": null
+      },
+      "viewAssertions": {
+        "expressionHtml": "1111111111→HEX",
+        "resultHtml": "FFFFFFFFFF<sup class=\"scicalc__base-marker\" aria-label=\"HEX\">H</sup>"
+      },
+      "domResultText": "FFFFFFFFFFH"
+    },
+    {
+      "afterStep": 21,
+      "assertions": {
+        "displayExpression": "1111111111→HEX",
+        "displayResult": "FFFFFFFFFF",
+        "lifecycle": "evaluated",
+        "answer": -1,
+        "control.nbase.radix": 16,
+        "control.errorCode": null
+      },
+      "viewAssertions": {
+        "expressionHtml": "1111111111→HEX",
+        "resultHtml": "FFFFFFFFFF<sup class=\"scicalc__base-marker\" aria-label=\"HEX\">H</sup>"
+      },
+      "domResultText": "FFFFFFFFFFH"
+    },
+    {
+      "afterStep": 22,
+      "assertions": {
+        "displayExpression": "FFFFFFFFFF→PEN",
+        "displayResult": "4444444444",
+        "lifecycle": "evaluated",
+        "answer": -1,
+        "control.nbase.radix": 5,
+        "control.errorCode": null
+      },
+      "viewAssertions": {
+        "expressionHtml": "FFFFFFFFFF→PEN",
+        "resultHtml": "4444444444<sup class=\"scicalc__base-marker\" aria-label=\"PEN\">P</sup>"
+      },
+      "domResultText": "4444444444P"
+    },
+    {
+      "afterStep": 23,
+      "assertions": {
+        "displayExpression": "FFFFFFFFFF→PEN",
+        "displayResult": "4444444444",
+        "lifecycle": "evaluated",
+        "answer": -1,
+        "control.nbase.radix": 5,
+        "control.errorCode": null
+      },
+      "viewAssertions": {
+        "expressionHtml": "FFFFFFFFFF→PEN",
+        "resultHtml": "4444444444<sup class=\"scicalc__base-marker\" aria-label=\"PEN\">P</sup>"
+      },
+      "domResultText": "4444444444P"
+    },
+    {
+      "afterStep": 24,
+      "assertions": {
+        "displayExpression": "4444444444→OCT",
+        "displayResult": "7777777777",
+        "lifecycle": "evaluated",
+        "answer": -1,
+        "control.nbase.radix": 8,
+        "control.errorCode": null
+      },
+      "viewAssertions": {
+        "expressionHtml": "4444444444→OCT",
+        "resultHtml": "7777777777<sup class=\"scicalc__base-marker\" aria-label=\"OCT\">o</sup>"
+      },
+      "domResultText": "7777777777o"
+    },
+    {
+      "afterStep": 25,
+      "assertions": {
+        "displayExpression": "4444444444→OCT",
+        "displayResult": "7777777777",
+        "lifecycle": "evaluated",
+        "answer": -1,
+        "control.nbase.radix": 8,
+        "control.errorCode": null
+      },
+      "viewAssertions": {
+        "expressionHtml": "4444444444→OCT",
+        "resultHtml": "7777777777<sup class=\"scicalc__base-marker\" aria-label=\"OCT\">o</sup>"
+      },
+      "domResultText": "7777777777o"
+    },
+    {
+      "afterStep": 26,
+      "assertions": {
+        "displayExpression": "7777777777→DEC",
+        "displayResult": "-1",
+        "lifecycle": "evaluated",
+        "answer": -1,
+        "control.nbase.radix": 10,
+        "control.errorCode": null
+      },
+      "viewAssertions": {
+        "expressionHtml": "7777777777→DEC",
+        "resultHtml": "-1."
+      },
+      "domResultText": "-1."
+    },
+    {
+      "afterStep": 27,
+      "assertions": {
+        "displayExpression": "7777777777→DEC",
+        "displayResult": "-1",
+        "lifecycle": "evaluated",
+        "answer": -1,
+        "control.nbase.radix": 10,
+        "control.errorCode": null
+      },
+      "viewAssertions": {
+        "expressionHtml": "7777777777→DEC",
+        "resultHtml": "-1."
+      },
+      "domResultText": "-1."
+    },
+    {
+      "afterStep": 28,
+      "assertions": {
+        "displayExpression": "(-1)→BIN",
+        "displayResult": "1111111111",
+        "lifecycle": "evaluated",
+        "answer": -1,
+        "control.nbase.radix": 2,
+        "control.errorCode": null
+      },
+      "viewAssertions": {
+        "expressionHtml": "(-1)→BIN",
+        "resultHtml": "1111111111<sup class=\"scicalc__base-marker\" aria-label=\"BIN\">b</sup>"
+      },
+      "domResultText": "1111111111b"
+    },
+    {
+      "afterStep": 29,
+      "assertions": {
+        "displayExpression": "",
+        "displayResult": "0",
+        "lifecycle": "empty",
+        "answer": -1,
+        "control.nbase.radix": 2,
+        "control.errorCode": null
+      },
+      "viewAssertions": {
+        "expressionHtml": "",
+        "resultHtml": "0<sup class=\"scicalc__base-marker\" aria-label=\"BIN\">b</sup>"
+      },
+      "domResultText": "0b"
+    },
+    {
+      "afterStep": 30,
+      "assertions": {
+        "displayExpression": "NOT",
+        "displayResult": "0",
+        "lifecycle": "entering",
+        "answer": -1,
+        "control.nbase.radix": 2,
+        "control.errorCode": null
+      },
+      "viewAssertions": {
+        "expressionHtml": "NOT<span class=\"scicalc__cursor\" aria-hidden=\"true\"></span>",
+        "resultHtml": "0<sup class=\"scicalc__base-marker\" aria-label=\"BIN\">b</sup>"
+      },
+      "domResultText": "0b"
+    },
+    {
+      "afterStep": 31,
+      "assertions": {
+        "displayExpression": "NOT",
+        "displayResult": "0",
+        "lifecycle": "entering",
+        "answer": -1,
+        "control.nbase.radix": 2,
+        "control.errorCode": null
+      },
+      "viewAssertions": {
+        "expressionHtml": "NOT<span class=\"scicalc__cursor\" aria-hidden=\"true\"></span>",
+        "resultHtml": "0<sup class=\"scicalc__base-marker\" aria-label=\"BIN\">b</sup>"
+      },
+      "domResultText": "0b"
+    },
+    {
+      "afterStep": 32,
+      "assertions": {
+        "displayExpression": "NOT0=",
+        "displayResult": "1111111111",
+        "lifecycle": "evaluated",
+        "answer": -1,
+        "control.nbase.radix": 2,
+        "control.errorCode": null
+      },
+      "viewAssertions": {
+        "expressionHtml": "NOT0=",
+        "resultHtml": "1111111111<sup class=\"scicalc__base-marker\" aria-label=\"BIN\">b</sup>"
+      },
+      "domResultText": "1111111111b"
+    },
+    {
+      "afterStep": 33,
+      "assertions": {
+        "displayExpression": "",
+        "displayResult": "0",
+        "lifecycle": "empty",
+        "answer": -1,
+        "control.nbase.radix": 2,
+        "control.errorCode": null
+      },
+      "viewAssertions": {
+        "expressionHtml": "",
+        "resultHtml": "0<sup class=\"scicalc__base-marker\" aria-label=\"BIN\">b</sup>"
+      },
+      "domResultText": "0b"
+    },
+    {
+      "afterStep": 34,
+      "assertions": {
+        "displayExpression": "",
+        "displayResult": "1",
+        "lifecycle": "entering",
+        "answer": -1,
+        "control.nbase.radix": 2,
+        "control.errorCode": null
+      },
+      "viewAssertions": {
+        "expressionHtml": "",
+        "resultHtml": "1<sup class=\"scicalc__base-marker\" aria-label=\"BIN\">b</sup>"
+      },
+      "domResultText": "1b"
+    },
+    {
+      "afterStep": 35,
+      "assertions": {
+        "displayExpression": "1OR",
+        "displayResult": "0",
+        "lifecycle": "entering",
+        "answer": -1,
+        "control.nbase.radix": 2,
+        "control.errorCode": null
+      },
+      "viewAssertions": {
+        "expressionHtml": "1OR<span class=\"scicalc__cursor\" aria-hidden=\"true\"></span>",
+        "resultHtml": "0<sup class=\"scicalc__base-marker\" aria-label=\"BIN\">b</sup>"
+      },
+      "domResultText": "0b"
+    },
+    {
+      "afterStep": 36,
+      "assertions": {
+        "displayExpression": "1OR",
+        "displayResult": "1",
+        "lifecycle": "entering",
+        "answer": -1,
+        "control.nbase.radix": 2,
+        "control.errorCode": null
+      },
+      "viewAssertions": {
+        "expressionHtml": "1OR<span class=\"scicalc__cursor\" aria-hidden=\"true\"></span>",
+        "resultHtml": "1<sup class=\"scicalc__base-marker\" aria-label=\"BIN\">b</sup>"
+      },
+      "domResultText": "1b"
+    },
+    {
+      "afterStep": 37,
+      "assertions": {
+        "displayExpression": "1OR1AND",
+        "displayResult": "0",
+        "lifecycle": "entering",
+        "answer": -1,
+        "control.nbase.radix": 2,
+        "control.errorCode": null
+      },
+      "viewAssertions": {
+        "expressionHtml": "1OR1ANd<span class=\"scicalc__cursor\" aria-hidden=\"true\"></span>",
+        "resultHtml": "0<sup class=\"scicalc__base-marker\" aria-label=\"BIN\">b</sup>"
+      },
+      "domResultText": "0b"
+    },
+    {
+      "afterStep": 38,
+      "assertions": {
+        "displayExpression": "1OR1AND",
+        "displayResult": "0",
+        "lifecycle": "entering",
+        "answer": -1,
+        "control.nbase.radix": 2,
+        "control.errorCode": null
+      },
+      "viewAssertions": {
+        "expressionHtml": "1OR1ANd<span class=\"scicalc__cursor\" aria-hidden=\"true\"></span>",
+        "resultHtml": "0<sup class=\"scicalc__base-marker\" aria-label=\"BIN\">b</sup>"
+      },
+      "domResultText": "0b"
+    },
+    {
+      "afterStep": 39,
+      "assertions": {
+        "displayExpression": "1OR1AND0=",
+        "displayResult": "1",
+        "lifecycle": "evaluated",
+        "answer": 1,
+        "control.nbase.radix": 2,
+        "control.errorCode": null
+      },
+      "viewAssertions": {
+        "expressionHtml": "1OR1ANd0=",
+        "resultHtml": "1<sup class=\"scicalc__base-marker\" aria-label=\"BIN\">b</sup>"
+      },
+      "domResultText": "1b"
+    },
+    {
+      "afterStep": 40,
+      "assertions": {
+        "displayExpression": "",
+        "displayResult": "0",
+        "lifecycle": "empty",
+        "answer": 1,
+        "control.nbase.radix": 2,
+        "control.errorCode": null
+      },
+      "viewAssertions": {
+        "expressionHtml": "",
+        "resultHtml": "0<sup class=\"scicalc__base-marker\" aria-label=\"BIN\">b</sup>"
+      },
+      "domResultText": "0b"
+    },
+    {
+      "afterStep": 41,
+      "assertions": {
+        "displayExpression": "",
+        "displayResult": "0",
+        "lifecycle": "empty",
+        "answer": 1,
+        "control.nbase.radix": 2,
+        "control.errorCode": null
+      },
+      "viewAssertions": {
+        "expressionHtml": "",
+        "resultHtml": "0<sup class=\"scicalc__base-marker\" aria-label=\"BIN\">b</sup>"
+      },
+      "domResultText": "0b"
+    },
+    {
+      "afterStep": 42,
+      "assertions": {
+        "displayExpression": "0→HEX",
+        "displayResult": "0",
+        "lifecycle": "evaluated",
+        "answer": 0,
+        "control.nbase.radix": 16,
+        "control.errorCode": null
+      },
+      "viewAssertions": {
+        "expressionHtml": "0→HEX",
+        "resultHtml": "0<sup class=\"scicalc__base-marker\" aria-label=\"HEX\">H</sup>"
+      },
+      "domResultText": "0H"
+    },
+    {
+      "afterStep": 43,
+      "assertions": {
+        "displayExpression": "",
+        "displayResult": "3",
+        "lifecycle": "entering",
+        "answer": 0,
+        "control.nbase.radix": 16,
+        "control.errorCode": null
+      },
+      "viewAssertions": {
+        "expressionHtml": "",
+        "resultHtml": "3<sup class=\"scicalc__base-marker\" aria-label=\"HEX\">H</sup>"
+      },
+      "domResultText": "3H"
+    },
+    {
+      "afterStep": 44,
+      "assertions": {
+        "displayExpression": "3:",
+        "displayResult": "0",
+        "lifecycle": "entering",
+        "answer": 0,
+        "control.nbase.radix": 16,
+        "control.errorCode": null
+      },
+      "viewAssertions": {
+        "expressionHtml": "3&divide;<span class=\"scicalc__cursor\" aria-hidden=\"true\"></span>",
+        "resultHtml": "0<sup class=\"scicalc__base-marker\" aria-label=\"HEX\">H</sup>"
+      },
+      "domResultText": "0H"
+    },
+    {
+      "afterStep": 45,
+      "assertions": {
+        "displayExpression": "3:",
+        "displayResult": "2",
+        "lifecycle": "entering",
+        "answer": 0,
+        "control.nbase.radix": 16,
+        "control.errorCode": null
+      },
+      "viewAssertions": {
+        "expressionHtml": "3&divide;<span class=\"scicalc__cursor\" aria-hidden=\"true\"></span>",
+        "resultHtml": "2<sup class=\"scicalc__base-marker\" aria-label=\"HEX\">H</sup>"
+      },
+      "domResultText": "2H"
+    },
+    {
+      "afterStep": 46,
+      "assertions": {
+        "displayExpression": "3:2*",
+        "displayResult": "0",
+        "lifecycle": "entering",
+        "answer": 0,
+        "control.nbase.radix": 16,
+        "control.errorCode": null
+      },
+      "viewAssertions": {
+        "expressionHtml": "3&divide;2&times;<span class=\"scicalc__cursor\" aria-hidden=\"true\"></span>",
+        "resultHtml": "0<sup class=\"scicalc__base-marker\" aria-label=\"HEX\">H</sup>"
+      },
+      "domResultText": "0H"
+    },
+    {
+      "afterStep": 47,
+      "assertions": {
+        "displayExpression": "3:2*",
+        "displayResult": "2",
+        "lifecycle": "entering",
+        "answer": 0,
+        "control.nbase.radix": 16,
+        "control.errorCode": null
+      },
+      "viewAssertions": {
+        "expressionHtml": "3&divide;2&times;<span class=\"scicalc__cursor\" aria-hidden=\"true\"></span>",
+        "resultHtml": "2<sup class=\"scicalc__base-marker\" aria-label=\"HEX\">H</sup>"
+      },
+      "domResultText": "2H"
+    },
+    {
+      "afterStep": 48,
+      "assertions": {
+        "displayExpression": "3:2*2=",
+        "displayResult": "2",
+        "lifecycle": "evaluated",
+        "answer": 2,
+        "control.nbase.radix": 16,
+        "control.errorCode": null
+      },
+      "viewAssertions": {
+        "expressionHtml": "3&divide;2&times;2=",
+        "resultHtml": "2<sup class=\"scicalc__base-marker\" aria-label=\"HEX\">H</sup>"
+      },
+      "domResultText": "2H"
+    },
+    {
+      "afterStep": 49,
+      "assertions": {
+        "displayExpression": "",
+        "displayResult": "0",
+        "lifecycle": "empty",
+        "answer": 2,
+        "control.nbase.radix": 10,
+        "control.errorCode": null
+      },
+      "viewAssertions": {
+        "expressionHtml": "",
+        "resultHtml": "0."
+      },
+      "domResultText": "0."
+    },
+    {
+      "afterStep": 50,
+      "assertions": {
+        "displayExpression": "",
+        "displayResult": "5",
+        "lifecycle": "entering",
+        "answer": 2,
+        "control.nbase.radix": 10,
+        "control.errorCode": null
+      },
+      "viewAssertions": {
+        "expressionHtml": "",
+        "resultHtml": "5."
+      },
+      "domResultText": "5."
+    },
+    {
+      "afterStep": 51,
+      "assertions": {
+        "displayExpression": "",
+        "displayResult": "51",
+        "lifecycle": "entering",
+        "answer": 2,
+        "control.nbase.radix": 10,
+        "control.errorCode": null
+      },
+      "viewAssertions": {
+        "expressionHtml": "",
+        "resultHtml": "51."
+      },
+      "domResultText": "51."
+    },
+    {
+      "afterStep": 52,
+      "assertions": {
+        "displayExpression": "",
+        "displayResult": "512",
+        "lifecycle": "entering",
+        "answer": 2,
+        "control.nbase.radix": 10,
+        "control.errorCode": null
+      },
+      "viewAssertions": {
+        "expressionHtml": "",
+        "resultHtml": "512."
+      },
+      "domResultText": "512."
+    },
+    {
+      "afterStep": 53,
+      "assertions": {
+        "displayExpression": "",
+        "displayResult": "512",
+        "lifecycle": "entering",
+        "answer": 2,
+        "control.nbase.radix": 10,
+        "control.errorCode": null
+      },
+      "viewAssertions": {
+        "expressionHtml": "",
+        "resultHtml": "512."
+      },
+      "domResultText": "512."
+    },
+    {
+      "afterStep": 54,
+      "assertions": {
+        "displayExpression": "",
+        "displayResult": "Error",
+        "lifecycle": "error",
+        "answer": 2,
+        "control.nbase.radix": 10,
+        "control.errorCode": 2
+      },
+      "viewAssertions": {
+        "expressionHtml": "Error 2",
+        "resultHtml": ""
+      },
+      "domResultText": ""
+    },
+    {
+      "afterStep": 55,
+      "assertions": {
+        "displayExpression": "",
+        "displayResult": "0",
+        "lifecycle": "empty",
+        "answer": 2,
+        "control.nbase.radix": 10,
+        "control.errorCode": null
+      },
+      "viewAssertions": {
+        "expressionHtml": "",
+        "resultHtml": "0."
+      },
+      "domResultText": "0."
+    },
+    {
+      "afterStep": 56,
+      "assertions": {
+        "displayExpression": "",
+        "displayResult": "0",
+        "lifecycle": "empty",
+        "answer": 2,
+        "control.nbase.radix": 10,
+        "control.errorCode": null
+      },
+      "viewAssertions": {
+        "expressionHtml": "",
+        "resultHtml": "0."
+      },
+      "domResultText": "0."
+    },
+    {
+      "afterStep": 57,
+      "assertions": {
+        "displayExpression": "0→BIN",
+        "displayResult": "0",
+        "lifecycle": "evaluated",
+        "answer": 0,
+        "control.nbase.radix": 2,
+        "control.errorCode": null
+      },
+      "viewAssertions": {
+        "expressionHtml": "0→BIN",
+        "resultHtml": "0<sup class=\"scicalc__base-marker\" aria-label=\"BIN\">b</sup>"
+      },
+      "domResultText": "0b"
+    },
+    {
+      "afterStep": 58,
+      "assertions": {
+        "displayExpression": "",
+        "displayResult": "1",
+        "lifecycle": "entering",
+        "answer": 0,
+        "control.nbase.radix": 2,
+        "control.errorCode": null
+      },
+      "viewAssertions": {
+        "expressionHtml": "",
+        "resultHtml": "1<sup class=\"scicalc__base-marker\" aria-label=\"BIN\">b</sup>"
+      },
+      "domResultText": "1b"
+    },
+    {
+      "afterStep": 59,
+      "assertions": {
+        "displayExpression": "1XNOR",
+        "displayResult": "0",
+        "lifecycle": "entering",
+        "answer": 0,
+        "control.nbase.radix": 2,
+        "control.errorCode": null
+      },
+      "viewAssertions": {
+        "expressionHtml": "1XNOR<span class=\"scicalc__cursor\" aria-hidden=\"true\"></span>",
+        "resultHtml": "0<sup class=\"scicalc__base-marker\" aria-label=\"BIN\">b</sup>"
+      },
+      "domResultText": "0b"
+    },
+    {
+      "afterStep": 60,
+      "assertions": {
+        "displayExpression": "1XNOR",
+        "displayResult": "0",
+        "lifecycle": "entering",
+        "answer": 0,
+        "control.nbase.radix": 2,
+        "control.errorCode": null
+      },
+      "viewAssertions": {
+        "expressionHtml": "1XNOR<span class=\"scicalc__cursor\" aria-hidden=\"true\"></span>",
+        "resultHtml": "0<sup class=\"scicalc__base-marker\" aria-label=\"BIN\">b</sup>"
+      },
+      "domResultText": "0b"
+    },
+    {
+      "afterStep": 61,
+      "assertions": {
+        "displayExpression": "1XNOR0=",
+        "displayResult": "1111111110",
+        "lifecycle": "evaluated",
+        "answer": -2,
+        "control.nbase.radix": 2,
+        "control.errorCode": null
+      },
+      "viewAssertions": {
+        "expressionHtml": "1XNOR0=",
+        "resultHtml": "1111111110<sup class=\"scicalc__base-marker\" aria-label=\"BIN\">b</sup>"
+      },
+      "domResultText": "1111111110b"
+    },
+    {
+      "afterStep": 62,
+      "assertions": {
+        "displayExpression": "",
+        "displayResult": "0",
+        "lifecycle": "empty",
+        "answer": -2,
+        "control.nbase.radix": 2,
+        "control.errorCode": null
+      },
+      "viewAssertions": {
+        "expressionHtml": "",
+        "resultHtml": "0<sup class=\"scicalc__base-marker\" aria-label=\"BIN\">b</sup>"
+      },
+      "domResultText": "0b"
+    },
+    {
+      "afterStep": 63,
+      "assertions": {
+        "displayExpression": "",
+        "displayResult": "1",
+        "lifecycle": "entering",
+        "answer": -2,
+        "control.nbase.radix": 2,
+        "control.errorCode": null
+      },
+      "viewAssertions": {
+        "expressionHtml": "",
+        "resultHtml": "1<sup class=\"scicalc__base-marker\" aria-label=\"BIN\">b</sup>"
+      },
+      "domResultText": "1b"
+    },
+    {
+      "afterStep": 64,
+      "assertions": {
+        "displayExpression": "1XOR",
+        "displayResult": "0",
+        "lifecycle": "entering",
+        "answer": -2,
+        "control.nbase.radix": 2,
+        "control.errorCode": null
+      },
+      "viewAssertions": {
+        "expressionHtml": "1XOR<span class=\"scicalc__cursor\" aria-hidden=\"true\"></span>",
+        "resultHtml": "0<sup class=\"scicalc__base-marker\" aria-label=\"BIN\">b</sup>"
+      },
+      "domResultText": "0b"
+    },
+    {
+      "afterStep": 65,
+      "assertions": {
+        "displayExpression": "1XOR",
+        "displayResult": "1",
+        "lifecycle": "entering",
+        "answer": -2,
+        "control.nbase.radix": 2,
+        "control.errorCode": null
+      },
+      "viewAssertions": {
+        "expressionHtml": "1XOR<span class=\"scicalc__cursor\" aria-hidden=\"true\"></span>",
+        "resultHtml": "1<sup class=\"scicalc__base-marker\" aria-label=\"BIN\">b</sup>"
+      },
+      "domResultText": "1b"
+    },
+    {
+      "afterStep": 66,
+      "assertions": {
+        "displayExpression": "1XOR1=",
+        "displayResult": "0",
+        "lifecycle": "evaluated",
+        "answer": 0,
+        "control.nbase.radix": 2,
+        "control.errorCode": null
+      },
+      "viewAssertions": {
+        "expressionHtml": "1XOR1=",
+        "resultHtml": "0<sup class=\"scicalc__base-marker\" aria-label=\"BIN\">b</sup>"
+      },
+      "domResultText": "0b"
+    }
+  ],
+  "knownDifferences": [
+    {
+      "afterStep": 0,
+      "field": "displayResult",
+      "expected": "0.",
+      "actual": "0"
+    },
+    {
+      "afterStep": 14,
+      "field": "displayExpression",
+      "expected": "Error 1",
+      "actual": "1NEG"
+    },
+    {
+      "afterStep": 14,
+      "field": "displayResult",
+      "expected": "",
+      "actual": "Error"
+    },
+    {
+      "afterStep": 20,
+      "field": "displayExpression",
+      "expected": "11111111→H",
+      "actual": "1111111111→HEX"
+    },
+    {
+      "afterStep": 22,
+      "field": "displayExpression",
+      "expected": "FFFFFFFF→P",
+      "actual": "FFFFFFFFFF→PEN"
+    },
+    {
+      "afterStep": 24,
+      "field": "displayExpression",
+      "expected": "44444444→O",
+      "actual": "4444444444→OCT"
+    },
+    {
+      "afterStep": 26,
+      "field": "displayExpression",
+      "expected": "77777777→D",
+      "actual": "7777777777→DEC"
+    },
+    {
+      "afterStep": 26,
+      "field": "displayResult",
+      "expected": "-1.",
+      "actual": "-1"
+    },
+    {
+      "afterStep": 48,
+      "field": "displayExpression",
+      "expected": "3÷2×2=",
+      "actual": "3:2*2="
+    },
+    {
+      "afterStep": 49,
+      "field": "displayResult",
+      "expected": "0.",
+      "actual": "0"
+    },
+    {
+      "afterStep": 54,
+      "field": "displayExpression",
+      "expected": "Error 2",
+      "actual": ""
+    },
+    {
+      "afterStep": 54,
+      "field": "displayResult",
+      "expected": "",
+      "actual": "Error"
+    }
+  ]
+}
