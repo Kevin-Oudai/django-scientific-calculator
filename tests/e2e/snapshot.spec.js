@@ -1,7 +1,7 @@
 const { test, expect } = require("@playwright/test");
 
 test("browser snapshot restores rendered state and rejects invalid versions", async ({ page }) => {
-  await page.goto("/");
+  await page.goto("/legacy/");
   const root = page.locator("[data-scientific-calculator]").first();
   await root.focus();
   await page.keyboard.type("12+3");

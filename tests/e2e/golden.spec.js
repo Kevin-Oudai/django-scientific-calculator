@@ -5,11 +5,13 @@ for (const fixture of loadFixtures().filter(f => f.status !== "pending")) {
   test(`canonical baseline browser replay: ${fixture.id}`, async ({ page }) => {
     const errors = [];
     page.on("pageerror", error => errors.push(error.message));
-    await page.goto("/");
+    await page.goto(fixture.displayProfile === "physical" ? "/" : "/legacy/");
     const root = page.locator("[data-scientific-calculator]").first();
     for (let step = 0; step <= fixture.sequence.length; step++) {
       if (step) {
-        if (fixture.dispatch === "physical") {
+        if (fixture.displayProfile === "physical") {
+          await root.locator(`[data-key-id="${fixture.sequence[step-1]}"]`).click();
+        } else if (fixture.dispatch === "physical") {
           await root.evaluate((el,id)=>el.scientificCalculator.pressKey(id),fixture.sequence[step-1]);
         } else {
         const event = baseEvents[fixture.sequence[step - 1]];

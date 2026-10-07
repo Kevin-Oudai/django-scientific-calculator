@@ -10,7 +10,14 @@
         "row": 1,
         "slot": 1
       },
-      "reference_legend": "HOME"
+      "reference_legend": "HOME",
+      "legends": {
+        "primary": "HOME",
+        "second": "",
+        "alpha": "",
+        "mode": "",
+        "formula": ""
+      }
     },
     {
       "id": "EL506-K02",
@@ -19,7 +26,14 @@
         "row": 1,
         "slot": 2
       },
-      "reference_legend": "ON/C"
+      "reference_legend": "ON/C",
+      "legends": {
+        "primary": "ON/C",
+        "second": "OFF",
+        "alpha": "",
+        "mode": "",
+        "formula": ""
+      }
     },
     {
       "id": "EL506-K03",
@@ -28,7 +42,14 @@
         "row": 2,
         "slot": 1
       },
-      "reference_legend": "2nd F"
+      "reference_legend": "2nd F",
+      "legends": {
+        "primary": "2nd F",
+        "second": "",
+        "alpha": "",
+        "mode": "",
+        "formula": ""
+      }
     },
     {
       "id": "EL506-K04",
@@ -37,7 +58,14 @@
         "row": 2,
         "slot": 2
       },
-      "reference_legend": "MODE"
+      "reference_legend": "MODE",
+      "legends": {
+        "primary": "MODE",
+        "second": "CA",
+        "alpha": "",
+        "mode": "",
+        "formula": ""
+      }
     },
     {
       "id": "EL506-K05",
@@ -46,7 +74,14 @@
         "row": 3,
         "slot": 1
       },
-      "reference_legend": "ALPHA"
+      "reference_legend": "ALPHA",
+      "legends": {
+        "primary": "ALPHA",
+        "second": "STAT VAR",
+        "alpha": "",
+        "mode": "",
+        "formula": ""
+      }
     },
     {
       "id": "EL506-K06",
@@ -55,7 +90,14 @@
         "row": 3,
         "slot": 2
       },
-      "reference_legend": "SET UP"
+      "reference_legend": "SET UP",
+      "legends": {
+        "primary": "SET UP",
+        "second": "",
+        "alpha": "",
+        "mode": "",
+        "formula": ""
+      }
     },
     {
       "id": "EL506-K07",
@@ -64,7 +106,14 @@
         "row": 3,
         "slot": 3
       },
-      "reference_legend": "DEL"
+      "reference_legend": "DEL",
+      "legends": {
+        "primary": "DEL",
+        "second": "INS",
+        "alpha": "",
+        "mode": "",
+        "formula": ""
+      }
     },
     {
       "id": "EL506-K08",
@@ -73,7 +122,14 @@
         "row": 1,
         "slot": 1
       },
-      "reference_legend": "up"
+      "reference_legend": "up",
+      "legends": {
+        "primary": "↑",
+        "second": "",
+        "alpha": "",
+        "mode": "",
+        "formula": "F1"
+      }
     },
     {
       "id": "EL506-K09",
@@ -82,7 +138,14 @@
         "row": 2,
         "slot": 1
       },
-      "reference_legend": "left"
+      "reference_legend": "left",
+      "legends": {
+        "primary": "←",
+        "second": "",
+        "alpha": "",
+        "mode": "",
+        "formula": "F2"
+      }
     },
     {
       "id": "EL506-K10",
@@ -91,7 +154,14 @@
         "row": 2,
         "slot": 2
       },
-      "reference_legend": "right"
+      "reference_legend": "right",
+      "legends": {
+        "primary": "→",
+        "second": "",
+        "alpha": "",
+        "mode": "",
+        "formula": "F3"
+      }
     },
     {
       "id": "EL506-K11",
@@ -100,7 +170,14 @@
         "row": 3,
         "slot": 1
       },
-      "reference_legend": "down"
+      "reference_legend": "down",
+      "legends": {
+        "primary": "↓",
+        "second": "",
+        "alpha": "",
+        "mode": "",
+        "formula": "F4"
+      }
     },
     {
       "id": "EL506-K12",
@@ -109,7 +186,14 @@
         "row": 1,
         "slot": 1
       },
-      "reference_legend": "hyp"
+      "reference_legend": "hyp",
+      "legends": {
+        "primary": "hyp",
+        "second": "arc hyp",
+        "alpha": "",
+        "mode": "NOT",
+        "formula": ""
+      }
     },
     {
       "id": "EL506-K13",
@@ -118,7 +202,14 @@
         "row": 1,
         "slot": 2
       },
-      "reference_legend": "sin"
+      "reference_legend": "sin",
+      "legends": {
+        "primary": "sin",
+        "second": "sin⁻¹",
+        "alpha": "",
+        "mode": "AND",
+        "formula": ""
+      }
     },
     {
       "id": "EL506-K14",
@@ -127,7 +218,14 @@
         "row": 1,
         "slot": 3
       },
-      "reference_legend": "cos"
+      "reference_legend": "cos",
+      "legends": {
+        "primary": "cos",
+        "second": "cos⁻¹",
+        "alpha": "",
+        "mode": "OR",
+        "formula": ""
+      }
     },
     {
       "id": "EL506-K15",
@@ -136,7 +234,14 @@
         "row": 1,
         "slot": 4
       },
-      "reference_legend": "tan"
+      "reference_legend": "tan",
+      "legends": {
+        "primary": "tan",
+        "second": "tan⁻¹",
+        "alpha": "",
+        "mode": "XOR",
+        "formula": ""
+      }
     },
     {
       "id": "EL506-K16",
@@ -145,7 +250,14 @@
         "row": 1,
         "slot": 5
       },
-      "reference_legend": "integral dx"
+      "reference_legend": "integral dx",
+      "legends": {
+        "primary": "∫dx",
+        "second": "d/dx",
+        "alpha": "",
+        "mode": "XNOR",
+        "formula": ""
+      }
     },
     {
       "id": "EL506-K17",
@@ -154,7 +266,14 @@
         "row": 1,
         "slot": 6
       },
-      "reference_legend": "MATH"
+      "reference_legend": "MATH",
+      "legends": {
+        "primary": "MATH",
+        "second": "ALGB",
+        "alpha": "",
+        "mode": "",
+        "formula": ""
+      }
     },
     {
       "id": "EL506-K18",
@@ -163,7 +282,14 @@
         "row": 2,
         "slot": 1
       },
-      "reference_legend": "pi"
+      "reference_legend": "pi",
+      "legends": {
+        "primary": "π",
+        "second": "x⁻¹",
+        "alpha": "A",
+        "mode": "",
+        "formula": ""
+      }
     },
     {
       "id": "EL506-K19",
@@ -172,7 +298,14 @@
         "row": 2,
         "slot": 2
       },
-      "reference_legend": "y^x"
+      "reference_legend": "y^x",
+      "legends": {
+        "primary": "yˣ",
+        "second": "ˣ√y",
+        "alpha": "B",
+        "mode": "",
+        "formula": ""
+      }
     },
     {
       "id": "EL506-K20",
@@ -181,7 +314,14 @@
         "row": 2,
         "slot": 3
       },
-      "reference_legend": "x^2"
+      "reference_legend": "x^2",
+      "legends": {
+        "primary": "x²",
+        "second": "√",
+        "alpha": "C",
+        "mode": "",
+        "formula": ""
+      }
     },
     {
       "id": "EL506-K21",
@@ -190,7 +330,14 @@
         "row": 2,
         "slot": 4
       },
-      "reference_legend": "x^3"
+      "reference_legend": "x^3",
+      "legends": {
+        "primary": "x³",
+        "second": "³√",
+        "alpha": "D",
+        "mode": "",
+        "formula": ""
+      }
     },
     {
       "id": "EL506-K22",
@@ -199,7 +346,14 @@
         "row": 2,
         "slot": 5
       },
-      "reference_legend": "log"
+      "reference_legend": "log",
+      "legends": {
+        "primary": "log",
+        "second": "10ˣ",
+        "alpha": "E",
+        "mode": "",
+        "formula": ""
+      }
     },
     {
       "id": "EL506-K23",
@@ -208,7 +362,14 @@
         "row": 2,
         "slot": 6
       },
-      "reference_legend": "ln"
+      "reference_legend": "ln",
+      "legends": {
+        "primary": "ln",
+        "second": "eˣ",
+        "alpha": "F",
+        "mode": "",
+        "formula": ""
+      }
     },
     {
       "id": "EL506-K24",
@@ -217,7 +378,14 @@
         "row": 3,
         "slot": 1
       },
-      "reference_legend": "Exp"
+      "reference_legend": "Exp",
+      "legends": {
+        "primary": "Exp",
+        "second": "↔,→",
+        "alpha": "",
+        "mode": "",
+        "formula": ""
+      }
     },
     {
       "id": "EL506-K25",
@@ -226,7 +394,14 @@
         "row": 3,
         "slot": 2
       },
-      "reference_legend": "a b/c"
+      "reference_legend": "a b/c",
+      "legends": {
+        "primary": "a b/c",
+        "second": "d/c",
+        "alpha": "",
+        "mode": "",
+        "formula": ""
+      }
     },
     {
       "id": "EL506-K26",
@@ -235,7 +410,14 @@
         "row": 3,
         "slot": 3
       },
-      "reference_legend": "DMS"
+      "reference_legend": "DMS",
+      "legends": {
+        "primary": "D°M′S",
+        "second": "↔ DEG",
+        "alpha": "",
+        "mode": "",
+        "formula": ""
+      }
     },
     {
       "id": "EL506-K27",
@@ -244,7 +426,14 @@
         "row": 3,
         "slot": 4
       },
-      "reference_legend": "RCL"
+      "reference_legend": "RCL",
+      "legends": {
+        "primary": "RCL",
+        "second": "",
+        "alpha": "X",
+        "mode": "",
+        "formula": ""
+      }
     },
     {
       "id": "EL506-K28",
@@ -253,7 +442,14 @@
         "row": 3,
         "slot": 5
       },
-      "reference_legend": "STO"
+      "reference_legend": "STO",
+      "legends": {
+        "primary": "STO",
+        "second": ",",
+        "alpha": "Y",
+        "mode": "(x,y)",
+        "formula": ""
+      }
     },
     {
       "id": "EL506-K29",
@@ -262,7 +458,14 @@
         "row": 3,
         "slot": 6
       },
-      "reference_legend": "M+"
+      "reference_legend": "M+",
+      "legends": {
+        "primary": "M+",
+        "second": "M−",
+        "alpha": "M",
+        "mode": "DATA CD",
+        "formula": ""
+      }
     },
     {
       "id": "EL506-K30",
@@ -271,7 +474,14 @@
         "row": 4,
         "slot": 1
       },
-      "reference_legend": "7"
+      "reference_legend": "7",
+      "legends": {
+        "primary": "7",
+        "second": "RANDOM",
+        "alpha": "ȳ",
+        "mode": "",
+        "formula": ""
+      }
     },
     {
       "id": "EL506-K31",
@@ -280,7 +490,14 @@
         "row": 4,
         "slot": 2
       },
-      "reference_legend": "8"
+      "reference_legend": "8",
+      "legends": {
+        "primary": "8",
+        "second": "→rθ",
+        "alpha": "sy",
+        "mode": "",
+        "formula": ""
+      }
     },
     {
       "id": "EL506-K32",
@@ -289,7 +506,14 @@
         "row": 4,
         "slot": 3
       },
-      "reference_legend": "9"
+      "reference_legend": "9",
+      "legends": {
+        "primary": "9",
+        "second": "→xy",
+        "alpha": "σy",
+        "mode": "",
+        "formula": ""
+      }
     },
     {
       "id": "EL506-K33",
@@ -298,7 +522,14 @@
         "row": 4,
         "slot": 4
       },
-      "reference_legend": "("
+      "reference_legend": "(",
+      "legends": {
+        "primary": "(",
+        "second": "x̂",
+        "alpha": "a",
+        "mode": "",
+        "formula": ""
+      }
     },
     {
       "id": "EL506-K34",
@@ -307,7 +538,14 @@
         "row": 4,
         "slot": 5
       },
-      "reference_legend": ")"
+      "reference_legend": ")",
+      "legends": {
+        "primary": ")",
+        "second": "ŷ",
+        "alpha": "b",
+        "mode": "",
+        "formula": ""
+      }
     },
     {
       "id": "EL506-K35",
@@ -316,7 +554,14 @@
         "row": 5,
         "slot": 1
       },
-      "reference_legend": "4"
+      "reference_legend": "4",
+      "legends": {
+        "primary": "4",
+        "second": "n!",
+        "alpha": "x̄",
+        "mode": "",
+        "formula": ""
+      }
     },
     {
       "id": "EL506-K36",
@@ -325,7 +570,14 @@
         "row": 5,
         "slot": 2
       },
-      "reference_legend": "5"
+      "reference_legend": "5",
+      "legends": {
+        "primary": "5",
+        "second": "nCr",
+        "alpha": "sx",
+        "mode": "",
+        "formula": ""
+      }
     },
     {
       "id": "EL506-K37",
@@ -334,7 +586,14 @@
         "row": 5,
         "slot": 3
       },
-      "reference_legend": "6"
+      "reference_legend": "6",
+      "legends": {
+        "primary": "6",
+        "second": "nPr",
+        "alpha": "σx",
+        "mode": "",
+        "formula": ""
+      }
     },
     {
       "id": "EL506-K38",
@@ -343,7 +602,14 @@
         "row": 5,
         "slot": 4
       },
-      "reference_legend": "multiply"
+      "reference_legend": "multiply",
+      "legends": {
+        "primary": "×",
+        "second": "→HEX",
+        "alpha": "c",
+        "mode": "",
+        "formula": ""
+      }
     },
     {
       "id": "EL506-K39",
@@ -352,7 +618,14 @@
         "row": 5,
         "slot": 5
       },
-      "reference_legend": "divide"
+      "reference_legend": "divide",
+      "legends": {
+        "primary": "÷",
+        "second": "→BIN",
+        "alpha": "r",
+        "mode": "",
+        "formula": ""
+      }
     },
     {
       "id": "EL506-K40",
@@ -361,7 +634,14 @@
         "row": 6,
         "slot": 1
       },
-      "reference_legend": "1"
+      "reference_legend": "1",
+      "legends": {
+        "primary": "1",
+        "second": "%",
+        "alpha": "Σxy",
+        "mode": "",
+        "formula": ""
+      }
     },
     {
       "id": "EL506-K41",
@@ -370,7 +650,14 @@
         "row": 6,
         "slot": 2
       },
-      "reference_legend": "2"
+      "reference_legend": "2",
+      "legends": {
+        "primary": "2",
+        "second": "CNST",
+        "alpha": "Σy",
+        "mode": "",
+        "formula": ""
+      }
     },
     {
       "id": "EL506-K42",
@@ -379,7 +666,14 @@
         "row": 6,
         "slot": 3
       },
-      "reference_legend": "3"
+      "reference_legend": "3",
+      "legends": {
+        "primary": "3",
+        "second": "CONV",
+        "alpha": "Σy²",
+        "mode": "",
+        "formula": ""
+      }
     },
     {
       "id": "EL506-K43",
@@ -388,7 +682,14 @@
         "row": 6,
         "slot": 4
       },
-      "reference_legend": "add"
+      "reference_legend": "add",
+      "legends": {
+        "primary": "+",
+        "second": "→PEN",
+        "alpha": "",
+        "mode": "",
+        "formula": ""
+      }
     },
     {
       "id": "EL506-K44",
@@ -397,7 +698,14 @@
         "row": 6,
         "slot": 5
       },
-      "reference_legend": "subtract"
+      "reference_legend": "subtract",
+      "legends": {
+        "primary": "−",
+        "second": "→OCT",
+        "alpha": "",
+        "mode": "",
+        "formula": ""
+      }
     },
     {
       "id": "EL506-K45",
@@ -406,7 +714,14 @@
         "row": 7,
         "slot": 1
       },
-      "reference_legend": "0"
+      "reference_legend": "0",
+      "legends": {
+        "primary": "0",
+        "second": "MDF",
+        "alpha": "n",
+        "mode": "",
+        "formula": ""
+      }
     },
     {
       "id": "EL506-K46",
@@ -415,7 +730,14 @@
         "row": 7,
         "slot": 2
       },
-      "reference_legend": "decimal point"
+      "reference_legend": "decimal point",
+      "legends": {
+        "primary": ".",
+        "second": "DRG▶",
+        "alpha": "Σx",
+        "mode": "",
+        "formula": ""
+      }
     },
     {
       "id": "EL506-K47",
@@ -424,7 +746,14 @@
         "row": 7,
         "slot": 3
       },
-      "reference_legend": "+/-"
+      "reference_legend": "+/-",
+      "legends": {
+        "primary": "+/−",
+        "second": "M-CLR",
+        "alpha": "Σx²",
+        "mode": "NEG",
+        "formula": ""
+      }
     },
     {
       "id": "EL506-K48",
@@ -433,7 +762,14 @@
         "row": 7,
         "slot": 4
       },
-      "reference_legend": "equals"
+      "reference_legend": "equals",
+      "legends": {
+        "primary": "=",
+        "second": "→DEC",
+        "alpha": "ANS",
+        "mode": "ENT",
+        "formula": ""
+      }
     }
   ]
 }

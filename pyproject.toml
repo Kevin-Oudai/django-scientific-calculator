@@ -5,7 +5,7 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "django-scientific-calculator"
 version = "0.3.1"
-description = "Reusable Django scientific calculator template tag with bundled static assets."
+description = "Reusable Django scientific calculator with physical keys, accessible display, and local themes."
 readme = "README.md"
 requires-python = ">=3.10"
 authors = [

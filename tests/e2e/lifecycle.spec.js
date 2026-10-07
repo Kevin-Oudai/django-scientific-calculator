@@ -1,6 +1,6 @@
 const {test, expect} = require('@playwright/test');
 test('browser lifecycle follows input and snapshots restore modal state', async ({page}) => {
-  await page.goto('/');
+  await page.goto('/legacy/');
   const root = page.locator('[data-scientific-calculator]');
   await expect(root).toHaveAttribute('data-entry-phase', 'empty');
   await root.focus(); await page.keyboard.press('1');

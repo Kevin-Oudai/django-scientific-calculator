@@ -154,7 +154,7 @@
     return output;
   }
 
-  function renderState(state) {
+  function renderState(state, options = {}) {
     const expressionForDisplay = () => {
       const { displayExpression: expression, selectionActive, cursor } = state;
       if (!expression) {
@@ -182,11 +182,70 @@
       return `<span class="scicalc__display-fraction scicalc__display-fraction--template">${partHtml("numerator")}${partHtml("denominator")}</span>`;
     };
 
-    return {
+    const view = {
       expressionHtml: formatExpression(expressionForDisplay()),
       resultHtml: state.stagedEntry?.type === 'fraction' ? stagedFractionHtml() : formatExpression(state.displayResult || '0'),
       angleLabel: state.angleMode, secondActive: state.secondActive, lifecycle: state.lifecycle,
     };
+    if (!options.physical) return view;
+    const settings = state.layers.settings;
+    const workflow = state.workflow;
+    const mode = state.layers.mode;
+    const indicators = {
+      '2ndF': state.secondActive, HYP: state.layers.hyp, ALPHA: state.layers.alpha || ['STO','RCL','STATVAR'].includes(workflow.payload?.id),
+      FIX: settings.format === 'FIX', SCI: settings.format === 'SCI', ENG: settings.format === 'ENG',
+      DEG: settings.angle === 'DEG', RAD: settings.angle === 'RAD', GRAD: settings.angle === 'GRAD',
+      CPLX: mode === 'CPLX', MAT: mode === 'MAT', LIST: mode === 'LIST', STAT: mode === 'STAT',
+      M: state.memoryValue !== 0, BIN: false, PEN: false, OCT: false, DEC: false, HEX: false,
+      'xy': false, 'rθ': false, '?': workflow.kind === 'prompt', '∠': false, 'i': false,
+    };
+    if (state.values.last.kind === 'nbase') indicators[({2:'BIN',5:'PEN',8:'OCT',10:'DEC',16:'HEX'})[state.values.last.radix]] = true;
+    const expression = state.displayExpression;
+    view.expressionHtml = expression ? formatExpression(expressionForDisplay()) : '';
+    view.cursorVisible = Boolean(expression) && ['entering','editing'].includes(state.lifecycle);
+    if (view.cursorVisible && (!state.selectionActive || state.cursor >= expression.length)) view.expressionHtml += '<span class="scicalc__cursor" aria-hidden="true"></span>';
+    view.insertMode = settings.insert === false ? 'overwrite' : 'insert';
+    view.cursorPosition = view.cursorVisible ? state.selectionActive ? state.cursor : expression.length : null;
+    view.component = '';
+    view.pageStatus = '';
+    view.previousPage = false;
+    view.nextPage = false;
+    if (workflow.kind === 'multi-result') {
+      const page = workflow.payload.pages[workflow.page];
+      const label = String(page.label ?? '');
+      view.expressionHtml = escapeHtml(label);
+      view.resultHtml = formatPageValue(page.value);
+      view.component = String(page.component ?? '');
+      view.pageStatus = `${workflow.page + 1} / ${workflow.payload.pages.length}`;
+      view.previousPage = workflow.page > 0;
+      view.nextPage = workflow.page + 1 < workflow.payload.pages.length;
+      view.cursorVisible = false;
+      if (['xy','rθ','∠','i'].includes(view.component)) indicators[view.component] = true;
+    } else if (workflow.kind === 'menu') {
+      const choices = workflow.payload.choices || [];
+      const start = workflow.page * 2;
+      const shown = choices.slice(start, start + 2);
+      view.expressionHtml = shown.map(choice => escapeHtml(String(choice))).join('   ');
+      view.resultHtml = shown.map((choice,index) => `${start + index}${choice === mode || choice === settings.angle || choice === settings.format ? '•' : ''}`).join('   ');
+      view.previousPage = start > 0;
+      view.nextPage = start + 2 < choices.length;
+      view.cursorVisible = false;
+    } else if (workflow.kind === 'prompt' || workflow.kind === 'data-entry') {
+      view.expressionHtml = escapeHtml(String(workflow.payload.id));
+      view.resultHtml = escapeHtml((workflow.payload.path || []).join('') || '?');
+      view.cursorVisible = false;
+    }
+    view.indicators = indicators;
+    if (!view.cursorVisible) view.cursorPosition = null;
+    return view;
   }
-  return Object.freeze({formatValue,formatExpression,renderState});
+  function formatPageValue(value) {
+    if (typeof value === 'number') return formatExpression(formatValue(value));
+    if (typeof value === 'string') return escapeHtml(value);
+    if (value?.kind === 'scalar') return formatExpression(formatValue(value.value));
+    if (value?.kind === 'rational') return `<span class="scicalc__display-fraction"><span>${escapeHtml(value.numerator)}</span><span>${escapeHtml(value.denominator)}</span></span>`;
+    if (value?.kind === 'nbase') return escapeHtml(BigInt(value.integer).toString(value.radix).toUpperCase());
+    return escapeHtml(String(value ?? ''));
+  }
+  return Object.freeze({formatValue,formatExpression,renderState,formatPageValue});
 });

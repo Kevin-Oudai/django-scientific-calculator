@@ -1,0 +1,207 @@
+{
+  "schemaVersion": 1,
+  "reviewId": "phase-2-ui-review-v1",
+  "reviewedOn": "2026-10-07",
+  "scope": "Phase 2 UI foundation only; package remains baseline 0.3.1, with no claim of full numerical or lifecycle parity. User explicitly requested the entire phase as one batch.",
+  "simulatorProfile": "sharp-el506ts-pc-simulator-1.0.2.0",
+  "runtimeSha256": "6bfef4d04900b472892be2d4c54dcfa6013f87232097e32df508ca4c27425530",
+  "sources": [
+    {
+      "reference": "physical-key-reference.json",
+      "scope": "Previously verified all 48 permanent IDs and physical positions; reobserved complete live panel on 2026-10-07."
+    },
+    {
+      "reference": "capability-ledger.json",
+      "scope": "Previously verified shifted and ALPHA legends; independently checked against live panel and local operation guide page 4."
+    },
+    {
+      "reference": "experiments/lcd-cursor.json",
+      "scope": "Fresh reset, two-line entry, end cursor, triangular selection, rectangular overwrite selection, 2ndF consumption."
+    },
+    {
+      "reference": "experiments/key-layers.json",
+      "scope": "Measured 2ndF/HYP/ALPHA state indications."
+    },
+    {
+      "reference": "experiments/menu-inventory.json",
+      "scope": "Measured mode/settings/menu exposure; no new numerical algorithms inferred."
+    },
+    {
+      "reference": "https://res.cloudinary.com/hnymxdy5j/raw/upload/v1743873557/media/00d7f000004ckruua4/EL506TSBWH_English_manual.pdf",
+      "scope": "Page 1 DISPLAY, insert/overwrite and flashing cursor; page 2 complex, equation, matrix and list result/component paging. Inspected both scanned pages; no manual artwork redistributed."
+    },
+    {
+      "reference": "https://global.sharp/products/calculators/sc_calculator/el-506ts/index.html",
+      "scope": "Official specification confirms two-key rollover. Browser overlapping-touch tests verify canonical ordering; physical hardware hold timing is not claimed."
+    }
+  ],
+  "items": [
+    {
+      "id": "EL506-030",
+      "name": "Reproduce physical key positions",
+      "scope": "48 native buttons in verified regions and row groups; navigation has no center key.",
+      "evidence": [
+        "physical-key-reference.json",
+        "tests/e2e/physical-ui.spec.js"
+      ],
+      "localStatus": "verified; publication tracked separately in update-plan.md"
+    },
+    {
+      "id": "EL506-031",
+      "name": "Reproduce functional labels",
+      "scope": "All orange 2ndF and green ALPHA legend keys covered by catalog and browser accessible names; mode/formula labels retained.",
+      "evidence": [
+        "capability-ledger.json",
+        "tests/unit/physical-ui.test.js"
+      ],
+      "localStatus": "verified; publication tracked separately in update-plan.md"
+    },
+    {
+      "id": "EL506-032",
+      "name": "Build two-line LCD model",
+      "scope": "Independent upper/lower content, clipping, alignment, user scrolling and hidden-content indicators.",
+      "evidence": [
+        "experiments/lcd-cursor.json",
+        "tests/e2e/physical-ui.spec.js"
+      ],
+      "localStatus": "verified; publication tracked separately in update-plan.md"
+    },
+    {
+      "id": "EL506-033",
+      "name": "Implement display indicators",
+      "scope": "Projects every requested modifier, angle, format, mode, memory, N-base and component flag from represented state; future algorithms own their state transitions.",
+      "evidence": [
+        "tests/unit/physical-ui.test.js",
+        "tests/e2e/physical-ui.spec.js"
+      ],
+      "localStatus": "verified; publication tracked separately in update-plan.md"
+    },
+    {
+      "id": "EL506-034",
+      "name": "Implement cursor and insert marker",
+      "scope": "Measured end/selection coordinates, INS toggle, cursor follow, overwrite marker, blinking manual exception and reduced motion.",
+      "evidence": [
+        "experiments/lcd-cursor.json",
+        "golden/physical-lcd-cursor.json",
+        "tests/unit/physical-ui.test.js"
+      ],
+      "localStatus": "verified; publication tracked separately in update-plan.md"
+    },
+    {
+      "id": "EL506-035",
+      "name": "Implement multi-result paging UI",
+      "scope": "Five supplied page families share bounded canonical arrow dispatch, without evaluation or store mutation.",
+      "evidence": [
+        "tests/unit/physical-ui.test.js",
+        "tests/e2e/physical-ui.spec.js"
+      ],
+      "localStatus": "verified; publication tracked separately in update-plan.md"
+    },
+    {
+      "id": "EL506-036",
+      "name": "Create dark default theme",
+      "scope": "Original unbranded dark case, accessible legend contrast and visible focus.",
+      "evidence": [
+        "tests/e2e/physical-visual.spec.js",
+        "tests/e2e/physical-ui.spec.js"
+      ],
+      "localStatus": "verified; publication tracked separately in update-plan.md"
+    },
+    {
+      "id": "EL506-037",
+      "name": "Theme override contract",
+      "scope": "Documented color/font/surface/shadow custom properties and shipped example; tests compare all key bounds unchanged.",
+      "evidence": [
+        "README.md",
+        "src/scientific_calculator/static/scientific_calculator/calculator-theme.example.css",
+        "tests/e2e/physical-ui.spec.js"
+      ],
+      "localStatus": "verified; publication tracked separately in update-plan.md"
+    },
+    {
+      "id": "EL506-038",
+      "name": "Safe branding customization",
+      "scope": "No-argument tag remains valid; brand text force-escaped even when marked safe; narrow template blocks tested.",
+      "evidence": [
+        "tests/django/test_integration.py",
+        "README.md"
+      ],
+      "localStatus": "verified; publication tracked separately in update-plan.md"
+    },
+    {
+      "id": "EL506-039",
+      "name": "Responsive layouts",
+      "scope": "320/390/768/1440px bounds, original ordering, all controls visible and pairwise nonoverlap; short host panels scroll.",
+      "evidence": [
+        "tests/e2e/physical-ui.spec.js",
+        "tests/e2e/physical-visual.spec.js"
+      ],
+      "localStatus": "verified; publication tracked separately in update-plan.md"
+    },
+    {
+      "id": "EL506-040",
+      "name": "Accessible key semantics",
+      "scope": "Native buttons, primary and modifier purposes, modifier pressed states, display/page status and error announcements, focus, text zoom, forced colors.",
+      "evidence": [
+        "tests/e2e/physical-ui.spec.js"
+      ],
+      "localStatus": "verified; publication tracked separately in update-plan.md"
+    },
+    {
+      "id": "EL506-041",
+      "name": "Unified input dispatch",
+      "scope": "Pointer-down, touch, keyboard and assistive button activation produce physical-key events; independent focus, host shortcuts and overlapping touch tested.",
+      "evidence": [
+        "tests/unit/physical-ui.test.js",
+        "tests/e2e/physical-ui.spec.js"
+      ],
+      "localStatus": "verified; publication tracked separately in update-plan.md"
+    },
+    {
+      "id": "EL506-042",
+      "name": "Visual regression coverage",
+      "scope": "18 original Windows Chromium baselines: both themes with default, focus, 2ndF, ALPHA, menu, error, long expression, phone and tablet.",
+      "evidence": [
+        "tests/e2e/physical-visual.spec.js",
+        ".github/workflows/checks.yml"
+      ],
+      "localStatus": "verified; publication tracked separately in update-plan.md"
+    },
+    {
+      "id": "EL506-043",
+      "name": "Pre-release trade-dress review",
+      "scope": "Completed review of the package and original screenshots; release-gate findings above, not legal advice.",
+      "evidence": [
+        "README.md",
+        "tests/ci/check-package.py"
+      ],
+      "localStatus": "verified; publication tracked separately in update-plan.md"
+    }
+  ],
+  "tradeDress": {
+    "status": "pass",
+    "gate": "Pre-release appearance review; revisit for EL506-382 before the final release. This is not legal advice.",
+    "reviewedAssets": [
+      "src/scientific_calculator/templates/scientific_calculator/calculator.html",
+      "src/scientific_calculator/templates/scientific_calculator/calculator-legacy.html",
+      "src/scientific_calculator/static/scientific_calculator/calculator.css",
+      "src/scientific_calculator/static/scientific_calculator/calculator-theme.example.css",
+      "tests/e2e/physical-visual.spec.js-snapshots/"
+    ],
+    "findings": [
+      "No Sharp logo, product wordmark, simulator bitmap, manual illustration, source screenshot or executable in the package.",
+      "Functional positions and legends are retained for instruction; case shape, colors, typography, button surfaces and all browser baseline images are independently authored.",
+      "No copied solar-panel ornament, proprietary decorative wordmarks, promotional product claims or false affiliation.",
+      "README states that this is an independent educational project with no Sharp affiliation or endorsement.",
+      "User-supplied src/OperationGuide_EL506TS.pdf remains untracked and is excluded from distributable package checks."
+    ]
+  },
+  "limitations": [
+    "Later phases own numerical algorithms, power, full editing/history lifecycle, menu semantics, numerical formatting, and complete component generation.",
+    "Phase 2 multi-result tests inject already-computed coordinate, complex, equation, matrix and list page data; they do not claim those mode algorithms are implemented.",
+    "Fresh cursor fixture explicitly records remaining legacy decimal-point and retained-entry display differences.",
+    "Blinking is an intentional physical-manual exception to the simulator, disabled for reduced motion. Pixel baselines use stable reduced-motion frames.",
+    "Pixel regression baselines target Windows Chromium; Windows CI checks them, Linux CI retains structural and interaction assertions.",
+    "Screen/page geometry is original and responsive, rather than pixel duplication of the simulator artwork."
+  ]
+}

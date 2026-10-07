@@ -6,4 +6,5 @@ from django.views.generic import TemplateView
 urlpatterns = [
     path("admin/", admin.site.urls),
     path("", TemplateView.as_view(template_name="demo/home.html"), name="home"),
+    path("legacy/", TemplateView.as_view(template_name="demo/home.html", extra_context={"calculator_layout": "legacy"}), name="legacy"),
 ]

@@ -506,6 +506,135 @@ as UTF-8 text with CRLF normalized to LF, so Windows checkouts remain reproducib
 The report runs offline, includes no external assets and does not modify the
 calculator's UI or assert that unimplemented features are complete.
 
+## Physical layout, theme, and branding (Phase 2)
+
+The default tag now renders 48 native buttons in the verified instructional
+positions, including a four-direction navigation pad and seven keypad rows
+of 6/6/6/5/5/5/4 keys. Orange legends identify 2ndF functions; green legends
+identify ALPHA functions. Mode-specific legends and formula-memory labels stay
+at their teaching positions. All artwork, styling, and browser screenshots
+are original. This independent educational project has no affiliation with
+or endorsement from Sharp.
+
+The original dark theme uses two independently scrollable LCD lines, status
+indicators, a cursor that follows horizontal navigation, insert/overwrite
+markers, and a reusable result-page renderer. Arrow keys page coordinate,
+complex, equation, matrix, and list results already supplied by the state
+machine, without evaluating again or changing stores. Their numerical
+algorithms remain assigned to the later feature phases. The numerical
+baseline and package version remain 0.3.1; this working-main UI update does
+not establish full EL-506TS parity or publish a new release tag. In particular,
+the golden cursor fixture records retained-entry and decimal-point display
+differences for the later lifecycle/formatting work.
+
+Existing tag and static entry paths remain valid:
+
+```django
+{% load static scientific_calculator %}
+<link rel="stylesheet" href="{% static 'scientific_calculator/calculator.css' %}">
+{% scientific_calculator %}
+<script src="{% static 'scientific_calculator/calculator.js' %}" defer></script>
+```
+
+Optional consumer brand text is escaped, including strings marked safe by
+the host. It is text, not HTML or a CSS selector:
+
+```django
+{% scientific_calculator brand="School mathematics lab" %}
+```
+
+Consumers that need the earlier key arrangement can explicitly use
+`{% scientific_calculator layout="legacy" %}`. Its previous operation mapping
+and baseline tests are retained. The default physical layout uses canonical
+physical-key sequencing, so shifted functions must be pressed at their verified
+positions. Unsupported later-phase functions retain a pending semantic intent;
+mode calculations awaiting implementation are announced rather than throwing
+uncaught browser errors. The local demo exposes the physical layout at `/`
+and the compatibility layout at `/legacy/`.
+
+### Theme override contract
+
+Load the shipped example after the main stylesheet, or copy its declarations
+into your own local stylesheet targeting `.scicalc`. No external fonts,
+artwork, CDN, telemetry, or calculation service is required.
+
+```django
+<link rel="stylesheet" href="{% static 'scientific_calculator/calculator.css' %}">
+<link rel="stylesheet" href="{% static 'scientific_calculator/calculator-theme.example.css' %}">
+```
+
+| Custom property | Purpose |
+| --- | --- |
+| `--scicalc-surface`, `--scicalc-border` | Case background and border color |
+| `--scicalc-ink`, `--scicalc-muted` | Primary text and contextual legends |
+| `--scicalc-screen`, `--scicalc-screen-ink` | LCD surface and text |
+| `--scicalc-key`, `--scicalc-number`, `--scicalc-equals` | Key surfaces |
+| `--scicalc-second`, `--scicalc-alpha` | Functional legend colors |
+| `--scicalc-danger`, `--scicalc-focus` | Clear-key text and keyboard focus |
+| `--scicalc-font`, `--scicalc-display-font` | Local UI and LCD font stacks |
+| `--scicalc-shadow` | Case shadow |
+
+These properties change appearance while retaining key positions, order,
+IDs, and meanings. Avoid overriding grid, button sizing, or functional
+legends. The default and example theme pass automated 4.5:1 text/legend
+contrast checks; consumer overrides should maintain that contrast and visible
+focus. Cursor blinking follows the full-manual exception to the simulator's
+stationary cursor and is disabled by `prefers-reduced-motion`. Forced colors
+retain native controls and focus outlines.
+
+### Template override hooks and input
+
+Override `scientific_calculator/calculator.html` in your Django project using
+the standard same-name `{% extends "scientific_calculator/calculator.html" %}`
+pattern. Its `calculator_brand`, `calculator_display`, and `calculator_keys`
+blocks provide narrow hooks. A brand override should retain
+`.scicalc__brand`. Display/key overrides must retain the package's `data-*`
+nodes, 48 `data-key-id` buttons, native semantics, and accessible announcement
+regions; copy the corresponding block from the installed template before
+customizing it. Do not include Sharp logos, copied panel artwork, or wording
+that implies affiliation.
+
+Mouse and touch keys dispatch on pointer-down. Keyboard and assistive
+technology activation use the same physical-key reducer. Overlapping touches
+support pressing the next key before releasing the first, including 2ndF
+then a function. The official specification confirms two-key rollover;
+this UI verifies event ordering, not physical hardware timing. Keyboard
+handling belongs only to the focused calculator and leaves host shortcuts,
+text fields, and IME composition alone.
+
+| Keyboard input | Physical function |
+| --- | --- |
+| Digits, `.`, `+`, `-`, `*`, `/`, `(`, `)` | Matching physical key |
+| Enter or `=` | Equals |
+| Backspace or Delete | DEL |
+| Escape / Home | ON/C / HOME |
+| Arrow keys | Cursor/history, menu pages, or result pages |
+| F2 / F3 / F4 | 2ndF / ALPHA / HYP |
+| Tab, then Enter or Space on a button | Native focus and button activation |
+
+Focus either LCD line to scroll its hidden content independently. Hidden
+content arrows update after scrolling or resizing. Status, display changes,
+selected pages, and errors have accessible announcements. The package remains
+usable in 320px, 390px, 768px, and desktop viewports without hiding controls.
+Short viewports can scroll the host panel vertically.
+
+Phase 2 evidence and the pre-release appearance review are recorded in
+`tests/reference/el506ts/phase-2-review.json`. The review is a release gate,
+not legal advice; it must be revisited before the final release. Original
+Windows Chromium pixel baselines cover both themes, focus, modifiers, menus,
+errors, long expressions, phone, and tablet sizes. A dedicated Windows CI job
+checks these baselines; Linux CI runs the structural and interaction suite.
+Use `npx playwright test tests/e2e/physical-visual.spec.js --update-snapshots`
+only after visually reviewing intentional appearance changes.
+
+Reinstall the package, run `collectstatic`, and refresh deployed static caches
+to adopt this working-main update in an existing downstream Django project.
+Pushing source does not update an installed or deployed copy automatically.
+The demo versions its CSS and entry script with `?v=phase2-20261007` to avoid
+reusing earlier cached assets. Any query on `calculator.js` propagates to its
+locally loaded companion scripts, allowing a host to use its own revision
+parameter without changing the established asset paths.
+
 ## Release History
 
 ### 0.3.1

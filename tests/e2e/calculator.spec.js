@@ -82,7 +82,7 @@ test.beforeEach(async ({ page }, testInfo) => {
   page.on("pageerror", (error) => browserErrors.push(error.message));
   testInfo.browserErrors = browserErrors;
 
-  await page.goto("/");
+  await page.goto("/legacy/");
   await expect(calculator(page)).toBeVisible();
   await reset(page);
 });

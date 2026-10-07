@@ -1,7 +1,7 @@
 const {test,expect}=require('@playwright/test');
 test('unchanged entry loads separate local core, formatter and DOM adapter',async({page})=>{
   const requests=[],errors=[];page.on('request',r=>requests.push(new URL(r.url())));page.on('pageerror',e=>errors.push(e.message));
-  await page.goto('/');const root=page.locator('[data-scientific-calculator]');
+  await page.goto('/legacy/');const root=page.locator('[data-scientific-calculator]');
   await expect(root).toHaveAttribute('data-entry-phase','empty');
   for(const name of ['calculator.js','core.js','formatting.js','browser-adapter.js'])expect(requests.some(url=>url.pathname.endsWith('/'+name))).toBe(true);
   expect(requests.every(url=>url.hostname==='127.0.0.1')).toBe(true);

@@ -881,6 +881,15 @@ The runner's completion does not require implementing the later feature phases.
 
 ### Phase 2 - Physical Layout, Display, Theme, and Access
 
+READY_TO_PUSH: 2026-10-07, EL506-030 through EL506-043. Full Phase 2
+was explicitly authorized as one delivery; item scopes are recorded separately
+in tests/reference/el506ts/phase-2-review.json. Local gates: 52 unit tests,
+79 browser tests (18 visual baselines), 7 Django integration tests, reference
+and golden validation (43 asserted frames), package wheel/sdist installation,
+compileall, pip dry-run, Docker config/build/start, and git diff --check.
+Live simulator/manual cursor evidence and in-app demo verification recorded.
+Numerical algorithms and remaining LCD lifecycle differences retain later gates.
+
 - [ ] **EL506-030 - Reproduce physical key positions.** Match the EL-506TS
   instructional layout and key grouping without importing Sharp artwork.
 - [ ] **EL506-031 - Reproduce functional labels.** Add verified primary,

@@ -1,6 +1,6 @@
 const {test,expect}=require('@playwright/test');
 test('measured numeric foundation is local and keeps the baseline profile explicit',async({page})=>{
-  await page.goto('/');const root=page.locator('[data-scientific-calculator]');
+  await page.goto('/legacy/');const root=page.locator('[data-scientific-calculator]');
   await expect(root).toHaveAttribute('data-entry-phase','empty');
   const result=await page.evaluate(()=>({
     id:ScientificCalculatorNumericModel.profile.id,

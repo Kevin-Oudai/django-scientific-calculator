@@ -6,22 +6,108 @@
       "kind": "unit",
       "path": "tests/unit/calculator.test.js",
       "anchor": "fresh simulator addition reference agrees numerically",
-      "capabilityIds": ["el506.base.el506-k43"],
+      "capabilityIds": [
+        "el506.base.el506-k43"
+      ],
       "scope": "Numeric addition evaluator agrees on 1+2; no physical dispatch, display or full domain assertion."
     },
     {
       "kind": "unit",
       "path": "tests/unit/reducer.test.js",
       "anchor": "reducer is deterministic, does not mutate its input, and isolates stores",
-      "capabilityIds": ["el506.base.el506-k29", "el506.base.el506-k43", "el506.base.el506-k48"],
+      "capabilityIds": [
+        "el506.base.el506-k29",
+        "el506.base.el506-k43",
+        "el506.base.el506-k48"
+      ],
       "scope": "Baseline addition, equals and M+ state isolation only; simulator persistence and sequencing not established."
     },
     {
       "kind": "browser",
       "path": "tests/e2e/golden.spec.js",
       "anchor": "canonical baseline browser replay",
-      "fixtureIds": ["addition-baseline-v1", "error-recovery-baseline-v1", "guide-power-baseline-v1"],
+      "fixtureIds": [
+        "addition-baseline-v1",
+        "error-recovery-baseline-v1",
+        "guide-power-baseline-v1"
+      ],
       "scope": "Actual controls drive the canonical test bridge and assert baseline snapshots; known display differences remain."
+    },
+    {
+      "kind": "unit",
+      "path": "tests/unit/physical-ui.test.js",
+      "anchor": "insert marker toggles through its canonical key",
+      "capabilityIds": [
+        "el506.key.el506-k07",
+        "el506.key.el506-k09",
+        "el506.key.el506-k10"
+      ],
+      "scope": "Measured cursor positions, insert-marker state and snapshot preservation only; full lifecycle and token editing remain later-phase work."
+    },
+    {
+      "kind": "browser",
+      "path": "tests/e2e/physical-ui.spec.js",
+      "anchor": "default physical keys match catalog ordering",
+      "capabilityIds": [
+        "el506.key.el506-k01",
+        "el506.key.el506-k02",
+        "el506.key.el506-k03",
+        "el506.key.el506-k04",
+        "el506.key.el506-k05",
+        "el506.key.el506-k06",
+        "el506.key.el506-k07",
+        "el506.key.el506-k08",
+        "el506.key.el506-k09",
+        "el506.key.el506-k10",
+        "el506.key.el506-k11",
+        "el506.key.el506-k12",
+        "el506.key.el506-k13",
+        "el506.key.el506-k14",
+        "el506.key.el506-k15",
+        "el506.key.el506-k16",
+        "el506.key.el506-k17",
+        "el506.key.el506-k18",
+        "el506.key.el506-k19",
+        "el506.key.el506-k20",
+        "el506.key.el506-k21",
+        "el506.key.el506-k22",
+        "el506.key.el506-k23",
+        "el506.key.el506-k24",
+        "el506.key.el506-k25",
+        "el506.key.el506-k26",
+        "el506.key.el506-k27",
+        "el506.key.el506-k28",
+        "el506.key.el506-k29",
+        "el506.key.el506-k30",
+        "el506.key.el506-k31",
+        "el506.key.el506-k32",
+        "el506.key.el506-k33",
+        "el506.key.el506-k34",
+        "el506.key.el506-k35",
+        "el506.key.el506-k36",
+        "el506.key.el506-k37",
+        "el506.key.el506-k38",
+        "el506.key.el506-k39",
+        "el506.key.el506-k40",
+        "el506.key.el506-k41",
+        "el506.key.el506-k42",
+        "el506.key.el506-k43",
+        "el506.key.el506-k44",
+        "el506.key.el506-k45",
+        "el506.key.el506-k46",
+        "el506.key.el506-k47",
+        "el506.key.el506-k48"
+      ],
+      "scope": "Actual 48-button layout, primary/shifted accessibility names and modifier exposure; does not assert function algorithms or complete key parity."
+    },
+    {
+      "kind": "browser",
+      "path": "tests/e2e/golden.spec.js",
+      "anchor": "canonical baseline browser replay",
+      "fixtureIds": [
+        "physical-lcd-cursor-v1"
+      ],
+      "scope": "Actual physical buttons assert the measured cursor/insert/modifier path; legacy lower-line and numeric-format differences are explicitly retained."
     }
   ]
 }

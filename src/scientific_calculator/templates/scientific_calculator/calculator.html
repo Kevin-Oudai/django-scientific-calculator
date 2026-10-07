@@ -1,176 +1,85 @@
+{% if layout == "legacy" %}{% include "scientific_calculator/calculator-legacy.html" %}{% else %}
 <div class="scicalc" data-scientific-calculator>
-  <div class="scicalc__screen" aria-live="polite">
-    <div class="scicalc__expression scicalc__math-display" data-expression>0</div>
-    <div class="scicalc__result scicalc__math-display" data-result>0</div>
-  </div>
-  <div class="scicalc__mode-row">
-    <span data-angle-label>DEG</span>
-  </div>
-
-  <div class="scicalc__nav" aria-label="Expression navigation">
-    <button type="button" class="scicalc__nav-key scicalc__nav-key--up" data-action="history-up" aria-label="Previous expression">&uarr;</button>
-    <button type="button" class="scicalc__nav-key scicalc__nav-key--left" data-action="cursor-left" aria-label="Move cursor left">&larr;</button>
-    <button type="button" class="scicalc__nav-key scicalc__nav-key--center" data-action="noop" aria-label="Navigation pad center"></button>
-    <button type="button" class="scicalc__nav-key scicalc__nav-key--right" data-action="cursor-right" aria-label="Move cursor right">&rarr;</button>
-    <button type="button" class="scicalc__nav-key scicalc__nav-key--down" data-action="history-down" aria-label="Next expression">&darr;</button>
-  </div>
-
-  <div class="scicalc__keys">
-    <button type="button" class="scicalc__key scicalc__key--second" data-action="second">
-      <span class="scicalc__label">2nd F</span>
-    </button>
-    <button type="button" class="scicalc__key scicalc__key--utility scicalc__key--has-second" data-action="home" data-second-action="memory-clear">
-      <span class="scicalc__secondary-label">MC</span>
-      <span class="scicalc__label scicalc__primary-label">Home</span>
-      <span class="scicalc__label scicalc__second-main">MC</span>
-    </button>
-    <button type="button" class="scicalc__key scicalc__key--utility scicalc__key--has-second" data-action="backspace" data-second-action="memory-recall">
-      <span class="scicalc__secondary-label">MR</span>
-      <span class="scicalc__label scicalc__primary-label">Del</span>
-      <span class="scicalc__label scicalc__second-main">MR</span>
-    </button>
-    <button type="button" class="scicalc__key scicalc__key--utility scicalc__key--has-second" data-action="angle" data-second-action="memory-add">
-      <span class="scicalc__secondary-label">M+</span>
-      <span class="scicalc__label scicalc__primary-label">Deg/Rad</span>
-      <span class="scicalc__label scicalc__second-main">M+</span>
-    </button>
-    <button type="button" class="scicalc__key scicalc__key--danger scicalc__key--has-second" data-action="clear" data-second-action="memory-subtract">
-      <span class="scicalc__secondary-label">M-</span>
-      <span class="scicalc__label scicalc__primary-label">C</span>
-      <span class="scicalc__label scicalc__second-main">M-</span>
-    </button>
-
-    <button type="button" class="scicalc__key scicalc__key--function scicalc__key--has-second" data-insert="sin(" data-second-insert="asin(">
-      <span class="scicalc__secondary-label">sin<sup>-1</sup></span>
-      <span class="scicalc__label scicalc__primary-label">sin</span>
-      <span class="scicalc__label scicalc__second-main">sin<sup>-1</sup></span>
-    </button>
-    <button type="button" class="scicalc__key scicalc__key--function scicalc__key--has-second" data-insert="cos(" data-second-insert="acos(">
-      <span class="scicalc__secondary-label">cos<sup>-1</sup></span>
-      <span class="scicalc__label scicalc__primary-label">cos</span>
-      <span class="scicalc__label scicalc__second-main">cos<sup>-1</sup></span>
-    </button>
-    <button type="button" class="scicalc__key scicalc__key--function scicalc__key--has-second" data-insert="tan(" data-second-insert="atan(">
-      <span class="scicalc__secondary-label">tan<sup>-1</sup></span>
-      <span class="scicalc__label scicalc__primary-label">tan</span>
-      <span class="scicalc__label scicalc__second-main">tan<sup>-1</sup></span>
-    </button>
-    <button type="button" class="scicalc__key scicalc__key--function scicalc__key--has-second" data-insert="sqrt(" data-second-insert="cbrt(">
-      <span class="scicalc__secondary-label">&#8731;x</span>
-      <span class="scicalc__label scicalc__primary-label scicalc__label--math">&radic;x</span>
-      <span class="scicalc__label scicalc__second-main scicalc__label--math">&#8731;x</span>
-    </button>
-    <button type="button" class="scicalc__key scicalc__key--function scicalc__key--has-second" data-insert="log(" data-second-insert="tenpow(">
-      <span class="scicalc__secondary-label">10<sup>x</sup></span>
-      <span class="scicalc__label scicalc__primary-label">log</span>
-      <span class="scicalc__label scicalc__second-main">10<sup>x</sup></span>
-    </button>
-
-    <button type="button" class="scicalc__key scicalc__key--function scicalc__key--has-second" data-insert="^2" data-second-action="reciprocal">
-      <span class="scicalc__secondary-label">x<sup>-1</sup></span>
-      <span class="scicalc__label scicalc__primary-label scicalc__label--math">x<sup>2</sup></span>
-      <span class="scicalc__label scicalc__second-main scicalc__label--math">x<sup>-1</sup></span>
-    </button>
-    <button type="button" class="scicalc__key scicalc__key--constant scicalc__key--has-second" data-insert="e" data-second-insert="epow(">
-      <span class="scicalc__secondary-label">e<sup>x</sup></span>
-      <span class="scicalc__label scicalc__primary-label scicalc__label--math">e</span>
-      <span class="scicalc__label scicalc__second-main scicalc__label--math">e<sup>x</sup></span>
-    </button>
-    <button type="button" class="scicalc__key scicalc__key--function" data-insert="ln(">
-      <span class="scicalc__label">ln</span>
-    </button>
-    <button type="button" class="scicalc__key scicalc__key--function" data-action="abs">
-      <span class="scicalc__label">abs</span>
-    </button>
-    <button type="button" class="scicalc__key scicalc__key--function" data-action="percent">
-      <span class="scicalc__label">%</span>
-    </button>
-
-    <button type="button" class="scicalc__key scicalc__key--function scicalc__key--has-second" data-action="exp" data-second-action="stats-add">
-      <span class="scicalc__secondary-label">&Sigma;+</span>
-      <span class="scicalc__label scicalc__primary-label">Exp</span>
-      <span class="scicalc__label scicalc__second-main">&Sigma;+</span>
-    </button>
-    <button type="button" class="scicalc__key scicalc__key--function scicalc__key--has-second" data-action="fraction">
-      <span class="scicalc__secondary-label">A b/c</span>
-      <span class="scicalc__label scicalc__primary-label scicalc__label--fraction"><span>b</span><span>c</span></span>
-      <span class="scicalc__label scicalc__second-main">A b/c</span>
-    </button>
-    <button type="button" class="scicalc__key scicalc__key--function" data-action="dms">
-      <span class="scicalc__label scicalc__label--math">D<sup>&deg;</sup>M&#8242;S</span>
-    </button>
-    <button type="button" class="scicalc__key scicalc__key--function scicalc__key--has-second" data-action="power" data-second-action="root">
-      <span class="scicalc__secondary-label"><sup>x</sup>&radic;y</span>
-      <span class="scicalc__label scicalc__primary-label scicalc__label--math">x<sup>y</sup></span>
-      <span class="scicalc__label scicalc__second-main scicalc__label--math"><sup>x</sup>&radic;y</span>
-    </button>
-    <button type="button" class="scicalc__key scicalc__key--constant" data-insert="pi">
-      <span class="scicalc__label scicalc__label--math">&pi;</span>
-    </button>
-
-    <button type="button" class="scicalc__key scicalc__key--number scicalc__key--has-second" data-insert="7" data-second-action="stats-mean">
-      <span class="scicalc__secondary-label">x&#772;</span>
-      <span class="scicalc__primary-label">7</span>
-      <span class="scicalc__second-main">x&#772;</span>
-    </button>
-    <button type="button" class="scicalc__key scicalc__key--number scicalc__key--has-second" data-insert="8" data-second-action="stats-stddev">
-      <span class="scicalc__secondary-label">sx</span>
-      <span class="scicalc__primary-label">8</span>
-      <span class="scicalc__second-main">sx</span>
-    </button>
-    <button type="button" class="scicalc__key scicalc__key--number scicalc__key--has-second" data-insert="9" data-second-action="stats-count">
-      <span class="scicalc__secondary-label">n</span>
-      <span class="scicalc__primary-label">9</span>
-      <span class="scicalc__second-main">n</span>
-    </button>
-    <button type="button" class="scicalc__key" data-insert="(">
-      <span class="scicalc__label">(</span>
-    </button>
-    <button type="button" class="scicalc__key" data-insert=")">
-      <span class="scicalc__label">)</span>
-    </button>
-
-    <button type="button" class="scicalc__key scicalc__key--number scicalc__key--has-second" data-insert="4" data-second-action="factorial">
-      <span class="scicalc__secondary-label">n!</span>
-      <span class="scicalc__primary-label">4</span>
-      <span class="scicalc__second-main">n!</span>
-    </button>
-    <button type="button" class="scicalc__key scicalc__key--number scicalc__key--has-second" data-insert="5" data-second-action="ncr">
-      <span class="scicalc__secondary-label">nCr</span>
-      <span class="scicalc__primary-label">5</span>
-      <span class="scicalc__second-main">nCr</span>
-    </button>
-    <button type="button" class="scicalc__key scicalc__key--number scicalc__key--has-second" data-insert="6" data-second-action="npr">
-      <span class="scicalc__secondary-label">nPr</span>
-      <span class="scicalc__primary-label">6</span>
-      <span class="scicalc__second-main">nPr</span>
-    </button>
-    <button type="button" class="scicalc__key scicalc__key--operator" data-insert="*">&times;</button>
-    <button type="button" class="scicalc__key scicalc__key--operator" data-insert="/">&#247;</button>
-
-    <button type="button" class="scicalc__key scicalc__key--number scicalc__key--has-second" data-insert="1" data-second-action="stats-sum">
-      <span class="scicalc__secondary-label">&Sigma;x</span>
-      <span class="scicalc__primary-label">1</span>
-      <span class="scicalc__second-main">&Sigma;x</span>
-    </button>
-    <button type="button" class="scicalc__key scicalc__key--number scicalc__key--has-second" data-insert="2" data-second-action="stats-sum-squares">
-      <span class="scicalc__secondary-label">&Sigma;x<sup>2</sup></span>
-      <span class="scicalc__primary-label">2</span>
-      <span class="scicalc__second-main">&Sigma;x<sup>2</sup></span>
-    </button>
-    <button type="button" class="scicalc__key scicalc__key--number" data-insert="3">3</button>
-    <button type="button" class="scicalc__key scicalc__key--operator" data-insert="+">+</button>
-    <button type="button" class="scicalc__key scicalc__key--operator" data-insert="-">&minus;</button>
-
-    <button type="button" class="scicalc__key scicalc__key--utility" data-action="sign">
-      <span class="scicalc__label scicalc__label--math">&plusmn;</span>
-    </button>
-    <button type="button" class="scicalc__key scicalc__key--number" data-insert="0">0</button>
-    <button type="button" class="scicalc__key scicalc__key--number" data-insert=".">.</button>
-    <button type="button" class="scicalc__key scicalc__key--wide scicalc__key--equals" data-action="equals">
-      <span class="scicalc__secondary-label">Ans</span>
-      <span class="scicalc__primary-label">=</span>
-      <span class="scicalc__second-main">Ans</span>
-    </button>
-  </div>
+<div class="scicalc__physical" data-physical-layout>
+{% block calculator_brand %}<div class="scicalc__brand">{{ calculator_brand|default:"Scientific Calculator"|force_escape }}</div>{% endblock %}
+{% block calculator_display %}
+<div class="scicalc__screen" aria-label="Calculator display">
+<div class="scicalc__indicators" data-indicators aria-label="Status indicators"></div>
+<div class="scicalc__lcd-row"><span data-upper-left aria-hidden="true"></span><div class="scicalc__expression scicalc__math-display" data-expression aria-label="Equation" tabindex="0"></div><span data-upper-right aria-hidden="true"></span></div>
+<div class="scicalc__lcd-row"><span data-lower-left aria-hidden="true"></span><span data-component aria-hidden="true"></span><div class="scicalc__result scicalc__math-display" data-result aria-label="Result" tabindex="0">0</div><span data-lower-right aria-hidden="true"></span></div>
+<div class="scicalc__page-status" data-page-status></div>
 </div>
+<div class="scicalc__sr-only" data-announcement role="status" aria-live="polite" aria-atomic="true"></div>
+<div class="scicalc__sr-only" data-error role="alert" aria-atomic="true"></div>
+{% endblock %}
+{% block calculator_keys %}
+<div class="scicalc__controls">
+<div class="scicalc__utility">
+<button type="button" class="scicalc__key scicalc__physical-key" data-key-id="EL506-K01" data-primary-name="HOME" data-second-name="" data-alpha-name="" aria-label="HOME"><span class="scicalc__legends" aria-hidden="true"><span class="scicalc__second-legend"></span><span class="scicalc__alpha-legend"></span></span><span class="scicalc__primary" aria-hidden="true">HOME</span><span class="scicalc__mode-legend" aria-hidden="true"></span></button>
+<button type="button" class="scicalc__key scicalc__physical-key scicalc__physical-key--clear" data-key-id="EL506-K02" data-primary-name="ON/C" data-second-name="OFF" data-alpha-name="" aria-label="ON/C"><span class="scicalc__legends" aria-hidden="true"><span class="scicalc__second-legend">OFF</span><span class="scicalc__alpha-legend"></span></span><span class="scicalc__primary" aria-hidden="true">ON/C</span><span class="scicalc__mode-legend" aria-hidden="true"></span></button>
+<button type="button" class="scicalc__key scicalc__physical-key" data-key-id="EL506-K03" data-primary-name="2nd F" data-second-name="" data-alpha-name="" aria-pressed="false" aria-label="2nd F"><span class="scicalc__legends" aria-hidden="true"><span class="scicalc__second-legend"></span><span class="scicalc__alpha-legend"></span></span><span class="scicalc__primary" aria-hidden="true">2nd F</span><span class="scicalc__mode-legend" aria-hidden="true"></span></button>
+<button type="button" class="scicalc__key scicalc__physical-key" data-key-id="EL506-K04" data-primary-name="MODE" data-second-name="CA" data-alpha-name="" aria-label="MODE"><span class="scicalc__legends" aria-hidden="true"><span class="scicalc__second-legend">CA</span><span class="scicalc__alpha-legend"></span></span><span class="scicalc__primary" aria-hidden="true">MODE</span><span class="scicalc__mode-legend" aria-hidden="true"></span></button>
+<button type="button" class="scicalc__key scicalc__physical-key" data-key-id="EL506-K05" data-primary-name="ALPHA" data-second-name="STAT VAR" data-alpha-name="" aria-pressed="false" aria-label="ALPHA"><span class="scicalc__legends" aria-hidden="true"><span class="scicalc__second-legend">STAT VAR</span><span class="scicalc__alpha-legend"></span></span><span class="scicalc__primary" aria-hidden="true">ALPHA</span><span class="scicalc__mode-legend" aria-hidden="true"></span></button>
+<button type="button" class="scicalc__key scicalc__physical-key" data-key-id="EL506-K06" data-primary-name="SET UP" data-second-name="" data-alpha-name="" aria-label="SET UP"><span class="scicalc__legends" aria-hidden="true"><span class="scicalc__second-legend"></span><span class="scicalc__alpha-legend"></span></span><span class="scicalc__primary" aria-hidden="true">SET UP</span><span class="scicalc__mode-legend" aria-hidden="true"></span></button>
+<button type="button" class="scicalc__key scicalc__physical-key" data-key-id="EL506-K07" data-primary-name="DEL" data-second-name="INS" data-alpha-name="" aria-label="DEL"><span class="scicalc__legends" aria-hidden="true"><span class="scicalc__second-legend">INS</span><span class="scicalc__alpha-legend"></span></span><span class="scicalc__primary" aria-hidden="true">DEL</span><span class="scicalc__mode-legend" aria-hidden="true"></span></button>
+</div><div class="scicalc__physical-nav" aria-label="Expression navigation">
+<button type="button" class="scicalc__key scicalc__physical-key" data-key-id="EL506-K08" data-primary-name="up" data-second-name="" data-alpha-name="" aria-label="up"><span class="scicalc__legends" aria-hidden="true"><span class="scicalc__second-legend"></span><span class="scicalc__alpha-legend"></span></span><span class="scicalc__primary" aria-hidden="true">↑</span><span class="scicalc__mode-legend" aria-hidden="true">F1</span></button>
+<button type="button" class="scicalc__key scicalc__physical-key" data-key-id="EL506-K09" data-primary-name="left" data-second-name="" data-alpha-name="" aria-label="left"><span class="scicalc__legends" aria-hidden="true"><span class="scicalc__second-legend"></span><span class="scicalc__alpha-legend"></span></span><span class="scicalc__primary" aria-hidden="true">←</span><span class="scicalc__mode-legend" aria-hidden="true">F2</span></button>
+<button type="button" class="scicalc__key scicalc__physical-key" data-key-id="EL506-K10" data-primary-name="right" data-second-name="" data-alpha-name="" aria-label="right"><span class="scicalc__legends" aria-hidden="true"><span class="scicalc__second-legend"></span><span class="scicalc__alpha-legend"></span></span><span class="scicalc__primary" aria-hidden="true">→</span><span class="scicalc__mode-legend" aria-hidden="true">F3</span></button>
+<button type="button" class="scicalc__key scicalc__physical-key" data-key-id="EL506-K11" data-primary-name="down" data-second-name="" data-alpha-name="" aria-label="down"><span class="scicalc__legends" aria-hidden="true"><span class="scicalc__second-legend"></span><span class="scicalc__alpha-legend"></span></span><span class="scicalc__primary" aria-hidden="true">↓</span><span class="scicalc__mode-legend" aria-hidden="true">F4</span></button>
+</div></div><div class="scicalc__physical-keys">
+<div class="scicalc__physical-row scicalc__physical-row--6">
+<button type="button" class="scicalc__key scicalc__physical-key" data-key-id="EL506-K12" data-primary-name="hyp" data-second-name="arc hyp" data-alpha-name="" aria-pressed="false" aria-label="hyp"><span class="scicalc__legends" aria-hidden="true"><span class="scicalc__second-legend">arc hyp</span><span class="scicalc__alpha-legend"></span></span><span class="scicalc__primary" aria-hidden="true">hyp</span><span class="scicalc__mode-legend" aria-hidden="true">NOT</span></button>
+<button type="button" class="scicalc__key scicalc__physical-key" data-key-id="EL506-K13" data-primary-name="sin" data-second-name="sin⁻¹" data-alpha-name="" aria-label="sin"><span class="scicalc__legends" aria-hidden="true"><span class="scicalc__second-legend">sin⁻¹</span><span class="scicalc__alpha-legend"></span></span><span class="scicalc__primary" aria-hidden="true">sin</span><span class="scicalc__mode-legend" aria-hidden="true">AND</span></button>
+<button type="button" class="scicalc__key scicalc__physical-key" data-key-id="EL506-K14" data-primary-name="cos" data-second-name="cos⁻¹" data-alpha-name="" aria-label="cos"><span class="scicalc__legends" aria-hidden="true"><span class="scicalc__second-legend">cos⁻¹</span><span class="scicalc__alpha-legend"></span></span><span class="scicalc__primary" aria-hidden="true">cos</span><span class="scicalc__mode-legend" aria-hidden="true">OR</span></button>
+<button type="button" class="scicalc__key scicalc__physical-key" data-key-id="EL506-K15" data-primary-name="tan" data-second-name="tan⁻¹" data-alpha-name="" aria-label="tan"><span class="scicalc__legends" aria-hidden="true"><span class="scicalc__second-legend">tan⁻¹</span><span class="scicalc__alpha-legend"></span></span><span class="scicalc__primary" aria-hidden="true">tan</span><span class="scicalc__mode-legend" aria-hidden="true">XOR</span></button>
+<button type="button" class="scicalc__key scicalc__physical-key" data-key-id="EL506-K16" data-primary-name="integral dx" data-second-name="d/dx" data-alpha-name="" aria-label="integral dx"><span class="scicalc__legends" aria-hidden="true"><span class="scicalc__second-legend">d/dx</span><span class="scicalc__alpha-legend"></span></span><span class="scicalc__primary" aria-hidden="true">∫dx</span><span class="scicalc__mode-legend" aria-hidden="true">XNOR</span></button>
+<button type="button" class="scicalc__key scicalc__physical-key" data-key-id="EL506-K17" data-primary-name="MATH" data-second-name="ALGB" data-alpha-name="" aria-label="MATH"><span class="scicalc__legends" aria-hidden="true"><span class="scicalc__second-legend">ALGB</span><span class="scicalc__alpha-legend"></span></span><span class="scicalc__primary" aria-hidden="true">MATH</span><span class="scicalc__mode-legend" aria-hidden="true"></span></button>
+</div>
+<div class="scicalc__physical-row scicalc__physical-row--6">
+<button type="button" class="scicalc__key scicalc__physical-key" data-key-id="EL506-K18" data-primary-name="pi" data-second-name="x⁻¹" data-alpha-name="A" aria-label="pi"><span class="scicalc__legends" aria-hidden="true"><span class="scicalc__second-legend">x⁻¹</span><span class="scicalc__alpha-legend">A</span></span><span class="scicalc__primary" aria-hidden="true">π</span><span class="scicalc__mode-legend" aria-hidden="true"></span></button>
+<button type="button" class="scicalc__key scicalc__physical-key" data-key-id="EL506-K19" data-primary-name="y^x" data-second-name="ˣ√y" data-alpha-name="B" aria-label="y^x"><span class="scicalc__legends" aria-hidden="true"><span class="scicalc__second-legend">ˣ√y</span><span class="scicalc__alpha-legend">B</span></span><span class="scicalc__primary" aria-hidden="true">yˣ</span><span class="scicalc__mode-legend" aria-hidden="true"></span></button>
+<button type="button" class="scicalc__key scicalc__physical-key" data-key-id="EL506-K20" data-primary-name="x^2" data-second-name="√" data-alpha-name="C" aria-label="x^2"><span class="scicalc__legends" aria-hidden="true"><span class="scicalc__second-legend">√</span><span class="scicalc__alpha-legend">C</span></span><span class="scicalc__primary" aria-hidden="true">x²</span><span class="scicalc__mode-legend" aria-hidden="true"></span></button>
+<button type="button" class="scicalc__key scicalc__physical-key" data-key-id="EL506-K21" data-primary-name="x^3" data-second-name="³√" data-alpha-name="D" aria-label="x^3"><span class="scicalc__legends" aria-hidden="true"><span class="scicalc__second-legend">³√</span><span class="scicalc__alpha-legend">D</span></span><span class="scicalc__primary" aria-hidden="true">x³</span><span class="scicalc__mode-legend" aria-hidden="true"></span></button>
+<button type="button" class="scicalc__key scicalc__physical-key" data-key-id="EL506-K22" data-primary-name="log" data-second-name="10ˣ" data-alpha-name="E" aria-label="log"><span class="scicalc__legends" aria-hidden="true"><span class="scicalc__second-legend">10ˣ</span><span class="scicalc__alpha-legend">E</span></span><span class="scicalc__primary" aria-hidden="true">log</span><span class="scicalc__mode-legend" aria-hidden="true"></span></button>
+<button type="button" class="scicalc__key scicalc__physical-key" data-key-id="EL506-K23" data-primary-name="ln" data-second-name="eˣ" data-alpha-name="F" aria-label="ln"><span class="scicalc__legends" aria-hidden="true"><span class="scicalc__second-legend">eˣ</span><span class="scicalc__alpha-legend">F</span></span><span class="scicalc__primary" aria-hidden="true">ln</span><span class="scicalc__mode-legend" aria-hidden="true"></span></button>
+</div>
+<div class="scicalc__physical-row scicalc__physical-row--6">
+<button type="button" class="scicalc__key scicalc__physical-key" data-key-id="EL506-K24" data-primary-name="Exp" data-second-name="↔,→" data-alpha-name="" aria-label="Exp"><span class="scicalc__legends" aria-hidden="true"><span class="scicalc__second-legend">↔,→</span><span class="scicalc__alpha-legend"></span></span><span class="scicalc__primary" aria-hidden="true">Exp</span><span class="scicalc__mode-legend" aria-hidden="true"></span></button>
+<button type="button" class="scicalc__key scicalc__physical-key" data-key-id="EL506-K25" data-primary-name="a b/c" data-second-name="d/c" data-alpha-name="" aria-label="a b/c"><span class="scicalc__legends" aria-hidden="true"><span class="scicalc__second-legend">d/c</span><span class="scicalc__alpha-legend"></span></span><span class="scicalc__primary" aria-hidden="true">a b/c</span><span class="scicalc__mode-legend" aria-hidden="true"></span></button>
+<button type="button" class="scicalc__key scicalc__physical-key" data-key-id="EL506-K26" data-primary-name="DMS" data-second-name="↔ DEG" data-alpha-name="" aria-label="DMS"><span class="scicalc__legends" aria-hidden="true"><span class="scicalc__second-legend">↔ DEG</span><span class="scicalc__alpha-legend"></span></span><span class="scicalc__primary" aria-hidden="true">D°M′S</span><span class="scicalc__mode-legend" aria-hidden="true"></span></button>
+<button type="button" class="scicalc__key scicalc__physical-key" data-key-id="EL506-K27" data-primary-name="RCL" data-second-name="" data-alpha-name="X" aria-label="RCL"><span class="scicalc__legends" aria-hidden="true"><span class="scicalc__second-legend"></span><span class="scicalc__alpha-legend">X</span></span><span class="scicalc__primary" aria-hidden="true">RCL</span><span class="scicalc__mode-legend" aria-hidden="true"></span></button>
+<button type="button" class="scicalc__key scicalc__physical-key" data-key-id="EL506-K28" data-primary-name="STO" data-second-name="," data-alpha-name="Y" aria-label="STO"><span class="scicalc__legends" aria-hidden="true"><span class="scicalc__second-legend">,</span><span class="scicalc__alpha-legend">Y</span></span><span class="scicalc__primary" aria-hidden="true">STO</span><span class="scicalc__mode-legend" aria-hidden="true">(x,y)</span></button>
+<button type="button" class="scicalc__key scicalc__physical-key" data-key-id="EL506-K29" data-primary-name="M+" data-second-name="M−" data-alpha-name="M" aria-label="M+"><span class="scicalc__legends" aria-hidden="true"><span class="scicalc__second-legend">M−</span><span class="scicalc__alpha-legend">M</span></span><span class="scicalc__primary" aria-hidden="true">M+</span><span class="scicalc__mode-legend" aria-hidden="true">DATA CD</span></button>
+</div>
+<div class="scicalc__physical-row scicalc__physical-row--5">
+<button type="button" class="scicalc__key scicalc__physical-key scicalc__physical-key--number" data-key-id="EL506-K30" data-primary-name="7" data-second-name="RANDOM" data-alpha-name="ȳ" aria-label="7"><span class="scicalc__legends" aria-hidden="true"><span class="scicalc__second-legend">RANDOM</span><span class="scicalc__alpha-legend">ȳ</span></span><span class="scicalc__primary" aria-hidden="true">7</span><span class="scicalc__mode-legend" aria-hidden="true"></span></button>
+<button type="button" class="scicalc__key scicalc__physical-key scicalc__physical-key--number" data-key-id="EL506-K31" data-primary-name="8" data-second-name="→rθ" data-alpha-name="sy" aria-label="8"><span class="scicalc__legends" aria-hidden="true"><span class="scicalc__second-legend">→rθ</span><span class="scicalc__alpha-legend">sy</span></span><span class="scicalc__primary" aria-hidden="true">8</span><span class="scicalc__mode-legend" aria-hidden="true"></span></button>
+<button type="button" class="scicalc__key scicalc__physical-key scicalc__physical-key--number" data-key-id="EL506-K32" data-primary-name="9" data-second-name="→xy" data-alpha-name="σy" aria-label="9"><span class="scicalc__legends" aria-hidden="true"><span class="scicalc__second-legend">→xy</span><span class="scicalc__alpha-legend">σy</span></span><span class="scicalc__primary" aria-hidden="true">9</span><span class="scicalc__mode-legend" aria-hidden="true"></span></button>
+<button type="button" class="scicalc__key scicalc__physical-key" data-key-id="EL506-K33" data-primary-name="(" data-second-name="x̂" data-alpha-name="a" aria-label="("><span class="scicalc__legends" aria-hidden="true"><span class="scicalc__second-legend">x̂</span><span class="scicalc__alpha-legend">a</span></span><span class="scicalc__primary" aria-hidden="true">(</span><span class="scicalc__mode-legend" aria-hidden="true"></span></button>
+<button type="button" class="scicalc__key scicalc__physical-key" data-key-id="EL506-K34" data-primary-name=")" data-second-name="ŷ" data-alpha-name="b" aria-label=")"><span class="scicalc__legends" aria-hidden="true"><span class="scicalc__second-legend">ŷ</span><span class="scicalc__alpha-legend">b</span></span><span class="scicalc__primary" aria-hidden="true">)</span><span class="scicalc__mode-legend" aria-hidden="true"></span></button>
+</div>
+<div class="scicalc__physical-row scicalc__physical-row--5">
+<button type="button" class="scicalc__key scicalc__physical-key scicalc__physical-key--number" data-key-id="EL506-K35" data-primary-name="4" data-second-name="n!" data-alpha-name="x̄" aria-label="4"><span class="scicalc__legends" aria-hidden="true"><span class="scicalc__second-legend">n!</span><span class="scicalc__alpha-legend">x̄</span></span><span class="scicalc__primary" aria-hidden="true">4</span><span class="scicalc__mode-legend" aria-hidden="true"></span></button>
+<button type="button" class="scicalc__key scicalc__physical-key scicalc__physical-key--number" data-key-id="EL506-K36" data-primary-name="5" data-second-name="nCr" data-alpha-name="sx" aria-label="5"><span class="scicalc__legends" aria-hidden="true"><span class="scicalc__second-legend">nCr</span><span class="scicalc__alpha-legend">sx</span></span><span class="scicalc__primary" aria-hidden="true">5</span><span class="scicalc__mode-legend" aria-hidden="true"></span></button>
+<button type="button" class="scicalc__key scicalc__physical-key scicalc__physical-key--number" data-key-id="EL506-K37" data-primary-name="6" data-second-name="nPr" data-alpha-name="σx" aria-label="6"><span class="scicalc__legends" aria-hidden="true"><span class="scicalc__second-legend">nPr</span><span class="scicalc__alpha-legend">σx</span></span><span class="scicalc__primary" aria-hidden="true">6</span><span class="scicalc__mode-legend" aria-hidden="true"></span></button>
+<button type="button" class="scicalc__key scicalc__physical-key" data-key-id="EL506-K38" data-primary-name="multiply" data-second-name="→HEX" data-alpha-name="c" aria-label="multiply"><span class="scicalc__legends" aria-hidden="true"><span class="scicalc__second-legend">→HEX</span><span class="scicalc__alpha-legend">c</span></span><span class="scicalc__primary" aria-hidden="true">×</span><span class="scicalc__mode-legend" aria-hidden="true"></span></button>
+<button type="button" class="scicalc__key scicalc__physical-key" data-key-id="EL506-K39" data-primary-name="divide" data-second-name="→BIN" data-alpha-name="r" aria-label="divide"><span class="scicalc__legends" aria-hidden="true"><span class="scicalc__second-legend">→BIN</span><span class="scicalc__alpha-legend">r</span></span><span class="scicalc__primary" aria-hidden="true">÷</span><span class="scicalc__mode-legend" aria-hidden="true"></span></button>
+</div>
+<div class="scicalc__physical-row scicalc__physical-row--5">
+<button type="button" class="scicalc__key scicalc__physical-key scicalc__physical-key--number" data-key-id="EL506-K40" data-primary-name="1" data-second-name="%" data-alpha-name="Σxy" aria-label="1"><span class="scicalc__legends" aria-hidden="true"><span class="scicalc__second-legend">%</span><span class="scicalc__alpha-legend">Σxy</span></span><span class="scicalc__primary" aria-hidden="true">1</span><span class="scicalc__mode-legend" aria-hidden="true"></span></button>
+<button type="button" class="scicalc__key scicalc__physical-key scicalc__physical-key--number" data-key-id="EL506-K41" data-primary-name="2" data-second-name="CNST" data-alpha-name="Σy" aria-label="2"><span class="scicalc__legends" aria-hidden="true"><span class="scicalc__second-legend">CNST</span><span class="scicalc__alpha-legend">Σy</span></span><span class="scicalc__primary" aria-hidden="true">2</span><span class="scicalc__mode-legend" aria-hidden="true"></span></button>
+<button type="button" class="scicalc__key scicalc__physical-key scicalc__physical-key--number" data-key-id="EL506-K42" data-primary-name="3" data-second-name="CONV" data-alpha-name="Σy²" aria-label="3"><span class="scicalc__legends" aria-hidden="true"><span class="scicalc__second-legend">CONV</span><span class="scicalc__alpha-legend">Σy²</span></span><span class="scicalc__primary" aria-hidden="true">3</span><span class="scicalc__mode-legend" aria-hidden="true"></span></button>
+<button type="button" class="scicalc__key scicalc__physical-key" data-key-id="EL506-K43" data-primary-name="add" data-second-name="→PEN" data-alpha-name="" aria-label="add"><span class="scicalc__legends" aria-hidden="true"><span class="scicalc__second-legend">→PEN</span><span class="scicalc__alpha-legend"></span></span><span class="scicalc__primary" aria-hidden="true">+</span><span class="scicalc__mode-legend" aria-hidden="true"></span></button>
+<button type="button" class="scicalc__key scicalc__physical-key" data-key-id="EL506-K44" data-primary-name="subtract" data-second-name="→OCT" data-alpha-name="" aria-label="subtract"><span class="scicalc__legends" aria-hidden="true"><span class="scicalc__second-legend">→OCT</span><span class="scicalc__alpha-legend"></span></span><span class="scicalc__primary" aria-hidden="true">−</span><span class="scicalc__mode-legend" aria-hidden="true"></span></button>
+</div>
+<div class="scicalc__physical-row scicalc__physical-row--4">
+<button type="button" class="scicalc__key scicalc__physical-key scicalc__physical-key--number" data-key-id="EL506-K45" data-primary-name="0" data-second-name="MDF" data-alpha-name="n" aria-label="0"><span class="scicalc__legends" aria-hidden="true"><span class="scicalc__second-legend">MDF</span><span class="scicalc__alpha-legend">n</span></span><span class="scicalc__primary" aria-hidden="true">0</span><span class="scicalc__mode-legend" aria-hidden="true"></span></button>
+<button type="button" class="scicalc__key scicalc__physical-key scicalc__physical-key--number" data-key-id="EL506-K46" data-primary-name="decimal point" data-second-name="DRG▶" data-alpha-name="Σx" aria-label="decimal point"><span class="scicalc__legends" aria-hidden="true"><span class="scicalc__second-legend">DRG▶</span><span class="scicalc__alpha-legend">Σx</span></span><span class="scicalc__primary" aria-hidden="true">.</span><span class="scicalc__mode-legend" aria-hidden="true"></span></button>
+<button type="button" class="scicalc__key scicalc__physical-key" data-key-id="EL506-K47" data-primary-name="+/-" data-second-name="M-CLR" data-alpha-name="Σx²" aria-label="+/-"><span class="scicalc__legends" aria-hidden="true"><span class="scicalc__second-legend">M-CLR</span><span class="scicalc__alpha-legend">Σx²</span></span><span class="scicalc__primary" aria-hidden="true">+/−</span><span class="scicalc__mode-legend" aria-hidden="true">NEG</span></button>
+<button type="button" class="scicalc__key scicalc__physical-key scicalc__physical-key--equals" data-key-id="EL506-K48" data-primary-name="equals" data-second-name="→DEC" data-alpha-name="ANS" aria-label="equals"><span class="scicalc__legends" aria-hidden="true"><span class="scicalc__second-legend">→DEC</span><span class="scicalc__alpha-legend">ANS</span></span><span class="scicalc__primary" aria-hidden="true">=</span><span class="scicalc__mode-legend" aria-hidden="true">ENT</span></button>
+</div>
+</div>
+{% endblock %}
+</div></div>
+{% endif %}

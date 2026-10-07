@@ -4,7 +4,7 @@ test("existing browser entry initializes even when the host defines a CommonJS m
   const errors = [];
   page.on("pageerror", (error) => errors.push(error.message));
   await page.addInitScript(() => { window.module = { exports: {} }; });
-  await page.goto("/");
+  await page.goto("/legacy/");
   const root = page.locator("[data-scientific-calculator]");
   for (const value of ["1", "+", "2"]) await root.locator(`button[data-insert=${JSON.stringify(value)}]`).click();
   await root.locator('button[data-action="equals"]').click();

@@ -57,12 +57,37 @@ class IntegrationTests(unittest.TestCase):
 
     def test_packaged_assets_are_discoverable_and_local(self):
         package = files("scientific_calculator")
-        for name in ("calculator.js", "calculator.css", "physical-keys.json"):
+        for name in ("calculator.js", "calculator.css", "calculator-theme.example.css", "physical-keys.json"):
             relative = "scientific_calculator/" + name
             asset = package.joinpath("static", relative)
             self.assertTrue(asset.is_file(), relative)
             self.assertEqual(Path(finders.find(relative)).read_bytes(), asset.read_bytes())
         self.assertTrue(package.joinpath("templates/scientific_calculator/calculator.html").is_file())
+
+    def test_optional_brand_escapes_even_marked_safe_strings(self):
+        from django.utils.safestring import mark_safe
+        payload = mark_safe('<img src=x onerror="alert(1)">')
+        html = Template('{% load scientific_calculator %}{% scientific_calculator brand=brand %}').render(Context({"brand": payload}))
+        self.assertIn("&lt;img", html)
+        self.assertNotIn("<img", html)
+        self.assertEqual(html.count("data-key-id="), 48)
+
+    def test_legacy_layout_is_explicit_and_invalid_layouts_reject(self):
+        html = Template('{% load scientific_calculator %}{% scientific_calculator layout="legacy" %}').render(Context())
+        self.assertIn('data-action="angle"', html)
+        self.assertNotIn("data-physical-layout", html)
+        with self.assertRaises(ValueError):
+            scientific_calculator(layout="bad")
+
+    def test_documented_template_blocks_are_overridable(self):
+        from django.template import Engine
+        engine = Engine(loaders=[("django.template.loaders.locmem.Loader", {
+            "custom.html": '{% extends "base.html" %}{% block calculator_brand %}<div class="scicalc__brand">School lab</div>{% endblock %}',
+            "base.html": files("scientific_calculator").joinpath("templates/scientific_calculator/calculator.html").read_text(encoding="utf-8"),
+        })])
+        html = engine.get_template("custom.html").render(Context())
+        self.assertIn("School lab", html)
+        self.assertEqual(html.count("data-key-id="), 48)
 
 
 if __name__ == "__main__":

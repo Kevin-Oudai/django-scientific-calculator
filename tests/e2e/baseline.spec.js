@@ -24,7 +24,7 @@ test("preserves 0.3.1 observable results and known deviations before refactoring
   page.on("console", (message) => { if (message.type() === "error") errors.push(message.text()); });
   const observations = [];
   for (const probe of baseline.browser_probes) {
-    await page.goto("/");
+    await page.goto("/legacy/");
     const root = page.locator("[data-scientific-calculator]");
     for (const step of probe.application_sequence) {
       if (step.keyboard) {
@@ -58,7 +58,7 @@ test("0.3.1 keyboard input remains focused and independent across two embeds", a
     expect(end).toBeGreaterThan(start);
     await route.fulfill({ response, body: html.slice(0, end) + html.slice(start, end) + html.slice(end) });
   });
-  await page.goto("/");
+  await page.goto("/legacy/");
   const roots = page.locator("[data-scientific-calculator]");
   await expect(roots).toHaveCount(2);
   await roots.nth(0).focus();

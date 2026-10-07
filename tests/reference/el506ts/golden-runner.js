@@ -2,6 +2,7 @@ const assert = require("node:assert/strict");
 const fs = require("node:fs");
 const path = require("node:path");
 const core = require("../../../src/scientific_calculator/static/scientific_calculator/calculator.js");
+const formatting = require("../../../src/scientific_calculator/static/scientific_calculator/formatting.js");
 const catalog = require("../../../src/scientific_calculator/static/scientific_calculator/physical-keys.json");
 const { validateExperiment } = require("./validate-experiment");
 const ids = new Set(catalog.keys.map(k => k.id));
@@ -70,6 +71,10 @@ function runFixture(fixture) {
     assert.ok(Object.keys(expected.assertions).length > 0);
     for (const [field, value] of Object.entries(expected.assertions)) {
       assert.deepEqual(valueAt(state, field), value, `${fixture.id} step ${step}: ${field}`);
+    }
+    if (expected.viewAssertions) {
+      const view = formatting.renderState(state, {physical:true});
+      for (const [field,value] of Object.entries(expected.viewAssertions)) assert.deepEqual(valueAt(view,field),value,`${fixture.id} step ${step} display: ${field}`);
     }
     frames.push(core.snapshotCalculator(state));
   }

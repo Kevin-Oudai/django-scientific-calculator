@@ -1000,6 +1000,7 @@
       || !layers.settings || !["DEG", "RAD", "GRAD"].includes(layers.settings.angle)
       || !["FIX", "SCI", "ENG", "NORM1", "NORM2"].includes(layers.settings.format)
       || !Number.isInteger(layers.settings.tab) || layers.settings.tab < 0 || layers.settings.tab > 9
+      || !(layers.settings.insert === undefined || typeof layers.settings.insert === "boolean")
       || !(layers.intent === null || layers.intent && typeof layers.intent.kind === "string")) throw new TypeError("Invalid key layers");
     for (const name of Object.keys(initial)) {
       if (initial[name] !== null && !Array.isArray(initial[name])
@@ -1155,6 +1156,7 @@
     if (active.hyp && [13,14,15].includes(n)) return {kind:"function", name: (active.inverseHyp ? "a" : "") + ["sinh","cosh","tanh"][n-13]};
     if (active.alpha) return n === 48 ? {kind:"operation", event:{insert:"ans"}} : MEMORY_KEYS[n] ? {kind:"symbol", name:MEMORY_KEYS[n]} : ALPHA_STATS[n] ? {kind:"statistic", name:ALPHA_STATS[n]} : {kind:"pending", key:id, layer:"ALPHA"};
     if (state.secondActive) {
+      if (n === 7) return {kind:"modifier", name:"insert"};
       if ([24,25].includes(n)) return {kind:"conversion",name:n===24?"fraction-decimal":"mixed-improper"};
       const menu = {4:"CLEAR",5:"STATVAR",17:"ALGB",30:"RANDOM",41:"CNST",42:"CONV",47:"MEMORY_CLEAR"}[n];
       if (menu) return {kind:"menu", name:menu};
@@ -1164,6 +1166,16 @@
     return BASE_KEYS[n] ? {kind:"operation", event:{...BASE_KEYS[n]}} : {kind:"pending", key:id, layer:"base"};
   }
   function reducePhysicalKey(previous, id) {
+    if (previous.workflow.kind === "multi-result" && ["EL506-K08", "EL506-K09", "EL506-K10", "EL506-K11"].includes(id)) {
+      return reduceCalculator(previous, {type:"workflow", command:"page", direction:["EL506-K08", "EL506-K09"].includes(id) ? -1 : 1});
+    }
+    if (previous.workflow.kind === "menu" && ["EL506-K08", "EL506-K11"].includes(id)) {
+      const next = structuredClone(previous);
+      const maximum = Math.max(0, Math.ceil((next.workflow.payload.choices?.length || 0) / 2) - 1);
+      next.workflow.page = Math.max(0, Math.min(maximum, next.workflow.page + (id === "EL506-K08" ? -1 : 1)));
+      validateState(next);
+      return next;
+    }
     const intent = resolvePhysicalKey(previous, id);
     let next = structuredClone(previous);
     const dismiss = () => { if (next.workflow.kind) next = reduceCalculator(next,{type:"workflow",command:"dismiss"}); };
@@ -1176,6 +1188,7 @@
       if (intent.name === "second") { next.secondActive = !next.secondActive; next.layers.alpha = false; }
       if (intent.name === "alpha") { next.layers.alpha = !next.layers.alpha; next.secondActive = false; }
       if (intent.name === "hyp") { next.layers.hyp = !next.layers.hyp; next.layers.inverseHyp = next.secondActive && next.layers.hyp; }
+      if (intent.name === "insert") { next.layers.settings.insert = next.layers.settings.insert === false; next.secondActive = false; }
       next.layers.intent = null;
     } else if (intent.kind === "menu") open(intent.name);
     else if (intent.kind === "selection") {
@@ -1215,6 +1228,13 @@
       if (intent.kind === "operation") {
         if (next.layers.mode !== "NORMAL" && !["clear","home"].includes(intent.event.action)) throw new TypeError("Numeric mode implementation pending");
         next = reduceCalculator(next,{type:"button",...intent.event});
+        if (["EL506-K09", "EL506-K10"].includes(id) && previous.displayExpression && !previous.expression.endsWith("=") && !previous.stagedEntry) {
+          const direction = id === "EL506-K09" ? -1 : 1;
+          next.cursor = previous.selectionActive ? Math.max(0, Math.min(next.expression.length, previous.cursor + direction)) : direction < 0 ? next.expression.length - 1 : 0;
+          next.selectionActive = true;
+          next.lifecycle = "editing";
+          next.editor = editorForState(next);
+        }
         if (["pi","e","ans"].includes(intent.event.insert) && previous.editor.tokens.length && !previous.expression.endsWith("=") && !previous.stagedEntry) {
           next.editor = semantic.createEditor([...previous.editor.tokens,{kind:"symbol",value:intent.event.insert}]);
         }
@@ -1472,7 +1492,7 @@
         selectionActive = false;
       }
       if (selectionActive && expression) {
-        expression = `${expression.slice(0, cursor)}${value}${expression.slice(cursor)}`;
+        expression = `${expression.slice(0, cursor)}${value}${expression.slice(cursor + (previous.layers?.settings.insert === false ? 1 : 0))}`;
         cursor = Math.max(0, cursor + value.length - 1);
       } else {
         expression += value;

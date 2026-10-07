@@ -1,12 +1,12 @@
 const {test,expect}=require('@playwright/test');
 test.use({hasTouch:true});
 async function threeEmbeds(page){
-  await page.route('**/',async route=>{
+  await page.route('**/legacy/',async route=>{
     const response=await route.fetch(),html=await response.text();
     const start=html.indexOf('<div class="scicalc" data-scientific-calculator>'),end=html.indexOf('<script',start);
     await route.fulfill({response,body:html.slice(0,end)+html.slice(start,end).repeat(2)+html.slice(end)});
   });
-  await page.goto('/');const roots=page.locator('[data-scientific-calculator]');await expect(roots).toHaveCount(3);
+  await page.goto('/legacy/');const roots=page.locator('[data-scientific-calculator]');await expect(roots).toHaveCount(3);
   await expect(roots.nth(2)).toHaveAttribute('data-entry-phase','empty');
   // Exercise ordinary embeds, outside the demo's single floating-tool shell.
   await page.evaluate(()=>{
@@ -66,7 +66,7 @@ test('reloading the compatible entry preserves mounted roots and initializes a f
   const saved=await snapshot(roots.nth(0));const errors=[];page.on('pageerror',e=>errors.push(e.message));
   await page.evaluate(async()=>{
     const root=document.querySelector('[data-scientific-calculator]'),copy=root.cloneNode(true);root.after(copy);
-    const src=[...document.scripts].find(s=>s.src.endsWith('/calculator.js')).src;
+    const src=[...document.scripts].find(s=>s.src && new URL(s.src).pathname.endsWith('/calculator.js')).src;
     await new Promise((resolve,reject)=>{const script=document.createElement('script');script.src=src;script.onload=resolve;script.onerror=reject;document.head.append(script);});
   });
   const all=page.locator('[data-scientific-calculator]');await expect.poll(()=>all.nth(1).evaluate(el=>Boolean(el.scientificCalculator))).toBe(true);

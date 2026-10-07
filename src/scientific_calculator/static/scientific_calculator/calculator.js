@@ -5,9 +5,12 @@
     return;
   }
   const assetBase=document.currentScript.src;
+  const assetRevision=new URL(assetBase).search;
   const load=file=>new Promise((resolve,reject)=>{
     const script=document.createElement('script');
-    script.src=new URL(file,assetBase).href;
+    const assetUrl=new URL(file,assetBase);
+    assetUrl.search=assetRevision;
+    script.src=assetUrl.href;
     script.onload=resolve;
     script.onerror=()=>reject(new Error('Local calculator asset failed to load: '+file));
     document.head.append(script);

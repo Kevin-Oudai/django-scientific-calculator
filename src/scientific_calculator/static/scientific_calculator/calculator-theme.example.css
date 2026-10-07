@@ -1,0 +1,18 @@
+/* Load after calculator.css. Colors and fonts only: physical positions stay fixed. */
+.scicalc {
+  --scicalc-surface: #f3f6fb;
+  --scicalc-border: #64748b;
+  --scicalc-ink: #17263b;
+  --scicalc-muted: #3d526e;
+  --scicalc-screen: #e4efd9;
+  --scicalc-screen-ink: #182619;
+  --scicalc-key: #e2eaf5;
+  --scicalc-number: #ffffff;
+  --scicalc-equals: #c7def6;
+  --scicalc-second: #814000;
+  --scicalc-alpha: #176535;
+  --scicalc-danger: #9f1239;
+  --scicalc-focus: #174f91;
+  --scicalc-shadow: 0 8px 24px #15365c22;
+}
+.scicalc:has(> .scicalc__physical) { color-scheme: light; }

@@ -416,3 +416,117 @@
     font-size: 0.82rem;
   }
 }
+/* Public theme contract: override these properties after calculator.css.
+   Geometry and functional key legends are intentionally independent of theme. */
+.scicalc {
+  --scicalc-surface: #151c28;
+  --scicalc-border: #718096;
+  --scicalc-ink: #f2f5fa;
+  --scicalc-muted: #c0cad8;
+  --scicalc-screen: #d9e5d2;
+  --scicalc-screen-ink: #172719;
+  --scicalc-key: #293549;
+  --scicalc-number: #38465c;
+  --scicalc-equals: #234f7a;
+  --scicalc-second: #ffc477;
+  --scicalc-alpha: #8ce9ae;
+  --scicalc-danger: #ffb7c5;
+  --scicalc-font: ui-sans-serif, system-ui, sans-serif;
+  --scicalc-display-font: ui-monospace, 'Cascadia Mono', Consolas, monospace;
+  --scicalc-shadow: 0 12px 30px #0003;
+  --scicalc-focus: #a8ceff;
+}
+.scicalc:has(> .scicalc__physical) {
+  box-sizing: border-box;
+  width: 100%;
+  min-width: 300px;
+  max-width: 460px;
+  padding: 12px;
+  background: var(--scicalc-surface);
+  color: var(--scicalc-ink);
+  border: 1px solid var(--scicalc-border);
+  border-radius: 12px;
+  font-family: var(--scicalc-font);
+  box-shadow: var(--scicalc-shadow);
+  color-scheme: dark;
+}
+.scicalc__physical *, .scicalc__physical *::before, .scicalc__physical *::after { box-sizing: border-box; }
+.scicalc__physical .scicalc__brand { margin: 0 0 10px; font-size: .9rem; font-weight: 650; overflow-wrap: anywhere; }
+.scicalc__physical .scicalc__screen {
+  height: auto; min-height: 120px; padding: 8px;
+  background: var(--scicalc-screen); color: var(--scicalc-screen-ink);
+  border: 1px solid var(--scicalc-border); border-radius: 6px; box-shadow: none;
+}
+.scicalc__indicators { display: flex; flex-wrap: wrap; gap: 3px 6px; min-height: 18px; font: 650 .58rem var(--scicalc-font); }
+.scicalc__indicator[hidden] { display: none; }
+.scicalc__lcd-row { display: flex; align-items: center; gap: 3px; min-width: 0; }
+.scicalc__lcd-row > span { flex: 0 0 10px; font-size: .7rem; }
+.scicalc__lcd-row > [data-component] { flex-basis: auto; }
+.scicalc__physical .scicalc__expression, .scicalc__physical .scicalc__result {
+  flex: 1; min-width: 0; height: 36px; color: var(--scicalc-screen-ink);
+  font: 500 1.05rem/1.8 var(--scicalc-display-font);
+  overflow-x: auto; overflow-y: hidden; white-space: nowrap; text-overflow: clip;
+  scrollbar-width: thin; scrollbar-color: var(--scicalc-screen-ink) transparent;
+}
+.scicalc__physical .scicalc__result { height: 40px; font-size: 1.5rem; text-align: right; }
+.scicalc__page-status { min-height: 14px; text-align: right; font-size: .6rem; }
+.scicalc__controls { position: relative; height: 132px; margin-top: 8px; }
+.scicalc__utility { display: grid; grid-template-columns: repeat(6,minmax(0,1fr)); grid-template-rows: repeat(3,44px); gap: 0 4px; }
+.scicalc__physical .scicalc__utility .scicalc__physical-key { height: 44px; font-size: .65rem; }
+.scicalc__utility [data-key-id="EL506-K01"] { grid-area: 1/1/2/3; }
+.scicalc__utility [data-key-id="EL506-K02"] { grid-area: 1/5/2/7; }
+.scicalc__utility [data-key-id="EL506-K03"] { grid-area: 2/1/3/3; }
+.scicalc__utility [data-key-id="EL506-K04"] { grid-area: 2/5/3/7; }
+.scicalc__utility [data-key-id="EL506-K05"] { grid-area: 3/1/4/3; }
+.scicalc__utility [data-key-id="EL506-K06"] { grid-area: 3/3/4/5; }
+.scicalc__utility [data-key-id="EL506-K07"] { grid-area: 3/5/4/7; }
+.scicalc__physical-nav { position: absolute; left: 34%; top: 0; width: 32%; height: 86px; display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); grid-template-rows: repeat(3,1fr); gap: 1px; }
+.scicalc__physical .scicalc__physical-nav .scicalc__physical-key { height: 28px; padding: 0; font-size: .85rem; }
+.scicalc__physical-nav .scicalc__legends { display: none; }
+.scicalc__physical-nav .scicalc__mode-legend { font-size: .46rem; }
+.scicalc__physical-nav .scicalc__primary { padding: 1px 0 8px; }
+.scicalc__physical-nav [data-key-id="EL506-K08"] { grid-area: 1/2; }
+.scicalc__physical-nav [data-key-id="EL506-K09"] { grid-area: 2/1; }
+.scicalc__physical-nav [data-key-id="EL506-K10"] { grid-area: 2/3; }
+.scicalc__physical-nav [data-key-id="EL506-K11"] { grid-area: 3/2; }
+.scicalc__physical-row { display: grid; grid-template-columns: repeat(6,minmax(0,1fr)); gap: 4px; margin-top: 4px; }
+.scicalc__physical-row--5, .scicalc__physical-row--4 { grid-template-columns: repeat(5,minmax(0,1fr)); }
+.scicalc__physical .scicalc__physical-key {
+  position: relative; display: flex; flex-direction: column; justify-content: center;
+  min-width: 0; height: 58px; padding: 15px 1px 10px;
+  border: 1px solid var(--scicalc-border); border-radius: 5px;
+  background: var(--scicalc-key); color: var(--scicalc-ink);
+  box-shadow: none; font-size: .8rem; font-weight: 600; line-height: 1;
+  touch-action: manipulation;
+}
+.scicalc__physical .scicalc__physical-key--number { background: var(--scicalc-number); font-size: 1.25rem; }
+.scicalc__physical .scicalc__physical-key--equals { grid-column: span 2; background: var(--scicalc-equals); font-size: 1.3rem; }
+.scicalc__physical .scicalc__physical-key--clear { color: var(--scicalc-danger); }
+.scicalc__physical .scicalc__physical-key:hover { filter: brightness(1.12); transform: none; }
+.scicalc__physical .scicalc__physical-key:active { filter: brightness(.9); }
+.scicalc__physical .scicalc__physical-key[aria-pressed="true"] { outline: 2px solid var(--scicalc-second); outline-offset: -3px; }
+.scicalc__physical [data-key-id="EL506-K05"][aria-pressed="true"] { outline-color: var(--scicalc-alpha); }
+.scicalc__legends { position: absolute; top: 3px; left: 2px; right: 2px; display: flex; justify-content: space-between; gap: 1px; font-size: .49rem; white-space: nowrap; }
+.scicalc__second-legend { color: var(--scicalc-second); }
+.scicalc__alpha-legend { color: var(--scicalc-alpha); }
+.scicalc__mode-legend { position: absolute; bottom: 3px; left: 0; right: 0; text-align: center; font-size: .48rem; color: var(--scicalc-muted); }
+.scicalc__physical-nav .scicalc__mode-legend { color: var(--scicalc-alpha); }
+.scicalc__physical-key:is([data-key-id="EL506-K12"],[data-key-id="EL506-K13"],[data-key-id="EL506-K14"],[data-key-id="EL506-K15"],[data-key-id="EL506-K16"]) .scicalc__mode-legend { color: var(--scicalc-second); }
+.scicalc__sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+.scicalc__physical .scicalc__selected-char { position: relative; border-radius: 0; background: transparent; color: transparent; padding: 0; }
+.scicalc__physical .scicalc__selected-char::after { content: '◀'; position: absolute; top: 0; left: 0; color: var(--scicalc-screen-ink); }
+.scicalc__physical .scicalc__cursor::after { content: '_'; position: absolute; top: 0; left: 0; color: var(--scicalc-screen-ink); }
+.scicalc__physical .scicalc__cursor { position: relative; display: inline-block; width: .6em; height: 1em; margin: 0; background: transparent; vertical-align: baseline; }
+.scicalc__physical[data-insert-mode="overwrite"] .scicalc__selected-char { background: var(--scicalc-screen-ink); color: transparent; }
+.scicalc__physical[data-insert-mode="overwrite"] .scicalc__selected-char::after { content: none; }
+.scicalc__physical[data-cursor-blink="true"] .scicalc__selected-char, .scicalc__physical[data-cursor-blink="true"] .scicalc__cursor { animation: scicalc-cursor-blink 1s step-end infinite; }
+@keyframes scicalc-cursor-blink { 50% { opacity: 0; } }
+.scicalc:has(> .scicalc__physical):focus-visible, .scicalc__physical :focus-visible { outline: 3px solid var(--scicalc-focus); outline-offset: 2px; }
+.scicalc__physical .scicalc__expression:focus-visible, .scicalc__physical .scicalc__result:focus-visible { outline-color: var(--scicalc-screen-ink); outline-offset: -2px; }
+@media (prefers-reduced-motion: reduce) { .scicalc__physical *, .scicalc__physical *::before, .scicalc__physical *::after { animation: none !important; transition: none !important; } }
+@media (forced-colors: active) {
+  .scicalc__physical .scicalc__physical-key[aria-pressed="true"] { outline-color: Highlight; }
+  .scicalc__second-legend, .scicalc__alpha-legend, .scicalc__mode-legend { color: ButtonText; }
+  .scicalc__physical .scicalc__screen { background: Canvas; color: CanvasText; }
+  .scicalc__physical .scicalc__expression, .scicalc__physical .scicalc__result { color: CanvasText; }
+}

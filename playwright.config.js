@@ -17,7 +17,7 @@ module.exports = defineConfig({
     viewport: { width: 1440, height: 1000 },
   },
   webServer: {
-    command: "docker compose up --build",
+    command: process.env.CALCULATOR_TEST_SERVER_CMD || "docker compose up --build",
     url: baseURL,
     reuseExistingServer: true,
     timeout: 120 * 1000,
