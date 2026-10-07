@@ -38,8 +38,8 @@
       "pending": 51
     },
     "golden": {
-      "fixtures": 8,
-      "assertedFrames": 43,
+      "fixtures": 9,
+      "assertedFrames": 52,
       "pending": 1
     },
     "verifiedFullParity": 0
@@ -83,6 +83,10 @@
       "sha256": "3d04bfe39ec1508b6d3cdc25c900aad974a293209b1b76160da36ce2bd77d353"
     },
     {
+      "path": "tests/reference/el506ts/experiments/phase3-power.json",
+      "sha256": "0e8b45821064e425031f0bbe12a4d731af5552a9abc3212c5ac9dd742643feb9"
+    },
+    {
       "path": "tests/reference/el506ts/experiments/retained-answer.json",
       "sha256": "7ded9b273cf3d756ce11ac3fb5c6344d9f12c1f52219eb461da1a5cf3caceb14"
     },
@@ -112,15 +116,19 @@
     },
     {
       "path": "tests/reference/el506ts/golden/key-layers.json",
-      "sha256": "2a8a9a7da27d0f4ba2b6b6b503b2c46e5205821041452c3fff23246bbd00facc"
+      "sha256": "1021de68bd1a0b2471bdb8346205848fbf47f09cda00338592bcb620d8be2055"
     },
     {
       "path": "tests/reference/el506ts/golden/menus-pending.json",
       "sha256": "560527bd6a5f22e294b57b52c9df265c6ab806ebaba7fdcdfa03e2f9a07f45aa"
     },
     {
+      "path": "tests/reference/el506ts/golden/phase3-power.json",
+      "sha256": "ece12e823aecdcc4df9eeac877c414f325890caede7d75fb9ad411502880098c"
+    },
+    {
       "path": "tests/reference/el506ts/golden/physical-lcd-cursor.json",
-      "sha256": "ab283c198d033d115a5cb7c7129cee783e8fb99c95a952ddf14395229221ef80"
+      "sha256": "1c41b2a58af35f54b69527b7ad31dfeca44005c068097a9b489c8d51c631e09d"
     },
     {
       "path": "tests/reference/el506ts/golden/retained-answer.json",
@@ -144,7 +152,7 @@
     },
     {
       "path": "tests/e2e/physical-ui.spec.js",
-      "sha256": "bdd2c5b121799dc49a4cf092182306da523e98867b7322534e3f756816967efa"
+      "sha256": "f2f01c7a6aa57b529dbfae8b15af5db496be5c16e49474f8020637f3b4f3c7e8"
     },
     {
       "path": "tests/unit/calculator.test.js",
@@ -14193,6 +14201,11 @@
             "fixtureId": "key-layers-foundation-v1",
             "status": "known-differences",
             "assertedFrames": 8
+          },
+          {
+            "fixtureId": "phase3-power-retention-v1",
+            "status": "known-differences",
+            "assertedFrames": 9
           }
         ],
         "scope": "Baseline characterization only; all current supported fixtures have oracle display differences."

@@ -1,0 +1,334 @@
+{
+  "schema_version": 1,
+  "experiment_id": "el506-050-power-v1",
+  "roadmap_item": "EL506-050",
+  "catalog_id": "el506-physical-keys-v1",
+  "simulator": {
+    "profile_id": "sharp-el506ts-pc-simulator-1.0.2.0",
+    "product": "SHARP PC Simulator for EL-506TS",
+    "build": "1.0.2.0",
+    "runtime_sha256": "6bfef4d04900b472892be2d4c54dcfa6013f87232097e32df508ca4c27425530",
+    "locale": "English UI; en-US",
+    "operating_system": "Windows 11"
+  },
+  "capture": {
+    "date": "2026-10-07",
+    "timezone": "America/Port_of_Spain",
+    "method": "Computer-use sky: reset chrome and reobserve each physical click; corrected coordinates confirmed on panel; each significant frame inspected. Pinned runtime.",
+    "evidence_kind": "live-simulator",
+    "source_ids": [
+      "live-session"
+    ]
+  },
+  "initial_state": {
+    "reset": {
+      "kind": "simulator-chrome-reset",
+      "description": "Clicked simulator chrome Reset before step 1; host control excluded from physical sequence."
+    },
+    "setup_sequence": [],
+    "mode": {
+      "status": "observed",
+      "value": "NORMAL (pinned reset default)"
+    },
+    "settings": [
+      {
+        "name": "angle",
+        "observation": {
+          "status": "observed",
+          "value": "DEG"
+        }
+      },
+      {
+        "name": "display-format",
+        "observation": {
+          "status": "observed",
+          "value": "NORM1 (pinned reset default)"
+        }
+      }
+    ],
+    "display": {
+      "upper_line": "",
+      "lower_line": "0.",
+      "indicators": [
+        "DEG"
+      ],
+      "scroll_arrows": [],
+      "cursor": {
+        "status": "observed",
+        "value": "not visible"
+      },
+      "insert_mode": {
+        "status": "unknown",
+        "reason": "Not tested in this power sequence."
+      },
+      "prompt": null,
+      "selected_result_component": null
+    },
+    "stores": []
+  },
+  "sequence": [
+    "EL506-K30",
+    "EL506-K29",
+    "EL506-K03",
+    "EL506-K02",
+    "EL506-K40",
+    "EL506-K02",
+    "EL506-K27",
+    "EL506-K29"
+  ],
+  "frames": [
+    {
+      "after_step": 0,
+      "display": {
+        "upper_line": "",
+        "lower_line": "0.",
+        "indicators": [
+          "DEG"
+        ],
+        "scroll_arrows": [],
+        "cursor": {
+          "status": "observed",
+          "value": "not visible"
+        },
+        "insert_mode": {
+          "status": "unknown",
+          "reason": "Not tested in this power sequence."
+        },
+        "prompt": null,
+        "selected_result_component": null
+      },
+      "result": {
+        "status": "not-applicable",
+        "reason": "Power/retention probe; only M readback at final frame is measured."
+      }
+    },
+    {
+      "after_step": 1,
+      "display": {
+        "upper_line": "",
+        "lower_line": "7.",
+        "indicators": [
+          "DEG"
+        ],
+        "scroll_arrows": [],
+        "cursor": {
+          "status": "observed",
+          "value": "not visible"
+        },
+        "insert_mode": {
+          "status": "unknown",
+          "reason": "Not tested in this power sequence."
+        },
+        "prompt": null,
+        "selected_result_component": null
+      },
+      "result": {
+        "status": "not-applicable",
+        "reason": "Power/retention probe; only M readback at final frame is measured."
+      }
+    },
+    {
+      "after_step": 2,
+      "display": {
+        "upper_line": "7M+",
+        "lower_line": "7.",
+        "indicators": [
+          "DEG",
+          "M"
+        ],
+        "scroll_arrows": [],
+        "cursor": {
+          "status": "observed",
+          "value": "not visible"
+        },
+        "insert_mode": {
+          "status": "unknown",
+          "reason": "Not tested in this power sequence."
+        },
+        "prompt": null,
+        "selected_result_component": null
+      },
+      "result": {
+        "status": "not-applicable",
+        "reason": "Power/retention probe; only M readback at final frame is measured."
+      }
+    },
+    {
+      "after_step": 3,
+      "display": {
+        "upper_line": "7M+",
+        "lower_line": "7.",
+        "indicators": [
+          "DEG",
+          "M",
+          "2ndF"
+        ],
+        "scroll_arrows": [],
+        "cursor": {
+          "status": "observed",
+          "value": "not visible"
+        },
+        "insert_mode": {
+          "status": "unknown",
+          "reason": "Not tested in this power sequence."
+        },
+        "prompt": null,
+        "selected_result_component": null
+      },
+      "result": {
+        "status": "not-applicable",
+        "reason": "Power/retention probe; only M readback at final frame is measured."
+      }
+    },
+    {
+      "after_step": 4,
+      "display": {
+        "upper_line": "",
+        "lower_line": "",
+        "indicators": [],
+        "scroll_arrows": [],
+        "cursor": {
+          "status": "observed",
+          "value": "not visible"
+        },
+        "insert_mode": {
+          "status": "unknown",
+          "reason": "Not tested in this power sequence."
+        },
+        "prompt": null,
+        "selected_result_component": null
+      },
+      "result": {
+        "status": "not-applicable",
+        "reason": "Power/retention probe; only M readback at final frame is measured."
+      }
+    },
+    {
+      "after_step": 5,
+      "display": {
+        "upper_line": "",
+        "lower_line": "",
+        "indicators": [],
+        "scroll_arrows": [],
+        "cursor": {
+          "status": "observed",
+          "value": "not visible"
+        },
+        "insert_mode": {
+          "status": "unknown",
+          "reason": "Not tested in this power sequence."
+        },
+        "prompt": null,
+        "selected_result_component": null
+      },
+      "result": {
+        "status": "not-applicable",
+        "reason": "Power/retention probe; only M readback at final frame is measured."
+      }
+    },
+    {
+      "after_step": 6,
+      "display": {
+        "upper_line": "",
+        "lower_line": "0.",
+        "indicators": [
+          "DEG",
+          "M"
+        ],
+        "scroll_arrows": [],
+        "cursor": {
+          "status": "observed",
+          "value": "not visible"
+        },
+        "insert_mode": {
+          "status": "unknown",
+          "reason": "Not tested in this power sequence."
+        },
+        "prompt": null,
+        "selected_result_component": null
+      },
+      "result": {
+        "status": "not-applicable",
+        "reason": "Power/retention probe; only M readback at final frame is measured."
+      }
+    },
+    {
+      "after_step": 7,
+      "display": {
+        "upper_line": "",
+        "lower_line": "0.",
+        "indicators": [
+          "DEG",
+          "M",
+          "ALPHA"
+        ],
+        "scroll_arrows": [],
+        "cursor": {
+          "status": "observed",
+          "value": "not visible"
+        },
+        "insert_mode": {
+          "status": "unknown",
+          "reason": "Not tested in this power sequence."
+        },
+        "prompt": null,
+        "selected_result_component": null
+      },
+      "result": {
+        "status": "not-applicable",
+        "reason": "Power/retention probe; only M readback at final frame is measured."
+      }
+    },
+    {
+      "after_step": 8,
+      "display": {
+        "upper_line": "M=",
+        "lower_line": "7.",
+        "indicators": [
+          "DEG",
+          "M"
+        ],
+        "scroll_arrows": [],
+        "cursor": {
+          "status": "observed",
+          "value": "not visible"
+        },
+        "insert_mode": {
+          "status": "unknown",
+          "reason": "Not tested in this power sequence."
+        },
+        "prompt": null,
+        "selected_result_component": null
+      },
+      "result": {
+        "status": "not-applicable",
+        "reason": "Power/retention probe; only M readback at final frame is measured."
+      }
+    }
+  ],
+  "stored_values": {
+    "coverage": "Independent M read back with RCL M after wake; no other stores measured.",
+    "observations": []
+  },
+  "errors": [],
+  "sources": [
+    {
+      "source_id": "live-session",
+      "kind": "simulator",
+      "reference": "simulator-profile.json",
+      "page": null,
+      "scope": "Power-off blanks both lines/indicators; non-ON/C digit ignored asleep; ON/C wakes with M retained; RCL M readback 7."
+    }
+  ],
+  "oracle": {
+    "selected_source_id": "live-session",
+    "simulator_exception_ids": [],
+    "disagreements": []
+  },
+  "ambiguities": [],
+  "notes": [
+    "Fresh reset sequence repeated 2026-10-07. OFF is a physical key sequence, not application close. No memory-on-application-close inference.",
+    "Auto-power-off timing uses the full manual page 2 ten-minute rule, not accelerated simulator timing.",
+    "M+ and RCL display wording retain Phase 8 implementation differences; this record establishes power retention only."
+  ]
+}

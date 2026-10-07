@@ -32,7 +32,8 @@ test('menus and memory prompts accept only their declared physical selections', 
 test('mode selection records intent and prevents unsupported mode arithmetic', () => {
   let s=core.createInitialState(); for(const n of [4,35]) s=press(s,n);
   assert.equal(s.layers.mode,'MAT');
-  assert.throws(()=>press(s,40),/pending/);
+  assert.equal(press(s,40).entry,'1');
+  assert.throws(()=>press(s,48),/pending/);
   assert.equal(press(s,2).layers.mode,'MAT');
   assert.equal(press(s,1).layers.mode,'NORMAL');
 });

@@ -1,3 +1,3 @@
-"""Reusable calculator with a physical default layout and optional legacy layout."""
+"""Reusable calculator with physical controls, structured editing, and an optional legacy layout."""
 
 __version__ = "0.3.1"

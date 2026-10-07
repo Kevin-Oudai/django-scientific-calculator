@@ -27,7 +27,8 @@
     const angleLabel=root.querySelector('[data-angle-label]');
     const announcement=root.querySelector('[data-announcement]');
     const errorEl=root.querySelector('[data-error]');
-    let state=createInitialState(), renderGeneration=0;
+    let state=createInitialState(), renderGeneration=0, idleTimer=null, activityAt=Date.now();
+    const schedulePower=()=>{if(!physical)return;document.defaultView.clearTimeout(idleTimer);activityAt=Date.now();if(state.control.power==='on')idleTimer=document.defaultView.setTimeout(()=>{state=reduceCalculator(state,{type:'idle',elapsedMs:Date.now()-activityAt});render();},600000-state.control.idleMs);};
     const ownsTarget=target=>target?.closest('[data-scientific-calculator]')===root;
     const hasKeyboardFocus=()=>ownsTarget(document.activeElement);
     const keys=[...root.querySelectorAll('[data-key-id]')].filter(ownsTarget);
@@ -53,6 +54,7 @@
     }
     const render=()=>{
       const generation=++renderGeneration;
+      if(physical)physical.dataset.power=state.control.power;
       const view=formatting.renderState(state,{physical:Boolean(physical)});
       expressionEl.innerHTML=view.expressionHtml;
       if(angleLabel) angleLabel.textContent=view.angleLabel;
@@ -82,9 +84,9 @@
         }
         const status=Object.entries(view.indicators).filter(([,active])=>active).map(([label])=>label).join(', ');
         const pending=['pending','function','symbol','statistic','conversion','catalogue-selection','memory-selection'].includes(state.layers.intent?.kind) ? '. Selected operation awaits its later roadmap implementation.' : '';
-        const text=`Equation: ${expressionEl.textContent || 'empty'}. Result: ${resultEl.textContent || 'empty'}. ${status}${view.pageStatus?`. Page ${view.pageStatus}, ${view.component}`:''}${pending}`;
+        const text=state.control.power==='off'?'Calculator powered off. Press ON/C to wake.':`Equation: ${expressionEl.textContent || 'empty'}. Result: ${resultEl.textContent || 'empty'}. ${status}${view.pageStatus?`. Page ${view.pageStatus}, ${view.component}`:''}${pending}`;
         if(announcement.textContent!==text) announcement.textContent=text;
-        const error=/^Error/.test(state.displayResult)?state.displayResult:'';
+        const error=/^Error/.test(state.displayResult)?state.control.errorCode?'Error '+state.control.errorCode:state.displayResult:'';
         if(errorEl.textContent!==error) errorEl.textContent=error;
       }
       requestAnimationFrame(()=>{
@@ -100,7 +102,7 @@
       });
     };
     const dispatch=event=>{
-      try { state=reduceCalculator(state,event); render(); }
+      try { if(physical&&state.control.power==='on'&&Date.now()-activityAt>=600000)state=reduceCalculator(state,{type:'idle',elapsedMs:Date.now()-activityAt});state=reduceCalculator(state,event); render();schedulePower(); }
       catch(error) {
         // Pending later-phase operations must not throw from a DOM event.
         if(!physical || !/implementation pending/.test(error.message)) throw error;
@@ -110,7 +112,8 @@
     Object.defineProperty(root,'scientificCalculator',{
       value:Object.freeze({
         snapshot:()=>snapshotCalculator(state),
-        restore:snapshot=>{state=restoreCalculator(snapshot);render();},
+        restore:snapshot=>{state=restoreCalculator(snapshot);render();schedulePower();},
+        reset:()=>dispatch({type:'reset'}),
         pressKey:id=>dispatch({type:'physical-key',id}),
       }),
     });
@@ -148,7 +151,7 @@
         dispatch({type:'keyboard',key:event.key});
       }
     });
-    render();
+    render();schedulePower();
     return root.scientificCalculator;
   }
   return Object.freeze({mount,keyboardKeyId});

@@ -1,4 +1,4 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>EL-506TS parity evidence report</title><style>body{font:16px system-ui;margin:2rem;color:#162130;background:#f5f7fa}main{max-width:1600px;margin:auto}table{border-collapse:collapse;width:100%;background:white}th,td{padding:12px;border:1px solid #b7c2d0;text-align:left;vertical-align:top}th{background:#163858;color:white}pre{white-space:pre-wrap;overflow-wrap:anywhere;font-size:12px}input{font:inherit;padding:10px;min-width:280px}details{margin-top:8px}summary{cursor:pointer}a{color:#174d80}.scroll{overflow:auto}caption{text-align:left;padding:12px 0;font-weight:bold}</style></head><body><main><h1>EL-506TS parity evidence</h1><p>430 ledger entries. Full verified parity: 0.</p><p>Evidence status is independent across columns. Inventory observation, partial implementation and baseline tests do not establish full calculator parity. Test mappings identify assertions, not a new test execution record. Run npm test for verification.</p><p>Guide: 52 workflows; 1 baseline replay; 51 pending. Golden: 43 asserted frames; 1 pending fixture.</p><details><summary>Column totals</summary><pre>{
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>EL-506TS parity evidence report</title><style>body{font:16px system-ui;margin:2rem;color:#162130;background:#f5f7fa}main{max-width:1600px;margin:auto}table{border-collapse:collapse;width:100%;background:white}th,td{padding:12px;border:1px solid #b7c2d0;text-align:left;vertical-align:top}th{background:#163858;color:white}pre{white-space:pre-wrap;overflow-wrap:anywhere;font-size:12px}input{font:inherit;padding:10px;min-width:280px}details{margin-top:8px}summary{cursor:pointer}a{color:#174d80}.scroll{overflow:auto}caption{text-align:left;padding:12px 0;font-weight:bold}</style></head><body><main><h1>EL-506TS parity evidence</h1><p>430 ledger entries. Full verified parity: 0.</p><p>Evidence status is independent across columns. Inventory observation, partial implementation and baseline tests do not establish full calculator parity. Test mappings identify assertions, not a new test execution record. Run npm test for verification.</p><p>Guide: 52 workflows; 1 baseline replay; 51 pending. Golden: 52 asserted frames; 1 pending fixture.</p><details><summary>Column totals</summary><pre>{
   &quot;documented&quot;: {
     &quot;not-recorded&quot;: 235,
     &quot;documented&quot;: 195
@@ -7367,6 +7367,11 @@
     &quot;fixtureId&quot;: &quot;key-layers-foundation-v1&quot;,
     &quot;status&quot;: &quot;known-differences&quot;,
     &quot;assertedFrames&quot;: 8
+  },
+  {
+    &quot;fixtureId&quot;: &quot;phase3-power-retention-v1&quot;,
+    &quot;status&quot;: &quot;known-differences&quot;,
+    &quot;assertedFrames&quot;: 9
   }
 ]</pre></details></td><td><strong>pending</strong><details><summary>Evidence and scope</summary><p>Explicit canonical baseline browser replays only; legacy regression coverage is not inferred as parity.</p><pre>[]</pre></details></td></tr>
 <tr><td>el506.mode.stat<br><strong>STAT</strong><br>mode / EL506-220</td><td><strong>not-recorded</strong><details><summary>Evidence and scope</summary><p>Ledger documentation evidence only.</p><pre>[]</pre></details></td><td><strong>observed</strong><details><summary>Evidence and scope</summary><p>Numeric behavior, valid modes, state changes, boundaries and application parity require the owning roadmap item.</p><pre>[

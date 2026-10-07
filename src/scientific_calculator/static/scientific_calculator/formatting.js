@@ -70,9 +70,10 @@
 
     while (index < expression.length) {
       if (expression[index] === SELECT_START) {
-        const selected = expression[index + 1] || "";
+        const end = expression.indexOf(SELECT_END,index+1);
+        const selected = end < 0 ? expression[index + 1] || "" : expression.slice(index+1,end);
         output += `<span class="scicalc__selected-char">${formatExpression(selected)}</span>`;
-        index += expression[index + 2] === SELECT_END ? 3 : 2;
+        index = end < 0 ? index + 2 : end + 1;
         continue;
       }
       if (expression[index] === SELECT_END) {
@@ -163,7 +164,8 @@
       if (!selectionActive || cursor >= expression.length) {
         return expression;
       }
-      return `${expression.slice(0, cursor)}${SELECT_START}${expression[cursor]}${SELECT_END}${expression.slice(cursor + 1)}`;
+      const cell=options.physical ? expression.slice(cursor).match(/^(?:(?:asin|acos|atan|sinh|cosh|tanh|asinh|acosh|atanh|sqrt|cbrt|recip|tenpow|epow|sin|cos|tan|log|ln|abs|fact|pct)\(|ans|pi|\^\(-1\)|\^\d|.)/)[0] : expression[cursor];
+      return `${expression.slice(0, cursor)}${SELECT_START}${cell}${SELECT_END}${expression.slice(cursor + cell.length)}`;
     };
 
     const stagedFractionHtml = () => {
@@ -202,6 +204,9 @@
     if (state.values.last.kind === 'nbase') indicators[({2:'BIN',5:'PEN',8:'OCT',10:'DEC',16:'HEX'})[state.values.last.radix]] = true;
     const expression = state.displayExpression;
     view.expressionHtml = expression ? formatExpression(expressionForDisplay()) : '';
+    if(state.lifecycle==='editing'&&state.displayResult==='')view.resultHtml='';
+    if(state.layers.mode==='STAT'&&!expression&&!state.entry&&!workflow.kind)view.expressionHtml=escapeHtml('Stat '+(coreSubmodeIndex(state.control?.submode)));
+    if(state.lifecycle==='error'&&state.control?.errorCode)view.resultHtml=escapeHtml('Error '+state.control.errorCode);
     view.cursorVisible = Boolean(expression) && ['entering','editing'].includes(state.lifecycle);
     if (view.cursorVisible && (!state.selectionActive || state.cursor >= expression.length)) view.expressionHtml += '<span class="scicalc__cursor" aria-hidden="true"></span>';
     view.insertMode = settings.insert === false ? 'overwrite' : 'insert';
@@ -223,22 +228,30 @@
       if (['xy','rθ','∠','i'].includes(view.component)) indicators[view.component] = true;
     } else if (workflow.kind === 'menu') {
       const choices = workflow.payload.choices || [];
-      const start = workflow.page * 2;
-      const shown = choices.slice(start, start + 2);
+      const groups=workflow.payload.groups;
+      const start = groups?groups.slice(0,workflow.page).reduce((a,b)=>a+b,0):workflow.page*2;
+      const size=groups?groups[workflow.page]:2;
+      const shown = choices.slice(start, start + size);
       view.expressionHtml = shown.map(choice => escapeHtml(String(choice))).join('   ');
-      view.resultHtml = shown.map((choice,index) => `${start + index}${choice === mode || choice === settings.angle || choice === settings.format ? '•' : ''}`).join('   ');
+      view.resultHtml = shown.map((choice,index) => `${start + index}${workflow.payload.selected!==undefined?workflow.payload.selected===start+index?'•':'':choice === mode || choice === settings.angle || choice === settings.format ? '•' : ''}`).join('   ');
       view.previousPage = start > 0;
-      view.nextPage = start + 2 < choices.length;
+      view.nextPage = start + size < choices.length;
       view.cursorVisible = false;
     } else if (workflow.kind === 'prompt' || workflow.kind === 'data-entry') {
-      view.expressionHtml = escapeHtml(String(workflow.payload.id));
-      view.resultHtml = escapeHtml((workflow.payload.path || []).join('') || '?');
+      view.expressionHtml = escapeHtml(String(workflow.payload.label||workflow.payload.id));
+      view.resultHtml = workflow.payload.label?escapeHtml(state.entry||'0'):escapeHtml((workflow.payload.path || []).join('') || '?');
       view.cursorVisible = false;
+    }
+    if(state.historyIndex!==null){view.previousPage=state.historyIndex>0;view.nextPage=state.historyIndex<state.history.length-1;view.pageStatus=`${state.historyIndex+1} / ${state.history.length}`;}
+    if(state.control?.power==='off'){
+      view.expressionHtml='';view.resultHtml='';view.cursorVisible=false;view.pageStatus='';view.previousPage=false;view.nextPage=false;
+      for(const key of Object.keys(indicators))indicators[key]=false;
     }
     view.indicators = indicators;
     if (!view.cursorVisible) view.cursorPosition = null;
     return view;
   }
+  function coreSubmodeIndex(submode){return Math.max(0,['SD','LINE','QUAD','EXP','LOG','PWR','INV'].indexOf(submode));}
   function formatPageValue(value) {
     if (typeof value === 'number') return formatExpression(formatValue(value));
     if (typeof value === 'string') return escapeHtml(value);

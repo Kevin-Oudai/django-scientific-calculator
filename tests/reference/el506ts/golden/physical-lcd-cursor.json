@@ -73,7 +73,7 @@
       "afterStep": 3,
       "assertions": {
         "displayExpression": "1+",
-        "displayResult": "0",
+        "displayResult": "",
         "cursor": 1,
         "selectionActive": true,
         "secondActive": false
@@ -89,7 +89,7 @@
       "afterStep": 4,
       "assertions": {
         "displayExpression": "1+",
-        "displayResult": "0",
+        "displayResult": "",
         "cursor": 1,
         "selectionActive": true,
         "secondActive": true
@@ -105,7 +105,7 @@
       "afterStep": 5,
       "assertions": {
         "displayExpression": "1+",
-        "displayResult": "0",
+        "displayResult": "",
         "cursor": 1,
         "selectionActive": true,
         "secondActive": false,
@@ -136,24 +136,6 @@
       "afterStep": 2,
       "field": "displayResult",
       "expected": "0.",
-      "actual": "0"
-    },
-    {
-      "afterStep": 3,
-      "field": "displayResult",
-      "expected": "",
-      "actual": "0"
-    },
-    {
-      "afterStep": 4,
-      "field": "displayResult",
-      "expected": "",
-      "actual": "0"
-    },
-    {
-      "afterStep": 5,
-      "field": "displayResult",
-      "expected": "",
       "actual": "0"
     }
   ]

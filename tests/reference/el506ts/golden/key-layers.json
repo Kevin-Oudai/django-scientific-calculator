@@ -83,12 +83,7 @@
         "secondActive": false,
         "layers.alpha": false,
         "layers.hyp": false,
-        "layers.intent": {
-          "kind": "operation",
-          "event": {
-            "action": "clear"
-          }
-        },
+        "layers.intent": null,
         "workflow.kind": null
       }
     },

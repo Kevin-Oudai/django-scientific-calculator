@@ -1079,6 +1079,18 @@ The runner's completion does not require implementing the later feature phases.
 
 ### Phase 3 - Power, Modes, Clear, Editing, and History
 
+READY_TO_PUSH 2026-10-07: The user explicitly requested the complete next phase,
+covering EL506-050..066 together. Implemented power/wake/idle persistence,
+mode and subtype menus, command/internal/memory clears and reset, modifiers,
+structured editing, playback and entry capacities. Evidence: phase-3-review-v1,
+el506-050-power-v1 and phase3-power-retention-v1; pinned simulator runtime hash
+reverified. Validation: 73 unit tests, 94 browser tests (including 18 Windows
+visual checks), 52 golden frames, 7 Django integration tests, compileall,
+Compose config/build/start, pip dry run, wheel/sdist smoke (15 assets), and
+browser inspection. Full numerical parity remains in later phases. Items stay
+unchecked until the implementation is pushed and verified.
+
+
 - [ ] **EL506-050 - Implement ON/C power-on and wake behavior.**
 - [ ] **EL506-051 - Implement 2ndF plus ON/C power-off behavior.**
 - [ ] **EL506-052 - Implement auto-power-off and power-cycle persistence.**

@@ -932,8 +932,9 @@
     }
     return editor;
   }
+  function initialControl() { return {power:"on",idleMs:0,submode:null,errorCode:null,variables:Object.fromEntries(["A","B","C","D","E","F","X","Y"].map(k=>[k,0])),formulas:["","","",""],matrices:[null,null,null,null],lists:[null,null,null,null]}; }
   function createInitialState() {
-    const state = { ...createLegacyInitialState(), lifecycle: "empty", workflow: emptyWorkflow(), layers: initialLayers() };
+    const state = { ...createLegacyInitialState(), lifecycle: "empty", workflow: emptyWorkflow(), layers: initialLayers(), control: initialControl() };
     return { ...state, editor: editorForState(state), values: initialValues(state) };
   }
   function initialValues(state) { return {answer:values.scalar(state.answer),last:values.scalar(state.lastValue),memory:values.scalar(state.memoryValue),statistics:{kind:"statistics",rows:state.statsValues.map(x=>({x:values.scalar(x),y:null,weight:1}))},history:state.history.map(h=>values.scalar(h.value))}; }
@@ -986,6 +987,14 @@
       throw new TypeError("Invalid calculator state fields");
     }
     validateWorkflow(state);
+    const c=state.control;
+    if(!c || Object.keys(c).sort().join()!==Object.keys(initialControl()).sort().join()
+      || !['on','off'].includes(c.power) || !Number.isFinite(c.idleMs) || c.idleMs<0
+      || !(c.submode===null || typeof c.submode==='string') || !(c.errorCode===null || Number.isInteger(c.errorCode)&&c.errorCode>=1&&c.errorCode<=10)
+      || Object.keys(c.variables).sort().join()!=='A,B,C,D,E,F,X,Y' || !Object.values(c.variables).every(v=>typeof v==='number'&&Number.isFinite(v))
+      || !Array.isArray(c.formulas) || c.formulas.length!==4 || !c.formulas.every(v=>typeof v==='string')
+      || !Array.isArray(c.matrices) || c.matrices.length!==4 || !Array.isArray(c.lists) || c.lists.length!==4) throw new TypeError('Invalid calculator control state');
+    for(const value of [...c.matrices,...c.lists]) if(value!==null) values.validate(value);
     semantic.validateEditor(state.editor);
     if (state.editor.ast !== null) semantic.validateAst(state.editor.ast);
     if (!state.values || Object.keys(state.values).sort().join() !== "answer,history,last,memory,statistics" || !Array.isArray(state.values.history)
@@ -1036,16 +1045,16 @@
   // part of this contract. Future modes must version and extend these fields.
   function snapshotCalculator(state) {
     validateState(state);
-    return { schemaVersion: 5, profile: "legacy-0.3.1", state: structuredClone(state) };
+    return { schemaVersion: 6, profile: "legacy-0.3.1", state: structuredClone(state) };
   }
 
   function restoreCalculator(snapshot) {
-    if (!snapshot || ![1, 2, 3, 4, 5].includes(snapshot.schemaVersion) || snapshot.profile !== "legacy-0.3.1"
+    if (!snapshot || ![1, 2, 3, 4, 5, 6].includes(snapshot.schemaVersion) || snapshot.profile !== "legacy-0.3.1"
       || Object.keys(snapshot).sort().join() !== "profile,schemaVersion,state") {
       throw new TypeError("Unsupported calculator snapshot");
     }
     let state = structuredClone(snapshot.state);
-    const introduced = {lifecycle:2,workflow:2,layers:3,editor:4,values:5};
+    const introduced = {lifecycle:2,workflow:2,layers:3,editor:4,values:5,control:6};
     const expectedFields = Object.keys(createInitialState()).filter(name => !introduced[name] || introduced[name] <= snapshot.schemaVersion);
     if (!state || Object.keys(state).sort().join() !== expectedFields.sort().join()) throw new TypeError("Invalid versioned state fields");
     if (snapshot.schemaVersion === 1) {
@@ -1055,6 +1064,7 @@
     if (snapshot.schemaVersion < 3) state.layers = initialLayers();
     if (snapshot.schemaVersion < 4) state.editor = editorForState(state);
     if (snapshot.schemaVersion < 5) state.values = initialValues(state);
+    if(snapshot.schemaVersion<6) state.control=initialControl();
     validateState(state);
     return state;
   }
@@ -1068,6 +1078,13 @@
   function reduceCalculator(previous, event) {
     validateState(previous);
     if (!event || typeof event.type !== "string") throw new TypeError("Invalid calculator event");
+    if (event.type === "reset") return createInitialState();
+    if (event.type === "idle") {
+      if(!Number.isFinite(event.elapsedMs)||event.elapsedMs<0) throw new TypeError('Invalid idle interval');
+      const next=structuredClone(previous);
+      if(next.control.power==='on'){next.control.idleMs+=event.elapsedMs;if(next.control.idleMs>=600000)return physicalPowerOff(next);}
+      return next;
+    }
     if (event.type === "physical-key") return reducePhysicalKey(previous, event.id);
     if (event.type === "token-edit") {
       if (previous.workflow.kind !== null) throw new TypeError("Cannot edit during a workflow");
@@ -1103,7 +1120,7 @@
       }
       return structuredClone(previous);
     }
-    const next = { ...reduceLegacyCalculator(previous, event), workflow: emptyWorkflow(), layers: structuredClone(previous.layers) };
+    const next = { ...reduceLegacyCalculator(previous, event), workflow: emptyWorkflow(), layers: structuredClone(previous.layers), control: structuredClone(previous.control) };
     const effectiveEvent = event.type === 'button' && previous.secondActive && (event.secondInsert || event.secondAction)
       ? {...event,insert:event.secondInsert,action:event.secondAction} : event;
     next.lifecycle = inferEntryPhase(next);
@@ -1165,7 +1182,173 @@
     if ([4,6,17,27,28].includes(n)) return {kind:"menu", name:({4:"MODE",6:"SETUP",17:"MATH",27:"RCL",28:"STO"})[n]};
     return BASE_KEYS[n] ? {kind:"operation", event:{...BASE_KEYS[n]}} : {kind:"pending", key:id, layer:"base"};
   }
-  function reducePhysicalKey(previous, id) {
+  const MODE_SUBMENUS={STAT:['SD','LINE','QUAD','EXP','LOG','PWR','INV'],EQN:['2-VLE','3-VLE','QUAD','CUBIC']};
+  const menuGroups={MODE:[2,2,2],STAT:[3,3,1],EQN:[2,2],CLEAR:[2],MEMORY_CLEAR:[2]};
+  function physicalClear(previous,scope='command') {
+    const next=createInitialState();next.layers.settings=structuredClone(previous.layers.settings);next.angleMode=previous.angleMode;
+    next.layers.mode=previous.layers.mode;next.control=structuredClone(previous.control);next.control.errorCode=null;next.control.idleMs=0;
+    if(scope==='command'){
+      for(const name of ['answer','lastValue','memoryValue','statsValues','values','history'])next[name]=structuredClone(previous[name]);
+      if(previous.layers.mode==='EQN' && previous.workflow.kind==='data-entry'){next.workflow=structuredClone(previous.workflow);next.lifecycle='data-entry';}
+    }else if(scope==='internal'||scope==='mode'){
+      next.memoryValue=previous.memoryValue;next.values.memory=values.copy(previous.values.memory);next.control.formulas=structuredClone(previous.control.formulas);
+      if(scope==='mode'&&next.values.memory.kind==='complex')next.values.memory.imaginary=values.scalar(0);
+      next.control.variables=initialControl().variables;next.control.matrices=initialControl().matrices;next.control.lists=initialControl().lists;
+    }else if(scope==='memory'){
+      next.control=initialControl();next.control.submode=previous.control.submode;
+    }
+    next.control.power='on';return next;
+  }
+  function physicalPowerOff(previous){const next=physicalClear(previous);next.control.power='off';next.secondActive=false;return next;}
+  function physicalCells(source){
+    const pattern=/(?:asin|acos|atan|sinh|cosh|tanh|asinh|acosh|atanh|sqrt|cbrt|recip|tenpow|epow|sin|cos|tan|log|ln|abs|fact|pct)\(|ans|pi|\^\(-1\)|\^\d|./g;
+    return [...source.matchAll(pattern)].map(m=>({start:m.index,end:m.index+m[0].length,text:m[0]}));
+  }
+  function physicalLength(source){return physicalCells(source).length;}
+  function physicalBufferUsage(source){
+    // Separate pending calculations from saved left operands. Sharp specifies
+    // 24 calculation slots and 10 numeric slots in NORMAL mode.
+    const stack=[],precedence={'+':1,'-':1,'*':2,':':2,'/':2,'^':3};
+    let calculations=0,numeric=0,operand=false;
+    const observe=()=>{calculations=Math.max(calculations,stack.length);numeric=Math.max(numeric,stack.filter(x=>x!=='(').length);};
+    for(const token of source.match(/(?:[a-z]+\()|\d+(?:\.\d*)?(?:e[+-]?\d+)?|[a-z]+|[^\s]/gi)||[]){
+      if(token.endsWith('(')){stack.push('(');operand=false;}
+      else if(token===')'){while(stack.length && stack.at(-1)!=='(')stack.pop();if(stack.length)stack.pop();operand=true;}
+      else if(Object.hasOwn(precedence,token)){
+        if(!operand && (token==='+'||token==='-'))continue;
+        while(stack.length && stack.at(-1)!=='(' && (precedence[stack.at(-1)]>precedence[token] || (precedence[stack.at(-1)]===precedence[token]&&token!=='^')))stack.pop();
+        stack.push(token);operand=false;
+      }else operand=true;
+      observe();
+    }
+    return {calculations,numeric};
+  }
+  function physicalEditor(next){next.control.errorCode=null;next.editor=editorForState(next);next.displayExpression=next.expression;next.lifecycle=next.selectionActive?'editing':inferEntryPhase(next);return next;}
+  function physicalError(state,code){const next=structuredClone(state);next.control.errorCode=code;next.displayResult='Error';next.resultDisplay='Error';next.lifecycle='error';return next;}
+  function physicalMenu(previous,id){
+    const next=structuredClone(previous);next.secondActive=false;next.layers.alpha=false;next.layers.hyp=false;next.layers.inverseHyp=false;
+    next.workflow={kind:'menu',payload:{id,keyLayer:true,choices:id==='MEMORY_CLEAR'?['MEM','RESET']:MODE_SUBMENUS[id]||KEY_MENUS[id]||[],path:[],selected:0,groups:menuGroups[id]||[2]},page:0,returnPhase:previous.workflow.kind?previous.workflow.returnPhase:previous.lifecycle};
+    next.lifecycle='menu';return next;
+  }
+  function physicalSelect(previous,index){
+    const id=previous.workflow.payload.id;const choice=previous.workflow.payload.choices[index];if(choice===undefined)return previous;
+    if(id==='MODE'){
+      if(MODE_SUBMENUS[choice])return physicalMenu(previous,choice);
+      const next=physicalClear(previous,'mode');next.layers.mode=choice;next.control.submode=null;
+      return next;
+    }
+    if(id==='STAT'||id==='EQN'){
+      const next=physicalClear(previous,'mode');next.layers.mode=id;next.control.submode=choice;
+      if(id==='EQN') {next.workflow={kind:'data-entry',payload:{id:'EQN_COEFFICIENTS',label:index<2?'a1?':'a?',keyLayer:true,coefficient:0},page:0,returnPhase:'empty'};next.lifecycle='data-entry';}
+      return next;
+    }
+    if(id==='CLEAR')return physicalClear(previous,'internal');
+    if(id==='MEMORY_CLEAR'){
+      const next=structuredClone(previous);next.workflow={kind:'prompt',payload:{id:index===0?'CONFIRM_MEMORY_CLEAR':'CONFIRM_RESET',label:index===0?'CLR_MEMORY?':'RESET?',keyLayer:true},page:0,returnPhase:previous.workflow.returnPhase};next.lifecycle='prompt';return next;
+    }
+    return null;
+  }
+  function reducePhysicalKey(previous,id){
+    const intent=resolvePhysicalKey(previous,id); // Reject malformed identities even while asleep.
+    const n=Number(id.slice(-2));let next=structuredClone(previous);next.control.idleMs=0;
+    if(previous.control.power==='off')return n===2?physicalClear(previous):previous;
+    if(n===2 && previous.secondActive)return physicalPowerOff(previous);
+    if(n===2)return physicalClear(previous);
+    if(n===1){next=physicalClear(previous,previous.layers.mode==='NORMAL'?'command':'mode');next.layers.mode='NORMAL';next.control.submode=null;return next;}
+    if(previous.secondActive&&n===4)return physicalClear(previous,'internal');
+    if(previous.secondActive&&n===47)return physicalMenu(previous,'MEMORY_CLEAR');
+    if(n===4)return physicalMenu(previous,'MODE');
+    if(previous.workflow.kind==='menu'&&['MODE','STAT','EQN','CLEAR','MEMORY_CLEAR'].includes(previous.workflow.payload.id)){
+      const w=next.workflow,groups=w.payload.groups;let selected=w.payload.selected;
+      if(n===9||n===10){selected=Math.max(0,Math.min(w.payload.choices.length-1,selected+(n===9?-1:1)));}
+      else if(n===8||n===11){w.page=Math.max(0,Math.min(groups.length-1,w.page+(n===8?-1:1)));selected=groups.slice(0,w.page).reduce((a,b)=>a+b,0);}
+      else if(n===48||DIGIT_KEYS[n]!==undefined)return physicalSelect(next,n===48?selected:Number(DIGIT_KEYS[n]))||next;
+      w.payload.selected=selected;
+      if(n===9||n===10){let total=0;w.page=groups.findIndex(size=>(total+=size)>selected);}
+      return next;
+    }
+    if(previous.workflow.payload?.id?.startsWith('CONFIRM_')){
+      if(n===45||n===48)return previous.workflow.payload.id==='CONFIRM_RESET'?createInitialState():physicalClear(previous,'memory');
+      return next;
+    }
+    // Structured editor addresses complete functions and individual number digits.
+    if([9,10].includes(n)&&previous.stagedEntry&&previous.workflow.kind===null){
+      const stage=previous.stagedEntry;
+      const prefix=stage.type==='fraction'?`${stage.numerator||'0'}/`:stage.type==='power'?`${stage.base}^`:stage.type==='exp'?`${stage.base}e`:stage.type==='root'?`root(${stage.index},`:stage.type==='dms'?`dms(${stage.degrees},${stage.part==='seconds'?`${stage.minutes},`:''}`:'';
+      if(prefix){next.expression=previous.expression+prefix;next.entry='';next.stagedEntry=null;next.selectionActive=true;next.cursor=n===9?physicalCells(next.expression).at(-1).start:0;next.displayResult=next.resultDisplay='';return physicalEditor(next);}
+    }
+    if(n===7&&!previous.secondActive&&previous.stagedEntry){
+      const stage=next.stagedEntry,part=stage.part||(stage.type==='root'?'radicand':'exponent');
+      if(typeof stage[part]==='string'){
+        stage[part]=stage[part].slice(0,-1);
+        const flag={exponent:'hasExponent',radicand:'hasRadicand',minutes:'hasMinutes',seconds:'hasSeconds'}[part];if(flag)stage[flag]=Boolean(stage[part]);
+        next.displayResult=next.resultDisplay=stage[part]||'0';return physicalEditor(next);
+      }
+    }
+    if([9,10].includes(n)&&!previous.stagedEntry&&previous.workflow.kind===null){
+      const source=previous.expression.replace(/=$/,'');const cells=physicalCells(source);
+    const evaluated=previous.expression.endsWith('=');next.expression=source;next.entry='';next.stagedEntry=null;
+      if(!previous.selectionActive)next.cursor=n===9?(evaluated?source.length:cells.at(-1)?.start||0):0;
+      else if(n===9)next.cursor=cells.filter(c=>c.start<previous.cursor).at(-1)?.start||0;
+      else next.cursor=cells.find(c=>c.start>=previous.cursor)?.end??source.length;
+      next.selectionActive=Boolean(source);next.displayResult=next.resultDisplay=next.cursor<source.length?'':'0';next.historyIndex=null;
+      return physicalEditor(next);
+    }
+    if(n===7&&!previous.secondActive&&previous.selectionActive&&!previous.stagedEntry){
+      const cells=physicalCells(previous.expression);const cell=cells.find(c=>c.start===previous.cursor)||cells.at(-1);
+      if(cell){next.expression=previous.expression.slice(0,cell.start)+previous.expression.slice(cell.end);next.cursor=Math.min(cell.start,next.expression.length);}
+      next.displayResult=next.resultDisplay=next.cursor<next.expression.length?'':'0';return physicalEditor(next);
+    }
+    if([8,11].includes(n)&&previous.workflow.kind===null&&!previous.stagedEntry&&previous.layers.mode==='NORMAL'){
+      next.secondActive=false;next.layers.alpha=false;next.layers.hyp=false;
+      if(!previous.history.length)return next;
+      const last=previous.history.length-1;
+      next.historyIndex=previous.secondActive&&n===8?0:previous.historyIndex===null?last:Math.max(0,Math.min(last,previous.historyIndex+(n===8?-1:1)));
+      const h=previous.history[next.historyIndex];next.expression=h.expression.replace(/=$/,'');next.entry='';next.selectionActive=true;
+      next.cursor=previous.historyIndex===null?0:Math.min(previous.cursor,next.expression.length);next.displayResult=next.resultDisplay='';return physicalEditor(next);
+    }
+    if(previous.selectionActive&&!previous.stagedEntry&&intent.kind==='operation'&&intent.event.insert){
+      const text=intent.event.insert.replaceAll('/',DIVIDE_TOKEN);const cells=physicalCells(previous.expression);const cell=cells.find(c=>c.start===previous.cursor);
+      next.expression=previous.expression.slice(0,previous.cursor)+text+previous.expression.slice(previous.cursor+(previous.layers.settings.insert===false&&cell?cell.text.length:0));
+      next.cursor+=text.length;next.selectionActive=true;next.secondActive=false;next.layers.alpha=false;next.layers.hyp=false;
+      next.displayResult=next.resultDisplay=next.cursor<next.expression.length?'':'0';next.historyIndex=null;
+      if(physicalLength(next.expression)>142)return previous;return physicalEditor(next);
+    }
+    // Other numerical modes gain entry now; their algorithms retain their own phases.
+    if(previous.layers.mode!=='NORMAL' && intent.kind==='operation' && !['clear','home'].includes(intent.event.action)){
+      if(intent.event.action==='equals')throw new TypeError('Numeric mode implementation pending');
+      const normal=structuredClone(next);normal.workflow=emptyWorkflow();normal.lifecycle=inferEntryPhase(normal);normal.layers.mode='NORMAL';
+      const entered=reduceFoundationPhysicalKey(normal,id);entered.layers.mode=previous.layers.mode;entered.control.submode=previous.control.submode;
+      if(previous.workflow.kind==='data-entry'){entered.workflow=structuredClone(previous.workflow);entered.lifecycle='data-entry';}return entered;
+    }
+    if(intent.kind==='operation'&&/^\d$/.test(intent.event.insert||'')&&!previous.selectionActive){
+      const staged=previous.stagedEntry;
+      const text=staged?staged[staged.part||(staged.type==='root'?'radicand':'exponent')]:previous.entry;
+      const limit=staged?.type==='exp'?2:10;
+      if(typeof text==='string'&&text.replace(/\D/g,'').length>=limit)return next;
+    }
+    const evaluated=previous.expression.endsWith('=');
+    if(evaluated&&intent.kind==='operation'&&intent.event.insert&&['+','-', '*','/','^2','^3'].includes(intent.event.insert)){
+      next.expression='ans';next.entry='';next.displayExpression='ans';next.selectionActive=false;next.lifecycle='entering';
+    }
+    next=reduceFoundationPhysicalKey(next,id);
+    if(next.expression.endsWith('=')&&n===48&&next.layers.mode==='NORMAL'){
+      next.history=[...previous.history,structuredClone(next.history.at(-1))];
+      next.values.history=[...previous.values.history,values.copy(next.values.answer)];
+      // History uses the device's shared character budget, with whole functions counting once.
+      while(next.history.length>1&&next.history.reduce((total,h)=>total+physicalLength(h.expression),0)>142){next.history.shift();next.values.history.shift();}
+    }
+    const source=next.expression.replace(/=$/,'')+next.entry;
+    const computing=n===48 && intent.kind==='operation' && intent.event.action==='equals';
+    if(computing && physicalLength(previous.expression.replace(/=$/,'')+previous.entry)+1>142)return physicalError(previous,4);
+    if(physicalLength(source)>142){const full=structuredClone(previous);full.cursor=physicalCells(previous.expression).at(-1)?.start||0;full.selectionActive=true;return physicalEditor(full);}
+    const buffers=physicalBufferUsage(previous.expression.replace(/=$/,'')+previous.entry);
+    if(computing && (buffers.calculations>(next.layers.mode==='NORMAL'?24:5)||buffers.numeric>(next.layers.mode==='NORMAL'?10:5)))return physicalError(structuredClone(previous),3);
+    if(next.lifecycle==='error'&&!next.control.errorCode)next.control.errorCode=1;
+    return next;
+  }
+
+  function reduceFoundationPhysicalKey(previous, id) {
     if (previous.workflow.kind === "multi-result" && ["EL506-K08", "EL506-K09", "EL506-K10", "EL506-K11"].includes(id)) {
       return reduceCalculator(previous, {type:"workflow", command:"page", direction:["EL506-K08", "EL506-K09"].includes(id) ? -1 : 1});
     }
@@ -1185,7 +1368,7 @@
       next = reduceCalculator(next,{type:"workflow",command:prompts.includes(name)?"open-prompt":"open-menu",payload:{id:name,keyLayer:true,choices:KEY_MENUS[name] || (["STO","RCL"].includes(name)?Object.values(MEMORY_KEYS):[]),path:[]}});
     };
     if (intent.kind === "modifier") {
-      if (intent.name === "second") { next.secondActive = !next.secondActive; next.layers.alpha = false; }
+      if (intent.name === "second") { next.secondActive = !next.secondActive; next.layers.alpha = false; next.layers.inverseHyp=next.secondActive&&next.layers.hyp; }
       if (intent.name === "alpha") { next.layers.alpha = !next.layers.alpha; next.secondActive = false; }
       if (intent.name === "hyp") { next.layers.hyp = !next.layers.hyp; next.layers.inverseHyp = next.secondActive && next.layers.hyp; }
       if (intent.name === "insert") { next.layers.settings.insert = next.layers.settings.insert === false; next.secondActive = false; }

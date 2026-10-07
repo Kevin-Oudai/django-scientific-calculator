@@ -1,0 +1,205 @@
+{
+  "schemaVersion": 1,
+  "id": "phase3-power-retention-v1",
+  "dispatch": "physical",
+  "displayProfile": "physical",
+  "status": "baseline-characterization",
+  "reference": "experiments/phase3-power.json",
+  "sequence": [
+    "EL506-K30",
+    "EL506-K29",
+    "EL506-K03",
+    "EL506-K02",
+    "EL506-K40",
+    "EL506-K02",
+    "EL506-K27",
+    "EL506-K29"
+  ],
+  "capabilityIds": [
+    "el506.mode.normal"
+  ],
+  "expected": [
+    {
+      "afterStep": 0,
+      "assertions": {
+        "displayExpression": "",
+        "displayResult": "0",
+        "lifecycle": "empty",
+        "control.power": "on",
+        "memoryValue": 0,
+        "secondActive": false
+      },
+      "domResultText": "0"
+    },
+    {
+      "afterStep": 1,
+      "assertions": {
+        "displayExpression": "",
+        "displayResult": "7",
+        "lifecycle": "entering",
+        "control.power": "on",
+        "memoryValue": 0,
+        "secondActive": false
+      },
+      "domResultText": "7"
+    },
+    {
+      "afterStep": 2,
+      "assertions": {
+        "displayExpression": "M=",
+        "displayResult": "7",
+        "lifecycle": "evaluated",
+        "control.power": "on",
+        "memoryValue": 7,
+        "secondActive": false
+      },
+      "domResultText": "7"
+    },
+    {
+      "afterStep": 3,
+      "assertions": {
+        "displayExpression": "M=",
+        "displayResult": "7",
+        "lifecycle": "evaluated",
+        "control.power": "on",
+        "memoryValue": 7,
+        "secondActive": true
+      },
+      "domResultText": "7"
+    },
+    {
+      "afterStep": 4,
+      "assertions": {
+        "displayExpression": "",
+        "displayResult": "0",
+        "lifecycle": "empty",
+        "control.power": "off",
+        "memoryValue": 7,
+        "secondActive": false
+      },
+      "domResultText": ""
+    },
+    {
+      "afterStep": 5,
+      "assertions": {
+        "displayExpression": "",
+        "displayResult": "0",
+        "lifecycle": "empty",
+        "control.power": "off",
+        "memoryValue": 7,
+        "secondActive": false
+      },
+      "domResultText": ""
+    },
+    {
+      "afterStep": 6,
+      "assertions": {
+        "displayExpression": "",
+        "displayResult": "0",
+        "lifecycle": "empty",
+        "control.power": "on",
+        "memoryValue": 7,
+        "secondActive": false
+      },
+      "domResultText": "0"
+    },
+    {
+      "afterStep": 7,
+      "assertions": {
+        "displayExpression": "",
+        "displayResult": "0",
+        "lifecycle": "prompt",
+        "control.power": "on",
+        "memoryValue": 7,
+        "secondActive": false
+      },
+      "domResultText": "?"
+    },
+    {
+      "afterStep": 8,
+      "assertions": {
+        "displayExpression": "",
+        "displayResult": "0",
+        "lifecycle": "empty",
+        "control.power": "on",
+        "memoryValue": 7,
+        "secondActive": false
+      },
+      "domResultText": "0"
+    }
+  ],
+  "knownDifferences": [
+    {
+      "afterStep": 0,
+      "field": "displayResult",
+      "expected": "0.",
+      "actual": "0"
+    },
+    {
+      "afterStep": 1,
+      "field": "displayResult",
+      "expected": "7.",
+      "actual": "7"
+    },
+    {
+      "afterStep": 2,
+      "field": "displayExpression",
+      "expected": "7M+",
+      "actual": "M="
+    },
+    {
+      "afterStep": 2,
+      "field": "displayResult",
+      "expected": "7.",
+      "actual": "7"
+    },
+    {
+      "afterStep": 3,
+      "field": "displayExpression",
+      "expected": "7M+",
+      "actual": "M="
+    },
+    {
+      "afterStep": 3,
+      "field": "displayResult",
+      "expected": "7.",
+      "actual": "7"
+    },
+    {
+      "afterStep": 4,
+      "field": "displayResult",
+      "expected": "",
+      "actual": "0"
+    },
+    {
+      "afterStep": 5,
+      "field": "displayResult",
+      "expected": "",
+      "actual": "0"
+    },
+    {
+      "afterStep": 6,
+      "field": "displayResult",
+      "expected": "0.",
+      "actual": "0"
+    },
+    {
+      "afterStep": 7,
+      "field": "displayResult",
+      "expected": "0.",
+      "actual": "0"
+    },
+    {
+      "afterStep": 8,
+      "field": "displayExpression",
+      "expected": "M=",
+      "actual": ""
+    },
+    {
+      "afterStep": 8,
+      "field": "displayResult",
+      "expected": "7.",
+      "actual": "0"
+    }
+  ]
+}

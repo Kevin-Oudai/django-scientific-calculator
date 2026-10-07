@@ -1,0 +1,667 @@
+{
+  "schemaVersion": 1,
+  "reviewId": "phase-3-control-review-v1",
+  "reviewedOn": "2026-10-07",
+  "simulatorProfile": "sharp-el506ts-pc-simulator-1.0.2.0",
+  "sources": [
+    "experiments/phase3-power.json",
+    "experiments/lcd-cursor.json",
+    "experiments/menu-inventory.json",
+    "experiments/key-layers.json",
+    "https://res.cloudinary.com/hnymxdy5j/raw/upload/v1743873557/media/00d7f000004ckruua4/EL506TSBWH_English_manual.pdf",
+    "https://global.sharp/contents/calculator/support/guidebook/documents/OperationGuide_EL506TS.pdf"
+  ],
+  "liveObservations": [
+    {
+      "sequence": [
+        2,
+        41,
+        43,
+        42,
+        48,
+        3,
+        4,
+        5,
+        48,
+        48,
+        1,
+        27,
+        29
+      ],
+      "setup": "M=7 from power-retention sequence",
+      "observed": "2+3=5; CA resets display/ANS; ALPHA ENT then ENT reads ANS=0; HOME retains M; RCL M=7."
+    },
+    {
+      "sequence": [
+        1,
+        41,
+        43,
+        42,
+        48,
+        1,
+        5,
+        48,
+        48
+      ],
+      "setup": "Return to NORMAL from EQN; M=7 retained",
+      "observed": "2+3=5; HOME in NORMAL clears entry; ALPHA ENT then ENT reads ANS=5."
+    },
+    {
+      "sequence": [
+        2,
+        40,
+        41,
+        42,
+        43,
+        35,
+        36,
+        9,
+        9,
+        7,
+        40,
+        10,
+        41,
+        48,
+        9,
+        40,
+        48
+      ],
+      "setup": "NORMAL, M=7",
+      "observed": "123+ with lower45; LEFT discards45, selects+ at3 and blanks lower; nextLEFT selects3 at2; DEL removes3; insert1 gives121+ cursor3; RIGHT at end then2 ENT gives123; LEFT from result lands end; insert1 thenENT gives142."
+    },
+    {
+      "sequence": [
+        1,
+        40,
+        43,
+        41,
+        48,
+        42,
+        43,
+        35,
+        48,
+        2,
+        32,
+        8,
+        11,
+        11
+      ],
+      "setup": "NORMAL, M=7; earlier history present",
+      "observed": "1+2=3;3+4=7;ON/C,9,UP recalls3+4 with cursor0, lowerblank, older-content arrow; DOWN at latest remains3+4 and never restores9."
+    },
+    {
+      "sequence": [
+        4,
+        10,
+        48,
+        10,
+        48,
+        4,
+        41,
+        41
+      ],
+      "setup": "Fresh chrome reset",
+      "observed": "MODE right ENT opens STAT menu; right ENT selects Stat1; MODE2 opens 2-VLE/3-VLE;1 enters a? coefficient prompt. Numeric invalid choices leave selection pending."
+    },
+    {
+      "sequence": [
+        2,
+        40,
+        40,
+        40,
+        40,
+        40,
+        40,
+        40,
+        40,
+        40,
+        40,
+        40,
+        40
+      ],
+      "setup": "NORMAL after HOME",
+      "observed": "Only ten lower-line mantissa digits accepted; eleventh and twelfth leave 1111111111. unchanged."
+    },
+    {
+      "sequence": [
+        2,
+        13,
+        13,
+        13,
+        13,
+        13,
+        13,
+        13,
+        13,
+        13,
+        13,
+        13,
+        13,
+        13,
+        13,
+        13,
+        13,
+        13,
+        13,
+        13,
+        13,
+        13,
+        13,
+        13,
+        13,
+        40,
+        48
+      ],
+      "observed": "24 pending sin functions evaluate successfully, result 6.283145827e-43."
+    },
+    {
+      "sequence": [
+        2,
+        13,
+        13,
+        13,
+        13,
+        13,
+        13,
+        13,
+        13,
+        13,
+        13,
+        13,
+        13,
+        13,
+        13,
+        13,
+        13,
+        13,
+        13,
+        13,
+        13,
+        13,
+        13,
+        13,
+        13,
+        13,
+        40,
+        48
+      ],
+      "observed": "25 pending sin functions accept entry and report Error 3 on ENT."
+    },
+    {
+      "sequence": [
+        2,
+        33,
+        33,
+        33,
+        33,
+        33,
+        33,
+        33,
+        33,
+        33,
+        33,
+        33,
+        33,
+        33,
+        33,
+        33,
+        33,
+        33,
+        33,
+        33,
+        33,
+        33,
+        33,
+        33,
+        33,
+        33,
+        40,
+        48
+      ],
+      "observed": "25 open parentheses report Error 3 on ENT."
+    },
+    {
+      "sequence": [
+        2,
+        40,
+        43,
+        33,
+        40,
+        43,
+        33,
+        40,
+        43,
+        33,
+        40,
+        43,
+        33,
+        40,
+        43,
+        33,
+        40,
+        43,
+        33,
+        40,
+        43,
+        33,
+        40,
+        43,
+        33,
+        40,
+        43,
+        33,
+        40,
+        43,
+        33,
+        40,
+        48
+      ],
+      "observed": "Ten saved left operands evaluate to 11."
+    },
+    {
+      "sequence": [
+        2,
+        40,
+        43,
+        33,
+        40,
+        43,
+        33,
+        40,
+        43,
+        33,
+        40,
+        43,
+        33,
+        40,
+        43,
+        33,
+        40,
+        43,
+        33,
+        40,
+        43,
+        33,
+        40,
+        43,
+        33,
+        40,
+        43,
+        33,
+        40,
+        43,
+        33,
+        40,
+        43,
+        33,
+        40,
+        48
+      ],
+      "observed": "Eleven saved left operands report Error 3 on ENT; twelve also report Error 3. Nine and eight evaluate to 10 and 9."
+    },
+    {
+      "sequence": [
+        2,
+        13,
+        13,
+        13,
+        13,
+        13,
+        13,
+        13,
+        13,
+        13,
+        13,
+        13,
+        13,
+        13,
+        13,
+        13,
+        13,
+        13,
+        13,
+        13,
+        13,
+        13,
+        13,
+        13,
+        13,
+        13,
+        13,
+        13,
+        13,
+        13,
+        13,
+        13,
+        13,
+        13,
+        13,
+        13,
+        13,
+        13,
+        13,
+        13,
+        13,
+        13,
+        13,
+        13,
+        13,
+        13,
+        13,
+        13,
+        13,
+        13,
+        13,
+        13,
+        13,
+        13,
+        13,
+        13,
+        13,
+        13,
+        13,
+        13,
+        13,
+        13,
+        13,
+        13,
+        13,
+        13,
+        13,
+        13,
+        13,
+        13,
+        13,
+        13,
+        13,
+        13,
+        13,
+        13,
+        13,
+        13,
+        13,
+        13,
+        13,
+        13,
+        13,
+        13,
+        13,
+        13,
+        13,
+        13,
+        13,
+        13,
+        13,
+        13,
+        13,
+        13,
+        13,
+        13,
+        13,
+        13,
+        13,
+        13,
+        13,
+        13,
+        13,
+        13,
+        13,
+        13,
+        13,
+        13,
+        13,
+        13,
+        13,
+        13,
+        13,
+        13,
+        13,
+        13,
+        13,
+        13,
+        13,
+        13,
+        13,
+        13,
+        13,
+        13,
+        13,
+        13,
+        13,
+        13,
+        13,
+        13,
+        13,
+        13,
+        13,
+        13,
+        13,
+        13,
+        13,
+        13,
+        13,
+        13,
+        13,
+        13,
+        13,
+        13,
+        40,
+        48
+      ],
+      "observed": "Full equation accepts input without an immediate error; overflow selects the last cell. ENT reports Error 4."
+    },
+    {
+      "sequence": [
+        2,
+        4,
+        41,
+        45,
+        40,
+        2
+      ],
+      "observed": "Linear EQN opens a1?; ON/C removes entered 1 but retains a1? prompt."
+    },
+    {
+      "sequence": [
+        2,
+        40,
+        25,
+        41,
+        7,
+        9,
+        7
+      ],
+      "observed": "DEL clears entered denominator 2; LEFT selects fraction separator and DEL removes it, preserving numerator 1."
+    },
+    {
+      "sequence": [
+        2,
+        40,
+        19,
+        41,
+        9,
+        7
+      ],
+      "observed": "LEFT discards exponent 2, selects power operator, and DEL removes it, preserving base 1."
+    },
+    {
+      "sequence": [
+        2,
+        3,
+        47,
+        45
+      ],
+      "observed": "MEM RESET menu then CLR_MEMORY? confirmation."
+    }
+  ],
+  "manualRules": {
+    "clearTable": "Manual page 1: ON/C retains all stores; CA and mode selection erase internal variables/ANS/stat/mat/list, retain M/F1-F4; MEM clears all variables, RESET also restores settings.",
+    "editor": "Manual page 1: whole functions count once; selected DEL removes symbol, end DEL backspaces; INS persists until RESET.",
+    "history": "Manual page 1: NORMAL-only, 142 shared characters including equals; whole-equation eviction; 2nd UP oldest; cleared by CA, mode change, reset, N-base and memory clear.",
+    "limits": "Manual page 2: 142 input characters including equals; 24 pending calculations and 10 saved numeric values in NORMAL; five in other modes. Confirmed independently for nested functions and mixed binary/parenthesis expressions."
+  },
+  "limitations": [
+    "Numerical algorithms for STAT/EQN/CPLX/MAT/LIST remain owned by later phases; mode selection, prompts and entry are provided here.",
+    "Numerical punctuation, mantissa formatting and exact values retain Phase 4 onward gates.",
+    "Matrix/list and variable clearing is tested with validated typed snapshot stores; their live editing/storage workflows remain later-phase work.",
+    "Error-category coverage and exact error cursor placement across all numerical modes remain Phase 17 work; this phase verifies entry/history capacity errors in NORMAL."
+  ],
+  "items": [
+    {
+      "id": "EL506-050",
+      "evidence": [
+        "tests/unit/phase3.test.js",
+        "tests/e2e/phase3.spec.js"
+      ],
+      "localStatus": "verified-awaiting-publication"
+    },
+    {
+      "id": "EL506-051",
+      "evidence": [
+        "tests/unit/phase3.test.js",
+        "tests/e2e/phase3.spec.js"
+      ],
+      "localStatus": "verified-awaiting-publication"
+    },
+    {
+      "id": "EL506-052",
+      "evidence": [
+        "tests/unit/phase3.test.js",
+        "tests/e2e/phase3.spec.js"
+      ],
+      "localStatus": "verified-awaiting-publication"
+    },
+    {
+      "id": "EL506-053",
+      "evidence": [
+        "tests/unit/phase3.test.js",
+        "tests/e2e/phase3.spec.js"
+      ],
+      "localStatus": "verified-awaiting-publication"
+    },
+    {
+      "id": "EL506-054",
+      "evidence": [
+        "tests/unit/phase3.test.js",
+        "tests/e2e/phase3.spec.js"
+      ],
+      "localStatus": "verified-awaiting-publication"
+    },
+    {
+      "id": "EL506-055",
+      "evidence": [
+        "tests/unit/phase3.test.js",
+        "tests/e2e/phase3.spec.js"
+      ],
+      "localStatus": "verified-awaiting-publication"
+    },
+    {
+      "id": "EL506-056",
+      "evidence": [
+        "tests/unit/phase3.test.js",
+        "tests/e2e/phase3.spec.js"
+      ],
+      "localStatus": "verified-awaiting-publication"
+    },
+    {
+      "id": "EL506-057",
+      "evidence": [
+        "tests/unit/phase3.test.js",
+        "tests/e2e/phase3.spec.js"
+      ],
+      "localStatus": "verified-awaiting-publication"
+    },
+    {
+      "id": "EL506-058",
+      "evidence": [
+        "tests/unit/phase3.test.js",
+        "tests/e2e/phase3.spec.js"
+      ],
+      "localStatus": "verified-awaiting-publication"
+    },
+    {
+      "id": "EL506-059",
+      "evidence": [
+        "tests/unit/phase3.test.js",
+        "tests/e2e/phase3.spec.js"
+      ],
+      "localStatus": "verified-awaiting-publication"
+    },
+    {
+      "id": "EL506-060",
+      "evidence": [
+        "tests/unit/phase3.test.js",
+        "tests/e2e/phase3.spec.js"
+      ],
+      "localStatus": "verified-awaiting-publication"
+    },
+    {
+      "id": "EL506-061",
+      "evidence": [
+        "tests/unit/phase3.test.js",
+        "tests/e2e/phase3.spec.js"
+      ],
+      "localStatus": "verified-awaiting-publication"
+    },
+    {
+      "id": "EL506-062",
+      "evidence": [
+        "tests/unit/phase3.test.js",
+        "tests/e2e/phase3.spec.js"
+      ],
+      "localStatus": "verified-awaiting-publication"
+    },
+    {
+      "id": "EL506-063",
+      "evidence": [
+        "tests/unit/phase3.test.js",
+        "tests/e2e/phase3.spec.js"
+      ],
+      "localStatus": "verified-awaiting-publication"
+    },
+    {
+      "id": "EL506-064",
+      "evidence": [
+        "tests/unit/phase3.test.js",
+        "tests/e2e/phase3.spec.js"
+      ],
+      "localStatus": "verified-awaiting-publication"
+    },
+    {
+      "id": "EL506-065",
+      "evidence": [
+        "tests/unit/phase3.test.js",
+        "tests/e2e/phase3.spec.js"
+      ],
+      "localStatus": "verified-awaiting-publication"
+    },
+    {
+      "id": "EL506-066",
+      "evidence": [
+        "tests/unit/phase3.test.js",
+        "tests/e2e/phase3.spec.js"
+      ],
+      "localStatus": "verified-awaiting-publication"
+    }
+  ],
+  "runtimeSha256": "6bfef4d04900b472892be2d4c54dcfa6013f87232097e32df508ca4c27425530",
+  "scope": "Phase 3 controls and editor foundation (EL506-050..066); numerical algorithms and detailed numerical/display parity retain their dedicated later phases.",
+  "verification": {
+    "unitTests": 73,
+    "browserTests": 94,
+    "djangoTests": 7,
+    "goldenFrames": 52,
+    "packagedAssets": 15,
+    "checks": [
+      "npm test",
+      "python -m compileall src/scientific_calculator",
+      "python -m unittest discover -s tests/django -v",
+      "python tests/ci/check-package.py",
+      "python -m pip install --dry-run --no-deps .",
+      "docker compose config",
+      "docker compose up --build -d",
+      "git diff --check"
+    ],
+    "browserProof": "Local browser: EQN a1? retained by ON/C; OFF blank; digit ignored asleep; ON/C wake and ANS=5; STAT submenu inspected."
+  }
+}

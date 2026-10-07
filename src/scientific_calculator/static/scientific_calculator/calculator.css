@@ -517,7 +517,7 @@
 .scicalc__physical-nav .scicalc__mode-legend { color: var(--scicalc-alpha); }
 .scicalc__physical-key:is([data-key-id="EL506-K12"],[data-key-id="EL506-K13"],[data-key-id="EL506-K14"],[data-key-id="EL506-K15"],[data-key-id="EL506-K16"]) .scicalc__mode-legend { color: var(--scicalc-second); font-size: 12px; }
 .scicalc__sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
-.scicalc__physical .scicalc__selected-char { position: relative; border-radius: 0; background: transparent; color: transparent; padding: 0; }
+.scicalc__physical .scicalc__selected-char { position: relative; border-radius: 0; background: transparent; color: transparent; padding: 0; width: .6em; overflow: hidden; vertical-align: bottom; }
 .scicalc__physical .scicalc__selected-char::after { content: '◀'; position: absolute; top: 0; left: 0; color: var(--scicalc-screen-ink); }
 .scicalc__physical .scicalc__cursor::after { content: '_'; position: absolute; top: 0; left: 0; color: var(--scicalc-screen-ink); }
 .scicalc__physical .scicalc__cursor { position: relative; display: inline-block; width: .6em; height: 1em; margin: 0; background: transparent; vertical-align: baseline; }

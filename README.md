@@ -809,7 +809,7 @@ The compatible `calculator.js` entry now loads local companion modules.
 `browser-adapter.js` owns root events, rendering and focus. Node consumers of
 the existing entry receive the same core API. Existing Django tags and asset
 paths need no template change; collect and deploy all package static assets
-together. State snapshots remain schema 5 with the legacy profile.
+together. State snapshots use schema 6 with the legacy profile; older schemas migrate in memory.
 
 Multiple template-tag embeds own independent entry, ANS, memory, statistics,
 history, modifiers, settings, token cursors and snapshots. Keyboard input
@@ -821,3 +821,24 @@ handlers; new roots receive a fresh state. Snapshot and restore boundaries
 copy mutable values. Key resolution returns fresh events rather than exposing
 shared key definitions. Regression tests exercise three simultaneous embeds
 with keyboard, mouse and touch input and retain explicit LCD differences.
+
+
+### Power, modes, clearing, and editing
+
+The physical layout supports ON/C wake, 2ndF + ON/C power-off, and a ten-minute
+idle timeout. Stored values survive a power cycle within the mounted instance.
+MODE exposes all six modes and STAT/EQN submenus; their numerical algorithms
+are implemented in their later roadmap phases. HOME returns to NORMAL; in
+NORMAL it clears the command while retaining ANS. CA clears internal values
+but retains M and formula memories. M-CLR offers confirmed memory clear and
+reset. `root.scientificCalculator.reset()` models the reset switch, restoring
+default settings and clearing stores.
+
+Left/right navigation selects complete function cells or individual digits.
+DEL removes the selected cell, or backspaces at the end; 2ndF + INS switches
+insert/overwrite until reset. UP/DOWN recall equations, and 2ndF + UP recalls
+the oldest retained equation. Playback discards unfinished drafts and shares
+142 device characters across complete equations. Normal digit entry accepts
+ten mantissa digits and two exponent digits. Buffer errors are reported when
+equals is pressed. Snapshot schema 6 adds power, idle, subtype, error, and
+internal store state; restore validates these fields before changing the UI.
