@@ -4,13 +4,13 @@
 - Plan status: Active
 - Current package baseline: 0.3.1
 - Target release: 1.0.0 after verified parity
-- Next item: EL506-200
+- Next item: EL506-220
 - Last updated: 2026-10-07
 
 ## Progress Overview
 
-As of 2026-10-07, **137 of 245 roadmap tasks are complete (55.9%)**, with
-**108 remaining**. The next task is **EL506-200**. These counts measure
+As of 2026-10-07, **145 of 245 roadmap tasks are complete (59.2%)**, with
+**100 remaining**. The next task is **EL506-220**. These counts measure
 completed checklist items, not elapsed effort or verified calculator parity;
 individual tasks vary in size. The detailed checklist below describes every
 remaining task and preserves its evidence and completion requirements.
@@ -24,7 +24,9 @@ items). Phase 6 is complete (18/18 angles, trigonometry, fractions, DMS,
 and coordinate items). Phase 7 is complete (10/10 random, constant and
 conversion items). Phase 8 is complete (14/14 memories, formula simulation,
 and solver items). Phase 9 is complete (10/10 number bases, arithmetic, logic,
-memories and limits). Pending simulator/application behavior is visible
+memories and limits). Phase 10 is complete (8/8 numerical differentiation,
+integration, condition entry, cancellation and bounded errors). Pending
+simulator/application behavior is visible
 in the generated report; phase completion does not establish full parity.
 
 | Roadmap phase | Completed | Remaining |
@@ -39,7 +41,7 @@ in the generated report; phase completion does not establish full parity.
 | Phase 7 - Random Numbers, Constants, and Unit Conversions | 10 | 0 |
 | Phase 8 - Memories, Formula Memories, Simulation, and Solver | 14 | 0 |
 | Phase 9 - N-base Operations | 10 | 0 |
-| Phase 10 - Numerical Differentiation and Integration | 0 | 8 |
+| Phase 10 - Numerical Differentiation and Integration | 8 | 0 |
 | Phase 11 - Statistics Data Management | 0 | 12 |
 | Phase 12 - Statistics Results and Regressions | 0 | 16 |
 | Phase 13 - Equation Mode | 0 | 9 |
@@ -48,7 +50,7 @@ in the generated report; phase completion does not establish full parity.
 | Phase 16 - LIST Mode | 0 | 11 |
 | Phase 17 - Errors, Limits, and Cross-mode Parity | 0 | 15 |
 | Phase 18 - Security, Packaging, Compatibility, and Release | 0 | 15 |
-| **Total** | **113** | **132** |
+| **Total** | **145** | **100** |
 
 Refresh this overview's date, counts, percentage, and next task in every
 roadmap completion tracking commit, using the checklist as the source of truth.
@@ -413,7 +415,7 @@ The following order takes precedence over the phase layout and numeric IDs:
 EL506-014 -> EL506-019 -> EL506-003 -> EL506-004 -> EL506-006`
 
 The bootstrap chain and Phase 1 are complete as of 2026-10-05.
-Resume with Phase 10, EL506-200.
+Resume with Phase 11, EL506-220.
 Stable physical-key IDs
 must exist before the experiment schema and capability ledger use them. Capture
 the 0.3.1 baseline before refactoring its behavior. Unit testing, the reducer,
@@ -2202,9 +2204,10 @@ memories; schemas 1-9 migrate in memory.
 ### Phase 10 - Numerical Differentiation and Integration
 
 User requested the full Phase 10 batch (EL506-200 through EL506-207).
-READY_TO_PUSH: 2026-10-07. Eight implementations and their scoped evidence
-passed local verification; all eight remain unchecked and Next item stays
-EL506-200 until the implementation commit is published and verified.
+Completed: 2026-10-07. Implementation commit
+4d6c53c44e376497eae33092ee6f6dfb7a9588dc was published to origin/main and its
+exact remote SHA verified. All eight Phase 10 items are complete; next is
+EL506-220. Completion remains scoped to the evidence and limitations below.
 
 Verification: npm test passed (418 unit, 147 browser, 335 golden frames),
 focused calculus/NORMAL arithmetic checks (62), Django (7), compileall, pip dry
@@ -2232,21 +2235,60 @@ cancellation, numeric/domain failures, memories/angles, snapshots, stale-job
 protection and general powers of variables have implementation coverage.
 Snapshot remains schema 10; the package version remains 0.3.1.
 
-- [ ] **EL506-200 - Match the differentiation template and cursor sequence.**
-- [ ] **EL506-201 - Match derivative expression, variable, point, editing, and
+- [x] **EL506-200 - Match the differentiation template and cursor sequence.**
+
+    Completed: 2026-10-07, implementation commit 4d6c53c44e376497eae33092ee6f6dfb7a9588dc
+    Evidence and verification: shared Phase 10 completion record above.
+    Notes: native/private numerical limits and precision gap remain explicit.
+
+- [x] **EL506-201 - Match derivative expression, variable, point, editing, and
   confirmation.**
-- [ ] **EL506-202 - Match the simulator's numerical differentiation
+
+    Completed: 2026-10-07, implementation commit 4d6c53c44e376497eae33092ee6f6dfb7a9588dc
+    Evidence and verification: shared Phase 10 completion record above.
+    Notes: native/private numerical limits and precision gap remain explicit.
+
+- [x] **EL506-202 - Match the simulator's numerical differentiation
   algorithm and displayed precision.**
-- [ ] **EL506-203 - Match the integration template and cursor sequence.**
-- [ ] **EL506-204 - Match integrand, bounds, variable, optional parameters,
+
+    Completed: 2026-10-07, implementation commit 4d6c53c44e376497eae33092ee6f6dfb7a9588dc
+    Evidence and verification: shared Phase 10 completion record above.
+    Notes: native/private numerical limits and precision gap remain explicit.
+
+- [x] **EL506-203 - Match the integration template and cursor sequence.**
+
+    Completed: 2026-10-07, implementation commit 4d6c53c44e376497eae33092ee6f6dfb7a9588dc
+    Evidence and verification: shared Phase 10 completion record above.
+    Notes: native/private numerical limits and precision gap remain explicit.
+
+- [x] **EL506-204 - Match integrand, bounds, variable, optional parameters,
   editing, and confirmation.**
-- [ ] **EL506-205 - Match the simulator's numerical integration algorithm and
+
+    Completed: 2026-10-07, implementation commit 4d6c53c44e376497eae33092ee6f6dfb7a9588dc
+    Evidence and verification: shared Phase 10 completion record above.
+    Notes: native/private numerical limits and precision gap remain explicit.
+
+- [x] **EL506-205 - Match the simulator's numerical integration algorithm and
   displayed precision.**
-- [ ] **EL506-206 - Match angle modes, constants, variables, and memories
+
+    Completed: 2026-10-07, implementation commit 4d6c53c44e376497eae33092ee6f6dfb7a9588dc
+    Evidence and verification: shared Phase 10 completion record above.
+    Notes: native/private numerical limits and precision gap remain explicit.
+
+- [x] **EL506-206 - Match angle modes, constants, variables, and memories
   inside calculus expressions.**
-- [ ] **EL506-207 - Match calculus cancellation and failures.** Cover
+
+    Completed: 2026-10-07, implementation commit 4d6c53c44e376497eae33092ee6f6dfb7a9588dc
+    Evidence and verification: shared Phase 10 completion record above.
+    Notes: native/private numerical limits and precision gap remain explicit.
+
+- [x] **EL506-207 - Match calculus cancellation and failures.** Cover
   discontinuity, singularity, non-convergence, time/resource limits, and exact
   error recovery.
+
+    Completed: 2026-10-07, implementation commit 4d6c53c44e376497eae33092ee6f6dfb7a9588dc
+    Evidence and verification: shared Phase 10 completion record above.
+    Notes: native/private numerical limits and precision gap remain explicit.
 
 ### Phase 11 - Statistics Data Management
 
