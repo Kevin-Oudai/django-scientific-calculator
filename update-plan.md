@@ -2965,7 +2965,7 @@ guess any item in this phase; observe it in the reference simulator first.
     fresh preview verifies exponent input and LIST cancellation. Published in
     ca4eda327d423b9a0b1b1aaa8ea2125380316484, verified on origin/main.
 
-    Local continuation: matrix definition division retains the independently
+    Scoped continuation: matrix definition division retains the independently
     observed scaled cancellation; pending MAT arithmetic uses the measured
     two-line LCD projection. Fresh eight-key punctuation evidence verifies
     integer-entry decimal points. Eighteen intermediate golden expectations
@@ -2973,7 +2973,9 @@ guess any item in this phase; observe it in the reference simulator first.
     two unit checks, six browser checks across three engines, seven Django
     checks, installed wheel/sdist (24 assets), compileall, pip dry run and
     Compose config passed. Full result-type precision remains open.
-    READY_TO_PUSH (scoped continuation, not whole-item completion): final unit
+    Published 2026-10-08, scoped implementation
+    14838b96d7bfd18d6b35293e62b85779c50bbc70 verified on origin/main.
+    Whole-item completion remains open. Final unit
     suite 747/747; 30 golden fixtures / 1209 frames; full three-engine browser
     run 601 passed, 12 failed and 38 platform skips, followed by 12/12 repaired
     cases passing on final code. Thus all 613 applicable browser cases are
@@ -3010,7 +3012,8 @@ guess any item in this phase; observe it in the reference simulator first.
 - [ ] **EL506-358 - Complete the modifier-by-key-by-mode compatibility
   matrix.**
 
-    Local continuation: cross-mode-key-invariants.test.js verifies 3,456
+    Published continuation (14838b96d7bfd18d6b35293e62b85779c50bbc70):
+    cross-mode-key-invariants.test.js verifies 3,456
     canonical transitions across all 48 keys, six modes, four modifier prefixes
     and three entry contexts. All 24 groups pass immutable-input, snapshot,
     deterministic-replay and independent-branch assertions. This is state
