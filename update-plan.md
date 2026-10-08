@@ -9,8 +9,8 @@
 
 ## Progress Overview
 
-As of 2026-10-08, **226 of 245 roadmap tasks are complete (92.2%)**, with
-**19 remaining**. The next task is **EL506-320**. These counts measure
+As of 2026-10-08, **228 of 245 roadmap tasks are complete (93.1%)**, with
+**17 remaining**. The next task is **EL506-320**. These counts measure
 completed checklist items, not elapsed effort or verified calculator parity;
 individual tasks vary in size. The detailed checklist below describes every
 remaining task and preserves its evidence and completion requirements.
@@ -30,8 +30,8 @@ complete (12/12 statistics menus, entry, weighted/paired data, browsing,
 correction, deletion, persistence and capacity). Phase 12 is complete (16/16
 statistics results and regression items). Phase 13 is complete (9/9 equation
 items), and Phase 14 is complete (8/8 complex items). Phase 15 is complete (14/14 matrix
-items). Phase 16 has 7/11 LIST
-items complete (slot/capacity discovery, entry prompts, and result paging).
+items). Phase 16 has 9/11 LIST items complete, including entry, arithmetic,
+aggregates, vector operations, paging and observed limits/errors.
 Phase 17 has 2/15 items complete (guide regressions and property tests).
 Phase 18 has 13/15 items complete; release candidates and 1.0.0 remain gated. Pending simulator/application behavior is visible
 in the generated report; phase completion does not establish full parity.
@@ -54,10 +54,10 @@ in the generated report; phase completion does not establish full parity.
 | Phase 13 - Equation Mode | 9 | 0 |
 | Phase 14 - Complex Mode | 8 | 0 |
 | Phase 15 - Matrix Mode | 14 | 0 |
-| Phase 16 - LIST Mode | 7 | 4 |
+| Phase 16 - LIST Mode | 9 | 2 |
 | Phase 17 - Errors, Limits, and Cross-mode Parity | 2 | 13 |
 | Phase 18 - Security, Packaging, Compatibility, and Release | 13 | 2 |
-| **Total** | **226** | **19** |
+| **Total** | **228** | **17** |
 
 Refresh this overview's date, counts, percentage, and next task in every
 roadmap completion tracking commit, using the checklist as the source of truth.
@@ -2861,11 +2861,22 @@ guess any item in this phase; observe it in the reference simulator first.
     Notes: Published SHA verified against origin/main. Full parity and release gates remain pending.
  Include sum, product,
   minimum, maximum, or mean only if exposed.
-- [ ] **EL506-328 - Match confirmed vector-like list operations.** Include
+- [x] **EL506-328 - Match confirmed vector-like list operations.** Include
   dot product, sorting, or cumulative operations only if exposed.
+
+    Completed: 2026-10-08, implementation commit 74e1e7d28f6b35b859dfaf125064205e7f930759
+    Evidence: experiments/vector-limits-native.json and experiments/phase16-native.json; vector-operations-review.json.
+    Verification: 541 unit tests, 29 golden fixtures / 1200 frames, 21 LIST browser tests across three engines, reference/report checks, compileall and Compose config passed.
+    Notes: Exact observed LIST scopes complete; broader persistence, precision and final parity remain separately tracked.
+
 - [ ] **EL506-329 - Match LIST ANS, memory, copying, and persistence.**
-- [ ] **EL506-330 - Match LIST limits and errors.** Cover mismatched lengths,
+- [x] **EL506-330 - Match LIST limits and errors.** Cover mismatched lengths,
   capacity, empty slot, invalid element, and unsupported operations.
+
+    Completed: 2026-10-08, implementation commit 74e1e7d28f6b35b859dfaf125064205e7f930759
+    Evidence: experiments/vector-limits-native.json and experiments/phase16-native.json; vector-operations-review.json.
+    Verification: 541 unit tests, 29 golden fixtures / 1200 frames, 21 LIST browser tests across three engines, reference/report checks, compileall and Compose config passed.
+    Notes: Exact observed LIST scopes complete; broader persistence, precision and final parity remain separately tracked.
 
 ### Phase 17 - Errors, Limits, and Cross-mode Parity
 
