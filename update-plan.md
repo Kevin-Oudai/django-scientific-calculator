@@ -4,13 +4,13 @@
 - Plan status: Active
 - Current package baseline: 0.3.1
 - Target release: 1.0.0 after verified parity
-- Next item: EL506-320
+- Next item: EL506-350
 - Last updated: 2026-10-08
 
 ## Progress Overview
 
-As of 2026-10-08, **229 of 245 roadmap tasks are complete (93.5%)**, with
-**16 remaining**. The next task is **EL506-320**. These counts measure
+As of 2026-10-08, **230 of 245 roadmap tasks are complete (93.9%)**, with
+**15 remaining**. The next task is **EL506-350**. These counts measure
 completed checklist items, not elapsed effort or verified calculator parity;
 individual tasks vary in size. The detailed checklist below describes every
 remaining task and preserves its evidence and completion requirements.
@@ -30,7 +30,7 @@ complete (12/12 statistics menus, entry, weighted/paired data, browsing,
 correction, deletion, persistence and capacity). Phase 12 is complete (16/16
 statistics results and regression items). Phase 13 is complete (9/9 equation
 items), and Phase 14 is complete (8/8 complex items). Phase 15 is complete (14/14 matrix
-items). Phase 16 has 10/11 LIST items complete, including entry, arithmetic,
+items). Phase 16 is complete (11/11 LIST items), including entry, arithmetic,
 aggregates, vector operations, paging, memory, copying, conversions,
 persistence and observed limits/errors.
 Phase 17 has 2/15 items complete (guide regressions and property tests).
@@ -55,10 +55,10 @@ in the generated report; phase completion does not establish full parity.
 | Phase 13 - Equation Mode | 9 | 0 |
 | Phase 14 - Complex Mode | 8 | 0 |
 | Phase 15 - Matrix Mode | 14 | 0 |
-| Phase 16 - LIST Mode | 10 | 1 |
+| Phase 16 - LIST Mode | 11 | 0 |
 | Phase 17 - Errors, Limits, and Cross-mode Parity | 2 | 13 |
 | Phase 18 - Security, Packaging, Compatibility, and Release | 13 | 2 |
-| **Total** | **229** | **16** |
+| **Total** | **230** | **15** |
 
 Refresh this overview's date, counts, percentage, and next task in every
 roadmap completion tracking commit, using the checklist as the source of truth.
@@ -423,7 +423,7 @@ The following order takes precedence over the phase layout and numeric IDs:
 EL506-014 -> EL506-019 -> EL506-003 -> EL506-004 -> EL506-006`
 
 The bootstrap chain and Phase 1 are complete as of 2026-10-05.
-Resume with Phase 16, EL506-320.
+Resume with Phase 17, EL506-350.
 Stable physical-key IDs
 must exist before the experiment schema and capability ledger use them. Capture
 the 0.3.1 baseline before refactoring its behavior. Unit testing, the reducer,
@@ -2813,17 +2813,18 @@ Final cross-mode/type/capacity audits remain separate pending tasks.
 The operation guide names LIST mode but does not document its behavior. Do not
 guess any item in this phase; observe it in the reference simulator first.
 
-- [ ] **EL506-320 - Inventory every LIST menu and shifted-key action.**
+- [x] **EL506-320 - Inventory every LIST menu and shifted-key action.**
 
-    READY_TO_PUSH: Consolidated all native LIST menu pages (menu-inventory frames
-    56..73) and all 48 independently observed panel positions/layer legends in
-    list-inventory.json. Exposure remains distinct from availability and parity;
-    exhaustive modifier dispatch remains EL506-358. Two inventory integrity
-    checks passed; 544 unit tests and 29 golden fixtures/1200 frames passed in
-    list-inventory-validation.log. Its initial browser filter matched no tests;
-    the full LIST suite subsequently passed 27/27 across Chromium, Firefox and
-    WebKit in list-inventory-browser.log. compileall, compose config and diff
-    checks passed. No package behavior or version changed.
+    Completed: 2026-10-08, implementation commit bfea7d39f18882f9cc086238cb2f377fe7bf29b2
+    Evidence: list-inventory.json; native menu-inventory frames 56..73;
+    physical-key-reference.json, all 48 panel positions and modifier legends.
+    Verification: 544 unit tests; 29 golden fixtures/1200 frames; 27 LIST browser
+    cases across Chromium/Firefox/WebKit; compileall, compose config, diff check.
+    Browser runner exited 0 after its finished WebKit worker required cleanup;
+    list-inventory-browser.log retains all 27 passing cases and final summary.
+    Notes: Exposure inventory complete; availability and dispatch remain EL506-358.
+    Implementation SHA verified on origin/main before this tracking commit.
+
 - [x] **EL506-321 - Determine and match list slots, aliases, and capacity.**
 
     Completed: 2026-10-08, implementation commit 96d066d5bf321f508229f4552a71eaac53a6e007
