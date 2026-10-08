@@ -3,6 +3,7 @@ const { loadFixtures, baseEvents } = require("../reference/el506ts/golden-runner
 
 for (const fixture of loadFixtures().filter(f => f.status !== "pending")) {
   test(`canonical baseline browser replay: ${fixture.id}`, async ({ page }) => {
+    test.setTimeout(Math.max(30000, fixture.sequence.length * 500));
     const errors = [];
     page.on("pageerror", error => errors.push(error.message));
     await page.goto(fixture.displayProfile === "physical" ? "/" : "/legacy/");

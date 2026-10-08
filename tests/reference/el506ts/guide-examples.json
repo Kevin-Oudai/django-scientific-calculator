@@ -90,6 +90,7 @@
       "EL506-K29"
     ],
     "SEP": [
+      "EL506-K03",
       "EL506-K28"
     ],
     "ENT": [
@@ -2893,44 +2894,52 @@
         "EL506-K45",
         "EL506-K42",
         "EL506-K45",
+        "EL506-K03",
         "EL506-K28",
         "EL506-K41",
         "EL506-K29",
         "EL506-K35",
         "EL506-K45",
+        "EL506-K03",
         "EL506-K28",
         "EL506-K35",
         "EL506-K29",
         "EL506-K36",
         "EL506-K45",
+        "EL506-K03",
         "EL506-K28",
         "EL506-K36",
         "EL506-K29",
         "EL506-K37",
         "EL506-K45",
+        "EL506-K03",
         "EL506-K28",
         "EL506-K30",
         "EL506-K29",
         "EL506-K30",
         "EL506-K45",
+        "EL506-K03",
         "EL506-K28",
         "EL506-K40",
         "EL506-K41",
         "EL506-K29",
         "EL506-K31",
         "EL506-K45",
+        "EL506-K03",
         "EL506-K28",
         "EL506-K40",
         "EL506-K45",
         "EL506-K29",
         "EL506-K32",
         "EL506-K45",
+        "EL506-K03",
         "EL506-K28",
         "EL506-K31",
         "EL506-K29",
         "EL506-K40",
         "EL506-K45",
         "EL506-K45",
+        "EL506-K03",
         "EL506-K28",
         "EL506-K41",
         "EL506-K29",
@@ -2969,89 +2978,91 @@
           "simulatorStatus": "unmeasured"
         },
         {
-          "afterStep": 8,
+          "afterStep": 9,
           "printed": "DATA SET=1.",
           "evidenceKind": "guide-print",
           "simulatorStatus": "unmeasured"
         },
         {
-          "afterStep": 13,
+          "afterStep": 15,
           "printed": "DATA SET=2.",
           "evidenceKind": "guide-print",
           "simulatorStatus": "unmeasured"
         },
         {
-          "afterStep": 18,
+          "afterStep": 21,
           "printed": "DATA SET=3.",
           "evidenceKind": "guide-print",
           "simulatorStatus": "unmeasured"
         },
         {
-          "afterStep": 23,
+          "afterStep": 27,
           "printed": "DATA SET=4.",
           "evidenceKind": "guide-print",
           "simulatorStatus": "unmeasured"
         },
         {
-          "afterStep": 29,
+          "afterStep": 34,
           "printed": "DATA SET=5.",
           "evidenceKind": "guide-print",
           "simulatorStatus": "unmeasured"
         },
         {
-          "afterStep": 35,
+          "afterStep": 41,
           "printed": "DATA SET=6.",
           "evidenceKind": "guide-print",
           "simulatorStatus": "unmeasured"
         },
         {
-          "afterStep": 40,
+          "afterStep": 47,
           "printed": "DATA SET=7.",
           "evidenceKind": "guide-print",
           "simulatorStatus": "unmeasured"
         },
         {
-          "afterStep": 46,
+          "afterStep": 54,
           "printed": "DATA SET=8.",
           "evidenceKind": "guide-print",
           "simulatorStatus": "unmeasured"
         },
         {
-          "afterStep": 48,
+          "afterStep": 56,
           "printed": "69",
           "evidenceKind": "guide-print",
           "simulatorStatus": "unmeasured"
         },
         {
-          "afterStep": 50,
+          "afterStep": 58,
           "printed": "17.75686128",
           "evidenceKind": "guide-print",
           "simulatorStatus": "unmeasured"
         },
         {
-          "afterStep": 52,
+          "afterStep": 60,
           "printed": "17.57839583",
           "evidenceKind": "guide-print",
           "simulatorStatus": "unmeasured"
         },
         {
-          "afterStep": 54,
+          "afterStep": 62,
           "printed": "50",
           "evidenceKind": "guide-print",
           "simulatorStatus": "unmeasured"
         },
         {
-          "afterStep": 56,
+          "afterStep": 64,
           "printed": "3450",
           "evidenceKind": "guide-print",
           "simulatorStatus": "unmeasured"
         }
       ],
       "status": "reference-only",
-      "applicationStatus": "pending",
-      "simulatorStatus": "unmeasured",
+      "applicationStatus": "baseline-replayed",
+      "simulatorStatus": "observed-results",
       "notes": [
-        "Ellipses in entry illustration expanded using the complete printed table; all five printed result selections retained."
+        "Ellipses in entry illustration expanded using the complete printed table; all five printed result selections retained.",
+        "Phase 12 corrected the earlier canonical transcription: statistical SEP requires 2ndF then STO/comma, observed in the pinned simulator. Printed expectations remain unchanged.",
+        "Phase 12: every printed checkpoint asserted through canonical reducer replay. Native weighted and paired results independently observed; correction workflow remains guide/manual evidence. This is scoped replay, not verified full parity."
       ],
       "capabilityIds": [
         "el506.key.el506-k04",
@@ -3069,7 +3080,8 @@
         "el506.key.el506-k42",
         "el506.key.el506-k45",
         "el506.key.el506-k46"
-      ]
+      ],
+      "goldenFixture": "guide-p34-weighted-statistics-replay"
     },
     {
       "id": "guide-p36-statistics-correction",
@@ -3087,6 +3099,7 @@
         "EL506-K29",
         "EL506-K35",
         "EL506-K45",
+        "EL506-K03",
         "EL506-K28",
         "EL506-K41",
         "EL506-K29",
@@ -3098,6 +3111,7 @@
         "EL506-K11",
         "EL506-K35",
         "EL506-K36",
+        "EL506-K03",
         "EL506-K28",
         "EL506-K42",
         "EL506-K29",
@@ -3131,47 +3145,49 @@
           "simulatorStatus": "unmeasured"
         },
         {
-          "afterStep": 11,
+          "afterStep": 12,
           "printed": "DATA SET=2.",
           "evidenceKind": "guide-print",
           "simulatorStatus": "unmeasured"
         },
         {
-          "afterStep": 14,
+          "afterStep": 15,
           "printed": "DATA SET=3.",
           "evidenceKind": "guide-print",
           "simulatorStatus": "unmeasured"
         },
         {
-          "afterStep": 17,
+          "afterStep": 18,
           "printed": "X2=40.",
           "evidenceKind": "guide-print",
           "simulatorStatus": "unmeasured"
         },
         {
-          "afterStep": 22,
+          "afterStep": 24,
           "printed": "X2=45.",
           "evidenceKind": "guide-print",
           "simulatorStatus": "unmeasured"
         },
         {
-          "afterStep": 23,
+          "afterStep": 25,
           "printed": "N2=3.",
           "evidenceKind": "guide-print",
           "simulatorStatus": "unmeasured"
         },
         {
-          "afterStep": 27,
+          "afterStep": 29,
           "printed": "X3=60.",
           "evidenceKind": "guide-print",
           "simulatorStatus": "unmeasured"
         }
       ],
       "status": "reference-only",
-      "applicationStatus": "pending",
+      "applicationStatus": "baseline-replayed",
       "simulatorStatus": "unmeasured",
       "notes": [
-        "The guide prints N2 for the frequency correction frame; preserve its label rather than silently replacing it with F2."
+        "The guide prints N2 for the frequency correction frame; preserve its label rather than silently replacing it with F2.",
+        "Phase 12 corrected the earlier canonical transcription: statistical SEP requires 2ndF then STO/comma, observed in the pinned simulator. Printed expectations remain unchanged.",
+        "Phase 12: every printed checkpoint asserted through canonical reducer replay. Native weighted and paired results independently observed; correction workflow remains guide/manual evidence. This is scoped replay, not verified full parity."
       ],
       "capabilityIds": [
         "el506.key.el506-k04",
@@ -3185,7 +3201,8 @@
         "el506.key.el506-k41",
         "el506.key.el506-k42",
         "el506.key.el506-k45"
-      ]
+      ],
+      "goldenFixture": "guide-p36-statistics-correction-replay"
     },
     {
       "id": "guide-p38-paired-statistics",
@@ -3201,6 +3218,7 @@
         "EL506-K37",
         "EL506-K46",
         "EL506-K41",
+        "EL506-K03",
         "EL506-K28",
         "EL506-K40",
         "EL506-K42",
@@ -3208,12 +3226,14 @@
         "EL506-K30",
         "EL506-K46",
         "EL506-K45",
+        "EL506-K03",
         "EL506-K28",
         "EL506-K32",
         "EL506-K29",
         "EL506-K37",
         "EL506-K46",
         "EL506-K31",
+        "EL506-K03",
         "EL506-K28",
         "EL506-K40",
         "EL506-K40",
@@ -3221,18 +3241,21 @@
         "EL506-K31",
         "EL506-K46",
         "EL506-K30",
+        "EL506-K03",
         "EL506-K28",
         "EL506-K36",
         "EL506-K29",
         "EL506-K30",
         "EL506-K46",
         "EL506-K32",
+        "EL506-K03",
         "EL506-K28",
         "EL506-K30",
         "EL506-K29",
         "EL506-K37",
         "EL506-K46",
         "EL506-K36",
+        "EL506-K03",
         "EL506-K28",
         "EL506-K40",
         "EL506-K41",
@@ -3240,6 +3263,7 @@
         "EL506-K37",
         "EL506-K46",
         "EL506-K40",
+        "EL506-K03",
         "EL506-K28",
         "EL506-K40",
         "EL506-K36",
@@ -3247,6 +3271,7 @@
         "EL506-K31",
         "EL506-K46",
         "EL506-K41",
+        "EL506-K03",
         "EL506-K28",
         "EL506-K30",
         "EL506-K29",
@@ -3306,131 +3331,133 @@
           "simulatorStatus": "unmeasured"
         },
         {
-          "afterStep": 10,
+          "afterStep": 11,
           "printed": "DATA SET=1.",
           "evidenceKind": "guide-print",
           "simulatorStatus": "unmeasured"
         },
         {
-          "afterStep": 16,
+          "afterStep": 18,
           "printed": "DATA SET=2.",
           "evidenceKind": "guide-print",
           "simulatorStatus": "unmeasured"
         },
         {
-          "afterStep": 23,
+          "afterStep": 26,
           "printed": "DATA SET=3.",
           "evidenceKind": "guide-print",
           "simulatorStatus": "unmeasured"
         },
         {
-          "afterStep": 29,
+          "afterStep": 33,
           "printed": "DATA SET=4.",
           "evidenceKind": "guide-print",
           "simulatorStatus": "unmeasured"
         },
         {
-          "afterStep": 35,
+          "afterStep": 40,
           "printed": "DATA SET=5.",
           "evidenceKind": "guide-print",
           "simulatorStatus": "unmeasured"
         },
         {
-          "afterStep": 42,
+          "afterStep": 48,
           "printed": "DATA SET=6.",
           "evidenceKind": "guide-print",
           "simulatorStatus": "unmeasured"
         },
         {
-          "afterStep": 49,
+          "afterStep": 56,
           "printed": "DATA SET=7.",
           "evidenceKind": "guide-print",
           "simulatorStatus": "unmeasured"
         },
         {
-          "afterStep": 55,
+          "afterStep": 63,
           "printed": "DATA SET=8.",
           "evidenceKind": "guide-print",
           "simulatorStatus": "unmeasured"
         },
         {
-          "afterStep": 57,
+          "afterStep": 65,
           "printed": "7.175",
           "evidenceKind": "guide-print",
           "simulatorStatus": "unmeasured"
         },
         {
-          "afterStep": 59,
+          "afterStep": 67,
           "printed": "0.973579551",
           "evidenceKind": "guide-print",
           "simulatorStatus": "unmeasured"
         },
         {
-          "afterStep": 61,
+          "afterStep": 69,
           "printed": "0.91070028",
           "evidenceKind": "guide-print",
           "simulatorStatus": "unmeasured"
         },
         {
-          "afterStep": 63,
+          "afterStep": 71,
           "printed": "9.875",
           "evidenceKind": "guide-print",
           "simulatorStatus": "unmeasured"
         },
         {
-          "afterStep": 65,
+          "afterStep": 73,
           "printed": "3.440826313",
           "evidenceKind": "guide-print",
           "simulatorStatus": "unmeasured"
         },
         {
-          "afterStep": 67,
+          "afterStep": 75,
           "printed": "3.218598297",
           "evidenceKind": "guide-print",
           "simulatorStatus": "unmeasured"
         },
         {
-          "afterStep": 69,
+          "afterStep": 77,
           "printed": "8",
           "evidenceKind": "guide-print",
           "simulatorStatus": "unmeasured"
         },
         {
-          "afterStep": 71,
+          "afterStep": 79,
           "printed": "57.4",
           "evidenceKind": "guide-print",
           "simulatorStatus": "unmeasured"
         },
         {
-          "afterStep": 73,
+          "afterStep": 81,
           "printed": "418.48",
           "evidenceKind": "guide-print",
           "simulatorStatus": "unmeasured"
         },
         {
-          "afterStep": 75,
+          "afterStep": 83,
           "printed": "544.1",
           "evidenceKind": "guide-print",
           "simulatorStatus": "unmeasured"
         },
         {
-          "afterStep": 77,
+          "afterStep": 85,
           "printed": "79",
           "evidenceKind": "guide-print",
           "simulatorStatus": "unmeasured"
         },
         {
-          "afterStep": 79,
+          "afterStep": 87,
           "printed": "863",
           "evidenceKind": "guide-print",
           "simulatorStatus": "unmeasured"
         }
       ],
       "status": "reference-only",
-      "applicationStatus": "pending",
-      "simulatorStatus": "unmeasured",
+      "applicationStatus": "baseline-replayed",
+      "simulatorStatus": "observed-results",
       "notes": [
-        "Ellipses expanded from all eight printed rows; all twelve printed result selections retained."
+        "Ellipses expanded from all eight printed rows; all twelve printed result selections retained.",
+        "Phase 12 corrected the earlier canonical transcription: statistical SEP requires 2ndF then STO/comma, observed in the pinned simulator. Printed expectations remain unchanged.",
+        "Phase 12: every printed checkpoint asserted through canonical reducer replay. Native weighted and paired results independently observed; correction workflow remains guide/manual evidence. This is scoped replay, not verified full parity."
       ],
       "capabilityIds": [
         "el506.key.el506-k04",
@@ -3449,7 +3476,8 @@
         "el506.key.el506-k45",
         "el506.key.el506-k46",
         "el506.key.el506-k47"
-      ]
+      ],
+      "goldenFixture": "guide-p38-paired-statistics-replay"
     },
     {
       "id": "guide-p40-equations",

@@ -4,8 +4,8 @@
   else host.ScientificCalculatorSemantic = api;
 })(typeof globalThis === 'object' ? globalThis : this, function () {
   'use strict';
-  const functions = Object.freeze(['sin','cos','tan','asin','acos','atan','sinh','cosh','tanh','asinh','acosh','atanh','sqrt','cbrt','log','ln','tenpow','epow','recip','abs','pct','fact','root','ncr','npr','dms','frac','kilo','mega','giga','tera','milli','micro','nano','pico','femto','cv','random','dice','coin','rint']);
-  const symbols = Object.freeze(['pi','e','ans','A','B','C','D','E','F','X','Y','M']);
+  const functions = Object.freeze(['det','trans','dim','fill','identity','rndmat','cumul','aug','cpow', 'conj','polar','statt','probp','probq','probr','sin','cos','tan','asin','acos','atan','sinh','cosh','tanh','asinh','acosh','atanh','sqrt','cbrt','log','ln','tenpow','epow','recip','abs','pct','fact','root','ncr','npr','dms','frac','kilo','mega','giga','tera','milli','micro','nano','pico','femto','cv','random','dice','coin','rint']);
+  const symbols = Object.freeze(['matA','matB','matC','matD','i','xmean','ymean','sx','sy','sigmax','sigmay','statn','sumx','sumxx','sumy','sumyy','sumxy','rega','regb','regc','regr','pi','e','ans','A','B','C','D','E','F','X','Y','M']);
   function validateToken(t) {
     if (!t || Object.keys(t).sort().join() !== 'kind,value' || typeof t.value !== 'string') throw new TypeError('Invalid semantic token');
     if(t.kind==='nbase'&&/^(?:[0-9A-F]{1,10}|AND|OR|XOR|XNOR|NOT|NEG|ans|\$[A-FXYM])$/.test(t.value))return;
@@ -53,7 +53,7 @@
           if(!take('('))throw new TypeError('Function requires arguments');
           const args=peek()===')'?[]:[expression()];while(take(','))args.push(expression());
           if(!take(')'))throw new TypeError('Missing parenthesis');
-          const arity=({root:2,ncr:2,npr:2,dms:3,frac:3,cv:2,random:0,dice:0,coin:0,rint:0}[token.value] ?? 1);
+          const arity=({polar:2,cpow:2,dim:3,fill:3,aug:2,rndmat:2,root:2,ncr:2,npr:2,dms:3,frac:3,cv:2,random:0,dice:0,coin:0,rint:0}[token.value] ?? 1);
           if(args.length!==arity)throw new TypeError('Wrong function arity');
           value={kind:'call',name:token.value,args};
         } else throw new TypeError('Invalid operand');
@@ -136,7 +136,7 @@
     if(ast.kind==='unary' && keys==='kind,operand,operator' && ['+','-'].includes(ast.operator)){validateAst(ast.operand,depth+1);return;}
     if(ast.kind==='binary' && keys==='implied,kind,left,operator,right' && ['+','-','*','/','^'].includes(ast.operator) && typeof ast.implied==='boolean'){validateAst(ast.left,depth+1);validateAst(ast.right,depth+1);return;}
     if(ast.kind==='call' && keys==='args,kind,name' && functions.includes(ast.name) && Array.isArray(ast.args)
-      && ast.args.length===({root:2,ncr:2,npr:2,dms:3,frac:3,cv:2,random:0,dice:0,coin:0,rint:0}[ast.name]??1)){ast.args.forEach(a=>validateAst(a,depth+1));return;}
+      && ast.args.length===({polar:2,cpow:2,dim:3,fill:3,aug:2,rndmat:2,root:2,ncr:2,npr:2,dms:3,frac:3,cv:2,random:0,dice:0,coin:0,rint:0}[ast.name]??1)){ast.args.forEach(a=>validateAst(a,depth+1));return;}
     throw new TypeError('Unsupported AST node');
   }
   function evaluate(ast, adapter, scope={}) {

@@ -15,7 +15,7 @@
     script.onerror=()=>reject(new Error('Local calculator asset failed to load: '+file));
     document.head.append(script);
   });
-  const ready=Promise.all(['calculus.js','nbase.js','solver.js','catalogues.js','semantic-editor.js','values.js','math-engine.js','formatting.js','browser-adapter.js'].map(load))
+  const ready=Promise.all(['matrices.js','complex.js','equations.js','statistics.js','calculus.js','nbase.js','solver.js','catalogues.js','semantic-editor.js','values.js','math-engine.js','formatting.js','browser-adapter.js'].map(load))
     .then(()=>load('numeric-model.js')).then(()=>load('core.js'));
   const initialize=()=>ready.then(()=>document.querySelectorAll('[data-scientific-calculator]').forEach(root=>
     ScientificCalculatorBrowser.mount(root,ScientificCalculatorCore,ScientificCalculatorFormatting)));

@@ -10,7 +10,7 @@ test("generated report is deterministic, current and has independent evidence fo
   assert.equal(report.rows.length, 430);
   assert.equal(new Set(report.rows.map(r => r.id)).size, 430);
   assert.equal(report.summary.verifiedFullParity, 0);
-  assert.equal(report.summary.guide.pending, 51);
+  assert.equal(report.summary.guide.pending, 48);
   const power = report.rows.find(r => r.id === "el506.key.el506-k19");
   assert.equal(power.documented.status, "documented");
   assert.equal(power.simulatorObserved.status, "observed");
@@ -21,7 +21,7 @@ test("generated report is deterministic, current and has independent evidence fo
   const mode = report.rows.find(r => r.id === "el506.key.el506-k04");
   assert.equal(mode.goldenTested.status, "baseline-known-differences");
   assert.equal(mode.browserTested.status, "partial");
-  assert.equal(mode.goldenTested.evidence[0].assertedFrames, 0);
+  assert.equal(mode.goldenTested.evidence.find(e=>e.fixtureId==='menus-pending-v1').assertedFrames, 0);
   assert.equal(mode.goldenTested.evidence.find(e=>e.fixtureId==='phase11-statistics').assertedFrames,66);
   for (const [file, text] of Object.entries(artifacts())) {
     assert.equal(normalizeText(fs.readFileSync(path.join(__dirname, "../reference/el506ts", file), "utf8")), text);

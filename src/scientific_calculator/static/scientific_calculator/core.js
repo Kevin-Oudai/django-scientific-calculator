@@ -1,8 +1,8 @@
 (function(host,factory){
   if(typeof module==='object' && module.exports && typeof document==='undefined')
-    module.exports=factory(require('./semantic-editor.js'),require('./values.js'),require('./math-engine.js'),require('./numeric-model.js'),require('./formatting.js'),require('./catalogues.js'),require('./solver.js'),require('./nbase.js'),require('./calculus.js'));
-  else host.ScientificCalculatorCore=factory(host.ScientificCalculatorSemantic,host.ScientificCalculatorValues,host.ScientificCalculatorEngine,host.ScientificCalculatorNumericModel,host.ScientificCalculatorFormatting,host.ScientificCalculatorCatalogues,host.ScientificCalculatorSolver,host.ScientificCalculatorNbase,host.ScientificCalculatorCalculus);
-})(globalThis,function(semantic,values,bundle,numericModel,formatting,catalogues,solver,nbase,calculus){
+    module.exports=factory(require('./semantic-editor.js'),require('./values.js'),require('./math-engine.js'),require('./numeric-model.js'),require('./formatting.js'),require('./catalogues.js'),require('./solver.js'),require('./nbase.js'),require('./calculus.js'),require('./statistics.js'),require('./equations.js'),require('./complex.js'),require('./matrices.js'));
+  else host.ScientificCalculatorCore=factory(host.ScientificCalculatorSemantic,host.ScientificCalculatorValues,host.ScientificCalculatorEngine,host.ScientificCalculatorNumericModel,host.ScientificCalculatorFormatting,host.ScientificCalculatorCatalogues,host.ScientificCalculatorSolver,host.ScientificCalculatorNbase,host.ScientificCalculatorCalculus,host.ScientificCalculatorStatistics,host.ScientificCalculatorEquations,host.ScientificCalculatorComplex,host.ScientificCalculatorMatrices);
+})(globalThis,function(semantic,values,bundle,numericModel,formatting,catalogues,solver,nbase,calculus,statistics,equations,complex,matrices){
   'use strict';
   const engine=bundle.createEngine();
   const {formatValue}=formatting;
@@ -1193,6 +1193,8 @@
     29:{action:"memory-subtract"},35:{insert:"!"},36:{action:"ncr"},37:{action:"npr"},40:{insert:"%"}});
   const MEMORY_KEYS = Object.freeze({18:"A",19:"B",20:"C",21:"D",22:"E",23:"F",27:"X",28:"Y",29:"M"});
   const ALPHA_STATS = Object.freeze({30:"mean-y",31:"sample-deviation-y",32:"population-deviation-y",33:"coefficient-a",34:"coefficient-b",35:"mean-x",36:"sample-deviation-x",37:"population-deviation-x",38:"coefficient-c",39:"correlation-r",40:"sum-xy",41:"sum-y",42:"sum-y-squared",45:"count-n",46:"sum-x",47:"sum-x-squared"});
+  const STAT_SYMBOLS=Object.freeze({30:'ymean',31:'sy',32:'sigmay',33:'rega',34:'regb',35:'xmean',36:'sx',37:'sigmax',38:'regc',39:'regr',40:'sumxy',41:'sumy',42:'sumyy',45:'statn',46:'sumx',47:'sumxx'});
+  const STAT_LABELS=Object.freeze({ymean:'y\u0305',sy:'Sy',sigmay:'\u03c3y',rega:'a',regb:'b',xmean:'x\u0305',sx:'Sx',sigmax:'\u03c3x',regc:'c',regr:'r',sumxy:'\u03a3xy',sumy:'\u03a3y',sumyy:'\u03a3y\u00b2',statn:'n',sumx:'\u03a3x',sumxx:'\u03a3x\u00b2'});
   const KEY_MENUS = Object.freeze({
     MODE: ["NORMAL", "STAT", "EQN", "CPLX", "MAT", "LIST"],
     SETUP: ["DRG", "FSE", "TAB"], ANGLE: ["DEG", "RAD", "GRAD"],
@@ -1233,7 +1235,8 @@
     if(scope!=='command')next.control.nbase={radix:10};
     if(scope==='command'){
       for(const name of ['answer','lastValue','memoryValue','statsValues','values','history'])next[name]=structuredClone(previous[name]);
-      if(previous.layers.mode==='EQN' && previous.workflow.kind==='data-entry'){next.workflow=structuredClone(previous.workflow);next.lifecycle='data-entry';}
+      if(previous.layers.mode==='MAT'&&previous.layers.intent?.kind==='matrix-error'){next.workflow=structuredClone(previous.layers.intent.workflow);next.workflow.payload.input='';next.lifecycle='data-entry';}
+      if(previous.layers.mode==='EQN' && (previous.workflow.kind==='data-entry'||previous.layers.intent?.kind==='equation-error')){next.workflow=structuredClone(previous.workflow.kind==='data-entry'?previous.workflow:previous.layers.intent.workflow);next.workflow.payload.input='';next.lifecycle='data-entry';}
     }else if(scope==='internal'||scope==='mode'){
       next.memoryValue=previous.memoryValue;next.values.memory=values.copy(previous.values.memory);next.control.formulas=structuredClone(previous.control.formulas);
       if(scope==='mode'&&next.values.memory.kind==='complex')next.values.memory.imaginary=values.scalar(0);
@@ -1241,11 +1244,11 @@
     }else if(scope==='memory'){
       next.control=initialControl();next.control.submode=previous.control.submode;
     }
-    next.control.power='on';return next;
+    next.control.power='on';if(scope==='internal'&&next.layers.mode==='EQN')return physicalEquationStart(next);return next;
   }
   function physicalPowerOff(previous){const next=physicalClear(previous);next.control.power='off';next.secondActive=false;return next;}
   function physicalCells(source){
-    const pattern=/(?:random|dice|coin|rint)\(\)|(?:cv|asin|acos|atan|sinh|cosh|tanh|asinh|acosh|atanh|sqrt|cbrt|recip|tenpow|epow|sin|cos|tan|log|ln|abs|fact|pct)\(|ans|pi|\^\(-1\)|\^\d|./g;
+    const pattern=/(?:random|dice|coin|rint)\(\)|(?:det|trans|dim|fill|identity|rndmat|cumul|aug|conj|polar|statt|probp|probq|probr|cv|asin|acos|atan|sinh|cosh|tanh|asinh|acosh|atanh|sqrt|cbrt|recip|tenpow|epow|sin|cos|tan|log|ln|abs|fact|pct)\(|mat[A-D]|xmean|ymean|sigmax|sigmay|sx|sy|statn|sumxy|sumxx|sumyy|sumx|sumy|rega|regb|regc|regr|ans|pi|\^\(-1\)|\^\d|./g;
     return [...source.matchAll(pattern)].map(m=>({start:m.index,end:m.index+m[0].length,text:m[0]}));
   }
   function physicalLength(source){return physicalCells(source).length;}
@@ -1282,6 +1285,12 @@
       const resume=previous.workflow.payload?.resumeWorkflow||(['multi-result','data-entry'].includes(previous.workflow.kind)?previous.workflow:null);
       if(resume){next.workflow.payload.resumeWorkflow=structuredClone(resume);next.workflow.returnPhase=resume.kind;}
     }
+    if(id==='MATH'&&previous.layers.mode==='STAT'){next.workflow.payload.choices=['\u2192t','P(','Q(','R('];next.workflow.payload.groups=[4];}
+    if(id==='MATH'&&previous.layers.mode==='CPLX'){next.workflow.payload.choices=['CONJ'];next.workflow.payload.groups=[1];}
+    if(id==='MATH'&&previous.layers.mode==='MAT'){next.workflow.payload.choices=['MAT','CHK','STO','OPE','MATH','mat\u2192list','matA\u2192list'];next.workflow.payload.groups=[3,2,1,1];}
+    if(id==='MAT_SLOTS'){next.workflow.payload.choices=['matA','matB','matC','matD'];next.workflow.payload.groups=[2,2];}
+    if(id==='MAT_OPE'){next.workflow.payload.choices=['dim(','fill(','cumul','aug(','identity','rnd_mat('];next.workflow.payload.groups=[2,2,1,1];}
+    if(id==='MAT_MATH'){next.workflow.payload.choices=['det','trans'];next.workflow.payload.groups=[2];}
     next.lifecycle='menu';return next;
   }
   function physicalSelect(previous,index){
@@ -1293,7 +1302,10 @@
       next.expression+=name+'()';next.displayResult=next.resultDisplay='0';return physicalEditor(next);
     }
     const id=previous.workflow.payload.id;const choice=previous.workflow.payload.choices[index];if(choice===undefined)return previous;
+    if(previous.layers.mode==='MAT'&&['MATH','MAT_SLOTS','MAT_OPE','MAT_MATH'].includes(id))return physicalMatrixSelect(previous,index);
     if(id==='MATH'||id==='ENG'){
+      if(id==='MATH'&&previous.layers.mode==='CPLX'){let next=structuredClone(previous);next.workflow=emptyWorkflow();next.lifecycle=previous.workflow.returnPhase;next.expression=previous.workflow.returnPhase==='evaluated'?'conj(ans':'conj('; next.entry='';return physicalEditor(next);}
+      if(id==='MATH'&&previous.layers.mode==='STAT')return physicalStatisticsMath(previous,index);
       if(id==='MATH'&&index===1)return physicalMenu(previous,'ENG');
       if(id==='MATH'&&index===0)return physicalSolverPrompt(previous,0,1e-5);
       const next=structuredClone(previous);next.workflow=emptyWorkflow();next.lifecycle=previous.workflow.returnPhase;
@@ -1326,7 +1338,7 @@
     }
     if(id==='STAT'||id==='EQN'){
       const next=physicalClear(previous,'mode');next.layers.mode=id;next.control.submode=choice;
-      if(id==='EQN') {next.workflow={kind:'data-entry',payload:{id:'EQN_COEFFICIENTS',label:index<2?'a1?':'a?',keyLayer:true,coefficient:0},page:0,returnPhase:'empty'};next.lifecycle='data-entry';}
+      if(id==='EQN') return physicalEquationStart(next);
       return next;
     }
     if(id==='CLEAR')return physicalClear(previous,'internal');
@@ -1414,9 +1426,10 @@
       const ast=semantic.parseTokens(semantic.tokenize(normalizeMixedNumbers(closed).replaceAll(':','/'),{physical:true}),{physical:true});
       const draws=[];let cursor=0,seed=Math.floor(Math.abs(previous.control.variables.Y%1)*4294967296)>>>0;
       const random=()=>{if(cursor>=draws.length){seed=(Math.imul(seed,1664525)+1013904223)>>>0;draws.push(draws.length===0&&randomSample!==undefined?randomSample:seed/4294967296);}return draws[cursor++];};
-      const numericResult=semantic.evaluate(ast,physicalAdapter,{angleMode:previous.angleMode,answer:previous.answer,variables:physicalVariables(previous),random});
+      const adapter=previous.layers.mode==='STAT'?physicalStatisticsAdapter(previous):physicalAdapter;
+      const numericResult=semantic.evaluate(ast,adapter,{angleMode:previous.angleMode,answer:previous.answer,variables:physicalVariables(previous),random});
       cursor=0;
-      let typed=values.evaluateAst(ast,semantic,physicalAdapter,{angleMode:previous.angleMode,answer:previous.values.answer.kind==='nbase'?values.scalar(previous.answer):previous.values.answer,physical:true,random,variables:physicalTypedVariables(previous)});
+      let typed=values.evaluateAst(ast,semantic,adapter,{angleMode:previous.angleMode,answer:previous.values.answer.kind==='nbase'?values.scalar(previous.answer):previous.values.answer,physical:true,random,variables:physicalTypedVariables(previous)});
       const number=numericResult===0?0:physicalNumeric(values.toNumber(typed));
       next.expression=closed+'=';next.displayExpression=display+'=';next.entry='';next.stagedEntry=null;next.selectionActive=false;next.cursor=next.expression.length-1;
       next.answer=next.lastValue=number;next.values.answer=next.values.last=number===0?values.scalar(0):typed;
@@ -1650,14 +1663,14 @@
           return physicalEditor(next);
         }
         if(w.payload.id==='STO'){
-          const result=w.returnPhase==='evaluated'?next:physicalCalculate(next,source||'0',source||'0',false,randomSample);
+          const result=w.returnPhase==='evaluated'?next:mode==='CPLX'?physicalComplexResult(next,source||'0'):physicalCalculate(next,source||'0',source||'0',false,randomSample);
           if(result.lifecycle==='error')return result;
           physicalStore(result,slot,result.values.last);result.displayExpression=(source||'0')+'→'+slot;result.layers.intent={kind:'memory-value',operation:'STO',slot};return result;
         }
         const value=slot==='M'?values.copy(previous.values.memory):physicalTypedVariables(previous)[slot];
         if(source&&w.returnPhase!=='evaluated'){
           next.expression=source+slot;next.entry='';next.stagedEntry=null;next=physicalEditor(next);
-          next.resultDisplay=next.displayResult=formatValue(values.toNumber(value));return next;
+          next.resultDisplay=next.displayResult=formatValue(values.toNumber(value.kind==='complex'?value.real:value));return next;
         }
         next.expression=next.displayExpression=slot+'=';next.entry='';next.stagedEntry=null;next.selectionActive=false;
         next.lastValue=values.toNumber(value.kind==='complex'?value.real:value);next.values.last=values.copy(value);next.resultDisplay=next.displayResult=formatValue(next.lastValue);next.resultMode=value.kind==='complex'?'exact':'decimal';next.lifecycle='evaluated';next.editor=editorForState(next);next.layers.intent={kind:'memory-value',operation:'RCL',slot};return next;
@@ -1667,7 +1680,7 @@
       try{
         const recalled=previous.layers.intent?.kind==='memory-value'&&previous.layers.intent.operation==='RCL';
         const source=previous.lifecycle==='evaluated'?(recalled?previous.layers.intent.slot:'ans'):physicalSource(previous)||'0';
-        const result=mode==='CPLX'&&previous.lifecycle==='evaluated'?commitTypedResult(next,previous.values.last):physicalCalculate(next,source,source,false,randomSample);if(result.lifecycle==='error')return result;
+        const result=mode==='CPLX'?previous.lifecycle==='evaluated'?commitTypedResult(next,previous.values.last):physicalComplexResult(next,source):physicalCalculate(next,source,source,false,randomSample);if(result.lifecycle==='error')return result;
         const op=previous.secondActive?'-':'+';
         const numeric=v=>v.kind==='dms'?values.scalar(values.toNumber(v)):v;
         const combine=(a,b)=>values.binary(op,numeric(a),numeric(b),physicalAdapter.binary);
@@ -1690,7 +1703,7 @@
       next.workflow=structuredClone(resume||emptyWorkflow());next.lifecycle=resume?.kind||w.returnPhase;
       if(previous.workflow.returnPhase==='evaluated'){next.expression='';next.entry='';next.stagedEntry=null;}
       const value=Number(row.value),literal=Math.abs(value)>=1e8||Math.abs(value)<1e-3?value.toExponential().replace('e','E').replace(/E\+?(-?)(\d+)$/,(_,sign,digits)=>'E'+sign+digits.padStart(2,'0')):String(value);
-      next.entry=literal;next.stagedEntry=null;next.displayResult=next.resultDisplay=formatValue(value);
+      next.entry=literal;if(next.workflow.payload?.id==='EQN_COEFFICIENTS')next.workflow.payload.input=literal;next.stagedEntry=null;next.displayResult=next.resultDisplay=formatValue(value);
       next.secondActive=false;next.layers.intent={kind:'catalogue-value',menu:'CNST',index};
       if(!resume)return physicalEditor(next);return next;
     }
@@ -1708,7 +1721,7 @@
         const result=physicalCalculate(next,next.expression,source+'→cv'+index,false,randomSample);
         if(w.payload.resumeWorkflow&&result.lifecycle!=='error'){
           result.workflow=structuredClone(w.payload.resumeWorkflow);result.lifecycle=result.workflow.kind;
-          result.entry=String(result.lastValue);result.answer=previous.answer;result.values.answer=values.copy(previous.values.answer);result.history=structuredClone(previous.history);result.values.history=structuredClone(previous.values.history);
+          result.entry=String(result.lastValue);if(result.workflow.payload.id==='EQN_COEFFICIENTS')result.workflow.payload.input=result.entry;result.answer=previous.answer;result.values.answer=values.copy(previous.values.answer);result.history=structuredClone(previous.history);result.values.history=structuredClone(previous.values.history);
         }
         return result;
       }
@@ -1718,7 +1731,7 @@
       const name=n===30?'RANDOM':n===41?'CNST':'CONV';
       if(mode==='CPLX'||name==='RANDOM'&&mode==='EQN'||previous.values.last.kind==='nbase'&&previous.values.last.radix!==10){next.secondActive=false;return next;}
       if(name==='RANDOM')return physicalMenu(previous,name);
-      let source;try{source=previous.lifecycle==='evaluated'?'ans':physicalSource(previous);}catch{return physicalError(next,1);}
+      let source;try{source=previous.workflow.payload?.id==='EQN_COEFFICIENTS'?previous.workflow.payload.input:previous.lifecycle==='evaluated'?'ans':physicalSource(previous);}catch{return physicalError(next,1);}
       const resume=w.kind==='data-entry'?structuredClone(w):null;
       next.secondActive=false;next.layers.alpha=false;
       next.workflow={kind:'prompt',payload:{id:name,keyLayer:true,path:[],source,resumeWorkflow:resume},page:0,returnPhase:previous.lifecycle};
@@ -1890,6 +1903,191 @@
       next.secondActive=false;return next; // Scientific functions and fractional digits are unavailable.
     }catch(error){next=physicalError(next,error instanceof RangeError?2:1);next.layers.intent={kind:'nbase-error'};next.secondActive=false;next.workflow=emptyWorkflow();return next;}
   }
+  const statisticalRows=s=>s.values.statistics.rows.map(r=>({x:values.toNumber(r.x),y:r.y===null?null:values.toNumber(r.y),weight:r.weight}));
+  const matrixFromTyped=v=>({rows:v.rows,columns:v.columns,data:v.elements.map(values.toNumber)});
+  const matrixToTyped=m=>({kind:'matrix',rows:m.rows,columns:m.columns,elements:m.data.map(values.scalar)});
+  function physicalMatrixEdit(next,matrix) {
+    const m=matrix||{rows:1,columns:1,data:[0]};
+    next.values.last=matrixToTyped(m);next.expression='';next.entry='';next.stagedEntry=null;
+    next.workflow={kind:'data-entry',payload:{id:'MAT_BUFFER',keyLayer:true,label:'ROW=',index:-2,input:'',matrix:m},page:0,returnPhase:'empty'};next.lifecycle='data-entry';return next;
+  }
+  function physicalMatrixSelect(previous,index) {
+    const id=previous.workflow.payload.id;let next=structuredClone(previous);
+    if(id==='MATH'&&index<5){
+      if(index<3){next=physicalMenu(previous,'MAT_SLOTS');next.workflow.payload.operation=index;return next;}
+      return physicalMenu(previous,index===3?'MAT_OPE':'MAT_MATH');
+    }
+    if(id==='MAT_SLOTS'){
+      const operation=previous.workflow.payload.operation;next.workflow=emptyWorkflow();
+      if(operation===2){if(previous.values.last.kind!=='matrix')return physicalError(next,7);next.control.matrices[index]=values.copy(previous.values.last);next.lifecycle='empty';return next;}
+      if(operation===1){if(!previous.control.matrices[index])return physicalError(next,7);return physicalMatrixEdit(next,matrixFromTyped(previous.control.matrices[index]));}
+      if(previous.workflow.returnPhase==='evaluated'){next.expression='';next.entry='';}
+      next=physicalFlush(next,false);next.expression+='mat'+String.fromCharCode(65+index);return physicalEditor(next);
+    }
+    if(id==='MATH'&&index>=5){
+      const list=a=>({kind:'list',elements:a.map(values.scalar)}),slots=previous.control.matrices;
+      if(index===6){if(!slots[0])return physicalError(next,7);const m=matrixFromTyped(slots[0]);next.control.lists=Array.from({length:4},(_,col)=>col<m.columns?list(Array.from({length:m.rows},(_,row)=>m.data[row*m.columns+col])):null);}
+      else next.control.lists=slots.map(v=>v?list(Array.from({length:v.rows},(_,row)=>values.toNumber(v.elements[row*v.columns]))):null);
+      next.layers.mode='LIST';next.control.submode=null;next.workflow=emptyWorkflow();next.expression='';next.entry='';next.lifecycle='empty';return next;
+    }
+    const name=id==='MAT_OPE'?['dim','fill','cumul','aug','identity','rndmat'][index]:['det','trans'][index];
+    next.workflow=emptyWorkflow();next=physicalFlush(next);if(previous.workflow.returnPhase==='evaluated')next.expression='';next.expression+=name+'(';next.lifecycle='entering';return physicalEditor(next);
+  }
+  function physicalPhase15(previous,next,intent,n,randomSample) {
+    if(previous.layers.mode!=='MAT')return null;
+    const p=previous.workflow.payload;
+    if(previous.workflow.kind==='data-entry'&&p?.id==='MAT_BUFFER'){
+      const q=next.workflow.payload;
+      if(n===3){next.secondActive=!previous.secondActive;return next;}
+      if(n===4||n===6)return null;
+      if(n===7){q.input=p.input.slice(0,-1);return next;}
+      if(n===47){q.input=p.input.startsWith('-')?p.input.slice(1):'-'+(p.input||'0');return next;}
+      if(n===29||[8,11].includes(n)){
+        try{
+          const value=p.input?physicalNumeric(semantic.evaluate(semantic.parseTokens(semantic.tokenize(closeOpenParentheses(p.input).replaceAll(':','/'),{physical:true}),{physical:true}),physicalAdapter,{angleMode:next.angleMode,answer:0})):p.index===-2?p.matrix.rows:p.index===-1?p.matrix.columns:p.matrix.data[p.index];
+          if(p.index<0){if(!Number.isInteger(value)||value<1||value>4){const e=new RangeError('Matrix dimension');e.code=value>4?9:7;throw e;}q.matrix=matrices.dimension(p.matrix,p.index===-2?value:p.matrix.rows,p.index===-1?value:p.matrix.columns);}
+          else q.matrix.data[p.index]=value;
+          q.index=Math.max(-2,Math.min(q.matrix.data.length-1,p.index+(n===8?-1:1)));q.input='';q.label=q.index===-2?'ROW=':q.index===-1?'COLUMN=':'MAT'+(Math.floor(q.index/q.matrix.columns)+1)+','+(q.index%q.matrix.columns+1)+'=';
+          next.values.last=matrixToTyped(q.matrix);next.control.errorCode=null;return next;
+        }catch(error){next.layers.intent={kind:'matrix-error',workflow:structuredClone(next.workflow)};next.workflow=emptyWorkflow();return physicalError(next,error.code||2);}
+      }
+      if(DIGIT_KEYS[n]!==undefined)q.input+=DIGIT_KEYS[n];else if(n===46)q.input+=(p.input?'':'0')+'.';else if({33:'(',34:')',38:'*',39:':',43:'+',44:'-'}[n])q.input+=({33:'(',34:')',38:'*',39:':',43:'+',44:'-'})[n];
+      return next;
+    }
+    if(previous.workflow.kind)return null;
+    if([8,11].includes(n))return physicalMatrixEdit(next,previous.values.last.kind==='matrix'?matrixFromTyped(previous.values.last):undefined);
+    if(n===48&&!previous.secondActive){
+      try{
+        const source=physicalSource(previous)||'0',ast=semantic.parseTokens(semantic.tokenize(closeOpenParentheses(source).replaceAll(':','/'),{physical:true}),{physical:true});
+        const result=matrices.evaluate(ast,semantic,physicalAdapter,{angleMode:previous.angleMode,answer:previous.answer,matrices:previous.control.matrices.map(v=>v?matrixFromTyped(v):null),random:()=>randomSample===undefined?Math.random():randomSample});
+        if(typeof result==='object')return physicalMatrixEdit(next,result);
+        next=physicalCalculate(next,String(result),source);return next;
+      }catch(error){return physicalError(next,error.code|| (error instanceof RangeError?2:1));}
+    }
+    if(previous.secondActive&&n===28){next=physicalFlush(next,false);next.expression+=',';next.secondActive=false;return physicalEditor(next);}
+    if([20,21].includes(n)&&!previous.secondActive){next=physicalFlush(next);next.expression+=n===20?'^2':'^3';return physicalEditor(next);}
+    if(n===18&&previous.secondActive){next=physicalFlush(next);next.expression+='^(-1)';next.secondActive=false;return physicalEditor(next);}
+    if(!previous.secondActive&&[38,39,43,44,33,34].includes(n)){next=physicalFlush(next);next.expression+=({38:'*',39:':',43:'+',44:'-',33:'(',34:')'})[n];return physicalEditor(next);}
+    return null;
+  }
+  function physicalComplexResult(previous,source) {
+    let next=structuredClone(previous);
+    try{
+      const numeric=v=>v.kind==='complex'?complex.z(values.toNumber(v.real),values.toNumber(v.imaginary)):complex.z(values.toNumber(v));
+      const ast=semantic.parseTokens(semantic.tokenize(closeOpenParentheses(source).replaceAll(':','/'),{physical:true}),{physical:true});
+      const result=complex.evaluate(ast,semantic,physicalAdapter,{angleMode:previous.angleMode,answer:numeric(previous.values.answer),memory:numeric(previous.values.memory)});
+      const typed=result.imaginary?{kind:'complex',real:values.scalar(result.real),imaginary:values.scalar(result.imaginary)}:values.scalar(result.real);
+      next=commitTypedResult(next,typed);next.expression=source+'=';next.entry='';next.stagedEntry=null;next.editor=editorForState(next);next.lifecycle='evaluated';next.displayExpression=source+'=';next.resultMode='decimal';next.control.errorCode=null;
+      next.layers.intent={kind:'complex-result',polar:previous.layers.intent?.polar===true,component:result.real===0&&result.imaginary!==0?1:0};return next;
+    }catch(error){next.workflow=emptyWorkflow();return physicalError(next,error instanceof RangeError?2:1);}
+  }
+  function physicalPhase14(previous,next,intent,n) {
+    if(previous.layers.mode!=='CPLX'||previous.workflow.kind)return null;
+    if(n===3){next.secondActive=!previous.secondActive;return next;}
+    if(n===48&&!previous.secondActive)return physicalComplexResult(previous,physicalSource(previous)||'0');
+    if(previous.secondActive&&[31,32,24].includes(n)){
+      next.secondActive=false;
+      if(n===31||n===32){next.layers.intent={kind:'complex-result',polar:n===31,component:0};return next;}
+      if(previous.lifecycle==='evaluated'){next.layers.intent={kind:'complex-result',polar:previous.layers.intent?.polar===true,component:previous.layers.intent?.component===1?0:1};return next;}
+      return next;
+    }
+    if(n===25&&!previous.secondActive){try{next=physicalFlush(next);}catch{return physicalError(next,1);}if(previous.lifecycle==='evaluated')next.expression='';next.expression+='i';next.secondActive=false;return physicalEditor(next);}
+    if(!previous.secondActive&&n===26){try{next=physicalFlush(next);}catch{return physicalError(next,1);}next.expression='polar('+next.expression+',';next.secondActive=false;return physicalEditor(next);}
+    if(n===19&&!previous.secondActive){next=physicalFlush(next);if(previous.lifecycle==='evaluated')next.expression='ans';next.expression='cpow('+next.expression+',';return physicalEditor(next);}
+    if([12,13,14,15,16,18,20,21,22,23,26].includes(n)&&!previous.layers.alpha){
+      if([20,21].includes(n)&&!previous.secondActive){next=physicalFlush(next);if(previous.lifecycle==='evaluated')next.expression='ans';next.expression+=n===20?'^2':'^3';return physicalEditor(next);}
+      if(n===18&&previous.secondActive){next=physicalFlush(next);if(previous.lifecycle==='evaluated')next.expression='ans';next.expression+='^(-1)';next.secondActive=false;return physicalEditor(next);}
+      return next;
+    }
+    if(!previous.layers.alpha&&!previous.secondActive&&[38,39,43,44,33,34].includes(n)){
+      try{next=physicalFlush(next);}catch{return physicalError(next,1);}if(previous.lifecycle==='evaluated')next.expression='ans';next.expression+=({38:'*',39:':',43:'+',44:'-',33:'(',34:')'})[n];return physicalEditor(next);
+    }
+    return null;
+  }
+  function physicalEquationStart(next, coefficients) {
+    const mode=next.control.submode,size=mode==='2-VLE'?2:mode==='3-VLE'?3:0;
+    const labels=size?Array.from({length:size*(size+1)},(_,i)=>String.fromCharCode(97+i%(size+1))+(Math.floor(i/(size+1))+1)+'?'):Array.from({length:mode==='QUAD'?3:4},(_,i)=>String.fromCharCode(97+i)+'?');
+    next.workflow={kind:'data-entry',payload:{id:'EQN_COEFFICIENTS',keyLayer:true,labels,label:labels[0],coefficient:0,coefficients:coefficients||labels.map(()=>0),input:'',size},page:0,returnPhase:'empty'};
+    next.entry='';next.expression='';next.stagedEntry=null;next.lifecycle='data-entry';return next;
+  }
+  function physicalPhase13(previous,next,n) {
+    if(previous.layers.mode!=='EQN')return null;
+    const p=previous.workflow.payload;
+    if(previous.workflow.kind==='multi-result'&&p?.id==='EQN_RESULTS'){
+      if(n===4||n===6)return null;
+      if(n===3){next.secondActive=!previous.secondActive;return next;}
+      if(n===48||[8,11].includes(n)){
+        const direction=previous.secondActive||n===8?-1:1,page=previous.workflow.page+direction;
+        next.secondActive=false;
+        if(page>=p.pages.length)return physicalEquationStart(next,p.coefficients);
+        next.workflow.page=Math.max(0,page);return next;
+      }
+      if(previous.secondActive&&n===24){const page=next.workflow.payload.pages[next.workflow.page];if(page.alternate){[page.value,page.alternate]=[page.alternate,page.value];page.component=page.component==='i'?'xy':'i';}next.secondActive=false;return next;}
+      next.secondActive=false;return next;
+    }
+    if(previous.workflow.kind!=='data-entry'||p?.id!=='EQN_COEFFICIENTS')return null;
+    if(n===3){next.secondActive=!previous.secondActive;return next;}
+    if(n===4||n===6||n===1||n===2)return null;
+    const q=next.workflow.payload;
+    if(n===7){q.input=p.input.slice(0,-1);return next;}
+    if(n===47){q.input=p.input.startsWith('-')?p.input.slice(1):'-'+(p.input||p.coefficients[p.coefficient]);return next;}
+    if(n===48||[8,11].includes(n)){
+      try{
+        if(p.input)q.coefficients[p.coefficient]=physicalNumeric(semantic.evaluate(semantic.parseTokens(semantic.tokenize(closeOpenParentheses(p.input).replaceAll(':','/'),{physical:true}),{physical:true}),physicalAdapter,{angleMode:next.angleMode,answer:0}));
+        const direction=previous.secondActive||n===8?-1:1,index=p.coefficient+direction;
+        next.secondActive=false;
+        if(index<p.labels.length){q.coefficient=Math.max(0,index);q.label=q.labels[q.coefficient];q.input='';return next;}
+        const solved=p.size?equations.linear(q.coefficients,p.size):{solutions:next.control.submode==='QUAD'?equations.quadratic(q.coefficients):equations.cubic(q.coefficients)};
+        const pages=solved.solutions.map((r,i)=>({label:p.size?['x=','y=','z='][i]:'X'+(i+1)+'=',value:values.scalar(r.real),...(r.imaginary?{alternate:values.scalar(r.imaginary),component:'xy'}:{})}));
+        if(p.size)pages.push({label:'det=',value:values.scalar(solved.determinant)});
+        next.values.last={kind:'equation',components:solved.solutions.map((r,i)=>({label:pages[i].label,value:r.imaginary?{kind:'complex',real:values.scalar(r.real),imaginary:values.scalar(r.imaginary)}:values.scalar(r.real)}))};
+        next.workflow={kind:'multi-result',payload:{id:'EQN_RESULTS',pages,coefficients:q.coefficients},page:0,returnPhase:'data-entry'};next.lifecycle='multi-result';next.control.errorCode=null;return next;
+      }catch(error){next.layers.intent={kind:'equation-error',workflow:structuredClone(next.workflow)};next.workflow=emptyWorkflow();return physicalError(next,error instanceof RangeError?2:1);}
+    }
+    if(DIGIT_KEYS[n]!==undefined)q.input+=DIGIT_KEYS[n];
+    else if(n===46)q.input+=(p.input?'':'0')+'.';
+    else if(n===24)q.input=(p.input||'1')+'E';
+    else if({33:'(',34:')',38:'*',39:':',43:'+',44:'-'}[n])q.input+=({33:'(',34:')',38:'*',39:':',43:'+',44:'-'})[n];
+    return next;
+  }
+  function physicalStatisticsAdapter(state){return {...physicalAdapter,
+    symbol:(name,scope)=>{const key=Object.keys(STAT_SYMBOLS).find(k=>STAT_SYMBOLS[k]===name);return key?physicalNumeric(statistics.result(statisticalRows(state),state.control.submode,ALPHA_STATS[key])):physicalAdapter.symbol(name,scope);},
+    call:(name,args,scope)=>name==='statt'?physicalNumeric((args[0]-statistics.result(statisticalRows(state),state.control.submode,'mean-x'))/statistics.result(statisticalRows(state),state.control.submode,'population-deviation-x')):/^prob[pqr]$/.test(name)?statistics.probability(name.slice(-1).toUpperCase(),args[0]):physicalAdapter.call(name,args,scope)};}
+  function physicalStatisticsMath(previous,index){
+    let next=structuredClone(previous);next.workflow=emptyWorkflow();next.lifecycle=previous.workflow.returnPhase;
+    try{if(index>0){
+      if(next.lifecycle==='evaluated'||previous.layers.intent?.kind==='statistics-display'){next.expression='';next.entry='';next.stagedEntry=null;}
+      next=physicalFlush(next);next.expression+=['','probp(','probq(','probr('][index];return physicalEditor(next);
+    }
+    const source=physicalSource(next)||'0';next.expression='statt('+closeOpenParentheses(source)+')';next.entry='';next.stagedEntry=null;next.displayResult=next.resultDisplay='0';return physicalEditor(next);
+    }catch(e){next=physicalError(next,2);next.layers.intent={kind:'statistics-error'};return next;}
+  }
+  function physicalPhase12(previous,next,intent,n){
+    if(previous.layers.mode!=='STAT')return null;
+    const w=previous.workflow;
+    if(!w.kind&&previous.secondActive&&[33,34].includes(n)){
+      try{const source=physicalSource(previous)||'0',operand=previous.lifecycle==='evaluated'?previous:physicalCalculate(previous,source);if(operand.lifecycle==='error'){operand.layers.intent={kind:'statistics-error'};return operand;}const input=operand.lastValue;
+        const number=statistics.estimate(statisticalRows(previous),previous.control.submode,n===33?'x':'y',input);
+        const result=physicalCalculate(next,String(number));result.expression=source.replace(/=$/,'');result.editor=editorForState(result);result.displayExpression=source+(n===33?'x\u0302':'y\u0302');result.layers.intent={kind:'statistics-estimate',direction:n===33?'x':'y',input,second:false};return result;
+      }catch{next=physicalError(next,2);next.layers.intent={kind:'statistics-error'};next.secondActive=false;return next;}
+    }
+    if(n===5&&previous.secondActive&&!w.kind){next.secondActive=false;next.layers.alpha=true;return next;}
+    if(STAT_SYMBOLS[n]&&(previous.layers.alpha||w.payload?.id==='RCL')){
+      const symbol=STAT_SYMBOLS[n],name=ALPHA_STATS[n];next.secondActive=false;next.layers.alpha=false;
+      if(w.payload?.id==='RCL'){
+        next.workflow=emptyWorkflow();next.lifecycle=w.returnPhase;
+        try{const number=statistics.result(statisticalRows(previous),previous.control.submode,name);const result=physicalCalculate(next,String(number));result.displayExpression=STAT_LABELS[symbol]+'=';result.layers.intent={kind:'statistics-result'};return result;}
+        catch{next=physicalError(next,2);next.layers.intent={kind:'statistics-error'};return next;}
+      }
+      if(!w.kind){if(previous.lifecycle==='evaluated'||previous.layers.intent?.kind==='statistics-display'){next.expression='';next.entry='';next.stagedEntry=null;}
+        next=physicalFlush(next,false);next.expression+=symbol;return physicalEditor(next);}
+    }
+    if(!w.kind&&previous.secondActive&&n===24&&previous.control.submode==='QUAD'&&previous.layers.intent?.kind==='statistics-estimate'&&previous.layers.intent.direction==='x'){
+      try{const p=previous.layers.intent;const number=statistics.estimate(statisticalRows(previous),'QUAD','x',p.input,!p.second);const result=physicalCalculate(next,String(number),previous.displayExpression.replace(/=$/,''));result.layers.intent={...p,second:!p.second};return result;}catch{next=physicalError(next,2);next.layers.intent={kind:'statistics-error'};return next;}
+    }
+    if(!w.kind&&n===48&&!previous.secondActive){const result=physicalCalculate(next,physicalSource(previous)||'0');result.control.statistics.editing=true;if(result.lifecycle==='error')result.layers.intent={kind:'statistics-error'};return result;}
+    return null;
+  }
   // Statistics stores typed observations; entry uses the same numeric editor as
   // NORMAL, while DATA, comma and browsing own their distinct state transitions.
   function physicalStatisticsDisplay(next,browse=false){
@@ -1985,6 +2183,10 @@
     }
     const baseKey=physicalPhase9(previous,next,n);if(baseKey)return baseKey;
     const calculusKey=physicalPhase10(previous,next,n);if(calculusKey)return calculusKey;
+    if(previous.secondActive&&[30,41,42].includes(n)||['CNST','CONV'].includes(previous.workflow.payload?.id)||n===48&&previous.layers.mode!=='NORMAL'&&/(?:random|dice|coin|rint|cv)\(/.test(previous.expression)){const earlyCatalogue=physicalPhase7(previous,next,intent,n,randomSample);if(earlyCatalogue)return earlyCatalogue;}
+    const matrixKey=physicalPhase15(previous,next,intent,n,randomSample);if(matrixKey)return matrixKey;
+    const complexKey=physicalPhase14(previous,next,intent,n);if(complexKey)return complexKey;
+    const equationKey=physicalPhase13(previous,next,n);if(equationKey)return equationKey;
     const promptKey=physicalPhase8Prompt(previous,next,n);if(promptKey)return promptKey;
     if(n===4)return physicalMenu(previous,'MODE');
     if(n===6)return physicalMenu(previous,'SETUP');
@@ -1993,7 +2195,7 @@
       if(DIGIT_KEYS[n]!==undefined){next.layers.settings.tab=Number(DIGIT_KEYS[n]);next.lifecycle=previous.workflow.returnPhase;next.workflow=structuredClone(previous.workflow.payload.resumeWorkflow||emptyWorkflow());}
       return next;
     }
-    if(previous.workflow.kind==='menu'&&['MODE','STAT','EQN','CLEAR','MEMORY_CLEAR','SETUP','ANGLE','FORMAT','MATH','ENG','RANDOM'].includes(previous.workflow.payload.id)){
+    if(previous.workflow.kind==='menu'&&['MODE','STAT','EQN','CLEAR','MEMORY_CLEAR','SETUP','ANGLE','FORMAT','MATH','ENG','RANDOM','MAT_SLOTS','MAT_OPE','MAT_MATH'].includes(previous.workflow.payload.id)){
       const w=next.workflow,groups=w.payload.groups;let selected=w.payload.selected;
       if(n===9||n===10){selected=Math.max(0,Math.min(w.payload.choices.length-1,selected+(n===9?-1:1)));}
       else if(n===8||n===11){w.page=w.payload.id==='FORMAT'?(w.page+1)%groups.length:Math.max(0,Math.min(groups.length-1,w.page+(n===8?-1:1)));selected=groups.slice(0,w.page).reduce((a,b)=>a+b,0);}
@@ -2006,6 +2208,7 @@
       if(n===45||n===48)return previous.workflow.payload.id==='CONFIRM_RESET'?createInitialState():physicalClear(previous,'memory');
       return next;
     }
+    const statisticalResult=physicalPhase12(previous,next,intent,n);if(statisticalResult)return statisticalResult;
     const statisticsKey=physicalPhase11(previous,next,intent,n,randomSample);if(statisticsKey)return statisticsKey;
     const memoryKey=physicalPhase8(previous,next,intent,n,randomSample);if(memoryKey)return memoryKey;
     const catalogueKey=physicalPhase7(previous,next,intent,n,randomSample);if(catalogueKey)return catalogueKey;

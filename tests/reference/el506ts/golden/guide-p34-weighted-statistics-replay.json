@@ -1,0 +1,3600 @@
+{
+  "schemaVersion": 1,
+  "id": "guide-p34-weighted-statistics-replay",
+  "dispatch": "physical",
+  "displayProfile": "physical",
+  "status": "baseline-characterization",
+  "reference": "experiments/guide-p34-weighted-statistics-replay.json",
+  "sequence": [
+    "EL506-K04",
+    "EL506-K40",
+    "EL506-K45",
+    "EL506-K42",
+    "EL506-K45",
+    "EL506-K03",
+    "EL506-K28",
+    "EL506-K41",
+    "EL506-K29",
+    "EL506-K35",
+    "EL506-K45",
+    "EL506-K03",
+    "EL506-K28",
+    "EL506-K35",
+    "EL506-K29",
+    "EL506-K36",
+    "EL506-K45",
+    "EL506-K03",
+    "EL506-K28",
+    "EL506-K36",
+    "EL506-K29",
+    "EL506-K37",
+    "EL506-K45",
+    "EL506-K03",
+    "EL506-K28",
+    "EL506-K30",
+    "EL506-K29",
+    "EL506-K30",
+    "EL506-K45",
+    "EL506-K03",
+    "EL506-K28",
+    "EL506-K40",
+    "EL506-K41",
+    "EL506-K29",
+    "EL506-K31",
+    "EL506-K45",
+    "EL506-K03",
+    "EL506-K28",
+    "EL506-K40",
+    "EL506-K45",
+    "EL506-K29",
+    "EL506-K32",
+    "EL506-K45",
+    "EL506-K03",
+    "EL506-K28",
+    "EL506-K31",
+    "EL506-K29",
+    "EL506-K40",
+    "EL506-K45",
+    "EL506-K45",
+    "EL506-K03",
+    "EL506-K28",
+    "EL506-K41",
+    "EL506-K29",
+    "EL506-K27",
+    "EL506-K35",
+    "EL506-K27",
+    "EL506-K36",
+    "EL506-K27",
+    "EL506-K37",
+    "EL506-K27",
+    "EL506-K45",
+    "EL506-K27",
+    "EL506-K46"
+  ],
+  "capabilityIds": [
+    "el506.key.el506-k04",
+    "el506.key.el506-k27",
+    "el506.key.el506-k28",
+    "el506.key.el506-k29",
+    "el506.key.el506-k30",
+    "el506.key.el506-k31",
+    "el506.key.el506-k32",
+    "el506.key.el506-k35",
+    "el506.key.el506-k36",
+    "el506.key.el506-k37",
+    "el506.key.el506-k40",
+    "el506.key.el506-k41",
+    "el506.key.el506-k42",
+    "el506.key.el506-k45",
+    "el506.key.el506-k46"
+  ],
+  "expected": [
+    {
+      "afterStep": 0,
+      "assertions": {
+        "layers.mode": "NORMAL",
+        "lifecycle": "empty",
+        "expression": "",
+        "entry": "",
+        "control.errorCode": null,
+        "workflow": {
+          "kind": null,
+          "payload": null,
+          "page": 0,
+          "returnPhase": "empty"
+        },
+        "values.last": {
+          "kind": "scalar",
+          "value": 0
+        }
+      },
+      "viewAssertions": {
+        "expressionHtml": "",
+        "resultHtml": "0.",
+        "indicators": {
+          "2ndF": false,
+          "HYP": false,
+          "ALPHA": false,
+          "FIX": false,
+          "SCI": false,
+          "ENG": false,
+          "DEG": true,
+          "RAD": false,
+          "GRAD": false,
+          "CPLX": false,
+          "MAT": false,
+          "LIST": false,
+          "STAT": false,
+          "M": false,
+          "BIN": false,
+          "PEN": false,
+          "OCT": false,
+          "DEC": false,
+          "HEX": false,
+          "xy": false,
+          "rθ": false,
+          "?": false,
+          "∠": false,
+          "i": false
+        }
+      },
+      "domResultText": "0."
+    },
+    {
+      "afterStep": 1,
+      "assertions": {
+        "layers.mode": "NORMAL",
+        "lifecycle": "menu",
+        "expression": "",
+        "entry": "",
+        "control.errorCode": null,
+        "workflow": {
+          "kind": "menu",
+          "payload": {
+            "id": "MODE",
+            "keyLayer": true,
+            "choices": [
+              "NORMAL",
+              "STAT",
+              "EQN",
+              "CPLX",
+              "MAT",
+              "LIST"
+            ],
+            "path": [],
+            "selected": 0,
+            "groups": [
+              2,
+              2,
+              2
+            ]
+          },
+          "page": 0,
+          "returnPhase": "empty"
+        },
+        "values.last": {
+          "kind": "scalar",
+          "value": 0
+        }
+      },
+      "viewAssertions": {
+        "expressionHtml": "NORMAL   STAT",
+        "resultHtml": "0•   1",
+        "indicators": {
+          "2ndF": false,
+          "HYP": false,
+          "ALPHA": false,
+          "FIX": false,
+          "SCI": false,
+          "ENG": false,
+          "DEG": true,
+          "RAD": false,
+          "GRAD": false,
+          "CPLX": false,
+          "MAT": false,
+          "LIST": false,
+          "STAT": false,
+          "M": false,
+          "BIN": false,
+          "PEN": false,
+          "OCT": false,
+          "DEC": false,
+          "HEX": false,
+          "xy": false,
+          "rθ": false,
+          "?": false,
+          "∠": false,
+          "i": false
+        }
+      },
+      "domResultText": "0•   1"
+    },
+    {
+      "afterStep": 2,
+      "assertions": {
+        "layers.mode": "NORMAL",
+        "lifecycle": "menu",
+        "expression": "",
+        "entry": "",
+        "control.errorCode": null,
+        "workflow": {
+          "kind": "menu",
+          "payload": {
+            "id": "STAT",
+            "keyLayer": true,
+            "choices": [
+              "SD",
+              "LINE",
+              "QUAD",
+              "EXP",
+              "LOG",
+              "PWR",
+              "INV"
+            ],
+            "path": [],
+            "selected": 0,
+            "groups": [
+              3,
+              3,
+              1
+            ]
+          },
+          "page": 0,
+          "returnPhase": "empty"
+        },
+        "values.last": {
+          "kind": "scalar",
+          "value": 0
+        }
+      },
+      "viewAssertions": {
+        "expressionHtml": "SD   LINE   QUAD",
+        "resultHtml": "0•   1   2",
+        "indicators": {
+          "2ndF": false,
+          "HYP": false,
+          "ALPHA": false,
+          "FIX": false,
+          "SCI": false,
+          "ENG": false,
+          "DEG": true,
+          "RAD": false,
+          "GRAD": false,
+          "CPLX": false,
+          "MAT": false,
+          "LIST": false,
+          "STAT": false,
+          "M": false,
+          "BIN": false,
+          "PEN": false,
+          "OCT": false,
+          "DEC": false,
+          "HEX": false,
+          "xy": false,
+          "rθ": false,
+          "?": false,
+          "∠": false,
+          "i": false
+        }
+      },
+      "domResultText": "0•   1   2"
+    },
+    {
+      "afterStep": 3,
+      "assertions": {
+        "layers.mode": "STAT",
+        "lifecycle": "empty",
+        "expression": "",
+        "entry": "",
+        "control.errorCode": null,
+        "workflow": {
+          "kind": null,
+          "payload": null,
+          "page": 0,
+          "returnPhase": "empty"
+        },
+        "values.last": {
+          "kind": "scalar",
+          "value": 0
+        }
+      },
+      "viewAssertions": {
+        "expressionHtml": "Stat 0",
+        "resultHtml": "0.",
+        "indicators": {
+          "2ndF": false,
+          "HYP": false,
+          "ALPHA": false,
+          "FIX": false,
+          "SCI": false,
+          "ENG": false,
+          "DEG": true,
+          "RAD": false,
+          "GRAD": false,
+          "CPLX": false,
+          "MAT": false,
+          "LIST": false,
+          "STAT": true,
+          "M": false,
+          "BIN": false,
+          "PEN": false,
+          "OCT": false,
+          "DEC": false,
+          "HEX": false,
+          "xy": false,
+          "rθ": false,
+          "?": false,
+          "∠": false,
+          "i": false
+        }
+      },
+      "domResultText": "0."
+    },
+    {
+      "afterStep": 4,
+      "assertions": {
+        "layers.mode": "STAT",
+        "lifecycle": "entering",
+        "expression": "",
+        "entry": "3",
+        "control.errorCode": null,
+        "workflow": {
+          "kind": null,
+          "payload": null,
+          "page": 0,
+          "returnPhase": "empty"
+        },
+        "values.last": {
+          "kind": "scalar",
+          "value": 0
+        }
+      },
+      "viewAssertions": {
+        "expressionHtml": "",
+        "resultHtml": "3.",
+        "indicators": {
+          "2ndF": false,
+          "HYP": false,
+          "ALPHA": false,
+          "FIX": false,
+          "SCI": false,
+          "ENG": false,
+          "DEG": true,
+          "RAD": false,
+          "GRAD": false,
+          "CPLX": false,
+          "MAT": false,
+          "LIST": false,
+          "STAT": true,
+          "M": false,
+          "BIN": false,
+          "PEN": false,
+          "OCT": false,
+          "DEC": false,
+          "HEX": false,
+          "xy": false,
+          "rθ": false,
+          "?": false,
+          "∠": false,
+          "i": false
+        }
+      },
+      "domResultText": "3."
+    },
+    {
+      "afterStep": 5,
+      "assertions": {
+        "layers.mode": "STAT",
+        "lifecycle": "entering",
+        "expression": "",
+        "entry": "30",
+        "control.errorCode": null,
+        "workflow": {
+          "kind": null,
+          "payload": null,
+          "page": 0,
+          "returnPhase": "empty"
+        },
+        "values.last": {
+          "kind": "scalar",
+          "value": 0
+        }
+      },
+      "viewAssertions": {
+        "expressionHtml": "",
+        "resultHtml": "30.",
+        "indicators": {
+          "2ndF": false,
+          "HYP": false,
+          "ALPHA": false,
+          "FIX": false,
+          "SCI": false,
+          "ENG": false,
+          "DEG": true,
+          "RAD": false,
+          "GRAD": false,
+          "CPLX": false,
+          "MAT": false,
+          "LIST": false,
+          "STAT": true,
+          "M": false,
+          "BIN": false,
+          "PEN": false,
+          "OCT": false,
+          "DEC": false,
+          "HEX": false,
+          "xy": false,
+          "rθ": false,
+          "?": false,
+          "∠": false,
+          "i": false
+        }
+      },
+      "domResultText": "30."
+    },
+    {
+      "afterStep": 6,
+      "assertions": {
+        "layers.mode": "STAT",
+        "lifecycle": "entering",
+        "expression": "",
+        "entry": "30",
+        "control.errorCode": null,
+        "workflow": {
+          "kind": null,
+          "payload": null,
+          "page": 0,
+          "returnPhase": "empty"
+        },
+        "values.last": {
+          "kind": "scalar",
+          "value": 0
+        }
+      },
+      "viewAssertions": {
+        "expressionHtml": "",
+        "resultHtml": "30.",
+        "indicators": {
+          "2ndF": true,
+          "HYP": false,
+          "ALPHA": false,
+          "FIX": false,
+          "SCI": false,
+          "ENG": false,
+          "DEG": true,
+          "RAD": false,
+          "GRAD": false,
+          "CPLX": false,
+          "MAT": false,
+          "LIST": false,
+          "STAT": true,
+          "M": false,
+          "BIN": false,
+          "PEN": false,
+          "OCT": false,
+          "DEC": false,
+          "HEX": false,
+          "xy": false,
+          "rθ": false,
+          "?": false,
+          "∠": false,
+          "i": false
+        }
+      },
+      "domResultText": "30."
+    },
+    {
+      "afterStep": 7,
+      "assertions": {
+        "layers.mode": "STAT",
+        "lifecycle": "entering",
+        "expression": "",
+        "entry": "",
+        "control.errorCode": null,
+        "workflow": {
+          "kind": null,
+          "payload": null,
+          "page": 0,
+          "returnPhase": "empty"
+        },
+        "values.last": {
+          "kind": "scalar",
+          "value": 0
+        }
+      },
+      "viewAssertions": {
+        "expressionHtml": "30,<span class=\"scicalc__cursor\" aria-hidden=\"true\"></span>",
+        "resultHtml": "0.",
+        "indicators": {
+          "2ndF": false,
+          "HYP": false,
+          "ALPHA": false,
+          "FIX": false,
+          "SCI": false,
+          "ENG": false,
+          "DEG": true,
+          "RAD": false,
+          "GRAD": false,
+          "CPLX": false,
+          "MAT": false,
+          "LIST": false,
+          "STAT": true,
+          "M": false,
+          "BIN": false,
+          "PEN": false,
+          "OCT": false,
+          "DEC": false,
+          "HEX": false,
+          "xy": false,
+          "rθ": false,
+          "?": false,
+          "∠": false,
+          "i": false
+        }
+      },
+      "domResultText": "0."
+    },
+    {
+      "afterStep": 8,
+      "assertions": {
+        "layers.mode": "STAT",
+        "lifecycle": "entering",
+        "expression": "",
+        "entry": "2",
+        "control.errorCode": null,
+        "workflow": {
+          "kind": null,
+          "payload": null,
+          "page": 0,
+          "returnPhase": "empty"
+        },
+        "values.last": {
+          "kind": "scalar",
+          "value": 0
+        }
+      },
+      "viewAssertions": {
+        "expressionHtml": "30,<span class=\"scicalc__cursor\" aria-hidden=\"true\"></span>",
+        "resultHtml": "2.",
+        "indicators": {
+          "2ndF": false,
+          "HYP": false,
+          "ALPHA": false,
+          "FIX": false,
+          "SCI": false,
+          "ENG": false,
+          "DEG": true,
+          "RAD": false,
+          "GRAD": false,
+          "CPLX": false,
+          "MAT": false,
+          "LIST": false,
+          "STAT": true,
+          "M": false,
+          "BIN": false,
+          "PEN": false,
+          "OCT": false,
+          "DEC": false,
+          "HEX": false,
+          "xy": false,
+          "rθ": false,
+          "?": false,
+          "∠": false,
+          "i": false
+        }
+      },
+      "domResultText": "2."
+    },
+    {
+      "afterStep": 9,
+      "assertions": {
+        "layers.mode": "STAT",
+        "lifecycle": "empty",
+        "expression": "",
+        "entry": "",
+        "control.errorCode": null,
+        "workflow": {
+          "kind": null,
+          "payload": null,
+          "page": 0,
+          "returnPhase": "empty"
+        },
+        "values.last": {
+          "kind": "scalar",
+          "value": 0
+        }
+      },
+      "viewAssertions": {
+        "expressionHtml": "DATA SET=",
+        "resultHtml": "1.",
+        "indicators": {
+          "2ndF": false,
+          "HYP": false,
+          "ALPHA": false,
+          "FIX": false,
+          "SCI": false,
+          "ENG": false,
+          "DEG": true,
+          "RAD": false,
+          "GRAD": false,
+          "CPLX": false,
+          "MAT": false,
+          "LIST": false,
+          "STAT": true,
+          "M": false,
+          "BIN": false,
+          "PEN": false,
+          "OCT": false,
+          "DEC": false,
+          "HEX": false,
+          "xy": false,
+          "rθ": false,
+          "?": false,
+          "∠": false,
+          "i": false
+        }
+      },
+      "domResultText": "1."
+    },
+    {
+      "afterStep": 10,
+      "assertions": {
+        "layers.mode": "STAT",
+        "lifecycle": "entering",
+        "expression": "",
+        "entry": "4",
+        "control.errorCode": null,
+        "workflow": {
+          "kind": null,
+          "payload": null,
+          "page": 0,
+          "returnPhase": "empty"
+        },
+        "values.last": {
+          "kind": "scalar",
+          "value": 0
+        }
+      },
+      "viewAssertions": {
+        "expressionHtml": "",
+        "resultHtml": "4.",
+        "indicators": {
+          "2ndF": false,
+          "HYP": false,
+          "ALPHA": false,
+          "FIX": false,
+          "SCI": false,
+          "ENG": false,
+          "DEG": true,
+          "RAD": false,
+          "GRAD": false,
+          "CPLX": false,
+          "MAT": false,
+          "LIST": false,
+          "STAT": true,
+          "M": false,
+          "BIN": false,
+          "PEN": false,
+          "OCT": false,
+          "DEC": false,
+          "HEX": false,
+          "xy": false,
+          "rθ": false,
+          "?": false,
+          "∠": false,
+          "i": false
+        }
+      },
+      "domResultText": "4."
+    },
+    {
+      "afterStep": 11,
+      "assertions": {
+        "layers.mode": "STAT",
+        "lifecycle": "entering",
+        "expression": "",
+        "entry": "40",
+        "control.errorCode": null,
+        "workflow": {
+          "kind": null,
+          "payload": null,
+          "page": 0,
+          "returnPhase": "empty"
+        },
+        "values.last": {
+          "kind": "scalar",
+          "value": 0
+        }
+      },
+      "viewAssertions": {
+        "expressionHtml": "",
+        "resultHtml": "40.",
+        "indicators": {
+          "2ndF": false,
+          "HYP": false,
+          "ALPHA": false,
+          "FIX": false,
+          "SCI": false,
+          "ENG": false,
+          "DEG": true,
+          "RAD": false,
+          "GRAD": false,
+          "CPLX": false,
+          "MAT": false,
+          "LIST": false,
+          "STAT": true,
+          "M": false,
+          "BIN": false,
+          "PEN": false,
+          "OCT": false,
+          "DEC": false,
+          "HEX": false,
+          "xy": false,
+          "rθ": false,
+          "?": false,
+          "∠": false,
+          "i": false
+        }
+      },
+      "domResultText": "40."
+    },
+    {
+      "afterStep": 12,
+      "assertions": {
+        "layers.mode": "STAT",
+        "lifecycle": "entering",
+        "expression": "",
+        "entry": "40",
+        "control.errorCode": null,
+        "workflow": {
+          "kind": null,
+          "payload": null,
+          "page": 0,
+          "returnPhase": "empty"
+        },
+        "values.last": {
+          "kind": "scalar",
+          "value": 0
+        }
+      },
+      "viewAssertions": {
+        "expressionHtml": "",
+        "resultHtml": "40.",
+        "indicators": {
+          "2ndF": true,
+          "HYP": false,
+          "ALPHA": false,
+          "FIX": false,
+          "SCI": false,
+          "ENG": false,
+          "DEG": true,
+          "RAD": false,
+          "GRAD": false,
+          "CPLX": false,
+          "MAT": false,
+          "LIST": false,
+          "STAT": true,
+          "M": false,
+          "BIN": false,
+          "PEN": false,
+          "OCT": false,
+          "DEC": false,
+          "HEX": false,
+          "xy": false,
+          "rθ": false,
+          "?": false,
+          "∠": false,
+          "i": false
+        }
+      },
+      "domResultText": "40."
+    },
+    {
+      "afterStep": 13,
+      "assertions": {
+        "layers.mode": "STAT",
+        "lifecycle": "entering",
+        "expression": "",
+        "entry": "",
+        "control.errorCode": null,
+        "workflow": {
+          "kind": null,
+          "payload": null,
+          "page": 0,
+          "returnPhase": "empty"
+        },
+        "values.last": {
+          "kind": "scalar",
+          "value": 0
+        }
+      },
+      "viewAssertions": {
+        "expressionHtml": "40,<span class=\"scicalc__cursor\" aria-hidden=\"true\"></span>",
+        "resultHtml": "0.",
+        "indicators": {
+          "2ndF": false,
+          "HYP": false,
+          "ALPHA": false,
+          "FIX": false,
+          "SCI": false,
+          "ENG": false,
+          "DEG": true,
+          "RAD": false,
+          "GRAD": false,
+          "CPLX": false,
+          "MAT": false,
+          "LIST": false,
+          "STAT": true,
+          "M": false,
+          "BIN": false,
+          "PEN": false,
+          "OCT": false,
+          "DEC": false,
+          "HEX": false,
+          "xy": false,
+          "rθ": false,
+          "?": false,
+          "∠": false,
+          "i": false
+        }
+      },
+      "domResultText": "0."
+    },
+    {
+      "afterStep": 14,
+      "assertions": {
+        "layers.mode": "STAT",
+        "lifecycle": "entering",
+        "expression": "",
+        "entry": "4",
+        "control.errorCode": null,
+        "workflow": {
+          "kind": null,
+          "payload": null,
+          "page": 0,
+          "returnPhase": "empty"
+        },
+        "values.last": {
+          "kind": "scalar",
+          "value": 0
+        }
+      },
+      "viewAssertions": {
+        "expressionHtml": "40,<span class=\"scicalc__cursor\" aria-hidden=\"true\"></span>",
+        "resultHtml": "4.",
+        "indicators": {
+          "2ndF": false,
+          "HYP": false,
+          "ALPHA": false,
+          "FIX": false,
+          "SCI": false,
+          "ENG": false,
+          "DEG": true,
+          "RAD": false,
+          "GRAD": false,
+          "CPLX": false,
+          "MAT": false,
+          "LIST": false,
+          "STAT": true,
+          "M": false,
+          "BIN": false,
+          "PEN": false,
+          "OCT": false,
+          "DEC": false,
+          "HEX": false,
+          "xy": false,
+          "rθ": false,
+          "?": false,
+          "∠": false,
+          "i": false
+        }
+      },
+      "domResultText": "4."
+    },
+    {
+      "afterStep": 15,
+      "assertions": {
+        "layers.mode": "STAT",
+        "lifecycle": "empty",
+        "expression": "",
+        "entry": "",
+        "control.errorCode": null,
+        "workflow": {
+          "kind": null,
+          "payload": null,
+          "page": 0,
+          "returnPhase": "empty"
+        },
+        "values.last": {
+          "kind": "scalar",
+          "value": 0
+        }
+      },
+      "viewAssertions": {
+        "expressionHtml": "DATA SET=",
+        "resultHtml": "2.",
+        "indicators": {
+          "2ndF": false,
+          "HYP": false,
+          "ALPHA": false,
+          "FIX": false,
+          "SCI": false,
+          "ENG": false,
+          "DEG": true,
+          "RAD": false,
+          "GRAD": false,
+          "CPLX": false,
+          "MAT": false,
+          "LIST": false,
+          "STAT": true,
+          "M": false,
+          "BIN": false,
+          "PEN": false,
+          "OCT": false,
+          "DEC": false,
+          "HEX": false,
+          "xy": false,
+          "rθ": false,
+          "?": false,
+          "∠": false,
+          "i": false
+        }
+      },
+      "domResultText": "2."
+    },
+    {
+      "afterStep": 16,
+      "assertions": {
+        "layers.mode": "STAT",
+        "lifecycle": "entering",
+        "expression": "",
+        "entry": "5",
+        "control.errorCode": null,
+        "workflow": {
+          "kind": null,
+          "payload": null,
+          "page": 0,
+          "returnPhase": "empty"
+        },
+        "values.last": {
+          "kind": "scalar",
+          "value": 0
+        }
+      },
+      "viewAssertions": {
+        "expressionHtml": "",
+        "resultHtml": "5.",
+        "indicators": {
+          "2ndF": false,
+          "HYP": false,
+          "ALPHA": false,
+          "FIX": false,
+          "SCI": false,
+          "ENG": false,
+          "DEG": true,
+          "RAD": false,
+          "GRAD": false,
+          "CPLX": false,
+          "MAT": false,
+          "LIST": false,
+          "STAT": true,
+          "M": false,
+          "BIN": false,
+          "PEN": false,
+          "OCT": false,
+          "DEC": false,
+          "HEX": false,
+          "xy": false,
+          "rθ": false,
+          "?": false,
+          "∠": false,
+          "i": false
+        }
+      },
+      "domResultText": "5."
+    },
+    {
+      "afterStep": 17,
+      "assertions": {
+        "layers.mode": "STAT",
+        "lifecycle": "entering",
+        "expression": "",
+        "entry": "50",
+        "control.errorCode": null,
+        "workflow": {
+          "kind": null,
+          "payload": null,
+          "page": 0,
+          "returnPhase": "empty"
+        },
+        "values.last": {
+          "kind": "scalar",
+          "value": 0
+        }
+      },
+      "viewAssertions": {
+        "expressionHtml": "",
+        "resultHtml": "50.",
+        "indicators": {
+          "2ndF": false,
+          "HYP": false,
+          "ALPHA": false,
+          "FIX": false,
+          "SCI": false,
+          "ENG": false,
+          "DEG": true,
+          "RAD": false,
+          "GRAD": false,
+          "CPLX": false,
+          "MAT": false,
+          "LIST": false,
+          "STAT": true,
+          "M": false,
+          "BIN": false,
+          "PEN": false,
+          "OCT": false,
+          "DEC": false,
+          "HEX": false,
+          "xy": false,
+          "rθ": false,
+          "?": false,
+          "∠": false,
+          "i": false
+        }
+      },
+      "domResultText": "50."
+    },
+    {
+      "afterStep": 18,
+      "assertions": {
+        "layers.mode": "STAT",
+        "lifecycle": "entering",
+        "expression": "",
+        "entry": "50",
+        "control.errorCode": null,
+        "workflow": {
+          "kind": null,
+          "payload": null,
+          "page": 0,
+          "returnPhase": "empty"
+        },
+        "values.last": {
+          "kind": "scalar",
+          "value": 0
+        }
+      },
+      "viewAssertions": {
+        "expressionHtml": "",
+        "resultHtml": "50.",
+        "indicators": {
+          "2ndF": true,
+          "HYP": false,
+          "ALPHA": false,
+          "FIX": false,
+          "SCI": false,
+          "ENG": false,
+          "DEG": true,
+          "RAD": false,
+          "GRAD": false,
+          "CPLX": false,
+          "MAT": false,
+          "LIST": false,
+          "STAT": true,
+          "M": false,
+          "BIN": false,
+          "PEN": false,
+          "OCT": false,
+          "DEC": false,
+          "HEX": false,
+          "xy": false,
+          "rθ": false,
+          "?": false,
+          "∠": false,
+          "i": false
+        }
+      },
+      "domResultText": "50."
+    },
+    {
+      "afterStep": 19,
+      "assertions": {
+        "layers.mode": "STAT",
+        "lifecycle": "entering",
+        "expression": "",
+        "entry": "",
+        "control.errorCode": null,
+        "workflow": {
+          "kind": null,
+          "payload": null,
+          "page": 0,
+          "returnPhase": "empty"
+        },
+        "values.last": {
+          "kind": "scalar",
+          "value": 0
+        }
+      },
+      "viewAssertions": {
+        "expressionHtml": "50,<span class=\"scicalc__cursor\" aria-hidden=\"true\"></span>",
+        "resultHtml": "0.",
+        "indicators": {
+          "2ndF": false,
+          "HYP": false,
+          "ALPHA": false,
+          "FIX": false,
+          "SCI": false,
+          "ENG": false,
+          "DEG": true,
+          "RAD": false,
+          "GRAD": false,
+          "CPLX": false,
+          "MAT": false,
+          "LIST": false,
+          "STAT": true,
+          "M": false,
+          "BIN": false,
+          "PEN": false,
+          "OCT": false,
+          "DEC": false,
+          "HEX": false,
+          "xy": false,
+          "rθ": false,
+          "?": false,
+          "∠": false,
+          "i": false
+        }
+      },
+      "domResultText": "0."
+    },
+    {
+      "afterStep": 20,
+      "assertions": {
+        "layers.mode": "STAT",
+        "lifecycle": "entering",
+        "expression": "",
+        "entry": "5",
+        "control.errorCode": null,
+        "workflow": {
+          "kind": null,
+          "payload": null,
+          "page": 0,
+          "returnPhase": "empty"
+        },
+        "values.last": {
+          "kind": "scalar",
+          "value": 0
+        }
+      },
+      "viewAssertions": {
+        "expressionHtml": "50,<span class=\"scicalc__cursor\" aria-hidden=\"true\"></span>",
+        "resultHtml": "5.",
+        "indicators": {
+          "2ndF": false,
+          "HYP": false,
+          "ALPHA": false,
+          "FIX": false,
+          "SCI": false,
+          "ENG": false,
+          "DEG": true,
+          "RAD": false,
+          "GRAD": false,
+          "CPLX": false,
+          "MAT": false,
+          "LIST": false,
+          "STAT": true,
+          "M": false,
+          "BIN": false,
+          "PEN": false,
+          "OCT": false,
+          "DEC": false,
+          "HEX": false,
+          "xy": false,
+          "rθ": false,
+          "?": false,
+          "∠": false,
+          "i": false
+        }
+      },
+      "domResultText": "5."
+    },
+    {
+      "afterStep": 21,
+      "assertions": {
+        "layers.mode": "STAT",
+        "lifecycle": "empty",
+        "expression": "",
+        "entry": "",
+        "control.errorCode": null,
+        "workflow": {
+          "kind": null,
+          "payload": null,
+          "page": 0,
+          "returnPhase": "empty"
+        },
+        "values.last": {
+          "kind": "scalar",
+          "value": 0
+        }
+      },
+      "viewAssertions": {
+        "expressionHtml": "DATA SET=",
+        "resultHtml": "3.",
+        "indicators": {
+          "2ndF": false,
+          "HYP": false,
+          "ALPHA": false,
+          "FIX": false,
+          "SCI": false,
+          "ENG": false,
+          "DEG": true,
+          "RAD": false,
+          "GRAD": false,
+          "CPLX": false,
+          "MAT": false,
+          "LIST": false,
+          "STAT": true,
+          "M": false,
+          "BIN": false,
+          "PEN": false,
+          "OCT": false,
+          "DEC": false,
+          "HEX": false,
+          "xy": false,
+          "rθ": false,
+          "?": false,
+          "∠": false,
+          "i": false
+        }
+      },
+      "domResultText": "3."
+    },
+    {
+      "afterStep": 22,
+      "assertions": {
+        "layers.mode": "STAT",
+        "lifecycle": "entering",
+        "expression": "",
+        "entry": "6",
+        "control.errorCode": null,
+        "workflow": {
+          "kind": null,
+          "payload": null,
+          "page": 0,
+          "returnPhase": "empty"
+        },
+        "values.last": {
+          "kind": "scalar",
+          "value": 0
+        }
+      },
+      "viewAssertions": {
+        "expressionHtml": "",
+        "resultHtml": "6.",
+        "indicators": {
+          "2ndF": false,
+          "HYP": false,
+          "ALPHA": false,
+          "FIX": false,
+          "SCI": false,
+          "ENG": false,
+          "DEG": true,
+          "RAD": false,
+          "GRAD": false,
+          "CPLX": false,
+          "MAT": false,
+          "LIST": false,
+          "STAT": true,
+          "M": false,
+          "BIN": false,
+          "PEN": false,
+          "OCT": false,
+          "DEC": false,
+          "HEX": false,
+          "xy": false,
+          "rθ": false,
+          "?": false,
+          "∠": false,
+          "i": false
+        }
+      },
+      "domResultText": "6."
+    },
+    {
+      "afterStep": 23,
+      "assertions": {
+        "layers.mode": "STAT",
+        "lifecycle": "entering",
+        "expression": "",
+        "entry": "60",
+        "control.errorCode": null,
+        "workflow": {
+          "kind": null,
+          "payload": null,
+          "page": 0,
+          "returnPhase": "empty"
+        },
+        "values.last": {
+          "kind": "scalar",
+          "value": 0
+        }
+      },
+      "viewAssertions": {
+        "expressionHtml": "",
+        "resultHtml": "60.",
+        "indicators": {
+          "2ndF": false,
+          "HYP": false,
+          "ALPHA": false,
+          "FIX": false,
+          "SCI": false,
+          "ENG": false,
+          "DEG": true,
+          "RAD": false,
+          "GRAD": false,
+          "CPLX": false,
+          "MAT": false,
+          "LIST": false,
+          "STAT": true,
+          "M": false,
+          "BIN": false,
+          "PEN": false,
+          "OCT": false,
+          "DEC": false,
+          "HEX": false,
+          "xy": false,
+          "rθ": false,
+          "?": false,
+          "∠": false,
+          "i": false
+        }
+      },
+      "domResultText": "60."
+    },
+    {
+      "afterStep": 24,
+      "assertions": {
+        "layers.mode": "STAT",
+        "lifecycle": "entering",
+        "expression": "",
+        "entry": "60",
+        "control.errorCode": null,
+        "workflow": {
+          "kind": null,
+          "payload": null,
+          "page": 0,
+          "returnPhase": "empty"
+        },
+        "values.last": {
+          "kind": "scalar",
+          "value": 0
+        }
+      },
+      "viewAssertions": {
+        "expressionHtml": "",
+        "resultHtml": "60.",
+        "indicators": {
+          "2ndF": true,
+          "HYP": false,
+          "ALPHA": false,
+          "FIX": false,
+          "SCI": false,
+          "ENG": false,
+          "DEG": true,
+          "RAD": false,
+          "GRAD": false,
+          "CPLX": false,
+          "MAT": false,
+          "LIST": false,
+          "STAT": true,
+          "M": false,
+          "BIN": false,
+          "PEN": false,
+          "OCT": false,
+          "DEC": false,
+          "HEX": false,
+          "xy": false,
+          "rθ": false,
+          "?": false,
+          "∠": false,
+          "i": false
+        }
+      },
+      "domResultText": "60."
+    },
+    {
+      "afterStep": 25,
+      "assertions": {
+        "layers.mode": "STAT",
+        "lifecycle": "entering",
+        "expression": "",
+        "entry": "",
+        "control.errorCode": null,
+        "workflow": {
+          "kind": null,
+          "payload": null,
+          "page": 0,
+          "returnPhase": "empty"
+        },
+        "values.last": {
+          "kind": "scalar",
+          "value": 0
+        }
+      },
+      "viewAssertions": {
+        "expressionHtml": "60,<span class=\"scicalc__cursor\" aria-hidden=\"true\"></span>",
+        "resultHtml": "0.",
+        "indicators": {
+          "2ndF": false,
+          "HYP": false,
+          "ALPHA": false,
+          "FIX": false,
+          "SCI": false,
+          "ENG": false,
+          "DEG": true,
+          "RAD": false,
+          "GRAD": false,
+          "CPLX": false,
+          "MAT": false,
+          "LIST": false,
+          "STAT": true,
+          "M": false,
+          "BIN": false,
+          "PEN": false,
+          "OCT": false,
+          "DEC": false,
+          "HEX": false,
+          "xy": false,
+          "rθ": false,
+          "?": false,
+          "∠": false,
+          "i": false
+        }
+      },
+      "domResultText": "0."
+    },
+    {
+      "afterStep": 26,
+      "assertions": {
+        "layers.mode": "STAT",
+        "lifecycle": "entering",
+        "expression": "",
+        "entry": "7",
+        "control.errorCode": null,
+        "workflow": {
+          "kind": null,
+          "payload": null,
+          "page": 0,
+          "returnPhase": "empty"
+        },
+        "values.last": {
+          "kind": "scalar",
+          "value": 0
+        }
+      },
+      "viewAssertions": {
+        "expressionHtml": "60,<span class=\"scicalc__cursor\" aria-hidden=\"true\"></span>",
+        "resultHtml": "7.",
+        "indicators": {
+          "2ndF": false,
+          "HYP": false,
+          "ALPHA": false,
+          "FIX": false,
+          "SCI": false,
+          "ENG": false,
+          "DEG": true,
+          "RAD": false,
+          "GRAD": false,
+          "CPLX": false,
+          "MAT": false,
+          "LIST": false,
+          "STAT": true,
+          "M": false,
+          "BIN": false,
+          "PEN": false,
+          "OCT": false,
+          "DEC": false,
+          "HEX": false,
+          "xy": false,
+          "rθ": false,
+          "?": false,
+          "∠": false,
+          "i": false
+        }
+      },
+      "domResultText": "7."
+    },
+    {
+      "afterStep": 27,
+      "assertions": {
+        "layers.mode": "STAT",
+        "lifecycle": "empty",
+        "expression": "",
+        "entry": "",
+        "control.errorCode": null,
+        "workflow": {
+          "kind": null,
+          "payload": null,
+          "page": 0,
+          "returnPhase": "empty"
+        },
+        "values.last": {
+          "kind": "scalar",
+          "value": 0
+        }
+      },
+      "viewAssertions": {
+        "expressionHtml": "DATA SET=",
+        "resultHtml": "4.",
+        "indicators": {
+          "2ndF": false,
+          "HYP": false,
+          "ALPHA": false,
+          "FIX": false,
+          "SCI": false,
+          "ENG": false,
+          "DEG": true,
+          "RAD": false,
+          "GRAD": false,
+          "CPLX": false,
+          "MAT": false,
+          "LIST": false,
+          "STAT": true,
+          "M": false,
+          "BIN": false,
+          "PEN": false,
+          "OCT": false,
+          "DEC": false,
+          "HEX": false,
+          "xy": false,
+          "rθ": false,
+          "?": false,
+          "∠": false,
+          "i": false
+        }
+      },
+      "domResultText": "4."
+    },
+    {
+      "afterStep": 28,
+      "assertions": {
+        "layers.mode": "STAT",
+        "lifecycle": "entering",
+        "expression": "",
+        "entry": "7",
+        "control.errorCode": null,
+        "workflow": {
+          "kind": null,
+          "payload": null,
+          "page": 0,
+          "returnPhase": "empty"
+        },
+        "values.last": {
+          "kind": "scalar",
+          "value": 0
+        }
+      },
+      "viewAssertions": {
+        "expressionHtml": "",
+        "resultHtml": "7.",
+        "indicators": {
+          "2ndF": false,
+          "HYP": false,
+          "ALPHA": false,
+          "FIX": false,
+          "SCI": false,
+          "ENG": false,
+          "DEG": true,
+          "RAD": false,
+          "GRAD": false,
+          "CPLX": false,
+          "MAT": false,
+          "LIST": false,
+          "STAT": true,
+          "M": false,
+          "BIN": false,
+          "PEN": false,
+          "OCT": false,
+          "DEC": false,
+          "HEX": false,
+          "xy": false,
+          "rθ": false,
+          "?": false,
+          "∠": false,
+          "i": false
+        }
+      },
+      "domResultText": "7."
+    },
+    {
+      "afterStep": 29,
+      "assertions": {
+        "layers.mode": "STAT",
+        "lifecycle": "entering",
+        "expression": "",
+        "entry": "70",
+        "control.errorCode": null,
+        "workflow": {
+          "kind": null,
+          "payload": null,
+          "page": 0,
+          "returnPhase": "empty"
+        },
+        "values.last": {
+          "kind": "scalar",
+          "value": 0
+        }
+      },
+      "viewAssertions": {
+        "expressionHtml": "",
+        "resultHtml": "70.",
+        "indicators": {
+          "2ndF": false,
+          "HYP": false,
+          "ALPHA": false,
+          "FIX": false,
+          "SCI": false,
+          "ENG": false,
+          "DEG": true,
+          "RAD": false,
+          "GRAD": false,
+          "CPLX": false,
+          "MAT": false,
+          "LIST": false,
+          "STAT": true,
+          "M": false,
+          "BIN": false,
+          "PEN": false,
+          "OCT": false,
+          "DEC": false,
+          "HEX": false,
+          "xy": false,
+          "rθ": false,
+          "?": false,
+          "∠": false,
+          "i": false
+        }
+      },
+      "domResultText": "70."
+    },
+    {
+      "afterStep": 30,
+      "assertions": {
+        "layers.mode": "STAT",
+        "lifecycle": "entering",
+        "expression": "",
+        "entry": "70",
+        "control.errorCode": null,
+        "workflow": {
+          "kind": null,
+          "payload": null,
+          "page": 0,
+          "returnPhase": "empty"
+        },
+        "values.last": {
+          "kind": "scalar",
+          "value": 0
+        }
+      },
+      "viewAssertions": {
+        "expressionHtml": "",
+        "resultHtml": "70.",
+        "indicators": {
+          "2ndF": true,
+          "HYP": false,
+          "ALPHA": false,
+          "FIX": false,
+          "SCI": false,
+          "ENG": false,
+          "DEG": true,
+          "RAD": false,
+          "GRAD": false,
+          "CPLX": false,
+          "MAT": false,
+          "LIST": false,
+          "STAT": true,
+          "M": false,
+          "BIN": false,
+          "PEN": false,
+          "OCT": false,
+          "DEC": false,
+          "HEX": false,
+          "xy": false,
+          "rθ": false,
+          "?": false,
+          "∠": false,
+          "i": false
+        }
+      },
+      "domResultText": "70."
+    },
+    {
+      "afterStep": 31,
+      "assertions": {
+        "layers.mode": "STAT",
+        "lifecycle": "entering",
+        "expression": "",
+        "entry": "",
+        "control.errorCode": null,
+        "workflow": {
+          "kind": null,
+          "payload": null,
+          "page": 0,
+          "returnPhase": "empty"
+        },
+        "values.last": {
+          "kind": "scalar",
+          "value": 0
+        }
+      },
+      "viewAssertions": {
+        "expressionHtml": "70,<span class=\"scicalc__cursor\" aria-hidden=\"true\"></span>",
+        "resultHtml": "0.",
+        "indicators": {
+          "2ndF": false,
+          "HYP": false,
+          "ALPHA": false,
+          "FIX": false,
+          "SCI": false,
+          "ENG": false,
+          "DEG": true,
+          "RAD": false,
+          "GRAD": false,
+          "CPLX": false,
+          "MAT": false,
+          "LIST": false,
+          "STAT": true,
+          "M": false,
+          "BIN": false,
+          "PEN": false,
+          "OCT": false,
+          "DEC": false,
+          "HEX": false,
+          "xy": false,
+          "rθ": false,
+          "?": false,
+          "∠": false,
+          "i": false
+        }
+      },
+      "domResultText": "0."
+    },
+    {
+      "afterStep": 32,
+      "assertions": {
+        "layers.mode": "STAT",
+        "lifecycle": "entering",
+        "expression": "",
+        "entry": "1",
+        "control.errorCode": null,
+        "workflow": {
+          "kind": null,
+          "payload": null,
+          "page": 0,
+          "returnPhase": "empty"
+        },
+        "values.last": {
+          "kind": "scalar",
+          "value": 0
+        }
+      },
+      "viewAssertions": {
+        "expressionHtml": "70,<span class=\"scicalc__cursor\" aria-hidden=\"true\"></span>",
+        "resultHtml": "1.",
+        "indicators": {
+          "2ndF": false,
+          "HYP": false,
+          "ALPHA": false,
+          "FIX": false,
+          "SCI": false,
+          "ENG": false,
+          "DEG": true,
+          "RAD": false,
+          "GRAD": false,
+          "CPLX": false,
+          "MAT": false,
+          "LIST": false,
+          "STAT": true,
+          "M": false,
+          "BIN": false,
+          "PEN": false,
+          "OCT": false,
+          "DEC": false,
+          "HEX": false,
+          "xy": false,
+          "rθ": false,
+          "?": false,
+          "∠": false,
+          "i": false
+        }
+      },
+      "domResultText": "1."
+    },
+    {
+      "afterStep": 33,
+      "assertions": {
+        "layers.mode": "STAT",
+        "lifecycle": "entering",
+        "expression": "",
+        "entry": "12",
+        "control.errorCode": null,
+        "workflow": {
+          "kind": null,
+          "payload": null,
+          "page": 0,
+          "returnPhase": "empty"
+        },
+        "values.last": {
+          "kind": "scalar",
+          "value": 0
+        }
+      },
+      "viewAssertions": {
+        "expressionHtml": "70,<span class=\"scicalc__cursor\" aria-hidden=\"true\"></span>",
+        "resultHtml": "12.",
+        "indicators": {
+          "2ndF": false,
+          "HYP": false,
+          "ALPHA": false,
+          "FIX": false,
+          "SCI": false,
+          "ENG": false,
+          "DEG": true,
+          "RAD": false,
+          "GRAD": false,
+          "CPLX": false,
+          "MAT": false,
+          "LIST": false,
+          "STAT": true,
+          "M": false,
+          "BIN": false,
+          "PEN": false,
+          "OCT": false,
+          "DEC": false,
+          "HEX": false,
+          "xy": false,
+          "rθ": false,
+          "?": false,
+          "∠": false,
+          "i": false
+        }
+      },
+      "domResultText": "12."
+    },
+    {
+      "afterStep": 34,
+      "assertions": {
+        "layers.mode": "STAT",
+        "lifecycle": "empty",
+        "expression": "",
+        "entry": "",
+        "control.errorCode": null,
+        "workflow": {
+          "kind": null,
+          "payload": null,
+          "page": 0,
+          "returnPhase": "empty"
+        },
+        "values.last": {
+          "kind": "scalar",
+          "value": 0
+        }
+      },
+      "viewAssertions": {
+        "expressionHtml": "DATA SET=",
+        "resultHtml": "5.",
+        "indicators": {
+          "2ndF": false,
+          "HYP": false,
+          "ALPHA": false,
+          "FIX": false,
+          "SCI": false,
+          "ENG": false,
+          "DEG": true,
+          "RAD": false,
+          "GRAD": false,
+          "CPLX": false,
+          "MAT": false,
+          "LIST": false,
+          "STAT": true,
+          "M": false,
+          "BIN": false,
+          "PEN": false,
+          "OCT": false,
+          "DEC": false,
+          "HEX": false,
+          "xy": false,
+          "rθ": false,
+          "?": false,
+          "∠": false,
+          "i": false
+        }
+      },
+      "domResultText": "5."
+    },
+    {
+      "afterStep": 35,
+      "assertions": {
+        "layers.mode": "STAT",
+        "lifecycle": "entering",
+        "expression": "",
+        "entry": "8",
+        "control.errorCode": null,
+        "workflow": {
+          "kind": null,
+          "payload": null,
+          "page": 0,
+          "returnPhase": "empty"
+        },
+        "values.last": {
+          "kind": "scalar",
+          "value": 0
+        }
+      },
+      "viewAssertions": {
+        "expressionHtml": "",
+        "resultHtml": "8.",
+        "indicators": {
+          "2ndF": false,
+          "HYP": false,
+          "ALPHA": false,
+          "FIX": false,
+          "SCI": false,
+          "ENG": false,
+          "DEG": true,
+          "RAD": false,
+          "GRAD": false,
+          "CPLX": false,
+          "MAT": false,
+          "LIST": false,
+          "STAT": true,
+          "M": false,
+          "BIN": false,
+          "PEN": false,
+          "OCT": false,
+          "DEC": false,
+          "HEX": false,
+          "xy": false,
+          "rθ": false,
+          "?": false,
+          "∠": false,
+          "i": false
+        }
+      },
+      "domResultText": "8."
+    },
+    {
+      "afterStep": 36,
+      "assertions": {
+        "layers.mode": "STAT",
+        "lifecycle": "entering",
+        "expression": "",
+        "entry": "80",
+        "control.errorCode": null,
+        "workflow": {
+          "kind": null,
+          "payload": null,
+          "page": 0,
+          "returnPhase": "empty"
+        },
+        "values.last": {
+          "kind": "scalar",
+          "value": 0
+        }
+      },
+      "viewAssertions": {
+        "expressionHtml": "",
+        "resultHtml": "80.",
+        "indicators": {
+          "2ndF": false,
+          "HYP": false,
+          "ALPHA": false,
+          "FIX": false,
+          "SCI": false,
+          "ENG": false,
+          "DEG": true,
+          "RAD": false,
+          "GRAD": false,
+          "CPLX": false,
+          "MAT": false,
+          "LIST": false,
+          "STAT": true,
+          "M": false,
+          "BIN": false,
+          "PEN": false,
+          "OCT": false,
+          "DEC": false,
+          "HEX": false,
+          "xy": false,
+          "rθ": false,
+          "?": false,
+          "∠": false,
+          "i": false
+        }
+      },
+      "domResultText": "80."
+    },
+    {
+      "afterStep": 37,
+      "assertions": {
+        "layers.mode": "STAT",
+        "lifecycle": "entering",
+        "expression": "",
+        "entry": "80",
+        "control.errorCode": null,
+        "workflow": {
+          "kind": null,
+          "payload": null,
+          "page": 0,
+          "returnPhase": "empty"
+        },
+        "values.last": {
+          "kind": "scalar",
+          "value": 0
+        }
+      },
+      "viewAssertions": {
+        "expressionHtml": "",
+        "resultHtml": "80.",
+        "indicators": {
+          "2ndF": true,
+          "HYP": false,
+          "ALPHA": false,
+          "FIX": false,
+          "SCI": false,
+          "ENG": false,
+          "DEG": true,
+          "RAD": false,
+          "GRAD": false,
+          "CPLX": false,
+          "MAT": false,
+          "LIST": false,
+          "STAT": true,
+          "M": false,
+          "BIN": false,
+          "PEN": false,
+          "OCT": false,
+          "DEC": false,
+          "HEX": false,
+          "xy": false,
+          "rθ": false,
+          "?": false,
+          "∠": false,
+          "i": false
+        }
+      },
+      "domResultText": "80."
+    },
+    {
+      "afterStep": 38,
+      "assertions": {
+        "layers.mode": "STAT",
+        "lifecycle": "entering",
+        "expression": "",
+        "entry": "",
+        "control.errorCode": null,
+        "workflow": {
+          "kind": null,
+          "payload": null,
+          "page": 0,
+          "returnPhase": "empty"
+        },
+        "values.last": {
+          "kind": "scalar",
+          "value": 0
+        }
+      },
+      "viewAssertions": {
+        "expressionHtml": "80,<span class=\"scicalc__cursor\" aria-hidden=\"true\"></span>",
+        "resultHtml": "0.",
+        "indicators": {
+          "2ndF": false,
+          "HYP": false,
+          "ALPHA": false,
+          "FIX": false,
+          "SCI": false,
+          "ENG": false,
+          "DEG": true,
+          "RAD": false,
+          "GRAD": false,
+          "CPLX": false,
+          "MAT": false,
+          "LIST": false,
+          "STAT": true,
+          "M": false,
+          "BIN": false,
+          "PEN": false,
+          "OCT": false,
+          "DEC": false,
+          "HEX": false,
+          "xy": false,
+          "rθ": false,
+          "?": false,
+          "∠": false,
+          "i": false
+        }
+      },
+      "domResultText": "0."
+    },
+    {
+      "afterStep": 39,
+      "assertions": {
+        "layers.mode": "STAT",
+        "lifecycle": "entering",
+        "expression": "",
+        "entry": "1",
+        "control.errorCode": null,
+        "workflow": {
+          "kind": null,
+          "payload": null,
+          "page": 0,
+          "returnPhase": "empty"
+        },
+        "values.last": {
+          "kind": "scalar",
+          "value": 0
+        }
+      },
+      "viewAssertions": {
+        "expressionHtml": "80,<span class=\"scicalc__cursor\" aria-hidden=\"true\"></span>",
+        "resultHtml": "1.",
+        "indicators": {
+          "2ndF": false,
+          "HYP": false,
+          "ALPHA": false,
+          "FIX": false,
+          "SCI": false,
+          "ENG": false,
+          "DEG": true,
+          "RAD": false,
+          "GRAD": false,
+          "CPLX": false,
+          "MAT": false,
+          "LIST": false,
+          "STAT": true,
+          "M": false,
+          "BIN": false,
+          "PEN": false,
+          "OCT": false,
+          "DEC": false,
+          "HEX": false,
+          "xy": false,
+          "rθ": false,
+          "?": false,
+          "∠": false,
+          "i": false
+        }
+      },
+      "domResultText": "1."
+    },
+    {
+      "afterStep": 40,
+      "assertions": {
+        "layers.mode": "STAT",
+        "lifecycle": "entering",
+        "expression": "",
+        "entry": "10",
+        "control.errorCode": null,
+        "workflow": {
+          "kind": null,
+          "payload": null,
+          "page": 0,
+          "returnPhase": "empty"
+        },
+        "values.last": {
+          "kind": "scalar",
+          "value": 0
+        }
+      },
+      "viewAssertions": {
+        "expressionHtml": "80,<span class=\"scicalc__cursor\" aria-hidden=\"true\"></span>",
+        "resultHtml": "10.",
+        "indicators": {
+          "2ndF": false,
+          "HYP": false,
+          "ALPHA": false,
+          "FIX": false,
+          "SCI": false,
+          "ENG": false,
+          "DEG": true,
+          "RAD": false,
+          "GRAD": false,
+          "CPLX": false,
+          "MAT": false,
+          "LIST": false,
+          "STAT": true,
+          "M": false,
+          "BIN": false,
+          "PEN": false,
+          "OCT": false,
+          "DEC": false,
+          "HEX": false,
+          "xy": false,
+          "rθ": false,
+          "?": false,
+          "∠": false,
+          "i": false
+        }
+      },
+      "domResultText": "10."
+    },
+    {
+      "afterStep": 41,
+      "assertions": {
+        "layers.mode": "STAT",
+        "lifecycle": "empty",
+        "expression": "",
+        "entry": "",
+        "control.errorCode": null,
+        "workflow": {
+          "kind": null,
+          "payload": null,
+          "page": 0,
+          "returnPhase": "empty"
+        },
+        "values.last": {
+          "kind": "scalar",
+          "value": 0
+        }
+      },
+      "viewAssertions": {
+        "expressionHtml": "DATA SET=",
+        "resultHtml": "6.",
+        "indicators": {
+          "2ndF": false,
+          "HYP": false,
+          "ALPHA": false,
+          "FIX": false,
+          "SCI": false,
+          "ENG": false,
+          "DEG": true,
+          "RAD": false,
+          "GRAD": false,
+          "CPLX": false,
+          "MAT": false,
+          "LIST": false,
+          "STAT": true,
+          "M": false,
+          "BIN": false,
+          "PEN": false,
+          "OCT": false,
+          "DEC": false,
+          "HEX": false,
+          "xy": false,
+          "rθ": false,
+          "?": false,
+          "∠": false,
+          "i": false
+        }
+      },
+      "domResultText": "6."
+    },
+    {
+      "afterStep": 42,
+      "assertions": {
+        "layers.mode": "STAT",
+        "lifecycle": "entering",
+        "expression": "",
+        "entry": "9",
+        "control.errorCode": null,
+        "workflow": {
+          "kind": null,
+          "payload": null,
+          "page": 0,
+          "returnPhase": "empty"
+        },
+        "values.last": {
+          "kind": "scalar",
+          "value": 0
+        }
+      },
+      "viewAssertions": {
+        "expressionHtml": "",
+        "resultHtml": "9.",
+        "indicators": {
+          "2ndF": false,
+          "HYP": false,
+          "ALPHA": false,
+          "FIX": false,
+          "SCI": false,
+          "ENG": false,
+          "DEG": true,
+          "RAD": false,
+          "GRAD": false,
+          "CPLX": false,
+          "MAT": false,
+          "LIST": false,
+          "STAT": true,
+          "M": false,
+          "BIN": false,
+          "PEN": false,
+          "OCT": false,
+          "DEC": false,
+          "HEX": false,
+          "xy": false,
+          "rθ": false,
+          "?": false,
+          "∠": false,
+          "i": false
+        }
+      },
+      "domResultText": "9."
+    },
+    {
+      "afterStep": 43,
+      "assertions": {
+        "layers.mode": "STAT",
+        "lifecycle": "entering",
+        "expression": "",
+        "entry": "90",
+        "control.errorCode": null,
+        "workflow": {
+          "kind": null,
+          "payload": null,
+          "page": 0,
+          "returnPhase": "empty"
+        },
+        "values.last": {
+          "kind": "scalar",
+          "value": 0
+        }
+      },
+      "viewAssertions": {
+        "expressionHtml": "",
+        "resultHtml": "90.",
+        "indicators": {
+          "2ndF": false,
+          "HYP": false,
+          "ALPHA": false,
+          "FIX": false,
+          "SCI": false,
+          "ENG": false,
+          "DEG": true,
+          "RAD": false,
+          "GRAD": false,
+          "CPLX": false,
+          "MAT": false,
+          "LIST": false,
+          "STAT": true,
+          "M": false,
+          "BIN": false,
+          "PEN": false,
+          "OCT": false,
+          "DEC": false,
+          "HEX": false,
+          "xy": false,
+          "rθ": false,
+          "?": false,
+          "∠": false,
+          "i": false
+        }
+      },
+      "domResultText": "90."
+    },
+    {
+      "afterStep": 44,
+      "assertions": {
+        "layers.mode": "STAT",
+        "lifecycle": "entering",
+        "expression": "",
+        "entry": "90",
+        "control.errorCode": null,
+        "workflow": {
+          "kind": null,
+          "payload": null,
+          "page": 0,
+          "returnPhase": "empty"
+        },
+        "values.last": {
+          "kind": "scalar",
+          "value": 0
+        }
+      },
+      "viewAssertions": {
+        "expressionHtml": "",
+        "resultHtml": "90.",
+        "indicators": {
+          "2ndF": true,
+          "HYP": false,
+          "ALPHA": false,
+          "FIX": false,
+          "SCI": false,
+          "ENG": false,
+          "DEG": true,
+          "RAD": false,
+          "GRAD": false,
+          "CPLX": false,
+          "MAT": false,
+          "LIST": false,
+          "STAT": true,
+          "M": false,
+          "BIN": false,
+          "PEN": false,
+          "OCT": false,
+          "DEC": false,
+          "HEX": false,
+          "xy": false,
+          "rθ": false,
+          "?": false,
+          "∠": false,
+          "i": false
+        }
+      },
+      "domResultText": "90."
+    },
+    {
+      "afterStep": 45,
+      "assertions": {
+        "layers.mode": "STAT",
+        "lifecycle": "entering",
+        "expression": "",
+        "entry": "",
+        "control.errorCode": null,
+        "workflow": {
+          "kind": null,
+          "payload": null,
+          "page": 0,
+          "returnPhase": "empty"
+        },
+        "values.last": {
+          "kind": "scalar",
+          "value": 0
+        }
+      },
+      "viewAssertions": {
+        "expressionHtml": "90,<span class=\"scicalc__cursor\" aria-hidden=\"true\"></span>",
+        "resultHtml": "0.",
+        "indicators": {
+          "2ndF": false,
+          "HYP": false,
+          "ALPHA": false,
+          "FIX": false,
+          "SCI": false,
+          "ENG": false,
+          "DEG": true,
+          "RAD": false,
+          "GRAD": false,
+          "CPLX": false,
+          "MAT": false,
+          "LIST": false,
+          "STAT": true,
+          "M": false,
+          "BIN": false,
+          "PEN": false,
+          "OCT": false,
+          "DEC": false,
+          "HEX": false,
+          "xy": false,
+          "rθ": false,
+          "?": false,
+          "∠": false,
+          "i": false
+        }
+      },
+      "domResultText": "0."
+    },
+    {
+      "afterStep": 46,
+      "assertions": {
+        "layers.mode": "STAT",
+        "lifecycle": "entering",
+        "expression": "",
+        "entry": "8",
+        "control.errorCode": null,
+        "workflow": {
+          "kind": null,
+          "payload": null,
+          "page": 0,
+          "returnPhase": "empty"
+        },
+        "values.last": {
+          "kind": "scalar",
+          "value": 0
+        }
+      },
+      "viewAssertions": {
+        "expressionHtml": "90,<span class=\"scicalc__cursor\" aria-hidden=\"true\"></span>",
+        "resultHtml": "8.",
+        "indicators": {
+          "2ndF": false,
+          "HYP": false,
+          "ALPHA": false,
+          "FIX": false,
+          "SCI": false,
+          "ENG": false,
+          "DEG": true,
+          "RAD": false,
+          "GRAD": false,
+          "CPLX": false,
+          "MAT": false,
+          "LIST": false,
+          "STAT": true,
+          "M": false,
+          "BIN": false,
+          "PEN": false,
+          "OCT": false,
+          "DEC": false,
+          "HEX": false,
+          "xy": false,
+          "rθ": false,
+          "?": false,
+          "∠": false,
+          "i": false
+        }
+      },
+      "domResultText": "8."
+    },
+    {
+      "afterStep": 47,
+      "assertions": {
+        "layers.mode": "STAT",
+        "lifecycle": "empty",
+        "expression": "",
+        "entry": "",
+        "control.errorCode": null,
+        "workflow": {
+          "kind": null,
+          "payload": null,
+          "page": 0,
+          "returnPhase": "empty"
+        },
+        "values.last": {
+          "kind": "scalar",
+          "value": 0
+        }
+      },
+      "viewAssertions": {
+        "expressionHtml": "DATA SET=",
+        "resultHtml": "7.",
+        "indicators": {
+          "2ndF": false,
+          "HYP": false,
+          "ALPHA": false,
+          "FIX": false,
+          "SCI": false,
+          "ENG": false,
+          "DEG": true,
+          "RAD": false,
+          "GRAD": false,
+          "CPLX": false,
+          "MAT": false,
+          "LIST": false,
+          "STAT": true,
+          "M": false,
+          "BIN": false,
+          "PEN": false,
+          "OCT": false,
+          "DEC": false,
+          "HEX": false,
+          "xy": false,
+          "rθ": false,
+          "?": false,
+          "∠": false,
+          "i": false
+        }
+      },
+      "domResultText": "7."
+    },
+    {
+      "afterStep": 48,
+      "assertions": {
+        "layers.mode": "STAT",
+        "lifecycle": "entering",
+        "expression": "",
+        "entry": "1",
+        "control.errorCode": null,
+        "workflow": {
+          "kind": null,
+          "payload": null,
+          "page": 0,
+          "returnPhase": "empty"
+        },
+        "values.last": {
+          "kind": "scalar",
+          "value": 0
+        }
+      },
+      "viewAssertions": {
+        "expressionHtml": "",
+        "resultHtml": "1.",
+        "indicators": {
+          "2ndF": false,
+          "HYP": false,
+          "ALPHA": false,
+          "FIX": false,
+          "SCI": false,
+          "ENG": false,
+          "DEG": true,
+          "RAD": false,
+          "GRAD": false,
+          "CPLX": false,
+          "MAT": false,
+          "LIST": false,
+          "STAT": true,
+          "M": false,
+          "BIN": false,
+          "PEN": false,
+          "OCT": false,
+          "DEC": false,
+          "HEX": false,
+          "xy": false,
+          "rθ": false,
+          "?": false,
+          "∠": false,
+          "i": false
+        }
+      },
+      "domResultText": "1."
+    },
+    {
+      "afterStep": 49,
+      "assertions": {
+        "layers.mode": "STAT",
+        "lifecycle": "entering",
+        "expression": "",
+        "entry": "10",
+        "control.errorCode": null,
+        "workflow": {
+          "kind": null,
+          "payload": null,
+          "page": 0,
+          "returnPhase": "empty"
+        },
+        "values.last": {
+          "kind": "scalar",
+          "value": 0
+        }
+      },
+      "viewAssertions": {
+        "expressionHtml": "",
+        "resultHtml": "10.",
+        "indicators": {
+          "2ndF": false,
+          "HYP": false,
+          "ALPHA": false,
+          "FIX": false,
+          "SCI": false,
+          "ENG": false,
+          "DEG": true,
+          "RAD": false,
+          "GRAD": false,
+          "CPLX": false,
+          "MAT": false,
+          "LIST": false,
+          "STAT": true,
+          "M": false,
+          "BIN": false,
+          "PEN": false,
+          "OCT": false,
+          "DEC": false,
+          "HEX": false,
+          "xy": false,
+          "rθ": false,
+          "?": false,
+          "∠": false,
+          "i": false
+        }
+      },
+      "domResultText": "10."
+    },
+    {
+      "afterStep": 50,
+      "assertions": {
+        "layers.mode": "STAT",
+        "lifecycle": "entering",
+        "expression": "",
+        "entry": "100",
+        "control.errorCode": null,
+        "workflow": {
+          "kind": null,
+          "payload": null,
+          "page": 0,
+          "returnPhase": "empty"
+        },
+        "values.last": {
+          "kind": "scalar",
+          "value": 0
+        }
+      },
+      "viewAssertions": {
+        "expressionHtml": "",
+        "resultHtml": "100.",
+        "indicators": {
+          "2ndF": false,
+          "HYP": false,
+          "ALPHA": false,
+          "FIX": false,
+          "SCI": false,
+          "ENG": false,
+          "DEG": true,
+          "RAD": false,
+          "GRAD": false,
+          "CPLX": false,
+          "MAT": false,
+          "LIST": false,
+          "STAT": true,
+          "M": false,
+          "BIN": false,
+          "PEN": false,
+          "OCT": false,
+          "DEC": false,
+          "HEX": false,
+          "xy": false,
+          "rθ": false,
+          "?": false,
+          "∠": false,
+          "i": false
+        }
+      },
+      "domResultText": "100."
+    },
+    {
+      "afterStep": 51,
+      "assertions": {
+        "layers.mode": "STAT",
+        "lifecycle": "entering",
+        "expression": "",
+        "entry": "100",
+        "control.errorCode": null,
+        "workflow": {
+          "kind": null,
+          "payload": null,
+          "page": 0,
+          "returnPhase": "empty"
+        },
+        "values.last": {
+          "kind": "scalar",
+          "value": 0
+        }
+      },
+      "viewAssertions": {
+        "expressionHtml": "",
+        "resultHtml": "100.",
+        "indicators": {
+          "2ndF": true,
+          "HYP": false,
+          "ALPHA": false,
+          "FIX": false,
+          "SCI": false,
+          "ENG": false,
+          "DEG": true,
+          "RAD": false,
+          "GRAD": false,
+          "CPLX": false,
+          "MAT": false,
+          "LIST": false,
+          "STAT": true,
+          "M": false,
+          "BIN": false,
+          "PEN": false,
+          "OCT": false,
+          "DEC": false,
+          "HEX": false,
+          "xy": false,
+          "rθ": false,
+          "?": false,
+          "∠": false,
+          "i": false
+        }
+      },
+      "domResultText": "100."
+    },
+    {
+      "afterStep": 52,
+      "assertions": {
+        "layers.mode": "STAT",
+        "lifecycle": "entering",
+        "expression": "",
+        "entry": "",
+        "control.errorCode": null,
+        "workflow": {
+          "kind": null,
+          "payload": null,
+          "page": 0,
+          "returnPhase": "empty"
+        },
+        "values.last": {
+          "kind": "scalar",
+          "value": 0
+        }
+      },
+      "viewAssertions": {
+        "expressionHtml": "100,<span class=\"scicalc__cursor\" aria-hidden=\"true\"></span>",
+        "resultHtml": "0.",
+        "indicators": {
+          "2ndF": false,
+          "HYP": false,
+          "ALPHA": false,
+          "FIX": false,
+          "SCI": false,
+          "ENG": false,
+          "DEG": true,
+          "RAD": false,
+          "GRAD": false,
+          "CPLX": false,
+          "MAT": false,
+          "LIST": false,
+          "STAT": true,
+          "M": false,
+          "BIN": false,
+          "PEN": false,
+          "OCT": false,
+          "DEC": false,
+          "HEX": false,
+          "xy": false,
+          "rθ": false,
+          "?": false,
+          "∠": false,
+          "i": false
+        }
+      },
+      "domResultText": "0."
+    },
+    {
+      "afterStep": 53,
+      "assertions": {
+        "layers.mode": "STAT",
+        "lifecycle": "entering",
+        "expression": "",
+        "entry": "2",
+        "control.errorCode": null,
+        "workflow": {
+          "kind": null,
+          "payload": null,
+          "page": 0,
+          "returnPhase": "empty"
+        },
+        "values.last": {
+          "kind": "scalar",
+          "value": 0
+        }
+      },
+      "viewAssertions": {
+        "expressionHtml": "100,<span class=\"scicalc__cursor\" aria-hidden=\"true\"></span>",
+        "resultHtml": "2.",
+        "indicators": {
+          "2ndF": false,
+          "HYP": false,
+          "ALPHA": false,
+          "FIX": false,
+          "SCI": false,
+          "ENG": false,
+          "DEG": true,
+          "RAD": false,
+          "GRAD": false,
+          "CPLX": false,
+          "MAT": false,
+          "LIST": false,
+          "STAT": true,
+          "M": false,
+          "BIN": false,
+          "PEN": false,
+          "OCT": false,
+          "DEC": false,
+          "HEX": false,
+          "xy": false,
+          "rθ": false,
+          "?": false,
+          "∠": false,
+          "i": false
+        }
+      },
+      "domResultText": "2."
+    },
+    {
+      "afterStep": 54,
+      "assertions": {
+        "layers.mode": "STAT",
+        "lifecycle": "empty",
+        "expression": "",
+        "entry": "",
+        "control.errorCode": null,
+        "workflow": {
+          "kind": null,
+          "payload": null,
+          "page": 0,
+          "returnPhase": "empty"
+        },
+        "values.last": {
+          "kind": "scalar",
+          "value": 0
+        }
+      },
+      "viewAssertions": {
+        "expressionHtml": "DATA SET=",
+        "resultHtml": "8.",
+        "indicators": {
+          "2ndF": false,
+          "HYP": false,
+          "ALPHA": false,
+          "FIX": false,
+          "SCI": false,
+          "ENG": false,
+          "DEG": true,
+          "RAD": false,
+          "GRAD": false,
+          "CPLX": false,
+          "MAT": false,
+          "LIST": false,
+          "STAT": true,
+          "M": false,
+          "BIN": false,
+          "PEN": false,
+          "OCT": false,
+          "DEC": false,
+          "HEX": false,
+          "xy": false,
+          "rθ": false,
+          "?": false,
+          "∠": false,
+          "i": false
+        }
+      },
+      "domResultText": "8."
+    },
+    {
+      "afterStep": 55,
+      "assertions": {
+        "layers.mode": "STAT",
+        "lifecycle": "prompt",
+        "expression": "",
+        "entry": "",
+        "control.errorCode": null,
+        "workflow": {
+          "kind": "prompt",
+          "payload": {
+            "id": "RCL",
+            "keyLayer": true,
+            "choices": [
+              "A",
+              "B",
+              "C",
+              "D",
+              "E",
+              "F",
+              "X",
+              "Y",
+              "M"
+            ],
+            "path": []
+          },
+          "page": 0,
+          "returnPhase": "empty"
+        },
+        "values.last": {
+          "kind": "scalar",
+          "value": 0
+        }
+      },
+      "viewAssertions": {
+        "expressionHtml": "DATA SET<span class=\"scicalc__display-operator\">=</span>",
+        "resultHtml": "8.",
+        "indicators": {
+          "2ndF": false,
+          "HYP": false,
+          "ALPHA": true,
+          "FIX": false,
+          "SCI": false,
+          "ENG": false,
+          "DEG": true,
+          "RAD": false,
+          "GRAD": false,
+          "CPLX": false,
+          "MAT": false,
+          "LIST": false,
+          "STAT": true,
+          "M": false,
+          "BIN": false,
+          "PEN": false,
+          "OCT": false,
+          "DEC": false,
+          "HEX": false,
+          "xy": false,
+          "rθ": false,
+          "?": false,
+          "∠": false,
+          "i": false
+        }
+      },
+      "domResultText": "8."
+    },
+    {
+      "afterStep": 56,
+      "assertions": {
+        "layers.mode": "STAT",
+        "lifecycle": "evaluated",
+        "expression": "69=",
+        "entry": "",
+        "control.errorCode": null,
+        "workflow": {
+          "kind": null,
+          "payload": null,
+          "page": 0,
+          "returnPhase": "empty"
+        },
+        "values.last": {
+          "kind": "scalar",
+          "value": 69
+        }
+      },
+      "viewAssertions": {
+        "expressionHtml": "x̅<span class=\"scicalc__display-operator\">=</span>",
+        "resultHtml": "69.",
+        "indicators": {
+          "2ndF": false,
+          "HYP": false,
+          "ALPHA": false,
+          "FIX": false,
+          "SCI": false,
+          "ENG": false,
+          "DEG": true,
+          "RAD": false,
+          "GRAD": false,
+          "CPLX": false,
+          "MAT": false,
+          "LIST": false,
+          "STAT": true,
+          "M": false,
+          "BIN": false,
+          "PEN": false,
+          "OCT": false,
+          "DEC": false,
+          "HEX": false,
+          "xy": false,
+          "rθ": false,
+          "?": false,
+          "∠": false,
+          "i": false
+        }
+      },
+      "domResultText": "69."
+    },
+    {
+      "afterStep": 57,
+      "assertions": {
+        "layers.mode": "STAT",
+        "lifecycle": "prompt",
+        "expression": "69=",
+        "entry": "",
+        "control.errorCode": null,
+        "workflow": {
+          "kind": "prompt",
+          "payload": {
+            "id": "RCL",
+            "keyLayer": true,
+            "choices": [
+              "A",
+              "B",
+              "C",
+              "D",
+              "E",
+              "F",
+              "X",
+              "Y",
+              "M"
+            ],
+            "path": []
+          },
+          "page": 0,
+          "returnPhase": "evaluated"
+        },
+        "values.last": {
+          "kind": "scalar",
+          "value": 69
+        }
+      },
+      "viewAssertions": {
+        "expressionHtml": "x̅<span class=\"scicalc__display-operator\">=</span>",
+        "resultHtml": "69.",
+        "indicators": {
+          "2ndF": false,
+          "HYP": false,
+          "ALPHA": true,
+          "FIX": false,
+          "SCI": false,
+          "ENG": false,
+          "DEG": true,
+          "RAD": false,
+          "GRAD": false,
+          "CPLX": false,
+          "MAT": false,
+          "LIST": false,
+          "STAT": true,
+          "M": false,
+          "BIN": false,
+          "PEN": false,
+          "OCT": false,
+          "DEC": false,
+          "HEX": false,
+          "xy": false,
+          "rθ": false,
+          "?": false,
+          "∠": false,
+          "i": false
+        }
+      },
+      "domResultText": "69."
+    },
+    {
+      "afterStep": 58,
+      "assertions": {
+        "layers.mode": "STAT",
+        "lifecycle": "evaluated",
+        "expression": "17.756861278080077=",
+        "entry": "",
+        "control.errorCode": null,
+        "workflow": {
+          "kind": null,
+          "payload": null,
+          "page": 0,
+          "returnPhase": "empty"
+        },
+        "values.last": {
+          "kind": "scalar",
+          "value": 17.756861278080077
+        }
+      },
+      "viewAssertions": {
+        "expressionHtml": "Sx<span class=\"scicalc__display-operator\">=</span>",
+        "resultHtml": "17.75686128",
+        "indicators": {
+          "2ndF": false,
+          "HYP": false,
+          "ALPHA": false,
+          "FIX": false,
+          "SCI": false,
+          "ENG": false,
+          "DEG": true,
+          "RAD": false,
+          "GRAD": false,
+          "CPLX": false,
+          "MAT": false,
+          "LIST": false,
+          "STAT": true,
+          "M": false,
+          "BIN": false,
+          "PEN": false,
+          "OCT": false,
+          "DEC": false,
+          "HEX": false,
+          "xy": false,
+          "rθ": false,
+          "?": false,
+          "∠": false,
+          "i": false
+        }
+      },
+      "domResultText": "17.75686128"
+    },
+    {
+      "afterStep": 59,
+      "assertions": {
+        "layers.mode": "STAT",
+        "lifecycle": "prompt",
+        "expression": "17.756861278080077=",
+        "entry": "",
+        "control.errorCode": null,
+        "workflow": {
+          "kind": "prompt",
+          "payload": {
+            "id": "RCL",
+            "keyLayer": true,
+            "choices": [
+              "A",
+              "B",
+              "C",
+              "D",
+              "E",
+              "F",
+              "X",
+              "Y",
+              "M"
+            ],
+            "path": []
+          },
+          "page": 0,
+          "returnPhase": "evaluated"
+        },
+        "values.last": {
+          "kind": "scalar",
+          "value": 17.756861278080077
+        }
+      },
+      "viewAssertions": {
+        "expressionHtml": "Sx<span class=\"scicalc__display-operator\">=</span>",
+        "resultHtml": "17.75686128",
+        "indicators": {
+          "2ndF": false,
+          "HYP": false,
+          "ALPHA": true,
+          "FIX": false,
+          "SCI": false,
+          "ENG": false,
+          "DEG": true,
+          "RAD": false,
+          "GRAD": false,
+          "CPLX": false,
+          "MAT": false,
+          "LIST": false,
+          "STAT": true,
+          "M": false,
+          "BIN": false,
+          "PEN": false,
+          "OCT": false,
+          "DEC": false,
+          "HEX": false,
+          "xy": false,
+          "rθ": false,
+          "?": false,
+          "∠": false,
+          "i": false
+        }
+      },
+      "domResultText": "17.75686128"
+    },
+    {
+      "afterStep": 60,
+      "assertions": {
+        "layers.mode": "STAT",
+        "lifecycle": "evaluated",
+        "expression": "17.578395831246947=",
+        "entry": "",
+        "control.errorCode": null,
+        "workflow": {
+          "kind": null,
+          "payload": null,
+          "page": 0,
+          "returnPhase": "empty"
+        },
+        "values.last": {
+          "kind": "scalar",
+          "value": 17.578395831246947
+        }
+      },
+      "viewAssertions": {
+        "expressionHtml": "σx<span class=\"scicalc__display-operator\">=</span>",
+        "resultHtml": "17.57839583",
+        "indicators": {
+          "2ndF": false,
+          "HYP": false,
+          "ALPHA": false,
+          "FIX": false,
+          "SCI": false,
+          "ENG": false,
+          "DEG": true,
+          "RAD": false,
+          "GRAD": false,
+          "CPLX": false,
+          "MAT": false,
+          "LIST": false,
+          "STAT": true,
+          "M": false,
+          "BIN": false,
+          "PEN": false,
+          "OCT": false,
+          "DEC": false,
+          "HEX": false,
+          "xy": false,
+          "rθ": false,
+          "?": false,
+          "∠": false,
+          "i": false
+        }
+      },
+      "domResultText": "17.57839583"
+    },
+    {
+      "afterStep": 61,
+      "assertions": {
+        "layers.mode": "STAT",
+        "lifecycle": "prompt",
+        "expression": "17.578395831246947=",
+        "entry": "",
+        "control.errorCode": null,
+        "workflow": {
+          "kind": "prompt",
+          "payload": {
+            "id": "RCL",
+            "keyLayer": true,
+            "choices": [
+              "A",
+              "B",
+              "C",
+              "D",
+              "E",
+              "F",
+              "X",
+              "Y",
+              "M"
+            ],
+            "path": []
+          },
+          "page": 0,
+          "returnPhase": "evaluated"
+        },
+        "values.last": {
+          "kind": "scalar",
+          "value": 17.578395831246947
+        }
+      },
+      "viewAssertions": {
+        "expressionHtml": "σx<span class=\"scicalc__display-operator\">=</span>",
+        "resultHtml": "17.57839583",
+        "indicators": {
+          "2ndF": false,
+          "HYP": false,
+          "ALPHA": true,
+          "FIX": false,
+          "SCI": false,
+          "ENG": false,
+          "DEG": true,
+          "RAD": false,
+          "GRAD": false,
+          "CPLX": false,
+          "MAT": false,
+          "LIST": false,
+          "STAT": true,
+          "M": false,
+          "BIN": false,
+          "PEN": false,
+          "OCT": false,
+          "DEC": false,
+          "HEX": false,
+          "xy": false,
+          "rθ": false,
+          "?": false,
+          "∠": false,
+          "i": false
+        }
+      },
+      "domResultText": "17.57839583"
+    },
+    {
+      "afterStep": 62,
+      "assertions": {
+        "layers.mode": "STAT",
+        "lifecycle": "evaluated",
+        "expression": "50=",
+        "entry": "",
+        "control.errorCode": null,
+        "workflow": {
+          "kind": null,
+          "payload": null,
+          "page": 0,
+          "returnPhase": "empty"
+        },
+        "values.last": {
+          "kind": "scalar",
+          "value": 50
+        }
+      },
+      "viewAssertions": {
+        "expressionHtml": "n<span class=\"scicalc__display-operator\">=</span>",
+        "resultHtml": "50.",
+        "indicators": {
+          "2ndF": false,
+          "HYP": false,
+          "ALPHA": false,
+          "FIX": false,
+          "SCI": false,
+          "ENG": false,
+          "DEG": true,
+          "RAD": false,
+          "GRAD": false,
+          "CPLX": false,
+          "MAT": false,
+          "LIST": false,
+          "STAT": true,
+          "M": false,
+          "BIN": false,
+          "PEN": false,
+          "OCT": false,
+          "DEC": false,
+          "HEX": false,
+          "xy": false,
+          "rθ": false,
+          "?": false,
+          "∠": false,
+          "i": false
+        }
+      },
+      "domResultText": "50."
+    },
+    {
+      "afterStep": 63,
+      "assertions": {
+        "layers.mode": "STAT",
+        "lifecycle": "prompt",
+        "expression": "50=",
+        "entry": "",
+        "control.errorCode": null,
+        "workflow": {
+          "kind": "prompt",
+          "payload": {
+            "id": "RCL",
+            "keyLayer": true,
+            "choices": [
+              "A",
+              "B",
+              "C",
+              "D",
+              "E",
+              "F",
+              "X",
+              "Y",
+              "M"
+            ],
+            "path": []
+          },
+          "page": 0,
+          "returnPhase": "evaluated"
+        },
+        "values.last": {
+          "kind": "scalar",
+          "value": 50
+        }
+      },
+      "viewAssertions": {
+        "expressionHtml": "n<span class=\"scicalc__display-operator\">=</span>",
+        "resultHtml": "50.",
+        "indicators": {
+          "2ndF": false,
+          "HYP": false,
+          "ALPHA": true,
+          "FIX": false,
+          "SCI": false,
+          "ENG": false,
+          "DEG": true,
+          "RAD": false,
+          "GRAD": false,
+          "CPLX": false,
+          "MAT": false,
+          "LIST": false,
+          "STAT": true,
+          "M": false,
+          "BIN": false,
+          "PEN": false,
+          "OCT": false,
+          "DEC": false,
+          "HEX": false,
+          "xy": false,
+          "rθ": false,
+          "?": false,
+          "∠": false,
+          "i": false
+        }
+      },
+      "domResultText": "50."
+    },
+    {
+      "afterStep": 64,
+      "assertions": {
+        "layers.mode": "STAT",
+        "lifecycle": "evaluated",
+        "expression": "3450=",
+        "entry": "",
+        "control.errorCode": null,
+        "workflow": {
+          "kind": null,
+          "payload": null,
+          "page": 0,
+          "returnPhase": "empty"
+        },
+        "values.last": {
+          "kind": "scalar",
+          "value": 3450
+        }
+      },
+      "viewAssertions": {
+        "expressionHtml": "Σx<span class=\"scicalc__display-operator\">=</span>",
+        "resultHtml": "3&#039;450.",
+        "indicators": {
+          "2ndF": false,
+          "HYP": false,
+          "ALPHA": false,
+          "FIX": false,
+          "SCI": false,
+          "ENG": false,
+          "DEG": true,
+          "RAD": false,
+          "GRAD": false,
+          "CPLX": false,
+          "MAT": false,
+          "LIST": false,
+          "STAT": true,
+          "M": false,
+          "BIN": false,
+          "PEN": false,
+          "OCT": false,
+          "DEC": false,
+          "HEX": false,
+          "xy": false,
+          "rθ": false,
+          "?": false,
+          "∠": false,
+          "i": false
+        }
+      },
+      "domResultText": "3'450."
+    }
+  ],
+  "knownDifferences": [
+    {
+      "afterStep": 0,
+      "field": "displayResult",
+      "expected": "0.",
+      "actual": "0"
+    },
+    {
+      "afterStep": 3,
+      "field": "displayExpression",
+      "expected": "Stat 0",
+      "actual": ""
+    },
+    {
+      "afterStep": 3,
+      "field": "displayResult",
+      "expected": "0.",
+      "actual": "0"
+    },
+    {
+      "afterStep": 9,
+      "field": "displayResult",
+      "expected": "1.",
+      "actual": "1"
+    },
+    {
+      "afterStep": 15,
+      "field": "displayResult",
+      "expected": "2.",
+      "actual": "2"
+    },
+    {
+      "afterStep": 21,
+      "field": "displayResult",
+      "expected": "3.",
+      "actual": "3"
+    },
+    {
+      "afterStep": 27,
+      "field": "displayResult",
+      "expected": "4.",
+      "actual": "4"
+    },
+    {
+      "afterStep": 34,
+      "field": "displayResult",
+      "expected": "5.",
+      "actual": "5"
+    },
+    {
+      "afterStep": 41,
+      "field": "displayResult",
+      "expected": "6.",
+      "actual": "6"
+    },
+    {
+      "afterStep": 47,
+      "field": "displayResult",
+      "expected": "7.",
+      "actual": "7"
+    },
+    {
+      "afterStep": 54,
+      "field": "displayResult",
+      "expected": "8.",
+      "actual": "8"
+    },
+    {
+      "afterStep": 58,
+      "field": "displayResult",
+      "expected": "17.75686128",
+      "actual": "17.7568612781"
+    },
+    {
+      "afterStep": 60,
+      "field": "displayResult",
+      "expected": "17.57839583",
+      "actual": "17.5783958312"
+    }
+  ]
+}

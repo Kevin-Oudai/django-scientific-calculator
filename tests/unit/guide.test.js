@@ -6,8 +6,8 @@ const { validateGuide } = require("../reference/el506ts/validate-guide");
 test("guide page inventory, canonical workflows and supported golden replay are complete", () => {
   const result = validateGuide(guide);
   assert.equal(result.workflows, 52);
-  assert.equal(result.replayed, 1);
-  assert.equal(result.pending, 51);
+  assert.equal(result.replayed, 4);
+  assert.equal(result.pending, 48);
   const paired = guide.fixtures.find(f => f.id === "guide-p38-paired-statistics");
   assert.equal(paired.frames.length, 21); // selection, eight records, twelve results
   assert.equal(guide.fixtures.find(f => f.id === "guide-p34-weighted-statistics").frames.length, 14);

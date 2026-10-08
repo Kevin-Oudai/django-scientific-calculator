@@ -92,12 +92,13 @@ test('result pages display components and boundaries without evaluation or store
   await key(root,11).click();expect((await snapshot(root)).state.workflow.page).toBe(1);
   await key(root,8).click();await expect(root.locator('[data-result]')).toHaveText('2.');
 });
-test('display errors announce and unsupported mode calculations do not produce console errors',async({page})=>{
+test('display errors announce and matrix entry does not produce console errors',async({page})=>{
   const errors=[];page.on('pageerror',error=>errors.push(error.message));
   const root=await setup(page);await root.focus();await page.keyboard.type('1/0');await page.keyboard.press('Enter');
   await expect(root.locator('[data-error]')).toContainText('Error');
   await key(root,2).click();await key(root,4).click();await key(root,35).click();await key(root,40).click();await key(root,48).click();
-  await expect(root.locator('[data-error]')).toContainText('implementation pending');expect(errors).toEqual([]);
+  await expect(root.locator('[data-error]')).toBeEmpty();
+  expect((await snapshot(root)).state.layers.mode).toBe('MAT');expect(errors).toEqual([]);
 });
 for(const width of [320,390,768,1440])test(`all physical controls retain geometry at ${width}px`,async({page})=>{
   await page.setViewportSize({width,height:1000});const root=await setup(page);

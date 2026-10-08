@@ -746,6 +746,183 @@
         "el506.stat.submode.inv"
       ],
       "scope": "Phase 11 submenu selection names/indices and STAT indicator only. Statistical results and all regression algorithms remain Phase 12."
+    },
+    {
+      "kind": "unit",
+      "path": "tests/unit/phase12.test.js",
+      "anchor": "Statistics every printed weighted correction and paired guide checkpoint reproduces display precision",
+      "capabilityIds": [
+        "el506.alpha.el506-k30",
+        "el506.alpha.el506-k31",
+        "el506.alpha.el506-k32",
+        "el506.alpha.el506-k35",
+        "el506.alpha.el506-k36",
+        "el506.alpha.el506-k37",
+        "el506.alpha.el506-k40",
+        "el506.alpha.el506-k41",
+        "el506.alpha.el506-k42",
+        "el506.alpha.el506-k45",
+        "el506.alpha.el506-k46",
+        "el506.alpha.el506-k47",
+        "el506.statistic.el506-k30",
+        "el506.statistic.el506-k31",
+        "el506.statistic.el506-k32",
+        "el506.statistic.el506-k35",
+        "el506.statistic.el506-k36",
+        "el506.statistic.el506-k37",
+        "el506.statistic.el506-k40",
+        "el506.statistic.el506-k41",
+        "el506.statistic.el506-k42",
+        "el506.statistic.el506-k45",
+        "el506.statistic.el506-k46",
+        "el506.statistic.el506-k47"
+      ],
+      "scope": "Canonical replay asserts every printed weighted/corrected/paired statistics checkpoint; printed precision only."
+    },
+    {
+      "kind": "unit",
+      "path": "tests/unit/phase12.test.js",
+      "anchor": "Statistics all six regressions recover coefficients and inverse estimates",
+      "capabilityIds": [
+        "el506.second.el506-k33",
+        "el506.second.el506-k34",
+        "el506.alpha.el506-k33",
+        "el506.alpha.el506-k34",
+        "el506.alpha.el506-k38",
+        "el506.alpha.el506-k39",
+        "el506.context.stat.second.33",
+        "el506.context.stat.second.34",
+        "el506.stat.submode.line",
+        "el506.stat.submode.quad",
+        "el506.stat.submode.exp",
+        "el506.stat.submode.log",
+        "el506.stat.submode.pwr",
+        "el506.stat.submode.inv",
+        "el506.statistic.el506-k33",
+        "el506.statistic.el506-k34",
+        "el506.statistic.el506-k38",
+        "el506.statistic.el506-k39"
+      ],
+      "scope": "Independent analytic datasets assert six regression coefficients, correlation availability and X/Y estimates; hidden native precision remains unmeasured."
+    },
+    {
+      "kind": "unit",
+      "path": "tests/unit/phase12.test.js",
+      "anchor": "Statistics probability functions follow native six-place output and symmetry",
+      "capabilityIds": [
+        "el506.probability.to-t",
+        "el506.probability.p",
+        "el506.probability.q",
+        "el506.probability.r"
+      ],
+      "scope": "Native P/Q/R six-place values, symmetry and canonical MATH entry."
+    },
+    {
+      "kind": "unit",
+      "path": "tests/unit/phase13.test.js",
+      "anchor": "EQN physical three-variable and polynomial controllers solve and preserve ANS",
+      "capabilityIds": [
+        "el506.mode.eqn",
+        "el506.eqn.0",
+        "el506.eqn.1",
+        "el506.eqn.2",
+        "el506.eqn.3",
+        "el506.context.confirm-coefficient-or-data"
+      ],
+      "scope": "Canonical three-variable, quadratic and cubic coefficient workflows, tagged results and ANS isolation; solver residual, singular and repeated-root cases are separately asserted in this file."
+    },
+    {
+      "kind": "unit",
+      "path": "tests/unit/phase14.test.js",
+      "anchor": "CPLX native polar separator pure-imaginary paging and unsupported general powers",
+      "capabilityIds": [
+        "el506.mode.cplx",
+        "el506.complex.conj",
+        "el506.context.imaginary-unit-i",
+        "el506.context.complex-rectangular-polar-separator"
+      ],
+      "scope": "Native i/angle entry and component default, square, real general exponent and complex general-power rejection; conjugation, arithmetic, conversion, memory and recovery have separate tests in this file."
+    },
+    {
+      "kind": "unit",
+      "path": "tests/unit/phase15.test.js",
+      "anchor": "MAT physical multi-argument operations use canonical comma entry and bounded allocation",
+      "capabilityIds": [
+        "el506.mode.mat",
+        "el506.matrix-root.mat",
+        "el506.matrix-root.chk",
+        "el506.matrix-root.sto",
+        "el506.matrix-root.ope",
+        "el506.matrix-root.math",
+        "el506.matrix-root.mat-to-list",
+        "el506.matrix-root.mata-to-list",
+        "el506.matrix-ope.dim",
+        "el506.matrix-ope.fill",
+        "el506.matrix-ope.cumul",
+        "el506.matrix-ope.aug",
+        "el506.matrix-ope.identity",
+        "el506.matrix-ope.rnd-mat",
+        "el506.matrix-math.det",
+        "el506.matrix-math.trans",
+        "el506.matrix.slot.a",
+        "el506.matrix.slot.b",
+        "el506.matrix.slot.c",
+        "el506.matrix.slot.d",
+        "el506.context.matrix-or-list-result-element-paging"
+      ],
+      "scope": "Physical fill, dimension, augmentation, random matrix and native column-wise cumul; entry, slot isolation, det, transpose, inverse, square/cube, limits and snapshot have separate tests in this file."
+    },
+    {
+      "kind": "browser",
+      "path": "tests/e2e/phase12.spec.js",
+      "anchor": "Statistics result recall expression use and probability use physical keys",
+      "capabilityIds": [
+        "el506.alpha.el506-k35",
+        "el506.alpha.el506-k36",
+        "el506.alpha.el506-k37",
+        "el506.statistic.el506-k35",
+        "el506.statistic.el506-k36",
+        "el506.statistic.el506-k37",
+        "el506.probability.to-t",
+        "el506.probability.p",
+        "el506.probability.q",
+        "el506.probability.r"
+      ],
+      "scope": "Actual buttons exercise SD RCL/ALPHA and probability; no transformed-regression browser parity claim."
+    },
+    {
+      "kind": "browser",
+      "path": "tests/e2e/phase13-15.spec.js",
+      "anchor": "EQN coefficients solve page determinant correct retained input and recover",
+      "capabilityIds": [
+        "el506.mode.eqn",
+        "el506.eqn.0",
+        "el506.context.confirm-coefficient-or-data"
+      ],
+      "scope": "Visible 2-VLE prompt, x/y/determinant pages and retained coefficient via actual controls."
+    },
+    {
+      "kind": "browser",
+      "path": "tests/e2e/phase13-15.spec.js",
+      "anchor": "CPLX physical imaginary entry ANS multiplication and polar component paging",
+      "capabilityIds": [
+        "el506.mode.cplx",
+        "el506.context.imaginary-unit-i"
+      ],
+      "scope": "Visible rectangular components, polar conversion and typed ANS multiplication."
+    },
+    {
+      "kind": "browser",
+      "path": "tests/e2e/phase13-15.spec.js",
+      "anchor": "MAT physical dimensions DATA store recall square and cell paging",
+      "capabilityIds": [
+        "el506.mode.mat",
+        "el506.matrix-root.sto",
+        "el506.matrix-root.mat",
+        "el506.matrix.slot.a",
+        "el506.context.matrix-or-list-result-element-paging"
+      ],
+      "scope": "Actual dimension/data/storage/recall/square sequence and first two result-cell pages."
     }
   ]
 }

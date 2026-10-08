@@ -1244,7 +1244,7 @@ mode/submode selection clear it. Merely opening or canceling MODE preserves it.
 Snapshot schema 11 retains paired values, signed weights, explicit-frequency
 storage costs, browsing position, and incomplete entry; schemas 1–10 migrate
 in memory. All assets stay in the reusable package. Statistics results and
-regression calculations are Phase 12 and remain pending in the physical layout.
+regression calculations are implemented in Phase 12, as described below.
 
 Verification includes the Phase 11 independently transcribed simulator
 checkpoints, canonical golden replay, unit tests for capacity and persistence,
@@ -1252,3 +1252,46 @@ and browser tests for physical buttons, keyboard comma, correction, recovery,
 snapshots, multiple widgets, and fraction display bounds. Capacity/range rules
 also use the pinned full manual. Intermediate golden frames are regression
 assertions, not independently observed simulator parity.
+
+
+## Statistics, equations, complex numbers, and matrices (Phases 12–15)
+
+STAT supports weighted means, sample and population deviations, counts and sums,
+paired statistics, and LINE, QUAD, EXP, LOG, PWR, and INV regression. RCL followed
+by a green statistical key displays its result; ALPHA inserts it into an
+expression. Shifted parentheses estimate X or Y immediately. MATH provides
+standardization with the population deviation and P/Q/R normal probabilities;
+press ENT to evaluate. Probabilities use six decimal places. Transformed
+regressions reject invalid logarithmic or inverse inputs and unavailable results
+use Error 2.
+
+EQN provides two- and three-variable linear systems, quadratic equations, and
+cubic equations. Enter coefficients with ENT, use 2nd F ENT to move backward,
+and page solutions with ENT. Linear systems include a determinant page. Complex
+roots switch components with 2nd F →. ON/C clears the current input while keeping
+coefficients; CA clears coefficients. EQN results preserve the previous ANS.
+
+CPLX accepts rectangular imaginary terms with the fraction-position i key,
+arithmetic, square/cube/reciprocal, and the CONJ MATH command. The white DMS key
+enters a polar angle separator. General powers of complex operands report Error 2.
+2nd F 8 selects polar
+results and 2nd F 9 selects rectangular results. 2nd F → switches components;
+angle conversion follows DEG/RAD/GRAD. ANS retains both components and independent
+memory supports complex values. Mode exit clears its imaginary component.
+
+MAT provides four slots, matA–matD, each up to 4×4. UP/DOWN opens the edit buffer;
+enter ROW, COLUMN, and row-major cells with DATA. ON/C closes the buffer. MATH STO
+saves it, CHK recalls it for correction, and MAT inserts a stored operand.
+Results open the edit buffer for dimension and cell paging. Implemented
+operations include addition, subtraction, multiplication, scalar scaling,
+integer powers, inverse, transpose, determinant, resize, fill, column-wise cumulative,
+augmentation, identity, and random matrices. The root menu's matrix-to-list
+actions transfer columns into list slots; remaining LIST calculations are a
+later phase.
+
+These features use local package assets and bounded semantic AST evaluation.
+Native checkpoints, independent guide values, algorithm/domain unit checks,
+and physical-button browser tests provide scoped evidence. Cursor timing,
+hidden digits, and exhaustive cross-mode limits remain part of the later parity
+audit; passing implementation regression frames alone does not establish full
+simulator parity.

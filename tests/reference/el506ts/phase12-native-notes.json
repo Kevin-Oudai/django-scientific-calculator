@@ -1,0 +1,968 @@
+{
+  "scope": "Independent significant LCD observations for Phases 12–15. Intermediate application frames are regression assertions, not independent simulator parity; hidden precision and unprobed boundaries remain in the cross-mode audit.",
+  "date": "2026-10-08",
+  "sequence": [
+    4,
+    40,
+    45,
+    40,
+    29,
+    41,
+    29,
+    42,
+    29,
+    27,
+    35,
+    5,
+    36,
+    48,
+    17,
+    40,
+    40,
+    48,
+    3,
+    5,
+    37,
+    48,
+    4,
+    40,
+    40,
+    17,
+    2,
+    40,
+    3,
+    28,
+    41,
+    29,
+    41,
+    3,
+    28,
+    35,
+    29,
+    42,
+    3,
+    34,
+    48,
+    27,
+    33,
+    27,
+    34,
+    27,
+    39,
+    4,
+    40,
+    45,
+    42,
+    45,
+    3,
+    28,
+    41,
+    29,
+    35,
+    45,
+    3,
+    28,
+    35,
+    29,
+    36,
+    45,
+    3,
+    28,
+    36,
+    29,
+    37,
+    45,
+    3,
+    28,
+    30,
+    29,
+    30,
+    45,
+    3,
+    28,
+    40,
+    41,
+    29,
+    31,
+    45,
+    3,
+    28,
+    40,
+    45,
+    29,
+    32,
+    45,
+    3,
+    28,
+    31,
+    29,
+    40,
+    45,
+    45,
+    3,
+    28,
+    41,
+    29,
+    27,
+    35,
+    27,
+    36,
+    27,
+    37,
+    27,
+    45,
+    27,
+    46,
+    27,
+    47,
+    30,
+    45,
+    17,
+    45,
+    48,
+    17,
+    41,
+    40,
+    48,
+    17,
+    42,
+    40,
+    47,
+    48,
+    4,
+    40,
+    40,
+    37,
+    46,
+    41,
+    3,
+    28,
+    40,
+    42,
+    29,
+    30,
+    46,
+    45,
+    3,
+    28,
+    32,
+    29,
+    37,
+    46,
+    31,
+    3,
+    28,
+    40,
+    40,
+    29,
+    4,
+    41,
+    45,
+    40,
+    48,
+    40,
+    48,
+    42,
+    48,
+    40,
+    48,
+    40,
+    47,
+    48,
+    40,
+    48,
+    48,
+    48,
+    48,
+    4,
+    41,
+    41,
+    40,
+    48,
+    48,
+    40,
+    48,
+    3,
+    33,
+    3,
+    24,
+    48,
+    4,
+    42,
+    17,
+    2,
+    42,
+    43,
+    35,
+    25,
+    48,
+    3,
+    33,
+    3,
+    24,
+    3,
+    31,
+    3,
+    24,
+    4,
+    35,
+    17,
+    11,
+    42,
+    11,
+    11,
+    11,
+    2,
+    11,
+    41,
+    29,
+    41,
+    29,
+    40,
+    29,
+    41,
+    29,
+    42,
+    29,
+    35,
+    29,
+    2,
+    17,
+    41,
+    45,
+    17,
+    45,
+    45,
+    20,
+    48,
+    11,
+    11,
+    11,
+    11,
+    11,
+    2,
+    17,
+    35,
+    11,
+    10,
+    2,
+    17,
+    11,
+    11,
+    11,
+    2,
+    4,
+    40,
+    40,
+    37,
+    46,
+    41,
+    3,
+    28,
+    40,
+    42,
+    29,
+    30,
+    46,
+    45,
+    3,
+    28,
+    32,
+    29,
+    37,
+    46,
+    31,
+    3,
+    28,
+    40,
+    40,
+    29,
+    31,
+    46,
+    30,
+    3,
+    28,
+    36,
+    29,
+    30,
+    46,
+    32,
+    3,
+    28,
+    30,
+    29,
+    37,
+    46,
+    36,
+    3,
+    28,
+    40,
+    41,
+    29,
+    37,
+    46,
+    40,
+    3,
+    28,
+    40,
+    36,
+    29,
+    31,
+    46,
+    41,
+    3,
+    28,
+    30,
+    29,
+    27,
+    35,
+    27,
+    36,
+    27,
+    37,
+    27,
+    30,
+    27,
+    31,
+    27,
+    32,
+    27,
+    45,
+    27,
+    46,
+    27,
+    47,
+    27,
+    40,
+    27,
+    41,
+    27,
+    42,
+    4,
+    42,
+    36,
+    28,
+    2,
+    36,
+    26,
+    32,
+    45,
+    48,
+    19,
+    41,
+    48,
+    2,
+    25,
+    20,
+    48,
+    4,
+    35,
+    11,
+    41,
+    29,
+    41,
+    29,
+    40,
+    29,
+    41,
+    29,
+    42,
+    29,
+    35,
+    29,
+    2,
+    17,
+    41,
+    45,
+    17,
+    42,
+    41,
+    17,
+    45,
+    45,
+    48,
+    11,
+    11,
+    11,
+    11,
+    11,
+    4,
+    41,
+    42,
+    40,
+    48,
+    48,
+    40,
+    47,
+    48,
+    48,
+    48,
+    48
+  ],
+  "checkpoints": [
+    {
+      "step": 3,
+      "upper": "Stat 0",
+      "lower": "0."
+    },
+    {
+      "step": 5,
+      "upper": "DATA SET=",
+      "lower": "1."
+    },
+    {
+      "step": 7,
+      "upper": "DATA SET=",
+      "lower": "2."
+    },
+    {
+      "step": 9,
+      "upper": "DATA SET=",
+      "lower": "3."
+    },
+    {
+      "step": 11,
+      "upper": "x̅=",
+      "lower": "2."
+    },
+    {
+      "step": 13,
+      "upper": "Sx",
+      "lower": "0.",
+      "cursor": true
+    },
+    {
+      "step": 14,
+      "upper": "Sx=",
+      "lower": "1."
+    },
+    {
+      "step": 15,
+      "upper": "→t P( Q( R(",
+      "lower": "0. 1 2 3"
+    },
+    {
+      "step": 18,
+      "upper": "P(1=",
+      "lower": "0.841345"
+    },
+    {
+      "step": 22,
+      "upper": "σx=",
+      "lower": "0.81649658"
+    },
+    {
+      "step": 25,
+      "upper": "Stat 1",
+      "lower": "0."
+    },
+    {
+      "step": 26,
+      "upper": "→t P( Q( R(",
+      "lower": "0. 1 2 3"
+    },
+    {
+      "step": 32,
+      "upper": "DATA SET=",
+      "lower": "1."
+    },
+    {
+      "step": 37,
+      "upper": "DATA SET=",
+      "lower": "2."
+    },
+    {
+      "step": 40,
+      "upper": "3ŷ",
+      "lower": "6."
+    },
+    {
+      "step": 41,
+      "upper": "3=",
+      "lower": "3."
+    },
+    {
+      "step": 43,
+      "upper": "a=",
+      "lower": "0."
+    },
+    {
+      "step": 45,
+      "upper": "b=",
+      "lower": "2."
+    },
+    {
+      "step": 47,
+      "upper": "r=",
+      "lower": "1."
+    },
+    {
+      "step": 103,
+      "upper": "x̅=",
+      "lower": "69."
+    },
+    {
+      "step": 105,
+      "upper": "Sx=",
+      "lower": "17.75686128"
+    },
+    {
+      "step": 107,
+      "upper": "σx=",
+      "lower": "17.57839583"
+    },
+    {
+      "step": 109,
+      "upper": "n=",
+      "lower": "50."
+    },
+    {
+      "step": 111,
+      "upper": "Σx=",
+      "lower": "3'450."
+    },
+    {
+      "step": 113,
+      "upper": "Σx²=",
+      "lower": "253'500."
+    },
+    {
+      "step": 118,
+      "upper": "70→t=",
+      "lower": "0.056888012"
+    },
+    {
+      "step": 122,
+      "upper": "Q(1=",
+      "lower": "0.341345"
+    },
+    {
+      "step": 127,
+      "upper": "R((-1)=",
+      "lower": "0.841345"
+    },
+    {
+      "step": 153,
+      "upper": "DATA SET=",
+      "lower": "3."
+    },
+    {
+      "step": 156,
+      "upper": "a1?",
+      "lower": "0."
+    },
+    {
+      "step": 158,
+      "upper": "b1?",
+      "lower": "0."
+    },
+    {
+      "step": 160,
+      "upper": "c1?",
+      "lower": "0."
+    },
+    {
+      "step": 162,
+      "upper": "a2?",
+      "lower": "0."
+    },
+    {
+      "step": 169,
+      "upper": "x=",
+      "lower": "2."
+    },
+    {
+      "step": 170,
+      "upper": "y=",
+      "lower": "1."
+    },
+    {
+      "step": 171,
+      "upper": "det=",
+      "lower": "-2."
+    },
+    {
+      "step": 172,
+      "upper": "a1?",
+      "lower": "1."
+    },
+    {
+      "step": 175,
+      "upper": "a?",
+      "lower": "0."
+    },
+    {
+      "step": 180,
+      "upper": "X1=",
+      "lower": "0."
+    },
+    {
+      "step": 182,
+      "upper": "X1=",
+      "lower": "0."
+    },
+    {
+      "step": 184,
+      "upper": "X1=",
+      "lower": "1."
+    },
+    {
+      "step": 185,
+      "upper": "X2=",
+      "lower": "0."
+    },
+    {
+      "step": 187,
+      "upper": "",
+      "lower": "0."
+    },
+    {
+      "step": 188,
+      "upper": "CONJ",
+      "lower": "0."
+    },
+    {
+      "step": 193,
+      "upper": "3+4i_",
+      "lower": "0."
+    },
+    {
+      "step": 194,
+      "upper": "3+4i=",
+      "lower": "3."
+    },
+    {
+      "step": 196,
+      "upper": "3+4i=",
+      "lower": "3."
+    },
+    {
+      "step": 198,
+      "upper": "3+4i=",
+      "lower": "4."
+    },
+    {
+      "step": 200,
+      "upper": "3+4i=",
+      "lower": "5."
+    },
+    {
+      "step": 202,
+      "upper": "3+4i=",
+      "lower": "53.13010235"
+    },
+    {
+      "step": 204,
+      "upper": "",
+      "lower": "0."
+    },
+    {
+      "step": 205,
+      "upper": "MAT CHK STO",
+      "lower": "0. 1 2"
+    },
+    {
+      "step": 206,
+      "upper": "OPE MATH",
+      "lower": "3. 4"
+    },
+    {
+      "step": 207,
+      "upper": "dim( fill(",
+      "lower": "0. 1"
+    },
+    {
+      "step": 208,
+      "upper": "cumul aug(",
+      "lower": "2. 3"
+    },
+    {
+      "step": 209,
+      "upper": "identity",
+      "lower": "4."
+    },
+    {
+      "step": 210,
+      "upper": "rnd_mat(",
+      "lower": "5."
+    },
+    {
+      "step": 212,
+      "upper": "ROW=",
+      "lower": "1."
+    },
+    {
+      "step": 214,
+      "upper": "COLUMN=",
+      "lower": "1."
+    },
+    {
+      "step": 216,
+      "upper": "MAT1,1=",
+      "lower": "0."
+    },
+    {
+      "step": 218,
+      "upper": "MAT1,2=",
+      "lower": "0."
+    },
+    {
+      "step": 220,
+      "upper": "MAT2,1=",
+      "lower": "0."
+    },
+    {
+      "step": 222,
+      "upper": "MAT2,2=",
+      "lower": "0."
+    },
+    {
+      "step": 224,
+      "upper": "MAT2,2=",
+      "lower": "4."
+    },
+    {
+      "step": 227,
+      "upper": "matA matB",
+      "lower": "0. 1"
+    },
+    {
+      "step": 233,
+      "upper": "ROW=",
+      "lower": "2."
+    },
+    {
+      "step": 234,
+      "upper": "COLUMN=",
+      "lower": "2."
+    },
+    {
+      "step": 235,
+      "upper": "MAT1,1=",
+      "lower": "7."
+    },
+    {
+      "step": 236,
+      "upper": "MAT1,2=",
+      "lower": "10."
+    },
+    {
+      "step": 237,
+      "upper": "MAT2,1=",
+      "lower": "15."
+    },
+    {
+      "step": 238,
+      "upper": "MAT2,2=",
+      "lower": "22."
+    },
+    {
+      "step": 241,
+      "upper": "det trans",
+      "lower": "0. 1"
+    },
+    {
+      "step": 243,
+      "upper": "det trans",
+      "lower": "0 1."
+    },
+    {
+      "step": 247,
+      "upper": "mat→list",
+      "lower": "5."
+    },
+    {
+      "step": 248,
+      "upper": "matA→list",
+      "lower": "6."
+    },
+    {
+      "step": 249,
+      "upper": "",
+      "lower": "0."
+    },
+    {
+      "step": 252,
+      "upper": "Stat 1",
+      "lower": "0."
+    },
+    {
+      "step": 260,
+      "upper": "DATA SET=",
+      "lower": "1."
+    },
+    {
+      "step": 267,
+      "upper": "DATA SET=",
+      "lower": "2."
+    },
+    {
+      "step": 275,
+      "upper": "DATA SET=",
+      "lower": "3."
+    },
+    {
+      "step": 282,
+      "upper": "DATA SET=",
+      "lower": "4."
+    },
+    {
+      "step": 289,
+      "upper": "DATA SET=",
+      "lower": "5."
+    },
+    {
+      "step": 297,
+      "upper": "DATA SET=",
+      "lower": "6."
+    },
+    {
+      "step": 305,
+      "upper": "DATA SET=",
+      "lower": "7."
+    },
+    {
+      "step": 312,
+      "upper": "DATA SET=",
+      "lower": "8."
+    },
+    {
+      "step": 314,
+      "upper": "x̄=",
+      "lower": "7.175"
+    },
+    {
+      "step": 316,
+      "upper": "Sx=",
+      "lower": "0.973579551"
+    },
+    {
+      "step": 318,
+      "upper": "σx=",
+      "lower": "0.91070028"
+    },
+    {
+      "step": 320,
+      "upper": "ȳ=",
+      "lower": "9.875"
+    },
+    {
+      "step": 322,
+      "upper": "Sy=",
+      "lower": "3.440826313"
+    },
+    {
+      "step": 324,
+      "upper": "σy=",
+      "lower": "3.218598297"
+    },
+    {
+      "step": 326,
+      "upper": "n=",
+      "lower": "8."
+    },
+    {
+      "step": 328,
+      "upper": "Σx=",
+      "lower": "57.4"
+    },
+    {
+      "step": 330,
+      "upper": "Σx²=",
+      "lower": "418.48"
+    },
+    {
+      "step": 332,
+      "upper": "Σxy=",
+      "lower": "544.1"
+    },
+    {
+      "step": 334,
+      "upper": "Σy=",
+      "lower": "79."
+    },
+    {
+      "step": 336,
+      "upper": "Σy²=",
+      "lower": "863."
+    },
+    {
+      "step": 343,
+      "upper": "5∠_",
+      "lower": "0."
+    },
+    {
+      "step": 346,
+      "upper": "5∠90=",
+      "lower": "5.i"
+    },
+    {
+      "step": 349,
+      "upper": "Error 2",
+      "lower": ""
+    },
+    {
+      "step": 353,
+      "upper": "i²=",
+      "lower": "-1."
+    },
+    {
+      "step": 368,
+      "upper": "MAT2,2=",
+      "lower": "4."
+    },
+    {
+      "step": 379,
+      "upper": "ROW=",
+      "lower": "2."
+    },
+    {
+      "step": 380,
+      "upper": "COLUMN=",
+      "lower": "2."
+    },
+    {
+      "step": 381,
+      "upper": "MAT1,1=",
+      "lower": "1."
+    },
+    {
+      "step": 382,
+      "upper": "MAT1,2=",
+      "lower": "2."
+    },
+    {
+      "step": 383,
+      "upper": "MAT2,1=",
+      "lower": "4."
+    },
+    {
+      "step": 384,
+      "upper": "MAT2,2=",
+      "lower": "6."
+    },
+    {
+      "step": 394,
+      "upper": "X1=",
+      "lower": "-1."
+    },
+    {
+      "step": 395,
+      "upper": "X2=",
+      "lower": "1."
+    },
+    {
+      "step": 396,
+      "upper": "X3=",
+      "lower": "0."
+    }
+  ],
+  "observations": [
+    "RCL statistical selector evaluates immediately; ALPHA inserts a symbolic operand and evaluates at ENT.",
+    "Second ALPHA STAT VAR acts as ALPHA rather than a visible menu.",
+    "MATH exposes the same four commands in SD and LINE.",
+    "Second close parenthesis calculates estimated Y immediately without equals; subsequent ENT evaluates original operand.",
+    "Hidden values, quadratric-root switch, transformed regressions and error boundaries still require discovery."
+  ],
+  "pairedGuideStart": 249
+}

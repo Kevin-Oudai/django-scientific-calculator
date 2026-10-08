@@ -19,27 +19,27 @@
         "missing": 307
       },
       "unitTested": {
-        "pending": 256,
-        "partial": 174
+        "pending": 185,
+        "partial": 245
       },
       "goldenTested": {
-        "pending": 369,
-        "baseline-known-differences": 61
+        "pending": 291,
+        "baseline-known-differences": 139
       },
       "browserTested": {
-        "partial": 197,
-        "pending": 233
+        "partial": 217,
+        "pending": 213
       }
     },
     "guide": {
       "workflows": 52,
       "checkpoints": 148,
-      "replayed": 1,
-      "pending": 51
+      "replayed": 4,
+      "pending": 48
     },
     "golden": {
-      "fixtures": 24,
-      "assertedFrames": 401,
+      "fixtures": 28,
+      "assertedFrames": 981,
       "pending": 1
     },
     "verifiedFullParity": 0
@@ -61,6 +61,18 @@
     {
       "path": "tests/reference/el506ts/experiments/golden-addition.json",
       "sha256": "7dfc3b7d1a1ce20ae6112eb4002f201978fa450835de2a62cfbdc26c301c420d"
+    },
+    {
+      "path": "tests/reference/el506ts/experiments/guide-p34-weighted-statistics-replay.json",
+      "sha256": "2cd4f54e2c4328ad61281441bb698970cba20c3fc417cbbe0ff29c7bfa178e90"
+    },
+    {
+      "path": "tests/reference/el506ts/experiments/guide-p36-statistics-correction-replay.json",
+      "sha256": "5aecac8b33961743abcec262696b4debd59c6a03d97d9b390fa01e65d7dc7d46"
+    },
+    {
+      "path": "tests/reference/el506ts/experiments/guide-p38-paired-statistics-replay.json",
+      "sha256": "b6bb450b0da06218daa8bfa7cae48c9c2cb7cb837fba93f7f8783411ff5b98d7"
     },
     {
       "path": "tests/reference/el506ts/experiments/guide-power.json",
@@ -93,6 +105,10 @@
     {
       "path": "tests/reference/el506ts/experiments/phase11-statistics.json",
       "sha256": "638e31ef0832420a68470a5a7857c0cdb12292d6075ce4a43e378e9ec994d71d"
+    },
+    {
+      "path": "tests/reference/el506ts/experiments/phase12-15-native.json",
+      "sha256": "5e6b62b604d315332e18dae99e42763a1f1bb2f09847390a549142c2e391053a"
     },
     {
       "path": "tests/reference/el506ts/experiments/phase3-power.json",
@@ -167,6 +183,18 @@
       "sha256": "b22708c1445c5a7be5894885258db7afbda95220f23ae534703d85a75093d785"
     },
     {
+      "path": "tests/reference/el506ts/golden/guide-p34-weighted-statistics-replay.json",
+      "sha256": "50d207071039676bd956b54c2f09043767926e2fa140a9659e698966f3a0f980"
+    },
+    {
+      "path": "tests/reference/el506ts/golden/guide-p36-statistics-correction-replay.json",
+      "sha256": "112d0de9db6e0841648fee3872281437d67b642bae279a08cb5a9e2ea2a8ab42"
+    },
+    {
+      "path": "tests/reference/el506ts/golden/guide-p38-paired-statistics-replay.json",
+      "sha256": "f70985b37ec0c77287e21efc986ccd5b10e3f6b7ca929fe809597591eb845b2a"
+    },
+    {
       "path": "tests/reference/el506ts/golden/guide-power.json",
       "sha256": "e7479be3102d0eb5fafbc8df35e84b508fe67c402b5cc383aab04026b041c7e8"
     },
@@ -189,6 +217,10 @@
     {
       "path": "tests/reference/el506ts/golden/phase11-statistics.json",
       "sha256": "213e3086b65774e7e01c4edba6f15dfcaf37f02b187acfce6618ea10294af3b1"
+    },
+    {
+      "path": "tests/reference/el506ts/golden/phase12-15-native.json",
+      "sha256": "72b40f7d33489089d33afab633c6672d5fcf7644bb38e82ad60a747268132fc4"
     },
     {
       "path": "tests/reference/el506ts/golden/phase3-power.json",
@@ -256,11 +288,11 @@
     },
     {
       "path": "tests/reference/el506ts/guide-examples.json",
-      "sha256": "870cd51eee3db6840a7eac43f41e89f41f3058cc6337f3491c1df952ad5dab9e"
+      "sha256": "75b522bcb0a5aa887f7ee463b0c73f300865c088236896acb49d37b79b25cf76"
     },
     {
       "path": "tests/reference/el506ts/report-coverage.json",
-      "sha256": "42a5d81fbbaaf47ff1dd9afe1af82b6dd743e7d5388990ec5f64040505304306"
+      "sha256": "9b0942829b4a273858e8a2d49a1b6d964d16af69157dc701732523c7d067c516"
     },
     {
       "path": "tests/reference/el506ts/validate-guide.js",
@@ -268,7 +300,7 @@
     },
     {
       "path": "tests/e2e/golden.spec.js",
-      "sha256": "775d7c9a3bb99f0f71fed2dfe871bfb02036008299b1fcbb4b42c21a02931698"
+      "sha256": "a3ef7d57e3d375a21e168cde6c88c25140ae768e44bebab41d12f9761e6463fd"
     },
     {
       "path": "tests/e2e/phase10.spec.js",
@@ -277,6 +309,14 @@
     {
       "path": "tests/e2e/phase11.spec.js",
       "sha256": "e219fdc0be0338d5bbe3a06f2b1e942d34b1810b5ce930fd9067fb16142d7e64"
+    },
+    {
+      "path": "tests/e2e/phase12.spec.js",
+      "sha256": "239d813b52a4bdd20621c2856c942693e426c6b47dcfe9a3d90947c4fdab3812"
+    },
+    {
+      "path": "tests/e2e/phase13-15.spec.js",
+      "sha256": "3202c4322d94f3c08f93a82ef573d77b8cc9ef121c578e055b2db7e6c940ce11"
     },
     {
       "path": "tests/e2e/phase4.spec.js",
@@ -304,7 +344,7 @@
     },
     {
       "path": "tests/e2e/physical-ui.spec.js",
-      "sha256": "1b0b92ff20bef726ed0d183994c69f1ecd42a3b529bcf616e2cad3d8b021b82c"
+      "sha256": "bcb285ada5c34619923aa16b35ce02f64dde6677fed1801c89a425cbf96b70a2"
     },
     {
       "path": "tests/unit/calculator.test.js",
@@ -317,6 +357,22 @@
     {
       "path": "tests/unit/phase11.test.js",
       "sha256": "0d10a52443b8a9ba82c24495d79b61aeb7ff7329c1ec9ecd04c86c6b4deaaa24"
+    },
+    {
+      "path": "tests/unit/phase12.test.js",
+      "sha256": "e86f744f7ffd417d43ebdbfe5c226793c52a433c4bdffd9061b14521e30aa8ce"
+    },
+    {
+      "path": "tests/unit/phase13.test.js",
+      "sha256": "d8aa53e51bfef53fc546cf4703a731a977f189024ef20ed56e14003c9ef2cf2a"
+    },
+    {
+      "path": "tests/unit/phase14.test.js",
+      "sha256": "fa7d46e19b85a4e502ff014af388cece2ff26f6c82ea3c96aab7ac26f6753fc5"
+    },
+    {
+      "path": "tests/unit/phase15.test.js",
+      "sha256": "1fedb54a8105969ed43b0d22cfcec488525daf033bbb7b7f4ea0a2d45b5c4e4b"
     },
     {
       "path": "tests/unit/phase4.test.js",
@@ -1030,6 +1086,21 @@
       "goldenTested": {
         "status": "baseline-known-differences",
         "evidence": [
+          {
+            "fixtureId": "guide-p34-weighted-statistics-replay",
+            "status": "known-differences",
+            "assertedFrames": 65
+          },
+          {
+            "fixtureId": "guide-p36-statistics-correction-replay",
+            "status": "known-differences",
+            "assertedFrames": 30
+          },
+          {
+            "fixtureId": "guide-p38-paired-statistics-replay",
+            "status": "known-differences",
+            "assertedFrames": 88
+          },
           {
             "fixtureId": "menus-pending-v1",
             "status": "pending",
@@ -1978,8 +2049,14 @@
         "scope": "Explicit mapped assertions only; unlisted coverage is unassessed."
       },
       "goldenTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "baseline-known-differences",
+        "evidence": [
+          {
+            "fixtureId": "guide-p36-statistics-correction-replay",
+            "status": "known-differences",
+            "assertedFrames": 30
+          }
+        ],
         "scope": "Baseline characterization only; all current supported fixtures have oracle display differences."
       },
       "browserTested": {
@@ -4028,8 +4105,19 @@
         "scope": "Explicit mapped assertions only; unlisted coverage is unassessed."
       },
       "goldenTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "baseline-known-differences",
+        "evidence": [
+          {
+            "fixtureId": "guide-p34-weighted-statistics-replay",
+            "status": "known-differences",
+            "assertedFrames": 65
+          },
+          {
+            "fixtureId": "guide-p38-paired-statistics-replay",
+            "status": "known-differences",
+            "assertedFrames": 88
+          }
+        ],
         "scope": "Baseline characterization only; all current supported fixtures have oracle display differences."
       },
       "browserTested": {
@@ -4177,8 +4265,24 @@
         "scope": "Explicit mapped assertions only; unlisted coverage is unassessed."
       },
       "goldenTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "baseline-known-differences",
+        "evidence": [
+          {
+            "fixtureId": "guide-p34-weighted-statistics-replay",
+            "status": "known-differences",
+            "assertedFrames": 65
+          },
+          {
+            "fixtureId": "guide-p36-statistics-correction-replay",
+            "status": "known-differences",
+            "assertedFrames": 30
+          },
+          {
+            "fixtureId": "guide-p38-paired-statistics-replay",
+            "status": "known-differences",
+            "assertedFrames": 88
+          }
+        ],
         "scope": "Baseline characterization only; all current supported fixtures have oracle display differences."
       },
       "browserTested": {
@@ -4337,6 +4441,21 @@
       "goldenTested": {
         "status": "baseline-known-differences",
         "evidence": [
+          {
+            "fixtureId": "guide-p34-weighted-statistics-replay",
+            "status": "known-differences",
+            "assertedFrames": 65
+          },
+          {
+            "fixtureId": "guide-p36-statistics-correction-replay",
+            "status": "known-differences",
+            "assertedFrames": 30
+          },
+          {
+            "fixtureId": "guide-p38-paired-statistics-replay",
+            "status": "known-differences",
+            "assertedFrames": 88
+          },
           {
             "fixtureId": "phase11-statistics",
             "status": "known-differences",
@@ -4575,8 +4694,19 @@
         "scope": "Explicit mapped assertions only; unlisted coverage is unassessed."
       },
       "goldenTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "baseline-known-differences",
+        "evidence": [
+          {
+            "fixtureId": "guide-p34-weighted-statistics-replay",
+            "status": "known-differences",
+            "assertedFrames": 65
+          },
+          {
+            "fixtureId": "guide-p38-paired-statistics-replay",
+            "status": "known-differences",
+            "assertedFrames": 88
+          }
+        ],
         "scope": "Baseline characterization only; all current supported fixtures have oracle display differences."
       },
       "browserTested": {
@@ -4744,8 +4874,19 @@
         "scope": "Explicit mapped assertions only; unlisted coverage is unassessed."
       },
       "goldenTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "baseline-known-differences",
+        "evidence": [
+          {
+            "fixtureId": "guide-p34-weighted-statistics-replay",
+            "status": "known-differences",
+            "assertedFrames": 65
+          },
+          {
+            "fixtureId": "guide-p38-paired-statistics-replay",
+            "status": "known-differences",
+            "assertedFrames": 88
+          }
+        ],
         "scope": "Baseline characterization only; all current supported fixtures have oracle display differences."
       },
       "browserTested": {
@@ -4925,8 +5066,19 @@
         "scope": "Explicit mapped assertions only; unlisted coverage is unassessed."
       },
       "goldenTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "baseline-known-differences",
+        "evidence": [
+          {
+            "fixtureId": "guide-p34-weighted-statistics-replay",
+            "status": "known-differences",
+            "assertedFrames": 65
+          },
+          {
+            "fixtureId": "guide-p38-paired-statistics-replay",
+            "status": "known-differences",
+            "assertedFrames": 88
+          }
+        ],
         "scope": "Baseline characterization only; all current supported fixtures have oracle display differences."
       },
       "browserTested": {
@@ -5404,8 +5556,24 @@
         "scope": "Explicit mapped assertions only; unlisted coverage is unassessed."
       },
       "goldenTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "baseline-known-differences",
+        "evidence": [
+          {
+            "fixtureId": "guide-p34-weighted-statistics-replay",
+            "status": "known-differences",
+            "assertedFrames": 65
+          },
+          {
+            "fixtureId": "guide-p36-statistics-correction-replay",
+            "status": "known-differences",
+            "assertedFrames": 30
+          },
+          {
+            "fixtureId": "guide-p38-paired-statistics-replay",
+            "status": "known-differences",
+            "assertedFrames": 88
+          }
+        ],
         "scope": "Baseline characterization only; all current supported fixtures have oracle display differences."
       },
       "browserTested": {
@@ -5619,8 +5787,24 @@
         "scope": "Explicit mapped assertions only; unlisted coverage is unassessed."
       },
       "goldenTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "baseline-known-differences",
+        "evidence": [
+          {
+            "fixtureId": "guide-p34-weighted-statistics-replay",
+            "status": "known-differences",
+            "assertedFrames": 65
+          },
+          {
+            "fixtureId": "guide-p36-statistics-correction-replay",
+            "status": "known-differences",
+            "assertedFrames": 30
+          },
+          {
+            "fixtureId": "guide-p38-paired-statistics-replay",
+            "status": "known-differences",
+            "assertedFrames": 88
+          }
+        ],
         "scope": "Baseline characterization only; all current supported fixtures have oracle display differences."
       },
       "browserTested": {
@@ -5805,8 +5989,24 @@
         "scope": "Explicit mapped assertions only; unlisted coverage is unassessed."
       },
       "goldenTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "baseline-known-differences",
+        "evidence": [
+          {
+            "fixtureId": "guide-p34-weighted-statistics-replay",
+            "status": "known-differences",
+            "assertedFrames": 65
+          },
+          {
+            "fixtureId": "guide-p36-statistics-correction-replay",
+            "status": "known-differences",
+            "assertedFrames": 30
+          },
+          {
+            "fixtureId": "guide-p38-paired-statistics-replay",
+            "status": "known-differences",
+            "assertedFrames": 88
+          }
+        ],
         "scope": "Baseline characterization only; all current supported fixtures have oracle display differences."
       },
       "browserTested": {
@@ -6499,6 +6699,21 @@
             "assertedFrames": 5
           },
           {
+            "fixtureId": "guide-p34-weighted-statistics-replay",
+            "status": "known-differences",
+            "assertedFrames": 65
+          },
+          {
+            "fixtureId": "guide-p36-statistics-correction-replay",
+            "status": "known-differences",
+            "assertedFrames": 30
+          },
+          {
+            "fixtureId": "guide-p38-paired-statistics-replay",
+            "status": "known-differences",
+            "assertedFrames": 88
+          },
+          {
             "fixtureId": "physical-lcd-cursor-v1",
             "status": "known-differences",
             "assertedFrames": 6
@@ -6837,6 +7052,21 @@
             "fixtureId": "addition-baseline-v1",
             "status": "known-differences",
             "assertedFrames": 5
+          },
+          {
+            "fixtureId": "guide-p34-weighted-statistics-replay",
+            "status": "known-differences",
+            "assertedFrames": 65
+          },
+          {
+            "fixtureId": "guide-p36-statistics-correction-replay",
+            "status": "known-differences",
+            "assertedFrames": 30
+          },
+          {
+            "fixtureId": "guide-p38-paired-statistics-replay",
+            "status": "known-differences",
+            "assertedFrames": 88
           }
         ],
         "scope": "Baseline characterization only; all current supported fixtures have oracle display differences."
@@ -7082,8 +7312,24 @@
         "scope": "Explicit mapped assertions only; unlisted coverage is unassessed."
       },
       "goldenTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "baseline-known-differences",
+        "evidence": [
+          {
+            "fixtureId": "guide-p34-weighted-statistics-replay",
+            "status": "known-differences",
+            "assertedFrames": 65
+          },
+          {
+            "fixtureId": "guide-p36-statistics-correction-replay",
+            "status": "known-differences",
+            "assertedFrames": 30
+          },
+          {
+            "fixtureId": "guide-p38-paired-statistics-replay",
+            "status": "known-differences",
+            "assertedFrames": 88
+          }
+        ],
         "scope": "Baseline characterization only; all current supported fixtures have oracle display differences."
       },
       "browserTested": {
@@ -7692,8 +7938,24 @@
         "scope": "Explicit mapped assertions only; unlisted coverage is unassessed."
       },
       "goldenTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "baseline-known-differences",
+        "evidence": [
+          {
+            "fixtureId": "guide-p34-weighted-statistics-replay",
+            "status": "known-differences",
+            "assertedFrames": 65
+          },
+          {
+            "fixtureId": "guide-p36-statistics-correction-replay",
+            "status": "known-differences",
+            "assertedFrames": 30
+          },
+          {
+            "fixtureId": "guide-p38-paired-statistics-replay",
+            "status": "known-differences",
+            "assertedFrames": 88
+          }
+        ],
         "scope": "Baseline characterization only; all current supported fixtures have oracle display differences."
       },
       "browserTested": {
@@ -7868,8 +8130,19 @@
         "scope": "Explicit mapped assertions only; unlisted coverage is unassessed."
       },
       "goldenTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "baseline-known-differences",
+        "evidence": [
+          {
+            "fixtureId": "guide-p34-weighted-statistics-replay",
+            "status": "known-differences",
+            "assertedFrames": 65
+          },
+          {
+            "fixtureId": "guide-p38-paired-statistics-replay",
+            "status": "known-differences",
+            "assertedFrames": 88
+          }
+        ],
         "scope": "Baseline characterization only; all current supported fixtures have oracle display differences."
       },
       "browserTested": {
@@ -7997,8 +8270,14 @@
         "scope": "Explicit mapped assertions only; unlisted coverage is unassessed."
       },
       "goldenTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "baseline-known-differences",
+        "evidence": [
+          {
+            "fixtureId": "guide-p38-paired-statistics-replay",
+            "status": "known-differences",
+            "assertedFrames": 88
+          }
+        ],
         "scope": "Baseline characterization only; all current supported fixtures have oracle display differences."
       },
       "browserTested": {
@@ -12852,13 +13131,46 @@
         "policy": "Frozen baseline classification; infrastructure refactors do not promote capability parity."
       },
       "unitTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "partial",
+        "evidence": [
+          {
+            "kind": "unit",
+            "path": "tests/unit/phase12.test.js",
+            "anchor": "Statistics all six regressions recover coefficients and inverse estimates",
+            "capabilityIds": [
+              "el506.second.el506-k33",
+              "el506.second.el506-k34",
+              "el506.alpha.el506-k33",
+              "el506.alpha.el506-k34",
+              "el506.alpha.el506-k38",
+              "el506.alpha.el506-k39",
+              "el506.context.stat.second.33",
+              "el506.context.stat.second.34",
+              "el506.stat.submode.line",
+              "el506.stat.submode.quad",
+              "el506.stat.submode.exp",
+              "el506.stat.submode.log",
+              "el506.stat.submode.pwr",
+              "el506.stat.submode.inv",
+              "el506.statistic.el506-k33",
+              "el506.statistic.el506-k34",
+              "el506.statistic.el506-k38",
+              "el506.statistic.el506-k39"
+            ],
+            "scope": "Independent analytic datasets assert six regression coefficients, correlation availability and X/Y estimates; hidden native precision remains unmeasured."
+          }
+        ],
         "scope": "Explicit mapped assertions only; unlisted coverage is unassessed."
       },
       "goldenTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "baseline-known-differences",
+        "evidence": [
+          {
+            "fixtureId": "phase12-15-native",
+            "status": "known-differences",
+            "assertedFrames": 397
+          }
+        ],
         "scope": "Baseline characterization only; all current supported fixtures have oracle display differences."
       },
       "browserTested": {
@@ -12896,13 +13208,46 @@
         "policy": "Frozen baseline classification; infrastructure refactors do not promote capability parity."
       },
       "unitTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "partial",
+        "evidence": [
+          {
+            "kind": "unit",
+            "path": "tests/unit/phase12.test.js",
+            "anchor": "Statistics all six regressions recover coefficients and inverse estimates",
+            "capabilityIds": [
+              "el506.second.el506-k33",
+              "el506.second.el506-k34",
+              "el506.alpha.el506-k33",
+              "el506.alpha.el506-k34",
+              "el506.alpha.el506-k38",
+              "el506.alpha.el506-k39",
+              "el506.context.stat.second.33",
+              "el506.context.stat.second.34",
+              "el506.stat.submode.line",
+              "el506.stat.submode.quad",
+              "el506.stat.submode.exp",
+              "el506.stat.submode.log",
+              "el506.stat.submode.pwr",
+              "el506.stat.submode.inv",
+              "el506.statistic.el506-k33",
+              "el506.statistic.el506-k34",
+              "el506.statistic.el506-k38",
+              "el506.statistic.el506-k39"
+            ],
+            "scope": "Independent analytic datasets assert six regression coefficients, correlation availability and X/Y estimates; hidden native precision remains unmeasured."
+          }
+        ],
         "scope": "Explicit mapped assertions only; unlisted coverage is unassessed."
       },
       "goldenTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "baseline-known-differences",
+        "evidence": [
+          {
+            "fixtureId": "phase12-15-native",
+            "status": "known-differences",
+            "assertedFrames": 397
+          }
+        ],
         "scope": "Baseline characterization only; all current supported fixtures have oracle display differences."
       },
       "browserTested": {
@@ -14378,13 +14723,52 @@
         "policy": "Frozen baseline classification; infrastructure refactors do not promote capability parity."
       },
       "unitTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "partial",
+        "evidence": [
+          {
+            "kind": "unit",
+            "path": "tests/unit/phase12.test.js",
+            "anchor": "Statistics every printed weighted correction and paired guide checkpoint reproduces display precision",
+            "capabilityIds": [
+              "el506.alpha.el506-k30",
+              "el506.alpha.el506-k31",
+              "el506.alpha.el506-k32",
+              "el506.alpha.el506-k35",
+              "el506.alpha.el506-k36",
+              "el506.alpha.el506-k37",
+              "el506.alpha.el506-k40",
+              "el506.alpha.el506-k41",
+              "el506.alpha.el506-k42",
+              "el506.alpha.el506-k45",
+              "el506.alpha.el506-k46",
+              "el506.alpha.el506-k47",
+              "el506.statistic.el506-k30",
+              "el506.statistic.el506-k31",
+              "el506.statistic.el506-k32",
+              "el506.statistic.el506-k35",
+              "el506.statistic.el506-k36",
+              "el506.statistic.el506-k37",
+              "el506.statistic.el506-k40",
+              "el506.statistic.el506-k41",
+              "el506.statistic.el506-k42",
+              "el506.statistic.el506-k45",
+              "el506.statistic.el506-k46",
+              "el506.statistic.el506-k47"
+            ],
+            "scope": "Canonical replay asserts every printed weighted/corrected/paired statistics checkpoint; printed precision only."
+          }
+        ],
         "scope": "Explicit mapped assertions only; unlisted coverage is unassessed."
       },
       "goldenTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "baseline-known-differences",
+        "evidence": [
+          {
+            "fixtureId": "phase12-15-native",
+            "status": "known-differences",
+            "assertedFrames": 397
+          }
+        ],
         "scope": "Baseline characterization only; all current supported fixtures have oracle display differences."
       },
       "browserTested": {
@@ -14422,13 +14806,52 @@
         "policy": "Frozen baseline classification; infrastructure refactors do not promote capability parity."
       },
       "unitTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "partial",
+        "evidence": [
+          {
+            "kind": "unit",
+            "path": "tests/unit/phase12.test.js",
+            "anchor": "Statistics every printed weighted correction and paired guide checkpoint reproduces display precision",
+            "capabilityIds": [
+              "el506.alpha.el506-k30",
+              "el506.alpha.el506-k31",
+              "el506.alpha.el506-k32",
+              "el506.alpha.el506-k35",
+              "el506.alpha.el506-k36",
+              "el506.alpha.el506-k37",
+              "el506.alpha.el506-k40",
+              "el506.alpha.el506-k41",
+              "el506.alpha.el506-k42",
+              "el506.alpha.el506-k45",
+              "el506.alpha.el506-k46",
+              "el506.alpha.el506-k47",
+              "el506.statistic.el506-k30",
+              "el506.statistic.el506-k31",
+              "el506.statistic.el506-k32",
+              "el506.statistic.el506-k35",
+              "el506.statistic.el506-k36",
+              "el506.statistic.el506-k37",
+              "el506.statistic.el506-k40",
+              "el506.statistic.el506-k41",
+              "el506.statistic.el506-k42",
+              "el506.statistic.el506-k45",
+              "el506.statistic.el506-k46",
+              "el506.statistic.el506-k47"
+            ],
+            "scope": "Canonical replay asserts every printed weighted/corrected/paired statistics checkpoint; printed precision only."
+          }
+        ],
         "scope": "Explicit mapped assertions only; unlisted coverage is unassessed."
       },
       "goldenTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "baseline-known-differences",
+        "evidence": [
+          {
+            "fixtureId": "phase12-15-native",
+            "status": "known-differences",
+            "assertedFrames": 397
+          }
+        ],
         "scope": "Baseline characterization only; all current supported fixtures have oracle display differences."
       },
       "browserTested": {
@@ -14466,13 +14889,52 @@
         "policy": "Frozen baseline classification; infrastructure refactors do not promote capability parity."
       },
       "unitTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "partial",
+        "evidence": [
+          {
+            "kind": "unit",
+            "path": "tests/unit/phase12.test.js",
+            "anchor": "Statistics every printed weighted correction and paired guide checkpoint reproduces display precision",
+            "capabilityIds": [
+              "el506.alpha.el506-k30",
+              "el506.alpha.el506-k31",
+              "el506.alpha.el506-k32",
+              "el506.alpha.el506-k35",
+              "el506.alpha.el506-k36",
+              "el506.alpha.el506-k37",
+              "el506.alpha.el506-k40",
+              "el506.alpha.el506-k41",
+              "el506.alpha.el506-k42",
+              "el506.alpha.el506-k45",
+              "el506.alpha.el506-k46",
+              "el506.alpha.el506-k47",
+              "el506.statistic.el506-k30",
+              "el506.statistic.el506-k31",
+              "el506.statistic.el506-k32",
+              "el506.statistic.el506-k35",
+              "el506.statistic.el506-k36",
+              "el506.statistic.el506-k37",
+              "el506.statistic.el506-k40",
+              "el506.statistic.el506-k41",
+              "el506.statistic.el506-k42",
+              "el506.statistic.el506-k45",
+              "el506.statistic.el506-k46",
+              "el506.statistic.el506-k47"
+            ],
+            "scope": "Canonical replay asserts every printed weighted/corrected/paired statistics checkpoint; printed precision only."
+          }
+        ],
         "scope": "Explicit mapped assertions only; unlisted coverage is unassessed."
       },
       "goldenTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "baseline-known-differences",
+        "evidence": [
+          {
+            "fixtureId": "phase12-15-native",
+            "status": "known-differences",
+            "assertedFrames": 397
+          }
+        ],
         "scope": "Baseline characterization only; all current supported fixtures have oracle display differences."
       },
       "browserTested": {
@@ -14510,13 +14972,46 @@
         "policy": "Frozen baseline classification; infrastructure refactors do not promote capability parity."
       },
       "unitTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "partial",
+        "evidence": [
+          {
+            "kind": "unit",
+            "path": "tests/unit/phase12.test.js",
+            "anchor": "Statistics all six regressions recover coefficients and inverse estimates",
+            "capabilityIds": [
+              "el506.second.el506-k33",
+              "el506.second.el506-k34",
+              "el506.alpha.el506-k33",
+              "el506.alpha.el506-k34",
+              "el506.alpha.el506-k38",
+              "el506.alpha.el506-k39",
+              "el506.context.stat.second.33",
+              "el506.context.stat.second.34",
+              "el506.stat.submode.line",
+              "el506.stat.submode.quad",
+              "el506.stat.submode.exp",
+              "el506.stat.submode.log",
+              "el506.stat.submode.pwr",
+              "el506.stat.submode.inv",
+              "el506.statistic.el506-k33",
+              "el506.statistic.el506-k34",
+              "el506.statistic.el506-k38",
+              "el506.statistic.el506-k39"
+            ],
+            "scope": "Independent analytic datasets assert six regression coefficients, correlation availability and X/Y estimates; hidden native precision remains unmeasured."
+          }
+        ],
         "scope": "Explicit mapped assertions only; unlisted coverage is unassessed."
       },
       "goldenTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "baseline-known-differences",
+        "evidence": [
+          {
+            "fixtureId": "phase12-15-native",
+            "status": "known-differences",
+            "assertedFrames": 397
+          }
+        ],
         "scope": "Baseline characterization only; all current supported fixtures have oracle display differences."
       },
       "browserTested": {
@@ -14554,13 +15049,46 @@
         "policy": "Frozen baseline classification; infrastructure refactors do not promote capability parity."
       },
       "unitTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "partial",
+        "evidence": [
+          {
+            "kind": "unit",
+            "path": "tests/unit/phase12.test.js",
+            "anchor": "Statistics all six regressions recover coefficients and inverse estimates",
+            "capabilityIds": [
+              "el506.second.el506-k33",
+              "el506.second.el506-k34",
+              "el506.alpha.el506-k33",
+              "el506.alpha.el506-k34",
+              "el506.alpha.el506-k38",
+              "el506.alpha.el506-k39",
+              "el506.context.stat.second.33",
+              "el506.context.stat.second.34",
+              "el506.stat.submode.line",
+              "el506.stat.submode.quad",
+              "el506.stat.submode.exp",
+              "el506.stat.submode.log",
+              "el506.stat.submode.pwr",
+              "el506.stat.submode.inv",
+              "el506.statistic.el506-k33",
+              "el506.statistic.el506-k34",
+              "el506.statistic.el506-k38",
+              "el506.statistic.el506-k39"
+            ],
+            "scope": "Independent analytic datasets assert six regression coefficients, correlation availability and X/Y estimates; hidden native precision remains unmeasured."
+          }
+        ],
         "scope": "Explicit mapped assertions only; unlisted coverage is unassessed."
       },
       "goldenTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "baseline-known-differences",
+        "evidence": [
+          {
+            "fixtureId": "phase12-15-native",
+            "status": "known-differences",
+            "assertedFrames": 397
+          }
+        ],
         "scope": "Baseline characterization only; all current supported fixtures have oracle display differences."
       },
       "browserTested": {
@@ -14600,18 +15128,76 @@
         "policy": "Frozen baseline classification; infrastructure refactors do not promote capability parity."
       },
       "unitTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "partial",
+        "evidence": [
+          {
+            "kind": "unit",
+            "path": "tests/unit/phase12.test.js",
+            "anchor": "Statistics every printed weighted correction and paired guide checkpoint reproduces display precision",
+            "capabilityIds": [
+              "el506.alpha.el506-k30",
+              "el506.alpha.el506-k31",
+              "el506.alpha.el506-k32",
+              "el506.alpha.el506-k35",
+              "el506.alpha.el506-k36",
+              "el506.alpha.el506-k37",
+              "el506.alpha.el506-k40",
+              "el506.alpha.el506-k41",
+              "el506.alpha.el506-k42",
+              "el506.alpha.el506-k45",
+              "el506.alpha.el506-k46",
+              "el506.alpha.el506-k47",
+              "el506.statistic.el506-k30",
+              "el506.statistic.el506-k31",
+              "el506.statistic.el506-k32",
+              "el506.statistic.el506-k35",
+              "el506.statistic.el506-k36",
+              "el506.statistic.el506-k37",
+              "el506.statistic.el506-k40",
+              "el506.statistic.el506-k41",
+              "el506.statistic.el506-k42",
+              "el506.statistic.el506-k45",
+              "el506.statistic.el506-k46",
+              "el506.statistic.el506-k47"
+            ],
+            "scope": "Canonical replay asserts every printed weighted/corrected/paired statistics checkpoint; printed precision only."
+          }
+        ],
         "scope": "Explicit mapped assertions only; unlisted coverage is unassessed."
       },
       "goldenTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "baseline-known-differences",
+        "evidence": [
+          {
+            "fixtureId": "phase12-15-native",
+            "status": "known-differences",
+            "assertedFrames": 397
+          }
+        ],
         "scope": "Baseline characterization only; all current supported fixtures have oracle display differences."
       },
       "browserTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "partial",
+        "evidence": [
+          {
+            "kind": "browser",
+            "path": "tests/e2e/phase12.spec.js",
+            "anchor": "Statistics result recall expression use and probability use physical keys",
+            "capabilityIds": [
+              "el506.alpha.el506-k35",
+              "el506.alpha.el506-k36",
+              "el506.alpha.el506-k37",
+              "el506.statistic.el506-k35",
+              "el506.statistic.el506-k36",
+              "el506.statistic.el506-k37",
+              "el506.probability.to-t",
+              "el506.probability.p",
+              "el506.probability.q",
+              "el506.probability.r"
+            ],
+            "scope": "Actual buttons exercise SD RCL/ALPHA and probability; no transformed-regression browser parity claim."
+          }
+        ],
         "scope": "Explicit canonical baseline browser replays only; legacy regression coverage is not inferred as parity."
       }
     },
@@ -14646,18 +15232,76 @@
         "policy": "Frozen baseline classification; infrastructure refactors do not promote capability parity."
       },
       "unitTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "partial",
+        "evidence": [
+          {
+            "kind": "unit",
+            "path": "tests/unit/phase12.test.js",
+            "anchor": "Statistics every printed weighted correction and paired guide checkpoint reproduces display precision",
+            "capabilityIds": [
+              "el506.alpha.el506-k30",
+              "el506.alpha.el506-k31",
+              "el506.alpha.el506-k32",
+              "el506.alpha.el506-k35",
+              "el506.alpha.el506-k36",
+              "el506.alpha.el506-k37",
+              "el506.alpha.el506-k40",
+              "el506.alpha.el506-k41",
+              "el506.alpha.el506-k42",
+              "el506.alpha.el506-k45",
+              "el506.alpha.el506-k46",
+              "el506.alpha.el506-k47",
+              "el506.statistic.el506-k30",
+              "el506.statistic.el506-k31",
+              "el506.statistic.el506-k32",
+              "el506.statistic.el506-k35",
+              "el506.statistic.el506-k36",
+              "el506.statistic.el506-k37",
+              "el506.statistic.el506-k40",
+              "el506.statistic.el506-k41",
+              "el506.statistic.el506-k42",
+              "el506.statistic.el506-k45",
+              "el506.statistic.el506-k46",
+              "el506.statistic.el506-k47"
+            ],
+            "scope": "Canonical replay asserts every printed weighted/corrected/paired statistics checkpoint; printed precision only."
+          }
+        ],
         "scope": "Explicit mapped assertions only; unlisted coverage is unassessed."
       },
       "goldenTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "baseline-known-differences",
+        "evidence": [
+          {
+            "fixtureId": "phase12-15-native",
+            "status": "known-differences",
+            "assertedFrames": 397
+          }
+        ],
         "scope": "Baseline characterization only; all current supported fixtures have oracle display differences."
       },
       "browserTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "partial",
+        "evidence": [
+          {
+            "kind": "browser",
+            "path": "tests/e2e/phase12.spec.js",
+            "anchor": "Statistics result recall expression use and probability use physical keys",
+            "capabilityIds": [
+              "el506.alpha.el506-k35",
+              "el506.alpha.el506-k36",
+              "el506.alpha.el506-k37",
+              "el506.statistic.el506-k35",
+              "el506.statistic.el506-k36",
+              "el506.statistic.el506-k37",
+              "el506.probability.to-t",
+              "el506.probability.p",
+              "el506.probability.q",
+              "el506.probability.r"
+            ],
+            "scope": "Actual buttons exercise SD RCL/ALPHA and probability; no transformed-regression browser parity claim."
+          }
+        ],
         "scope": "Explicit canonical baseline browser replays only; legacy regression coverage is not inferred as parity."
       }
     },
@@ -14690,18 +15334,76 @@
         "policy": "Frozen baseline classification; infrastructure refactors do not promote capability parity."
       },
       "unitTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "partial",
+        "evidence": [
+          {
+            "kind": "unit",
+            "path": "tests/unit/phase12.test.js",
+            "anchor": "Statistics every printed weighted correction and paired guide checkpoint reproduces display precision",
+            "capabilityIds": [
+              "el506.alpha.el506-k30",
+              "el506.alpha.el506-k31",
+              "el506.alpha.el506-k32",
+              "el506.alpha.el506-k35",
+              "el506.alpha.el506-k36",
+              "el506.alpha.el506-k37",
+              "el506.alpha.el506-k40",
+              "el506.alpha.el506-k41",
+              "el506.alpha.el506-k42",
+              "el506.alpha.el506-k45",
+              "el506.alpha.el506-k46",
+              "el506.alpha.el506-k47",
+              "el506.statistic.el506-k30",
+              "el506.statistic.el506-k31",
+              "el506.statistic.el506-k32",
+              "el506.statistic.el506-k35",
+              "el506.statistic.el506-k36",
+              "el506.statistic.el506-k37",
+              "el506.statistic.el506-k40",
+              "el506.statistic.el506-k41",
+              "el506.statistic.el506-k42",
+              "el506.statistic.el506-k45",
+              "el506.statistic.el506-k46",
+              "el506.statistic.el506-k47"
+            ],
+            "scope": "Canonical replay asserts every printed weighted/corrected/paired statistics checkpoint; printed precision only."
+          }
+        ],
         "scope": "Explicit mapped assertions only; unlisted coverage is unassessed."
       },
       "goldenTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "baseline-known-differences",
+        "evidence": [
+          {
+            "fixtureId": "phase12-15-native",
+            "status": "known-differences",
+            "assertedFrames": 397
+          }
+        ],
         "scope": "Baseline characterization only; all current supported fixtures have oracle display differences."
       },
       "browserTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "partial",
+        "evidence": [
+          {
+            "kind": "browser",
+            "path": "tests/e2e/phase12.spec.js",
+            "anchor": "Statistics result recall expression use and probability use physical keys",
+            "capabilityIds": [
+              "el506.alpha.el506-k35",
+              "el506.alpha.el506-k36",
+              "el506.alpha.el506-k37",
+              "el506.statistic.el506-k35",
+              "el506.statistic.el506-k36",
+              "el506.statistic.el506-k37",
+              "el506.probability.to-t",
+              "el506.probability.p",
+              "el506.probability.q",
+              "el506.probability.r"
+            ],
+            "scope": "Actual buttons exercise SD RCL/ALPHA and probability; no transformed-regression browser parity claim."
+          }
+        ],
         "scope": "Explicit canonical baseline browser replays only; legacy regression coverage is not inferred as parity."
       }
     },
@@ -14734,8 +15436,35 @@
         "policy": "Frozen baseline classification; infrastructure refactors do not promote capability parity."
       },
       "unitTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "partial",
+        "evidence": [
+          {
+            "kind": "unit",
+            "path": "tests/unit/phase12.test.js",
+            "anchor": "Statistics all six regressions recover coefficients and inverse estimates",
+            "capabilityIds": [
+              "el506.second.el506-k33",
+              "el506.second.el506-k34",
+              "el506.alpha.el506-k33",
+              "el506.alpha.el506-k34",
+              "el506.alpha.el506-k38",
+              "el506.alpha.el506-k39",
+              "el506.context.stat.second.33",
+              "el506.context.stat.second.34",
+              "el506.stat.submode.line",
+              "el506.stat.submode.quad",
+              "el506.stat.submode.exp",
+              "el506.stat.submode.log",
+              "el506.stat.submode.pwr",
+              "el506.stat.submode.inv",
+              "el506.statistic.el506-k33",
+              "el506.statistic.el506-k34",
+              "el506.statistic.el506-k38",
+              "el506.statistic.el506-k39"
+            ],
+            "scope": "Independent analytic datasets assert six regression coefficients, correlation availability and X/Y estimates; hidden native precision remains unmeasured."
+          }
+        ],
         "scope": "Explicit mapped assertions only; unlisted coverage is unassessed."
       },
       "goldenTested": {
@@ -14778,13 +15507,46 @@
         "policy": "Frozen baseline classification; infrastructure refactors do not promote capability parity."
       },
       "unitTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "partial",
+        "evidence": [
+          {
+            "kind": "unit",
+            "path": "tests/unit/phase12.test.js",
+            "anchor": "Statistics all six regressions recover coefficients and inverse estimates",
+            "capabilityIds": [
+              "el506.second.el506-k33",
+              "el506.second.el506-k34",
+              "el506.alpha.el506-k33",
+              "el506.alpha.el506-k34",
+              "el506.alpha.el506-k38",
+              "el506.alpha.el506-k39",
+              "el506.context.stat.second.33",
+              "el506.context.stat.second.34",
+              "el506.stat.submode.line",
+              "el506.stat.submode.quad",
+              "el506.stat.submode.exp",
+              "el506.stat.submode.log",
+              "el506.stat.submode.pwr",
+              "el506.stat.submode.inv",
+              "el506.statistic.el506-k33",
+              "el506.statistic.el506-k34",
+              "el506.statistic.el506-k38",
+              "el506.statistic.el506-k39"
+            ],
+            "scope": "Independent analytic datasets assert six regression coefficients, correlation availability and X/Y estimates; hidden native precision remains unmeasured."
+          }
+        ],
         "scope": "Explicit mapped assertions only; unlisted coverage is unassessed."
       },
       "goldenTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "baseline-known-differences",
+        "evidence": [
+          {
+            "fixtureId": "phase12-15-native",
+            "status": "known-differences",
+            "assertedFrames": 397
+          }
+        ],
         "scope": "Baseline characterization only; all current supported fixtures have oracle display differences."
       },
       "browserTested": {
@@ -14822,13 +15584,52 @@
         "policy": "Frozen baseline classification; infrastructure refactors do not promote capability parity."
       },
       "unitTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "partial",
+        "evidence": [
+          {
+            "kind": "unit",
+            "path": "tests/unit/phase12.test.js",
+            "anchor": "Statistics every printed weighted correction and paired guide checkpoint reproduces display precision",
+            "capabilityIds": [
+              "el506.alpha.el506-k30",
+              "el506.alpha.el506-k31",
+              "el506.alpha.el506-k32",
+              "el506.alpha.el506-k35",
+              "el506.alpha.el506-k36",
+              "el506.alpha.el506-k37",
+              "el506.alpha.el506-k40",
+              "el506.alpha.el506-k41",
+              "el506.alpha.el506-k42",
+              "el506.alpha.el506-k45",
+              "el506.alpha.el506-k46",
+              "el506.alpha.el506-k47",
+              "el506.statistic.el506-k30",
+              "el506.statistic.el506-k31",
+              "el506.statistic.el506-k32",
+              "el506.statistic.el506-k35",
+              "el506.statistic.el506-k36",
+              "el506.statistic.el506-k37",
+              "el506.statistic.el506-k40",
+              "el506.statistic.el506-k41",
+              "el506.statistic.el506-k42",
+              "el506.statistic.el506-k45",
+              "el506.statistic.el506-k46",
+              "el506.statistic.el506-k47"
+            ],
+            "scope": "Canonical replay asserts every printed weighted/corrected/paired statistics checkpoint; printed precision only."
+          }
+        ],
         "scope": "Explicit mapped assertions only; unlisted coverage is unassessed."
       },
       "goldenTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "baseline-known-differences",
+        "evidence": [
+          {
+            "fixtureId": "phase12-15-native",
+            "status": "known-differences",
+            "assertedFrames": 397
+          }
+        ],
         "scope": "Baseline characterization only; all current supported fixtures have oracle display differences."
       },
       "browserTested": {
@@ -14866,13 +15667,52 @@
         "policy": "Frozen baseline classification; infrastructure refactors do not promote capability parity."
       },
       "unitTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "partial",
+        "evidence": [
+          {
+            "kind": "unit",
+            "path": "tests/unit/phase12.test.js",
+            "anchor": "Statistics every printed weighted correction and paired guide checkpoint reproduces display precision",
+            "capabilityIds": [
+              "el506.alpha.el506-k30",
+              "el506.alpha.el506-k31",
+              "el506.alpha.el506-k32",
+              "el506.alpha.el506-k35",
+              "el506.alpha.el506-k36",
+              "el506.alpha.el506-k37",
+              "el506.alpha.el506-k40",
+              "el506.alpha.el506-k41",
+              "el506.alpha.el506-k42",
+              "el506.alpha.el506-k45",
+              "el506.alpha.el506-k46",
+              "el506.alpha.el506-k47",
+              "el506.statistic.el506-k30",
+              "el506.statistic.el506-k31",
+              "el506.statistic.el506-k32",
+              "el506.statistic.el506-k35",
+              "el506.statistic.el506-k36",
+              "el506.statistic.el506-k37",
+              "el506.statistic.el506-k40",
+              "el506.statistic.el506-k41",
+              "el506.statistic.el506-k42",
+              "el506.statistic.el506-k45",
+              "el506.statistic.el506-k46",
+              "el506.statistic.el506-k47"
+            ],
+            "scope": "Canonical replay asserts every printed weighted/corrected/paired statistics checkpoint; printed precision only."
+          }
+        ],
         "scope": "Explicit mapped assertions only; unlisted coverage is unassessed."
       },
       "goldenTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "baseline-known-differences",
+        "evidence": [
+          {
+            "fixtureId": "phase12-15-native",
+            "status": "known-differences",
+            "assertedFrames": 397
+          }
+        ],
         "scope": "Baseline characterization only; all current supported fixtures have oracle display differences."
       },
       "browserTested": {
@@ -14910,13 +15750,52 @@
         "policy": "Frozen baseline classification; infrastructure refactors do not promote capability parity."
       },
       "unitTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "partial",
+        "evidence": [
+          {
+            "kind": "unit",
+            "path": "tests/unit/phase12.test.js",
+            "anchor": "Statistics every printed weighted correction and paired guide checkpoint reproduces display precision",
+            "capabilityIds": [
+              "el506.alpha.el506-k30",
+              "el506.alpha.el506-k31",
+              "el506.alpha.el506-k32",
+              "el506.alpha.el506-k35",
+              "el506.alpha.el506-k36",
+              "el506.alpha.el506-k37",
+              "el506.alpha.el506-k40",
+              "el506.alpha.el506-k41",
+              "el506.alpha.el506-k42",
+              "el506.alpha.el506-k45",
+              "el506.alpha.el506-k46",
+              "el506.alpha.el506-k47",
+              "el506.statistic.el506-k30",
+              "el506.statistic.el506-k31",
+              "el506.statistic.el506-k32",
+              "el506.statistic.el506-k35",
+              "el506.statistic.el506-k36",
+              "el506.statistic.el506-k37",
+              "el506.statistic.el506-k40",
+              "el506.statistic.el506-k41",
+              "el506.statistic.el506-k42",
+              "el506.statistic.el506-k45",
+              "el506.statistic.el506-k46",
+              "el506.statistic.el506-k47"
+            ],
+            "scope": "Canonical replay asserts every printed weighted/corrected/paired statistics checkpoint; printed precision only."
+          }
+        ],
         "scope": "Explicit mapped assertions only; unlisted coverage is unassessed."
       },
       "goldenTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "baseline-known-differences",
+        "evidence": [
+          {
+            "fixtureId": "phase12-15-native",
+            "status": "known-differences",
+            "assertedFrames": 397
+          }
+        ],
         "scope": "Baseline characterization only; all current supported fixtures have oracle display differences."
       },
       "browserTested": {
@@ -14956,13 +15835,52 @@
         "policy": "Frozen baseline classification; infrastructure refactors do not promote capability parity."
       },
       "unitTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "partial",
+        "evidence": [
+          {
+            "kind": "unit",
+            "path": "tests/unit/phase12.test.js",
+            "anchor": "Statistics every printed weighted correction and paired guide checkpoint reproduces display precision",
+            "capabilityIds": [
+              "el506.alpha.el506-k30",
+              "el506.alpha.el506-k31",
+              "el506.alpha.el506-k32",
+              "el506.alpha.el506-k35",
+              "el506.alpha.el506-k36",
+              "el506.alpha.el506-k37",
+              "el506.alpha.el506-k40",
+              "el506.alpha.el506-k41",
+              "el506.alpha.el506-k42",
+              "el506.alpha.el506-k45",
+              "el506.alpha.el506-k46",
+              "el506.alpha.el506-k47",
+              "el506.statistic.el506-k30",
+              "el506.statistic.el506-k31",
+              "el506.statistic.el506-k32",
+              "el506.statistic.el506-k35",
+              "el506.statistic.el506-k36",
+              "el506.statistic.el506-k37",
+              "el506.statistic.el506-k40",
+              "el506.statistic.el506-k41",
+              "el506.statistic.el506-k42",
+              "el506.statistic.el506-k45",
+              "el506.statistic.el506-k46",
+              "el506.statistic.el506-k47"
+            ],
+            "scope": "Canonical replay asserts every printed weighted/corrected/paired statistics checkpoint; printed precision only."
+          }
+        ],
         "scope": "Explicit mapped assertions only; unlisted coverage is unassessed."
       },
       "goldenTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "baseline-known-differences",
+        "evidence": [
+          {
+            "fixtureId": "phase12-15-native",
+            "status": "known-differences",
+            "assertedFrames": 397
+          }
+        ],
         "scope": "Baseline characterization only; all current supported fixtures have oracle display differences."
       },
       "browserTested": {
@@ -15002,13 +15920,52 @@
         "policy": "Frozen baseline classification; infrastructure refactors do not promote capability parity."
       },
       "unitTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "partial",
+        "evidence": [
+          {
+            "kind": "unit",
+            "path": "tests/unit/phase12.test.js",
+            "anchor": "Statistics every printed weighted correction and paired guide checkpoint reproduces display precision",
+            "capabilityIds": [
+              "el506.alpha.el506-k30",
+              "el506.alpha.el506-k31",
+              "el506.alpha.el506-k32",
+              "el506.alpha.el506-k35",
+              "el506.alpha.el506-k36",
+              "el506.alpha.el506-k37",
+              "el506.alpha.el506-k40",
+              "el506.alpha.el506-k41",
+              "el506.alpha.el506-k42",
+              "el506.alpha.el506-k45",
+              "el506.alpha.el506-k46",
+              "el506.alpha.el506-k47",
+              "el506.statistic.el506-k30",
+              "el506.statistic.el506-k31",
+              "el506.statistic.el506-k32",
+              "el506.statistic.el506-k35",
+              "el506.statistic.el506-k36",
+              "el506.statistic.el506-k37",
+              "el506.statistic.el506-k40",
+              "el506.statistic.el506-k41",
+              "el506.statistic.el506-k42",
+              "el506.statistic.el506-k45",
+              "el506.statistic.el506-k46",
+              "el506.statistic.el506-k47"
+            ],
+            "scope": "Canonical replay asserts every printed weighted/corrected/paired statistics checkpoint; printed precision only."
+          }
+        ],
         "scope": "Explicit mapped assertions only; unlisted coverage is unassessed."
       },
       "goldenTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "baseline-known-differences",
+        "evidence": [
+          {
+            "fixtureId": "phase12-15-native",
+            "status": "known-differences",
+            "assertedFrames": 397
+          }
+        ],
         "scope": "Baseline characterization only; all current supported fixtures have oracle display differences."
       },
       "browserTested": {
@@ -15048,13 +16005,52 @@
         "policy": "Frozen baseline classification; infrastructure refactors do not promote capability parity."
       },
       "unitTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "partial",
+        "evidence": [
+          {
+            "kind": "unit",
+            "path": "tests/unit/phase12.test.js",
+            "anchor": "Statistics every printed weighted correction and paired guide checkpoint reproduces display precision",
+            "capabilityIds": [
+              "el506.alpha.el506-k30",
+              "el506.alpha.el506-k31",
+              "el506.alpha.el506-k32",
+              "el506.alpha.el506-k35",
+              "el506.alpha.el506-k36",
+              "el506.alpha.el506-k37",
+              "el506.alpha.el506-k40",
+              "el506.alpha.el506-k41",
+              "el506.alpha.el506-k42",
+              "el506.alpha.el506-k45",
+              "el506.alpha.el506-k46",
+              "el506.alpha.el506-k47",
+              "el506.statistic.el506-k30",
+              "el506.statistic.el506-k31",
+              "el506.statistic.el506-k32",
+              "el506.statistic.el506-k35",
+              "el506.statistic.el506-k36",
+              "el506.statistic.el506-k37",
+              "el506.statistic.el506-k40",
+              "el506.statistic.el506-k41",
+              "el506.statistic.el506-k42",
+              "el506.statistic.el506-k45",
+              "el506.statistic.el506-k46",
+              "el506.statistic.el506-k47"
+            ],
+            "scope": "Canonical replay asserts every printed weighted/corrected/paired statistics checkpoint; printed precision only."
+          }
+        ],
         "scope": "Explicit mapped assertions only; unlisted coverage is unassessed."
       },
       "goldenTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "baseline-known-differences",
+        "evidence": [
+          {
+            "fixtureId": "phase12-15-native",
+            "status": "known-differences",
+            "assertedFrames": 397
+          }
+        ],
         "scope": "Baseline characterization only; all current supported fixtures have oracle display differences."
       },
       "browserTested": {
@@ -15275,13 +16271,46 @@
         "policy": "Frozen baseline classification; infrastructure refactors do not promote capability parity."
       },
       "unitTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "partial",
+        "evidence": [
+          {
+            "kind": "unit",
+            "path": "tests/unit/phase12.test.js",
+            "anchor": "Statistics all six regressions recover coefficients and inverse estimates",
+            "capabilityIds": [
+              "el506.second.el506-k33",
+              "el506.second.el506-k34",
+              "el506.alpha.el506-k33",
+              "el506.alpha.el506-k34",
+              "el506.alpha.el506-k38",
+              "el506.alpha.el506-k39",
+              "el506.context.stat.second.33",
+              "el506.context.stat.second.34",
+              "el506.stat.submode.line",
+              "el506.stat.submode.quad",
+              "el506.stat.submode.exp",
+              "el506.stat.submode.log",
+              "el506.stat.submode.pwr",
+              "el506.stat.submode.inv",
+              "el506.statistic.el506-k33",
+              "el506.statistic.el506-k34",
+              "el506.statistic.el506-k38",
+              "el506.statistic.el506-k39"
+            ],
+            "scope": "Independent analytic datasets assert six regression coefficients, correlation availability and X/Y estimates; hidden native precision remains unmeasured."
+          }
+        ],
         "scope": "Explicit mapped assertions only; unlisted coverage is unassessed."
       },
       "goldenTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "baseline-known-differences",
+        "evidence": [
+          {
+            "fixtureId": "phase12-15-native",
+            "status": "known-differences",
+            "assertedFrames": 397
+          }
+        ],
         "scope": "Baseline characterization only; all current supported fixtures have oracle display differences."
       },
       "browserTested": {
@@ -15319,13 +16348,46 @@
         "policy": "Frozen baseline classification; infrastructure refactors do not promote capability parity."
       },
       "unitTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "partial",
+        "evidence": [
+          {
+            "kind": "unit",
+            "path": "tests/unit/phase12.test.js",
+            "anchor": "Statistics all six regressions recover coefficients and inverse estimates",
+            "capabilityIds": [
+              "el506.second.el506-k33",
+              "el506.second.el506-k34",
+              "el506.alpha.el506-k33",
+              "el506.alpha.el506-k34",
+              "el506.alpha.el506-k38",
+              "el506.alpha.el506-k39",
+              "el506.context.stat.second.33",
+              "el506.context.stat.second.34",
+              "el506.stat.submode.line",
+              "el506.stat.submode.quad",
+              "el506.stat.submode.exp",
+              "el506.stat.submode.log",
+              "el506.stat.submode.pwr",
+              "el506.stat.submode.inv",
+              "el506.statistic.el506-k33",
+              "el506.statistic.el506-k34",
+              "el506.statistic.el506-k38",
+              "el506.statistic.el506-k39"
+            ],
+            "scope": "Independent analytic datasets assert six regression coefficients, correlation availability and X/Y estimates; hidden native precision remains unmeasured."
+          }
+        ],
         "scope": "Explicit mapped assertions only; unlisted coverage is unassessed."
       },
       "goldenTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "baseline-known-differences",
+        "evidence": [
+          {
+            "fixtureId": "phase12-15-native",
+            "status": "known-differences",
+            "assertedFrames": 397
+          }
+        ],
         "scope": "Baseline characterization only; all current supported fixtures have oracle display differences."
       },
       "browserTested": {
@@ -16507,18 +17569,51 @@
         "policy": "Frozen baseline classification; infrastructure refactors do not promote capability parity."
       },
       "unitTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "partial",
+        "evidence": [
+          {
+            "kind": "unit",
+            "path": "tests/unit/phase13.test.js",
+            "anchor": "EQN physical three-variable and polynomial controllers solve and preserve ANS",
+            "capabilityIds": [
+              "el506.mode.eqn",
+              "el506.eqn.0",
+              "el506.eqn.1",
+              "el506.eqn.2",
+              "el506.eqn.3",
+              "el506.context.confirm-coefficient-or-data"
+            ],
+            "scope": "Canonical three-variable, quadratic and cubic coefficient workflows, tagged results and ANS isolation; solver residual, singular and repeated-root cases are separately asserted in this file."
+          }
+        ],
         "scope": "Explicit mapped assertions only; unlisted coverage is unassessed."
       },
       "goldenTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "baseline-known-differences",
+        "evidence": [
+          {
+            "fixtureId": "phase12-15-native",
+            "status": "known-differences",
+            "assertedFrames": 397
+          }
+        ],
         "scope": "Baseline characterization only; all current supported fixtures have oracle display differences."
       },
       "browserTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "partial",
+        "evidence": [
+          {
+            "kind": "browser",
+            "path": "tests/e2e/phase13-15.spec.js",
+            "anchor": "EQN coefficients solve page determinant correct retained input and recover",
+            "capabilityIds": [
+              "el506.mode.eqn",
+              "el506.eqn.0",
+              "el506.context.confirm-coefficient-or-data"
+            ],
+            "scope": "Visible 2-VLE prompt, x/y/determinant pages and retained coefficient via actual controls."
+          }
+        ],
         "scope": "Explicit canonical baseline browser replays only; legacy regression coverage is not inferred as parity."
       }
     },
@@ -16551,18 +17646,48 @@
         "policy": "Frozen baseline classification; infrastructure refactors do not promote capability parity."
       },
       "unitTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "partial",
+        "evidence": [
+          {
+            "kind": "unit",
+            "path": "tests/unit/phase14.test.js",
+            "anchor": "CPLX native polar separator pure-imaginary paging and unsupported general powers",
+            "capabilityIds": [
+              "el506.mode.cplx",
+              "el506.complex.conj",
+              "el506.context.imaginary-unit-i",
+              "el506.context.complex-rectangular-polar-separator"
+            ],
+            "scope": "Native i/angle entry and component default, square, real general exponent and complex general-power rejection; conjugation, arithmetic, conversion, memory and recovery have separate tests in this file."
+          }
+        ],
         "scope": "Explicit mapped assertions only; unlisted coverage is unassessed."
       },
       "goldenTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "baseline-known-differences",
+        "evidence": [
+          {
+            "fixtureId": "phase12-15-native",
+            "status": "known-differences",
+            "assertedFrames": 397
+          }
+        ],
         "scope": "Baseline characterization only; all current supported fixtures have oracle display differences."
       },
       "browserTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "partial",
+        "evidence": [
+          {
+            "kind": "browser",
+            "path": "tests/e2e/phase13-15.spec.js",
+            "anchor": "CPLX physical imaginary entry ANS multiplication and polar component paging",
+            "capabilityIds": [
+              "el506.mode.cplx",
+              "el506.context.imaginary-unit-i"
+            ],
+            "scope": "Visible rectangular components, polar conversion and typed ANS multiplication."
+          }
+        ],
         "scope": "Explicit canonical baseline browser replays only; legacy regression coverage is not inferred as parity."
       }
     },
@@ -16595,18 +17720,68 @@
         "policy": "Frozen baseline classification; infrastructure refactors do not promote capability parity."
       },
       "unitTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "partial",
+        "evidence": [
+          {
+            "kind": "unit",
+            "path": "tests/unit/phase15.test.js",
+            "anchor": "MAT physical multi-argument operations use canonical comma entry and bounded allocation",
+            "capabilityIds": [
+              "el506.mode.mat",
+              "el506.matrix-root.mat",
+              "el506.matrix-root.chk",
+              "el506.matrix-root.sto",
+              "el506.matrix-root.ope",
+              "el506.matrix-root.math",
+              "el506.matrix-root.mat-to-list",
+              "el506.matrix-root.mata-to-list",
+              "el506.matrix-ope.dim",
+              "el506.matrix-ope.fill",
+              "el506.matrix-ope.cumul",
+              "el506.matrix-ope.aug",
+              "el506.matrix-ope.identity",
+              "el506.matrix-ope.rnd-mat",
+              "el506.matrix-math.det",
+              "el506.matrix-math.trans",
+              "el506.matrix.slot.a",
+              "el506.matrix.slot.b",
+              "el506.matrix.slot.c",
+              "el506.matrix.slot.d",
+              "el506.context.matrix-or-list-result-element-paging"
+            ],
+            "scope": "Physical fill, dimension, augmentation, random matrix and native column-wise cumul; entry, slot isolation, det, transpose, inverse, square/cube, limits and snapshot have separate tests in this file."
+          }
+        ],
         "scope": "Explicit mapped assertions only; unlisted coverage is unassessed."
       },
       "goldenTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "baseline-known-differences",
+        "evidence": [
+          {
+            "fixtureId": "phase12-15-native",
+            "status": "known-differences",
+            "assertedFrames": 397
+          }
+        ],
         "scope": "Baseline characterization only; all current supported fixtures have oracle display differences."
       },
       "browserTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "partial",
+        "evidence": [
+          {
+            "kind": "browser",
+            "path": "tests/e2e/phase13-15.spec.js",
+            "anchor": "MAT physical dimensions DATA store recall square and cell paging",
+            "capabilityIds": [
+              "el506.mode.mat",
+              "el506.matrix-root.sto",
+              "el506.matrix-root.mat",
+              "el506.matrix.slot.a",
+              "el506.context.matrix-or-list-result-element-paging"
+            ],
+            "scope": "Actual dimension/data/storage/recall/square sequence and first two result-cell pages."
+          }
+        ],
         "scope": "Explicit canonical baseline browser replays only; legacy regression coverage is not inferred as parity."
       }
     },
@@ -16861,6 +18036,32 @@
               "el506.stat.submode.inv"
             ],
             "scope": "Phase 11 submenu selection names/indices and STAT indicator only. Statistical results and all regression algorithms remain Phase 12."
+          },
+          {
+            "kind": "unit",
+            "path": "tests/unit/phase12.test.js",
+            "anchor": "Statistics all six regressions recover coefficients and inverse estimates",
+            "capabilityIds": [
+              "el506.second.el506-k33",
+              "el506.second.el506-k34",
+              "el506.alpha.el506-k33",
+              "el506.alpha.el506-k34",
+              "el506.alpha.el506-k38",
+              "el506.alpha.el506-k39",
+              "el506.context.stat.second.33",
+              "el506.context.stat.second.34",
+              "el506.stat.submode.line",
+              "el506.stat.submode.quad",
+              "el506.stat.submode.exp",
+              "el506.stat.submode.log",
+              "el506.stat.submode.pwr",
+              "el506.stat.submode.inv",
+              "el506.statistic.el506-k33",
+              "el506.statistic.el506-k34",
+              "el506.statistic.el506-k38",
+              "el506.statistic.el506-k39"
+            ],
+            "scope": "Independent analytic datasets assert six regression coefficients, correlation availability and X/Y estimates; hidden native precision remains unmeasured."
           }
         ],
         "scope": "Explicit mapped assertions only; unlisted coverage is unassessed."
@@ -16872,6 +18073,11 @@
             "fixtureId": "phase11-statistics",
             "status": "known-differences",
             "assertedFrames": 66
+          },
+          {
+            "fixtureId": "phase12-15-native",
+            "status": "known-differences",
+            "assertedFrames": 397
           }
         ],
         "scope": "Baseline characterization only; all current supported fixtures have oracle display differences."
@@ -16977,6 +18183,32 @@
               "el506.stat.submode.inv"
             ],
             "scope": "Phase 11 submenu selection names/indices and STAT indicator only. Statistical results and all regression algorithms remain Phase 12."
+          },
+          {
+            "kind": "unit",
+            "path": "tests/unit/phase12.test.js",
+            "anchor": "Statistics all six regressions recover coefficients and inverse estimates",
+            "capabilityIds": [
+              "el506.second.el506-k33",
+              "el506.second.el506-k34",
+              "el506.alpha.el506-k33",
+              "el506.alpha.el506-k34",
+              "el506.alpha.el506-k38",
+              "el506.alpha.el506-k39",
+              "el506.context.stat.second.33",
+              "el506.context.stat.second.34",
+              "el506.stat.submode.line",
+              "el506.stat.submode.quad",
+              "el506.stat.submode.exp",
+              "el506.stat.submode.log",
+              "el506.stat.submode.pwr",
+              "el506.stat.submode.inv",
+              "el506.statistic.el506-k33",
+              "el506.statistic.el506-k34",
+              "el506.statistic.el506-k38",
+              "el506.statistic.el506-k39"
+            ],
+            "scope": "Independent analytic datasets assert six regression coefficients, correlation availability and X/Y estimates; hidden native precision remains unmeasured."
           }
         ],
         "scope": "Explicit mapped assertions only; unlisted coverage is unassessed."
@@ -17045,6 +18277,32 @@
               "el506.stat.submode.inv"
             ],
             "scope": "Phase 11 submenu selection names/indices and STAT indicator only. Statistical results and all regression algorithms remain Phase 12."
+          },
+          {
+            "kind": "unit",
+            "path": "tests/unit/phase12.test.js",
+            "anchor": "Statistics all six regressions recover coefficients and inverse estimates",
+            "capabilityIds": [
+              "el506.second.el506-k33",
+              "el506.second.el506-k34",
+              "el506.alpha.el506-k33",
+              "el506.alpha.el506-k34",
+              "el506.alpha.el506-k38",
+              "el506.alpha.el506-k39",
+              "el506.context.stat.second.33",
+              "el506.context.stat.second.34",
+              "el506.stat.submode.line",
+              "el506.stat.submode.quad",
+              "el506.stat.submode.exp",
+              "el506.stat.submode.log",
+              "el506.stat.submode.pwr",
+              "el506.stat.submode.inv",
+              "el506.statistic.el506-k33",
+              "el506.statistic.el506-k34",
+              "el506.statistic.el506-k38",
+              "el506.statistic.el506-k39"
+            ],
+            "scope": "Independent analytic datasets assert six regression coefficients, correlation availability and X/Y estimates; hidden native precision remains unmeasured."
           }
         ],
         "scope": "Explicit mapped assertions only; unlisted coverage is unassessed."
@@ -17113,6 +18371,32 @@
               "el506.stat.submode.inv"
             ],
             "scope": "Phase 11 submenu selection names/indices and STAT indicator only. Statistical results and all regression algorithms remain Phase 12."
+          },
+          {
+            "kind": "unit",
+            "path": "tests/unit/phase12.test.js",
+            "anchor": "Statistics all six regressions recover coefficients and inverse estimates",
+            "capabilityIds": [
+              "el506.second.el506-k33",
+              "el506.second.el506-k34",
+              "el506.alpha.el506-k33",
+              "el506.alpha.el506-k34",
+              "el506.alpha.el506-k38",
+              "el506.alpha.el506-k39",
+              "el506.context.stat.second.33",
+              "el506.context.stat.second.34",
+              "el506.stat.submode.line",
+              "el506.stat.submode.quad",
+              "el506.stat.submode.exp",
+              "el506.stat.submode.log",
+              "el506.stat.submode.pwr",
+              "el506.stat.submode.inv",
+              "el506.statistic.el506-k33",
+              "el506.statistic.el506-k34",
+              "el506.statistic.el506-k38",
+              "el506.statistic.el506-k39"
+            ],
+            "scope": "Independent analytic datasets assert six regression coefficients, correlation availability and X/Y estimates; hidden native precision remains unmeasured."
           }
         ],
         "scope": "Explicit mapped assertions only; unlisted coverage is unassessed."
@@ -17181,6 +18465,32 @@
               "el506.stat.submode.inv"
             ],
             "scope": "Phase 11 submenu selection names/indices and STAT indicator only. Statistical results and all regression algorithms remain Phase 12."
+          },
+          {
+            "kind": "unit",
+            "path": "tests/unit/phase12.test.js",
+            "anchor": "Statistics all six regressions recover coefficients and inverse estimates",
+            "capabilityIds": [
+              "el506.second.el506-k33",
+              "el506.second.el506-k34",
+              "el506.alpha.el506-k33",
+              "el506.alpha.el506-k34",
+              "el506.alpha.el506-k38",
+              "el506.alpha.el506-k39",
+              "el506.context.stat.second.33",
+              "el506.context.stat.second.34",
+              "el506.stat.submode.line",
+              "el506.stat.submode.quad",
+              "el506.stat.submode.exp",
+              "el506.stat.submode.log",
+              "el506.stat.submode.pwr",
+              "el506.stat.submode.inv",
+              "el506.statistic.el506-k33",
+              "el506.statistic.el506-k34",
+              "el506.statistic.el506-k38",
+              "el506.statistic.el506-k39"
+            ],
+            "scope": "Independent analytic datasets assert six regression coefficients, correlation availability and X/Y estimates; hidden native precision remains unmeasured."
           }
         ],
         "scope": "Explicit mapped assertions only; unlisted coverage is unassessed."
@@ -17249,6 +18559,32 @@
               "el506.stat.submode.inv"
             ],
             "scope": "Phase 11 submenu selection names/indices and STAT indicator only. Statistical results and all regression algorithms remain Phase 12."
+          },
+          {
+            "kind": "unit",
+            "path": "tests/unit/phase12.test.js",
+            "anchor": "Statistics all six regressions recover coefficients and inverse estimates",
+            "capabilityIds": [
+              "el506.second.el506-k33",
+              "el506.second.el506-k34",
+              "el506.alpha.el506-k33",
+              "el506.alpha.el506-k34",
+              "el506.alpha.el506-k38",
+              "el506.alpha.el506-k39",
+              "el506.context.stat.second.33",
+              "el506.context.stat.second.34",
+              "el506.stat.submode.line",
+              "el506.stat.submode.quad",
+              "el506.stat.submode.exp",
+              "el506.stat.submode.log",
+              "el506.stat.submode.pwr",
+              "el506.stat.submode.inv",
+              "el506.statistic.el506-k33",
+              "el506.statistic.el506-k34",
+              "el506.statistic.el506-k38",
+              "el506.statistic.el506-k39"
+            ],
+            "scope": "Independent analytic datasets assert six regression coefficients, correlation availability and X/Y estimates; hidden native precision remains unmeasured."
           }
         ],
         "scope": "Explicit mapped assertions only; unlisted coverage is unassessed."
@@ -17293,18 +18629,51 @@
         "policy": "Frozen baseline classification; infrastructure refactors do not promote capability parity."
       },
       "unitTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "partial",
+        "evidence": [
+          {
+            "kind": "unit",
+            "path": "tests/unit/phase13.test.js",
+            "anchor": "EQN physical three-variable and polynomial controllers solve and preserve ANS",
+            "capabilityIds": [
+              "el506.mode.eqn",
+              "el506.eqn.0",
+              "el506.eqn.1",
+              "el506.eqn.2",
+              "el506.eqn.3",
+              "el506.context.confirm-coefficient-or-data"
+            ],
+            "scope": "Canonical three-variable, quadratic and cubic coefficient workflows, tagged results and ANS isolation; solver residual, singular and repeated-root cases are separately asserted in this file."
+          }
+        ],
         "scope": "Explicit mapped assertions only; unlisted coverage is unassessed."
       },
       "goldenTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "baseline-known-differences",
+        "evidence": [
+          {
+            "fixtureId": "phase12-15-native",
+            "status": "known-differences",
+            "assertedFrames": 397
+          }
+        ],
         "scope": "Baseline characterization only; all current supported fixtures have oracle display differences."
       },
       "browserTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "partial",
+        "evidence": [
+          {
+            "kind": "browser",
+            "path": "tests/e2e/phase13-15.spec.js",
+            "anchor": "EQN coefficients solve page determinant correct retained input and recover",
+            "capabilityIds": [
+              "el506.mode.eqn",
+              "el506.eqn.0",
+              "el506.context.confirm-coefficient-or-data"
+            ],
+            "scope": "Visible 2-VLE prompt, x/y/determinant pages and retained coefficient via actual controls."
+          }
+        ],
         "scope": "Explicit canonical baseline browser replays only; legacy regression coverage is not inferred as parity."
       }
     },
@@ -17337,8 +18706,23 @@
         "policy": "Frozen baseline classification; infrastructure refactors do not promote capability parity."
       },
       "unitTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "partial",
+        "evidence": [
+          {
+            "kind": "unit",
+            "path": "tests/unit/phase13.test.js",
+            "anchor": "EQN physical three-variable and polynomial controllers solve and preserve ANS",
+            "capabilityIds": [
+              "el506.mode.eqn",
+              "el506.eqn.0",
+              "el506.eqn.1",
+              "el506.eqn.2",
+              "el506.eqn.3",
+              "el506.context.confirm-coefficient-or-data"
+            ],
+            "scope": "Canonical three-variable, quadratic and cubic coefficient workflows, tagged results and ANS isolation; solver residual, singular and repeated-root cases are separately asserted in this file."
+          }
+        ],
         "scope": "Explicit mapped assertions only; unlisted coverage is unassessed."
       },
       "goldenTested": {
@@ -17381,13 +18765,34 @@
         "policy": "Frozen baseline classification; infrastructure refactors do not promote capability parity."
       },
       "unitTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "partial",
+        "evidence": [
+          {
+            "kind": "unit",
+            "path": "tests/unit/phase13.test.js",
+            "anchor": "EQN physical three-variable and polynomial controllers solve and preserve ANS",
+            "capabilityIds": [
+              "el506.mode.eqn",
+              "el506.eqn.0",
+              "el506.eqn.1",
+              "el506.eqn.2",
+              "el506.eqn.3",
+              "el506.context.confirm-coefficient-or-data"
+            ],
+            "scope": "Canonical three-variable, quadratic and cubic coefficient workflows, tagged results and ANS isolation; solver residual, singular and repeated-root cases are separately asserted in this file."
+          }
+        ],
         "scope": "Explicit mapped assertions only; unlisted coverage is unassessed."
       },
       "goldenTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "baseline-known-differences",
+        "evidence": [
+          {
+            "fixtureId": "phase12-15-native",
+            "status": "known-differences",
+            "assertedFrames": 397
+          }
+        ],
         "scope": "Baseline characterization only; all current supported fixtures have oracle display differences."
       },
       "browserTested": {
@@ -17425,13 +18830,34 @@
         "policy": "Frozen baseline classification; infrastructure refactors do not promote capability parity."
       },
       "unitTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "partial",
+        "evidence": [
+          {
+            "kind": "unit",
+            "path": "tests/unit/phase13.test.js",
+            "anchor": "EQN physical three-variable and polynomial controllers solve and preserve ANS",
+            "capabilityIds": [
+              "el506.mode.eqn",
+              "el506.eqn.0",
+              "el506.eqn.1",
+              "el506.eqn.2",
+              "el506.eqn.3",
+              "el506.context.confirm-coefficient-or-data"
+            ],
+            "scope": "Canonical three-variable, quadratic and cubic coefficient workflows, tagged results and ANS isolation; solver residual, singular and repeated-root cases are separately asserted in this file."
+          }
+        ],
         "scope": "Explicit mapped assertions only; unlisted coverage is unassessed."
       },
       "goldenTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "baseline-known-differences",
+        "evidence": [
+          {
+            "fixtureId": "phase12-15-native",
+            "status": "known-differences",
+            "assertedFrames": 397
+          }
+        ],
         "scope": "Baseline characterization only; all current supported fixtures have oracle display differences."
       },
       "browserTested": {
@@ -19685,18 +21111,56 @@
         "policy": "Frozen baseline classification; infrastructure refactors do not promote capability parity."
       },
       "unitTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "partial",
+        "evidence": [
+          {
+            "kind": "unit",
+            "path": "tests/unit/phase12.test.js",
+            "anchor": "Statistics probability functions follow native six-place output and symmetry",
+            "capabilityIds": [
+              "el506.probability.to-t",
+              "el506.probability.p",
+              "el506.probability.q",
+              "el506.probability.r"
+            ],
+            "scope": "Native P/Q/R six-place values, symmetry and canonical MATH entry."
+          }
+        ],
         "scope": "Explicit mapped assertions only; unlisted coverage is unassessed."
       },
       "goldenTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "baseline-known-differences",
+        "evidence": [
+          {
+            "fixtureId": "phase12-15-native",
+            "status": "known-differences",
+            "assertedFrames": 397
+          }
+        ],
         "scope": "Baseline characterization only; all current supported fixtures have oracle display differences."
       },
       "browserTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "partial",
+        "evidence": [
+          {
+            "kind": "browser",
+            "path": "tests/e2e/phase12.spec.js",
+            "anchor": "Statistics result recall expression use and probability use physical keys",
+            "capabilityIds": [
+              "el506.alpha.el506-k35",
+              "el506.alpha.el506-k36",
+              "el506.alpha.el506-k37",
+              "el506.statistic.el506-k35",
+              "el506.statistic.el506-k36",
+              "el506.statistic.el506-k37",
+              "el506.probability.to-t",
+              "el506.probability.p",
+              "el506.probability.q",
+              "el506.probability.r"
+            ],
+            "scope": "Actual buttons exercise SD RCL/ALPHA and probability; no transformed-regression browser parity claim."
+          }
+        ],
         "scope": "Explicit canonical baseline browser replays only; legacy regression coverage is not inferred as parity."
       }
     },
@@ -19729,18 +21193,56 @@
         "policy": "Frozen baseline classification; infrastructure refactors do not promote capability parity."
       },
       "unitTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "partial",
+        "evidence": [
+          {
+            "kind": "unit",
+            "path": "tests/unit/phase12.test.js",
+            "anchor": "Statistics probability functions follow native six-place output and symmetry",
+            "capabilityIds": [
+              "el506.probability.to-t",
+              "el506.probability.p",
+              "el506.probability.q",
+              "el506.probability.r"
+            ],
+            "scope": "Native P/Q/R six-place values, symmetry and canonical MATH entry."
+          }
+        ],
         "scope": "Explicit mapped assertions only; unlisted coverage is unassessed."
       },
       "goldenTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "baseline-known-differences",
+        "evidence": [
+          {
+            "fixtureId": "phase12-15-native",
+            "status": "known-differences",
+            "assertedFrames": 397
+          }
+        ],
         "scope": "Baseline characterization only; all current supported fixtures have oracle display differences."
       },
       "browserTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "partial",
+        "evidence": [
+          {
+            "kind": "browser",
+            "path": "tests/e2e/phase12.spec.js",
+            "anchor": "Statistics result recall expression use and probability use physical keys",
+            "capabilityIds": [
+              "el506.alpha.el506-k35",
+              "el506.alpha.el506-k36",
+              "el506.alpha.el506-k37",
+              "el506.statistic.el506-k35",
+              "el506.statistic.el506-k36",
+              "el506.statistic.el506-k37",
+              "el506.probability.to-t",
+              "el506.probability.p",
+              "el506.probability.q",
+              "el506.probability.r"
+            ],
+            "scope": "Actual buttons exercise SD RCL/ALPHA and probability; no transformed-regression browser parity claim."
+          }
+        ],
         "scope": "Explicit canonical baseline browser replays only; legacy regression coverage is not inferred as parity."
       }
     },
@@ -19773,18 +21275,56 @@
         "policy": "Frozen baseline classification; infrastructure refactors do not promote capability parity."
       },
       "unitTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "partial",
+        "evidence": [
+          {
+            "kind": "unit",
+            "path": "tests/unit/phase12.test.js",
+            "anchor": "Statistics probability functions follow native six-place output and symmetry",
+            "capabilityIds": [
+              "el506.probability.to-t",
+              "el506.probability.p",
+              "el506.probability.q",
+              "el506.probability.r"
+            ],
+            "scope": "Native P/Q/R six-place values, symmetry and canonical MATH entry."
+          }
+        ],
         "scope": "Explicit mapped assertions only; unlisted coverage is unassessed."
       },
       "goldenTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "baseline-known-differences",
+        "evidence": [
+          {
+            "fixtureId": "phase12-15-native",
+            "status": "known-differences",
+            "assertedFrames": 397
+          }
+        ],
         "scope": "Baseline characterization only; all current supported fixtures have oracle display differences."
       },
       "browserTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "partial",
+        "evidence": [
+          {
+            "kind": "browser",
+            "path": "tests/e2e/phase12.spec.js",
+            "anchor": "Statistics result recall expression use and probability use physical keys",
+            "capabilityIds": [
+              "el506.alpha.el506-k35",
+              "el506.alpha.el506-k36",
+              "el506.alpha.el506-k37",
+              "el506.statistic.el506-k35",
+              "el506.statistic.el506-k36",
+              "el506.statistic.el506-k37",
+              "el506.probability.to-t",
+              "el506.probability.p",
+              "el506.probability.q",
+              "el506.probability.r"
+            ],
+            "scope": "Actual buttons exercise SD RCL/ALPHA and probability; no transformed-regression browser parity claim."
+          }
+        ],
         "scope": "Explicit canonical baseline browser replays only; legacy regression coverage is not inferred as parity."
       }
     },
@@ -19817,18 +21357,56 @@
         "policy": "Frozen baseline classification; infrastructure refactors do not promote capability parity."
       },
       "unitTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "partial",
+        "evidence": [
+          {
+            "kind": "unit",
+            "path": "tests/unit/phase12.test.js",
+            "anchor": "Statistics probability functions follow native six-place output and symmetry",
+            "capabilityIds": [
+              "el506.probability.to-t",
+              "el506.probability.p",
+              "el506.probability.q",
+              "el506.probability.r"
+            ],
+            "scope": "Native P/Q/R six-place values, symmetry and canonical MATH entry."
+          }
+        ],
         "scope": "Explicit mapped assertions only; unlisted coverage is unassessed."
       },
       "goldenTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "baseline-known-differences",
+        "evidence": [
+          {
+            "fixtureId": "phase12-15-native",
+            "status": "known-differences",
+            "assertedFrames": 397
+          }
+        ],
         "scope": "Baseline characterization only; all current supported fixtures have oracle display differences."
       },
       "browserTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "partial",
+        "evidence": [
+          {
+            "kind": "browser",
+            "path": "tests/e2e/phase12.spec.js",
+            "anchor": "Statistics result recall expression use and probability use physical keys",
+            "capabilityIds": [
+              "el506.alpha.el506-k35",
+              "el506.alpha.el506-k36",
+              "el506.alpha.el506-k37",
+              "el506.statistic.el506-k35",
+              "el506.statistic.el506-k36",
+              "el506.statistic.el506-k37",
+              "el506.probability.to-t",
+              "el506.probability.p",
+              "el506.probability.q",
+              "el506.probability.r"
+            ],
+            "scope": "Actual buttons exercise SD RCL/ALPHA and probability; no transformed-regression browser parity claim."
+          }
+        ],
         "scope": "Explicit canonical baseline browser replays only; legacy regression coverage is not inferred as parity."
       }
     },
@@ -19861,13 +21439,32 @@
         "policy": "Frozen baseline classification; infrastructure refactors do not promote capability parity."
       },
       "unitTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "partial",
+        "evidence": [
+          {
+            "kind": "unit",
+            "path": "tests/unit/phase14.test.js",
+            "anchor": "CPLX native polar separator pure-imaginary paging and unsupported general powers",
+            "capabilityIds": [
+              "el506.mode.cplx",
+              "el506.complex.conj",
+              "el506.context.imaginary-unit-i",
+              "el506.context.complex-rectangular-polar-separator"
+            ],
+            "scope": "Native i/angle entry and component default, square, real general exponent and complex general-power rejection; conjugation, arithmetic, conversion, memory and recovery have separate tests in this file."
+          }
+        ],
         "scope": "Explicit mapped assertions only; unlisted coverage is unassessed."
       },
       "goldenTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "baseline-known-differences",
+        "evidence": [
+          {
+            "fixtureId": "phase12-15-native",
+            "status": "known-differences",
+            "assertedFrames": 397
+          }
+        ],
         "scope": "Baseline characterization only; all current supported fixtures have oracle display differences."
       },
       "browserTested": {
@@ -19905,18 +21502,68 @@
         "policy": "Frozen baseline classification; infrastructure refactors do not promote capability parity."
       },
       "unitTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "partial",
+        "evidence": [
+          {
+            "kind": "unit",
+            "path": "tests/unit/phase15.test.js",
+            "anchor": "MAT physical multi-argument operations use canonical comma entry and bounded allocation",
+            "capabilityIds": [
+              "el506.mode.mat",
+              "el506.matrix-root.mat",
+              "el506.matrix-root.chk",
+              "el506.matrix-root.sto",
+              "el506.matrix-root.ope",
+              "el506.matrix-root.math",
+              "el506.matrix-root.mat-to-list",
+              "el506.matrix-root.mata-to-list",
+              "el506.matrix-ope.dim",
+              "el506.matrix-ope.fill",
+              "el506.matrix-ope.cumul",
+              "el506.matrix-ope.aug",
+              "el506.matrix-ope.identity",
+              "el506.matrix-ope.rnd-mat",
+              "el506.matrix-math.det",
+              "el506.matrix-math.trans",
+              "el506.matrix.slot.a",
+              "el506.matrix.slot.b",
+              "el506.matrix.slot.c",
+              "el506.matrix.slot.d",
+              "el506.context.matrix-or-list-result-element-paging"
+            ],
+            "scope": "Physical fill, dimension, augmentation, random matrix and native column-wise cumul; entry, slot isolation, det, transpose, inverse, square/cube, limits and snapshot have separate tests in this file."
+          }
+        ],
         "scope": "Explicit mapped assertions only; unlisted coverage is unassessed."
       },
       "goldenTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "baseline-known-differences",
+        "evidence": [
+          {
+            "fixtureId": "phase12-15-native",
+            "status": "known-differences",
+            "assertedFrames": 397
+          }
+        ],
         "scope": "Baseline characterization only; all current supported fixtures have oracle display differences."
       },
       "browserTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "partial",
+        "evidence": [
+          {
+            "kind": "browser",
+            "path": "tests/e2e/phase13-15.spec.js",
+            "anchor": "MAT physical dimensions DATA store recall square and cell paging",
+            "capabilityIds": [
+              "el506.mode.mat",
+              "el506.matrix-root.sto",
+              "el506.matrix-root.mat",
+              "el506.matrix.slot.a",
+              "el506.context.matrix-or-list-result-element-paging"
+            ],
+            "scope": "Actual dimension/data/storage/recall/square sequence and first two result-cell pages."
+          }
+        ],
         "scope": "Explicit canonical baseline browser replays only; legacy regression coverage is not inferred as parity."
       }
     },
@@ -19949,13 +21596,49 @@
         "policy": "Frozen baseline classification; infrastructure refactors do not promote capability parity."
       },
       "unitTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "partial",
+        "evidence": [
+          {
+            "kind": "unit",
+            "path": "tests/unit/phase15.test.js",
+            "anchor": "MAT physical multi-argument operations use canonical comma entry and bounded allocation",
+            "capabilityIds": [
+              "el506.mode.mat",
+              "el506.matrix-root.mat",
+              "el506.matrix-root.chk",
+              "el506.matrix-root.sto",
+              "el506.matrix-root.ope",
+              "el506.matrix-root.math",
+              "el506.matrix-root.mat-to-list",
+              "el506.matrix-root.mata-to-list",
+              "el506.matrix-ope.dim",
+              "el506.matrix-ope.fill",
+              "el506.matrix-ope.cumul",
+              "el506.matrix-ope.aug",
+              "el506.matrix-ope.identity",
+              "el506.matrix-ope.rnd-mat",
+              "el506.matrix-math.det",
+              "el506.matrix-math.trans",
+              "el506.matrix.slot.a",
+              "el506.matrix.slot.b",
+              "el506.matrix.slot.c",
+              "el506.matrix.slot.d",
+              "el506.context.matrix-or-list-result-element-paging"
+            ],
+            "scope": "Physical fill, dimension, augmentation, random matrix and native column-wise cumul; entry, slot isolation, det, transpose, inverse, square/cube, limits and snapshot have separate tests in this file."
+          }
+        ],
         "scope": "Explicit mapped assertions only; unlisted coverage is unassessed."
       },
       "goldenTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "baseline-known-differences",
+        "evidence": [
+          {
+            "fixtureId": "phase12-15-native",
+            "status": "known-differences",
+            "assertedFrames": 397
+          }
+        ],
         "scope": "Baseline characterization only; all current supported fixtures have oracle display differences."
       },
       "browserTested": {
@@ -19993,18 +21676,68 @@
         "policy": "Frozen baseline classification; infrastructure refactors do not promote capability parity."
       },
       "unitTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "partial",
+        "evidence": [
+          {
+            "kind": "unit",
+            "path": "tests/unit/phase15.test.js",
+            "anchor": "MAT physical multi-argument operations use canonical comma entry and bounded allocation",
+            "capabilityIds": [
+              "el506.mode.mat",
+              "el506.matrix-root.mat",
+              "el506.matrix-root.chk",
+              "el506.matrix-root.sto",
+              "el506.matrix-root.ope",
+              "el506.matrix-root.math",
+              "el506.matrix-root.mat-to-list",
+              "el506.matrix-root.mata-to-list",
+              "el506.matrix-ope.dim",
+              "el506.matrix-ope.fill",
+              "el506.matrix-ope.cumul",
+              "el506.matrix-ope.aug",
+              "el506.matrix-ope.identity",
+              "el506.matrix-ope.rnd-mat",
+              "el506.matrix-math.det",
+              "el506.matrix-math.trans",
+              "el506.matrix.slot.a",
+              "el506.matrix.slot.b",
+              "el506.matrix.slot.c",
+              "el506.matrix.slot.d",
+              "el506.context.matrix-or-list-result-element-paging"
+            ],
+            "scope": "Physical fill, dimension, augmentation, random matrix and native column-wise cumul; entry, slot isolation, det, transpose, inverse, square/cube, limits and snapshot have separate tests in this file."
+          }
+        ],
         "scope": "Explicit mapped assertions only; unlisted coverage is unassessed."
       },
       "goldenTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "baseline-known-differences",
+        "evidence": [
+          {
+            "fixtureId": "phase12-15-native",
+            "status": "known-differences",
+            "assertedFrames": 397
+          }
+        ],
         "scope": "Baseline characterization only; all current supported fixtures have oracle display differences."
       },
       "browserTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "partial",
+        "evidence": [
+          {
+            "kind": "browser",
+            "path": "tests/e2e/phase13-15.spec.js",
+            "anchor": "MAT physical dimensions DATA store recall square and cell paging",
+            "capabilityIds": [
+              "el506.mode.mat",
+              "el506.matrix-root.sto",
+              "el506.matrix-root.mat",
+              "el506.matrix.slot.a",
+              "el506.context.matrix-or-list-result-element-paging"
+            ],
+            "scope": "Actual dimension/data/storage/recall/square sequence and first two result-cell pages."
+          }
+        ],
         "scope": "Explicit canonical baseline browser replays only; legacy regression coverage is not inferred as parity."
       }
     },
@@ -20037,13 +21770,49 @@
         "policy": "Frozen baseline classification; infrastructure refactors do not promote capability parity."
       },
       "unitTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "partial",
+        "evidence": [
+          {
+            "kind": "unit",
+            "path": "tests/unit/phase15.test.js",
+            "anchor": "MAT physical multi-argument operations use canonical comma entry and bounded allocation",
+            "capabilityIds": [
+              "el506.mode.mat",
+              "el506.matrix-root.mat",
+              "el506.matrix-root.chk",
+              "el506.matrix-root.sto",
+              "el506.matrix-root.ope",
+              "el506.matrix-root.math",
+              "el506.matrix-root.mat-to-list",
+              "el506.matrix-root.mata-to-list",
+              "el506.matrix-ope.dim",
+              "el506.matrix-ope.fill",
+              "el506.matrix-ope.cumul",
+              "el506.matrix-ope.aug",
+              "el506.matrix-ope.identity",
+              "el506.matrix-ope.rnd-mat",
+              "el506.matrix-math.det",
+              "el506.matrix-math.trans",
+              "el506.matrix.slot.a",
+              "el506.matrix.slot.b",
+              "el506.matrix.slot.c",
+              "el506.matrix.slot.d",
+              "el506.context.matrix-or-list-result-element-paging"
+            ],
+            "scope": "Physical fill, dimension, augmentation, random matrix and native column-wise cumul; entry, slot isolation, det, transpose, inverse, square/cube, limits and snapshot have separate tests in this file."
+          }
+        ],
         "scope": "Explicit mapped assertions only; unlisted coverage is unassessed."
       },
       "goldenTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "baseline-known-differences",
+        "evidence": [
+          {
+            "fixtureId": "phase12-15-native",
+            "status": "known-differences",
+            "assertedFrames": 397
+          }
+        ],
         "scope": "Baseline characterization only; all current supported fixtures have oracle display differences."
       },
       "browserTested": {
@@ -20081,13 +21850,49 @@
         "policy": "Frozen baseline classification; infrastructure refactors do not promote capability parity."
       },
       "unitTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "partial",
+        "evidence": [
+          {
+            "kind": "unit",
+            "path": "tests/unit/phase15.test.js",
+            "anchor": "MAT physical multi-argument operations use canonical comma entry and bounded allocation",
+            "capabilityIds": [
+              "el506.mode.mat",
+              "el506.matrix-root.mat",
+              "el506.matrix-root.chk",
+              "el506.matrix-root.sto",
+              "el506.matrix-root.ope",
+              "el506.matrix-root.math",
+              "el506.matrix-root.mat-to-list",
+              "el506.matrix-root.mata-to-list",
+              "el506.matrix-ope.dim",
+              "el506.matrix-ope.fill",
+              "el506.matrix-ope.cumul",
+              "el506.matrix-ope.aug",
+              "el506.matrix-ope.identity",
+              "el506.matrix-ope.rnd-mat",
+              "el506.matrix-math.det",
+              "el506.matrix-math.trans",
+              "el506.matrix.slot.a",
+              "el506.matrix.slot.b",
+              "el506.matrix.slot.c",
+              "el506.matrix.slot.d",
+              "el506.context.matrix-or-list-result-element-paging"
+            ],
+            "scope": "Physical fill, dimension, augmentation, random matrix and native column-wise cumul; entry, slot isolation, det, transpose, inverse, square/cube, limits and snapshot have separate tests in this file."
+          }
+        ],
         "scope": "Explicit mapped assertions only; unlisted coverage is unassessed."
       },
       "goldenTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "baseline-known-differences",
+        "evidence": [
+          {
+            "fixtureId": "phase12-15-native",
+            "status": "known-differences",
+            "assertedFrames": 397
+          }
+        ],
         "scope": "Baseline characterization only; all current supported fixtures have oracle display differences."
       },
       "browserTested": {
@@ -20125,13 +21930,49 @@
         "policy": "Frozen baseline classification; infrastructure refactors do not promote capability parity."
       },
       "unitTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "partial",
+        "evidence": [
+          {
+            "kind": "unit",
+            "path": "tests/unit/phase15.test.js",
+            "anchor": "MAT physical multi-argument operations use canonical comma entry and bounded allocation",
+            "capabilityIds": [
+              "el506.mode.mat",
+              "el506.matrix-root.mat",
+              "el506.matrix-root.chk",
+              "el506.matrix-root.sto",
+              "el506.matrix-root.ope",
+              "el506.matrix-root.math",
+              "el506.matrix-root.mat-to-list",
+              "el506.matrix-root.mata-to-list",
+              "el506.matrix-ope.dim",
+              "el506.matrix-ope.fill",
+              "el506.matrix-ope.cumul",
+              "el506.matrix-ope.aug",
+              "el506.matrix-ope.identity",
+              "el506.matrix-ope.rnd-mat",
+              "el506.matrix-math.det",
+              "el506.matrix-math.trans",
+              "el506.matrix.slot.a",
+              "el506.matrix.slot.b",
+              "el506.matrix.slot.c",
+              "el506.matrix.slot.d",
+              "el506.context.matrix-or-list-result-element-paging"
+            ],
+            "scope": "Physical fill, dimension, augmentation, random matrix and native column-wise cumul; entry, slot isolation, det, transpose, inverse, square/cube, limits and snapshot have separate tests in this file."
+          }
+        ],
         "scope": "Explicit mapped assertions only; unlisted coverage is unassessed."
       },
       "goldenTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "baseline-known-differences",
+        "evidence": [
+          {
+            "fixtureId": "phase12-15-native",
+            "status": "known-differences",
+            "assertedFrames": 397
+          }
+        ],
         "scope": "Baseline characterization only; all current supported fixtures have oracle display differences."
       },
       "browserTested": {
@@ -20169,13 +22010,49 @@
         "policy": "Frozen baseline classification; infrastructure refactors do not promote capability parity."
       },
       "unitTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "partial",
+        "evidence": [
+          {
+            "kind": "unit",
+            "path": "tests/unit/phase15.test.js",
+            "anchor": "MAT physical multi-argument operations use canonical comma entry and bounded allocation",
+            "capabilityIds": [
+              "el506.mode.mat",
+              "el506.matrix-root.mat",
+              "el506.matrix-root.chk",
+              "el506.matrix-root.sto",
+              "el506.matrix-root.ope",
+              "el506.matrix-root.math",
+              "el506.matrix-root.mat-to-list",
+              "el506.matrix-root.mata-to-list",
+              "el506.matrix-ope.dim",
+              "el506.matrix-ope.fill",
+              "el506.matrix-ope.cumul",
+              "el506.matrix-ope.aug",
+              "el506.matrix-ope.identity",
+              "el506.matrix-ope.rnd-mat",
+              "el506.matrix-math.det",
+              "el506.matrix-math.trans",
+              "el506.matrix.slot.a",
+              "el506.matrix.slot.b",
+              "el506.matrix.slot.c",
+              "el506.matrix.slot.d",
+              "el506.context.matrix-or-list-result-element-paging"
+            ],
+            "scope": "Physical fill, dimension, augmentation, random matrix and native column-wise cumul; entry, slot isolation, det, transpose, inverse, square/cube, limits and snapshot have separate tests in this file."
+          }
+        ],
         "scope": "Explicit mapped assertions only; unlisted coverage is unassessed."
       },
       "goldenTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "baseline-known-differences",
+        "evidence": [
+          {
+            "fixtureId": "phase12-15-native",
+            "status": "known-differences",
+            "assertedFrames": 397
+          }
+        ],
         "scope": "Baseline characterization only; all current supported fixtures have oracle display differences."
       },
       "browserTested": {
@@ -20213,13 +22090,49 @@
         "policy": "Frozen baseline classification; infrastructure refactors do not promote capability parity."
       },
       "unitTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "partial",
+        "evidence": [
+          {
+            "kind": "unit",
+            "path": "tests/unit/phase15.test.js",
+            "anchor": "MAT physical multi-argument operations use canonical comma entry and bounded allocation",
+            "capabilityIds": [
+              "el506.mode.mat",
+              "el506.matrix-root.mat",
+              "el506.matrix-root.chk",
+              "el506.matrix-root.sto",
+              "el506.matrix-root.ope",
+              "el506.matrix-root.math",
+              "el506.matrix-root.mat-to-list",
+              "el506.matrix-root.mata-to-list",
+              "el506.matrix-ope.dim",
+              "el506.matrix-ope.fill",
+              "el506.matrix-ope.cumul",
+              "el506.matrix-ope.aug",
+              "el506.matrix-ope.identity",
+              "el506.matrix-ope.rnd-mat",
+              "el506.matrix-math.det",
+              "el506.matrix-math.trans",
+              "el506.matrix.slot.a",
+              "el506.matrix.slot.b",
+              "el506.matrix.slot.c",
+              "el506.matrix.slot.d",
+              "el506.context.matrix-or-list-result-element-paging"
+            ],
+            "scope": "Physical fill, dimension, augmentation, random matrix and native column-wise cumul; entry, slot isolation, det, transpose, inverse, square/cube, limits and snapshot have separate tests in this file."
+          }
+        ],
         "scope": "Explicit mapped assertions only; unlisted coverage is unassessed."
       },
       "goldenTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "baseline-known-differences",
+        "evidence": [
+          {
+            "fixtureId": "phase12-15-native",
+            "status": "known-differences",
+            "assertedFrames": 397
+          }
+        ],
         "scope": "Baseline characterization only; all current supported fixtures have oracle display differences."
       },
       "browserTested": {
@@ -20257,13 +22170,49 @@
         "policy": "Frozen baseline classification; infrastructure refactors do not promote capability parity."
       },
       "unitTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "partial",
+        "evidence": [
+          {
+            "kind": "unit",
+            "path": "tests/unit/phase15.test.js",
+            "anchor": "MAT physical multi-argument operations use canonical comma entry and bounded allocation",
+            "capabilityIds": [
+              "el506.mode.mat",
+              "el506.matrix-root.mat",
+              "el506.matrix-root.chk",
+              "el506.matrix-root.sto",
+              "el506.matrix-root.ope",
+              "el506.matrix-root.math",
+              "el506.matrix-root.mat-to-list",
+              "el506.matrix-root.mata-to-list",
+              "el506.matrix-ope.dim",
+              "el506.matrix-ope.fill",
+              "el506.matrix-ope.cumul",
+              "el506.matrix-ope.aug",
+              "el506.matrix-ope.identity",
+              "el506.matrix-ope.rnd-mat",
+              "el506.matrix-math.det",
+              "el506.matrix-math.trans",
+              "el506.matrix.slot.a",
+              "el506.matrix.slot.b",
+              "el506.matrix.slot.c",
+              "el506.matrix.slot.d",
+              "el506.context.matrix-or-list-result-element-paging"
+            ],
+            "scope": "Physical fill, dimension, augmentation, random matrix and native column-wise cumul; entry, slot isolation, det, transpose, inverse, square/cube, limits and snapshot have separate tests in this file."
+          }
+        ],
         "scope": "Explicit mapped assertions only; unlisted coverage is unassessed."
       },
       "goldenTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "baseline-known-differences",
+        "evidence": [
+          {
+            "fixtureId": "phase12-15-native",
+            "status": "known-differences",
+            "assertedFrames": 397
+          }
+        ],
         "scope": "Baseline characterization only; all current supported fixtures have oracle display differences."
       },
       "browserTested": {
@@ -20301,13 +22250,49 @@
         "policy": "Frozen baseline classification; infrastructure refactors do not promote capability parity."
       },
       "unitTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "partial",
+        "evidence": [
+          {
+            "kind": "unit",
+            "path": "tests/unit/phase15.test.js",
+            "anchor": "MAT physical multi-argument operations use canonical comma entry and bounded allocation",
+            "capabilityIds": [
+              "el506.mode.mat",
+              "el506.matrix-root.mat",
+              "el506.matrix-root.chk",
+              "el506.matrix-root.sto",
+              "el506.matrix-root.ope",
+              "el506.matrix-root.math",
+              "el506.matrix-root.mat-to-list",
+              "el506.matrix-root.mata-to-list",
+              "el506.matrix-ope.dim",
+              "el506.matrix-ope.fill",
+              "el506.matrix-ope.cumul",
+              "el506.matrix-ope.aug",
+              "el506.matrix-ope.identity",
+              "el506.matrix-ope.rnd-mat",
+              "el506.matrix-math.det",
+              "el506.matrix-math.trans",
+              "el506.matrix.slot.a",
+              "el506.matrix.slot.b",
+              "el506.matrix.slot.c",
+              "el506.matrix.slot.d",
+              "el506.context.matrix-or-list-result-element-paging"
+            ],
+            "scope": "Physical fill, dimension, augmentation, random matrix and native column-wise cumul; entry, slot isolation, det, transpose, inverse, square/cube, limits and snapshot have separate tests in this file."
+          }
+        ],
         "scope": "Explicit mapped assertions only; unlisted coverage is unassessed."
       },
       "goldenTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "baseline-known-differences",
+        "evidence": [
+          {
+            "fixtureId": "phase12-15-native",
+            "status": "known-differences",
+            "assertedFrames": 397
+          }
+        ],
         "scope": "Baseline characterization only; all current supported fixtures have oracle display differences."
       },
       "browserTested": {
@@ -20345,13 +22330,49 @@
         "policy": "Frozen baseline classification; infrastructure refactors do not promote capability parity."
       },
       "unitTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "partial",
+        "evidence": [
+          {
+            "kind": "unit",
+            "path": "tests/unit/phase15.test.js",
+            "anchor": "MAT physical multi-argument operations use canonical comma entry and bounded allocation",
+            "capabilityIds": [
+              "el506.mode.mat",
+              "el506.matrix-root.mat",
+              "el506.matrix-root.chk",
+              "el506.matrix-root.sto",
+              "el506.matrix-root.ope",
+              "el506.matrix-root.math",
+              "el506.matrix-root.mat-to-list",
+              "el506.matrix-root.mata-to-list",
+              "el506.matrix-ope.dim",
+              "el506.matrix-ope.fill",
+              "el506.matrix-ope.cumul",
+              "el506.matrix-ope.aug",
+              "el506.matrix-ope.identity",
+              "el506.matrix-ope.rnd-mat",
+              "el506.matrix-math.det",
+              "el506.matrix-math.trans",
+              "el506.matrix.slot.a",
+              "el506.matrix.slot.b",
+              "el506.matrix.slot.c",
+              "el506.matrix.slot.d",
+              "el506.context.matrix-or-list-result-element-paging"
+            ],
+            "scope": "Physical fill, dimension, augmentation, random matrix and native column-wise cumul; entry, slot isolation, det, transpose, inverse, square/cube, limits and snapshot have separate tests in this file."
+          }
+        ],
         "scope": "Explicit mapped assertions only; unlisted coverage is unassessed."
       },
       "goldenTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "baseline-known-differences",
+        "evidence": [
+          {
+            "fixtureId": "phase12-15-native",
+            "status": "known-differences",
+            "assertedFrames": 397
+          }
+        ],
         "scope": "Baseline characterization only; all current supported fixtures have oracle display differences."
       },
       "browserTested": {
@@ -20389,13 +22410,49 @@
         "policy": "Frozen baseline classification; infrastructure refactors do not promote capability parity."
       },
       "unitTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "partial",
+        "evidence": [
+          {
+            "kind": "unit",
+            "path": "tests/unit/phase15.test.js",
+            "anchor": "MAT physical multi-argument operations use canonical comma entry and bounded allocation",
+            "capabilityIds": [
+              "el506.mode.mat",
+              "el506.matrix-root.mat",
+              "el506.matrix-root.chk",
+              "el506.matrix-root.sto",
+              "el506.matrix-root.ope",
+              "el506.matrix-root.math",
+              "el506.matrix-root.mat-to-list",
+              "el506.matrix-root.mata-to-list",
+              "el506.matrix-ope.dim",
+              "el506.matrix-ope.fill",
+              "el506.matrix-ope.cumul",
+              "el506.matrix-ope.aug",
+              "el506.matrix-ope.identity",
+              "el506.matrix-ope.rnd-mat",
+              "el506.matrix-math.det",
+              "el506.matrix-math.trans",
+              "el506.matrix.slot.a",
+              "el506.matrix.slot.b",
+              "el506.matrix.slot.c",
+              "el506.matrix.slot.d",
+              "el506.context.matrix-or-list-result-element-paging"
+            ],
+            "scope": "Physical fill, dimension, augmentation, random matrix and native column-wise cumul; entry, slot isolation, det, transpose, inverse, square/cube, limits and snapshot have separate tests in this file."
+          }
+        ],
         "scope": "Explicit mapped assertions only; unlisted coverage is unassessed."
       },
       "goldenTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "baseline-known-differences",
+        "evidence": [
+          {
+            "fixtureId": "phase12-15-native",
+            "status": "known-differences",
+            "assertedFrames": 397
+          }
+        ],
         "scope": "Baseline characterization only; all current supported fixtures have oracle display differences."
       },
       "browserTested": {
@@ -20433,13 +22490,49 @@
         "policy": "Frozen baseline classification; infrastructure refactors do not promote capability parity."
       },
       "unitTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "partial",
+        "evidence": [
+          {
+            "kind": "unit",
+            "path": "tests/unit/phase15.test.js",
+            "anchor": "MAT physical multi-argument operations use canonical comma entry and bounded allocation",
+            "capabilityIds": [
+              "el506.mode.mat",
+              "el506.matrix-root.mat",
+              "el506.matrix-root.chk",
+              "el506.matrix-root.sto",
+              "el506.matrix-root.ope",
+              "el506.matrix-root.math",
+              "el506.matrix-root.mat-to-list",
+              "el506.matrix-root.mata-to-list",
+              "el506.matrix-ope.dim",
+              "el506.matrix-ope.fill",
+              "el506.matrix-ope.cumul",
+              "el506.matrix-ope.aug",
+              "el506.matrix-ope.identity",
+              "el506.matrix-ope.rnd-mat",
+              "el506.matrix-math.det",
+              "el506.matrix-math.trans",
+              "el506.matrix.slot.a",
+              "el506.matrix.slot.b",
+              "el506.matrix.slot.c",
+              "el506.matrix.slot.d",
+              "el506.context.matrix-or-list-result-element-paging"
+            ],
+            "scope": "Physical fill, dimension, augmentation, random matrix and native column-wise cumul; entry, slot isolation, det, transpose, inverse, square/cube, limits and snapshot have separate tests in this file."
+          }
+        ],
         "scope": "Explicit mapped assertions only; unlisted coverage is unassessed."
       },
       "goldenTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "baseline-known-differences",
+        "evidence": [
+          {
+            "fixtureId": "phase12-15-native",
+            "status": "known-differences",
+            "assertedFrames": 397
+          }
+        ],
         "scope": "Baseline characterization only; all current supported fixtures have oracle display differences."
       },
       "browserTested": {
@@ -20477,13 +22570,49 @@
         "policy": "Frozen baseline classification; infrastructure refactors do not promote capability parity."
       },
       "unitTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "partial",
+        "evidence": [
+          {
+            "kind": "unit",
+            "path": "tests/unit/phase15.test.js",
+            "anchor": "MAT physical multi-argument operations use canonical comma entry and bounded allocation",
+            "capabilityIds": [
+              "el506.mode.mat",
+              "el506.matrix-root.mat",
+              "el506.matrix-root.chk",
+              "el506.matrix-root.sto",
+              "el506.matrix-root.ope",
+              "el506.matrix-root.math",
+              "el506.matrix-root.mat-to-list",
+              "el506.matrix-root.mata-to-list",
+              "el506.matrix-ope.dim",
+              "el506.matrix-ope.fill",
+              "el506.matrix-ope.cumul",
+              "el506.matrix-ope.aug",
+              "el506.matrix-ope.identity",
+              "el506.matrix-ope.rnd-mat",
+              "el506.matrix-math.det",
+              "el506.matrix-math.trans",
+              "el506.matrix.slot.a",
+              "el506.matrix.slot.b",
+              "el506.matrix.slot.c",
+              "el506.matrix.slot.d",
+              "el506.context.matrix-or-list-result-element-paging"
+            ],
+            "scope": "Physical fill, dimension, augmentation, random matrix and native column-wise cumul; entry, slot isolation, det, transpose, inverse, square/cube, limits and snapshot have separate tests in this file."
+          }
+        ],
         "scope": "Explicit mapped assertions only; unlisted coverage is unassessed."
       },
       "goldenTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "baseline-known-differences",
+        "evidence": [
+          {
+            "fixtureId": "phase12-15-native",
+            "status": "known-differences",
+            "assertedFrames": 397
+          }
+        ],
         "scope": "Baseline characterization only; all current supported fixtures have oracle display differences."
       },
       "browserTested": {
@@ -20521,13 +22650,49 @@
         "policy": "Frozen baseline classification; infrastructure refactors do not promote capability parity."
       },
       "unitTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "partial",
+        "evidence": [
+          {
+            "kind": "unit",
+            "path": "tests/unit/phase15.test.js",
+            "anchor": "MAT physical multi-argument operations use canonical comma entry and bounded allocation",
+            "capabilityIds": [
+              "el506.mode.mat",
+              "el506.matrix-root.mat",
+              "el506.matrix-root.chk",
+              "el506.matrix-root.sto",
+              "el506.matrix-root.ope",
+              "el506.matrix-root.math",
+              "el506.matrix-root.mat-to-list",
+              "el506.matrix-root.mata-to-list",
+              "el506.matrix-ope.dim",
+              "el506.matrix-ope.fill",
+              "el506.matrix-ope.cumul",
+              "el506.matrix-ope.aug",
+              "el506.matrix-ope.identity",
+              "el506.matrix-ope.rnd-mat",
+              "el506.matrix-math.det",
+              "el506.matrix-math.trans",
+              "el506.matrix.slot.a",
+              "el506.matrix.slot.b",
+              "el506.matrix.slot.c",
+              "el506.matrix.slot.d",
+              "el506.context.matrix-or-list-result-element-paging"
+            ],
+            "scope": "Physical fill, dimension, augmentation, random matrix and native column-wise cumul; entry, slot isolation, det, transpose, inverse, square/cube, limits and snapshot have separate tests in this file."
+          }
+        ],
         "scope": "Explicit mapped assertions only; unlisted coverage is unassessed."
       },
       "goldenTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "baseline-known-differences",
+        "evidence": [
+          {
+            "fixtureId": "phase12-15-native",
+            "status": "known-differences",
+            "assertedFrames": 397
+          }
+        ],
         "scope": "Baseline characterization only; all current supported fixtures have oracle display differences."
       },
       "browserTested": {
@@ -22040,18 +24205,68 @@
         "policy": "Frozen baseline classification; infrastructure refactors do not promote capability parity."
       },
       "unitTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "partial",
+        "evidence": [
+          {
+            "kind": "unit",
+            "path": "tests/unit/phase15.test.js",
+            "anchor": "MAT physical multi-argument operations use canonical comma entry and bounded allocation",
+            "capabilityIds": [
+              "el506.mode.mat",
+              "el506.matrix-root.mat",
+              "el506.matrix-root.chk",
+              "el506.matrix-root.sto",
+              "el506.matrix-root.ope",
+              "el506.matrix-root.math",
+              "el506.matrix-root.mat-to-list",
+              "el506.matrix-root.mata-to-list",
+              "el506.matrix-ope.dim",
+              "el506.matrix-ope.fill",
+              "el506.matrix-ope.cumul",
+              "el506.matrix-ope.aug",
+              "el506.matrix-ope.identity",
+              "el506.matrix-ope.rnd-mat",
+              "el506.matrix-math.det",
+              "el506.matrix-math.trans",
+              "el506.matrix.slot.a",
+              "el506.matrix.slot.b",
+              "el506.matrix.slot.c",
+              "el506.matrix.slot.d",
+              "el506.context.matrix-or-list-result-element-paging"
+            ],
+            "scope": "Physical fill, dimension, augmentation, random matrix and native column-wise cumul; entry, slot isolation, det, transpose, inverse, square/cube, limits and snapshot have separate tests in this file."
+          }
+        ],
         "scope": "Explicit mapped assertions only; unlisted coverage is unassessed."
       },
       "goldenTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "baseline-known-differences",
+        "evidence": [
+          {
+            "fixtureId": "phase12-15-native",
+            "status": "known-differences",
+            "assertedFrames": 397
+          }
+        ],
         "scope": "Baseline characterization only; all current supported fixtures have oracle display differences."
       },
       "browserTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "partial",
+        "evidence": [
+          {
+            "kind": "browser",
+            "path": "tests/e2e/phase13-15.spec.js",
+            "anchor": "MAT physical dimensions DATA store recall square and cell paging",
+            "capabilityIds": [
+              "el506.mode.mat",
+              "el506.matrix-root.sto",
+              "el506.matrix-root.mat",
+              "el506.matrix.slot.a",
+              "el506.context.matrix-or-list-result-element-paging"
+            ],
+            "scope": "Actual dimension/data/storage/recall/square sequence and first two result-cell pages."
+          }
+        ],
         "scope": "Explicit canonical baseline browser replays only; legacy regression coverage is not inferred as parity."
       }
     },
@@ -22142,8 +24357,38 @@
         "policy": "Frozen baseline classification; infrastructure refactors do not promote capability parity."
       },
       "unitTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "partial",
+        "evidence": [
+          {
+            "kind": "unit",
+            "path": "tests/unit/phase15.test.js",
+            "anchor": "MAT physical multi-argument operations use canonical comma entry and bounded allocation",
+            "capabilityIds": [
+              "el506.mode.mat",
+              "el506.matrix-root.mat",
+              "el506.matrix-root.chk",
+              "el506.matrix-root.sto",
+              "el506.matrix-root.ope",
+              "el506.matrix-root.math",
+              "el506.matrix-root.mat-to-list",
+              "el506.matrix-root.mata-to-list",
+              "el506.matrix-ope.dim",
+              "el506.matrix-ope.fill",
+              "el506.matrix-ope.cumul",
+              "el506.matrix-ope.aug",
+              "el506.matrix-ope.identity",
+              "el506.matrix-ope.rnd-mat",
+              "el506.matrix-math.det",
+              "el506.matrix-math.trans",
+              "el506.matrix.slot.a",
+              "el506.matrix.slot.b",
+              "el506.matrix.slot.c",
+              "el506.matrix.slot.d",
+              "el506.context.matrix-or-list-result-element-paging"
+            ],
+            "scope": "Physical fill, dimension, augmentation, random matrix and native column-wise cumul; entry, slot isolation, det, transpose, inverse, square/cube, limits and snapshot have separate tests in this file."
+          }
+        ],
         "scope": "Explicit mapped assertions only; unlisted coverage is unassessed."
       },
       "goldenTested": {
@@ -22244,8 +24489,38 @@
         "policy": "Frozen baseline classification; infrastructure refactors do not promote capability parity."
       },
       "unitTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "partial",
+        "evidence": [
+          {
+            "kind": "unit",
+            "path": "tests/unit/phase15.test.js",
+            "anchor": "MAT physical multi-argument operations use canonical comma entry and bounded allocation",
+            "capabilityIds": [
+              "el506.mode.mat",
+              "el506.matrix-root.mat",
+              "el506.matrix-root.chk",
+              "el506.matrix-root.sto",
+              "el506.matrix-root.ope",
+              "el506.matrix-root.math",
+              "el506.matrix-root.mat-to-list",
+              "el506.matrix-root.mata-to-list",
+              "el506.matrix-ope.dim",
+              "el506.matrix-ope.fill",
+              "el506.matrix-ope.cumul",
+              "el506.matrix-ope.aug",
+              "el506.matrix-ope.identity",
+              "el506.matrix-ope.rnd-mat",
+              "el506.matrix-math.det",
+              "el506.matrix-math.trans",
+              "el506.matrix.slot.a",
+              "el506.matrix.slot.b",
+              "el506.matrix.slot.c",
+              "el506.matrix.slot.d",
+              "el506.context.matrix-or-list-result-element-paging"
+            ],
+            "scope": "Physical fill, dimension, augmentation, random matrix and native column-wise cumul; entry, slot isolation, det, transpose, inverse, square/cube, limits and snapshot have separate tests in this file."
+          }
+        ],
         "scope": "Explicit mapped assertions only; unlisted coverage is unassessed."
       },
       "goldenTested": {
@@ -22346,8 +24621,38 @@
         "policy": "Frozen baseline classification; infrastructure refactors do not promote capability parity."
       },
       "unitTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "partial",
+        "evidence": [
+          {
+            "kind": "unit",
+            "path": "tests/unit/phase15.test.js",
+            "anchor": "MAT physical multi-argument operations use canonical comma entry and bounded allocation",
+            "capabilityIds": [
+              "el506.mode.mat",
+              "el506.matrix-root.mat",
+              "el506.matrix-root.chk",
+              "el506.matrix-root.sto",
+              "el506.matrix-root.ope",
+              "el506.matrix-root.math",
+              "el506.matrix-root.mat-to-list",
+              "el506.matrix-root.mata-to-list",
+              "el506.matrix-ope.dim",
+              "el506.matrix-ope.fill",
+              "el506.matrix-ope.cumul",
+              "el506.matrix-ope.aug",
+              "el506.matrix-ope.identity",
+              "el506.matrix-ope.rnd-mat",
+              "el506.matrix-math.det",
+              "el506.matrix-math.trans",
+              "el506.matrix.slot.a",
+              "el506.matrix.slot.b",
+              "el506.matrix.slot.c",
+              "el506.matrix.slot.d",
+              "el506.context.matrix-or-list-result-element-paging"
+            ],
+            "scope": "Physical fill, dimension, augmentation, random matrix and native column-wise cumul; entry, slot isolation, det, transpose, inverse, square/cube, limits and snapshot have separate tests in this file."
+          }
+        ],
         "scope": "Explicit mapped assertions only; unlisted coverage is unassessed."
       },
       "goldenTested": {
@@ -37862,18 +40167,48 @@
         "policy": "Frozen baseline classification; infrastructure refactors do not promote capability parity."
       },
       "unitTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "partial",
+        "evidence": [
+          {
+            "kind": "unit",
+            "path": "tests/unit/phase14.test.js",
+            "anchor": "CPLX native polar separator pure-imaginary paging and unsupported general powers",
+            "capabilityIds": [
+              "el506.mode.cplx",
+              "el506.complex.conj",
+              "el506.context.imaginary-unit-i",
+              "el506.context.complex-rectangular-polar-separator"
+            ],
+            "scope": "Native i/angle entry and component default, square, real general exponent and complex general-power rejection; conjugation, arithmetic, conversion, memory and recovery have separate tests in this file."
+          }
+        ],
         "scope": "Explicit mapped assertions only; unlisted coverage is unassessed."
       },
       "goldenTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "baseline-known-differences",
+        "evidence": [
+          {
+            "fixtureId": "phase12-15-native",
+            "status": "known-differences",
+            "assertedFrames": 397
+          }
+        ],
         "scope": "Baseline characterization only; all current supported fixtures have oracle display differences."
       },
       "browserTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "partial",
+        "evidence": [
+          {
+            "kind": "browser",
+            "path": "tests/e2e/phase13-15.spec.js",
+            "anchor": "CPLX physical imaginary entry ANS multiplication and polar component paging",
+            "capabilityIds": [
+              "el506.mode.cplx",
+              "el506.context.imaginary-unit-i"
+            ],
+            "scope": "Visible rectangular components, polar conversion and typed ANS multiplication."
+          }
+        ],
         "scope": "Explicit canonical baseline browser replays only; legacy regression coverage is not inferred as parity."
       }
     },
@@ -37907,13 +40242,32 @@
         "policy": "Frozen baseline classification; infrastructure refactors do not promote capability parity."
       },
       "unitTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "partial",
+        "evidence": [
+          {
+            "kind": "unit",
+            "path": "tests/unit/phase14.test.js",
+            "anchor": "CPLX native polar separator pure-imaginary paging and unsupported general powers",
+            "capabilityIds": [
+              "el506.mode.cplx",
+              "el506.complex.conj",
+              "el506.context.imaginary-unit-i",
+              "el506.context.complex-rectangular-polar-separator"
+            ],
+            "scope": "Native i/angle entry and component default, square, real general exponent and complex general-power rejection; conjugation, arithmetic, conversion, memory and recovery have separate tests in this file."
+          }
+        ],
         "scope": "Explicit mapped assertions only; unlisted coverage is unassessed."
       },
       "goldenTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "baseline-known-differences",
+        "evidence": [
+          {
+            "fixtureId": "phase12-15-native",
+            "status": "known-differences",
+            "assertedFrames": 397
+          }
+        ],
         "scope": "Baseline characterization only; all current supported fixtures have oracle display differences."
       },
       "browserTested": {
@@ -37952,18 +40306,51 @@
         "policy": "Frozen baseline classification; infrastructure refactors do not promote capability parity."
       },
       "unitTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "partial",
+        "evidence": [
+          {
+            "kind": "unit",
+            "path": "tests/unit/phase13.test.js",
+            "anchor": "EQN physical three-variable and polynomial controllers solve and preserve ANS",
+            "capabilityIds": [
+              "el506.mode.eqn",
+              "el506.eqn.0",
+              "el506.eqn.1",
+              "el506.eqn.2",
+              "el506.eqn.3",
+              "el506.context.confirm-coefficient-or-data"
+            ],
+            "scope": "Canonical three-variable, quadratic and cubic coefficient workflows, tagged results and ANS isolation; solver residual, singular and repeated-root cases are separately asserted in this file."
+          }
+        ],
         "scope": "Explicit mapped assertions only; unlisted coverage is unassessed."
       },
       "goldenTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "baseline-known-differences",
+        "evidence": [
+          {
+            "fixtureId": "phase12-15-native",
+            "status": "known-differences",
+            "assertedFrames": 397
+          }
+        ],
         "scope": "Baseline characterization only; all current supported fixtures have oracle display differences."
       },
       "browserTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "partial",
+        "evidence": [
+          {
+            "kind": "browser",
+            "path": "tests/e2e/phase13-15.spec.js",
+            "anchor": "EQN coefficients solve page determinant correct retained input and recover",
+            "capabilityIds": [
+              "el506.mode.eqn",
+              "el506.eqn.0",
+              "el506.context.confirm-coefficient-or-data"
+            ],
+            "scope": "Visible 2-VLE prompt, x/y/determinant pages and retained coefficient via actual controls."
+          }
+        ],
         "scope": "Explicit canonical baseline browser replays only; legacy regression coverage is not inferred as parity."
       }
     },
@@ -37997,18 +40384,68 @@
         "policy": "Frozen baseline classification; infrastructure refactors do not promote capability parity."
       },
       "unitTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "partial",
+        "evidence": [
+          {
+            "kind": "unit",
+            "path": "tests/unit/phase15.test.js",
+            "anchor": "MAT physical multi-argument operations use canonical comma entry and bounded allocation",
+            "capabilityIds": [
+              "el506.mode.mat",
+              "el506.matrix-root.mat",
+              "el506.matrix-root.chk",
+              "el506.matrix-root.sto",
+              "el506.matrix-root.ope",
+              "el506.matrix-root.math",
+              "el506.matrix-root.mat-to-list",
+              "el506.matrix-root.mata-to-list",
+              "el506.matrix-ope.dim",
+              "el506.matrix-ope.fill",
+              "el506.matrix-ope.cumul",
+              "el506.matrix-ope.aug",
+              "el506.matrix-ope.identity",
+              "el506.matrix-ope.rnd-mat",
+              "el506.matrix-math.det",
+              "el506.matrix-math.trans",
+              "el506.matrix.slot.a",
+              "el506.matrix.slot.b",
+              "el506.matrix.slot.c",
+              "el506.matrix.slot.d",
+              "el506.context.matrix-or-list-result-element-paging"
+            ],
+            "scope": "Physical fill, dimension, augmentation, random matrix and native column-wise cumul; entry, slot isolation, det, transpose, inverse, square/cube, limits and snapshot have separate tests in this file."
+          }
+        ],
         "scope": "Explicit mapped assertions only; unlisted coverage is unassessed."
       },
       "goldenTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "baseline-known-differences",
+        "evidence": [
+          {
+            "fixtureId": "phase12-15-native",
+            "status": "known-differences",
+            "assertedFrames": 397
+          }
+        ],
         "scope": "Baseline characterization only; all current supported fixtures have oracle display differences."
       },
       "browserTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "partial",
+        "evidence": [
+          {
+            "kind": "browser",
+            "path": "tests/e2e/phase13-15.spec.js",
+            "anchor": "MAT physical dimensions DATA store recall square and cell paging",
+            "capabilityIds": [
+              "el506.mode.mat",
+              "el506.matrix-root.sto",
+              "el506.matrix-root.mat",
+              "el506.matrix.slot.a",
+              "el506.context.matrix-or-list-result-element-paging"
+            ],
+            "scope": "Actual dimension/data/storage/recall/square sequence and first two result-cell pages."
+          }
+        ],
         "scope": "Explicit canonical baseline browser replays only; legacy regression coverage is not inferred as parity."
       }
     },
@@ -38388,13 +40825,52 @@
         "policy": "Frozen baseline classification; infrastructure refactors do not promote capability parity."
       },
       "unitTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "partial",
+        "evidence": [
+          {
+            "kind": "unit",
+            "path": "tests/unit/phase12.test.js",
+            "anchor": "Statistics every printed weighted correction and paired guide checkpoint reproduces display precision",
+            "capabilityIds": [
+              "el506.alpha.el506-k30",
+              "el506.alpha.el506-k31",
+              "el506.alpha.el506-k32",
+              "el506.alpha.el506-k35",
+              "el506.alpha.el506-k36",
+              "el506.alpha.el506-k37",
+              "el506.alpha.el506-k40",
+              "el506.alpha.el506-k41",
+              "el506.alpha.el506-k42",
+              "el506.alpha.el506-k45",
+              "el506.alpha.el506-k46",
+              "el506.alpha.el506-k47",
+              "el506.statistic.el506-k30",
+              "el506.statistic.el506-k31",
+              "el506.statistic.el506-k32",
+              "el506.statistic.el506-k35",
+              "el506.statistic.el506-k36",
+              "el506.statistic.el506-k37",
+              "el506.statistic.el506-k40",
+              "el506.statistic.el506-k41",
+              "el506.statistic.el506-k42",
+              "el506.statistic.el506-k45",
+              "el506.statistic.el506-k46",
+              "el506.statistic.el506-k47"
+            ],
+            "scope": "Canonical replay asserts every printed weighted/corrected/paired statistics checkpoint; printed precision only."
+          }
+        ],
         "scope": "Explicit mapped assertions only; unlisted coverage is unassessed."
       },
       "goldenTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "baseline-known-differences",
+        "evidence": [
+          {
+            "fixtureId": "phase12-15-native",
+            "status": "known-differences",
+            "assertedFrames": 397
+          }
+        ],
         "scope": "Baseline characterization only; all current supported fixtures have oracle display differences."
       },
       "browserTested": {
@@ -38439,13 +40915,52 @@
         "policy": "Frozen baseline classification; infrastructure refactors do not promote capability parity."
       },
       "unitTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "partial",
+        "evidence": [
+          {
+            "kind": "unit",
+            "path": "tests/unit/phase12.test.js",
+            "anchor": "Statistics every printed weighted correction and paired guide checkpoint reproduces display precision",
+            "capabilityIds": [
+              "el506.alpha.el506-k30",
+              "el506.alpha.el506-k31",
+              "el506.alpha.el506-k32",
+              "el506.alpha.el506-k35",
+              "el506.alpha.el506-k36",
+              "el506.alpha.el506-k37",
+              "el506.alpha.el506-k40",
+              "el506.alpha.el506-k41",
+              "el506.alpha.el506-k42",
+              "el506.alpha.el506-k45",
+              "el506.alpha.el506-k46",
+              "el506.alpha.el506-k47",
+              "el506.statistic.el506-k30",
+              "el506.statistic.el506-k31",
+              "el506.statistic.el506-k32",
+              "el506.statistic.el506-k35",
+              "el506.statistic.el506-k36",
+              "el506.statistic.el506-k37",
+              "el506.statistic.el506-k40",
+              "el506.statistic.el506-k41",
+              "el506.statistic.el506-k42",
+              "el506.statistic.el506-k45",
+              "el506.statistic.el506-k46",
+              "el506.statistic.el506-k47"
+            ],
+            "scope": "Canonical replay asserts every printed weighted/corrected/paired statistics checkpoint; printed precision only."
+          }
+        ],
         "scope": "Explicit mapped assertions only; unlisted coverage is unassessed."
       },
       "goldenTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "baseline-known-differences",
+        "evidence": [
+          {
+            "fixtureId": "phase12-15-native",
+            "status": "known-differences",
+            "assertedFrames": 397
+          }
+        ],
         "scope": "Baseline characterization only; all current supported fixtures have oracle display differences."
       },
       "browserTested": {
@@ -38490,13 +41005,52 @@
         "policy": "Frozen baseline classification; infrastructure refactors do not promote capability parity."
       },
       "unitTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "partial",
+        "evidence": [
+          {
+            "kind": "unit",
+            "path": "tests/unit/phase12.test.js",
+            "anchor": "Statistics every printed weighted correction and paired guide checkpoint reproduces display precision",
+            "capabilityIds": [
+              "el506.alpha.el506-k30",
+              "el506.alpha.el506-k31",
+              "el506.alpha.el506-k32",
+              "el506.alpha.el506-k35",
+              "el506.alpha.el506-k36",
+              "el506.alpha.el506-k37",
+              "el506.alpha.el506-k40",
+              "el506.alpha.el506-k41",
+              "el506.alpha.el506-k42",
+              "el506.alpha.el506-k45",
+              "el506.alpha.el506-k46",
+              "el506.alpha.el506-k47",
+              "el506.statistic.el506-k30",
+              "el506.statistic.el506-k31",
+              "el506.statistic.el506-k32",
+              "el506.statistic.el506-k35",
+              "el506.statistic.el506-k36",
+              "el506.statistic.el506-k37",
+              "el506.statistic.el506-k40",
+              "el506.statistic.el506-k41",
+              "el506.statistic.el506-k42",
+              "el506.statistic.el506-k45",
+              "el506.statistic.el506-k46",
+              "el506.statistic.el506-k47"
+            ],
+            "scope": "Canonical replay asserts every printed weighted/corrected/paired statistics checkpoint; printed precision only."
+          }
+        ],
         "scope": "Explicit mapped assertions only; unlisted coverage is unassessed."
       },
       "goldenTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "baseline-known-differences",
+        "evidence": [
+          {
+            "fixtureId": "phase12-15-native",
+            "status": "known-differences",
+            "assertedFrames": 397
+          }
+        ],
         "scope": "Baseline characterization only; all current supported fixtures have oracle display differences."
       },
       "browserTested": {
@@ -38541,13 +41095,46 @@
         "policy": "Frozen baseline classification; infrastructure refactors do not promote capability parity."
       },
       "unitTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "partial",
+        "evidence": [
+          {
+            "kind": "unit",
+            "path": "tests/unit/phase12.test.js",
+            "anchor": "Statistics all six regressions recover coefficients and inverse estimates",
+            "capabilityIds": [
+              "el506.second.el506-k33",
+              "el506.second.el506-k34",
+              "el506.alpha.el506-k33",
+              "el506.alpha.el506-k34",
+              "el506.alpha.el506-k38",
+              "el506.alpha.el506-k39",
+              "el506.context.stat.second.33",
+              "el506.context.stat.second.34",
+              "el506.stat.submode.line",
+              "el506.stat.submode.quad",
+              "el506.stat.submode.exp",
+              "el506.stat.submode.log",
+              "el506.stat.submode.pwr",
+              "el506.stat.submode.inv",
+              "el506.statistic.el506-k33",
+              "el506.statistic.el506-k34",
+              "el506.statistic.el506-k38",
+              "el506.statistic.el506-k39"
+            ],
+            "scope": "Independent analytic datasets assert six regression coefficients, correlation availability and X/Y estimates; hidden native precision remains unmeasured."
+          }
+        ],
         "scope": "Explicit mapped assertions only; unlisted coverage is unassessed."
       },
       "goldenTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "baseline-known-differences",
+        "evidence": [
+          {
+            "fixtureId": "phase12-15-native",
+            "status": "known-differences",
+            "assertedFrames": 397
+          }
+        ],
         "scope": "Baseline characterization only; all current supported fixtures have oracle display differences."
       },
       "browserTested": {
@@ -38592,13 +41179,46 @@
         "policy": "Frozen baseline classification; infrastructure refactors do not promote capability parity."
       },
       "unitTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "partial",
+        "evidence": [
+          {
+            "kind": "unit",
+            "path": "tests/unit/phase12.test.js",
+            "anchor": "Statistics all six regressions recover coefficients and inverse estimates",
+            "capabilityIds": [
+              "el506.second.el506-k33",
+              "el506.second.el506-k34",
+              "el506.alpha.el506-k33",
+              "el506.alpha.el506-k34",
+              "el506.alpha.el506-k38",
+              "el506.alpha.el506-k39",
+              "el506.context.stat.second.33",
+              "el506.context.stat.second.34",
+              "el506.stat.submode.line",
+              "el506.stat.submode.quad",
+              "el506.stat.submode.exp",
+              "el506.stat.submode.log",
+              "el506.stat.submode.pwr",
+              "el506.stat.submode.inv",
+              "el506.statistic.el506-k33",
+              "el506.statistic.el506-k34",
+              "el506.statistic.el506-k38",
+              "el506.statistic.el506-k39"
+            ],
+            "scope": "Independent analytic datasets assert six regression coefficients, correlation availability and X/Y estimates; hidden native precision remains unmeasured."
+          }
+        ],
         "scope": "Explicit mapped assertions only; unlisted coverage is unassessed."
       },
       "goldenTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "baseline-known-differences",
+        "evidence": [
+          {
+            "fixtureId": "phase12-15-native",
+            "status": "known-differences",
+            "assertedFrames": 397
+          }
+        ],
         "scope": "Baseline characterization only; all current supported fixtures have oracle display differences."
       },
       "browserTested": {
@@ -38645,18 +41265,76 @@
         "policy": "Frozen baseline classification; infrastructure refactors do not promote capability parity."
       },
       "unitTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "partial",
+        "evidence": [
+          {
+            "kind": "unit",
+            "path": "tests/unit/phase12.test.js",
+            "anchor": "Statistics every printed weighted correction and paired guide checkpoint reproduces display precision",
+            "capabilityIds": [
+              "el506.alpha.el506-k30",
+              "el506.alpha.el506-k31",
+              "el506.alpha.el506-k32",
+              "el506.alpha.el506-k35",
+              "el506.alpha.el506-k36",
+              "el506.alpha.el506-k37",
+              "el506.alpha.el506-k40",
+              "el506.alpha.el506-k41",
+              "el506.alpha.el506-k42",
+              "el506.alpha.el506-k45",
+              "el506.alpha.el506-k46",
+              "el506.alpha.el506-k47",
+              "el506.statistic.el506-k30",
+              "el506.statistic.el506-k31",
+              "el506.statistic.el506-k32",
+              "el506.statistic.el506-k35",
+              "el506.statistic.el506-k36",
+              "el506.statistic.el506-k37",
+              "el506.statistic.el506-k40",
+              "el506.statistic.el506-k41",
+              "el506.statistic.el506-k42",
+              "el506.statistic.el506-k45",
+              "el506.statistic.el506-k46",
+              "el506.statistic.el506-k47"
+            ],
+            "scope": "Canonical replay asserts every printed weighted/corrected/paired statistics checkpoint; printed precision only."
+          }
+        ],
         "scope": "Explicit mapped assertions only; unlisted coverage is unassessed."
       },
       "goldenTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "baseline-known-differences",
+        "evidence": [
+          {
+            "fixtureId": "phase12-15-native",
+            "status": "known-differences",
+            "assertedFrames": 397
+          }
+        ],
         "scope": "Baseline characterization only; all current supported fixtures have oracle display differences."
       },
       "browserTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "partial",
+        "evidence": [
+          {
+            "kind": "browser",
+            "path": "tests/e2e/phase12.spec.js",
+            "anchor": "Statistics result recall expression use and probability use physical keys",
+            "capabilityIds": [
+              "el506.alpha.el506-k35",
+              "el506.alpha.el506-k36",
+              "el506.alpha.el506-k37",
+              "el506.statistic.el506-k35",
+              "el506.statistic.el506-k36",
+              "el506.statistic.el506-k37",
+              "el506.probability.to-t",
+              "el506.probability.p",
+              "el506.probability.q",
+              "el506.probability.r"
+            ],
+            "scope": "Actual buttons exercise SD RCL/ALPHA and probability; no transformed-regression browser parity claim."
+          }
+        ],
         "scope": "Explicit canonical baseline browser replays only; legacy regression coverage is not inferred as parity."
       }
     },
@@ -38698,18 +41376,76 @@
         "policy": "Frozen baseline classification; infrastructure refactors do not promote capability parity."
       },
       "unitTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "partial",
+        "evidence": [
+          {
+            "kind": "unit",
+            "path": "tests/unit/phase12.test.js",
+            "anchor": "Statistics every printed weighted correction and paired guide checkpoint reproduces display precision",
+            "capabilityIds": [
+              "el506.alpha.el506-k30",
+              "el506.alpha.el506-k31",
+              "el506.alpha.el506-k32",
+              "el506.alpha.el506-k35",
+              "el506.alpha.el506-k36",
+              "el506.alpha.el506-k37",
+              "el506.alpha.el506-k40",
+              "el506.alpha.el506-k41",
+              "el506.alpha.el506-k42",
+              "el506.alpha.el506-k45",
+              "el506.alpha.el506-k46",
+              "el506.alpha.el506-k47",
+              "el506.statistic.el506-k30",
+              "el506.statistic.el506-k31",
+              "el506.statistic.el506-k32",
+              "el506.statistic.el506-k35",
+              "el506.statistic.el506-k36",
+              "el506.statistic.el506-k37",
+              "el506.statistic.el506-k40",
+              "el506.statistic.el506-k41",
+              "el506.statistic.el506-k42",
+              "el506.statistic.el506-k45",
+              "el506.statistic.el506-k46",
+              "el506.statistic.el506-k47"
+            ],
+            "scope": "Canonical replay asserts every printed weighted/corrected/paired statistics checkpoint; printed precision only."
+          }
+        ],
         "scope": "Explicit mapped assertions only; unlisted coverage is unassessed."
       },
       "goldenTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "baseline-known-differences",
+        "evidence": [
+          {
+            "fixtureId": "phase12-15-native",
+            "status": "known-differences",
+            "assertedFrames": 397
+          }
+        ],
         "scope": "Baseline characterization only; all current supported fixtures have oracle display differences."
       },
       "browserTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "partial",
+        "evidence": [
+          {
+            "kind": "browser",
+            "path": "tests/e2e/phase12.spec.js",
+            "anchor": "Statistics result recall expression use and probability use physical keys",
+            "capabilityIds": [
+              "el506.alpha.el506-k35",
+              "el506.alpha.el506-k36",
+              "el506.alpha.el506-k37",
+              "el506.statistic.el506-k35",
+              "el506.statistic.el506-k36",
+              "el506.statistic.el506-k37",
+              "el506.probability.to-t",
+              "el506.probability.p",
+              "el506.probability.q",
+              "el506.probability.r"
+            ],
+            "scope": "Actual buttons exercise SD RCL/ALPHA and probability; no transformed-regression browser parity claim."
+          }
+        ],
         "scope": "Explicit canonical baseline browser replays only; legacy regression coverage is not inferred as parity."
       }
     },
@@ -38749,18 +41485,76 @@
         "policy": "Frozen baseline classification; infrastructure refactors do not promote capability parity."
       },
       "unitTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "partial",
+        "evidence": [
+          {
+            "kind": "unit",
+            "path": "tests/unit/phase12.test.js",
+            "anchor": "Statistics every printed weighted correction and paired guide checkpoint reproduces display precision",
+            "capabilityIds": [
+              "el506.alpha.el506-k30",
+              "el506.alpha.el506-k31",
+              "el506.alpha.el506-k32",
+              "el506.alpha.el506-k35",
+              "el506.alpha.el506-k36",
+              "el506.alpha.el506-k37",
+              "el506.alpha.el506-k40",
+              "el506.alpha.el506-k41",
+              "el506.alpha.el506-k42",
+              "el506.alpha.el506-k45",
+              "el506.alpha.el506-k46",
+              "el506.alpha.el506-k47",
+              "el506.statistic.el506-k30",
+              "el506.statistic.el506-k31",
+              "el506.statistic.el506-k32",
+              "el506.statistic.el506-k35",
+              "el506.statistic.el506-k36",
+              "el506.statistic.el506-k37",
+              "el506.statistic.el506-k40",
+              "el506.statistic.el506-k41",
+              "el506.statistic.el506-k42",
+              "el506.statistic.el506-k45",
+              "el506.statistic.el506-k46",
+              "el506.statistic.el506-k47"
+            ],
+            "scope": "Canonical replay asserts every printed weighted/corrected/paired statistics checkpoint; printed precision only."
+          }
+        ],
         "scope": "Explicit mapped assertions only; unlisted coverage is unassessed."
       },
       "goldenTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "baseline-known-differences",
+        "evidence": [
+          {
+            "fixtureId": "phase12-15-native",
+            "status": "known-differences",
+            "assertedFrames": 397
+          }
+        ],
         "scope": "Baseline characterization only; all current supported fixtures have oracle display differences."
       },
       "browserTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "partial",
+        "evidence": [
+          {
+            "kind": "browser",
+            "path": "tests/e2e/phase12.spec.js",
+            "anchor": "Statistics result recall expression use and probability use physical keys",
+            "capabilityIds": [
+              "el506.alpha.el506-k35",
+              "el506.alpha.el506-k36",
+              "el506.alpha.el506-k37",
+              "el506.statistic.el506-k35",
+              "el506.statistic.el506-k36",
+              "el506.statistic.el506-k37",
+              "el506.probability.to-t",
+              "el506.probability.p",
+              "el506.probability.q",
+              "el506.probability.r"
+            ],
+            "scope": "Actual buttons exercise SD RCL/ALPHA and probability; no transformed-regression browser parity claim."
+          }
+        ],
         "scope": "Explicit canonical baseline browser replays only; legacy regression coverage is not inferred as parity."
       }
     },
@@ -38800,8 +41594,35 @@
         "policy": "Frozen baseline classification; infrastructure refactors do not promote capability parity."
       },
       "unitTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "partial",
+        "evidence": [
+          {
+            "kind": "unit",
+            "path": "tests/unit/phase12.test.js",
+            "anchor": "Statistics all six regressions recover coefficients and inverse estimates",
+            "capabilityIds": [
+              "el506.second.el506-k33",
+              "el506.second.el506-k34",
+              "el506.alpha.el506-k33",
+              "el506.alpha.el506-k34",
+              "el506.alpha.el506-k38",
+              "el506.alpha.el506-k39",
+              "el506.context.stat.second.33",
+              "el506.context.stat.second.34",
+              "el506.stat.submode.line",
+              "el506.stat.submode.quad",
+              "el506.stat.submode.exp",
+              "el506.stat.submode.log",
+              "el506.stat.submode.pwr",
+              "el506.stat.submode.inv",
+              "el506.statistic.el506-k33",
+              "el506.statistic.el506-k34",
+              "el506.statistic.el506-k38",
+              "el506.statistic.el506-k39"
+            ],
+            "scope": "Independent analytic datasets assert six regression coefficients, correlation availability and X/Y estimates; hidden native precision remains unmeasured."
+          }
+        ],
         "scope": "Explicit mapped assertions only; unlisted coverage is unassessed."
       },
       "goldenTested": {
@@ -38851,13 +41672,46 @@
         "policy": "Frozen baseline classification; infrastructure refactors do not promote capability parity."
       },
       "unitTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "partial",
+        "evidence": [
+          {
+            "kind": "unit",
+            "path": "tests/unit/phase12.test.js",
+            "anchor": "Statistics all six regressions recover coefficients and inverse estimates",
+            "capabilityIds": [
+              "el506.second.el506-k33",
+              "el506.second.el506-k34",
+              "el506.alpha.el506-k33",
+              "el506.alpha.el506-k34",
+              "el506.alpha.el506-k38",
+              "el506.alpha.el506-k39",
+              "el506.context.stat.second.33",
+              "el506.context.stat.second.34",
+              "el506.stat.submode.line",
+              "el506.stat.submode.quad",
+              "el506.stat.submode.exp",
+              "el506.stat.submode.log",
+              "el506.stat.submode.pwr",
+              "el506.stat.submode.inv",
+              "el506.statistic.el506-k33",
+              "el506.statistic.el506-k34",
+              "el506.statistic.el506-k38",
+              "el506.statistic.el506-k39"
+            ],
+            "scope": "Independent analytic datasets assert six regression coefficients, correlation availability and X/Y estimates; hidden native precision remains unmeasured."
+          }
+        ],
         "scope": "Explicit mapped assertions only; unlisted coverage is unassessed."
       },
       "goldenTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "baseline-known-differences",
+        "evidence": [
+          {
+            "fixtureId": "phase12-15-native",
+            "status": "known-differences",
+            "assertedFrames": 397
+          }
+        ],
         "scope": "Baseline characterization only; all current supported fixtures have oracle display differences."
       },
       "browserTested": {
@@ -38902,13 +41756,52 @@
         "policy": "Frozen baseline classification; infrastructure refactors do not promote capability parity."
       },
       "unitTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "partial",
+        "evidence": [
+          {
+            "kind": "unit",
+            "path": "tests/unit/phase12.test.js",
+            "anchor": "Statistics every printed weighted correction and paired guide checkpoint reproduces display precision",
+            "capabilityIds": [
+              "el506.alpha.el506-k30",
+              "el506.alpha.el506-k31",
+              "el506.alpha.el506-k32",
+              "el506.alpha.el506-k35",
+              "el506.alpha.el506-k36",
+              "el506.alpha.el506-k37",
+              "el506.alpha.el506-k40",
+              "el506.alpha.el506-k41",
+              "el506.alpha.el506-k42",
+              "el506.alpha.el506-k45",
+              "el506.alpha.el506-k46",
+              "el506.alpha.el506-k47",
+              "el506.statistic.el506-k30",
+              "el506.statistic.el506-k31",
+              "el506.statistic.el506-k32",
+              "el506.statistic.el506-k35",
+              "el506.statistic.el506-k36",
+              "el506.statistic.el506-k37",
+              "el506.statistic.el506-k40",
+              "el506.statistic.el506-k41",
+              "el506.statistic.el506-k42",
+              "el506.statistic.el506-k45",
+              "el506.statistic.el506-k46",
+              "el506.statistic.el506-k47"
+            ],
+            "scope": "Canonical replay asserts every printed weighted/corrected/paired statistics checkpoint; printed precision only."
+          }
+        ],
         "scope": "Explicit mapped assertions only; unlisted coverage is unassessed."
       },
       "goldenTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "baseline-known-differences",
+        "evidence": [
+          {
+            "fixtureId": "phase12-15-native",
+            "status": "known-differences",
+            "assertedFrames": 397
+          }
+        ],
         "scope": "Baseline characterization only; all current supported fixtures have oracle display differences."
       },
       "browserTested": {
@@ -38953,13 +41846,52 @@
         "policy": "Frozen baseline classification; infrastructure refactors do not promote capability parity."
       },
       "unitTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "partial",
+        "evidence": [
+          {
+            "kind": "unit",
+            "path": "tests/unit/phase12.test.js",
+            "anchor": "Statistics every printed weighted correction and paired guide checkpoint reproduces display precision",
+            "capabilityIds": [
+              "el506.alpha.el506-k30",
+              "el506.alpha.el506-k31",
+              "el506.alpha.el506-k32",
+              "el506.alpha.el506-k35",
+              "el506.alpha.el506-k36",
+              "el506.alpha.el506-k37",
+              "el506.alpha.el506-k40",
+              "el506.alpha.el506-k41",
+              "el506.alpha.el506-k42",
+              "el506.alpha.el506-k45",
+              "el506.alpha.el506-k46",
+              "el506.alpha.el506-k47",
+              "el506.statistic.el506-k30",
+              "el506.statistic.el506-k31",
+              "el506.statistic.el506-k32",
+              "el506.statistic.el506-k35",
+              "el506.statistic.el506-k36",
+              "el506.statistic.el506-k37",
+              "el506.statistic.el506-k40",
+              "el506.statistic.el506-k41",
+              "el506.statistic.el506-k42",
+              "el506.statistic.el506-k45",
+              "el506.statistic.el506-k46",
+              "el506.statistic.el506-k47"
+            ],
+            "scope": "Canonical replay asserts every printed weighted/corrected/paired statistics checkpoint; printed precision only."
+          }
+        ],
         "scope": "Explicit mapped assertions only; unlisted coverage is unassessed."
       },
       "goldenTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "baseline-known-differences",
+        "evidence": [
+          {
+            "fixtureId": "phase12-15-native",
+            "status": "known-differences",
+            "assertedFrames": 397
+          }
+        ],
         "scope": "Baseline characterization only; all current supported fixtures have oracle display differences."
       },
       "browserTested": {
@@ -39004,13 +41936,52 @@
         "policy": "Frozen baseline classification; infrastructure refactors do not promote capability parity."
       },
       "unitTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "partial",
+        "evidence": [
+          {
+            "kind": "unit",
+            "path": "tests/unit/phase12.test.js",
+            "anchor": "Statistics every printed weighted correction and paired guide checkpoint reproduces display precision",
+            "capabilityIds": [
+              "el506.alpha.el506-k30",
+              "el506.alpha.el506-k31",
+              "el506.alpha.el506-k32",
+              "el506.alpha.el506-k35",
+              "el506.alpha.el506-k36",
+              "el506.alpha.el506-k37",
+              "el506.alpha.el506-k40",
+              "el506.alpha.el506-k41",
+              "el506.alpha.el506-k42",
+              "el506.alpha.el506-k45",
+              "el506.alpha.el506-k46",
+              "el506.alpha.el506-k47",
+              "el506.statistic.el506-k30",
+              "el506.statistic.el506-k31",
+              "el506.statistic.el506-k32",
+              "el506.statistic.el506-k35",
+              "el506.statistic.el506-k36",
+              "el506.statistic.el506-k37",
+              "el506.statistic.el506-k40",
+              "el506.statistic.el506-k41",
+              "el506.statistic.el506-k42",
+              "el506.statistic.el506-k45",
+              "el506.statistic.el506-k46",
+              "el506.statistic.el506-k47"
+            ],
+            "scope": "Canonical replay asserts every printed weighted/corrected/paired statistics checkpoint; printed precision only."
+          }
+        ],
         "scope": "Explicit mapped assertions only; unlisted coverage is unassessed."
       },
       "goldenTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "baseline-known-differences",
+        "evidence": [
+          {
+            "fixtureId": "phase12-15-native",
+            "status": "known-differences",
+            "assertedFrames": 397
+          }
+        ],
         "scope": "Baseline characterization only; all current supported fixtures have oracle display differences."
       },
       "browserTested": {
@@ -39057,13 +42028,52 @@
         "policy": "Frozen baseline classification; infrastructure refactors do not promote capability parity."
       },
       "unitTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "partial",
+        "evidence": [
+          {
+            "kind": "unit",
+            "path": "tests/unit/phase12.test.js",
+            "anchor": "Statistics every printed weighted correction and paired guide checkpoint reproduces display precision",
+            "capabilityIds": [
+              "el506.alpha.el506-k30",
+              "el506.alpha.el506-k31",
+              "el506.alpha.el506-k32",
+              "el506.alpha.el506-k35",
+              "el506.alpha.el506-k36",
+              "el506.alpha.el506-k37",
+              "el506.alpha.el506-k40",
+              "el506.alpha.el506-k41",
+              "el506.alpha.el506-k42",
+              "el506.alpha.el506-k45",
+              "el506.alpha.el506-k46",
+              "el506.alpha.el506-k47",
+              "el506.statistic.el506-k30",
+              "el506.statistic.el506-k31",
+              "el506.statistic.el506-k32",
+              "el506.statistic.el506-k35",
+              "el506.statistic.el506-k36",
+              "el506.statistic.el506-k37",
+              "el506.statistic.el506-k40",
+              "el506.statistic.el506-k41",
+              "el506.statistic.el506-k42",
+              "el506.statistic.el506-k45",
+              "el506.statistic.el506-k46",
+              "el506.statistic.el506-k47"
+            ],
+            "scope": "Canonical replay asserts every printed weighted/corrected/paired statistics checkpoint; printed precision only."
+          }
+        ],
         "scope": "Explicit mapped assertions only; unlisted coverage is unassessed."
       },
       "goldenTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "baseline-known-differences",
+        "evidence": [
+          {
+            "fixtureId": "phase12-15-native",
+            "status": "known-differences",
+            "assertedFrames": 397
+          }
+        ],
         "scope": "Baseline characterization only; all current supported fixtures have oracle display differences."
       },
       "browserTested": {
@@ -39110,13 +42120,52 @@
         "policy": "Frozen baseline classification; infrastructure refactors do not promote capability parity."
       },
       "unitTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "partial",
+        "evidence": [
+          {
+            "kind": "unit",
+            "path": "tests/unit/phase12.test.js",
+            "anchor": "Statistics every printed weighted correction and paired guide checkpoint reproduces display precision",
+            "capabilityIds": [
+              "el506.alpha.el506-k30",
+              "el506.alpha.el506-k31",
+              "el506.alpha.el506-k32",
+              "el506.alpha.el506-k35",
+              "el506.alpha.el506-k36",
+              "el506.alpha.el506-k37",
+              "el506.alpha.el506-k40",
+              "el506.alpha.el506-k41",
+              "el506.alpha.el506-k42",
+              "el506.alpha.el506-k45",
+              "el506.alpha.el506-k46",
+              "el506.alpha.el506-k47",
+              "el506.statistic.el506-k30",
+              "el506.statistic.el506-k31",
+              "el506.statistic.el506-k32",
+              "el506.statistic.el506-k35",
+              "el506.statistic.el506-k36",
+              "el506.statistic.el506-k37",
+              "el506.statistic.el506-k40",
+              "el506.statistic.el506-k41",
+              "el506.statistic.el506-k42",
+              "el506.statistic.el506-k45",
+              "el506.statistic.el506-k46",
+              "el506.statistic.el506-k47"
+            ],
+            "scope": "Canonical replay asserts every printed weighted/corrected/paired statistics checkpoint; printed precision only."
+          }
+        ],
         "scope": "Explicit mapped assertions only; unlisted coverage is unassessed."
       },
       "goldenTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "baseline-known-differences",
+        "evidence": [
+          {
+            "fixtureId": "phase12-15-native",
+            "status": "known-differences",
+            "assertedFrames": 397
+          }
+        ],
         "scope": "Baseline characterization only; all current supported fixtures have oracle display differences."
       },
       "browserTested": {
@@ -39163,13 +42212,52 @@
         "policy": "Frozen baseline classification; infrastructure refactors do not promote capability parity."
       },
       "unitTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "partial",
+        "evidence": [
+          {
+            "kind": "unit",
+            "path": "tests/unit/phase12.test.js",
+            "anchor": "Statistics every printed weighted correction and paired guide checkpoint reproduces display precision",
+            "capabilityIds": [
+              "el506.alpha.el506-k30",
+              "el506.alpha.el506-k31",
+              "el506.alpha.el506-k32",
+              "el506.alpha.el506-k35",
+              "el506.alpha.el506-k36",
+              "el506.alpha.el506-k37",
+              "el506.alpha.el506-k40",
+              "el506.alpha.el506-k41",
+              "el506.alpha.el506-k42",
+              "el506.alpha.el506-k45",
+              "el506.alpha.el506-k46",
+              "el506.alpha.el506-k47",
+              "el506.statistic.el506-k30",
+              "el506.statistic.el506-k31",
+              "el506.statistic.el506-k32",
+              "el506.statistic.el506-k35",
+              "el506.statistic.el506-k36",
+              "el506.statistic.el506-k37",
+              "el506.statistic.el506-k40",
+              "el506.statistic.el506-k41",
+              "el506.statistic.el506-k42",
+              "el506.statistic.el506-k45",
+              "el506.statistic.el506-k46",
+              "el506.statistic.el506-k47"
+            ],
+            "scope": "Canonical replay asserts every printed weighted/corrected/paired statistics checkpoint; printed precision only."
+          }
+        ],
         "scope": "Explicit mapped assertions only; unlisted coverage is unassessed."
       },
       "goldenTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "baseline-known-differences",
+        "evidence": [
+          {
+            "fixtureId": "phase12-15-native",
+            "status": "known-differences",
+            "assertedFrames": 397
+          }
+        ],
         "scope": "Baseline characterization only; all current supported fixtures have oracle display differences."
       },
       "browserTested": {

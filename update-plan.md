@@ -2405,6 +2405,42 @@ layout remain covered by the existing UI regressions.
 
 ### Phase 12 - Statistics Results and Regressions
 
+#### Authorized 44-item batch — READY_TO_PUSH (2026-10-08)
+
+The user's explicit request to complete the next 44 parts authorizes this batch
+across EL506-240–255, EL506-260–268, EL506-280–287, and EL506-300–310.
+EL506-311–313 remain outside the batch. Checklist items stay unchecked until
+the implementation is published and verified, followed by a separate tracking
+commit as required by the publication gate.
+
+Evidence: pinned Sharp simulator 1.0.2.0; `phase12-native-notes.json` records
+396 canonical keys and 111 independent significant LCD checkpoints. The
+`phase12-15-native` experiment and golden fixture retain that trace. Independent
+printed guide results are replayed by `guide-p34-weighted-statistics-replay`,
+`guide-p36-statistics-correction-replay`, and `guide-p38-paired-statistics-replay`.
+Algorithm/domain tests cover weighted statistics, all six regression families,
+linear and polynomial equations, complex arithmetic and memory, and the scoped
+matrix operations. Golden intermediate state frames remain application
+regression assertions; they do not claim independent native parity.
+
+Verification: `npm test` passes 465 unit tests, 981 asserted golden frames and
+165 browser tests, with reference validators, engine and report checks passing.
+`python -m compileall src/scientific_calculator`, seven Django integration tests,
+`python -m pip install --dry-run --no-deps .`, `docker compose config --quiet`,
+and `git diff --check` pass. The isolated installed-wheel/sdist smoke verifies
+23 packaged assets and no local references or runtime files. Browser checks
+include keyboard/pointer/touch, two-widget isolation, dark/override themes,
+focus, contrast, reduced motion, errors, and fraction geometry. Native windows
+opened for the evidence work have been closed; the local Django demo remains
+available at port 8010.
+
+Notes: Docker Desktop's Linux engine pipe is unavailable, so container startup
+could not be verified; the local Django demo and Compose configuration pass.
+Package version stays 0.3.1, and snapshot schema stays 11. Hidden digits,
+cursor timing and exhaustive cross-mode limits remain the later parity audit.
+Matrix ANS/memory/persistence, complete limit parity, and the guide transition
+example remain EL506-311–313. No private manual or simulator binary is shipped.
+
 - [ ] **EL506-240 - Match one-variable mean.**
 - [ ] **EL506-241 - Match sample standard deviation.**
 - [ ] **EL506-242 - Match population standard deviation.**

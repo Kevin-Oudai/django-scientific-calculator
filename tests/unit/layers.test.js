@@ -29,11 +29,11 @@ test('menus and memory prompts accept only their declared physical selections', 
   assert.deepEqual(s.layers.intent,{kind:'catalogue-value',menu:'CNST',index:1});
   assert.deepEqual(core.restoreCalculator(core.snapshotCalculator(s)),s);
 });
-test('mode selection records intent and prevents unsupported mode arithmetic', () => {
+test('mode selection records intent and routes matrix scalar arithmetic', () => {
   let s=core.createInitialState(); for(const n of [4,35]) s=press(s,n);
   assert.equal(s.layers.mode,'MAT');
   assert.equal(press(s,40).entry,'1');
-  assert.throws(()=>press(s,48),/pending/);
+  assert.equal(press(press(s,40),48).lastValue,1);
   assert.equal(press(s,2).layers.mode,'MAT');
   assert.equal(press(s,1).layers.mode,'NORMAL');
 });
