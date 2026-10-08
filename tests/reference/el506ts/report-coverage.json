@@ -1883,6 +1883,663 @@
         "el506.eqn.2"
       ],
       "scope": "Independent14-key QUAD cancellation X1=0,X2=-1E13; plainDOWN leavesX1 unchanged andENT advances. Does not establish full quadratic internal precision or all modifier/arrow behavior."
+    },
+    {
+      "kind": "browser",
+      "path": "tests/e2e/ledger-boundaries.spec.js",
+      "anchor": "Collection conversion error",
+      "capabilityIds": [
+        "el506.list-root.list-to-mat",
+        "el506.list-root.list-to-mata",
+        "el506.matrix-root.mata-to-list"
+      ],
+      "scope": "Empty collection conversion errors remain snapshot-restorable; ON/C then HOME permits 2+3=5. Three cases run across Chromium, Firefox and WebKit."
+    },
+    {
+      "kind": "unit",
+      "path": "tests/unit/ledger-boundaries.test.js",
+      "anchor": "Ledger boundary mode choice: ",
+      "capabilityIds": [
+        "el506.key.el506-k04",
+        "el506.base.el506-k04",
+        "el506.mode.normal",
+        "el506.mode.stat",
+        "el506.mode.eqn",
+        "el506.mode.cplx",
+        "el506.mode.mat",
+        "el506.mode.list"
+      ],
+      "scope": "Application boundary and invalid-input contracts for the listed operations; parameter bindings are recorded in boundary-coverage.js. Numeric expressions may be seeded before physical ENT. This does not establish independent native parity or exhaustive mode/type compatibility."
+    },
+    {
+      "kind": "unit",
+      "path": "tests/unit/ledger-boundaries.test.js",
+      "anchor": "Ledger boundary scalar: ",
+      "capabilityIds": [
+        "el506.key.el506-k13",
+        "el506.key.el506-k14",
+        "el506.key.el506-k15",
+        "el506.key.el506-k19",
+        "el506.key.el506-k20",
+        "el506.key.el506-k21",
+        "el506.key.el506-k22",
+        "el506.key.el506-k23",
+        "el506.key.el506-k38",
+        "el506.key.el506-k39",
+        "el506.key.el506-k43",
+        "el506.key.el506-k44",
+        "el506.base.el506-k13",
+        "el506.base.el506-k14",
+        "el506.base.el506-k15",
+        "el506.base.el506-k19",
+        "el506.base.el506-k20",
+        "el506.base.el506-k21",
+        "el506.base.el506-k22",
+        "el506.base.el506-k23",
+        "el506.base.el506-k38",
+        "el506.base.el506-k39",
+        "el506.base.el506-k43",
+        "el506.base.el506-k44",
+        "el506.second.el506-k13",
+        "el506.second.el506-k14",
+        "el506.second.el506-k15",
+        "el506.second.el506-k18",
+        "el506.second.el506-k19",
+        "el506.second.el506-k20",
+        "el506.second.el506-k21",
+        "el506.second.el506-k22",
+        "el506.second.el506-k23",
+        "el506.second.el506-k35",
+        "el506.second.el506-k36",
+        "el506.second.el506-k37",
+        "el506.hyp.13",
+        "el506.hyp.13.inverse",
+        "el506.hyp.14",
+        "el506.hyp.14.inverse",
+        "el506.hyp.15",
+        "el506.hyp.15.inverse"
+      ],
+      "scope": "Application boundary and invalid-input contracts for the listed operations; parameter bindings are recorded in boundary-coverage.js. Numeric expressions may be seeded before physical ENT. This does not establish independent native parity or exhaustive mode/type compatibility."
+    },
+    {
+      "kind": "unit",
+      "path": "tests/unit/ledger-boundaries.test.js",
+      "anchor": "Ledger boundary pi constant: zero product and overflowing product",
+      "capabilityIds": [
+        "el506.key.el506-k18",
+        "el506.base.el506-k18"
+      ],
+      "scope": "Application boundary and invalid-input contracts for the listed operations; parameter bindings are recorded in boundary-coverage.js. Numeric expressions may be seeded before physical ENT. This does not establish independent native parity or exhaustive mode/type compatibility."
+    },
+    {
+      "kind": "unit",
+      "path": "tests/unit/ledger-boundaries.test.js",
+      "anchor": "Ledger boundary memory: ",
+      "capabilityIds": [
+        "el506.key.el506-k27",
+        "el506.key.el506-k28",
+        "el506.base.el506-k27",
+        "el506.base.el506-k28",
+        "el506.memory.a.store",
+        "el506.memory.a.recall",
+        "el506.memory.b.store",
+        "el506.memory.b.recall",
+        "el506.memory.c.store",
+        "el506.memory.c.recall",
+        "el506.memory.d.store",
+        "el506.memory.d.recall",
+        "el506.memory.e.store",
+        "el506.memory.e.recall",
+        "el506.memory.f.store",
+        "el506.memory.f.recall",
+        "el506.memory.x.store",
+        "el506.memory.x.recall",
+        "el506.memory.y.store",
+        "el506.memory.y.recall",
+        "el506.memory.m.store",
+        "el506.memory.m.recall"
+      ],
+      "scope": "Application boundary and invalid-input contracts for the listed operations; parameter bindings are recorded in boundary-coverage.js. Numeric expressions may be seeded before physical ENT. This does not establish independent native parity or exhaustive mode/type compatibility."
+    },
+    {
+      "kind": "unit",
+      "path": "tests/unit/ledger-boundaries.test.js",
+      "anchor": "Ledger boundary independent memory addition: ",
+      "capabilityIds": [
+        "el506.key.el506-k29",
+        "el506.base.el506-k29",
+        "el506.second.el506-k29"
+      ],
+      "scope": "Application boundary and invalid-input contracts for the listed operations; parameter bindings are recorded in boundary-coverage.js. Numeric expressions may be seeded before physical ENT. This does not establish independent native parity or exhaustive mode/type compatibility."
+    },
+    {
+      "kind": "unit",
+      "path": "tests/unit/ledger-boundaries.test.js",
+      "anchor": "Ledger boundary decimal digit: ",
+      "capabilityIds": [
+        "el506.key.el506-k30",
+        "el506.key.el506-k31",
+        "el506.key.el506-k32",
+        "el506.key.el506-k35",
+        "el506.key.el506-k36",
+        "el506.key.el506-k37",
+        "el506.key.el506-k40",
+        "el506.key.el506-k41",
+        "el506.key.el506-k42",
+        "el506.key.el506-k45",
+        "el506.base.el506-k30",
+        "el506.base.el506-k31",
+        "el506.base.el506-k32",
+        "el506.base.el506-k35",
+        "el506.base.el506-k36",
+        "el506.base.el506-k37",
+        "el506.base.el506-k40",
+        "el506.base.el506-k41",
+        "el506.base.el506-k42",
+        "el506.base.el506-k45"
+      ],
+      "scope": "Application boundary and invalid-input contracts for the listed operations; parameter bindings are recorded in boundary-coverage.js. Numeric expressions may be seeded before physical ENT. This does not establish independent native parity or exhaustive mode/type compatibility."
+    },
+    {
+      "kind": "unit",
+      "path": "tests/unit/ledger-boundaries.test.js",
+      "anchor": "Ledger boundary parentheses: zero group and orphan closing parenthesis",
+      "capabilityIds": [
+        "el506.key.el506-k33",
+        "el506.key.el506-k34",
+        "el506.base.el506-k33",
+        "el506.base.el506-k34"
+      ],
+      "scope": "Application boundary and invalid-input contracts for the listed operations; parameter bindings are recorded in boundary-coverage.js. Numeric expressions may be seeded before physical ENT. This does not establish independent native parity or exhaustive mode/type compatibility."
+    },
+    {
+      "kind": "unit",
+      "path": "tests/unit/ledger-boundaries.test.js",
+      "anchor": "Ledger boundary formula slot: ",
+      "capabilityIds": [
+        "el506.formula.f1",
+        "el506.formula.f2",
+        "el506.formula.f3",
+        "el506.formula.f4"
+      ],
+      "scope": "Application boundary and invalid-input contracts for the listed operations; parameter bindings are recorded in boundary-coverage.js. Numeric expressions may be seeded before physical ENT. This does not establish independent native parity or exhaustive mode/type compatibility."
+    },
+    {
+      "kind": "unit",
+      "path": "tests/unit/ledger-boundaries.test.js",
+      "anchor": "Ledger boundary random sample: ",
+      "capabilityIds": [
+        "el506.second.el506-k30",
+        "el506.random.rand",
+        "el506.random.r-dice",
+        "el506.random.r-coin",
+        "el506.random.r-int"
+      ],
+      "scope": "Application boundary and invalid-input contracts for the listed operations; parameter bindings are recorded in boundary-coverage.js. Numeric expressions may be seeded before physical ENT. This does not establish independent native parity or exhaustive mode/type compatibility."
+    },
+    {
+      "kind": "unit",
+      "path": "tests/unit/ledger-boundaries.test.js",
+      "anchor": "Ledger boundary paired coefficient estimates: endpoint and unavailable regression",
+      "capabilityIds": [
+        "el506.second.el506-k33",
+        "el506.second.el506-k34",
+        "el506.context.stat.second.33",
+        "el506.context.stat.second.34"
+      ],
+      "scope": "Application boundary and invalid-input contracts for the listed operations; parameter bindings are recorded in boundary-coverage.js. Numeric expressions may be seeded before physical ENT. This does not establish independent native parity or exhaustive mode/type compatibility."
+    },
+    {
+      "kind": "unit",
+      "path": "tests/unit/ledger-boundaries.test.js",
+      "anchor": "Ledger boundary percent: zero percentage and missing operand",
+      "capabilityIds": [
+        "el506.second.el506-k40"
+      ],
+      "scope": "Application boundary and invalid-input contracts for the listed operations; parameter bindings are recorded in boundary-coverage.js. Numeric expressions may be seeded before physical ENT. This does not establish independent native parity or exhaustive mode/type compatibility."
+    },
+    {
+      "kind": "unit",
+      "path": "tests/unit/ledger-boundaries.test.js",
+      "anchor": "Ledger boundary constant: ",
+      "capabilityIds": [
+        "el506.second.el506-k41",
+        "el506.constant.01",
+        "el506.constant.02",
+        "el506.constant.03",
+        "el506.constant.04",
+        "el506.constant.05",
+        "el506.constant.06",
+        "el506.constant.07",
+        "el506.constant.08",
+        "el506.constant.09",
+        "el506.constant.10",
+        "el506.constant.11",
+        "el506.constant.12",
+        "el506.constant.13",
+        "el506.constant.14",
+        "el506.constant.15",
+        "el506.constant.16",
+        "el506.constant.17",
+        "el506.constant.18",
+        "el506.constant.19",
+        "el506.constant.20",
+        "el506.constant.21",
+        "el506.constant.22",
+        "el506.constant.23",
+        "el506.constant.24",
+        "el506.constant.25",
+        "el506.constant.26",
+        "el506.constant.27",
+        "el506.constant.28",
+        "el506.constant.29",
+        "el506.constant.30",
+        "el506.constant.31",
+        "el506.constant.32",
+        "el506.constant.33",
+        "el506.constant.34",
+        "el506.constant.35",
+        "el506.constant.36",
+        "el506.constant.37",
+        "el506.constant.38",
+        "el506.constant.39",
+        "el506.constant.40",
+        "el506.constant.41",
+        "el506.constant.42",
+        "el506.constant.43",
+        "el506.constant.44",
+        "el506.constant.45",
+        "el506.constant.46",
+        "el506.constant.47",
+        "el506.constant.48",
+        "el506.constant.49",
+        "el506.constant.50",
+        "el506.constant.51",
+        "el506.constant.52"
+      ],
+      "scope": "Application boundary and invalid-input contracts for the listed operations; parameter bindings are recorded in boundary-coverage.js. Numeric expressions may be seeded before physical ENT. This does not establish independent native parity or exhaustive mode/type compatibility."
+    },
+    {
+      "kind": "unit",
+      "path": "tests/unit/ledger-boundaries.test.js",
+      "anchor": "Ledger boundary conversion: ",
+      "capabilityIds": [
+        "el506.second.el506-k42",
+        "el506.conversion.01",
+        "el506.conversion.02",
+        "el506.conversion.03",
+        "el506.conversion.04",
+        "el506.conversion.05",
+        "el506.conversion.06",
+        "el506.conversion.07",
+        "el506.conversion.08",
+        "el506.conversion.09",
+        "el506.conversion.10",
+        "el506.conversion.11",
+        "el506.conversion.12",
+        "el506.conversion.13",
+        "el506.conversion.14",
+        "el506.conversion.15",
+        "el506.conversion.16",
+        "el506.conversion.17",
+        "el506.conversion.18",
+        "el506.conversion.19",
+        "el506.conversion.20",
+        "el506.conversion.21",
+        "el506.conversion.22",
+        "el506.conversion.23",
+        "el506.conversion.24",
+        "el506.conversion.25",
+        "el506.conversion.26",
+        "el506.conversion.27",
+        "el506.conversion.28",
+        "el506.conversion.29",
+        "el506.conversion.30",
+        "el506.conversion.31",
+        "el506.conversion.32",
+        "el506.conversion.33",
+        "el506.conversion.34",
+        "el506.conversion.35",
+        "el506.conversion.36",
+        "el506.conversion.37",
+        "el506.conversion.38",
+        "el506.conversion.39",
+        "el506.conversion.40",
+        "el506.conversion.41",
+        "el506.conversion.42",
+        "el506.conversion.43",
+        "el506.conversion.44"
+      ],
+      "scope": "Application boundary and invalid-input contracts for the listed operations; parameter bindings are recorded in boundary-coverage.js. Numeric expressions may be seeded before physical ENT. This does not establish independent native parity or exhaustive mode/type compatibility."
+    },
+    {
+      "kind": "unit",
+      "path": "tests/unit/ledger-boundaries.test.js",
+      "anchor": "Ledger boundary clearing confirmation: ",
+      "capabilityIds": [
+        "el506.second.el506-k47",
+        "el506.clear.mem",
+        "el506.clear.reset"
+      ],
+      "scope": "Application boundary and invalid-input contracts for the listed operations; parameter bindings are recorded in boundary-coverage.js. Numeric expressions may be seeded before physical ENT. This does not establish independent native parity or exhaustive mode/type compatibility."
+    },
+    {
+      "kind": "unit",
+      "path": "tests/unit/ledger-boundaries.test.js",
+      "anchor": "Ledger boundary ALPHA variable: ",
+      "capabilityIds": [
+        "el506.alpha.el506-k18",
+        "el506.alpha.el506-k19",
+        "el506.alpha.el506-k20",
+        "el506.alpha.el506-k21",
+        "el506.alpha.el506-k22",
+        "el506.alpha.el506-k23",
+        "el506.alpha.el506-k27",
+        "el506.alpha.el506-k28",
+        "el506.alpha.el506-k29"
+      ],
+      "scope": "Application boundary and invalid-input contracts for the listed operations; parameter bindings are recorded in boundary-coverage.js. Numeric expressions may be seeded before physical ENT. This does not establish independent native parity or exhaustive mode/type compatibility."
+    },
+    {
+      "kind": "unit",
+      "path": "tests/unit/ledger-boundaries.test.js",
+      "anchor": "Ledger boundary ALPHA statistic: ",
+      "capabilityIds": [
+        "el506.alpha.el506-k30",
+        "el506.alpha.el506-k31",
+        "el506.alpha.el506-k32",
+        "el506.alpha.el506-k33",
+        "el506.alpha.el506-k34",
+        "el506.alpha.el506-k35",
+        "el506.alpha.el506-k36",
+        "el506.alpha.el506-k37",
+        "el506.alpha.el506-k38",
+        "el506.alpha.el506-k39",
+        "el506.alpha.el506-k40",
+        "el506.alpha.el506-k41",
+        "el506.alpha.el506-k42",
+        "el506.alpha.el506-k45",
+        "el506.alpha.el506-k46",
+        "el506.alpha.el506-k47"
+      ],
+      "scope": "Application boundary and invalid-input contracts for the listed operations; parameter bindings are recorded in boundary-coverage.js. Numeric expressions may be seeded before physical ENT. This does not establish independent native parity or exhaustive mode/type compatibility."
+    },
+    {
+      "kind": "unit",
+      "path": "tests/unit/ledger-boundaries.test.js",
+      "anchor": "Ledger boundary ANS recall: smallest scalar and rejected division",
+      "capabilityIds": [
+        "el506.alpha.el506-k48"
+      ],
+      "scope": "Application boundary and invalid-input contracts for the listed operations; parameter bindings are recorded in boundary-coverage.js. Numeric expressions may be seeded before physical ENT. This does not establish independent native parity or exhaustive mode/type compatibility."
+    },
+    {
+      "kind": "unit",
+      "path": "tests/unit/ledger-boundaries.test.js",
+      "anchor": "Ledger boundary N-base operation: ",
+      "capabilityIds": [
+        "el506.context.nbase.12",
+        "el506.context.nbase.13",
+        "el506.context.nbase.14",
+        "el506.context.nbase.15",
+        "el506.context.nbase.16",
+        "el506.context.nbase.47"
+      ],
+      "scope": "Application boundary and invalid-input contracts for the listed operations; parameter bindings are recorded in boundary-coverage.js. Numeric expressions may be seeded before physical ENT. This does not establish independent native parity or exhaustive mode/type compatibility."
+    },
+    {
+      "kind": "unit",
+      "path": "tests/unit/ledger-boundaries.test.js",
+      "anchor": "Ledger boundary regression domain: ",
+      "capabilityIds": [
+        "el506.stat.submode.sd",
+        "el506.stat.submode.line",
+        "el506.stat.submode.quad",
+        "el506.stat.submode.exp",
+        "el506.stat.submode.log",
+        "el506.stat.submode.pwr",
+        "el506.stat.submode.inv"
+      ],
+      "scope": "Application boundary and invalid-input contracts for the listed operations; parameter bindings are recorded in boundary-coverage.js. Numeric expressions may be seeded before physical ENT. This does not establish independent native parity or exhaustive mode/type compatibility."
+    },
+    {
+      "kind": "unit",
+      "path": "tests/unit/ledger-boundaries.test.js",
+      "anchor": "Ledger boundary equation: ",
+      "capabilityIds": [
+        "el506.eqn.0",
+        "el506.eqn.1",
+        "el506.eqn.2",
+        "el506.eqn.3"
+      ],
+      "scope": "Application boundary and invalid-input contracts for the listed operations; parameter bindings are recorded in boundary-coverage.js. Numeric expressions may be seeded before physical ENT. This does not establish independent native parity or exhaustive mode/type compatibility."
+    },
+    {
+      "kind": "unit",
+      "path": "tests/unit/ledger-boundaries.test.js",
+      "anchor": "Ledger boundary setup choice: ",
+      "capabilityIds": [
+        "el506.setup.angle.deg",
+        "el506.setup.angle.rad",
+        "el506.setup.angle.grad",
+        "el506.setup.format.fix",
+        "el506.setup.format.sci",
+        "el506.setup.format.eng",
+        "el506.setup.format.norm1",
+        "el506.setup.format.norm2",
+        "el506.setup.tab.0",
+        "el506.setup.tab.1",
+        "el506.setup.tab.2",
+        "el506.setup.tab.3",
+        "el506.setup.tab.4",
+        "el506.setup.tab.5",
+        "el506.setup.tab.6",
+        "el506.setup.tab.7",
+        "el506.setup.tab.8",
+        "el506.setup.tab.9"
+      ],
+      "scope": "Application boundary and invalid-input contracts for the listed operations; parameter bindings are recorded in boundary-coverage.js. Numeric expressions may be seeded before physical ENT. This does not establish independent native parity or exhaustive mode/type compatibility."
+    },
+    {
+      "kind": "unit",
+      "path": "tests/unit/ledger-boundaries.test.js",
+      "anchor": "Ledger boundary time conversion: ",
+      "capabilityIds": [
+        "el506.normal.to-seconds",
+        "el506.normal.to-minutes"
+      ],
+      "scope": "Application boundary and invalid-input contracts for the listed operations; parameter bindings are recorded in boundary-coverage.js. Numeric expressions may be seeded before physical ENT. This does not establish independent native parity or exhaustive mode/type compatibility."
+    },
+    {
+      "kind": "unit",
+      "path": "tests/unit/ledger-boundaries.test.js",
+      "anchor": "Ledger boundary engineering: ",
+      "capabilityIds": [
+        "el506.engineering.k",
+        "el506.engineering.mega",
+        "el506.engineering.g",
+        "el506.engineering.t",
+        "el506.engineering.milli",
+        "el506.engineering.micro",
+        "el506.engineering.n",
+        "el506.engineering.p",
+        "el506.engineering.f"
+      ],
+      "scope": "Application boundary and invalid-input contracts for the listed operations; parameter bindings are recorded in boundary-coverage.js. Numeric expressions may be seeded before physical ENT. This does not establish independent native parity or exhaustive mode/type compatibility."
+    },
+    {
+      "kind": "unit",
+      "path": "tests/unit/ledger-boundaries.test.js",
+      "anchor": "Ledger boundary standardized observation: zero centered value and empty data",
+      "capabilityIds": [
+        "el506.probability.to-t"
+      ],
+      "scope": "Application boundary and invalid-input contracts for the listed operations; parameter bindings are recorded in boundary-coverage.js. Numeric expressions may be seeded before physical ENT. This does not establish independent native parity or exhaustive mode/type compatibility."
+    },
+    {
+      "kind": "unit",
+      "path": "tests/unit/ledger-boundaries.test.js",
+      "anchor": "Ledger boundary probability: ",
+      "capabilityIds": [
+        "el506.probability.p",
+        "el506.probability.q",
+        "el506.probability.r"
+      ],
+      "scope": "Application boundary and invalid-input contracts for the listed operations; parameter bindings are recorded in boundary-coverage.js. Numeric expressions may be seeded before physical ENT. This does not establish independent native parity or exhaustive mode/type compatibility."
+    },
+    {
+      "kind": "unit",
+      "path": "tests/unit/ledger-boundaries.test.js",
+      "anchor": "Ledger boundary conjugation: zero and missing argument",
+      "capabilityIds": [
+        "el506.complex.conj"
+      ],
+      "scope": "Application boundary and invalid-input contracts for the listed operations; parameter bindings are recorded in boundary-coverage.js. Numeric expressions may be seeded before physical ENT. This does not establish independent native parity or exhaustive mode/type compatibility."
+    },
+    {
+      "kind": "unit",
+      "path": "tests/unit/ledger-boundaries.test.js",
+      "anchor": "Ledger boundary collection menu: ",
+      "capabilityIds": [
+        "el506.matrix-root.mat",
+        "el506.matrix-root.chk",
+        "el506.matrix-root.sto",
+        "el506.matrix-root.ope",
+        "el506.matrix-root.math",
+        "el506.list-root.lst",
+        "el506.list-root.chk",
+        "el506.list-root.sto",
+        "el506.list-root.ope",
+        "el506.list-root.math"
+      ],
+      "scope": "Application boundary and invalid-input contracts for the listed operations; parameter bindings are recorded in boundary-coverage.js. Numeric expressions may be seeded before physical ENT. This does not establish independent native parity or exhaustive mode/type compatibility."
+    },
+    {
+      "kind": "unit",
+      "path": "tests/unit/ledger-boundaries.test.js",
+      "anchor": "Ledger boundary collection conversion: ",
+      "capabilityIds": [
+        "el506.matrix-root.mat-to-list",
+        "el506.matrix-root.mata-to-list",
+        "el506.list-root.list-to-mat",
+        "el506.list-root.list-to-mata"
+      ],
+      "scope": "Application boundary and invalid-input contracts for the listed operations; parameter bindings are recorded in boundary-coverage.js. Numeric expressions may be seeded before physical ENT. This does not establish independent native parity or exhaustive mode/type compatibility."
+    },
+    {
+      "kind": "unit",
+      "path": "tests/unit/ledger-boundaries.test.js",
+      "anchor": "Ledger boundary MAT: ",
+      "capabilityIds": [
+        "el506.matrix-ope.dim",
+        "el506.matrix-ope.fill",
+        "el506.matrix-ope.cumul",
+        "el506.matrix-ope.aug",
+        "el506.matrix-ope.identity",
+        "el506.matrix-ope.rnd-mat",
+        "el506.matrix-math.det",
+        "el506.matrix-math.trans"
+      ],
+      "scope": "Application boundary and invalid-input contracts for the listed operations; parameter bindings are recorded in boundary-coverage.js. Numeric expressions may be seeded before physical ENT. This does not establish independent native parity or exhaustive mode/type compatibility."
+    },
+    {
+      "kind": "unit",
+      "path": "tests/unit/ledger-boundaries.test.js",
+      "anchor": "Ledger boundary LIST: ",
+      "capabilityIds": [
+        "el506.list-ope.sorta",
+        "el506.list-ope.sortd",
+        "el506.list-ope.dim",
+        "el506.list-ope.fill",
+        "el506.list-ope.cumul",
+        "el506.list-ope.df-list",
+        "el506.list-ope.aug",
+        "el506.list-math.min",
+        "el506.list-math.max",
+        "el506.list-math.mean",
+        "el506.list-math.med",
+        "el506.list-math.sum",
+        "el506.list-math.prod",
+        "el506.list-math.stddv",
+        "el506.list-math.vari",
+        "el506.list-math.o-prod",
+        "el506.list-math.i-prod",
+        "el506.list-math.abs"
+      ],
+      "scope": "Application boundary and invalid-input contracts for the listed operations; parameter bindings are recorded in boundary-coverage.js. Numeric expressions may be seeded before physical ENT. This does not establish independent native parity or exhaustive mode/type compatibility."
+    },
+    {
+      "kind": "unit",
+      "path": "tests/unit/ledger-boundaries.test.js",
+      "anchor": "Ledger boundary collection slot: ",
+      "capabilityIds": [
+        "el506.matrix.slot.a",
+        "el506.list.slot.1",
+        "el506.matrix.slot.b",
+        "el506.list.slot.2",
+        "el506.matrix.slot.c",
+        "el506.list.slot.3",
+        "el506.matrix.slot.d",
+        "el506.list.slot.4"
+      ],
+      "scope": "Application boundary and invalid-input contracts for the listed operations; parameter bindings are recorded in boundary-coverage.js. Numeric expressions may be seeded before physical ENT. This does not establish independent native parity or exhaustive mode/type compatibility."
+    },
+    {
+      "kind": "unit",
+      "path": "tests/unit/ledger-boundaries.test.js",
+      "anchor": "Ledger boundary complex input: zero imaginary component and incomplete polar pair",
+      "capabilityIds": [
+        "el506.context.imaginary-unit-i",
+        "el506.context.complex-rectangular-polar-separator"
+      ],
+      "scope": "Application boundary and invalid-input contracts for the listed operations; parameter bindings are recorded in boundary-coverage.js. Numeric expressions may be seeded before physical ENT. This does not establish independent native parity or exhaustive mode/type compatibility."
+    },
+    {
+      "kind": "unit",
+      "path": "tests/unit/ledger-boundaries.test.js",
+      "anchor": "Ledger boundary collection result paging: last cell clamps and rejected dimension preserves slots",
+      "capabilityIds": [
+        "el506.context.matrix-or-list-result-element-paging"
+      ],
+      "scope": "Application boundary and invalid-input contracts for the listed operations; parameter bindings are recorded in boundary-coverage.js. Numeric expressions may be seeded before physical ENT. This does not establish independent native parity or exhaustive mode/type compatibility."
+    },
+    {
+      "kind": "unit",
+      "path": "tests/unit/ledger-boundaries.test.js",
+      "anchor": "Ledger boundary statistic: ",
+      "capabilityIds": [
+        "el506.statistic.el506-k30",
+        "el506.statistic.el506-k31",
+        "el506.statistic.el506-k32",
+        "el506.statistic.el506-k33",
+        "el506.statistic.el506-k34",
+        "el506.statistic.el506-k35",
+        "el506.statistic.el506-k36",
+        "el506.statistic.el506-k37",
+        "el506.statistic.el506-k38",
+        "el506.statistic.el506-k39",
+        "el506.statistic.el506-k40",
+        "el506.statistic.el506-k41",
+        "el506.statistic.el506-k42",
+        "el506.statistic.el506-k45",
+        "el506.statistic.el506-k46",
+        "el506.statistic.el506-k47"
+      ],
+      "scope": "Application boundary and invalid-input contracts for the listed operations; parameter bindings are recorded in boundary-coverage.js. Numeric expressions may be seeded before physical ENT. This does not establish independent native parity or exhaustive mode/type compatibility."
+    },
+    {
+      "kind": "unit",
+      "path": "tests/unit/ledger-boundaries.test.js",
+      "anchor": "Ledger boundary hexadecimal digit: ",
+      "capabilityIds": [
+        "el506.nbase.digit.a",
+        "el506.nbase.digit.b",
+        "el506.nbase.digit.c",
+        "el506.nbase.digit.d",
+        "el506.nbase.digit.e",
+        "el506.nbase.digit.f"
+      ],
+      "scope": "Application boundary and invalid-input contracts for the listed operations; parameter bindings are recorded in boundary-coverage.js. Numeric expressions may be seeded before physical ENT. This does not establish independent native parity or exhaustive mode/type compatibility."
     }
   ]
 }

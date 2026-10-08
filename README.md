@@ -1562,3 +1562,20 @@ ALPHA and HYP prefixes in six modes, from three entry contexts (3,456
 transitions). It verifies immutable reducer inputs, snapshot round trips,
 deterministic replay and independent restored branches. These checks establish
 state integrity; they do not substitute for native compatibility measurements.
+
+The Phase 17 boundary index in `tests/reference/el506ts/boundary-coverage.js`
+links every one of the 430 capability-ledger entries to application boundary
+contracts. Its parameterized tests cover accepted endpoints and rejected
+domains, ranges, syntax, selectors and capacities. Controls without numeric
+operands use navigation, cancellation and unavailable lifecycle checks instead.
+The new `ledger-boundaries.test.js` suite adds 366 tests, including catalogue
+members, scalar and formula memories, regressions, equations, collection
+operations, settings, modes and numeric limits. Some tests seed a semantic
+expression before pressing physical ENT; this scope is explicit and does not
+establish independent simulator parity or exhaustive mode/type combinations.
+
+Failed LIST-to-MAT and undefined matA-to-LIST conversions now close the pending
+menu before reporting their existing error code. Their error states can be
+saved and restored, and ON/C recovers without changing stored collections.
+Browser regressions exercise these errors and subsequent arithmetic in all
+three supported engines.

@@ -1,0 +1,35 @@
+{
+  "schemaVersion": 1,
+  "roadmapItem": "EL506-360",
+  "date": "2026-10-08",
+  "scope": "Application boundary and invalid-input regression contracts for all 430 ledger entries, using the explicit boundary-coverage.js index, existing phase suites and 366 new parameterized cases. No independent native parity or exhaustive mode/type claim.",
+  "fix": "Conversion failures clear pending workflows before entering error state, retaining existing error codes and stored collections.",
+  "validation": {
+    "fullUnitSuite": {
+      "passed": 1101,
+      "failed": 0,
+      "note": "npm pretest before the final sixteen ALPHA-statistic cases were added; those final cases passed in the focused final suite."
+    },
+    "finalBoundarySuite": {
+      "passed": 366,
+      "failed": 0
+    },
+    "browser": {
+      "command": "npm.cmd test -- --workers=3 --reporter=line --grep Collection conversion error",
+      "passed": 9,
+      "engines": [
+        "Chromium",
+        "Firefox",
+        "WebKit"
+      ],
+      "scope": "Three new conversion error/save/restore/clear/arithmetic cases; existing complete browser suite was not repeated."
+    },
+    "compileall": "passed",
+    "composeConfig": "passed",
+    "dockerBuild": "unavailable: Docker Desktop Linux engine pipe missing",
+    "localApp": "http://127.0.0.1:8010/ verified 2+3=5",
+    "referenceAndGolden": "passed; frozen baseline known differences remain",
+    "fullNativeParity": "open"
+  },
+  "coverageIndex": "tests/reference/el506ts/boundary-coverage.js"
+}

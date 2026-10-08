@@ -1983,10 +1983,11 @@
       next=physicalFlush(next,false);next.expression+='L'+(index+1);return physicalEditor(next);
     }
     if(id==='MATH'&&index>=5){
-      const slots=previous.control.lists;if(!slots.some(Boolean))return physicalError(next,10);
-      if(slots.some(v=>v&&v.elements.length>4))return physicalError(next,9);
+      const conversionError=code=>{next.workflow=emptyWorkflow();return physicalError(next,code);};
+      const slots=previous.control.lists;if(!slots.some(Boolean))return conversionError(10);
+      if(slots.some(v=>v&&v.elements.length>4))return conversionError(9);
       if(index===5)next.control.matrices=slots.map(v=>v?matrixToTyped({rows:v.elements.length,columns:1,data:v.elements.map(values.toNumber)}):null);
-      else {const active=slots.filter(Boolean),n=active[0].elements.length;if(active.some(v=>v.elements.length!==n))return physicalError(next,8);next.control.matrices[0]=matrixToTyped({rows:n,columns:active.length,data:Array.from({length:n},(_,r)=>active.map(v=>values.toNumber(v.elements[r]))).flat()});}
+      else {const active=slots.filter(Boolean),n=active[0].elements.length;if(active.some(v=>v.elements.length!==n))return conversionError(8);next.control.matrices[0]=matrixToTyped({rows:n,columns:active.length,data:Array.from({length:n},(_,r)=>active.map(v=>values.toNumber(v.elements[r]))).flat()});}
       next.layers.mode='MAT';next.control.submode=null;next.workflow=emptyWorkflow();next.expression='';next.entry='';next.lifecycle='empty';return next;
     }
     const name=id==='LIST_OPE'?['lsortA','lsortD','ldim','lfill','lcumul','ldiff','laug'][index]:['lmin','lmax','lmean','lmed','lsum','lprod','lstd','lvar','louter','linner','labs'][index];
@@ -2039,7 +2040,7 @@
     }
     if(id==='MATH'&&index>=5){
       const list=a=>({kind:'list',elements:a.map(values.scalar)}),slots=previous.control.matrices;
-      if(index===6){if(!slots[0])return physicalError(next,7);const m=matrixFromTyped(slots[0]);next.control.lists=Array.from({length:4},(_,col)=>col<m.columns?list(Array.from({length:m.rows},(_,row)=>m.data[row*m.columns+col])):null);}
+      if(index===6){if(!slots[0]){next.workflow=emptyWorkflow();return physicalError(next,7);}const m=matrixFromTyped(slots[0]);next.control.lists=Array.from({length:4},(_,col)=>col<m.columns?list(Array.from({length:m.rows},(_,row)=>m.data[row*m.columns+col])):null);}
       else next.control.lists=slots.map(v=>v?list(Array.from({length:v.rows},(_,row)=>values.toNumber(v.elements[row*v.columns]))):null);
       next.layers.mode='LIST';next.control.submode=null;next.workflow=emptyWorkflow();next.expression='';next.entry='';next.lifecycle='empty';return next;
     }
