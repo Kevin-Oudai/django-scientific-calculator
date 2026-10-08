@@ -4,13 +4,13 @@
 - Plan status: Active
 - Current package baseline: 0.3.1
 - Target release: 1.0.0 after verified parity
-- Next item: EL506-240
-- Last updated: 2026-10-07
+- Next item: EL506-311
+- Last updated: 2026-10-08
 
 ## Progress Overview
 
-As of 2026-10-07, **157 of 245 roadmap tasks are complete (64.1%)**, with
-**88 remaining**. The next task is **EL506-240**. These counts measure
+As of 2026-10-08, **201 of 245 roadmap tasks are complete (82.0%)**, with
+**44 remaining**. The next task is **EL506-311**. These counts measure
 completed checklist items, not elapsed effort or verified calculator parity;
 individual tasks vary in size. The detailed checklist below describes every
 remaining task and preserves its evidence and completion requirements.
@@ -27,8 +27,11 @@ and solver items). Phase 9 is complete (10/10 number bases, arithmetic, logic,
 memories and limits). Phase 10 is complete (8/8 numerical differentiation,
 integration, condition entry, cancellation and bounded errors). Phase 11 is
 complete (12/12 statistics menus, entry, weighted/paired data, browsing,
-correction, deletion, persistence and capacity). Pending
-simulator/application behavior is visible
+correction, deletion, persistence and capacity). Phase 12 is complete (16/16
+statistics results and regression items). Phase 13 is complete (9/9 equation
+items), and Phase 14 is complete (8/8 complex items). Phase 15 has 11/14 matrix
+items complete; ANS/memory/persistence, complete limits, and the transition
+example remain. Pending simulator/application behavior is visible
 in the generated report; phase completion does not establish full parity.
 
 | Roadmap phase | Completed | Remaining |
@@ -45,14 +48,14 @@ in the generated report; phase completion does not establish full parity.
 | Phase 9 - N-base Operations | 10 | 0 |
 | Phase 10 - Numerical Differentiation and Integration | 8 | 0 |
 | Phase 11 - Statistics Data Management | 12 | 0 |
-| Phase 12 - Statistics Results and Regressions | 0 | 16 |
-| Phase 13 - Equation Mode | 0 | 9 |
-| Phase 14 - Complex Mode | 0 | 8 |
-| Phase 15 - Matrix Mode | 0 | 14 |
+| Phase 12 - Statistics Results and Regressions | 16 | 0 |
+| Phase 13 - Equation Mode | 9 | 0 |
+| Phase 14 - Complex Mode | 8 | 0 |
+| Phase 15 - Matrix Mode | 11 | 3 |
 | Phase 16 - LIST Mode | 0 | 11 |
 | Phase 17 - Errors, Limits, and Cross-mode Parity | 0 | 15 |
 | Phase 18 - Security, Packaging, Compatibility, and Release | 0 | 15 |
-| **Total** | **157** | **88** |
+| **Total** | **201** | **44** |
 
 Refresh this overview's date, counts, percentage, and next task in every
 roadmap completion tracking commit, using the checklist as the source of truth.
@@ -417,7 +420,7 @@ The following order takes precedence over the phase layout and numeric IDs:
 EL506-014 -> EL506-019 -> EL506-003 -> EL506-004 -> EL506-006`
 
 The bootstrap chain and Phase 1 are complete as of 2026-10-05.
-Resume with Phase 12, EL506-240.
+Resume with Phase 15, EL506-311.
 Stable physical-key IDs
 must exist before the experiment schema and capability ledger use them. Capture
 the 0.3.1 baseline before refactoring its behavior. Unit testing, the reducer,
@@ -2405,13 +2408,14 @@ layout remain covered by the existing UI regressions.
 
 ### Phase 12 - Statistics Results and Regressions
 
-#### Authorized 44-item batch — READY_TO_PUSH (2026-10-08)
+#### Authorized 44-item batch — implementation published (2026-10-08)
 
 The user's explicit request to complete the next 44 parts authorizes this batch
 across EL506-240–255, EL506-260–268, EL506-280–287, and EL506-300–310.
-EL506-311–313 remain outside the batch. Checklist items stay unchecked until
-the implementation is published and verified, followed by a separate tracking
-commit as required by the publication gate.
+EL506-311–313 remain outside the batch. Implementation commit
+`3df89deda3bf1135cc06d575374aab6dd4b10c14` has been pushed to origin/main and
+verified there. This separate tracking update records the 44 completions; its
+publication and remote verification finish the batch.
 
 Evidence: pinned Sharp simulator 1.0.2.0; `phase12-native-notes.json` records
 396 canonical keys and 111 independent significant LCD checkpoints. The
@@ -2441,74 +2445,291 @@ cursor timing and exhaustive cross-mode limits remain the later parity audit.
 Matrix ANS/memory/persistence, complete limit parity, and the guide transition
 example remain EL506-311–313. No private manual or simulator binary is shipped.
 
-- [ ] **EL506-240 - Match one-variable mean.**
-- [ ] **EL506-241 - Match sample standard deviation.**
-- [ ] **EL506-242 - Match population standard deviation.**
-- [ ] **EL506-243 - Match count, sum, and sum of squares.**
-- [ ] **EL506-244 - Match two-variable X and Y means and deviations.**
-- [ ] **EL506-245 - Match X/Y sums, squares, and sum of products.**
-- [ ] **EL506-246 - Discover and match normal-probability functions exposed
+- [x] **EL506-240 - Match one-variable mean.**
+
+    Completed: 2026-10-08, implementation commit 3df89deda3bf1135cc06d575374aab6dd4b10c14
+    Evidence and verification: shared authorized 44-item batch record above.
+    Notes: Scoped behavior and tests complete; later parity audit and EL506-311–313 remain as recorded above.
+
+- [x] **EL506-241 - Match sample standard deviation.**
+
+    Completed: 2026-10-08, implementation commit 3df89deda3bf1135cc06d575374aab6dd4b10c14
+    Evidence and verification: shared authorized 44-item batch record above.
+    Notes: Scoped behavior and tests complete; later parity audit and EL506-311–313 remain as recorded above.
+
+- [x] **EL506-242 - Match population standard deviation.**
+
+    Completed: 2026-10-08, implementation commit 3df89deda3bf1135cc06d575374aab6dd4b10c14
+    Evidence and verification: shared authorized 44-item batch record above.
+    Notes: Scoped behavior and tests complete; later parity audit and EL506-311–313 remain as recorded above.
+
+- [x] **EL506-243 - Match count, sum, and sum of squares.**
+
+    Completed: 2026-10-08, implementation commit 3df89deda3bf1135cc06d575374aab6dd4b10c14
+    Evidence and verification: shared authorized 44-item batch record above.
+    Notes: Scoped behavior and tests complete; later parity audit and EL506-311–313 remain as recorded above.
+
+- [x] **EL506-244 - Match two-variable X and Y means and deviations.**
+
+    Completed: 2026-10-08, implementation commit 3df89deda3bf1135cc06d575374aab6dd4b10c14
+    Evidence and verification: shared authorized 44-item batch record above.
+    Notes: Scoped behavior and tests complete; later parity audit and EL506-311–313 remain as recorded above.
+
+- [x] **EL506-245 - Match X/Y sums, squares, and sum of products.**
+
+    Completed: 2026-10-08, implementation commit 3df89deda3bf1135cc06d575374aab6dd4b10c14
+    Evidence and verification: shared authorized 44-item batch record above.
+    Notes: Scoped behavior and tests complete; later parity audit and EL506-311–313 remain as recorded above.
+
+- [x] **EL506-246 - Discover and match normal-probability functions exposed
   by the simulator.**
-- [ ] **EL506-247 - Match linear regression y = a + bx.**
-- [ ] **EL506-248 - Match quadratic regression y = a + bx + cx^2.**
-- [ ] **EL506-249 - Match exponential regression y = ae^(bx).**
-- [ ] **EL506-250 - Match logarithmic regression y = a + b ln(x).**
-- [ ] **EL506-251 - Match power regression y = ax^b.**
-- [ ] **EL506-252 - Match inverse regression y = a + b/x.**
-- [ ] **EL506-253 - Match all regression coefficients, correlation values,
+
+    Completed: 2026-10-08, implementation commit 3df89deda3bf1135cc06d575374aab6dd4b10c14
+    Evidence and verification: shared authorized 44-item batch record above.
+    Notes: Scoped behavior and tests complete; later parity audit and EL506-311–313 remain as recorded above.
+
+- [x] **EL506-247 - Match linear regression y = a + bx.**
+
+    Completed: 2026-10-08, implementation commit 3df89deda3bf1135cc06d575374aab6dd4b10c14
+    Evidence and verification: shared authorized 44-item batch record above.
+    Notes: Scoped behavior and tests complete; later parity audit and EL506-311–313 remain as recorded above.
+
+- [x] **EL506-248 - Match quadratic regression y = a + bx + cx^2.**
+
+    Completed: 2026-10-08, implementation commit 3df89deda3bf1135cc06d575374aab6dd4b10c14
+    Evidence and verification: shared authorized 44-item batch record above.
+    Notes: Scoped behavior and tests complete; later parity audit and EL506-311–313 remain as recorded above.
+
+- [x] **EL506-249 - Match exponential regression y = ae^(bx).**
+
+    Completed: 2026-10-08, implementation commit 3df89deda3bf1135cc06d575374aab6dd4b10c14
+    Evidence and verification: shared authorized 44-item batch record above.
+    Notes: Scoped behavior and tests complete; later parity audit and EL506-311–313 remain as recorded above.
+
+- [x] **EL506-250 - Match logarithmic regression y = a + b ln(x).**
+
+    Completed: 2026-10-08, implementation commit 3df89deda3bf1135cc06d575374aab6dd4b10c14
+    Evidence and verification: shared authorized 44-item batch record above.
+    Notes: Scoped behavior and tests complete; later parity audit and EL506-311–313 remain as recorded above.
+
+- [x] **EL506-251 - Match power regression y = ax^b.**
+
+    Completed: 2026-10-08, implementation commit 3df89deda3bf1135cc06d575374aab6dd4b10c14
+    Evidence and verification: shared authorized 44-item batch record above.
+    Notes: Scoped behavior and tests complete; later parity audit and EL506-311–313 remain as recorded above.
+
+- [x] **EL506-252 - Match inverse regression y = a + b/x.**
+
+    Completed: 2026-10-08, implementation commit 3df89deda3bf1135cc06d575374aab6dd4b10c14
+    Evidence and verification: shared authorized 44-item batch record above.
+    Notes: Scoped behavior and tests complete; later parity audit and EL506-311–313 remain as recorded above.
+
+- [x] **EL506-253 - Match all regression coefficients, correlation values,
   and X-hat/Y-hat estimates.**
-- [ ] **EL506-254 - Match regression domains and errors.** Cover transformed
+
+    Completed: 2026-10-08, implementation commit 3df89deda3bf1135cc06d575374aab6dd4b10c14
+    Evidence and verification: shared authorized 44-item batch record above.
+    Notes: Scoped behavior and tests complete; later parity audit and EL506-311–313 remain as recorded above.
+
+- [x] **EL506-254 - Match regression domains and errors.** Cover transformed
   input restrictions, degeneracy, insufficient data, precision, and recovery.
-- [ ] **EL506-255 - Reproduce every guide statistics result to the simulator's
+
+    Completed: 2026-10-08, implementation commit 3df89deda3bf1135cc06d575374aab6dd4b10c14
+    Evidence and verification: shared authorized 44-item batch record above.
+    Notes: Scoped behavior and tests complete; later parity audit and EL506-311–313 remain as recorded above.
+
+- [x] **EL506-255 - Reproduce every guide statistics result to the simulator's
   displayed precision.**
+
+    Completed: 2026-10-08, implementation commit 3df89deda3bf1135cc06d575374aab6dd4b10c14
+    Evidence and verification: shared authorized 44-item batch record above.
+    Notes: Scoped behavior and tests complete; later parity audit and EL506-311–313 remain as recorded above.
 
 ### Phase 13 - Equation Mode
 
-- [ ] **EL506-260 - Match the EQN menu and coefficient-prompt controller.**
-- [ ] **EL506-261 - Match two-variable simultaneous linear equations.**
-- [ ] **EL506-262 - Match three-variable simultaneous linear equations.**
-- [ ] **EL506-263 - Match quadratic equations.**
-- [ ] **EL506-264 - Match cubic equations.**
-- [ ] **EL506-265 - Match coefficient navigation, correction, defaults, and
+- [x] **EL506-260 - Match the EQN menu and coefficient-prompt controller.**
+
+    Completed: 2026-10-08, implementation commit 3df89deda3bf1135cc06d575374aab6dd4b10c14
+    Evidence and verification: shared authorized 44-item batch record above.
+    Notes: Scoped behavior and tests complete; later parity audit and EL506-311–313 remain as recorded above.
+
+- [x] **EL506-261 - Match two-variable simultaneous linear equations.**
+
+    Completed: 2026-10-08, implementation commit 3df89deda3bf1135cc06d575374aab6dd4b10c14
+    Evidence and verification: shared authorized 44-item batch record above.
+    Notes: Scoped behavior and tests complete; later parity audit and EL506-311–313 remain as recorded above.
+
+- [x] **EL506-262 - Match three-variable simultaneous linear equations.**
+
+    Completed: 2026-10-08, implementation commit 3df89deda3bf1135cc06d575374aab6dd4b10c14
+    Evidence and verification: shared authorized 44-item batch record above.
+    Notes: Scoped behavior and tests complete; later parity audit and EL506-311–313 remain as recorded above.
+
+- [x] **EL506-263 - Match quadratic equations.**
+
+    Completed: 2026-10-08, implementation commit 3df89deda3bf1135cc06d575374aab6dd4b10c14
+    Evidence and verification: shared authorized 44-item batch record above.
+    Notes: Scoped behavior and tests complete; later parity audit and EL506-311–313 remain as recorded above.
+
+- [x] **EL506-264 - Match cubic equations.**
+
+    Completed: 2026-10-08, implementation commit 3df89deda3bf1135cc06d575374aab6dd4b10c14
+    Evidence and verification: shared authorized 44-item batch record above.
+    Notes: Scoped behavior and tests complete; later parity audit and EL506-311–313 remain as recorded above.
+
+- [x] **EL506-265 - Match coefficient navigation, correction, defaults, and
   retained values.**
-- [ ] **EL506-266 - Match solution paging, labels, ordering, and indicators.**
-- [ ] **EL506-267 - Match degenerate equation cases.** Cover repeated and
+
+    Completed: 2026-10-08, implementation commit 3df89deda3bf1135cc06d575374aab6dd4b10c14
+    Evidence and verification: shared authorized 44-item batch record above.
+    Notes: Scoped behavior and tests complete; later parity audit and EL506-311–313 remain as recorded above.
+
+- [x] **EL506-266 - Match solution paging, labels, ordering, and indicators.**
+
+    Completed: 2026-10-08, implementation commit 3df89deda3bf1135cc06d575374aab6dd4b10c14
+    Evidence and verification: shared authorized 44-item batch record above.
+    Notes: Scoped behavior and tests complete; later parity audit and EL506-311–313 remain as recorded above.
+
+- [x] **EL506-267 - Match degenerate equation cases.** Cover repeated and
   complex roots, zero leading coefficients, inconsistent/dependent systems,
   and ill-conditioned systems.
-- [ ] **EL506-268 - Match EQN errors, recovery, HOME, mode exit, and
+
+    Completed: 2026-10-08, implementation commit 3df89deda3bf1135cc06d575374aab6dd4b10c14
+    Evidence and verification: shared authorized 44-item batch record above.
+    Notes: Scoped behavior and tests complete; later parity audit and EL506-311–313 remain as recorded above.
+
+- [x] **EL506-268 - Match EQN errors, recovery, HOME, mode exit, and
   persistence.**
+
+    Completed: 2026-10-08, implementation commit 3df89deda3bf1135cc06d575374aab6dd4b10c14
+    Evidence and verification: shared authorized 44-item batch record above.
+    Notes: Scoped behavior and tests complete; later parity audit and EL506-311–313 remain as recorded above.
 
 ### Phase 14 - Complex Mode
 
-- [ ] **EL506-280 - Match CPLX entry and the i key sequence.**
-- [ ] **EL506-281 - Match rectangular complex entry and editing.**
-- [ ] **EL506-282 - Match complex arithmetic, parentheses, and supported
+- [x] **EL506-280 - Match CPLX entry and the i key sequence.**
+
+    Completed: 2026-10-08, implementation commit 3df89deda3bf1135cc06d575374aab6dd4b10c14
+    Evidence and verification: shared authorized 44-item batch record above.
+    Notes: Scoped behavior and tests complete; later parity audit and EL506-311–313 remain as recorded above.
+
+- [x] **EL506-281 - Match rectangular complex entry and editing.**
+
+    Completed: 2026-10-08, implementation commit 3df89deda3bf1135cc06d575374aab6dd4b10c14
+    Evidence and verification: shared authorized 44-item batch record above.
+    Notes: Scoped behavior and tests complete; later parity audit and EL506-311–313 remain as recorded above.
+
+- [x] **EL506-282 - Match complex arithmetic, parentheses, and supported
   powers.**
-- [ ] **EL506-283 - Inventory and match every complex-compatible MATH
+
+    Completed: 2026-10-08, implementation commit 3df89deda3bf1135cc06d575374aab6dd4b10c14
+    Evidence and verification: shared authorized 44-item batch record above.
+    Notes: Scoped behavior and tests complete; later parity audit and EL506-311–313 remain as recorded above.
+
+- [x] **EL506-283 - Inventory and match every complex-compatible MATH
   function.** Include real, imaginary, conjugate, magnitude, or argument only
   when exposed by the simulator.
-- [ ] **EL506-284 - Match rectangular/polar conversion and angle units.**
-- [ ] **EL506-285 - Match component paging and indicators.**
-- [ ] **EL506-286 - Match complex ANS and memory behavior.**
-- [ ] **EL506-287 - Match complex branches, rounding, unavailable functions,
+
+    Completed: 2026-10-08, implementation commit 3df89deda3bf1135cc06d575374aab6dd4b10c14
+    Evidence and verification: shared authorized 44-item batch record above.
+    Notes: Scoped behavior and tests complete; later parity audit and EL506-311–313 remain as recorded above.
+
+- [x] **EL506-284 - Match rectangular/polar conversion and angle units.**
+
+    Completed: 2026-10-08, implementation commit 3df89deda3bf1135cc06d575374aab6dd4b10c14
+    Evidence and verification: shared authorized 44-item batch record above.
+    Notes: Scoped behavior and tests complete; later parity audit and EL506-311–313 remain as recorded above.
+
+- [x] **EL506-285 - Match component paging and indicators.**
+
+    Completed: 2026-10-08, implementation commit 3df89deda3bf1135cc06d575374aab6dd4b10c14
+    Evidence and verification: shared authorized 44-item batch record above.
+    Notes: Scoped behavior and tests complete; later parity audit and EL506-311–313 remain as recorded above.
+
+- [x] **EL506-286 - Match complex ANS and memory behavior.**
+
+    Completed: 2026-10-08, implementation commit 3df89deda3bf1135cc06d575374aab6dd4b10c14
+    Evidence and verification: shared authorized 44-item batch record above.
+    Notes: Scoped behavior and tests complete; later parity audit and EL506-311–313 remain as recorded above.
+
+- [x] **EL506-287 - Match complex branches, rounding, unavailable functions,
   divide-by-zero, errors, and recovery.**
+
+    Completed: 2026-10-08, implementation commit 3df89deda3bf1135cc06d575374aab6dd4b10c14
+    Evidence and verification: shared authorized 44-item batch record above.
+    Notes: Scoped behavior and tests complete; later parity audit and EL506-311–313 remain as recorded above.
 
 ### Phase 15 - Matrix Mode
 
-- [ ] **EL506-300 - Discover and record matrix menus, slots, aliases, and
+- [x] **EL506-300 - Discover and record matrix menus, slots, aliases, and
   maximum dimensions.**
-- [ ] **EL506-301 - Match matrix dimension prompts.**
-- [ ] **EL506-302 - Match row-major cell entry, labels, navigation,
+
+    Completed: 2026-10-08, implementation commit 3df89deda3bf1135cc06d575374aab6dd4b10c14
+    Evidence and verification: shared authorized 44-item batch record above.
+    Notes: Scoped behavior and tests complete; later parity audit and EL506-311–313 remain as recorded above.
+
+- [x] **EL506-301 - Match matrix dimension prompts.**
+
+    Completed: 2026-10-08, implementation commit 3df89deda3bf1135cc06d575374aab6dd4b10c14
+    Evidence and verification: shared authorized 44-item batch record above.
+    Notes: Scoped behavior and tests complete; later parity audit and EL506-311–313 remain as recorded above.
+
+- [x] **EL506-302 - Match row-major cell entry, labels, navigation,
   correction, and storage.**
-- [ ] **EL506-303 - Match stored-matrix recall and display.**
-- [ ] **EL506-304 - Match result dimensions and cell-by-cell paging.**
-- [ ] **EL506-305 - Match matrix addition and subtraction.**
-- [ ] **EL506-306 - Match matrix multiplication and scalar/matrix operations.**
-- [ ] **EL506-307 - Match square, cube, and supported integer powers.**
-- [ ] **EL506-308 - Match matrix inverse.**
-- [ ] **EL506-309 - Match matrix transpose.**
-- [ ] **EL506-310 - Inventory and match every additional matrix-menu
+
+    Completed: 2026-10-08, implementation commit 3df89deda3bf1135cc06d575374aab6dd4b10c14
+    Evidence and verification: shared authorized 44-item batch record above.
+    Notes: Scoped behavior and tests complete; later parity audit and EL506-311–313 remain as recorded above.
+
+- [x] **EL506-303 - Match stored-matrix recall and display.**
+
+    Completed: 2026-10-08, implementation commit 3df89deda3bf1135cc06d575374aab6dd4b10c14
+    Evidence and verification: shared authorized 44-item batch record above.
+    Notes: Scoped behavior and tests complete; later parity audit and EL506-311–313 remain as recorded above.
+
+- [x] **EL506-304 - Match result dimensions and cell-by-cell paging.**
+
+    Completed: 2026-10-08, implementation commit 3df89deda3bf1135cc06d575374aab6dd4b10c14
+    Evidence and verification: shared authorized 44-item batch record above.
+    Notes: Scoped behavior and tests complete; later parity audit and EL506-311–313 remain as recorded above.
+
+- [x] **EL506-305 - Match matrix addition and subtraction.**
+
+    Completed: 2026-10-08, implementation commit 3df89deda3bf1135cc06d575374aab6dd4b10c14
+    Evidence and verification: shared authorized 44-item batch record above.
+    Notes: Scoped behavior and tests complete; later parity audit and EL506-311–313 remain as recorded above.
+
+- [x] **EL506-306 - Match matrix multiplication and scalar/matrix operations.**
+
+    Completed: 2026-10-08, implementation commit 3df89deda3bf1135cc06d575374aab6dd4b10c14
+    Evidence and verification: shared authorized 44-item batch record above.
+    Notes: Scoped behavior and tests complete; later parity audit and EL506-311–313 remain as recorded above.
+
+- [x] **EL506-307 - Match square, cube, and supported integer powers.**
+
+    Completed: 2026-10-08, implementation commit 3df89deda3bf1135cc06d575374aab6dd4b10c14
+    Evidence and verification: shared authorized 44-item batch record above.
+    Notes: Scoped behavior and tests complete; later parity audit and EL506-311–313 remain as recorded above.
+
+- [x] **EL506-308 - Match matrix inverse.**
+
+    Completed: 2026-10-08, implementation commit 3df89deda3bf1135cc06d575374aab6dd4b10c14
+    Evidence and verification: shared authorized 44-item batch record above.
+    Notes: Scoped behavior and tests complete; later parity audit and EL506-311–313 remain as recorded above.
+
+- [x] **EL506-309 - Match matrix transpose.**
+
+    Completed: 2026-10-08, implementation commit 3df89deda3bf1135cc06d575374aab6dd4b10c14
+    Evidence and verification: shared authorized 44-item batch record above.
+    Notes: Scoped behavior and tests complete; later parity audit and EL506-311–313 remain as recorded above.
+
+- [x] **EL506-310 - Inventory and match every additional matrix-menu
   operation.** Include determinant or cumulative operations only when exposed.
+
+    Completed: 2026-10-08, implementation commit 3df89deda3bf1135cc06d575374aab6dd4b10c14
+    Evidence and verification: shared authorized 44-item batch record above.
+    Notes: Scoped behavior and tests complete; later parity audit and EL506-311–313 remain as recorded above.
+
 - [ ] **EL506-311 - Match matrix ANS, memory, copy, replacement, and
   persistence.**
 - [ ] **EL506-312 - Match matrix limits and errors.** Cover dimension mismatch,
