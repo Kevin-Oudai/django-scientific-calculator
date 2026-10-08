@@ -2973,6 +2973,14 @@ guess any item in this phase; observe it in the reference simulator first.
     Existing native power, EQN prompt and complex-memory transition checks retained.
 - [ ] **EL506-358 - Complete the modifier-by-key-by-mode compatibility
   matrix.**
+
+    Scoped menu differential: READY_TO_PUSH after 686 unit tests,67
+    independently observed menu checkpoints,10 fresh native engineering/nCr
+    keys, three browser engines, golden/reference/report checks, compileall and
+    Compose config. See menu-differential-review.json. Corrected engineering
+    4/5 paging with wrap and staged0C/right-operand display. Full EL506-358 and
+    EL506-361 remain open; expanded report mappings retain partial evidence.
+
 - [ ] **EL506-359 - Complete the function-by-value-type compatibility
   matrix.**
 - [ ] **EL506-360 - Add boundary and invalid-input tests for every ledger

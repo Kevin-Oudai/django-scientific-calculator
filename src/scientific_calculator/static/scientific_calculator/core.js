@@ -1243,7 +1243,7 @@
     return BASE_KEYS[n] ? {kind:"operation", event:{...BASE_KEYS[n]}} : {kind:"pending", key:id, layer:"base"};
   }
   const MODE_SUBMENUS={STAT:['SD','LINE','QUAD','EXP','LOG','PWR','INV'],EQN:['2-VLE','3-VLE','QUAD','CUBIC']};
-  const menuGroups={MODE:[2,2,2],STAT:[3,3,1],EQN:[2,2],CLEAR:[2],MEMORY_CLEAR:[2],SETUP:[3],ANGLE:[3],FORMAT:[3,2],MATH:[2,2],ENG:[4,4,1],RANDOM:[2,2]};
+  const menuGroups={MODE:[2,2,2],STAT:[3,3,1],EQN:[2,2],CLEAR:[2],MEMORY_CLEAR:[2],SETUP:[3],ANGLE:[3],FORMAT:[3,2],MATH:[2,2],ENG:[4,5],RANDOM:[2,2]};
   function physicalClear(previous,scope='command') {
     const next=createInitialState();next.layers.settings=structuredClone(previous.layers.settings);next.angleMode=previous.angleMode;
     next.layers.mode=previous.layers.mode;next.control=structuredClone(previous.control);next.control.errorCode=null;next.control.idleMs=0;
@@ -2361,7 +2361,7 @@
     if(previous.workflow.kind==='menu'&&['MODE','STAT','EQN','CLEAR','MEMORY_CLEAR','SETUP','ANGLE','FORMAT','MATH','ENG','RANDOM','MAT_SLOTS','MAT_OPE','MAT_MATH','LIST_SLOTS','LIST_OPE','LIST_MATH'].includes(previous.workflow.payload.id)){
       const w=next.workflow,groups=w.payload.groups;let selected=w.payload.selected;
       if(n===9||n===10){selected=Math.max(0,Math.min(w.payload.choices.length-1,selected+(n===9?-1:1)));}
-      else if(n===8||n===11){w.page=w.payload.id==='FORMAT'?(w.page+1)%groups.length:Math.max(0,Math.min(groups.length-1,w.page+(n===8?-1:1)));selected=groups.slice(0,w.page).reduce((a,b)=>a+b,0);}
+      else if(n===8||n===11){w.page=['FORMAT','ENG'].includes(w.payload.id)?(w.page+1)%groups.length:Math.max(0,Math.min(groups.length-1,w.page+(n===8?-1:1)));selected=groups.slice(0,w.page).reduce((a,b)=>a+b,0);}
       else if(n===18&&w.payload.choices.length>10)return physicalSelect(next,10)||next;
       else if(n===48||DIGIT_KEYS[n]!==undefined)return physicalSelect(next,n===48?selected:Number(DIGIT_KEYS[n]))||next;
       w.payload.selected=selected;

@@ -1492,3 +1492,12 @@ Measured physical MAT and LIST cancellation is also reproduced: unit matrix
 48-key MAT and 53-key LIST traces and the deliberately scoped arithmetic policy
 are recorded in `collection-precision-review.json`. Elimination, aggregate,
 vector-product and other result-type accuracy remain part of the open audit.
+
+The current menu differential audit replays the independently captured119-key
+menu inventory against67 unambiguous label/index checkpoints. Engineering
+prefixes use two pages (`k M G T`, then `m µ n p f`), and DOWN wraps between
+them. Combination entry shows its left operand and `C` above the separately
+entered right operand. The earlier inventory used editorial `[nCr]` placeholders;
+a fresh native trace records exact `0C` entry without rewriting that reference.
+`menu-differential-review.json` records this scope and the unresolved broader
+compatibility and final parity requirements.

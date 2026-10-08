@@ -352,6 +352,11 @@
       }
     }
     view.expressionHtml = expression ? formatExpression(options.physical?physicalExpression(expressionForDisplay()):expressionForDisplay()) : '';
+    if(state.stagedEntry?.type==='binaryFunction'){
+      const stage=state.stagedEntry;
+      view.expressionHtml=formatExpression(physicalExpression(expressionForDisplay())+physicalExpression(stage.left)+(stage.name==='ncr'?'C':'P'));
+      view.resultHtml=sharpEntry(stage.right||'0');
+    }
     if(state.lifecycle==='editing'&&state.displayResult==='')view.resultHtml='';
     if(state.layers.mode==='STAT'&&!expression&&!state.entry&&!workflow.kind)view.expressionHtml=escapeHtml('Stat '+(coreSubmodeIndex(state.control?.submode)));
     if(state.lifecycle==='error'&&state.control?.errorCode)view.resultHtml=escapeHtml('Error '+state.control.errorCode);

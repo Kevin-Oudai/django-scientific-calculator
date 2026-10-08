@@ -1,0 +1,45 @@
+{
+  "reviewId": "menu-differential-2026-10-08",
+  "roadmapItems": [
+    "EL506-358",
+    "EL506-361"
+  ],
+  "roadmapItemsComplete": false,
+  "status": "scopedmenu differential validated; readyforpublication",
+  "references": [
+    "experiments/menu-inventory.json",
+    "experiments/engineering-combination-entry-native.json"
+  ],
+  "nativeInventoryKeys": 119,
+  "unambiguousInventoryCheckpoints": 67,
+  "freshNativeKeys": 10,
+  "findings": [
+    "Native ENG pages4/5 withDOWNwrap; correctedoldapp4/4/1 split andclampednavigation.",
+    "Combinationstage upper0C and lowercurrentrightoperand; invalid0C1 endsError2.",
+    "Earlier[nCr] placeholders resolvedbyfreshnative observation; originalsourcepreserved."
+  ],
+  "comparisonScope": "Labels normalize whitespace and equivalentmicroglyph; lowerindex/digitsequences exclude omittedselector dots. Pixelgeometry,blinktiming andallfullnumberformats arenotasserted bythisprojection.",
+  "expandedEvidence": "Explicitmanual/NIST catalogue endpoints, allnine memoryselectors, fourformula slots andsixhyperbolic mathematical regressions nowmapped withoutpromotingbaseline orfullparity.",
+  "validation": {
+    "fullUnitPassed": 686,
+    "menuBrowserPassed": 3,
+    "browserEngines": [
+      "Chromium",
+      "Firefox",
+      "WebKit"
+    ],
+    "goldenFixtures": 29,
+    "goldenFrames": 1200,
+    "referenceAndReportChecks": "passed",
+    "compileall": "passed",
+    "dockerComposeConfig": "passed",
+    "dockerRuntime": "unavailable: Docker DesktopLinuxpipeabsent",
+    "localDemo": "Freshmenu assetversion; visiblem\u00b5npfpageverified.",
+    "proof": "menu-differential-proof.png (outside repository)"
+  },
+  "remaining": [
+    "Complete modifier-by-key-by-mode compatibility matrix",
+    "Allledger differentialanchors withcurrentbehavior assessment",
+    "Complete domains,precision andfinalparitygate"
+  ]
+}

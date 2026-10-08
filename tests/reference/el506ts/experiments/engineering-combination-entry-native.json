@@ -1,0 +1,366 @@
+{
+  "schema_version": 1,
+  "experiment_id": "el506-358-engineering-combination-entry-native-v1",
+  "roadmap_item": "EL506-358",
+  "catalog_id": "el506-physical-keys-v1",
+  "simulator": {
+    "profile_id": "sharp-el506ts-pc-simulator-1.0.2.0",
+    "product": "SHARP PC Simulator for EL-506TS",
+    "build": "1.0.2.0",
+    "runtime_sha256": "6bfef4d04900b472892be2d4c54dcfa6013f87232097e32df508ca4c27425530",
+    "locale": "English UI; en-US",
+    "operating_system": "Windows 11"
+  },
+  "capture": {
+    "date": "2026-10-08",
+    "timezone": "America/Port_of_Spain",
+    "method": "Live @oai/sky, exactly one native input then an inspected screenshot per action. Independently transcribed significant LCD checkpoints. Only DEG indicator consistently transcribed; other indicators and hidden stored precision are not claimed by this trace. Intermediate golden frames characterize implementation, not independent parity.",
+    "evidence_kind": "live-simulator",
+    "source_ids": [
+      "live-session"
+    ]
+  },
+  "initial_state": {
+    "reset": {
+      "kind": "documented-state",
+      "description": "LIST DEG LIST1=333.3 at native1062; HOME firstkey explicitly entersNORMAL and clearscommand/internalstores. Only visible measurements asserted."
+    },
+    "setup_sequence": [],
+    "mode": {
+      "status": "observed",
+      "value": "LIST"
+    },
+    "settings": [
+      {
+        "name": "angle",
+        "observation": {
+          "status": "observed",
+          "value": "DEG"
+        }
+      },
+      {
+        "name": "display-format",
+        "observation": {
+          "status": "observed",
+          "value": "NORM1 (pinned reset default)"
+        }
+      }
+    ],
+    "display": {
+      "upper_line": "LIST1=",
+      "lower_line": "333.3",
+      "indicators": [
+        "DEG"
+      ],
+      "scroll_arrows": [],
+      "cursor": {
+        "status": "unknown",
+        "reason": "Blink timing not measured; cursor start separately asserted where observed."
+      },
+      "insert_mode": {
+        "status": "unknown",
+        "reason": "No timing claim."
+      },
+      "prompt": null,
+      "selected_result_component": null
+    },
+    "stores": []
+  },
+  "sequence": [
+    "EL506-K01",
+    "EL506-K17",
+    "EL506-K40",
+    "EL506-K11",
+    "EL506-K11",
+    "EL506-K02",
+    "EL506-K03",
+    "EL506-K36",
+    "EL506-K40",
+    "EL506-K48"
+  ],
+  "frames": [
+    {
+      "after_step": 0,
+      "display": {
+        "upper_line": "LIST1=",
+        "lower_line": "333.3",
+        "indicators": [
+          "DEG"
+        ],
+        "scroll_arrows": [],
+        "cursor": {
+          "status": "unknown",
+          "reason": "Blink timing not measured; cursor start separately asserted where observed."
+        },
+        "insert_mode": {
+          "status": "unknown",
+          "reason": "No timing claim."
+        },
+        "prompt": null,
+        "selected_result_component": null
+      },
+      "result": {
+        "status": "not-applicable",
+        "reason": "Entry/menu/error checkpoints only; hidden numeric precision unmeasured."
+      }
+    },
+    {
+      "after_step": 1,
+      "display": {
+        "upper_line": "",
+        "lower_line": "0.",
+        "indicators": [
+          "DEG"
+        ],
+        "scroll_arrows": [],
+        "cursor": {
+          "status": "unknown",
+          "reason": "Blink timing not measured; cursor start separately asserted where observed."
+        },
+        "insert_mode": {
+          "status": "unknown",
+          "reason": "No timing claim."
+        },
+        "prompt": null,
+        "selected_result_component": null
+      },
+      "result": {
+        "status": "not-applicable",
+        "reason": "Entry/menu/error checkpoints only; hidden numeric precision unmeasured."
+      }
+    },
+    {
+      "after_step": 2,
+      "display": {
+        "upper_line": "SOLV ENG",
+        "lower_line": "0. 1",
+        "indicators": [
+          "DEG"
+        ],
+        "scroll_arrows": [
+          "down"
+        ],
+        "cursor": {
+          "status": "unknown",
+          "reason": "Blink timing not measured; cursor start separately asserted where observed."
+        },
+        "insert_mode": {
+          "status": "unknown",
+          "reason": "No timing claim."
+        },
+        "prompt": null,
+        "selected_result_component": null
+      },
+      "result": {
+        "status": "not-applicable",
+        "reason": "Entry/menu/error checkpoints only; hidden numeric precision unmeasured."
+      }
+    },
+    {
+      "after_step": 3,
+      "display": {
+        "upper_line": "k M G T",
+        "lower_line": "0. 1 2 3",
+        "indicators": [
+          "DEG"
+        ],
+        "scroll_arrows": [
+          "down"
+        ],
+        "cursor": {
+          "status": "unknown",
+          "reason": "Blink timing not measured; cursor start separately asserted where observed."
+        },
+        "insert_mode": {
+          "status": "unknown",
+          "reason": "No timing claim."
+        },
+        "prompt": null,
+        "selected_result_component": null
+      },
+      "result": {
+        "status": "not-applicable",
+        "reason": "Entry/menu/error checkpoints only; hidden numeric precision unmeasured."
+      }
+    },
+    {
+      "after_step": 4,
+      "display": {
+        "upper_line": "m \u03bc n p f",
+        "lower_line": "4. 5 6 7 8",
+        "indicators": [
+          "DEG"
+        ],
+        "scroll_arrows": [
+          "up"
+        ],
+        "cursor": {
+          "status": "unknown",
+          "reason": "Blink timing not measured; cursor start separately asserted where observed."
+        },
+        "insert_mode": {
+          "status": "unknown",
+          "reason": "No timing claim."
+        },
+        "prompt": null,
+        "selected_result_component": null
+      },
+      "result": {
+        "status": "not-applicable",
+        "reason": "Entry/menu/error checkpoints only; hidden numeric precision unmeasured."
+      }
+    },
+    {
+      "after_step": 5,
+      "display": {
+        "upper_line": "k M G T",
+        "lower_line": "0. 1 2 3",
+        "indicators": [
+          "DEG"
+        ],
+        "scroll_arrows": [
+          "down"
+        ],
+        "cursor": {
+          "status": "unknown",
+          "reason": "Blink timing not measured; cursor start separately asserted where observed."
+        },
+        "insert_mode": {
+          "status": "unknown",
+          "reason": "No timing claim."
+        },
+        "prompt": null,
+        "selected_result_component": null
+      },
+      "result": {
+        "status": "not-applicable",
+        "reason": "Entry/menu/error checkpoints only; hidden numeric precision unmeasured."
+      }
+    },
+    {
+      "after_step": 6,
+      "display": {
+        "upper_line": "",
+        "lower_line": "0.",
+        "indicators": [
+          "DEG"
+        ],
+        "scroll_arrows": [],
+        "cursor": {
+          "status": "unknown",
+          "reason": "Blink timing not measured; cursor start separately asserted where observed."
+        },
+        "insert_mode": {
+          "status": "unknown",
+          "reason": "No timing claim."
+        },
+        "prompt": null,
+        "selected_result_component": null
+      },
+      "result": {
+        "status": "not-applicable",
+        "reason": "Entry/menu/error checkpoints only; hidden numeric precision unmeasured."
+      }
+    },
+    {
+      "after_step": 8,
+      "display": {
+        "upper_line": "0C",
+        "lower_line": "0.",
+        "indicators": [
+          "DEG"
+        ],
+        "scroll_arrows": [],
+        "cursor": {
+          "status": "unknown",
+          "reason": "Blink timing not measured; cursor start separately asserted where observed."
+        },
+        "insert_mode": {
+          "status": "unknown",
+          "reason": "No timing claim."
+        },
+        "prompt": null,
+        "selected_result_component": null
+      },
+      "result": {
+        "status": "not-applicable",
+        "reason": "Entry/menu/error checkpoints only; hidden numeric precision unmeasured."
+      }
+    },
+    {
+      "after_step": 9,
+      "display": {
+        "upper_line": "0C",
+        "lower_line": "1.",
+        "indicators": [
+          "DEG"
+        ],
+        "scroll_arrows": [],
+        "cursor": {
+          "status": "unknown",
+          "reason": "Blink timing not measured; cursor start separately asserted where observed."
+        },
+        "insert_mode": {
+          "status": "unknown",
+          "reason": "No timing claim."
+        },
+        "prompt": null,
+        "selected_result_component": null
+      },
+      "result": {
+        "status": "not-applicable",
+        "reason": "Entry/menu/error checkpoints only; hidden numeric precision unmeasured."
+      }
+    },
+    {
+      "after_step": 10,
+      "display": {
+        "upper_line": "Error 2",
+        "lower_line": "",
+        "indicators": [
+          "DEG"
+        ],
+        "scroll_arrows": [],
+        "cursor": {
+          "status": "unknown",
+          "reason": "Blink timing not measured; cursor start separately asserted where observed."
+        },
+        "insert_mode": {
+          "status": "unknown",
+          "reason": "No timing claim."
+        },
+        "prompt": null,
+        "selected_result_component": null
+      },
+      "result": {
+        "status": "not-applicable",
+        "reason": "Entry/menu/error checkpoints only; hidden numeric precision unmeasured."
+      }
+    }
+  ],
+  "stored_values": {
+    "coverage": "Visible results only; hidden precision is unmeasured.",
+    "observations": []
+  },
+  "errors": [],
+  "sources": [
+    {
+      "source_id": "live-session",
+      "kind": "simulator",
+      "reference": "simulator-profile.json",
+      "page": null,
+      "scope": "Native1063..1072: repeatedengineeringtwo-page inventory andfresh exactcombination0C entry. Resolves editorial[nCr] placeholders in originalmenu inventory without rewritingthat reference."
+    }
+  ],
+  "oracle": {
+    "selected_source_id": "live-session",
+    "simulator_exception_ids": [],
+    "disagreements": []
+  },
+  "ambiguities": [],
+  "notes": [
+    "One native action and inspected screenshot per step. DEG consistently transcribed.",
+    "Cursor startsafter0C; blinktiming notasserted.",
+    "The0C1 computation endsError2; combination domainrestrictsr<=n."
+  ]
+}
