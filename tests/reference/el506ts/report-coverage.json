@@ -1398,6 +1398,28 @@
         "el506.second.el506-k12"
       ],
       "scope": "Allsix hyperbolic physicaldispatches with independent mathematical endpoints andexplicit numeric tolerances. Fullnativehiddenprecision isnotasserted."
+    },
+    {
+      "kind": "unit",
+      "path": "tests/unit/matrix-type-audit.test.js",
+      "anchor": "Independent native scalar ",
+      "capabilityIds": [
+        "el506.matrix-math.det",
+        "el506.matrix-math.trans",
+        "el506.matrix-ope.dim"
+      ],
+      "scope": "Independent live simulator rejects scalar1 for determinant, transpose and dimension with Error1. Matrix memory, snapshot and ONC recovery checked; other operands and all-mode/full-precision behavior not inferred."
+    },
+    {
+      "kind": "browser",
+      "path": "tests/e2e/matrix-type-audit.spec.js",
+      "anchor": "Independent scalar ",
+      "capabilityIds": [
+        "el506.matrix-math.det",
+        "el506.matrix-math.trans",
+        "el506.matrix-ope.dim"
+      ],
+      "scope": "Actual physical buttons replay three independently observed scalar type rejections and ONC recovery across three browser engines. Partial type-boundary evidence only."
     }
   ]
 }

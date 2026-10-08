@@ -1,0 +1,38 @@
+{
+  "reviewId": "matrix-scalar-types-2026-10-08",
+  "roadmapItems": [
+    "EL506-359",
+    "EL506-360",
+    "EL506-361"
+  ],
+  "roadmapItemsComplete": false,
+  "references": [
+    "experiments/matrix-determinant-scalar-type-native.json",
+    "experiments/matrix-transpose-scalar-type-native.json",
+    "experiments/matrix-dimension-scalar-type-native.json"
+  ],
+  "nativeActions": 24,
+  "nativeActionRange": "1108..1131; three six/twelve-action independent workflows, including ONC initialization",
+  "findings": [
+    "det 1 reports Error1; previous application incorrectly returned1.",
+    "trans 1 reports Error1; application already mapped its internal exception toError1. The module now rejects the operand explicitly.",
+    "dim(1,1,1) reports Error1; previous application incorrectly returned a1x1 zero matrix."
+  ],
+  "validation": {
+    "focusedUnitPassed": 3,
+    "browserPassed": 9,
+    "browserEngines": [
+      "Chromium",
+      "Firefox",
+      "WebKit"
+    ],
+    "scope": "Scalar argument1 in three MAT functions; error display/code, matrix memory, snapshot round trip and ONC recovery. Other types, arities, precision and full compatibility remain unverified.",
+    "fullUnitPassed": 690,
+    "referenceAndReportChecks": "passed",
+    "goldenFixtures": 29,
+    "goldenFrames": 1200,
+    "localDemo": "Fresh asset version shows independently expected Error1 fordim(1,1,1)",
+    "proof": "matrix-types-proof.png (outside repository)"
+  },
+  "releaseGate": "Whole roadmap items and release gates remain open."
+}

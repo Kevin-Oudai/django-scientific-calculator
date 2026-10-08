@@ -2989,6 +2989,12 @@ guess any item in this phase; observe it in the reference simulator first.
 
 - [ ] **EL506-359 - Complete the function-by-value-type compatibility
   matrix.**
+
+    Scoped native determinant/transpose/dimension scalar-operand audit found
+    and corrected determinant1 anddim(1,1,1) accepting a scalar. Allthree now
+    matchError1, preserve matrix slots and recover withONC. READY_TO_PUSH after
+    focused unit and nine browser checks across three engines; fullcompatibility
+    remains open. See matrix-type-review.json.
 - [ ] **EL506-360 - Add boundary and invalid-input tests for every ledger
   operation.**
 - [ ] **EL506-361 - Add differential coverage for every capability-ledger

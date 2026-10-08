@@ -6,11 +6,11 @@
  function matrix(rows,columns,data){dimensions(rows,columns);if(data.length!==rows*columns)fail(8);return {rows,columns,data:data.map(finite)};}
  const fill=(value,rows,columns)=>{dimensions(rows,columns,7);return matrix(rows,columns,Array(rows*columns).fill(finite(value)));};
  const identity=n=>{dimensions(n,n,7);return matrix(n,n,Array.from({length:n*n},(_,i)=>i%(n+1)===0?1:0));};
- const transpose=a=>matrix(a.columns,a.rows,Array.from({length:a.data.length},(_,i)=>a.data[(i%a.rows)*a.columns+Math.floor(i/a.rows)]));
+ const transpose=a=>{if(!a||typeof a!=='object'||!Array.isArray(a.data))fail(1);return matrix(a.columns,a.rows,Array.from({length:a.data.length},(_,i)=>a.data[(i%a.rows)*a.columns+Math.floor(i/a.rows)]));};
  function add(a,b,sign=1,sum=(x,y)=>x+y){if(a.rows!==b.rows||a.columns!==b.columns)fail(8);return matrix(a.rows,a.columns,a.data.map((x,i)=>sum(x,sign*b.data[i])));}
  const scale=(a,n,product=(x,y)=>x*y)=>matrix(a.rows,a.columns,a.data.map(x=>product(x,n)));
  function multiply(a,b){if(a.columns!==b.rows)fail(8);return matrix(a.rows,b.columns,Array.from({length:a.rows*b.columns},(_,i)=>{const r=Math.floor(i/b.columns),c=i%b.columns;let sum=0;for(let k=0;k<a.columns;k++)sum=finite(sum+finite(a.data[r*a.columns+k]*b.data[k*b.columns+c]));return sum;}));}
- function elimination(a,inverse=false){if(a.rows!==a.columns)fail(8);const n=a.rows,rows=Array.from({length:n},(_,i)=>a.data.slice(i*n,(i+1)*n).concat(inverse?Array.from({length:n},(_,j)=>i===j?1:0):[]));let determinant=1;
+ function elimination(a,inverse=false){if(!a||typeof a!=='object'||!Array.isArray(a.data))fail(1);if(a.rows!==a.columns)fail(8);const n=a.rows,rows=Array.from({length:n},(_,i)=>a.data.slice(i*n,(i+1)*n).concat(inverse?Array.from({length:n},(_,j)=>i===j?1:0):[]));let determinant=1;
   for(let k=0;k<n;k++){let p=k;for(let i=k+1;i<n;i++)if(Math.abs(rows[i][k])>Math.abs(rows[p][k]))p=i;if(rows[p][k]===0){if(inverse)fail(2);return 0;}
    if(p!==k){[rows[p],rows[k]]=[rows[k],rows[p]];determinant=-determinant;}const pivot=rows[k][k];determinant=finite(determinant*pivot);
    if(inverse){for(let j=0;j<2*n;j++)rows[k][j]=finite(rows[k][j]/pivot);for(let i=0;i<n;i++)if(i!==k){const f=rows[i][k];for(let j=0;j<2*n;j++)rows[i][j]=finite(rows[i][j]-f*rows[k][j]);}}
@@ -18,7 +18,7 @@
   return inverse?matrix(n,n,rows.flatMap(r=>r.slice(n))):determinant;
  }
  function power(a,n){if(!Number.isInteger(n)||Math.abs(n)>100000)fail(7);if(a.rows!==a.columns)fail(8);if(n<0){a=elimination(a,true);n=-n;}let result=identity(a.rows);while(n){if(n%2)result=multiply(result,a);n=Math.floor(n/2);if(n)a=multiply(a,a);}return result;}
- const dimension=(a,rows,columns)=>{dimensions(rows,columns,7);return matrix(rows,columns,Array.from({length:rows*columns},(_,i)=>{const r=Math.floor(i/columns),c=i%columns;return r<a.rows&&c<a.columns?a.data[r*a.columns+c]:0;}));};
+ const dimension=(a,rows,columns)=>{if(!a||typeof a!=='object'||!Array.isArray(a.data))fail(1);dimensions(rows,columns,7);return matrix(rows,columns,Array.from({length:rows*columns},(_,i)=>{const r=Math.floor(i/columns),c=i%columns;return r<a.rows&&c<a.columns?a.data[r*a.columns+c]:0;}));};
  const cumulative=a=>{const sums=Array(a.columns).fill(0);return matrix(a.rows,a.columns,a.data.map((x,i)=>sums[i%a.columns]=finite(sums[i%a.columns]+x)));};
  function augment(a,b){if(!a||!b||typeof a!=='object'||typeof b!=='object')fail(1);if(a.rows!==b.rows)fail(8);return matrix(a.rows,a.columns+b.columns,Array.from({length:a.rows},(_,r)=>a.data.slice(r*a.columns,(r+1)*a.columns).concat(b.data.slice(r*b.columns,(r+1)*b.columns))).flat());}
  function evaluate(ast,semantic,scalar,scope){return semantic.evaluate(ast,{

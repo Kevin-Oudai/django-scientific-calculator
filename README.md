@@ -1497,6 +1497,10 @@ An additional independent34-key MAT trace verifies
 Physical matrix-by-scalar products now truncate to14 significant digits;
 component division preserves the measured cancellation above. Matrix-by-matrix
 multiplication and elimination still require their own precision assessment.
+The type audit independently confirms that determinant, transpose and resize
+reject scalar operands with `Error 1`. These errors preserve matrix memory and
+recover with ON/C. Scalar determinant and resize previously produced a numeric
+or zero-matrix result; those incorrect results have been corrected.
 
 The current menu differential audit replays the independently captured119-key
 menu inventory against67 unambiguous label/index checkpoints. Engineering

@@ -300,7 +300,7 @@
     },
     {
       "path": "tests/reference/el506ts/report-coverage.json",
-      "sha256": "b0a4f2c6569204a468e8a202c209d385b8b99794ce633f924b0fc68bf4e99ac7"
+      "sha256": "600eed9c49c6d948c2c1b7b7147bca6c1941e94fe9a3bb046d1bc93c76d219cd"
     },
     {
       "path": "tests/reference/el506ts/validate-guide.js",
@@ -313,6 +313,10 @@
     {
       "path": "tests/e2e/guide-regression.spec.js",
       "sha256": "4dbc88b24accc54308403a5b6deca320f037f97e146d00ed23bfa0d3b5507687"
+    },
+    {
+      "path": "tests/e2e/matrix-type-audit.spec.js",
+      "sha256": "f6f17d83b0b1351a2e16eed59aeb6b6bd871defb83fdd1370eb0713ae02b152b"
     },
     {
       "path": "tests/e2e/menu-differential-audit.spec.js",
@@ -373,6 +377,10 @@
     {
       "path": "tests/unit/guide-regression.test.js",
       "sha256": "2f373345938aed190961f2c3443ce0f0b1f53d80919d04eae4f2e3d487e1f731"
+    },
+    {
+      "path": "tests/unit/matrix-type-audit.test.js",
+      "sha256": "56bfd3f83b7830a9637dfb3246ccab7d32d9da3f62f16a2cb771527a74111c76"
     },
     {
       "path": "tests/unit/menu-differential-audit.test.js",
@@ -34462,6 +34470,17 @@
               "el506.list.slot.4"
             ],
             "scope": "Independent119-key native exposure inventory,67 unambiguous upper-label and lower-index/digit checkpoints. Whitespace and equivalent micro glyph normalized; blink dots excluded. Entry/menu exposure and ordering only: operation algorithms, stores, hidden precision, domains and full compatibility remain unverified."
+          },
+          {
+            "kind": "unit",
+            "path": "tests/unit/matrix-type-audit.test.js",
+            "anchor": "Independent native scalar ",
+            "capabilityIds": [
+              "el506.matrix-math.det",
+              "el506.matrix-math.trans",
+              "el506.matrix-ope.dim"
+            ],
+            "scope": "Independent live simulator rejects scalar1 for determinant, transpose and dimension with Error1. Matrix memory, snapshot and ONC recovery checked; other operands and all-mode/full-precision behavior not inferred."
           }
         ],
         "scope": "Explicit mapped assertions only; unlisted coverage is unassessed."
@@ -34576,6 +34595,17 @@
               "el506.list.slot.4"
             ],
             "scope": "Independent119-key native exposure inventory,67 unambiguous upper-label and lower-index/digit checkpoints. Whitespace and equivalent micro glyph normalized; blink dots excluded. Entry/menu exposure and ordering only: operation algorithms, stores, hidden precision, domains and full compatibility remain unverified."
+          },
+          {
+            "kind": "browser",
+            "path": "tests/e2e/matrix-type-audit.spec.js",
+            "anchor": "Independent scalar ",
+            "capabilityIds": [
+              "el506.matrix-math.det",
+              "el506.matrix-math.trans",
+              "el506.matrix-ope.dim"
+            ],
+            "scope": "Actual physical buttons replay three independently observed scalar type rejections and ONC recovery across three browser engines. Partial type-boundary evidence only."
           }
         ],
         "scope": "Explicit canonical baseline browser replays only; legacy regression coverage is not inferred as parity."
@@ -36112,6 +36142,17 @@
               "el506.list.slot.4"
             ],
             "scope": "Independent119-key native exposure inventory,67 unambiguous upper-label and lower-index/digit checkpoints. Whitespace and equivalent micro glyph normalized; blink dots excluded. Entry/menu exposure and ordering only: operation algorithms, stores, hidden precision, domains and full compatibility remain unverified."
+          },
+          {
+            "kind": "unit",
+            "path": "tests/unit/matrix-type-audit.test.js",
+            "anchor": "Independent native scalar ",
+            "capabilityIds": [
+              "el506.matrix-math.det",
+              "el506.matrix-math.trans",
+              "el506.matrix-ope.dim"
+            ],
+            "scope": "Independent live simulator rejects scalar1 for determinant, transpose and dimension with Error1. Matrix memory, snapshot and ONC recovery checked; other operands and all-mode/full-precision behavior not inferred."
           }
         ],
         "scope": "Explicit mapped assertions only; unlisted coverage is unassessed."
@@ -36226,6 +36267,17 @@
               "el506.list.slot.4"
             ],
             "scope": "Independent119-key native exposure inventory,67 unambiguous upper-label and lower-index/digit checkpoints. Whitespace and equivalent micro glyph normalized; blink dots excluded. Entry/menu exposure and ordering only: operation algorithms, stores, hidden precision, domains and full compatibility remain unverified."
+          },
+          {
+            "kind": "browser",
+            "path": "tests/e2e/matrix-type-audit.spec.js",
+            "anchor": "Independent scalar ",
+            "capabilityIds": [
+              "el506.matrix-math.det",
+              "el506.matrix-math.trans",
+              "el506.matrix-ope.dim"
+            ],
+            "scope": "Actual physical buttons replay three independently observed scalar type rejections and ONC recovery across three browser engines. Partial type-boundary evidence only."
           }
         ],
         "scope": "Explicit canonical baseline browser replays only; legacy regression coverage is not inferred as parity."
@@ -36387,6 +36439,17 @@
               "el506.list.slot.4"
             ],
             "scope": "Independent119-key native exposure inventory,67 unambiguous upper-label and lower-index/digit checkpoints. Whitespace and equivalent micro glyph normalized; blink dots excluded. Entry/menu exposure and ordering only: operation algorithms, stores, hidden precision, domains and full compatibility remain unverified."
+          },
+          {
+            "kind": "unit",
+            "path": "tests/unit/matrix-type-audit.test.js",
+            "anchor": "Independent native scalar ",
+            "capabilityIds": [
+              "el506.matrix-math.det",
+              "el506.matrix-math.trans",
+              "el506.matrix-ope.dim"
+            ],
+            "scope": "Independent live simulator rejects scalar1 for determinant, transpose and dimension with Error1. Matrix memory, snapshot and ONC recovery checked; other operands and all-mode/full-precision behavior not inferred."
           }
         ],
         "scope": "Explicit mapped assertions only; unlisted coverage is unassessed."
@@ -36501,6 +36564,17 @@
               "el506.list.slot.4"
             ],
             "scope": "Independent119-key native exposure inventory,67 unambiguous upper-label and lower-index/digit checkpoints. Whitespace and equivalent micro glyph normalized; blink dots excluded. Entry/menu exposure and ordering only: operation algorithms, stores, hidden precision, domains and full compatibility remain unverified."
+          },
+          {
+            "kind": "browser",
+            "path": "tests/e2e/matrix-type-audit.spec.js",
+            "anchor": "Independent scalar ",
+            "capabilityIds": [
+              "el506.matrix-math.det",
+              "el506.matrix-math.trans",
+              "el506.matrix-ope.dim"
+            ],
+            "scope": "Actual physical buttons replay three independently observed scalar type rejections and ONC recovery across three browser engines. Partial type-boundary evidence only."
           }
         ],
         "scope": "Explicit canonical baseline browser replays only; legacy regression coverage is not inferred as parity."
