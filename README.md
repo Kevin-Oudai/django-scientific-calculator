@@ -511,8 +511,10 @@ calculator's UI or assert that unimplemented features are complete.
 The default tag now renders 48 native buttons in the verified instructional
 positions, including a four-direction navigation pad and seven keypad rows
 of 6/6/6/5/5/5/4 keys. Orange legends identify 2ndF functions; green legends
-identify ALPHA functions. Primary, yellow, and green key labels use 12px text;
-green ALPHA legends sit at the bottom-right. The 2nd F and ALPHA buttons
+identify ALPHA functions. Primary, yellow, and green key labels use 14px text.
+The four-direction pad is 44% of the control width with 34px-tall arrow buttons;
+its surrounding utility buttons are narrower. Green ALPHA legends sit at the
+bottom-right. The 2nd F and ALPHA buttons
 use yellow and green backgrounds matching their function colors. Mode-specific legends and formula-memory labels stay
 at their teaching positions. All artwork, styling, and browser screenshots
 are original. This independent educational project has no affiliation with
@@ -923,7 +925,7 @@ arithmetic retains exact numerator/denominator values. After evaluation, FRAC
 toggles decimal/mixed views; 2ndF + FRAC toggles improper/mixed views. A fraction
 requiring more than ten display positions (including separators) falls back to
 decimal without losing its exact value. FIX/SCI/ENG keep their selected numeric
-format. Existing stacked fractions and the 12px key legends remain unchanged. Screen-reader
+format. Existing stacked fractions and the current key legends remain unchanged. Screen-reader
 announcements describe the numerator and denominator using “over”.
 
 DMS enters degrees, minutes, then seconds. Carries normalize at evaluation;
@@ -989,7 +991,7 @@ separate roadmap phases.
 
 The reusable package includes `catalogues.js`; the loader loads it before
 the core. Existing version 0.3.1 and earlier snapshot schemas remain compatible through migration.
-The 12px key legends, fraction layout and legacy entry points are retained.
+The current key legends, fraction layout and legacy entry points are retained.
 
 Reference evidence is recorded in `tests/reference/el506ts/phase-7-review.json`,
 `phase-7-catalogue-reference.json`, and the Phase 7 experiment/golden files.
