@@ -9,8 +9,8 @@
 
 ## Progress Overview
 
-As of 2026-10-08, **235 of 245 roadmap tasks are complete (95.9%)**, with
-**10 remaining**. The next task is **EL506-354**. These counts measure
+As of 2026-10-08, **237 of 245 roadmap tasks are complete (96.7%)**, with
+**8 remaining**. The next task is **EL506-354**. These counts measure
 completed checklist items, not elapsed effort or verified calculator parity;
 individual tasks vary in size. The detailed checklist below describes every
 remaining task and preserves its evidence and completion requirements.
@@ -33,7 +33,7 @@ items), and Phase 14 is complete (8/8 complex items). Phase 15 is complete (14/1
 items). Phase 16 is complete (11/11 LIST items), including entry, arithmetic,
 aggregates, vector operations, paging, memory, copying, conversions,
 persistence and observed limits/errors.
-Phase 17 has 7/15 items complete (error catalogue, recovery, scalar limits, persistence, guide regressions and property tests).
+Phase 17 has 9/15 items complete (error catalogue, recovery, scalar and capacity limits, persistence, guide regressions and property tests).
 Phase 18 has 13/15 items complete; release candidates and 1.0.0 remain gated. Pending simulator/application behavior is visible
 in the generated report; phase completion does not establish full parity.
 
@@ -56,9 +56,9 @@ in the generated report; phase completion does not establish full parity.
 | Phase 14 - Complex Mode | 8 | 0 |
 | Phase 15 - Matrix Mode | 14 | 0 |
 | Phase 16 - LIST Mode | 11 | 0 |
-| Phase 17 - Errors, Limits, and Cross-mode Parity | 7 | 8 |
+| Phase 17 - Errors, Limits, and Cross-mode Parity | 9 | 6 |
 | Phase 18 - Security, Packaging, Compatibility, and Release | 13 | 2 |
-| **Total** | **235** | **10** |
+| **Total** | **237** | **8** |
 
 Refresh this overview's date, counts, percentage, and next task in every
 roadmap completion tracking commit, using the checklist as the source of truth.
@@ -2930,11 +2930,13 @@ guess any item in this phase; observe it in the reference simulator first.
     Fresh IAB signed minimum display verified; Docker Desktop remains unavailable.
 - [ ] **EL506-354 - Match internal precision and rounding for every result
   type.**
-- [ ] **EL506-355 - Match expression length and nesting limits.**
-- [ ] **EL506-356 - Match history, formula, dataset, matrix, and list
+- [x] **EL506-355 - Match expression length and nesting limits.**
+- [x] **EL506-356 - Match history, formula, dataset, matrix, and list
   capacities.**
 
-    EL506-355/356 READY_TO_PUSH: shared early capacity checks and serializable
+    EL506-355/356 completed 2026-10-08; implementation
+    7de6032b0136f11329ba95df1a898e8cd026a166 verified on origin/main.
+    Shared early capacity checks and serializable
     failed definition/coefficient workflows; capacity-review.json records the
     independent 24-key MAT fault trace and full-manual policy. User authorized
     completion of all remaining phases, so adjacent capacity prerequisites were
