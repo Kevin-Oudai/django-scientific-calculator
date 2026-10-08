@@ -1,0 +1,44 @@
+{
+  "reviewId": "matrix-definition-precision-2026-10-08",
+  "roadmapItem": "EL506-354",
+  "roadmapItemComplete": false,
+  "references": [
+    "experiments/matrix-definition-division-native.json",
+    "experiments/matrix-entry-punctuation-native.json",
+    "experiments/phase8-memory.json"
+  ],
+  "findings": [
+    "Committing 1/3 in a matrix definition retains the native scaled-cancellation result zero.",
+    "Pending matrix arithmetic splits the upper operator prefix from the lower current operand.",
+    "Fresh eight-key native evidence confirms decimal punctuation for row, column and first-cell integer entry.",
+    "Broad browser validation found an ANSM+ casing regression. The physical formatter now preserves the independently recorded uppercase label next to the separately rendered memory operator."
+  ],
+  "policy": "Matrix definition division uses bounded binary division; other operations retain the physical adapter. MAT and LIST share the collection-entry LCD projection.",
+  "validation": {
+    "focusedUnitPassed": 2,
+    "fullUnitPassed": 747,
+    "goldenFixtures": 30,
+    "goldenFrames": 1209,
+    "browserPassed": 6,
+    "browserEngines": ["Chromium", "Firefox", "WebKit"],
+    "fullBrowserValidation": {
+      "total": 651,
+      "initialPassed": 601,
+      "initialFailed": 12,
+      "platformSkipped": 38,
+      "repairedRerunPassed": 12,
+      "finalApplicableCasesVerified": 613,
+      "scope": "Complete three-engine run followed by Playwright --last-failed on the final code and fixtures. No failing case remains; platform skips are retained."
+    },
+    "keyInvariantGroupsPassed": 24,
+    "keyInvariantTransitions": 3456,
+    "keyInvariantScope": "Implementation immutability, snapshot, deterministic replay and branch isolation; not native compatibility evidence.",
+    "djangoPassed": 7,
+    "installedWheelAndSdist": "passed; 24 assets",
+    "compileall": "passed",
+    "pipDryRun": "passed",
+    "dockerComposeConfig": "passed",
+    "dockerRuntime": "unavailable: Docker Desktop Linux engine pipe absent"
+  },
+  "remaining": "Complete result-type precision, native modifier/type/boundary/differential coverage, simulator exceptions, final parity audit and release gates."
+}

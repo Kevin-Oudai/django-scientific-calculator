@@ -37,8 +37,8 @@
       "pending": 48
     },
     "golden": {
-      "fixtures": 29,
-      "assertedFrames": 1200,
+      "fixtures": 30,
+      "assertedFrames": 1209,
       "pending": 1
     },
     "verifiedFullParity": 0
@@ -88,6 +88,10 @@
     {
       "path": "tests/reference/el506ts/experiments/lcd-cursor.json",
       "sha256": "a2cc3aae5329e3acb6a1635f05d681a06eb2782def3c5e8fd44849a79ae1d8f4"
+    },
+    {
+      "path": "tests/reference/el506ts/experiments/matrix-entry-punctuation-native.json",
+      "sha256": "e6e1b6cc09540d260251d30402bfbc46c1175bff5e2bea494a62faf88391958f"
     },
     {
       "path": "tests/reference/el506ts/experiments/menu-inventory.json",
@@ -210,6 +214,10 @@
       "sha256": "1a28cc2c18b20907829f3ac0f35ba09cacae56f30cbc1b668feec5a9de9f23e3"
     },
     {
+      "path": "tests/reference/el506ts/golden/matrix-entry-punctuation-native.json",
+      "sha256": "46e7b18eaed8ca6d84ce4007cddc92eb11341564f189a807592fe6cfbce0bd43"
+    },
+    {
       "path": "tests/reference/el506ts/golden/menus-pending.json",
       "sha256": "560527bd6a5f22e294b57b52c9df265c6ab806ebaba7fdcdfa03e2f9a07f45aa"
     },
@@ -223,11 +231,11 @@
     },
     {
       "path": "tests/reference/el506ts/golden/phase12-15-native.json",
-      "sha256": "03e91fd8d7a605ea690bf537bc9958565a84f83667e6331c974acf5478b33d2c"
+      "sha256": "043f53a2ea9a53b0e9d5740e8b8bb4f73ff342986fe65619172f6ef8c3af4824"
     },
     {
       "path": "tests/reference/el506ts/golden/phase16-native.json",
-      "sha256": "d508420d909df13773172bc1613753279ab3444ca093d83112ee8eb87fdd0ffd"
+      "sha256": "f223f09b05cc5c7e9fe96059ecb9dde0d88a0d7653daf80520f146d717ce119a"
     },
     {
       "path": "tests/reference/el506ts/golden/phase3-power.json",
@@ -299,7 +307,7 @@
     },
     {
       "path": "tests/reference/el506ts/report-coverage.json",
-      "sha256": "e1528d686d45e6462fa954ee449156951d51645e58239bb5fd4ce998c792da72"
+      "sha256": "2d8020a08069db3d10a9c5378c33351e1be77451a52cec09c4d2bca0f08106d8"
     },
     {
       "path": "tests/reference/el506ts/validate-guide.js",
@@ -320,6 +328,10 @@
     {
       "path": "tests/e2e/list-aggregate-precision-audit.spec.js",
       "sha256": "7753c5811271cfeea07f440f42be68f01fd2fd7355e891f017ba70bfff89bfbf"
+    },
+    {
+      "path": "tests/e2e/matrix-definition-precision-audit.spec.js",
+      "sha256": "77689e76c34582dfb6990e45f6498dbe3a7d6580f143056b0be26632560ccde3"
     },
     {
       "path": "tests/e2e/matrix-scientific-entry-audit.spec.js",
@@ -351,7 +363,7 @@
     },
     {
       "path": "tests/e2e/phase16.spec.js",
-      "sha256": "7db90506dbfed1c2463670542ba58e4b71ddf2b352c1dfe5248b46974c5d35ca"
+      "sha256": "9bf60b048033433245c64a364ee81dd87750a59c2716b19b60f139f9cca3a9c9"
     },
     {
       "path": "tests/e2e/phase4.spec.js",
@@ -363,7 +375,7 @@
     },
     {
       "path": "tests/e2e/phase6.spec.js",
-      "sha256": "05ba68df9246f4dc9f2941cce7dcf068303815b0749e8bc06b39e801eedf912d"
+      "sha256": "1c2cf56dd6075fbf0dfa339bb71d1905cf8b7baa6e3bcfd80cdd3cd1d57d060b"
     },
     {
       "path": "tests/e2e/phase7.spec.js",
@@ -400,6 +412,10 @@
     {
       "path": "tests/unit/list-aggregate-precision-audit.test.js",
       "sha256": "5c84fba07464f0268f04345c504a83249b5d7d5d8002633c75db29f869c7cc4a"
+    },
+    {
+      "path": "tests/unit/matrix-definition-precision-audit.test.js",
+      "sha256": "f816365847d64376c19c82571796027a9303b5be30fdbec8efc25dfbbd80ad39"
     },
     {
       "path": "tests/unit/matrix-scientific-entry-audit.test.js",
@@ -2748,6 +2764,20 @@
               "el506.key.el506-k11"
             ],
             "scope": "52 independently printed guide workflows and 148 checkpoints. Measured derivative display 0.577350268 matches native reference; this regression does not assert exhaustive simulator parity."
+          },
+          {
+            "kind": "unit",
+            "path": "tests/unit/matrix-definition-precision-audit.test.js",
+            "anchor": "Independent native matrix dimension and cell entry retain LCD punctuation",
+            "capabilityIds": [
+              "el506.mode.mat",
+              "el506.key.el506-k11",
+              "el506.key.el506-k41"
+            ],
+            "fixtureIds": [
+              "matrix-entry-punctuation-native"
+            ],
+            "scope": "Independently observed MAT dimension and first-cell entry LCD punctuation, plus stored-third cancellation precision and snapshot integrity; remaining matrix accuracy is unverified."
           }
         ],
         "scope": "Explicit mapped assertions only; unlisted coverage is unassessed."
@@ -2864,6 +2894,17 @@
               "el506.key.el506-k48"
             ],
             "scope": "Physical-button regressions for adjacent-symbol formula storage, function fraction denominators, coordinate components, complex pi and all four simulator-observed transition-matrix cells."
+          },
+          {
+            "kind": "browser",
+            "path": "tests/e2e/matrix-definition-precision-audit.spec.js",
+            "anchor": "Native matrix dimension and cell entry punctuation",
+            "capabilityIds": [
+              "el506.mode.mat",
+              "el506.key.el506-k11",
+              "el506.key.el506-k41"
+            ],
+            "scope": "Physical buttons reproduce independent dimension and first-cell LCD punctuation and stored-third cancellation in Chromium, Firefox and WebKit. This is scoped evidence, not full matrix parity."
           }
         ],
         "scope": "Explicit canonical baseline browser replays only; legacy regression coverage is not inferred as parity."
@@ -10168,6 +10209,20 @@
               "el506.key.el506-k11"
             ],
             "scope": "52 independently printed guide workflows and 148 checkpoints. Measured derivative display 0.577350268 matches native reference; this regression does not assert exhaustive simulator parity."
+          },
+          {
+            "kind": "unit",
+            "path": "tests/unit/matrix-definition-precision-audit.test.js",
+            "anchor": "Independent native matrix dimension and cell entry retain LCD punctuation",
+            "capabilityIds": [
+              "el506.mode.mat",
+              "el506.key.el506-k11",
+              "el506.key.el506-k41"
+            ],
+            "fixtureIds": [
+              "matrix-entry-punctuation-native"
+            ],
+            "scope": "Independently observed MAT dimension and first-cell entry LCD punctuation, plus stored-third cancellation precision and snapshot integrity; remaining matrix accuracy is unverified."
           }
         ],
         "scope": "Explicit mapped assertions only; unlisted coverage is unassessed."
@@ -10319,6 +10374,17 @@
               "el506.key.el506-k48"
             ],
             "scope": "Physical-button regressions for adjacent-symbol formula storage, function fraction denominators, coordinate components, complex pi and all four simulator-observed transition-matrix cells."
+          },
+          {
+            "kind": "browser",
+            "path": "tests/e2e/matrix-definition-precision-audit.spec.js",
+            "anchor": "Native matrix dimension and cell entry punctuation",
+            "capabilityIds": [
+              "el506.mode.mat",
+              "el506.key.el506-k11",
+              "el506.key.el506-k41"
+            ],
+            "scope": "Physical buttons reproduce independent dimension and first-cell LCD punctuation and stored-third cancellation in Chromium, Firefox and WebKit. This is scoped evidence, not full matrix parity."
           }
         ],
         "scope": "Explicit canonical baseline browser replays only; legacy regression coverage is not inferred as parity."
@@ -24261,6 +24327,20 @@
               "el506.list.slot.4"
             ],
             "scope": "Independent119-key native exposure inventory,67 unambiguous upper-label and lower-index/digit checkpoints. Whitespace and equivalent micro glyph normalized; blink dots excluded. Entry/menu exposure and ordering only: operation algorithms, stores, hidden precision, domains and full compatibility remain unverified."
+          },
+          {
+            "kind": "unit",
+            "path": "tests/unit/matrix-definition-precision-audit.test.js",
+            "anchor": "Independent native matrix dimension and cell entry retain LCD punctuation",
+            "capabilityIds": [
+              "el506.mode.mat",
+              "el506.key.el506-k11",
+              "el506.key.el506-k41"
+            ],
+            "fixtureIds": [
+              "matrix-entry-punctuation-native"
+            ],
+            "scope": "Independently observed MAT dimension and first-cell entry LCD punctuation, plus stored-third cancellation precision and snapshot integrity; remaining matrix accuracy is unverified."
           }
         ],
         "scope": "Explicit mapped assertions only; unlisted coverage is unassessed."
@@ -24268,6 +24348,11 @@
       "goldenTested": {
         "status": "baseline-known-differences",
         "evidence": [
+          {
+            "fixtureId": "matrix-entry-punctuation-native",
+            "status": "known-differences",
+            "assertedFrames": 9
+          },
           {
             "fixtureId": "phase12-15-native",
             "status": "known-differences",
@@ -24393,6 +24478,17 @@
               "el506.list.slot.4"
             ],
             "scope": "Independent119-key native exposure inventory,67 unambiguous upper-label and lower-index/digit checkpoints. Whitespace and equivalent micro glyph normalized; blink dots excluded. Entry/menu exposure and ordering only: operation algorithms, stores, hidden precision, domains and full compatibility remain unverified."
+          },
+          {
+            "kind": "browser",
+            "path": "tests/e2e/matrix-definition-precision-audit.spec.js",
+            "anchor": "Native matrix dimension and cell entry punctuation",
+            "capabilityIds": [
+              "el506.mode.mat",
+              "el506.key.el506-k11",
+              "el506.key.el506-k41"
+            ],
+            "scope": "Physical buttons reproduce independent dimension and first-cell LCD punctuation and stored-third cancellation in Chromium, Firefox and WebKit. This is scoped evidence, not full matrix parity."
           }
         ],
         "scope": "Explicit canonical baseline browser replays only; legacy regression coverage is not inferred as parity."

@@ -22979,7 +22979,7 @@
       },
       "viewAssertions": {
         "expressionHtml": "",
-        "resultHtml": "2",
+        "resultHtml": "2.",
         "indicators": {
           "2ndF": false,
           "HYP": false,
@@ -23007,7 +23007,7 @@
           "i": false
         }
       },
-      "domResultText": "2"
+      "domResultText": "2."
     },
     {
       "afterStep": 186,
@@ -23191,7 +23191,7 @@
       },
       "viewAssertions": {
         "expressionHtml": "",
-        "resultHtml": "2",
+        "resultHtml": "2.",
         "indicators": {
           "2ndF": false,
           "HYP": false,
@@ -23219,7 +23219,7 @@
           "i": false
         }
       },
-      "domResultText": "2"
+      "domResultText": "2."
     },
     {
       "afterStep": 188,
@@ -23439,7 +23439,7 @@
       },
       "viewAssertions": {
         "expressionHtml": "",
-        "resultHtml": "0",
+        "resultHtml": "0.",
         "indicators": {
           "2ndF": false,
           "HYP": false,
@@ -23467,7 +23467,7 @@
           "i": false
         }
       },
-      "domResultText": "0"
+      "domResultText": "0."
     },
     {
       "afterStep": 190,
@@ -23935,7 +23935,7 @@
       },
       "viewAssertions": {
         "expressionHtml": "",
-        "resultHtml": "0",
+        "resultHtml": "0.",
         "indicators": {
           "2ndF": false,
           "HYP": false,
@@ -23963,7 +23963,7 @@
           "i": false
         }
       },
-      "domResultText": "0"
+      "domResultText": "0."
     },
     {
       "afterStep": 194,
@@ -24431,7 +24431,7 @@
       },
       "viewAssertions": {
         "expressionHtml": "",
-        "resultHtml": "0",
+        "resultHtml": "0.",
         "indicators": {
           "2ndF": false,
           "HYP": false,
@@ -24459,7 +24459,7 @@
           "i": false
         }
       },
-      "domResultText": "0"
+      "domResultText": "0."
     },
     {
       "afterStep": 198,
@@ -24927,7 +24927,7 @@
       },
       "viewAssertions": {
         "expressionHtml": "",
-        "resultHtml": "0",
+        "resultHtml": "0.",
         "indicators": {
           "2ndF": false,
           "HYP": false,
@@ -24955,7 +24955,7 @@
           "i": false
         }
       },
-      "domResultText": "0"
+      "domResultText": "0."
     },
     {
       "afterStep": 202,

@@ -10,7 +10,7 @@ test('Phase 6 angle setup, DRG immediate cycle and recompute follow physical key
  await seq(root,[2,6,45,40,3,15,40,48]);await expect(root.locator('[data-result]')).toHaveText('0.785398163');
 });
 test('Phase 6 trigonometry, inverse and hyperbolic modifiers consume once and recover errors',async({page})=>{
- const root=await setup(page);for(const [keys,shown]of [[[13,42,45,48],'0.5'],[[2,3,14,45,48],'90.'],[[2,12,13,40,48],'1.175201194'],[[2,3,12,13,40,48],'0.881373587'],[[2,15,32,45,48],'Error 2'],[[2,3,12,15,40,48],'Error 2']]){await seq(root,keys);await expect(root.locator('[data-result]')).toHaveText(shown);}
+ const root=await setup(page);for(const [keys,shown]of [[[13,42,45,48],'0.5'],[[2,3,14,45,48],'90.'],[[2,12,13,40,48],'1.175201194'],[[2,3,12,13,40,48],'0.881373587'],[[2,15,32,45,48],'Error 2'],[[2,3,12,15,40,48],'Error 2']]){await seq(root,keys);if(shown==='Error 2'){await expect(root.locator('[data-expression]')).toHaveText(shown);await expect(root.locator('[data-result]')).toHaveText('');expect((await snapshot(root)).state.control.errorCode).toBe(2);}else await expect(root.locator('[data-result]')).toHaveText(shown);}
  await key(root,2).click();await root.focus();await page.keyboard.type('2+3');await page.keyboard.press('Enter');await expect(root.locator('[data-result]')).toHaveText('5.');expect((await snapshot(root)).state.layers.hyp).toBe(false);await seq(root,[2,3,12,13,40,48]);await expect(root.locator('[data-announcement]')).not.toContainText('later roadmap');
 });
 test('Phase 6 mixed fractions retain exact value across decimal/improper and snapshot views',async({page})=>{
@@ -26,7 +26,7 @@ test('Phase 6 fraction capacity and DMS carry, decimal view and minute grammar',
 });
 test('Phase 6 coordinate commands evaluate immediately and expose native X/Y recall without result paging',async({page})=>{
  const root=await setup(page);await seq(root,[42,3,28,35,3,31]);await expect(root.locator('[data-expression]')).toHaveText('r=');await expect(root.locator('[data-result]')).toHaveText('5.');await seq(root,[27,28]);await expect(root.locator('[data-expression]')).toHaveText('Y=');await expect(root.locator('[data-result]')).toHaveText('53.13010235');expect((await snapshot(root)).state.answer).toBe(5);
- await seq(root,[2,36,3,28,42,45,3,32]);await expect(root.locator('[data-result]')).toHaveText('4.330127019');await seq(root,[27,28]);await expect(root.locator('[data-result]')).toHaveText('2.5');await seq(root,[2,45,3,28,45,3,31]);await expect(root.locator('[data-result]')).toHaveText('Error 2');
+ await seq(root,[2,36,3,28,42,45,3,32]);await expect(root.locator('[data-result]')).toHaveText('4.330127019');await seq(root,[27,28]);await expect(root.locator('[data-result]')).toHaveText('2.5');await seq(root,[2,45,3,28,45,3,31]);await expect(root.locator('[data-expression]')).toHaveText('Error 2');await expect(root.locator('[data-result]')).toHaveText('');expect((await snapshot(root)).state.control.errorCode).toBe(2);
 });
 test('Phase 6 coordinate and fraction state remain isolated on two calculators with clear and restore',async({page})=>{
  const root=await setup(page);await root.evaluate(el=>{const copy=el.cloneNode(true);el.after(copy);ScientificCalculatorBrowser.mount(copy,ScientificCalculatorCore,ScientificCalculatorFormatting);});const other=page.locator('[data-scientific-calculator]').nth(1);

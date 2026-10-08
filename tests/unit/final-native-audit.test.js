@@ -2,6 +2,15 @@ const test=require('node:test'),assert=require('node:assert/strict');
 const root='../../src/scientific_calculator/static/scientific_calculator/';
 const c=require(root+'core'),f=require(root+'formatting');
 const press=(s,id)=>c.reduceCalculator(s,{type:'physical-key',id});
+test('Native ANS memory-add label remains uppercase next to the memory symbol',()=>{
+ const reference=require('../reference/el506ts/experiments/phase8-memory.json');
+ const frame=reference.frames.find(x=>x.display.upper_line==='ANSM+');
+ assert.ok(frame);
+ const state=reference.sequence.slice(0,frame.after_step).reduce(press,c.createInitialState());
+ const view=f.renderState(state,{physical:true});
+ assert.equal(view.expressionHtml.replace(/<[^>]*>/g,''),frame.display.upper_line);
+ assert.equal(view.resultHtml,frame.display.lower_line);
+});
 const plain=html=>html.replace(/<span[^>]*>&times;<\/span>10<sup>(.*?)<\/sup>/g,'e$1').replace(/<[^>]*>/g,'').replaceAll('&divide;','÷').replaceAll('&minus;','-');
 function finish(s){while(s.workflow.payload?.stage==='calculating')s=c.reduceCalculator(s,{type:'calculus-step'});return s;}
 for(const name of ['phase10-calculus','calculus-power-comparison-native'])test('Native calculus LCD checkpoints match exactly: '+name,()=>{

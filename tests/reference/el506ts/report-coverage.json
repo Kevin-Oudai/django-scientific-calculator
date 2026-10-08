@@ -1764,6 +1764,31 @@
         "el506.base.el506-k47"
       ],
       "scope": "Independent fifteen native actions across MAT/LIST: repeatedExpignored; blank negativeexponent commitszero exponent andvalue1. Partial editing boundary evidence."
+    },
+    {
+      "kind": "unit",
+      "path": "tests/unit/matrix-definition-precision-audit.test.js",
+      "anchor": "Independent native matrix dimension and cell entry retain LCD punctuation",
+      "capabilityIds": [
+        "el506.mode.mat",
+        "el506.key.el506-k11",
+        "el506.key.el506-k41"
+      ],
+      "fixtureIds": [
+        "matrix-entry-punctuation-native"
+      ],
+      "scope": "Independently observed MAT dimension and first-cell entry LCD punctuation, plus stored-third cancellation precision and snapshot integrity; remaining matrix accuracy is unverified."
+    },
+    {
+      "kind": "browser",
+      "path": "tests/e2e/matrix-definition-precision-audit.spec.js",
+      "anchor": "Native matrix dimension and cell entry punctuation",
+      "capabilityIds": [
+        "el506.mode.mat",
+        "el506.key.el506-k11",
+        "el506.key.el506-k41"
+      ],
+      "scope": "Physical buttons reproduce independent dimension and first-cell LCD punctuation and stored-third cancellation in Chromium, Firefox and WebKit. This is scoped evidence, not full matrix parity."
     }
   ]
 }

@@ -1528,3 +1528,19 @@ sign with +/− during exponent entry. Scientific input appears on the lower LCD
 line. The measured LIST sum and mean of `[1E13, 1, -1E13]` both return zero;
 `collection-entry-aggregate-review.json` records the independent78-key evidence
 and its limits. Other aggregate and vector precision remains under review.
+
+Matrix definition entry uses the same split LCD arithmetic display as LIST
+entry: pending operators appear above the current operand, and integer entry
+retains its decimal point. Committing `1 / 3` retains enough component precision
+for the independently observed scaled cancellation to return zero. The native
+traces are `matrix-definition-division-native.json` and
+`matrix-entry-punctuation-native.json`. This change does not complete the
+remaining matrix elimination or cross-mode precision audit.
+The physical memory-add expression retains the native uppercase `ANSM+`
+label, including when its operator is rendered in a separate HTML span.
+
+The cross-mode key invariant suite exercises all 48 keys with base, 2ndF,
+ALPHA and HYP prefixes in six modes, from three entry contexts (3,456
+transitions). It verifies immutable reducer inputs, snapshot round trips,
+deterministic replay and independent restored branches. These checks establish
+state integrity; they do not substitute for native compatibility measurements.

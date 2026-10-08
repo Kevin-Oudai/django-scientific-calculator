@@ -23,6 +23,7 @@ test('LIST native editing DEL INS and scalar division restrictions are visible t
  await seq(r,[29,8]);await expect(r.locator('[data-expression]')).toHaveText('LIST1=');await expect(r.locator('[data-result]')).toHaveText('9.');
 });
 test('LIST native pairwise addition subtraction multiplication division retain stored copies',async({page})=>{
+ test.setTimeout(180000); // Four complete physical-key arithmetic workflows, including slow WebKit actionability checks.
  const r=await setup(page);await seq(r,[4,36,11,42,29,42,29,40,29,41,29,2,17,41,45,17,41,40]);
  for(const [operation,expected]of [[43,['6.','2.','4.']],[44,['0.','0.','0.']],[38,['9.','1.','4.']],[39,['1.','1.','1.']]]){
   await seq(r,[17,45,45,operation,17,45,40,48]);await expect(r.locator('[data-result]')).toHaveText('3.');for(const result of expected){await seq(r,[11]);await expect(r.locator('[data-result]')).toHaveText(result);}await seq(r,[2]);

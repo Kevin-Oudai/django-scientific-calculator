@@ -2053,7 +2053,7 @@
       if(n===47){q.input=/E-?\d*$/.test(p.input)?p.input.replace(/E(-?)(\d*)$/,(_,sign,digits)=>'E'+(sign?'':'-')+digits):p.input.startsWith('-')?p.input.slice(1):'-'+(p.input||'0');return next;}
       if(n===29||[8,11].includes(n)){
         try{
-          const value=p.input?physicalNumeric(semantic.evaluate(semantic.parseTokens(semantic.tokenize(closeOpenParentheses(p.input.replace(/E(-?)$/,(_,sign)=>'E'+sign+'0')).replaceAll(':','/'),{physical:true}),{physical:true}),physicalAdapter,{angleMode:next.angleMode,answer:0})):p.index===-2?p.matrix.rows:p.index===-1?p.matrix.columns:p.matrix.data[p.index];
+          const value=p.input?physicalNumeric(semantic.evaluate(semantic.parseTokens(semantic.tokenize(closeOpenParentheses(p.input.replace(/E(-?)$/,(_,sign)=>'E'+sign+'0')).replaceAll(':','/'),{physical:true}),{physical:true}),{...physicalAdapter,binary:(op,a,b)=>op==='/'?physicalNumeric(a/b):physicalAdapter.binary(op,a,b)},{angleMode:next.angleMode,answer:0})):p.index===-2?p.matrix.rows:p.index===-1?p.matrix.columns:p.matrix.data[p.index];
           if(p.index<0){if(!Number.isInteger(value)||value<1||value>4){const e=new RangeError('Matrix dimension');e.code=7;throw e;}const rows=p.index===-2?value:p.matrix.rows,columns=p.index===-1?value:p.matrix.columns;q.matrix=rows===p.matrix.rows&&columns===p.matrix.columns?q.matrix:matrices.fill(0,rows,columns);}
           else q.matrix.data[p.index]=value;
           q.index=Math.max(-2,Math.min(q.matrix.data.length-1,p.index+(n===8?-1:1)));q.input='';q.label=q.index===-2?'ROW=':q.index===-1?'COLUMN=':'MAT'+(Math.floor(q.index/q.matrix.columns)+1)+','+(q.index%q.matrix.columns+1)+'=';

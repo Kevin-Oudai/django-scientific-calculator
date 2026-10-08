@@ -425,7 +425,7 @@
       }
       if(workflow.payload.id==='TAB')view.resultHtml='';
       if(workflow.payload.id==='EQN_COEFFICIENTS'){const p=workflow.payload;view.resultHtml=p.input?formatExpression(physicalExpression(p.input)):sharpNumber(p.coefficients[p.coefficient],settings).html;indicators['?']=false;}
-      if(workflow.payload.id==='LIST_BUFFER'){
+      if(['LIST_BUFFER','MAT_BUFFER'].includes(workflow.payload.id)){
         const p=workflow.payload;
         if(p.input){
           const tail=p.input.match(/(?:\d+(?:\.\d*)?)$/)?.[0]||'',prefix=p.input.slice(0,p.input.length-tail.length);
@@ -434,13 +434,12 @@
           view.expressionHtml=scalar?'':formatExpression(physicalExpression(prefix));
           view.resultHtml=scientific||sharpEntry(scalar?p.input:tail||'0');
           if(!scalar&&prefix)view.expressionHtml+='<span class="scicalc__cursor" aria-hidden="true"></span>';
-        }else view.resultHtml=sharpNumber(p.index===-1?p.list.length:p.list[p.index],settings).html;
+        }else view.resultHtml=sharpNumber(workflow.payload.id==='LIST_BUFFER'?(p.index===-1?p.list.length:p.list[p.index]):(p.index===-2?p.matrix.rows:p.index===-1?p.matrix.columns:p.matrix.data[p.index]),settings).html;
         indicators['?']=false;
       }
-      if(workflow.payload.id==='MAT_BUFFER'){const p=workflow.payload;if(p.input)view.expressionHtml='';view.resultHtml=p.input?collectionScientificEntry(p.input)||formatExpression(physicalExpression(p.input)):sharpNumber(p.index===-2?p.matrix.rows:p.index===-1?p.matrix.columns:p.matrix.data[p.index],settings).html;indicators['?']=false;}
       if(workflow.payload.id==='CNST'){view.expressionHtml='';view.resultHtml=escapeHtml('01-52 ['+(workflow.payload.path||[]).join('')+']');}
       if(workflow.payload.id==='CONV'){view.expressionHtml=formatExpression(physicalExpression(workflow.payload.source)+'→cv');view.resultHtml=sharpEntry((workflow.payload.path||[]).join('')||'0');indicators['?']=false;}
-      view.cursorVisible = workflow.payload.id==='LIST_BUFFER'&&Boolean(workflow.payload.input)&&!/^-?\d+(?:\.\d*)?(?:E-?\d*)?$/.test(workflow.payload.input);
+      view.cursorVisible = ['LIST_BUFFER','MAT_BUFFER'].includes(workflow.payload.id)&&Boolean(workflow.payload.input)&&!/^-?\d+(?:\.\d*)?(?:E-?\d*)?$/.test(workflow.payload.input);
       if(view.cursorVisible)view.cursorPosition=physicalExpression(workflow.payload.input.replace(/\d+(?:\.\d*)?$/,'')).length;
     }
     if(state.historyIndex!==null){view.previousPage=state.historyIndex>0;view.nextPage=state.historyIndex<state.history.length-1;view.pageStatus=`${state.historyIndex+1} / ${state.history.length}`;}
@@ -448,7 +447,7 @@
       view.expressionHtml='';view.resultHtml='';view.cursorVisible=false;view.pageStatus='';view.previousPage=false;view.nextPage=false;
       for(const key of Object.keys(indicators))indicators[key]=false;
     }
-    if(options.physical)view.expressionHtml=view.expressionHtml.replace(/\bAns\b/g,'ANS');
+    if(options.physical)view.expressionHtml=view.expressionHtml.replace(/\bAns(?=M\b|\b)/g,'ANS');
     if(state.layers.intent?.kind==='formula-store'){view.resultHtml=escapeHtml(state.displayResult);view.cursorVisible=false;}
     if(state.layers.intent?.kind==='nbase-error'){view.expressionHtml=escapeHtml('Error '+state.control.errorCode);view.resultHtml='';view.cursorVisible=false;}
     if(state.layers.intent?.kind==='solver-error'){view.expressionHtml=escapeHtml('Error '+state.control.errorCode);view.resultHtml='';}

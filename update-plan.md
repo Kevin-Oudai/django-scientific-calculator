@@ -2953,7 +2953,8 @@ guess any item in this phase; observe it in the reference simulator first.
     precision audit remains open.
     SD X-sum/mean accumulation now reproduces independently measured zero
     at1E13 cancellation andone at1E12 cancellation. Independent48-key trace
-    includes ALPHA, RCL andSTATVAR. Published as ca4eda327d423b9a0b1b1aaa8ea2125380316484,\n    verified on origin/main:720 unit tests,18 focused
+    includes ALPHA, RCL andSTATVAR. Published as ca4eda327d423b9a0b1b1aaa8ea2125380316484,
+    verified on origin/main:720 unit tests,18 focused
     browser checks across three engines,29 golden fixtures/1200 frames and
     reference/report,compileall/Compose gates passed; fresh previewproof.
     weighted products, higher moments andregression precision remain open.
@@ -2961,7 +2962,26 @@ guess any item in this phase; observe it in the reference simulator first.
     definition entry, exponent-sign editing, and LIST sum/mean cancellation0.
     Corrected droppedExp, wrongmantissa NEG and precision; scoped review:
     collection-entry-aggregate-review.json. Same720/18 validation batch;
-    fresh preview verifies exponent input and LIST cancellation. Published in\n    ca4eda327d423b9a0b1b1aaa8ea2125380316484, verified on origin/main.
+    fresh preview verifies exponent input and LIST cancellation. Published in
+    ca4eda327d423b9a0b1b1aaa8ea2125380316484, verified on origin/main.
+
+    Local continuation: matrix definition division retains the independently
+    observed scaled cancellation; pending MAT arithmetic uses the measured
+    two-line LCD projection. Fresh eight-key punctuation evidence verifies
+    integer-entry decimal points. Eighteen intermediate golden expectations
+    were updated without rewriting the earlier native evidence. Focused gates:
+    two unit checks, six browser checks across three engines, seven Django
+    checks, installed wheel/sdist (24 assets), compileall, pip dry run and
+    Compose config passed. Full result-type precision remains open.
+    READY_TO_PUSH (scoped continuation, not whole-item completion): final unit
+    suite 747/747; 30 golden fixtures / 1209 frames; full three-engine browser
+    run 601 passed, 12 failed and 38 platform skips, followed by 12/12 repaired
+    cases passing on final code. Thus all 613 applicable browser cases are
+    verified. Native ANSM+ casing is restored; stale NORMAL error-line and MAT
+    integer-entry DOM expectations were corrected. A long LIST workflow gets
+    180 seconds for WebKit actionability checks without relaxing assertions.
+    Final installed wheel/sdist smoke passed. Docker build/start attempted;
+    its Linux engine pipe is absent. Package remains 0.3.1; eight tasks remain.
 
 - [x] **EL506-355 - Match expression length and nesting limits.**
 - [x] **EL506-356 - Match history, formula, dataset, matrix, and list
@@ -2989,6 +3009,12 @@ guess any item in this phase; observe it in the reference simulator first.
     Existing native power, EQN prompt and complex-memory transition checks retained.
 - [ ] **EL506-358 - Complete the modifier-by-key-by-mode compatibility
   matrix.**
+
+    Local continuation: cross-mode-key-invariants.test.js verifies 3,456
+    canonical transitions across all 48 keys, six modes, four modifier prefixes
+    and three entry contexts. All 24 groups pass immutable-input, snapshot,
+    deterministic-replay and independent-branch assertions. This is state
+    integrity coverage, not native compatibility evidence; item remains open.
 
     Scoped menu differential published as
     6c008d4d9c94dd8a6b2811074ebf417aae4e9452, verified on origin/main, after 686 unit tests,67
