@@ -1,0 +1,37 @@
+{
+  "reviewId": "scalar-exponent-limits-2026-10-08",
+  "roadmapItem": "EL506-353",
+  "status": "validated; ready for publication",
+  "scope": "NORMAL scalar and scientific exponent input/result range; result-type precision and specialized function domain limits remain separately audited.",
+  "references": [
+    "experiments/scalar-underflow-native.json",
+    "experiments/scalar-upper-boundary-native.json",
+    "experiments/numeric-overflow.json",
+    "phase-5-review.json"
+  ],
+  "nativeFindings": [
+    "Positive and negative1e-99 preserved; division by10 produces unsignedzero",
+    "Positive and negative9.999999999e99 accepted; doubling givesError2",
+    "Exponent99 accepted; multiplication beyond99 fails; exponent input two-digit rolling/truncated behavior already independently observed in phase5",
+    "Overflow and ON/C preserve previoussuccessfulANS"
+  ],
+  "implementation": [
+    "Signedscientific operands enclosed in parentheses like native",
+    "Physical ANS uppercase across physical expressions; enhanced mode remains existingpresentation",
+    "Existing numeric range clamp and error handling retained"
+  ],
+  "validation": {
+    "unitPassed": 557,
+    "browserPassed": 57,
+    "browserEngines": [
+      "Chromium",
+      "Firefox",
+      "WebKit"
+    ],
+    "goldenFrames": 1200,
+    "compileall": "passed",
+    "dockerComposeConfig": "passed",
+    "dockerRuntime": "unavailable: Docker Desktop Linux pipe absent",
+    "proof": "scalar-boundary-proof.png (outside repository)"
+  }
+}

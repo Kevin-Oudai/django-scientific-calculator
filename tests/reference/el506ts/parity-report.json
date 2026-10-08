@@ -224,7 +224,7 @@
     },
     {
       "path": "tests/reference/el506ts/golden/phase12-15-native.json",
-      "sha256": "d6588e51b738b2560674cf48ad67ea9c560c4f0f221d5126d6fef6b0cda57e04"
+      "sha256": "03e91fd8d7a605ea690bf537bc9958565a84f83667e6331c974acf5478b33d2c"
     },
     {
       "path": "tests/reference/el506ts/golden/phase16-native.json",

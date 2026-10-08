@@ -76,7 +76,12 @@
       return left;
     };
     const expression=()=>{let left=term();while(['+','-'].includes(peek())){const op=tokens[i++].value;left=binary(op,left,term());}return left;};
-    const ast=expression();if(i!==tokens.length)throw new TypeError('Unexpected token');return ast;
+    try {
+      const ast=expression();if(i!==tokens.length)throw new TypeError('Unexpected token');return ast;
+    } catch(error) {
+      if(error instanceof TypeError)error.tokenIndex=Math.min(i,tokens.length);
+      throw error;
+    }
   }
   function createEditor(tokens=[], cursor={index:tokens.length,offset:0,path:[]}, template=null) {
     const editor={tokens:structuredClone(tokens),cursor:structuredClone(cursor),template:structuredClone(template),ast:null,incomplete:true};

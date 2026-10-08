@@ -1451,3 +1451,12 @@ Error 10 triggers. Formula recall respects the 142-character expression budget;
 a full expression cannot accept ENT or a formula-store marker. A failed shared
 formula-memory store reports Error 6 and preserves the old slots. The retained
 reference distinguishes these cases from exhaustive cross-mode error recovery.
+
+Final native audit updates match measured NORMAL error arrows: buffer/length
+faults select the fault cell, division and formula-memory errors restore end
+insertion, and measured syntax errors retain the entered operand and parser
+failure position. Physical expressions display uppercase `ANS` and negative
+scientific operands in parentheses. Signed `1e-99` values remain nonzero; values
+below that magnitude normalize to zero. Signed `9.999999999e99` values are
+accepted and doubling either gives Error 2. Broader cross-mode recovery,
+precision and final parity/release gates remain tracked in `update-plan.md`.

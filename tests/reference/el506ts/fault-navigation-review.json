@@ -1,0 +1,40 @@
+{
+  "reviewId": "native-fault-navigation-2026-10-08",
+  "roadmapItems": [
+    "EL506-351",
+    "EL506-352"
+  ],
+  "complete": false,
+  "references": [
+    "experiments/capacity-cursor-recovery-native.json",
+    "experiments/division-error-cursor-native.json",
+    "experiments/syntax-error-cursor-native.json",
+    "experiments/missing-operand-cursor-native.json"
+  ],
+  "verified": [
+    "Error6 both arrows retain long formula at end insertion with lower zero",
+    "Error4 LEFT selects final overflow token; existing RIGHT behavior retained",
+    "Error3 LEFT independently observed at native step698 to fault sine with both scroll arrows, matching RIGHT at638",
+    "Division-by-zero Error2 both arrows return to full expression end including entered zero",
+    "Syntax )1 both arrows select entered operand1; parser failure cursor and full retained source now reproduced",
+    "Missing final operand1+ Error1 RIGHT returns end insertion/lower0"
+  ],
+  "unresolved": [
+    "All unmeasured error/mode combinations and clearing/state transitions",
+    "Native attempted insertion at steps686..690 did not change displayed tiny result; editor semantics not inferred from that trial"
+  ],
+  "validation": {
+    "unitPassed": 557,
+    "browserPassed": 57,
+    "browserEngines": [
+      "Chromium",
+      "Firefox",
+      "WebKit"
+    ],
+    "goldenFrames": 1200,
+    "compileall": "passed",
+    "dockerComposeConfig": "passed",
+    "dockerRuntime": "unavailable: Docker Desktop Linux pipe absent",
+    "proof": "scalar-boundary-proof.png (outside repository)"
+  }
+}

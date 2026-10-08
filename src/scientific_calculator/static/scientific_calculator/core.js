@@ -1382,7 +1382,7 @@
       else if(s.type==='fraction')tail=`(${s.numerator})/(${s.denominator})`;
       else if(s.type==='dms')tail=`dms(${s.degrees},${s.minutes||0},${s.seconds||0})`;
     }
-    if(/^-[\d.]+$/.test(tail))tail=`(${tail})`;
+    if(/^-[\d.]+(?:E[+-]?\d{2})?$/.test(tail))tail=`(${tail})`;
     return state.expression.replace(/=$/,'')+tail;
   }
   function physicalLastOperand(source){
@@ -1442,11 +1442,14 @@
   };
   function physicalCalculate(previous,source,display=source,percent=false,randomSample){
     let next=structuredClone(previous);next.secondActive=false;next.layers.alpha=false;next.layers.hyp=false;
+    let parsedTokens=null;
     try{
       const closed=closeOpenParentheses(source);
-      if(/\dE(?![+-]?\d)/.test(closed))throw new SyntaxError('Incomplete scientific literal');
-      if(/(?:^|[+*:^(:])\+|[+\-*:^:]-|[+*:^:]$/.test(closed))throw new SyntaxError('Missing operand');
-      const ast=semantic.parseTokens(semantic.tokenize(normalizeMixedNumbers(closed).replaceAll(':','/'),{physical:true}),{physical:true});
+      if(/\dE(?![+-]?\d)/.test(closed)){const error=new SyntaxError('Incomplete scientific literal');error.charIndex=source.length;throw error;}
+      const missing=closed.match(/(?:^|[+*:^(:])\+|[+\-*:^:]-|[+*:^:]$/);
+      if(missing){const error=new SyntaxError('Missing operand');error.charIndex=missing.index+missing[0].length;throw error;}
+      parsedTokens=semantic.tokenize(normalizeMixedNumbers(closed).replaceAll(':','/'),{physical:true});
+      const ast=semantic.parseTokens(parsedTokens,{physical:true});
       const draws=[];let cursor=0,seed=Math.floor(Math.abs(previous.control.variables.Y%1)*4294967296)>>>0;
       const random=()=>{if(cursor>=draws.length){seed=(Math.imul(seed,1664525)+1013904223)>>>0;draws.push(draws.length===0&&randomSample!==undefined?randomSample:seed/4294967296);}return draws[cursor++];};
       const adapter=previous.layers.mode==='STAT'?physicalStatisticsAdapter(previous):physicalAdapter;
@@ -1467,7 +1470,13 @@
       next.history.push({expression:next.expression,value:number,exactDisplay:''});next.values.history.push(values.copy(next.values.answer));
       while(next.history.length>1&&next.history.reduce((total,h)=>total+physicalLength(h.expression),0)>142){next.history.shift();next.values.history.shift();}
       next.historyIndex=null;if(draws.length)physicalStore(next,'Y',values.scalar(draws.at(-1)));return next;
-    }catch(error){return physicalError(next,error instanceof RangeError?2:1);}
+    }catch(error){
+      if(previous.layers.mode==='NORMAL'&&!(error instanceof RangeError)){
+        const offset=Number.isInteger(error.charIndex)?error.charIndex:Number.isInteger(error.tokenIndex)&&parsedTokens?semantic.serialize(parsedTokens.slice(0,error.tokenIndex)).length:null;
+        if(offset!==null)next.cursor=Math.min(source.length,offset);
+      }
+      return physicalError(next,error instanceof RangeError?2:1);
+    }
   }
   function physicalDmsArithmetic(ast){
     if(ast.kind==='call')return ast.name==='dms';
@@ -2417,12 +2426,16 @@
       }
     }
     if([9,10].includes(n)&&!previous.stagedEntry&&previous.workflow.kind===null){
-      const bufferFault=previous.layers.mode==='NORMAL'&&previous.control.errorCode===3&&n===10;
-      const lengthFault=previous.layers.mode==='NORMAL'&&previous.control.errorCode===4&&n===10;
-      const source=(bufferFault||lengthFault?physicalSource(previous):previous.expression).replace(/=$/,'');const cells=physicalCells(source);
+      const bufferFault=previous.layers.mode==='NORMAL'&&previous.control.errorCode===3;
+      const lengthFault=previous.layers.mode==='NORMAL'&&previous.control.errorCode===4;
+      const endFault=previous.layers.mode==='NORMAL'&&[2,6].includes(previous.control.errorCode);
+      const syntaxFault=previous.layers.mode==='NORMAL'&&previous.control.errorCode===1;
+      const source=(bufferFault||lengthFault||endFault||syntaxFault?physicalSource(previous):previous.expression).replace(/=$/,'');const cells=physicalCells(source);
     const evaluated=previous.expression.endsWith('=');next.expression=source;next.entry='';next.stagedEntry=null;
       if(bufferFault)next.cursor=physicalBufferUsage(source).faultIndex??0;
       else if(lengthFault)next.cursor=cells.at(-1)?.start||0;
+      else if(endFault)next.cursor=source.length;
+      else if(syntaxFault)next.cursor=Math.min(previous.cursor,source.length);
       else if(!previous.selectionActive)next.cursor=n===9?(evaluated?source.length:cells.at(-1)?.start||0):0;
       else if(n===9)next.cursor=cells.filter(c=>c.start<previous.cursor).at(-1)?.start||0;
       else next.cursor=cells.find(c=>c.start>=previous.cursor)?.end??source.length;

@@ -21339,7 +21339,7 @@
         }
       },
       "viewAssertions": {
-        "expressionHtml": "Ans<sup>0</sup><span class=\"scicalc__cursor\" aria-hidden=\"true\"></span>",
+        "expressionHtml": "ANS<sup>0</sup><span class=\"scicalc__cursor\" aria-hidden=\"true\"></span>",
         "resultHtml": "0.",
         "indicators": {
           "2ndF": false,
@@ -21397,7 +21397,7 @@
         }
       },
       "viewAssertions": {
-        "expressionHtml": "Ans<sup>0</sup><span class=\"scicalc__cursor\" aria-hidden=\"true\"></span>",
+        "expressionHtml": "ANS<sup>0</sup><span class=\"scicalc__cursor\" aria-hidden=\"true\"></span>",
         "resultHtml": "2.",
         "indicators": {
           "2ndF": false,

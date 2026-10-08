@@ -2,7 +2,7 @@ const test=require('node:test'),assert=require('node:assert/strict');
 const root='../../src/scientific_calculator/static/scientific_calculator/';
 const c=require(root+'core'),f=require(root+'formatting');
 const press=(s,id)=>c.reduceCalculator(s,{type:'physical-key',id});
-const plain=html=>html.replace(/<span[^>]*>&times;<\/span>10<sup>(.*?)<\/sup>/g,'e$1').replace(/<[^>]*>/g,'');
+const plain=html=>html.replace(/<span[^>]*>&times;<\/span>10<sup>(.*?)<\/sup>/g,'e$1').replace(/<[^>]*>/g,'').replaceAll('&divide;','÷').replaceAll('&minus;','-');
 function finish(s){while(s.workflow.payload?.stage==='calculating')s=c.reduceCalculator(s,{type:'calculus-step'});return s;}
 for(const name of ['phase10-calculus','calculus-power-comparison-native'])test('Native calculus LCD checkpoints match exactly: '+name,()=>{
  const ref=require('../reference/el506ts/experiments/'+name+'.json');let s=c.createInitialState(),count=0;
@@ -55,4 +55,51 @@ test('Every documented error number has an independently observed matching nativ
   assert.equal(error.nativeStatus,'observed in listed scopes');assert.ok(error.nativeEvidence.length);
   for(const evidence of error.nativeEvidence){const ref=require('../reference/el506ts/'+evidence.experiment);const frame=ref.frames.find(f=>f.after_step===evidence.afterStep);assert.ok(frame);assert.equal(frame.display.upper_line,error.display);}
  }
+});
+for(const name of ['capacity-cursor-recovery-native','division-error-cursor-native','syntax-error-cursor-native','missing-operand-cursor-native'])test('Native error navigation retains source and measured cursor: '+name,()=>{
+ const ref=require('../reference/el506ts/experiments/'+name+'.json');let s=c.createInitialState();
+ for(let step=1;step<=ref.sequence.length;step++){
+  s=press(s,ref.sequence[step-1]);
+  for(const frame of ref.frames.filter(x=>x.after_step===step)){
+   const actual=f.renderState(s,{physical:true});
+   assert.equal(plain(actual.resultHtml),frame.display.lower_line,'native lower '+step);
+   if(!frame.display.scroll_arrows.length&&!frame.display.cursor.value?.includes('block over'))assert.equal(plain(actual.expressionHtml),frame.display.upper_line,'native upper '+step);
+   if(frame.display.cursor.value?.includes('insertion underscore')){
+    assert.equal(s.cursor,s.expression.length);assert.equal(s.entry,'');assert.equal(s.control.errorCode,null);
+   }
+   if(frame.display.cursor.value?.includes('block over')){assert.equal(s.expression,')1');assert.equal(s.cursor,1);assert.equal(s.control.errorCode,null);}
+  }
+ }
+ if(name==='capacity-cursor-recovery-native')assert.equal(s.cursor,s.expression.length-4,'LEFT selects final sine cell');
+ else if(name==='division-error-cursor-native')assert.equal(s.expression,'1:0');
+});
+test('Native Error3 LEFT shares the observed RIGHT fault selection and preserves operand',()=>{
+ const ref=require('../reference/el506ts/experiments/calculation-buffer-error3-native.json');
+ let s=ref.sequence.slice(0,27).reduce(press,c.createInitialState());s=press(s,'EL506-K09');
+ assert.equal(s.control.errorCode,null);assert.equal(s.cursor,24*4);assert.ok(s.expression.endsWith('1'));
+ s=press(s,'EL506-K07');assert.equal((s.expression.match(/sin\(/g)||[]).length,24);assert.ok(s.expression.endsWith('1'));
+});
+test('Independent signed scalar minimum and underflow checkpoints match the native LCD',()=>{
+ const ref=require('../reference/el506ts/experiments/scalar-underflow-native.json');let s=c.createInitialState();
+ for(let step=1;step<=ref.sequence.length;step++){
+  s=press(s,ref.sequence[step-1]);
+  for(const frame of ref.frames.filter(x=>x.after_step===step)){
+   const actual=f.renderState(s,{physical:true});
+   assert.equal(plain(actual.expressionHtml),frame.display.upper_line,'native upper '+step);
+   assert.equal(plain(actual.resultHtml),frame.display.lower_line,'native lower '+step);
+  }
+ }
+ assert.equal(s.answer,0);assert.equal(Object.is(s.answer,-0),false);
+});
+test('Independent signed upper scalar limit, overflow and retained ANS match the native LCD',()=>{
+ const ref=require('../reference/el506ts/experiments/scalar-upper-boundary-native.json');let s=c.createInitialState();
+ for(let step=1;step<=ref.sequence.length;step++){
+  s=press(s,ref.sequence[step-1]);
+  for(const frame of ref.frames.filter(x=>x.after_step===step)){
+   const actual=f.renderState(s,{physical:true});
+   if(!frame.display.scroll_arrows.length)assert.equal(plain(actual.expressionHtml),frame.display.upper_line,'native upper '+step);
+   assert.equal(plain(actual.resultHtml),frame.display.lower_line,'native lower '+step);
+  }
+ }
+ assert.equal(s.answer,-9.999999999e99);assert.equal(s.control.errorCode,null);
 });

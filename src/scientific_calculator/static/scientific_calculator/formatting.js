@@ -438,7 +438,7 @@
       view.expressionHtml='';view.resultHtml='';view.cursorVisible=false;view.pageStatus='';view.previousPage=false;view.nextPage=false;
       for(const key of Object.keys(indicators))indicators[key]=false;
     }
-    if(options.physical&&state.layers.intent?.kind==='memory-value'&&['M+','M-'].includes(state.layers.intent.operation))view.expressionHtml=view.expressionHtml.replace('Ans','ANS');
+    if(options.physical)view.expressionHtml=view.expressionHtml.replace(/\bAns\b/g,'ANS');
     if(state.layers.intent?.kind==='formula-store'){view.resultHtml=escapeHtml(state.displayResult);view.cursorVisible=false;}
     if(state.layers.intent?.kind==='nbase-error'){view.expressionHtml=escapeHtml('Error '+state.control.errorCode);view.resultHtml='';view.cursorVisible=false;}
     if(state.layers.intent?.kind==='solver-error'){view.expressionHtml=escapeHtml('Error '+state.control.errorCode);view.resultHtml='';}
