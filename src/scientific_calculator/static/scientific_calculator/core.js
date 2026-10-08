@@ -1252,7 +1252,6 @@
     if(scope!=='command')next.control.nbase={radix:10};
     if(scope==='command'){
       for(const name of ['answer','lastValue','memoryValue','statsValues','values','history'])next[name]=structuredClone(previous[name]);
-      if(previous.layers.mode==='MAT'&&previous.layers.intent?.kind==='matrix-error'){next.workflow=structuredClone(previous.layers.intent.workflow);next.workflow.payload.input='';next.lifecycle='data-entry';}
       if(previous.layers.mode==='EQN' && (previous.workflow.kind==='data-entry'||previous.layers.intent?.kind==='equation-error')){next.workflow=structuredClone(previous.workflow.kind==='data-entry'?previous.workflow:previous.layers.intent.workflow);next.workflow.payload.input='';next.lifecycle='data-entry';}
     }else if(scope==='internal'||scope==='mode'){
       next.memoryValue=previous.memoryValue;next.values.memory=values.copy(previous.values.memory);next.control.formulas=structuredClone(previous.control.formulas);
@@ -2006,7 +2005,7 @@
     if(id==='MAT_SLOTS'){
       const operation=previous.workflow.payload.operation;next.workflow=emptyWorkflow();
       if(operation===2){if(!previous.control.buffers.matrix)return physicalError(next,7);next.control.matrices[index]=values.copy(previous.control.buffers.matrix);next.lifecycle='empty';return next;}
-      if(operation===1){if(!previous.control.matrices[index])return physicalError(next,7);next=physicalMatrixEdit(next,matrixFromTyped(previous.control.matrices[index]));next.workflow=emptyWorkflow();next.lifecycle='empty';return next;}
+      if(operation===1){if(!previous.control.matrices[index]){next.control.buffers.matrix=null;next.expression='';next.entry='';next.stagedEntry=null;next.lifecycle='empty';return next;}next=physicalMatrixEdit(next,matrixFromTyped(previous.control.matrices[index]));next.workflow=emptyWorkflow();next.lifecycle='empty';return next;}
       if(previous.workflow.returnPhase==='evaluated'){next.expression='';next.entry='';}
       next=physicalFlush(next,false);next.expression+='mat'+String.fromCharCode(65+index);return physicalEditor(next);
     }
@@ -2032,7 +2031,7 @@
       if(n===29||[8,11].includes(n)){
         try{
           const value=p.input?physicalNumeric(semantic.evaluate(semantic.parseTokens(semantic.tokenize(closeOpenParentheses(p.input).replaceAll(':','/'),{physical:true}),{physical:true}),physicalAdapter,{angleMode:next.angleMode,answer:0})):p.index===-2?p.matrix.rows:p.index===-1?p.matrix.columns:p.matrix.data[p.index];
-          if(p.index<0){if(!Number.isInteger(value)||value<1||value>4){const e=new RangeError('Matrix dimension');e.code=value>4?9:7;throw e;}q.matrix=matrices.dimension(p.matrix,p.index===-2?value:p.matrix.rows,p.index===-1?value:p.matrix.columns);}
+          if(p.index<0){if(!Number.isInteger(value)||value<1||value>4){const e=new RangeError('Matrix dimension');e.code=7;throw e;}const rows=p.index===-2?value:p.matrix.rows,columns=p.index===-1?value:p.matrix.columns;q.matrix=rows===p.matrix.rows&&columns===p.matrix.columns?q.matrix:matrices.fill(0,rows,columns);}
           else q.matrix.data[p.index]=value;
           q.index=Math.max(-2,Math.min(q.matrix.data.length-1,p.index+(n===8?-1:1)));q.input='';q.label=q.index===-2?'ROW=':q.index===-1?'COLUMN=':'MAT'+(Math.floor(q.index/q.matrix.columns)+1)+','+(q.index%q.matrix.columns+1)+'=';
           next.values.last=matrixToTyped(q.matrix);next.control.buffers.matrix=values.copy(next.values.last);next.control.errorCode=null;return next;
@@ -2268,6 +2267,11 @@
         next.answer=next.lastValue=modified;next.values.answer=next.values.last=values.scalar(modified);next.lastExactDisplay='';next.resultMode='decimal';next.resultDisplay=next.displayResult=formatValue(modified);
       }
       return next;
+    }
+    if(['MAT','CPLX','LIST'].includes(previous.layers.mode)&&previous.secondActive&&n===17){next.secondActive=false;return next;}
+    if(previous.layers.mode==='MAT'&&previous.lifecycle==='error'&&[7,8].includes(previous.control.errorCode)&&[9,10].includes(n)){
+      const source=previous.layers.intent?.kind==='matrix-error'?previous.layers.intent.workflow.payload.input:physicalSource(previous).replace(/=$/,'');
+      next.workflow=emptyWorkflow();next.expression=source;next.entry='';next.stagedEntry=null;next.selectionActive=Boolean(source);next.cursor=source.length;next.displayResult=next.resultDisplay='0';next.layers.intent=null;return physicalEditor(next);
     }
     const baseKey=physicalPhase9(previous,next,n);if(baseKey)return baseKey;
     const calculusKey=physicalPhase10(previous,next,n);if(calculusKey)return calculusKey;

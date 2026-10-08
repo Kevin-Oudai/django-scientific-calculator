@@ -26,6 +26,10 @@
         {
           "experiment": "experiments/phase9-nbase.json",
           "afterStep": 14
+        },
+        {
+          "experiment": "experiments/matrix-errors-native.json",
+          "afterStep": 107
         }
       ],
       "faultCursorAndRecovery": "Scope-specific existing traces; exhaustive verification pending"
@@ -63,6 +67,10 @@
         {
           "experiment": "experiments/phase9-nbase.json",
           "afterStep": 54
+        },
+        {
+          "experiment": "experiments/matrix-errors-native.json",
+          "afterStep": 133
         }
       ],
       "faultCursorAndRecovery": "Scope-specific existing traces; exhaustive verification pending"
@@ -108,6 +116,10 @@
         {
           "experiment": "experiments/phase16-native.json",
           "afterStep": 37
+        },
+        {
+          "experiment": "experiments/matrix-errors-native.json",
+          "afterStep": 13
         }
       ],
       "faultCursorAndRecovery": "Scope-specific existing traces; exhaustive verification pending"
@@ -116,16 +128,26 @@
       "number": 8,
       "display": "Error 8",
       "meaning": "Incompatible collection dimensions",
-      "nativeStatus": "pending",
-      "nativeEvidence": [],
+      "nativeStatus": "observed in listed scopes",
+      "nativeEvidence": [
+        {
+          "experiment": "experiments/matrix-errors-native.json",
+          "afterStep": 126
+        }
+      ],
       "faultCursorAndRecovery": "Scope-specific existing traces; exhaustive verification pending"
     },
     {
       "number": 9,
       "display": "Error 9",
       "meaning": "Collection dimensions exceed capacity",
-      "nativeStatus": "pending",
-      "nativeEvidence": [],
+      "nativeStatus": "observed in listed scopes",
+      "nativeEvidence": [
+        {
+          "experiment": "experiments/matrix-errors-native.json",
+          "afterStep": 54
+        }
+      ],
       "faultCursorAndRecovery": "Scope-specific existing traces; exhaustive verification pending"
     },
     {
@@ -137,6 +159,10 @@
         {
           "experiment": "experiments/phase16-native.json",
           "afterStep": 115
+        },
+        {
+          "experiment": "experiments/matrix-errors-native.json",
+          "afterStep": 8
         }
       ],
       "faultCursorAndRecovery": "Scope-specific existing traces; exhaustive verification pending"

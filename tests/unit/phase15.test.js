@@ -24,7 +24,7 @@ test('MAT physical OPE and MATH determinant transpose identity fill resize and l
 test('MAT algorithms enforce dimension range singularity and division rules',()=>{
  const a=m.matrix(2,2,[1,2,3,4]),b=m.identity(2);assert.deepEqual(m.add(a,b).data,[2,2,3,5]);assert.deepEqual(m.add(a,b,-1).data,[0,2,3,3]);assert.deepEqual(m.scale(a,2).data,[2,4,6,8]);assert.equal(m.determinant(a),-2);
  assert.deepEqual(m.dimension(a,3,2).data,[1,2,3,4,0,0]);assert.deepEqual(m.cumulative(a).data,[1,2,4,6]);assert.deepEqual(m.augment(m.matrix(2,1,[1,2]),m.matrix(2,1,[3,4])).data,[1,3,2,4]);
- assert.throws(()=>m.multiply(a,m.matrix(1,2,[1,2])),e=>e.code===8);assert.throws(()=>m.inverse(m.fill(1,2,2)),e=>e.code===2);assert.throws(()=>m.identity(5),e=>e.code===9);assert.throws(()=>m.matrix(0,2,[]),e=>e.code===7);
+ assert.throws(()=>m.multiply(a,m.matrix(1,2,[1,2])),e=>e.code===8);assert.throws(()=>m.inverse(m.fill(1,2,2)),e=>e.code===2);assert.throws(()=>m.identity(5),e=>e.code===7);assert.throws(()=>m.matrix(0,2,[]),e=>e.code===7);
 });
 
 test('MAT physical multi-argument operations use canonical comma entry and bounded allocation',()=>{
@@ -34,7 +34,7 @@ test('MAT physical multi-argument operations use canonical comma entry and bound
  s=seq([17,42,45,17,45,45,...comma,42,...comma,41,48],a);assert.deepEqual(s.workflow.payload.matrix.data,[1,2,3,4,0,0]);
  s=seq([17,42,42,17,45,45,...comma,17,45,45,48],a);assert.deepEqual(s.workflow.payload.matrix.data,[1,2,1,2,3,4,3,4]);
  s=seq([17,42,36,41,...comma,42],a);s=c.reduceCalculator(s,{type:'physical-key',id:'EL506-K48',randomSample:.25});assert.deepEqual(s.workflow.payload.matrix.data,[.25,.25,.25,.25,.25,.25]);
- assert.throws(()=>m.fill(1,1e9,1e9),e=>e.code===9);assert.throws(()=>m.dimension(m.identity(1),1e9,1e9),e=>e.code===9);
+ assert.throws(()=>m.fill(1,1e9,1e9),e=>e.code===7);assert.throws(()=>m.dimension(m.identity(1),1e9,1e9),e=>e.code===7);
 });
 test('MAT scalar results preserve edit buffers and unavailable ANS leaves slots intact',()=>{
  let s=entry();const slot=structuredClone(s.control.matrices[0]);
@@ -50,3 +50,33 @@ test('MAT guide transition matrix reproduces all four independently observed res
   s=press(s,11);assert.equal(s.workflow.payload.label,'MAT'+(Math.floor(index/2)+1)+','+(index%2+1)+'=');assert.equal(f.renderState(s,{physical:true}).resultHtml,expected);
  }
 });
+
+// Independently observed on the pinned native simulator, 2026-10-08.
+test('MAT native undefined slots, type errors, input limits and computed limits remain distinct',()=>{
+ assert.equal(seq([4,35,17,45,45,48]).control.errorCode,10);
+ assert.equal(seq([13,17,45,45,48],entry()).control.errorCode,1);
+ assert.equal(seq([40,43,17,45,45,48],entry()).control.errorCode,1);
+ assert.equal(seq([4,35,11,36,29]).control.errorCode,7);
+ assert.equal(seq([4,35,17,42,35,36,48]).control.errorCode,7);
+ const a=m.identity(3);assert.throws(()=>m.augment(a,a),e=>e.code===9);
+ let s=seq([4,35,11,36,29,9]);assert.equal(s.expression,'5');assert.equal(s.cursor,1);assert.equal(s.displayResult,'0');
+ s=seq([4,35,11,36,29,2]);assert.equal(s.workflow.kind,null);assert.equal(s.lifecycle,'empty');
+ s=seq([17,40,40],entry());assert.equal(s.control.errorCode,null);assert.equal(s.control.buffers.matrix,null);
+ s=seq([11,2,17,41,40,17,45,40,48],s);assert.equal(s.workflow.payload.matrix.rows,1);assert.deepEqual(s.workflow.payload.matrix.data,[0]);
+ s=seq([4,35,3,17]);assert.equal(s.secondActive,false);assert.equal(s.workflow.kind,null);
+});
+
+test('MAT native dimension changes clear cells while unchanged dimensions preserve cells',()=>{
+ let s=seq([4,35,17,42,35,35,48,11,40,29]);assert.deepEqual(s.workflow.payload.matrix,{rows:4,columns:1,data:[0,0,0,0]});
+ s=seq([2,17,41,41,17,45,41,3,18,48],s);assert.equal(s.control.errorCode,8);
+ s=seq([39,17,45,45,48],recall(entry()));assert.equal(s.control.errorCode,1);
+});
+
+test('MAT independently transcribed 133-key error and boundary sequence matches all 44 LCD checkpoints',()=>{
+ const n=require('../reference/el506ts/matrix-errors-native-notes');let s=c.createInitialState(),count=0;
+ const norm=x=>x.replace(/<[^>]*>/g,'').replace(/[\s_]/g,'').replace(/&divide;/g,'÷').replace(/&times;/g,'×');
+ for(let i=0;i<n.sequence.length;i++){s=press(s,n.sequence[i]);for(const frame of n.checkpoints.filter(x=>x.afterStep===i+1)){const v=f.renderState(s,{physical:true});if(frame.upperClipped)assert.ok(norm(v.expressionHtml).endsWith(norm(frame.upper)),'visible native suffix '+(i+1));else assert.equal(norm(v.expressionHtml),norm(frame.upper),'native upper '+(i+1));assert.equal(norm(v.resultHtml),norm(frame.lower),'native lower '+(i+1));count++;}}
+ assert.equal(count,44);
+});
+
+test('Native ALGB is unavailable in MAT CPLX and LIST and consumes its modifier',()=>{for(const digit of [35,42,36]){const s=seq([4,digit,3,17]);assert.equal(s.secondActive,false);assert.equal(s.workflow.kind,null);}});

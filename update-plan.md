@@ -2775,6 +2775,23 @@ partial regression suite alone; the final release gates remain in force.
     Evidence and verification: shared remaining-phase batch review above.
     Notes: Scoped item complete; unresolved final parity and release gates remain documented.
 
+Matrix limits review (2026-10-08, implementation publication pending):
+142 independently inspected native keys cover 46 significant LCD checkpoints;
+the first 133 keys and all 44 matrix checkpoints are replayed in phase15.test.js.
+They distinguish invalid dimensions (7), shape mismatch/non-square inverse (8),
+oversized computed augmentation (9), undefined operand (10), singular inverse (2)
+and unsupported type/matrix division (1). Dimension edits clear buffer cells;
+unchanged dimensions retain cells, CHK of undefined slots clears the buffer, and
+fault navigation retains the final entered digit at the measured cursor.
+ALGB is unavailable and consumes 2nd F in MAT/CPLX/LIST. The independent oracle is
+experiments/matrix-errors-native.json; application output did not supply it.
+Validation: npm.cmd test -- tests/e2e/phase13-15.spec.js --workers=3 passed
+538 unit tests, reference/guide/ledger validators, 29 golden fixtures (1200
+asserted frames), current report, and all 18 browser cases across Chromium,
+Firefox and WebKit. Python compileall, compose config and git diff --check passed.
+Docker engine remains unavailable; the local Django demo was used.
+Final cross-mode/type/capacity audits remain separate pending tasks.
+
 - [ ] **EL506-312 - Match matrix limits and errors.** Cover dimension mismatch,
   non-square, singular, oversized, empty slot, and division restrictions.
 - [x] **EL506-313 - Reproduce the guide transition-matrix example including

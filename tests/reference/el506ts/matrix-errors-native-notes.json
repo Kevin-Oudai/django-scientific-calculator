@@ -1,0 +1,448 @@
+{
+  "date": "2026-10-08",
+  "sequence": [
+    4,
+    35,
+    3,
+    17,
+    17,
+    45,
+    45,
+    48,
+    9,
+    7,
+    11,
+    36,
+    29,
+    9,
+    2,
+    11,
+    45,
+    29,
+    2,
+    17,
+    42,
+    35,
+    36,
+    48,
+    9,
+    7,
+    42,
+    48,
+    11,
+    11,
+    11,
+    11,
+    11,
+    11,
+    11,
+    11,
+    11,
+    11,
+    2,
+    17,
+    41,
+    45,
+    17,
+    42,
+    42,
+    17,
+    45,
+    45,
+    3,
+    28,
+    17,
+    45,
+    45,
+    48,
+    2,
+    17,
+    45,
+    45,
+    43,
+    17,
+    42,
+    35,
+    41,
+    48,
+    10,
+    2,
+    13,
+    17,
+    45,
+    45,
+    48,
+    2,
+    40,
+    43,
+    17,
+    45,
+    45,
+    48,
+    2,
+    17,
+    40,
+    40,
+    11,
+    2,
+    17,
+    41,
+    40,
+    17,
+    45,
+    40,
+    48,
+    2,
+    17,
+    45,
+    45,
+    39,
+    41,
+    48,
+    2,
+    17,
+    45,
+    45,
+    39,
+    17,
+    45,
+    45,
+    48,
+    2,
+    17,
+    42,
+    35,
+    35,
+    48,
+    11,
+    40,
+    29,
+    2,
+    17,
+    41,
+    41,
+    17,
+    45,
+    41,
+    3,
+    18,
+    48,
+    2,
+    17,
+    45,
+    40,
+    3,
+    18,
+    48
+  ],
+  "checkpoints": [
+    {
+      "afterStep": 0,
+      "upper": "",
+      "lower": "0.",
+      "mode": "NORMAL"
+    },
+    {
+      "afterStep": 2,
+      "upper": "",
+      "lower": "0.",
+      "mode": "MAT"
+    },
+    {
+      "afterStep": 4,
+      "upper": "",
+      "lower": "0.",
+      "mode": "MAT",
+      "second": false,
+      "note": "ALGB unavailable: consumes 2ndF, leaves no prompt."
+    },
+    {
+      "afterStep": 7,
+      "upper": "matA",
+      "lower": "0.",
+      "mode": "MAT"
+    },
+    {
+      "afterStep": 8,
+      "upper": "Error 10",
+      "lower": "",
+      "mode": "MAT",
+      "note": "Undefined matA evaluates to Error 10."
+    },
+    {
+      "afterStep": 9,
+      "upper": "matA",
+      "lower": "",
+      "mode": "MAT",
+      "cursor": "First character of matA; overwrite marker",
+      "note": "LEFT dismisses Error 10 and preserves the operand for correction."
+    },
+    {
+      "afterStep": 10,
+      "upper": "",
+      "lower": "0.",
+      "mode": "MAT",
+      "note": "DEL removes matA as one token."
+    },
+    {
+      "afterStep": 11,
+      "upper": "ROW=",
+      "lower": "1.",
+      "mode": "MAT"
+    },
+    {
+      "afterStep": 13,
+      "upper": "Error 7",
+      "lower": "",
+      "mode": "MAT",
+      "note": "ROW=5 entered with M+ reports Error 7, not Error 9; input-definition error."
+    },
+    {
+      "afterStep": 14,
+      "upper": "5",
+      "lower": "0.",
+      "mode": "MAT",
+      "cursor": "End after 5",
+      "note": "LEFT restores failed input as upper-line expression 5 rather than reopening ROW=."
+    },
+    {
+      "afterStep": 15,
+      "upper": "",
+      "lower": "0.",
+      "mode": "MAT"
+    },
+    {
+      "afterStep": 16,
+      "upper": "ROW=",
+      "lower": "1.",
+      "mode": "MAT",
+      "note": "Rejected five-row definition leaves previous one-row buffer intact."
+    },
+    {
+      "afterStep": 18,
+      "upper": "Error 7",
+      "lower": "",
+      "mode": "MAT",
+      "note": "ROW=0 reports Error 7."
+    },
+    {
+      "afterStep": 24,
+      "upper": "Error 7",
+      "lower": "",
+      "mode": "MAT",
+      "note": "identity 5 reports Error 7; oversized operation parameters are invalid definitions, not computed-result Error 9."
+    },
+    {
+      "afterStep": 25,
+      "upper": "identity5",
+      "lower": "0.",
+      "mode": "MAT",
+      "cursor": "End after 5",
+      "note": "LEFT restores invalid identity call at its end."
+    },
+    {
+      "afterStep": 28,
+      "upper": "ROW=",
+      "lower": "3.",
+      "mode": "MAT",
+      "note": "Correcting identity 5 to identity 3 returns a three-row matrix."
+    },
+    {
+      "afterStep": 29,
+      "upper": "COLUMN=",
+      "lower": "3.",
+      "mode": "MAT"
+    },
+    {
+      "afterStep": 30,
+      "upper": "MAT1,1=",
+      "lower": "1.",
+      "mode": "MAT"
+    },
+    {
+      "afterStep": 31,
+      "upper": "MAT1,2=",
+      "lower": "0.",
+      "mode": "MAT"
+    },
+    {
+      "afterStep": 32,
+      "upper": "MAT1,3=",
+      "lower": "0.",
+      "mode": "MAT"
+    },
+    {
+      "afterStep": 33,
+      "upper": "MAT2,1=",
+      "lower": "0.",
+      "mode": "MAT"
+    },
+    {
+      "afterStep": 34,
+      "upper": "MAT2,2=",
+      "lower": "1.",
+      "mode": "MAT"
+    },
+    {
+      "afterStep": 35,
+      "upper": "MAT2,3=",
+      "lower": "0.",
+      "mode": "MAT"
+    },
+    {
+      "afterStep": 36,
+      "upper": "MAT3,1=",
+      "lower": "0.",
+      "mode": "MAT"
+    },
+    {
+      "afterStep": 37,
+      "upper": "MAT3,2=",
+      "lower": "0.",
+      "mode": "MAT"
+    },
+    {
+      "afterStep": 38,
+      "upper": "MAT3,3=",
+      "lower": "1.",
+      "mode": "MAT",
+      "note": "All nine row-major identity 3 cells inspected: [1,0,0,0,1,0,0,0,1]."
+    },
+    {
+      "afterStep": 42,
+      "upper": "",
+      "lower": "0.",
+      "mode": "MAT",
+      "note": "Stored identity-3 edit buffer in matA after ON/C."
+    },
+    {
+      "afterStep": 54,
+      "upper": "Error 9",
+      "lower": "",
+      "mode": "MAT",
+      "note": "aug(matA,matA) on two valid 3×3 identity matrices would allocate six columns and reports Error 9."
+    },
+    {
+      "afterStep": 64,
+      "upper": "Error 8",
+      "lower": "",
+      "mode": "MAT",
+      "note": "3×3 matA plus identity 2 reports dimension mismatch Error 8."
+    },
+    {
+      "afterStep": 65,
+      "upper": "+identity2",
+      "upperClipped": "left",
+      "lower": "0.",
+      "mode": "MAT",
+      "cursor": "End after 2",
+      "note": "RIGHT restores failed addition at its end; visible suffix is clipped from the left."
+    },
+    {
+      "afterStep": 67,
+      "upper": "sin",
+      "lower": "0.",
+      "mode": "MAT",
+      "note": "SIN key is available for entering a MAT-mode expression."
+    },
+    {
+      "afterStep": 71,
+      "upper": "Error 1",
+      "lower": "",
+      "mode": "MAT",
+      "note": "sin(matA) is invalid operand type and reports Error 1, not dimension Error 8."
+    },
+    {
+      "afterStep": 78,
+      "upper": "Error 1",
+      "lower": "",
+      "mode": "MAT",
+      "note": "1+matA is invalid operand type and reports Error 1."
+    },
+    {
+      "afterStep": 79,
+      "upper": "",
+      "lower": "0.",
+      "mode": "MAT"
+    },
+    {
+      "afterStep": 82,
+      "upper": "",
+      "lower": "0.",
+      "mode": "MAT",
+      "note": "CHK of undefined matB returns empty entry without reporting an error."
+    },
+    {
+      "afterStep": 83,
+      "upper": "ROW=",
+      "lower": "1.",
+      "mode": "MAT",
+      "note": "CHK of undefined matB clears the previous three-row buffer."
+    },
+    {
+      "afterStep": 87,
+      "upper": "",
+      "lower": "0.",
+      "mode": "MAT",
+      "note": "STO matB after opening default ROW then ON/C completes without error."
+    },
+    {
+      "afterStep": 91,
+      "upper": "ROW=",
+      "lower": "1.",
+      "mode": "MAT",
+      "note": "Default matrix buffer opened before STO becomes a defined 1x1 zero matrix."
+    },
+    {
+      "afterStep": 98,
+      "upper": "ROW=",
+      "lower": "3.",
+      "mode": "MAT",
+      "note": "matA divided by scalar 2 is accepted as a 3x3 result."
+    },
+    {
+      "afterStep": 107,
+      "upper": "Error 1",
+      "lower": "",
+      "mode": "MAT",
+      "note": "Matrix by matrix division is a syntax/type error, even for invertible identity matrices."
+    },
+    {
+      "afterStep": 113,
+      "upper": "ROW=",
+      "lower": "4.",
+      "mode": "MAT",
+      "note": "identity4 is accepted at the maximum row dimension."
+    },
+    {
+      "afterStep": 114,
+      "upper": "COLUMN=",
+      "lower": "4.",
+      "mode": "MAT"
+    },
+    {
+      "afterStep": 116,
+      "upper": "MAT1,1=",
+      "lower": "0.",
+      "mode": "MAT",
+      "note": "Changing COLUMN from 4 to 1 clears the identity buffer cells."
+    },
+    {
+      "afterStep": 126,
+      "upper": "Error 8",
+      "lower": "",
+      "mode": "MAT",
+      "note": "Inverse of the stored 4x1 matrix is rejected as dimension mismatch."
+    },
+    {
+      "afterStep": 133,
+      "upper": "Error 2",
+      "lower": "",
+      "mode": "MAT",
+      "note": "Inverse of defined 1x1 zero matrix is rejected as singular."
+    }
+  ],
+  "notes": [
+    "Fresh pinned simulator launch. Keyboard 1 and KP_1 were ignored; all canonical inputs below use physical panel clicks."
+  ]
+}

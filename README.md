@@ -1313,6 +1313,11 @@ memory supports complex values. Mode exit clears its imaginary component.
 MAT provides four slots, matA–matD, each up to 4×4. UP/DOWN opens the edit buffer;
 enter ROW, COLUMN, and row-major cells with DATA. ON/C closes the buffer. MATH STO
 saves it, CHK recalls it for correction, and MAT inserts a stored operand.
+Changing ROW or COLUMN clears the cells; confirming an unchanged dimension
+preserves them. CHK of an undefined slot clears the editing buffer. Undefined
+operand evaluation reports Error 10, invalid dimensions Error 7, incompatible
+shapes Error 8, and oversized computed matrices Error 9. Unsupported value types
+and matrix-by-matrix division report Error 1; singular inverses report Error 2.
 Results open the edit buffer for dimension and cell paging. Implemented
 operations include addition, subtraction, multiplication, scalar scaling,
 integer powers, inverse, transpose, determinant, resize, fill, column-wise cumulative,

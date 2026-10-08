@@ -19,3 +19,15 @@ test('EQN CPLX MAT keyboard touch theme and widget isolation share canonical dis
  expect((await second.evaluate(el=>el.scientificCalculator.snapshot())).state.layers.mode).toBe('NORMAL');await seq(second,[4,41,41,40,48,45,48,40,48]);await expect(second.locator('[data-expression]')).toHaveText('X1=');await expect(r.locator('[data-result]')).toHaveText('3.');expect(errors).toEqual([]);
  await page.addStyleTag({url:'/static/scientific_calculator/calculator-theme.example.css'});await expect(key(r,25)).toHaveAccessibleName(/^a b\/c/);
 });
+
+test('MAT native error codes recover at the measured input cursor and undefined CHK clears the buffer',async({page})=>{
+ const r=await setup(page);await seq(r,[4,35,17,45,45,48]);await expect(r.locator('[data-expression]')).toHaveText('Error 10');
+ await seq(r,[2,11,36,29]);await expect(r.locator('[data-expression]')).toHaveText('Error 7');
+ await seq(r,[9]);const s=(await r.evaluate(el=>el.scientificCalculator.snapshot())).state;expect(s.expression).toBe('5');expect(s.cursor).toBe(1);
+ await seq(r,[2,17,40,40,11]);await expect(r.locator('[data-expression]')).toHaveText('ROW=');await expect(r.locator('[data-result]')).toHaveText('1.');
+});
+
+test('MAT changing a dimension clears cells and non-square inverse reports Error 8',async({page})=>{
+ const r=await setup(page);await seq(r,[4,35,17,42,35,35,48,11,40,29]);await expect(r.locator('[data-expression]')).toHaveText('MAT1,1=');await expect(r.locator('[data-result]')).toHaveText('0.');
+ await seq(r,[2,17,41,41,17,45,41,3,18,48]);await expect(r.locator('[data-expression]')).toHaveText('Error 8');
+});
