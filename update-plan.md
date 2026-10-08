@@ -2931,7 +2931,9 @@ guess any item in this phase; observe it in the reference simulator first.
 - [ ] **EL506-354 - Match internal precision and rounding for every result
   type.**
 
-    Measured CPLX precision patch READY_TO_PUSH. Independent74-key native trace
+    Measured CPLX precision patch published as
+    d55cbb0ba090ca9471b3a049e010d77569019451, verified on origin/main.
+    Independent74-key native trace
     reproduces real/imaginary cancellation, storedANS reuse and scaled333.3
     residual. Selected component policy and its limits are recorded in
     complex-precision-review.json. This is progress within the item; other
