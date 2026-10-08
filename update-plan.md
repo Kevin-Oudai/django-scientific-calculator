@@ -53,11 +53,11 @@ in the generated report; phase completion does not establish full parity.
 | Phase 12 - Statistics Results and Regressions | 16 | 0 |
 | Phase 13 - Equation Mode | 9 | 0 |
 | Phase 14 - Complex Mode | 8 | 0 |
-| Phase 15 - Matrix Mode | 13 | 1 |
+| Phase 15 - Matrix Mode | 14 | 0 |
 | Phase 16 - LIST Mode | 7 | 4 |
 | Phase 17 - Errors, Limits, and Cross-mode Parity | 2 | 13 |
 | Phase 18 - Security, Packaging, Compatibility, and Release | 13 | 2 |
-| **Total** | **221** | **24** |
+| **Total** | **226** | **19** |
 
 Refresh this overview's date, counts, percentage, and next task in every
 roadmap completion tracking commit, using the checklist as the source of truth.
