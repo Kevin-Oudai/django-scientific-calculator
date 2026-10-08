@@ -444,6 +444,7 @@
     if(state.layers.intent?.kind==='solver-error'){view.expressionHtml=escapeHtml('Error '+state.control.errorCode);view.resultHtml='';}
     if(state.layers.intent?.kind==='calculus-error'){view.expressionHtml=escapeHtml('Error '+state.control.errorCode);view.resultHtml='';view.cursorVisible=false;}
     if(state.layers.intent?.kind==='calculus-result'&&!workflow.kind&&state.lifecycle==='evaluated'){view.expressionHtml=escapeHtml(state.displayExpression);view.cursorVisible=false;}
+    if(options.physical&&mode==='NORMAL'&&state.lifecycle==='error'&&state.control?.nbase?.radix===10){view.expressionHtml=escapeHtml('Error '+state.control.errorCode);view.resultHtml='';view.cursorVisible=false;}
     if(mode==='STAT'&&!workflow.kind&&state.control.power==='on'){
       const p=state.control.statistics,width=state.control.submode==='SD'?2:3;
       if(p.parts.length){view.expressionHtml=formatExpression(p.parts.join(',')+',')+'<span class="scicalc__cursor" aria-hidden="true"></span>';view.cursorVisible=true;}

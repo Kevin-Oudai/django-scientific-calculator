@@ -27,7 +27,7 @@ test('Phase 7 conversion entry, Fahrenheit offset, fraction input and invalid in
  await seq(root,[45,40,48]);await expect(root.locator('[data-expression]')).toHaveText('1→cv1=');await expect(root.locator('[data-result]')).toHaveText('2.54');
  await seq(root,[2,47,35,45,3,42,40,30,48]);await expect(root.locator('[data-result]')).toHaveText('-40.');
  await seq(root,[2,40,25,41,3,42,45,40,43,40,48]);await expect(root.locator('[data-result]')).toHaveText('2.27');
- await seq(root,[2,40,3,42,32,32,48]);await expect(root.locator('[data-result]')).toHaveText('Error 2');await key(root,2).click();await expect(root.locator('[data-result]')).toHaveText('0.');
+ await seq(root,[2,40,3,42,32,32,48]);await expect(root.locator('[data-expression]')).toHaveText('Error 2');await expect(root.locator('[data-result]')).toHaveText('');await key(root,2).click();await expect(root.locator('[data-result]')).toHaveText('0.');
 });
 test('Phase 7 all 44 conversion IDs preserve ANS for reverse conversion in the browser',async({page})=>{
  const root=await setup(page);

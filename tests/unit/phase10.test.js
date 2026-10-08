@@ -30,9 +30,9 @@ test('Calculus numeric conditions accept negative fractions mixed values and exp
  s=seq([40,24,47,36,7,35,48],s);assert.equal(s.answer,-1);
  assert.throws(()=>calc.condition('2*pi',0),SyntaxError);assert.throws(()=>calc.condition('1/0',0),RangeError);
 });
-test('Guide integrand uses Simpson default and keeps derivative precision discrepancy explicit',()=>{
+test('Guide integrand uses Simpson default and matches independently observed derivative rounding',()=>{
  let s=finish(seq([...guide,16,45,48,40,48,48]));assert.equal(f.renderState(s,{physical:true}).resultHtml,'0.785357562');
- s=seq([...guide,3,16,47,40,25,41,48,48]);assert.ok(Math.abs(s.answer-1/Math.sqrt(3))<3e-9);
+ s=seq([...guide,3,16,47,40,25,41,48,48]);assert.equal(s.answer,.577350268);assert.equal(f.renderState(s,{physical:true}).resultHtml,'0.577350268');
 });
 test('Calculus evaluation clears X preserves other memories and updates ANS only on success',()=>{
  let s=seq([32,28,27,2,42,28,18,2,40,29,2,...square,3,16,41,48,48]);assert.equal(s.control.variables.X,0);assert.equal(s.control.variables.A,3);assert.equal(s.memoryValue,1);assert.equal(s.values.answer.kind,'scalar');assert.equal(s.answer,4);
@@ -58,7 +58,7 @@ test('Calculus singular samples syntax and unresolvable differences recover thro
  let s=finish(seq([40,39,5,27,16,48,40,48,48]));assert.equal(s.control.errorCode,2);assert.equal(s.control.variables.X,0);s=seq([2,41,48],s);assert.equal(s.answer,2);
  s=seq([2,...square,43,16],s);assert.equal(s.control.errorCode,1);
  s=seq([5,27,19,40,45,45,45,3,16,41,48,48]);assert.equal(s.control.errorCode,2);
- s=seq([5,27,19,35,3,16,41,48,48]);assert.ok(Math.abs(s.answer-32)<1e-7);assert.equal(s.layers.intent.source,'X^4');
+ s=seq([5,27,19,35,3,16,41,48,48]);assert.equal(s.answer,32.0000005);assert.equal(f.renderState(s,{physical:true}).resultHtml,'32.0000005');assert.equal(s.layers.intent.source,'X^4');
  assert.throws(()=>calc.derivative(x=>x,1,1e-20),RangeError);assert.throws(()=>calc.derivative(x=>x,0,0),RangeError);
 });
 test('Calculus work bounds zero interval and nonfinite samples are enforced',()=>{

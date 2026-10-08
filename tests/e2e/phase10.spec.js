@@ -3,6 +3,15 @@ const key=(root,n)=>root.locator('[data-key-id="EL506-K'+String(n).padStart(2,'0
 async function seq(root,keys){for(const n of keys)await key(root,n).click();}
 async function setup(page){await page.goto('/');const root=page.locator('[data-scientific-calculator]').first();await expect.poll(()=>root.evaluate(el=>!!el.scientificCalculator)).toBe(true);return root;}
 const snap=root=>root.evaluate(el=>el.scientificCalculator.snapshot());
+
+test('Calculus independent guide and quartic native rounding agree exactly',async({page})=>{
+ test.setTimeout(180000);
+ const root=await setup(page);
+ await seq(root,[3,20,33,40,44,5,27,20,34,3,16,47,40,25,41,48,48]);
+ await expect(root.locator('[data-result]')).toHaveText('0.577350268');
+ await seq(root,[2,5,27,19,35,3,16,41,48,48]);
+ await expect(root.locator('[data-result]')).toHaveText('32.0000005');
+});
 test('Calculus physical derivative prompts editing and repeat produce native display',async({page})=>{
  const root=await setup(page);await seq(root,[5,27,20,3,16]);await expect(root.locator('[data-expression]')).toHaveText('X?');await seq(root,[41,48]);await expect(root.locator('[data-expression]')).toHaveText('dx?');await expect(root.locator('[data-result]')).toHaveText('0.00002');await key(root,48).click();await expect(root.locator('[data-expression]')).toHaveText('d/dx=');await expect(root.locator('[data-result]')).toHaveText('4.');await seq(root,[48,42,48,48]);await expect(root.locator('[data-result]')).toHaveText('6.');
 });

@@ -22,7 +22,7 @@
   ],
   "limitations": [
     "Exact private arithmetic, discontinuity handling and maximum native work limits must remain scoped to measured cases; published manual formulas are not evidence for every edge case.",
-    "Derivative guide case: application 0.57735027 versus native 0.577350268 (2e-9 absolute difference); private sample rounding is unmeasured. Fourteen-significant-digit half-up sample arithmetic is an explicit implementation approximation, not a fully identified native algorithm.",
+    "Historical derivative difference (0.57735027 vs 0.577350268) resolved in the 2026-10-08 bounded truncation profile. Exact private algorithms beyond measured cases remain unverified.",
     "Web integration limit is 10000 Simpson pairs (20001 samples), 64 samples per animation frame, expression length capped at 1000. Native maximum n, cancellation timing, negative dx/reversed bounds and every discontinuity are unmeasured. Singular sampled points produce Error 2; unsampled discontinuities are not automatically diagnosed.",
     "Numeric condition fractions use the existing stacked fraction display requested by the user; the native LCD uses inline fraction separators."
   ],
@@ -41,5 +41,16 @@
     "report": "Generated and checked; no full parity promotion",
     "nativeCleanup": "Agent-opened simulator and extractor confirmed closed",
     "gitDiffCheck": "passed"
+  },
+  "precisionResolution20261008": {
+    "profile": "13 significant digits, truncate operations; 14 significant digits, truncate final samples",
+    "nativeResults": [
+      "guide derivative 0.577350268",
+      "general-power guide derivative 0.577350268",
+      "quartic derivative 32.0000005",
+      "guide integral 0.785357562"
+    ],
+    "reference": "experiments/calculus-power-comparison-native.json; experiments/calculus-polynomial-native.json",
+    "scope": "Measured checkpoints resolved; complete EL506-354 remains pending."
   }
 }

@@ -526,22 +526,22 @@
       "afterStep": 36,
       "assertions": {
         "displayExpression": "d/dx=",
-        "displayResult": "0.57735027",
+        "displayResult": "0.577350268",
         "lifecycle": "evaluated",
-        "answer": 0.57735027,
+        "answer": 0.577350268,
         "memoryValue": 0,
         "workflow.kind": null,
         "control.variables.X": 0
       },
-      "domResultText": "0.57735027"
+      "domResultText": "0.577350268"
     },
     {
       "afterStep": 37,
       "assertions": {
         "displayExpression": "d/dx=",
-        "displayResult": "0.57735027",
+        "displayResult": "0.577350268",
         "lifecycle": "prompt",
-        "answer": 0.57735027,
+        "answer": 0.577350268,
         "memoryValue": 0,
         "workflow.kind": "prompt",
         "control.variables.X": 0
@@ -552,9 +552,9 @@
       "afterStep": 38,
       "assertions": {
         "displayExpression": "d/dx=",
-        "displayResult": "0.57735027",
+        "displayResult": "0.577350268",
         "lifecycle": "prompt",
-        "answer": 0.57735027,
+        "answer": 0.577350268,
         "memoryValue": 0,
         "workflow.kind": "prompt",
         "control.variables.X": 0
@@ -565,9 +565,9 @@
       "afterStep": 39,
       "assertions": {
         "displayExpression": "d/dx=",
-        "displayResult": "0.57735027",
+        "displayResult": "0.577350268",
         "lifecycle": "prompt",
-        "answer": 0.57735027,
+        "answer": 0.577350268,
         "memoryValue": 0,
         "workflow.kind": "prompt",
         "control.variables.X": 0
@@ -578,9 +578,9 @@
       "afterStep": 40,
       "assertions": {
         "displayExpression": "d/dx=",
-        "displayResult": "0.57735027",
+        "displayResult": "0.577350268",
         "lifecycle": "prompt",
-        "answer": 0.57735027,
+        "answer": 0.577350268,
         "memoryValue": 0,
         "workflow.kind": "prompt",
         "control.variables.X": 0
@@ -593,7 +593,7 @@
         "displayExpression": "∫dx=",
         "displayResult": "0.785357562298",
         "lifecycle": "evaluated",
-        "answer": 0.785357562298255,
+        "answer": 0.7853575622982505,
         "memoryValue": 0,
         "workflow.kind": null,
         "control.variables.X": 0
@@ -795,12 +795,6 @@
       "actual": "0"
     },
     {
-      "afterStep": 36,
-      "field": "displayResult",
-      "expected": "0.577350268",
-      "actual": "0.57735027"
-    },
-    {
       "afterStep": 37,
       "field": "displayExpression",
       "expected": "a?",
@@ -810,7 +804,7 @@
       "afterStep": 37,
       "field": "displayResult",
       "expected": "0.",
-      "actual": "0.57735027"
+      "actual": "0.577350268"
     },
     {
       "afterStep": 38,
@@ -822,7 +816,7 @@
       "afterStep": 38,
       "field": "displayResult",
       "expected": "0.",
-      "actual": "0.57735027"
+      "actual": "0.577350268"
     },
     {
       "afterStep": 39,
@@ -834,7 +828,7 @@
       "afterStep": 39,
       "field": "displayResult",
       "expected": "1.",
-      "actual": "0.57735027"
+      "actual": "0.577350268"
     },
     {
       "afterStep": 40,
@@ -846,7 +840,7 @@
       "afterStep": 40,
       "field": "displayResult",
       "expected": "100.",
-      "actual": "0.57735027"
+      "actual": "0.577350268"
     },
     {
       "afterStep": 41,

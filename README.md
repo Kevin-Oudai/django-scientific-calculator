@@ -1235,10 +1235,11 @@ split such integrals into suitable intervals, as the manual advises.
 
 Native evidence and limitations are in `tests/reference/el506ts/phase-10-review.json`
 and the calculus experiment/golden fixtures. Polynomial results and the guide's
-integral display agree. The guide derivative displays `0.577350268` natively
-versus `0.57735027` here, a known absolute difference of `2e-9`. Fourteen-digit
-sample arithmetic approximates private native arithmetic; exact sample rounding,
-every discontinuity, native work limits and cancellation timing remain unmeasured.
+integral display agree. The guide derivative now displays `0.577350268`, matching
+the native capture. Thirteen-digit operation truncation and fourteen-digit sample
+truncation reproduce the measured guide and quartic derivative checkpoints;
+this is a bounded implementation profile, not a claim about all private arithmetic.
+Discontinuities, native work limits and cancellation timing remain unmeasured.
 The new tests cover these workflows and bounds without claiming full parity.
 
 
@@ -1403,19 +1404,18 @@ The project makes no claim of Sharp affiliation. Version 1.0.0 remains gated by
 the final reference audit and downstream deployment verification.
 
 The guide regression suite covers all 52 worked workflows and 148 printed
-checkpoints. It explicitly records the derivative example's remaining display
-difference: the simulator prints `0.577350268`, while the application prints
-`0.57735027`. Function denominators now evaluate correctly and retain the physical
+checkpoints. The derivative example now matches the independently captured
+simulator display `0.577350268`. Function denominators now evaluate correctly and retain the physical
 fraction separator in the upper display. Passing these regression tests does not
-waive the precision discrepancy or establish full simulator parity.
+establish full simulator parity.
 
 The LIST magnitude shortcut uses the A-labelled key directly in its MATH menu. Sum, product, minimum, maximum, mean, median, sample standard deviation, variance and magnitude have independent native LCD checkpoints.
 
 The 2026-10-08 independent polynomial check also records `X^4` differentiated
 at `X=2`, with default `dx=0.00002`: the simulator displays `32.0000005`,
-while the application displays `32.`. This additional precision difference
-is tracked in `tests/reference/el506ts/experiments/calculus-polynomial-native.json`
-and remains part of the final precision audit.
+and the application now matches it exactly. The independently observed reference
+is retained in `tests/reference/el506ts/experiments/calculus-polynomial-native.json`.
+The complete precision audit remains open beyond these measured cases.
 
 LIST element entry splits pending arithmetic across the two LCD lines, with
 a cursor after the operator. Invalid elements such as `1÷0` report `Error 2`.
@@ -1438,3 +1438,16 @@ menu page and all 48 physical key positions with their complete modifier legends
 This inventory records exposure; the separate modifier-by-mode and value-type
 audits determine availability and behavior. Menu labels alone do not establish
 calculator parity.
+
+NORMAL errors occupy the upper LCD line with an empty lower line. The native
+calculation-buffer boundary accepts 24 nested sine functions; 25 produce Error 3.
+RIGHT returns to the retained fault area, and DEL removes one function while
+preserving its operand. The recovered result is `6.383145827×10⁻⁴³`; very small
+nonzero angles are preserved instead of being mistaken for an exact quadrant.
+Other error cursor and recovery combinations remain under the final audit.
+
+The native error catalogue now includes independently observed Error 1 through
+Error 10 triggers. Formula recall respects the 142-character expression budget;
+a full expression cannot accept ENT or a formula-store marker. A failed shared
+formula-memory store reports Error 6 and preserves the old slots. The retained
+reference distinguishes these cases from exhaustive cross-mode error recovery.

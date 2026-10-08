@@ -1,0 +1,523 @@
+{
+  "schema_version": 1,
+  "experiment_id": "el506-350-formula-length-memory-errors-native-v1",
+  "roadmap_item": "EL506-350",
+  "catalog_id": "el506-physical-keys-v1",
+  "simulator": {
+    "profile_id": "sharp-el506ts-pc-simulator-1.0.2.0",
+    "product": "SHARP PC Simulator for EL-506TS",
+    "build": "1.0.2.0",
+    "runtime_sha256": "6bfef4d04900b472892be2d4c54dcfa6013f87232097e32df508ca4c27425530",
+    "locale": "English UI; en-US",
+    "operating_system": "Windows 11"
+  },
+  "capture": {
+    "date": "2026-10-08",
+    "timezone": "America/Port_of_Spain",
+    "method": "Live @oai/sky, exactly one native input then an inspected screenshot per action. Independently transcribed significant LCD checkpoints. Only DEG indicator consistently transcribed; other indicators and hidden stored precision are not claimed by this trace. Intermediate golden frames characterize implementation, not independent parity.",
+    "evidence_kind": "live-simulator",
+    "source_ids": [
+      "live-session"
+    ]
+  },
+  "initial_state": {
+    "reset": {
+      "kind": "documented-state",
+      "description": "NORMAL DEG blank 0. observed at retained native step 610; prior memories and ANS unmeasured and not used."
+    },
+    "setup_sequence": [],
+    "mode": {
+      "status": "observed",
+      "value": "NORMAL (pinned reset default)"
+    },
+    "settings": [
+      {
+        "name": "angle",
+        "observation": {
+          "status": "observed",
+          "value": "DEG"
+        }
+      },
+      {
+        "name": "display-format",
+        "observation": {
+          "status": "observed",
+          "value": "NORM1 (pinned reset default)"
+        }
+      }
+    ],
+    "display": {
+      "upper_line": "",
+      "lower_line": "0.",
+      "indicators": [
+        "DEG"
+      ],
+      "scroll_arrows": [],
+      "cursor": {
+        "status": "unknown",
+        "reason": "Blink timing not measured; cursor start separately asserted where observed."
+      },
+      "insert_mode": {
+        "status": "unknown",
+        "reason": "No timing claim."
+      },
+      "prompt": null,
+      "selected_result_component": null
+    },
+    "stores": []
+  },
+  "sequence": [
+    "EL506-K13",
+    "EL506-K13",
+    "EL506-K13",
+    "EL506-K13",
+    "EL506-K13",
+    "EL506-K13",
+    "EL506-K13",
+    "EL506-K13",
+    "EL506-K13",
+    "EL506-K13",
+    "EL506-K13",
+    "EL506-K13",
+    "EL506-K13",
+    "EL506-K13",
+    "EL506-K13",
+    "EL506-K13",
+    "EL506-K13",
+    "EL506-K13",
+    "EL506-K13",
+    "EL506-K13",
+    "EL506-K13",
+    "EL506-K13",
+    "EL506-K13",
+    "EL506-K13",
+    "EL506-K13",
+    "EL506-K40",
+    "EL506-K48",
+    "EL506-K10",
+    "EL506-K07",
+    "EL506-K48",
+    "EL506-K28",
+    "EL506-K08",
+    "EL506-K02",
+    "EL506-K27",
+    "EL506-K08",
+    "EL506-K27",
+    "EL506-K08",
+    "EL506-K27",
+    "EL506-K08",
+    "EL506-K27",
+    "EL506-K08",
+    "EL506-K27",
+    "EL506-K08",
+    "EL506-K27",
+    "EL506-K08",
+    "EL506-K48",
+    "EL506-K10",
+    "EL506-K28",
+    "EL506-K09",
+    "EL506-K10",
+    "EL506-K07",
+    "EL506-K28",
+    "EL506-K09",
+    "EL506-K28",
+    "EL506-K10",
+    "EL506-K02",
+    "EL506-K27",
+    "EL506-K10",
+    "EL506-K27",
+    "EL506-K09"
+  ],
+  "frames": [
+    {
+      "after_step": 0,
+      "display": {
+        "upper_line": "",
+        "lower_line": "0.",
+        "indicators": [
+          "DEG"
+        ],
+        "scroll_arrows": [],
+        "cursor": {
+          "status": "unknown",
+          "reason": "Blink timing not measured; cursor start separately asserted where observed."
+        },
+        "insert_mode": {
+          "status": "unknown",
+          "reason": "No timing claim."
+        },
+        "prompt": null,
+        "selected_result_component": null
+      },
+      "result": {
+        "status": "unknown",
+        "reason": "Hidden precision is unmeasured."
+      }
+    },
+    {
+      "after_step": 27,
+      "display": {
+        "upper_line": "Error 3",
+        "lower_line": "",
+        "indicators": [
+          "DEG"
+        ],
+        "scroll_arrows": [],
+        "cursor": {
+          "status": "unknown",
+          "reason": "Blink timing not measured; cursor start separately asserted where observed."
+        },
+        "insert_mode": {
+          "status": "unknown",
+          "reason": "No timing claim."
+        },
+        "prompt": null,
+        "selected_result_component": null
+      },
+      "result": {
+        "status": "unknown",
+        "reason": "Hidden precision is unmeasured."
+      }
+    },
+    {
+      "after_step": 30,
+      "display": {
+        "upper_line": "sinsinsinsin",
+        "lower_line": "6.383145827e-43",
+        "indicators": [
+          "DEG"
+        ],
+        "scroll_arrows": [
+          "right"
+        ],
+        "cursor": {
+          "status": "unknown",
+          "reason": "Visible four-sine prefix/tail independently transcribed; hidden expression and absolute cursor position not asserted."
+        },
+        "insert_mode": {
+          "status": "unknown",
+          "reason": "No timing claim."
+        },
+        "prompt": null,
+        "selected_result_component": null
+      },
+      "result": {
+        "status": "unknown",
+        "reason": "Hidden precision is unmeasured."
+      }
+    },
+    {
+      "after_step": 32,
+      "display": {
+        "upper_line": "sinsinsinsin",
+        "lower_line": "F1",
+        "indicators": [
+          "DEG"
+        ],
+        "scroll_arrows": [
+          "right"
+        ],
+        "cursor": {
+          "status": "unknown",
+          "reason": "Visible four-sine prefix/tail independently transcribed; hidden expression and absolute cursor position not asserted."
+        },
+        "insert_mode": {
+          "status": "unknown",
+          "reason": "No timing claim."
+        },
+        "prompt": null,
+        "selected_result_component": null
+      },
+      "result": {
+        "status": "unknown",
+        "reason": "Hidden precision is unmeasured."
+      }
+    },
+    {
+      "after_step": 46,
+      "display": {
+        "upper_line": "Error 4",
+        "lower_line": "",
+        "indicators": [
+          "DEG"
+        ],
+        "scroll_arrows": [],
+        "cursor": {
+          "status": "unknown",
+          "reason": "Blink timing not measured; cursor start separately asserted where observed."
+        },
+        "insert_mode": {
+          "status": "unknown",
+          "reason": "No timing claim."
+        },
+        "prompt": null,
+        "selected_result_component": null
+      },
+      "result": {
+        "status": "unknown",
+        "reason": "Hidden precision is unmeasured."
+      }
+    },
+    {
+      "after_step": 47,
+      "display": {
+        "upper_line": "sinsinsinsin",
+        "lower_line": "",
+        "indicators": [
+          "DEG"
+        ],
+        "scroll_arrows": [
+          "left"
+        ],
+        "cursor": {
+          "status": "unknown",
+          "reason": "Selected fault area independently visible; absolute cursor index unmeasured."
+        },
+        "insert_mode": {
+          "status": "unknown",
+          "reason": "No timing claim."
+        },
+        "prompt": null,
+        "selected_result_component": null
+      },
+      "result": {
+        "status": "unknown",
+        "reason": "Hidden precision is unmeasured."
+      }
+    },
+    {
+      "after_step": 49,
+      "display": {
+        "upper_line": "Error 4",
+        "lower_line": "",
+        "indicators": [
+          "DEG"
+        ],
+        "scroll_arrows": [],
+        "cursor": {
+          "status": "unknown",
+          "reason": "Blink timing not measured; cursor start separately asserted where observed."
+        },
+        "insert_mode": {
+          "status": "unknown",
+          "reason": "No timing claim."
+        },
+        "prompt": null,
+        "selected_result_component": null
+      },
+      "result": {
+        "status": "unknown",
+        "reason": "Hidden precision is unmeasured."
+      }
+    },
+    {
+      "after_step": 53,
+      "display": {
+        "upper_line": "sinsinsinsin",
+        "lower_line": "F2",
+        "indicators": [
+          "DEG"
+        ],
+        "scroll_arrows": [
+          "right"
+        ],
+        "cursor": {
+          "status": "unknown",
+          "reason": "Visible four-sine prefix/tail independently transcribed; hidden expression and absolute cursor position not asserted."
+        },
+        "insert_mode": {
+          "status": "unknown",
+          "reason": "No timing claim."
+        },
+        "prompt": null,
+        "selected_result_component": null
+      },
+      "result": {
+        "status": "unknown",
+        "reason": "Hidden precision is unmeasured."
+      }
+    },
+    {
+      "after_step": 55,
+      "display": {
+        "upper_line": "Error 6",
+        "lower_line": "",
+        "indicators": [
+          "DEG"
+        ],
+        "scroll_arrows": [],
+        "cursor": {
+          "status": "unknown",
+          "reason": "Blink timing not measured; cursor start separately asserted where observed."
+        },
+        "insert_mode": {
+          "status": "unknown",
+          "reason": "No timing claim."
+        },
+        "prompt": null,
+        "selected_result_component": null
+      },
+      "result": {
+        "status": "unknown",
+        "reason": "Hidden precision is unmeasured."
+      }
+    },
+    {
+      "after_step": 56,
+      "display": {
+        "upper_line": "",
+        "lower_line": "0.",
+        "indicators": [
+          "DEG"
+        ],
+        "scroll_arrows": [],
+        "cursor": {
+          "status": "unknown",
+          "reason": "Blink timing not measured; cursor start separately asserted where observed."
+        },
+        "insert_mode": {
+          "status": "unknown",
+          "reason": "No timing claim."
+        },
+        "prompt": null,
+        "selected_result_component": null
+      },
+      "result": {
+        "status": "unknown",
+        "reason": "Hidden precision is unmeasured."
+      }
+    },
+    {
+      "after_step": 58,
+      "display": {
+        "upper_line": "",
+        "lower_line": "0.",
+        "indicators": [
+          "DEG"
+        ],
+        "scroll_arrows": [],
+        "cursor": {
+          "status": "unknown",
+          "reason": "Blink timing not measured; cursor start separately asserted where observed."
+        },
+        "insert_mode": {
+          "status": "unknown",
+          "reason": "No timing claim."
+        },
+        "prompt": null,
+        "selected_result_component": null
+      },
+      "result": {
+        "status": "unknown",
+        "reason": "Hidden precision is unmeasured."
+      }
+    },
+    {
+      "after_step": 60,
+      "display": {
+        "upper_line": "sinsinsinsin",
+        "lower_line": "0.",
+        "indicators": [
+          "DEG"
+        ],
+        "scroll_arrows": [
+          "left"
+        ],
+        "cursor": {
+          "status": "unknown",
+          "reason": "Visible four-sine prefix/tail independently transcribed; hidden expression and absolute cursor position not asserted."
+        },
+        "insert_mode": {
+          "status": "unknown",
+          "reason": "No timing claim."
+        },
+        "prompt": null,
+        "selected_result_component": null
+      },
+      "result": {
+        "status": "unknown",
+        "reason": "Hidden precision is unmeasured."
+      }
+    }
+  ],
+  "stored_values": {
+    "coverage": "Visible results only; hidden precision is unmeasured.",
+    "observations": []
+  },
+  "errors": [
+    {
+      "at_step": 27,
+      "message": "Error 3",
+      "position": {
+        "status": "unknown",
+        "reason": "Absolute fault cursor index unmeasured."
+      },
+      "recovery_steps": [
+        28,
+        29,
+        30
+      ],
+      "recovered_at_step": 30
+    },
+    {
+      "at_step": 46,
+      "message": "Error 4",
+      "position": {
+        "status": "unknown",
+        "reason": "RIGHT restores selected fault area; absolute index unmeasured."
+      },
+      "recovery_steps": [
+        47
+      ],
+      "recovered_at_step": 47
+    },
+    {
+      "at_step": 49,
+      "message": "Error 4",
+      "position": {
+        "status": "unknown",
+        "reason": "Full-expression formula store rejected."
+      },
+      "recovery_steps": [
+        50,
+        51,
+        52,
+        53
+      ],
+      "recovered_at_step": 53
+    },
+    {
+      "at_step": 55,
+      "message": "Error 6",
+      "position": {
+        "status": "unknown",
+        "reason": "Shared formula-memory exhaustion."
+      },
+      "recovery_steps": [
+        56
+      ],
+      "recovered_at_step": 56
+    }
+  ],
+  "sources": [
+    {
+      "source_id": "live-session",
+      "kind": "simulator",
+      "reference": "simulator-profile.json",
+      "page": null,
+      "scope": "Native Error 3/4/6, formula recall fills expression capacity, adjacent formula storage boundary and preservation after failed storage."
+    }
+  ],
+  "oracle": {
+    "selected_source_id": "live-session",
+    "simulator_exception_ids": [],
+    "disagreements": []
+  },
+  "ambiguities": [],
+  "notes": [
+    "Starts at independently observed native step 610 NORMAL DEG blank 0.; F2/F3 empty after preceding RESET at step 567, with no subsequent F2/F3 writes before this sequence. F1 overwritten at step 32.",
+    "All sixty inputs individually clicked and followed by fresh inspected native screenshot.",
+    "Six F1 recalls fill expression capacity. ENT and STO F2 trigger Error4. RIGHT DEL removes one sine token and STO F2 succeeds. Duplicating into F3 triggers Error6. ON/C then RCL F3 leaves blank 0.; RCL F2 preserves long expression.",
+    "Complete error-number catalogue evidence; exhaustive fault cursor indexes, capacity equality at 256 and other cross-mode behavior remain separate audit tasks."
+  ]
+}

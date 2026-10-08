@@ -37,9 +37,8 @@ for(const fixture of guide.fixtures)test('Guide application regression: '+fixtur
     const split=expected.indexOf('='),numeric=split<0?expected:expected.slice(split+1);
     if(split>=0&&!['real','imag','r','angle','theta','x','y'].includes(expected.slice(0,split)))assert.equal(upper,expected.slice(0,split+1).replace(/\s/g,''),context);
     if(fixture.id==='guide-p31-derivative'){
-     // Independently recorded simulator difference: phase10-calculus.json.
-     // Keep both exact display strings visible; do not hide it with tolerance.
-     assert.equal(expected,'0.577350268');assert.equal(lower,'0.57735027');assert.notEqual(lower,expected);
+     // Independently recorded native display, asserted without tolerance.
+     assert.equal(expected,'0.577350268');assert.equal(lower,expected);
     }else if(/ [HbPo]$/.test(expected))assert.equal(lower,expected.replace(/\s/g,''),context);
     else assert.equal(Number(lower.replace(/i$/,'')),Number(numeric.replace(/(?:RAD|GRAD|DEG|H|b|P|o|%)$/,'').trim()),context);
    }

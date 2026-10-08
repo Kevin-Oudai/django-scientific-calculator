@@ -1278,9 +1278,10 @@
     // Separate pending calculations from saved left operands. Sharp specifies
     // 24 calculation slots and 10 numeric slots in NORMAL mode.
     const stack=[],precedence={'+':1,'-':1,'*':2,':':2,'/':2,'^':3};
-    let calculations=0,numeric=0,operand=false;
+    let calculations=0,numeric=0,operand=false,faultIndex=null;
     const observe=()=>{calculations=Math.max(calculations,stack.length);numeric=Math.max(numeric,stack.filter(x=>x!=='(').length);};
-    for(const token of source.match(/(?:[a-z]+\()|\d+(?:\.\d*)?(?:e[+-]?\d+)?|[a-z]+|[^\s]/gi)||[]){
+    for(const match of source.matchAll(/(?:[a-z]+\()|\d+(?:\.\d*)?(?:e[+-]?\d+)?|[a-z]+|[^\s]/gi)){
+      const token=match[0];
       if(token.endsWith('(')){stack.push('(');operand=false;}
       else if(token===')'){while(stack.length && stack.at(-1)!=='(')stack.pop();if(stack.length)stack.pop();operand=true;}
       else if(Object.hasOwn(precedence,token)){
@@ -1289,8 +1290,9 @@
         stack.push(token);operand=false;
       }else operand=true;
       observe();
+      if(faultIndex===null&&(calculations>24||numeric>10))faultIndex=match.index;
     }
-    return {calculations,numeric};
+    return {calculations,numeric,faultIndex};
   }
   function physicalEditor(next){if(!next.selectionActive)next.cursor=Math.max(0,next.expression.length-1);next.control.errorCode=null;next.editor=editorForState(next);next.displayExpression=next.expression;next.lifecycle=next.selectionActive?'editing':inferEntryPhase(next);return next;}
   function physicalError(state,code){const next=structuredClone(state);if(typeof code==='string'&&/^EL506-ERROR-\d+$/.test(code))code=Number(code.slice('EL506-ERROR-'.length));next.control.errorCode=code;next.displayResult='Error';next.resultDisplay='Error';next.lifecycle='error';return next;}
@@ -1414,7 +1416,7 @@
         if(Math.abs(n)>=limit)throw new RangeError('Angle range');
         const quarter=unit==='DEG'?90:unit==='GRAD'?100:Math.PI/2,period=quarter*4;
         const reduced=unit==='RAD'?n:n%period;
-        const q=reduced/quarter,nearest=Math.round(q),exact=Math.abs(q-nearest)<=Number.EPSILON*4;
+        const q=reduced/quarter,nearest=Math.round(q),exact=(nearest!==0||reduced===0)&&Math.abs(q-nearest)<=Number.EPSILON*4;
         if(exact){const quadrant=((nearest%4)+4)%4;if(name==='tan'&&quadrant%2)throw new RangeError('Tangent singularity');return name==='sin'?[0,1,0,-1][quadrant]:name==='cos'?[1,0,-1,0][quadrant]:0;}
         const radians=unit==='RAD'?n:reduced*Math.PI/(unit==='DEG'?180:200);
         return physicalNumeric(Math[name](radians));
@@ -1546,17 +1548,18 @@
   }
   function physicalCalculusEvaluate(state,p,x){
     const scope={angleMode:state.angleMode,answer:state.answer,variables:{...physicalVariables(state),X:x}};
-    // Calculus retains a fourteen-digit mantissa at sample boundaries, rather
-    // than using the ordinary arithmetic's thirteen-digit binary profile.
+    // Independently captured guide, general-power and quartic derivatives
+    // select thirteen-digit operation truncation and fourteen-digit sample
+    // truncation. This bounded profile is not a claim about every native function.
     const adapter={...physicalAdapter,binary(op,a,b){
       if(op==='/'&&b===0)throw new RangeError('Calculus division by zero');
       if(['+','-','*','/'].includes(op)||op==='^'&&Number.isInteger(b)&&Math.abs(b)<=1000){
         const exact=engine.decimalBinary(op,String(a),String(b)),bounded=physicalNumeric(Number(exact));
-        return bounded===0?0:physicalNumeric(Number(engine.quantize(exact,14,'half-up')));
+        return bounded===0?0:physicalNumeric(Number(engine.quantize(exact,13,'truncate')));
       }
       return physicalAdapter.binary(op,a,b);
     }};
-    return physicalNumeric(Number(engine.quantize(String(physicalNumeric(semantic.evaluate(p.ast,adapter,scope))),14,'half-up')));
+    return physicalNumeric(Number(engine.quantize(String(physicalNumeric(semantic.evaluate(p.ast,adapter,scope))),14,'truncate')));
   }
   function physicalCalculusComplete(next,p,value){
     next.workflow=emptyWorkflow();physicalStore(next,'X',values.scalar(0));
@@ -1671,9 +1674,12 @@
         const source=physicalSource(next);
         if(formula!==undefined){
           if(w.payload.id==='STO'){
-            const storedSource=source||'0',tokens=semantic.tokenize(storedSource,{physical:true});
+            const displaySource=next.displayExpression.replace(/=$/,'');
+            const storedSource=(w.returnPhase==='evaluated'&&next.displayExpression.endsWith('=')&&closeOpenParentheses(displaySource)===source?displaySource:source)||'0';
+            if(physicalLength(storedSource)+1>142)return physicalError(next,4);
+            const tokens=semantic.tokenize(storedSource,{physical:true});
             const capacity=next.control.formulas.reduce((total,t,i)=>total+physicalFormulaLength(i===formula?tokens:t),0);
-            if(capacity>256)throw new RangeError('Formula capacity');
+            if(capacity>256)return physicalError(next,6);
             next.control.formulas[formula]=tokens;next.displayExpression=storedSource+'→';next.resultDisplay=next.displayResult='F'+(formula+1);
             next.lifecycle='evaluated';next.layers.intent={kind:'formula-store',slot:formula};return next;
           }
@@ -1681,6 +1687,8 @@
           const recalled=semantic.serialize(previous.control.formulas[formula]);
           if(!recalled)return next;
           next.expression=(w.returnPhase==='evaluated'?'':source)+recalled;next.entry='';next.stagedEntry=null;next.selectionActive=false;next.control.arithmetic={constant:null,percent:false};
+          const cells=physicalCells(next.expression);
+          if(cells.length>142){next.expression=cells.slice(0,142).map(cell=>cell.text).join('');next.cursor=cells[141].start;next.selectionActive=true;next.displayResult=next.resultDisplay='';}
           return physicalEditor(next);
         }
         if(w.payload.id==='STO'){
@@ -2409,9 +2417,13 @@
       }
     }
     if([9,10].includes(n)&&!previous.stagedEntry&&previous.workflow.kind===null){
-      const source=previous.expression.replace(/=$/,'');const cells=physicalCells(source);
+      const bufferFault=previous.layers.mode==='NORMAL'&&previous.control.errorCode===3&&n===10;
+      const lengthFault=previous.layers.mode==='NORMAL'&&previous.control.errorCode===4&&n===10;
+      const source=(bufferFault||lengthFault?physicalSource(previous):previous.expression).replace(/=$/,'');const cells=physicalCells(source);
     const evaluated=previous.expression.endsWith('=');next.expression=source;next.entry='';next.stagedEntry=null;
-      if(!previous.selectionActive)next.cursor=n===9?(evaluated?source.length:cells.at(-1)?.start||0):0;
+      if(bufferFault)next.cursor=physicalBufferUsage(source).faultIndex??0;
+      else if(lengthFault)next.cursor=cells.at(-1)?.start||0;
+      else if(!previous.selectionActive)next.cursor=n===9?(evaluated?source.length:cells.at(-1)?.start||0):0;
       else if(n===9)next.cursor=cells.filter(c=>c.start<previous.cursor).at(-1)?.start||0;
       else next.cursor=cells.find(c=>c.start>=previous.cursor)?.end??source.length;
       next.selectionActive=Boolean(source)||(previous.layers.mode==='LIST'&&previous.selectionActive);next.displayResult=next.resultDisplay=next.cursor<source.length?'':'0';next.historyIndex=null;

@@ -16,7 +16,7 @@ test('contextual percent evaluates immediately, ENT recomputes and constant K su
 test('scientific literal exponent and factorial domains use physical display and recoverable errors',async({page})=>{
  const root=await setup(page);await sequence(root,[24,42,48]);await expect(root.locator('[data-result]')).toHaveText("1'000.");await expect(root.locator('[data-expression]')).toHaveText('1E03=');
  await sequence(root,[2,41,24,40,45,45,47,48]);await expect(root.locator('[data-result]')).toHaveText('2.');
- await sequence(root,[2,30,45,3,35,48]);await expect(root.locator('[data-result]')).toHaveText('Error 2');await key(root,2).click();await sequence(root,[36,3,35,48]);await expect(root.locator('[data-result]')).toHaveText('120.');await expect(root.locator('[data-expression]')).toHaveText('5!=');
+ await sequence(root,[2,30,45,3,35,48]);await expect(root.locator('[data-expression]')).toHaveText('Error 2');await expect(root.locator('[data-result]')).toHaveText('');await key(root,2).click();await sequence(root,[36,3,35,48]);await expect(root.locator('[data-result]')).toHaveText('120.');await expect(root.locator('[data-expression]')).toHaveText('5!=');
 });
 test('pi route and separate retained constants on two instances',async({page})=>{
  const root=await setup(page);await sequence(root,[41,18]);await expect(root.locator('[data-expression]')).toContainText('2π');await expect(root.locator('[data-result]')).toHaveText('0.');await key(root,48).click();await expect(root.locator('[data-result]')).toHaveText('6.283185307');

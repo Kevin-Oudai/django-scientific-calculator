@@ -682,7 +682,7 @@
       "fixtureIds": [
         "phase10-calculus"
       ],
-      "scope": "42 implementation regression frames; 24 independently transcribed native checkpoints. Derivative guide precision gap and raw-state differences remain explicit."
+      "scope": "42 implementation regression frames; 24 independently transcribed native checkpoints. Measured guide derivative resolved; raw-state differences and broader private arithmetic remain explicit."
     },
     {
       "kind": "unit",
@@ -981,7 +981,7 @@
         "el506.key.el506-k17",
         "el506.key.el506-k11"
       ],
-      "scope": "52 independently printed guide workflows and 148 checkpoints. Derivative expected 0.577350268 remains explicitly different from application 0.57735027; this regression does not assert exhaustive simulator parity."
+      "scope": "52 independently printed guide workflows and 148 checkpoints. Measured derivative display 0.577350268 matches native reference; this regression does not assert exhaustive simulator parity."
     },
     {
       "kind": "browser",

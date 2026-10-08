@@ -1,0 +1,45 @@
+{
+  "reviewId": "final-error-catalogue-and-measured-precision-2026-10-08",
+  "completedScope": [
+    "EL506-350"
+  ],
+  "partialScopes": [
+    "EL506-351",
+    "EL506-352",
+    "EL506-354",
+    "EL506-355",
+    "EL506-356"
+  ],
+  "references": [
+    "error-catalogue.json",
+    "experiments/calculation-buffer-error3-native.json",
+    "experiments/formula-length-memory-errors-native.json",
+    "experiments/calculus-power-comparison-native.json",
+    "experiments/calculus-polynomial-native.json",
+    "experiments/phase10-calculus.json"
+  ],
+  "observations": [
+    "All ten documented error numbers have independently observed native LCD trigger frames; catalogue references validated against exact error strings.",
+    "25 nested sine functions Error3; RIGHT DEL restores 24 functions and native 6.383145827e-43, preserving operand.",
+    "Repeated formula recall reaches expression input capacity; full ENT and STO Error4; RIGHT DEL then STO F2 succeeds.",
+    "Duplicating long F2 into F3 gives Error6; ON/C recovers, F3 remains empty and F2 survives. Exact equality at 256 remains unmeasured.",
+    "Guide derivative through square and general power keys matches 0.577350268; independent quartic derivative matches32.0000005; guide integral unchanged."
+  ],
+  "implementation": [
+    "13-digit operation truncation and 14-digit sample truncation for measured calculus profile",
+    "NORMAL error upper-line placement; small nonzero trigonometric values preserved",
+    "Error3 RIGHT fault navigation retains operand; Error4 RIGHT returns to full-entry fault area",
+    "Formula stores preserve original implicit closures, recall obeys expression budget, full storage Error4 and shared memory overflow Error6"
+  ],
+  "validation": {
+    "focusedUnit": "110 passed in formula-limits-unit-validation.log",
+    "priorFullUnit": "548 passed and 33 browser cases passed in final-native-validation.log before final formula-boundary changes",
+    "final": "550 unit tests, 29 golden fixtures / 1200 frames, reference/report gates and six browser tests passed (Chromium, Firefox, WebKit) in formula-limits-final-validation.log; compileall and docker compose config passed. Docker runtime unavailable."
+  },
+  "unresolved": [
+    "Every unmeasured fault cursor/recovery combination and cross-mode capacity equality",
+    "Complete scalar/internal precision, limits and persistence audit",
+    "Modifier-by-key-by-mode and function-by-type compatibility matrices",
+    "All 430 ledger entries, manufacturer count mapping and release gates"
+  ]
+}

@@ -4101,6 +4101,7 @@
   },
   "ambiguities": [],
   "notes": [
-    "462 individually observed physical key inputs. At X=2, default dx=0.00002, derivative of X^4 displays 32.0000005. Application currently displays 32.; private arithmetic remains unresolved. Candidate thirteen-digit arithmetic did not match this and the guide derivative simultaneously and was not accepted. Prefix retains exact mode and buffer setup; hidden precision is unmeasured."
+    "462 individually observed physical key inputs. At X=2, default dx=0.00002, derivative of X^4 displays 32.0000005. Application currently displays 32.; private arithmetic remains unresolved. Candidate thirteen-digit arithmetic did not match this and the guide derivative simultaneously and was not accepted. Prefix retains exact mode and buffer setup; hidden precision is unmeasured.",
+    "2026-10-08 resolution: operation truncation at 13 significant digits and final-sample truncation at 14 reproduce both native derivative displays. Earlier application observations above remain historical evidence. Complete private-arithmetic parity is not asserted."
   ]
 }

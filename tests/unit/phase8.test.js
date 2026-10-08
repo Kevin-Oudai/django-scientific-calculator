@@ -32,10 +32,10 @@ for(const [slot,key] of [[0,8],[1,9],[2,10],[3,11]])test('Phase 8 F'+(slot+1)+' 
 });
 test('Phase 8 formula capacity is shared, replacement frees space and stores are immutable',()=>{
  let s=core.createInitialState();s.control.formulas[0]=core.semanticEditor.tokenize('1+'.repeat(64),{physical:true});s.control.formulas[1]=core.semanticEditor.tokenize('1+'.repeat(64),{physical:true});
- const saved=structuredClone(s);let next=seq([40,28,10],s);assert.equal(next.lifecycle,'error');assert.equal(next.control.errorCode,2);assert.deepEqual(s,saved);
+ const saved=structuredClone(s);let next=seq([40,28,10],s);assert.equal(next.lifecycle,'error');assert.equal(next.control.errorCode,6);assert.deepEqual(s,saved);
  next=seq([28,8],s);assert.equal(core.semanticEditor.serialize(next.control.formulas[0]),'0');next=seq([2,40,28,10],next);assert.equal(next.control.errorCode,null);
  const bad=core.snapshotCalculator(next);bad.state.control.formulas[3]=[{kind:'number',value:'bad'}];assert.throws(()=>core.restoreCalculator(bad));
- const functions=core.createInitialState();functions.control.formulas[0]=core.semanticEditor.tokenize('root('.repeat(128));functions.control.formulas[1]=core.semanticEditor.tokenize('sin('.repeat(128));assert.doesNotThrow(()=>core.snapshotCalculator(functions));assert.equal(seq([40,28,10],functions).control.errorCode,2);
+ const functions=core.createInitialState();functions.control.formulas[0]=core.semanticEditor.tokenize('root('.repeat(128));functions.control.formulas[1]=core.semanticEditor.tokenize('sin('.repeat(128));assert.doesNotThrow(()=>core.snapshotCalculator(functions));assert.equal(seq([40,28,10],functions).control.errorCode,6);
 });
 test('Phase 8 simulation discovers variables beside numeric coefficients and M overflow preserves its store',()=>{
  let s=seq([41,5,18,3,17]);assert.deepEqual(s.workflow.payload.variables,['A']);s=seq([42,48],s);assert.equal(s.answer,6);

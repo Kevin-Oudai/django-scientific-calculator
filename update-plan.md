@@ -2899,6 +2899,12 @@ guess any item in this phase; observe it in the reference simulator first.
 ### Phase 17 - Errors, Limits, and Cross-mode Parity
 
 - [ ] **EL506-350 - Build the complete simulator error catalogue.**
+
+    READY_TO_PUSH: All ten documented native error numbers independently observed.
+    Error3/4/6 capture completes the catalogue and includes adjacent formula
+    storage and retained-state checks. Measured calculus discrepancies resolved;
+    exhaustive EL506-351..361/364 and release gates remain open.
+    Evidence: error-catalogue-review.json and its independent native references.
 - [ ] **EL506-351 - Match error cursor placement and fault navigation.**
 - [ ] **EL506-352 - Match error clearing and preserved expression/state.**
 - [ ] **EL506-353 - Match scalar and exponent limits.**

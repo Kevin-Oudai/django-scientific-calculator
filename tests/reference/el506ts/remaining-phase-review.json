@@ -34,21 +34,7 @@
     "Full-manual flashing selected menu numbers and ALGB variables, with stable underlining for reduced motion",
     "Timer-yielded integration chunks progress when animation frames are suspended and cancel safely"
   ],
-  "knownDifferences": [
-    {
-      "fixture": "guide-p31-derivative",
-      "reference": "0.577350268",
-      "application": "0.57735027",
-      "status": "unresolved internal-precision/display difference"
-    },
-    {
-      "fixture": "calculus-polynomial-native",
-      "reference": "32.0000005",
-      "application": "32.",
-      "status": "unresolved internal-precision/display difference independently observed 2026-10-08",
-      "evidence": "experiments/calculus-polynomial-native.json after_step 462"
-    }
-  ],
+  "knownDifferences": [],
   "releaseGate": {
     "status": "not-satisfied",
     "version": "0.3.1",
@@ -56,8 +42,8 @@
     "version100Published": false,
     "reasons": [
       "No complete current behavioral assessment and differential coverage for all 430 capability entries",
-      "Unresolved derivative internal-precision/display difference",
-      "Exhaustive LIST operations, modifier/type compatibility, cross-mode errors and persistence matrices remain unverified"
+      "Exhaustive LIST operations, modifier/type compatibility, cross-mode errors and persistence matrices remain unverified",
+      "Complete precision and limit audit beyond the measured calculus and buffer checkpoints remains pending"
     ]
   },
   "simulatorExceptions": [
@@ -136,6 +122,21 @@
       "application": "2\u250ctan17=",
       "evidence": "phase16-native-notes.json checkpoint 177; tests/unit/phase16.test.js",
       "scope": "Function denominator glyph and decimal result; ordinary DIV remains \u00f7."
+    },
+    {
+      "fixture": "guide-p31-derivative",
+      "reference": "0.577350268",
+      "status": "resolved for independently observed LCD checkpoint by truncation profile",
+      "previousApplication": "0.57735027",
+      "application": "0.577350268"
+    },
+    {
+      "fixture": "calculus-polynomial-native",
+      "reference": "32.0000005",
+      "status": "resolved for independently observed LCD checkpoint by truncation profile",
+      "evidence": "experiments/calculus-polynomial-native.json after_step 462",
+      "previousApplication": "32.",
+      "application": "32.0000005"
     }
   ]
 }

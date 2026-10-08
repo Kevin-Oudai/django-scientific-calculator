@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "catalogueId": "el506-error-catalogue-v1",
   "roadmapItem": "EL506-350",
-  "status": "manual catalogue; native completion pending",
+  "status": "Complete documented error-number inventory with independently observed native triggers; exhaustive cursor/recovery parity remains EL506-351/352.",
   "manual": {
     "reference": "https://res.cloudinary.com/hnymxdy5j/raw/upload/v1743873557/media/00d7f000004ckruua4/EL506TSBWH_English_manual.pdf",
     "page": 2,
@@ -79,17 +79,27 @@
       "number": 3,
       "display": "Error 3",
       "meaning": "Calculation/data buffer depth exhausted",
-      "nativeStatus": "pending",
-      "nativeEvidence": [],
-      "faultCursorAndRecovery": "Scope-specific existing traces; exhaustive verification pending"
+      "nativeStatus": "observed in listed scopes",
+      "nativeEvidence": [
+        {
+          "experiment": "experiments/calculation-buffer-error3-native.json",
+          "afterStep": 27
+        }
+      ],
+      "faultCursorAndRecovery": "RIGHT restores the retained expression at the fault area; DEL removes one sine; ENT accepts 24 nested sine functions and displays 6.383145827e-43. Absolute cursor index and other recovery actions remain unmeasured."
     },
     {
       "number": 4,
       "display": "Error 4",
       "meaning": "Expression length exhausted",
-      "nativeStatus": "pending",
-      "nativeEvidence": [],
-      "faultCursorAndRecovery": "Scope-specific existing traces; exhaustive verification pending"
+      "nativeStatus": "observed in listed scopes",
+      "nativeEvidence": [
+        {
+          "experiment": "experiments/formula-length-memory-errors-native.json",
+          "afterStep": 46
+        }
+      ],
+      "faultCursorAndRecovery": "Six appended F1 recalls reach expression capacity; ENT Error4. RIGHT restores fault area. A full-expression STO also Error4 at frame49; RIGHT DEL then STO F2 succeeds at frame53. Absolute cursor and exhaustive recovery combinations remain unmeasured."
     },
     {
       "number": 5,
@@ -108,9 +118,14 @@
       "number": 6,
       "display": "Error 6",
       "meaning": "Shared formula-memory capacity exhausted",
-      "nativeStatus": "pending",
-      "nativeEvidence": [],
-      "faultCursorAndRecovery": "Scope-specific existing traces; exhaustive verification pending"
+      "nativeStatus": "observed in listed scopes",
+      "nativeEvidence": [
+        {
+          "experiment": "experiments/formula-length-memory-errors-native.json",
+          "afterStep": 55
+        }
+      ],
+      "faultCursorAndRecovery": "Duplicate long F2 into F3 yields Error6. ON/C restores NORMAL DEG blank 0. at frame56; rejected F3 stays empty at frame58 and F2 survives at frame60. Absolute cursor and exhaustive recovery combinations remain unmeasured."
     },
     {
       "number": 7,

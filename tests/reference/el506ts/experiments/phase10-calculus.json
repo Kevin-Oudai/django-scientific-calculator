@@ -338,7 +338,7 @@
     {
       "after_step": 13,
       "display": {
-        "upper_line": "∫dx=",
+        "upper_line": "\u222bdx=",
         "lower_line": "0.333333333",
         "indicators": [
           "DEG"
@@ -688,7 +688,7 @@
     {
       "after_step": 41,
       "display": {
-        "upper_line": "∫dx=",
+        "upper_line": "\u222bdx=",
         "lower_line": "0.785357562",
         "indicators": [
           "DEG"
@@ -734,6 +734,7 @@
   "notes": [
     "Native frames are independent evidence; intermediate golden frames are implementation regression assertions.",
     "Native guide derivative displays 0.577350268; application sample arithmetic displays 0.57735027. Exact private arithmetic remains a known precision gap.",
-    "The guide integral print and native display both read 0.785357562; an earlier OCR misreading is discarded."
+    "The guide integral print and native display both read 0.785357562; an earlier OCR misreading is discarded.",
+    "2026-10-08 resolution: operation truncation at 13 significant digits and final-sample truncation at 14 reproduce both native derivative displays. Earlier application observations above remain historical evidence. Complete private-arithmetic parity is not asserted."
   ]
 }
