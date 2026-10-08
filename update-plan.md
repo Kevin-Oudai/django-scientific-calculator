@@ -9,8 +9,8 @@
 
 ## Progress Overview
 
-As of 2026-10-08, **222 of 245 roadmap tasks are complete (90.6%)**, with
-**23 remaining**. The next task is **EL506-320**. These counts measure
+As of 2026-10-08, **226 of 245 roadmap tasks are complete (92.2%)**, with
+**19 remaining**. The next task is **EL506-320**. These counts measure
 completed checklist items, not elapsed effort or verified calculator parity;
 individual tasks vary in size. The detailed checklist below describes every
 remaining task and preserves its evidence and completion requirements.
@@ -30,7 +30,7 @@ complete (12/12 statistics menus, entry, weighted/paired data, browsing,
 correction, deletion, persistence and capacity). Phase 12 is complete (16/16
 statistics results and regression items). Phase 13 is complete (9/9 equation
 items), and Phase 14 is complete (8/8 complex items). Phase 15 is complete (14/14 matrix
-items). Phase 16 has 3/11 LIST
+items). Phase 16 has 7/11 LIST
 items complete (slot/capacity discovery, entry prompts, and result paging).
 Phase 17 has 2/15 items complete (guide regressions and property tests).
 Phase 18 has 13/15 items complete; release candidates and 1.0.0 remain gated. Pending simulator/application behavior is visible
@@ -54,7 +54,7 @@ in the generated report; phase completion does not establish full parity.
 | Phase 13 - Equation Mode | 9 | 0 |
 | Phase 14 - Complex Mode | 8 | 0 |
 | Phase 15 - Matrix Mode | 13 | 1 |
-| Phase 16 - LIST Mode | 3 | 8 |
+| Phase 16 - LIST Mode | 7 | 4 |
 | Phase 17 - Errors, Limits, and Cross-mode Parity | 2 | 13 |
 | Phase 18 - Security, Packaging, Compatibility, and Release | 13 | 2 |
 | **Total** | **221** | **24** |
@@ -2825,17 +2825,41 @@ guess any item in this phase; observe it in the reference simulator first.
     Evidence and verification: shared remaining-phase batch review above.
     Notes: Scoped item complete; unresolved final parity and release gates remain documented.
 
-- [ ] **EL506-323 - Match list navigation, correction, insertion, deletion,
+- [x] **EL506-323 - Match list navigation, correction, insertion, deletion,
   and replacement.**
+
+    Completed: 2026-10-08, implementation commit a9686934fbd4c9d9e479b8c16cd65523663fd5a9
+    Evidence: collection-operations-native experiment and list-operations-review.json; 341 independent native keys and significant LCD checkpoints.
+    Verification: 540 unit tests, 29 golden fixtures / 1200 frames, 15 LIST browser tests across three engines; nine-aggregate replay passed all three after correcting the WebKit test time budget. Python compileall and Compose config passed.
+    Notes: Published SHA verified against origin/main. Full parity and release gates remain pending.
+
 - [x] **EL506-324 - Match list recall and element-by-element result paging.**
 
     Completed: 2026-10-08, implementation commit 96d066d5bf321f508229f4552a71eaac53a6e007
     Evidence and verification: shared remaining-phase batch review above.
     Notes: Scoped item complete; unresolved final parity and release gates remain documented.
 
-- [ ] **EL506-325 - Match list/list arithmetic.**
-- [ ] **EL506-326 - Match scalar/list arithmetic.**
-- [ ] **EL506-327 - Match confirmed list aggregates.** Include sum, product,
+- [x] **EL506-325 - Match list/list arithmetic.**
+
+    Completed: 2026-10-08, implementation commit a9686934fbd4c9d9e479b8c16cd65523663fd5a9
+    Evidence: collection-operations-native experiment and list-operations-review.json; 341 independent native keys and significant LCD checkpoints.
+    Verification: 540 unit tests, 29 golden fixtures / 1200 frames, 15 LIST browser tests across three engines; nine-aggregate replay passed all three after correcting the WebKit test time budget. Python compileall and Compose config passed.
+    Notes: Published SHA verified against origin/main. Full parity and release gates remain pending.
+
+- [x] **EL506-326 - Match scalar/list arithmetic.**
+
+    Completed: 2026-10-08, implementation commit a9686934fbd4c9d9e479b8c16cd65523663fd5a9
+    Evidence: collection-operations-native experiment and list-operations-review.json; 341 independent native keys and significant LCD checkpoints.
+    Verification: 540 unit tests, 29 golden fixtures / 1200 frames, 15 LIST browser tests across three engines; nine-aggregate replay passed all three after correcting the WebKit test time budget. Python compileall and Compose config passed.
+    Notes: Published SHA verified against origin/main. Full parity and release gates remain pending.
+
+- [x] **EL506-327 - Match confirmed list aggregates.**
+
+    Completed: 2026-10-08, implementation commit a9686934fbd4c9d9e479b8c16cd65523663fd5a9
+    Evidence: collection-operations-native experiment and list-operations-review.json; 341 independent native keys and significant LCD checkpoints.
+    Verification: 540 unit tests, 29 golden fixtures / 1200 frames, 15 LIST browser tests across three engines; nine-aggregate replay passed all three after correcting the WebKit test time budget. Python compileall and Compose config passed.
+    Notes: Published SHA verified against origin/main. Full parity and release gates remain pending.
+ Include sum, product,
   minimum, maximum, or mean only if exposed.
 - [ ] **EL506-328 - Match confirmed vector-like list operations.** Include
   dot product, sorting, or cumulative operations only if exposed.
