@@ -7,7 +7,7 @@
  const fill=(value,rows,columns)=>{dimensions(rows,columns,7);return matrix(rows,columns,Array(rows*columns).fill(finite(value)));};
  const identity=n=>{dimensions(n,n,7);return matrix(n,n,Array.from({length:n*n},(_,i)=>i%(n+1)===0?1:0));};
  const transpose=a=>matrix(a.columns,a.rows,Array.from({length:a.data.length},(_,i)=>a.data[(i%a.rows)*a.columns+Math.floor(i/a.rows)]));
- function add(a,b,sign=1){if(a.rows!==b.rows||a.columns!==b.columns)fail(8);return matrix(a.rows,a.columns,a.data.map((x,i)=>x+sign*b.data[i]));}
+ function add(a,b,sign=1,sum=(x,y)=>x+y){if(a.rows!==b.rows||a.columns!==b.columns)fail(8);return matrix(a.rows,a.columns,a.data.map((x,i)=>sum(x,sign*b.data[i])));}
  const scale=(a,n)=>matrix(a.rows,a.columns,a.data.map(x=>x*n));
  function multiply(a,b){if(a.columns!==b.rows)fail(8);return matrix(a.rows,b.columns,Array.from({length:a.rows*b.columns},(_,i)=>{const r=Math.floor(i/b.columns),c=i%b.columns;let sum=0;for(let k=0;k<a.columns;k++)sum=finite(sum+finite(a.data[r*a.columns+k]*b.data[k*b.columns+c]));return sum;}));}
  function elimination(a,inverse=false){if(a.rows!==a.columns)fail(8);const n=a.rows,rows=Array.from({length:n},(_,i)=>a.data.slice(i*n,(i+1)*n).concat(inverse?Array.from({length:n},(_,j)=>i===j?1:0):[]));let determinant=1;
@@ -24,7 +24,7 @@
  function evaluate(ast,semantic,scalar,scope){return semantic.evaluate(ast,{
   number:text=>finite(Number(text)),symbol:name=>/^mat[A-D]$/.test(name)?scope.matrices[name.charCodeAt(3)-65]||fail(10):scalar.symbol(name,scope),
   unary:(op,a)=>typeof a==='number'?op==='-'?-a:a:op==='-'?scale(a,-1):a,
-  binary:(op,a,b)=>{const am=typeof a==='object',bm=typeof b==='object';if(!am&&!bm)return finite(scalar.binary(op,a,b));if(op==='+'||op==='-'){if(!am||!bm)fail(1);return add(a,b,op==='+'?1:-1);}if(op==='*')return am&&bm?multiply(a,b):scale(am?a:b,am?b:a);if(op==='/'&&am&&!bm){if(!b)fail(2);return scale(a,1/b);}if(op==='^'&&am&&!bm)return power(a,b);fail(1);},
+  binary:(op,a,b)=>{const am=typeof a==='object',bm=typeof b==='object';if(!am&&!bm)return finite(scalar.binary(op,a,b));if(op==='+'||op==='-'){if(!am||!bm)fail(1);return add(a,b,op==='+'?1:-1,scope.sum);}if(op==='*')return am&&bm?multiply(a,b):scale(am?a:b,am?b:a);if(op==='/'&&am&&!bm){if(!b)fail(2);return scale(a,1/b);}if(op==='^'&&am&&!bm)return power(a,b);fail(1);},
   call:(name,args)=>{const [a,b,c]=args;if(name==='det')return elimination(a);if(name==='trans')return transpose(a);if(name==='identity')return identity(a);if(name==='fill')return fill(a,b,c);if(name==='dim')return dimension(a,b,c);if(name==='cumul')return cumulative(a);if(name==='aug')return augment(a,b);if(name==='rndmat'){dimensions(a,b,7);return matrix(a,b,Array.from({length:a*b},()=>scope.random()));}if(args.some(x=>typeof x!=='number'))fail(1);return finite(scalar.call(name,args,scope));}
  },scope);}
  return Object.freeze({matrix,fill,identity,transpose,add,scale,multiply,determinant:a=>elimination(a),inverse:a=>elimination(a,true),power,dimension,cumulative,augment,evaluate});

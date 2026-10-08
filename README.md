@@ -1484,3 +1484,11 @@ and scaled intermediate probes. `1E13 + 1 - 1E13` returns zero, and
 `1 / 3 * 1E13 - 3333333333E3` returns `333.3`. The independent trace and selected
 component arithmetic policy are recorded in `complex-precision-review.json`.
 The complete precision audit across all result types remains open.
+
+Measured physical MAT and LIST cancellation is also reproduced: unit matrix
+`A / 3 * 3 - A` and unit list `L1 / 3 * 3 - L1` return zero. Matrix
+`A * 1E13 + A - A * 1E13` returns zero, and list
+`L1 / 3 * 1E13 - L1 * 3333333333E3` returns `333.3`. Independent
+48-key MAT and 53-key LIST traces and the deliberately scoped arithmetic policy
+are recorded in `collection-precision-review.json`. Elimination, aggregate,
+vector-product and other result-type accuracy remain part of the open audit.

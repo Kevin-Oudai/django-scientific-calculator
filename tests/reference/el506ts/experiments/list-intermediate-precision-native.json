@@ -1,0 +1,382 @@
+{
+  "schema_version": 1,
+  "experiment_id": "el506-354-list-intermediate-precision-native-v1",
+  "roadmap_item": "EL506-354",
+  "catalog_id": "el506-physical-keys-v1",
+  "simulator": {
+    "profile_id": "sharp-el506ts-pc-simulator-1.0.2.0",
+    "product": "SHARP PC Simulator for EL-506TS",
+    "build": "1.0.2.0",
+    "runtime_sha256": "6bfef4d04900b472892be2d4c54dcfa6013f87232097e32df508ca4c27425530",
+    "locale": "English UI; en-US",
+    "operating_system": "Windows 11"
+  },
+  "capture": {
+    "date": "2026-10-08",
+    "timezone": "America/Port_of_Spain",
+    "method": "Live @oai/sky, exactly one native input then an inspected screenshot per action. Independently transcribed significant LCD checkpoints. Only DEG indicator consistently transcribed; other indicators and hidden stored precision are not claimed by this trace. Intermediate golden frames characterize implementation, not independent parity.",
+    "evidence_kind": "live-simulator",
+    "source_ids": [
+      "live-session"
+    ]
+  },
+  "initial_state": {
+    "reset": {
+      "kind": "documented-state",
+      "description": "MAT DEG MAT1,1=0 at native1009. MODE5 clears stores; DOWN DOWN enters default1-element list;1 DAT explicitly seedsunitbuffer; ONC MATH STO0 storesL1[1]."
+    },
+    "setup_sequence": [],
+    "mode": {
+      "status": "observed",
+      "value": "MAT"
+    },
+    "settings": [
+      {
+        "name": "angle",
+        "observation": {
+          "status": "observed",
+          "value": "DEG"
+        }
+      },
+      {
+        "name": "display-format",
+        "observation": {
+          "status": "observed",
+          "value": "NORM1 (pinned reset default)"
+        }
+      }
+    ],
+    "display": {
+      "upper_line": "MAT1,1=",
+      "lower_line": "0.",
+      "indicators": [
+        "DEG"
+      ],
+      "scroll_arrows": [],
+      "cursor": {
+        "status": "unknown",
+        "reason": "Blink timing not measured; cursor start separately asserted where observed."
+      },
+      "insert_mode": {
+        "status": "unknown",
+        "reason": "No timing claim."
+      },
+      "prompt": null,
+      "selected_result_component": null
+    },
+    "stores": []
+  },
+  "sequence": [
+    "EL506-K04",
+    "EL506-K36",
+    "EL506-K11",
+    "EL506-K11",
+    "EL506-K40",
+    "EL506-K29",
+    "EL506-K02",
+    "EL506-K17",
+    "EL506-K41",
+    "EL506-K45",
+    "EL506-K17",
+    "EL506-K45",
+    "EL506-K45",
+    "EL506-K39",
+    "EL506-K42",
+    "EL506-K38",
+    "EL506-K42",
+    "EL506-K44",
+    "EL506-K17",
+    "EL506-K45",
+    "EL506-K45",
+    "EL506-K48",
+    "EL506-K11",
+    "EL506-K02",
+    "EL506-K17",
+    "EL506-K45",
+    "EL506-K45",
+    "EL506-K39",
+    "EL506-K42",
+    "EL506-K38",
+    "EL506-K40",
+    "EL506-K24",
+    "EL506-K40",
+    "EL506-K42",
+    "EL506-K44",
+    "EL506-K17",
+    "EL506-K45",
+    "EL506-K45",
+    "EL506-K38",
+    "EL506-K42",
+    "EL506-K42",
+    "EL506-K42",
+    "EL506-K42",
+    "EL506-K42",
+    "EL506-K42",
+    "EL506-K42",
+    "EL506-K42",
+    "EL506-K42",
+    "EL506-K42",
+    "EL506-K24",
+    "EL506-K42",
+    "EL506-K48",
+    "EL506-K11"
+  ],
+  "frames": [
+    {
+      "after_step": 0,
+      "display": {
+        "upper_line": "MAT1,1=",
+        "lower_line": "0.",
+        "indicators": [
+          "DEG"
+        ],
+        "scroll_arrows": [],
+        "cursor": {
+          "status": "unknown",
+          "reason": "Blink timing not measured; cursor start separately asserted where observed."
+        },
+        "insert_mode": {
+          "status": "unknown",
+          "reason": "No timing claim."
+        },
+        "prompt": null,
+        "selected_result_component": null
+      },
+      "result": {
+        "status": "observed",
+        "value": {
+          "encoding": "decimal-string",
+          "value": "0",
+          "basis": "displayed"
+        }
+      }
+    },
+    {
+      "after_step": 3,
+      "display": {
+        "upper_line": "SIZE=",
+        "lower_line": "1.",
+        "indicators": [
+          "DEG"
+        ],
+        "scroll_arrows": [],
+        "cursor": {
+          "status": "unknown",
+          "reason": "Blink timing not measured; cursor start separately asserted where observed."
+        },
+        "insert_mode": {
+          "status": "unknown",
+          "reason": "No timing claim."
+        },
+        "prompt": null,
+        "selected_result_component": null
+      },
+      "result": {
+        "status": "observed",
+        "value": {
+          "encoding": "decimal-string",
+          "value": "1",
+          "basis": "displayed"
+        }
+      }
+    },
+    {
+      "after_step": 4,
+      "display": {
+        "upper_line": "LIST1=",
+        "lower_line": "0.",
+        "indicators": [
+          "DEG"
+        ],
+        "scroll_arrows": [],
+        "cursor": {
+          "status": "unknown",
+          "reason": "Blink timing not measured; cursor start separately asserted where observed."
+        },
+        "insert_mode": {
+          "status": "unknown",
+          "reason": "No timing claim."
+        },
+        "prompt": null,
+        "selected_result_component": null
+      },
+      "result": {
+        "status": "observed",
+        "value": {
+          "encoding": "decimal-string",
+          "value": "0",
+          "basis": "displayed"
+        }
+      }
+    },
+    {
+      "after_step": 6,
+      "display": {
+        "upper_line": "LIST1=",
+        "lower_line": "1.",
+        "indicators": [
+          "DEG"
+        ],
+        "scroll_arrows": [],
+        "cursor": {
+          "status": "unknown",
+          "reason": "Blink timing not measured; cursor start separately asserted where observed."
+        },
+        "insert_mode": {
+          "status": "unknown",
+          "reason": "No timing claim."
+        },
+        "prompt": null,
+        "selected_result_component": null
+      },
+      "result": {
+        "status": "observed",
+        "value": {
+          "encoding": "decimal-string",
+          "value": "1",
+          "basis": "displayed"
+        }
+      }
+    },
+    {
+      "after_step": 22,
+      "display": {
+        "upper_line": "SIZE=",
+        "lower_line": "1.",
+        "indicators": [
+          "DEG"
+        ],
+        "scroll_arrows": [],
+        "cursor": {
+          "status": "unknown",
+          "reason": "Blink timing not measured; cursor start separately asserted where observed."
+        },
+        "insert_mode": {
+          "status": "unknown",
+          "reason": "No timing claim."
+        },
+        "prompt": null,
+        "selected_result_component": null
+      },
+      "result": {
+        "status": "observed",
+        "value": {
+          "encoding": "decimal-string",
+          "value": "1",
+          "basis": "displayed"
+        }
+      }
+    },
+    {
+      "after_step": 23,
+      "display": {
+        "upper_line": "LIST1=",
+        "lower_line": "0.",
+        "indicators": [
+          "DEG"
+        ],
+        "scroll_arrows": [],
+        "cursor": {
+          "status": "unknown",
+          "reason": "Blink timing not measured; cursor start separately asserted where observed."
+        },
+        "insert_mode": {
+          "status": "unknown",
+          "reason": "No timing claim."
+        },
+        "prompt": null,
+        "selected_result_component": null
+      },
+      "result": {
+        "status": "observed",
+        "value": {
+          "encoding": "decimal-string",
+          "value": "0",
+          "basis": "displayed"
+        }
+      }
+    },
+    {
+      "after_step": 52,
+      "display": {
+        "upper_line": "SIZE=",
+        "lower_line": "1.",
+        "indicators": [
+          "DEG"
+        ],
+        "scroll_arrows": [],
+        "cursor": {
+          "status": "unknown",
+          "reason": "Blink timing not measured; cursor start separately asserted where observed."
+        },
+        "insert_mode": {
+          "status": "unknown",
+          "reason": "No timing claim."
+        },
+        "prompt": null,
+        "selected_result_component": null
+      },
+      "result": {
+        "status": "observed",
+        "value": {
+          "encoding": "decimal-string",
+          "value": "1",
+          "basis": "displayed"
+        }
+      }
+    },
+    {
+      "after_step": 53,
+      "display": {
+        "upper_line": "LIST1=",
+        "lower_line": "333.3",
+        "indicators": [
+          "DEG"
+        ],
+        "scroll_arrows": [],
+        "cursor": {
+          "status": "unknown",
+          "reason": "Blink timing not measured; cursor start separately asserted where observed."
+        },
+        "insert_mode": {
+          "status": "unknown",
+          "reason": "No timing claim."
+        },
+        "prompt": null,
+        "selected_result_component": null
+      },
+      "result": {
+        "status": "observed",
+        "value": {
+          "encoding": "decimal-string",
+          "value": "333.3",
+          "basis": "displayed"
+        }
+      }
+    }
+  ],
+  "stored_values": {
+    "coverage": "Visible results only; hidden precision is unmeasured.",
+    "observations": []
+  },
+  "errors": [],
+  "sources": [
+    {
+      "source_id": "live-session",
+      "kind": "simulator",
+      "reference": "simulator-profile.json",
+      "page": null,
+      "scope": "Native1010..1062: independently seededunitlist, division cancellation and scaled third residual333.3. Visible checkpoints only."
+    }
+  ],
+  "oracle": {
+    "selected_source_id": "live-session",
+    "simulator_exception_ids": [],
+    "disagreements": []
+  },
+  "ambiguities": [],
+  "notes": [
+    "One native action and inspected screenshot per step. Only DEG consistently transcribed.",
+    "This trace constrains physical LIST basic component arithmetic, not aggregates, vector products or all LIST algorithms."
+  ]
+}

@@ -2006,7 +2006,7 @@
     }
     if(previous.workflow.kind)return null;
     if([8,11].includes(n))return physicalListEdit(next,previous.control.buffers.list?listFromTyped(previous.control.buffers.list):undefined);
-    if(n===48&&!previous.secondActive){try{const source=physicalSource(previous)||'0',ast=semantic.parseTokens(semantic.tokenize(closeOpenParentheses(source).replaceAll(':','/'),{physical:true}),{physical:true});const result=lists.evaluate(ast,semantic,physicalAdapter,{angleMode:previous.angleMode,answer:previous.answer,lists:previous.control.lists.map(v=>v?listFromTyped(v):null)});if(Array.isArray(result))return physicalListEdit(next,result);return physicalCalculate(next,String(result),source);}catch(error){return physicalError(next,error.code||(error instanceof RangeError?2:1));}}
+    if(n===48&&!previous.secondActive){try{const source=physicalSource(previous)||'0',ast=semantic.parseTokens(semantic.tokenize(closeOpenParentheses(source).replaceAll(':','/'),{physical:true}),{physical:true});const result=lists.evaluate(ast,semantic,physicalAdapter,{angleMode:previous.angleMode,answer:previous.answer,lists:previous.control.lists.map(v=>v?listFromTyped(v):null),binary:physicalCollectionBinary});if(Array.isArray(result))return physicalListEdit(next,result);return physicalCalculate(next,String(result),source);}catch(error){return physicalError(next,error.code||(error instanceof RangeError?2:1));}}
     if(previous.secondActive&&n===28){next=physicalFlush(next,false);next.expression+=',';next.secondActive=false;return physicalEditor(next);}
     if([20,21].includes(n)&&!previous.secondActive){next=physicalFlush(next);next.expression+=n===20?'^2':'^3';return physicalEditor(next);}
     if(n===18&&previous.secondActive){next=physicalFlush(next);next.expression+='^(-1)';next.secondActive=false;return physicalEditor(next);}
@@ -2069,7 +2069,7 @@
     if(n===48&&!previous.secondActive){
       try{
         const source=physicalSource(previous)||'0',ast=semantic.parseTokens(semantic.tokenize(closeOpenParentheses(source).replaceAll(':','/'),{physical:true}),{physical:true});
-        const result=matrices.evaluate(ast,semantic,physicalAdapter,{angleMode:previous.angleMode,answer:previous.answer,matrices:previous.control.matrices.map(v=>v?matrixFromTyped(v):null),random:()=>randomSample===undefined?Math.random():randomSample});
+        const result=matrices.evaluate(ast,semantic,physicalAdapter,{angleMode:previous.angleMode,answer:previous.answer,matrices:previous.control.matrices.map(v=>v?matrixFromTyped(v):null),sum:(a,b)=>physicalNumeric(Number(engine.quantize(engine.decimalBinary('+',String(a),String(b)),13,'truncate'))),random:()=>randomSample===undefined?Math.random():randomSample});
         if(typeof result==='object')return physicalMatrixEdit(next,result);
         next=physicalCalculate(next,String(result),source);return next;
       }catch(error){return physicalError(next,error.code|| (error instanceof RangeError?2:1));}
@@ -2079,6 +2079,12 @@
     if(n===18&&previous.secondActive){next=physicalFlush(next);next.expression+='^(-1)';next.secondActive=false;return physicalEditor(next);}
     if(!previous.secondActive&&[38,39,43,44,33,34].includes(n)){next=physicalFlush(next);next.expression+=({38:'*',39:':',43:'+',44:'-',33:'(',34:')'})[n];return physicalEditor(next);}
     return null;
+  }
+  function physicalCollectionBinary(op,a,b){
+    if(op==='+'||op==='-')return physicalNumeric(Number(engine.quantize(engine.decimalBinary(op,String(a),String(b)),13,'truncate')));
+    if(op==='*')return physicalNumeric(Number(engine.quantize(String(a*b),14,'truncate')));
+    if(op==='/')return physicalNumeric(a/b);
+    return physicalAdapter.binary(op,a,b);
   }
   function physicalComplexBinary(op,a,b){
     // Independent CPLX probes constrain different intermediate budgets: sums

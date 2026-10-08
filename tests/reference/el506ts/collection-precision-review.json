@@ -1,0 +1,45 @@
+{
+  "reviewId": "matrix-list-intermediate-precision-2026-10-08",
+  "roadmapItem": "EL506-354",
+  "roadmapItemComplete": false,
+  "status": "measured basic component scope validated; ready for publication",
+  "references": [
+    "experiments/matrix-intermediate-precision-native.json",
+    "experiments/list-intermediate-precision-native.json"
+  ],
+  "nativeKeys": 101,
+  "nativeFindings": [
+    "Unitmatrix A/3*3-A returns0.",
+    "Unitmatrix A*1E13+A-A*1E13 returns0.",
+    "Unitlist L1/3*3-L1 returns0.",
+    "Unitlist L1/3*1E13-L1*3333333333E3 returns333.3."
+  ],
+  "implementationPolicy": {
+    "matrix": "Physical addition/subtraction: exact decimal sum followed by13 significant-digit truncation. Existing bounded matrix products/division remain unchanged.",
+    "list": "Physical basic component sums: exact decimal plus13 significant-digit truncation; products14 significant digits; bounded binary division. Scalar-only LIST operations retain the scalar adapter.",
+    "basis": "Selected policies reproduce independent visible measurements. They do not uniquely prove hidden native algorithms. Pure module APIs preserve default arithmetic; callbacks are transient, outside snapshots."
+  },
+  "validation": {
+    "fullUnitPassed": 684,
+    "browserPassed": 24,
+    "browserEngines": [
+      "Chromium",
+      "Firefox",
+      "WebKit"
+    ],
+    "goldenFixtures": 29,
+    "goldenFrames": 1200,
+    "referenceAndReportChecks": "passed",
+    "compileall": "passed",
+    "dockerComposeConfig": "passed",
+    "dockerRuntime": "unavailable: Docker Desktop Linux pipe absent",
+    "localDemo": "Fresh collection asset version and explicit53-key LIST UI replay displays333.3",
+    "proof": "collection-precision-proof.png (outside repository)"
+  },
+  "remaining": [
+    "Matrix multiplication, elimination, inverse and determinant precision",
+    "LIST aggregate, vector product and power precision",
+    "STAT, EQN and remaining CPLX operation accuracy",
+    "Complete all-result-type assessment and final differential audit"
+  ]
+}

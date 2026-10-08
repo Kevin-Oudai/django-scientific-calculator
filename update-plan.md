@@ -2941,6 +2941,11 @@ guess any item in this phase; observe it in the reference simulator first.
     Validation: 682 unit tests, 29 golden fixtures / 1200 frames, reference/report
     gates,21 browser tests across three engines, compileall and Compose config;
     fresh IAB333.3 proof. Docker runtime unavailable.
+    Additional MAT/LIST component patch: READY_TO_PUSH after 684 unit tests,
+    24 browser checks across three engines, reference/report and golden gates,
+    compileall and Compose config. Independent 101-key native evidence and
+    scoped policy: collection-precision-review.json. EL506-354 remains open.
+
 - [x] **EL506-355 - Match expression length and nesting limits.**
 - [x] **EL506-356 - Match history, formula, dataset, matrix, and list
   capacities.**
