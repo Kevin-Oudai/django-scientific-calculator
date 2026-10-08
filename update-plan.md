@@ -2941,7 +2941,8 @@ guess any item in this phase; observe it in the reference simulator first.
     Validation: 682 unit tests, 29 golden fixtures / 1200 frames, reference/report
     gates,21 browser tests across three engines, compileall and Compose config;
     fresh IAB333.3 proof. Docker runtime unavailable.
-    Additional MAT/LIST component patch: READY_TO_PUSH after 684 unit tests,
+    Additional MAT/LIST component patch published as
+    b2f6991a32870a3729191963903fc28c9f41b2ca, verified on origin/main, after 684 unit tests,
     24 browser checks across three engines, reference/report and golden gates,
     compileall and Compose config. Independent 101-key native evidence and
     scoped policy: collection-precision-review.json. EL506-354 remains open.
