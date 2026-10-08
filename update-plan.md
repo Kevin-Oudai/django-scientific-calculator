@@ -2951,6 +2951,17 @@ guess any item in this phase; observe it in the reference simulator first.
     5d012f5ab0b6742f0354a6615317b1d073febc1f, verified on origin/main, after687 unit
     tests and six browser checks across three engines; the complete result-type
     precision audit remains open.
+    SD X-sum/mean accumulation now reproduces independently measured zero
+    at1E13 cancellation andone at1E12 cancellation. Independent48-key trace
+    includes ALPHA, RCL andSTATVAR. READY_TO_PUSH:720 unit tests,18 focused
+    browser checks across three engines,29 golden fixtures/1200 frames and
+    reference/report,compileall/Compose gates passed; fresh previewproof.
+    weighted products, higher moments andregression precision remain open.
+    Additional78 independent native actions establish scientific MAT/LIST
+    definition entry, exponent-sign editing, and LIST sum/mean cancellation0.
+    Corrected droppedExp, wrongmantissa NEG and precision; scoped review:
+    collection-entry-aggregate-review.json. Same720/18 validation batch;
+    fresh preview verifies exponent input and LIST cancellation. READY_TO_PUSH.
 
 - [x] **EL506-355 - Match expression length and nesting limits.**
 - [x] **EL506-356 - Match history, formula, dataset, matrix, and list
@@ -2992,13 +3003,20 @@ guess any item in this phase; observe it in the reference simulator first.
 
     Scoped native determinant/transpose/dimension scalar-operand audit found
     and corrected determinant1 anddim(1,1,1) accepting a scalar. Allthree now
-    matchError1, preserve matrix slots and recover withONC. READY_TO_PUSH after
+    matchError1, preserve matrix slots and recover withONC. Published as
+    ee5129749ca3b604ca66913909e63ea0a934f8b8, verified on origin/main, after690 full unit tests,
     focused unit and nine browser checks across three engines; fullcompatibility
     remains open. See matrix-type-review.json.
 - [ ] **EL506-360 - Add boundary and invalid-input tests for every ledger
   operation.**
 - [ ] **EL506-361 - Add differential coverage for every capability-ledger
   entry.**
+
+    Every430 entry now has an explicit partialunit assertion; the earlier
+    unmapped-test gap is closed. Added printed digits0..9, allnine scalarALPHA
+    variables, ANS, HEXB..E andindependently observedSTATVAR evidence. The
+    frozenbaseline is unchanged andfullcurrentbehavior/boundary assessment
+    remains open; counts alone do not establishfullparity.
 - [x] **EL506-362 - Complete the full operation-guide regression suite.**
 
     Completed: 2026-10-08, implementation commit 96d066d5bf321f508229f4552a71eaac53a6e007

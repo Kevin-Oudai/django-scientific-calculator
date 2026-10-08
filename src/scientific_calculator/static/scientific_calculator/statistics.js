@@ -2,14 +2,15 @@
  'use strict';
  const finite=x=>{if(!Number.isFinite(x)||Math.abs(x)>=1e100)throw new RangeError('Statistics range');return Math.abs(x)<1e-99?0:x;};
  const sum=items=>{let total=0,correction=0;for(const item of items){const y=item-correction,t=total+y;correction=(t-total)-y;total=t;}return finite(total);};
- function calculate(rows,mode='SD'){
+ function calculate(rows,mode='SD',options={}){
   if(!['SD','LINE','QUAD','EXP','LOG','PWR','INV'].includes(mode))throw new TypeError('Statistics submode');
   const data=rows.map(r=>{let x=r.x,y=r.y;if(!Number.isFinite(x)||!Number.isFinite(r.weight)||r.weight===0||mode!=='SD'&&!Number.isFinite(y))throw new RangeError('Invalid observation');
    if(['LOG','PWR'].includes(mode)){if(x<=0)throw new RangeError('Positive X required');x=Math.log(x);}
    if(['EXP','PWR'].includes(mode)){if(y<=0)throw new RangeError('Positive Y required');y=Math.log(y);}
    if(mode==='INV'){if(x===0)throw new RangeError('Nonzero X required');x=1/x;}
    return {x,y,w:r.weight};});
-  const n=sum(data.map(r=>r.w)),sx=sum(data.map(r=>r.w*r.x)),sxx=sum(data.map(r=>r.w*r.x*r.x));
+  const xSum=options.xSum||sum;
+  const n=sum(data.map(r=>r.w)),sx=xSum(data.map(r=>r.w*r.x)),sxx=sum(data.map(r=>r.w*r.x*r.x));
   const out={'count-n':n,'sum-x':sx,'sum-x-squared':sxx};
   if(n===0)return out;
   out['mean-x']=finite(sx/n);
@@ -40,7 +41,7 @@
    if(xx*yy>0)out['correlation-r']=finite(xy/Math.sqrt(xx*yy));}
   return out;
  }
- function result(rows,mode,name){const result=calculate(rows,mode);if(!Object.hasOwn(result,name))throw new RangeError('Undefined statistical result');return finite(result[name]);}
+ function result(rows,mode,name,options){const result=calculate(rows,mode,options);if(!Object.hasOwn(result,name))throw new RangeError('Undefined statistical result');return finite(result[name]);}
  function estimate(rows,mode,direction,value,second=false){
   const s=calculate(rows,mode),a=s['coefficient-a'],b=s['coefficient-b'],c=s['coefficient-c'];
   if(a===undefined||b===undefined)throw new RangeError('Undefined regression');

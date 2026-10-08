@@ -1420,6 +1420,350 @@
         "el506.matrix-ope.dim"
       ],
       "scope": "Actual physical buttons replay three independently observed scalar type rejections and ONC recovery across three browser engines. Partial type-boundary evidence only."
+    },
+    {
+      "kind": "unit",
+      "path": "tests/unit/printed-modifier-audit.test.js",
+      "anchor": "Printed ALPHA",
+      "capabilityIds": [
+        "el506.alpha.el506-k18",
+        "el506.alpha.el506-k19",
+        "el506.alpha.el506-k20",
+        "el506.alpha.el506-k21",
+        "el506.alpha.el506-k22",
+        "el506.alpha.el506-k23",
+        "el506.alpha.el506-k27",
+        "el506.alpha.el506-k28",
+        "el506.alpha.el506-k29",
+        "el506.alpha.el506-k48"
+      ],
+      "scope": "Independent printed legends and manual scalar variable/ANS substitution: stored7 plus1 returns8 for allnine variables andANS. NORMAL only; other-mode availability and alltype/precision behavior not inferred."
+    },
+    {
+      "kind": "unit",
+      "path": "tests/unit/printed-modifier-audit.test.js",
+      "anchor": "Printed HEX digit",
+      "capabilityIds": [
+        "el506.nbase.digit.b",
+        "el506.nbase.digit.c",
+        "el506.nbase.digit.d",
+        "el506.nbase.digit.e"
+      ],
+      "scope": "Independent positional notation: printed HEX B,C,D,E returndecimal11,12,13,14 via physicalkeys andDEC conversion. Other boundaries andallmodifier semantics not inferred."
+    },
+    {
+      "kind": "unit",
+      "path": "tests/unit/statistics-precision-audit.test.js",
+      "anchor": "Independent native STAT X cancellation",
+      "capabilityIds": [
+        "el506.alpha.el506-k35",
+        "el506.alpha.el506-k46",
+        "el506.statistic.el506-k35",
+        "el506.statistic.el506-k46"
+      ],
+      "scope": "Independent26-key SD data1E13,1,-1E13 gives sumx0, meanx0 andimmediateRCLsumx0; snapshots and retained data checked. Other moments, weights, regression andhidden precision not inferred."
+    },
+    {
+      "kind": "browser",
+      "path": "tests/e2e/statistics-precision-audit.spec.js",
+      "anchor": "Native STAT X sum",
+      "capabilityIds": [
+        "el506.alpha.el506-k35",
+        "el506.alpha.el506-k46",
+        "el506.statistic.el506-k35",
+        "el506.statistic.el506-k46"
+      ],
+      "scope": "Physical-button replay ofindependent SD cancellation andselected native LCD checkpoints; partial measured numeric scope."
+    },
+    {
+      "kind": "unit",
+      "path": "tests/unit/phase3.test.js",
+      "anchor": "HOME in NORMAL retains ANS",
+      "capabilityIds": [
+        "el506.key.el506-k01",
+        "el506.base.el506-k01"
+      ],
+      "scope": "NORMAL versus mode-exit HOME memory policy. Explicit partial behavior only; no promotion tofullsimulatorparity."
+    },
+    {
+      "kind": "unit",
+      "path": "tests/unit/phase3.test.js",
+      "anchor": "OFF blanks all display state",
+      "capabilityIds": [
+        "el506.base.el506-k02",
+        "el506.second.el506-k02"
+      ],
+      "scope": "Printed OFF blanks display; ONC wakes retained memories and ignores keys while off. Explicit partial behavior only; no promotion tofullsimulatorparity."
+    },
+    {
+      "kind": "unit",
+      "path": "tests/unit/phase3.test.js",
+      "anchor": "ON/C preserves all stores",
+      "capabilityIds": [
+        "el506.second.el506-k04"
+      ],
+      "scope": "CA clears temporary stores and retainsM/formulas; ordinary ONC retains stores. Explicit partial behavior only; no promotion tofullsimulatorparity."
+    },
+    {
+      "kind": "unit",
+      "path": "tests/unit/phase3.test.js",
+      "anchor": "all six MODE choices select correctly",
+      "capabilityIds": [
+        "el506.base.el506-k04"
+      ],
+      "scope": "Allsix mode selections and submenu confirmation semantics. Explicit partial behavior only; no promotion tofullsimulatorparity."
+    },
+    {
+      "kind": "unit",
+      "path": "tests/unit/phase3.test.js",
+      "anchor": "modifier consumption, inverse HYP ordering",
+      "capabilityIds": [
+        "el506.base.el506-k03",
+        "el506.second.el506-k07"
+      ],
+      "scope": "2ndF inverseHYP resolution andINS setting persistence. Explicit partial behavior only; no promotion tofullsimulatorparity."
+    },
+    {
+      "kind": "unit",
+      "path": "tests/unit/phase3.test.js",
+      "anchor": "end-of-equation DEL backspaces",
+      "capabilityIds": [
+        "el506.base.el506-k07",
+        "el506.base.el506-k09",
+        "el506.base.el506-k10"
+      ],
+      "scope": "Deletion plusLEFT/RIGHT boundaries preserve expected source and cursor. Explicit partial behavior only; no promotion tofullsimulatorparity."
+    },
+    {
+      "kind": "unit",
+      "path": "tests/unit/phase3.test.js",
+      "anchor": "playback retains ordering",
+      "capabilityIds": [
+        "el506.base.el506-k08",
+        "el506.base.el506-k11"
+      ],
+      "scope": "UP/DOWN history ordering, oldest/newest boundaries anddraft discard. Explicit partial behavior only; no promotion tofullsimulatorparity."
+    },
+    {
+      "kind": "unit",
+      "path": "tests/unit/phase3.test.js",
+      "anchor": "M-CLR confirms with zero or ENT",
+      "capabilityIds": [
+        "el506.second.el506-k47"
+      ],
+      "scope": "Memoryclear andRESET confirmation/cancellation preserve orclear the expected stores/settings. Explicit partial behavior only; no promotion tofullsimulatorparity."
+    },
+    {
+      "kind": "unit",
+      "path": "tests/unit/phase4.test.js",
+      "anchor": "SET UP uses DRG FSE TAB",
+      "capabilityIds": [
+        "el506.base.el506-k06"
+      ],
+      "scope": "SETUP menu labels, TAB disabled shortcuts andENT selection. Explicit partial behavior only; no promotion tofullsimulatorparity."
+    },
+    {
+      "kind": "unit",
+      "path": "tests/unit/phase5.test.js",
+      "anchor": "MATH inventory has two pages",
+      "capabilityIds": [
+        "el506.base.el506-k17"
+      ],
+      "scope": "NORMAL MATH/ENG exposure andemptySOLV rejection. Explicit partial behavior only; no promotion tofullsimulatorparity."
+    },
+    {
+      "kind": "unit",
+      "path": "tests/unit/phase5.test.js",
+      "anchor": "pi uses the expression line",
+      "capabilityIds": [
+        "el506.base.el506-k18"
+      ],
+      "scope": "Physicalpi expression andten-digit displayed result. Explicit partial behavior only; no promotion tofullsimulatorparity."
+    },
+    {
+      "kind": "unit",
+      "path": "tests/unit/phase5.test.js",
+      "anchor": "NORMAL:",
+      "capabilityIds": [
+        "el506.base.el506-k19",
+        "el506.base.el506-k20",
+        "el506.base.el506-k21",
+        "el506.base.el506-k22",
+        "el506.base.el506-k23",
+        "el506.base.el506-k24",
+        "el506.base.el506-k33",
+        "el506.base.el506-k34",
+        "el506.base.el506-k38",
+        "el506.base.el506-k39",
+        "el506.base.el506-k44",
+        "el506.base.el506-k46",
+        "el506.base.el506-k47",
+        "el506.key.el506-k21",
+        "el506.second.el506-k18",
+        "el506.second.el506-k19",
+        "el506.second.el506-k20",
+        "el506.second.el506-k21",
+        "el506.second.el506-k22",
+        "el506.second.el506-k23",
+        "el506.second.el506-k35",
+        "el506.second.el506-k36",
+        "el506.second.el506-k37",
+        "el506.second.el506-k40"
+      ],
+      "scope": "Named independent NORMAL arithmetic, power, root, logarithm, factorial/permutation/combination, percent andnumeric notation endpoints. Exact boundaries andfullmode behavior are separate. Explicit partial behavior only; no promotion tofullsimulatorparity."
+    },
+    {
+      "kind": "unit",
+      "path": "tests/unit/phase6.test.js",
+      "anchor": "fraction views preserve exact numerator",
+      "capabilityIds": [
+        "el506.second.el506-k24"
+      ],
+      "scope": "Native fraction/decimal display toggles preserve exact value, restoration andarithmetic continuation. Explicit partial behavior only; no promotion tofullsimulatorparity."
+    },
+    {
+      "kind": "unit",
+      "path": "tests/unit/phase7.test.js",
+      "anchor": "Phase 7 random menu order",
+      "capabilityIds": [
+        "el506.second.el506-k30"
+      ],
+      "scope": "Independent native RANDOM menu ordering andENT selection; outputrange testedseparately. Explicit partial behavior only; no promotion tofullsimulatorparity."
+    },
+    {
+      "kind": "unit",
+      "path": "tests/unit/phase7.test.js",
+      "anchor": "Phase 7 constants and conversions compose",
+      "capabilityIds": [
+        "el506.second.el506-k41",
+        "el506.second.el506-k42"
+      ],
+      "scope": "Catalogue selectors compose withphysicalarithmetic, fractions andstoredvalues. Explicit partial behavior only; no promotion tofullsimulatorparity."
+    },
+    {
+      "kind": "unit",
+      "path": "tests/unit/phase8.test.js",
+      "anchor": "Phase 8 native ALGB order",
+      "capabilityIds": [
+        "el506.second.el506-k17"
+      ],
+      "scope": "Independent ALGB variable ordering, retainedvalues, repeat andcancellation. Explicit partial behavior only; no promotion tofullsimulatorparity."
+    },
+    {
+      "kind": "unit",
+      "path": "tests/unit/printed-modifier-audit.test.js",
+      "anchor": "Printed ALPHA",
+      "capabilityIds": [
+        "el506.base.el506-k05"
+      ],
+      "scope": "Printed ALPHA selects eachstoredscalarvariable andANS withcorrectarithmetic andmodifier consumption. Explicit partial behavior only; no promotion tofullsimulatorparity."
+    },
+    {
+      "kind": "unit",
+      "path": "tests/unit/printed-modifier-audit.test.js",
+      "anchor": "Printed decimal digit",
+      "capabilityIds": [
+        "el506.base.el506-k45",
+        "el506.base.el506-k40",
+        "el506.base.el506-k41",
+        "el506.base.el506-k42",
+        "el506.base.el506-k35",
+        "el506.base.el506-k36",
+        "el506.base.el506-k37",
+        "el506.base.el506-k30",
+        "el506.base.el506-k31",
+        "el506.base.el506-k32"
+      ],
+      "scope": "Allten printed digits independently enter andevaluate positionalvalues0..9. Explicit partial behavior only; no promotion tofullsimulatorparity."
+    },
+    {
+      "kind": "unit",
+      "path": "tests/unit/statistics-precision-audit.test.js",
+      "anchor": "Independent native STAT X cancellation",
+      "capabilityIds": [
+        "el506.second.el506-k05"
+      ],
+      "scope": "Independent native SD STATVAR changes2ndF toALPHA, thenmeanENT returns0 forretained1E13,1,-1E13 data. Other modes andmenus notinferred."
+    },
+    {
+      "kind": "unit",
+      "path": "tests/unit/list-aggregate-precision-audit.test.js",
+      "anchor": "Independent native LIST exponent entry sum and mean cancellation",
+      "capabilityIds": [
+        "el506.list-math.sum",
+        "el506.list-math.mean",
+        "el506.base.el506-k24"
+      ],
+      "scope": "Independent 37-key native LIST trace: scientific definition entry stores [1E13,1,-1E13]; sum and mean return zero. Partial precision evidence only; no inference for other aggregates or modes."
+    },
+    {
+      "kind": "browser",
+      "path": "tests/e2e/list-aggregate-precision-audit.spec.js",
+      "anchor": "Native LIST exponent entry sum and mean cancellation checkpoints",
+      "capabilityIds": [
+        "el506.list-math.sum",
+        "el506.list-math.mean",
+        "el506.base.el506-k24"
+      ],
+      "scope": "Independent 37-key native LIST trace: scientific definition entry stores [1E13,1,-1E13]; sum and mean return zero. Partial precision evidence only; no inference for other aggregates or modes."
+    },
+    {
+      "kind": "unit",
+      "path": "tests/unit/matrix-scientific-entry-audit.test.js",
+      "anchor": "Independent native MAT definition Exp stores scientific cell",
+      "capabilityIds": [
+        "el506.base.el506-k24"
+      ],
+      "scope": "Sixteen independent native actions establish Exp entry stores 1E13 and exponent NEG stores positive1E-13 in a 1x1 matrix. Partial mode-specific entry evidence."
+    },
+    {
+      "kind": "browser",
+      "path": "tests/e2e/matrix-scientific-entry-audit.spec.js",
+      "anchor": "Native MAT definition scientific entry and stored cell",
+      "capabilityIds": [
+        "el506.base.el506-k24"
+      ],
+      "scope": "Sixteen independent native actions establish Exp entry stores 1E13 and exponent NEG stores positive1E-13 in a 1x1 matrix. Partial mode-specific entry evidence."
+    },
+    {
+      "kind": "unit",
+      "path": "tests/unit/list-aggregate-precision-audit.test.js",
+      "anchor": "Independent native LIST definition NEG changes exponent sign",
+      "capabilityIds": [
+        "el506.base.el506-k24",
+        "el506.base.el506-k47"
+      ],
+      "scope": "Independent ten-key LIST trace establishes exponent NEG and committed positive1E-13. Partial entry evidence."
+    },
+    {
+      "kind": "browser",
+      "path": "tests/e2e/list-aggregate-precision-audit.spec.js",
+      "anchor": "Native LIST definition NEG changes exponent sign",
+      "capabilityIds": [
+        "el506.base.el506-k24",
+        "el506.base.el506-k47"
+      ],
+      "scope": "Independent ten-key LIST trace establishes exponent NEG and committed positive1E-13. Partial entry evidence."
+    },
+    {
+      "kind": "unit",
+      "path": "tests/unit/collection-empty-exponent-audit.test.js",
+      "anchor": "repeated and empty exponent commit",
+      "capabilityIds": [
+        "el506.base.el506-k24",
+        "el506.base.el506-k47"
+      ],
+      "scope": "Independent fifteen native actions across MAT/LIST: repeatedExpignored; blank negativeexponent commitszero exponent andvalue1. Partial editing boundary evidence."
+    },
+    {
+      "kind": "browser",
+      "path": "tests/e2e/collection-empty-exponent-audit.spec.js",
+      "anchor": "repeated and empty exponent commit",
+      "capabilityIds": [
+        "el506.base.el506-k24",
+        "el506.base.el506-k47"
+      ],
+      "scope": "Independent fifteen native actions across MAT/LIST: repeatedExpignored; blank negativeexponent commitszero exponent andvalue1. Partial editing boundary evidence."
     }
   ]
 }

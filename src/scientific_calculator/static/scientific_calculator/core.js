@@ -1995,14 +1995,14 @@
       const q=next.workflow.payload;
       if([9,10].includes(n)){next.workflow=emptyWorkflow();next.expression='';next.entry='';next.stagedEntry=null;next.selectionActive=true;next.cursor=0;next.displayResult=next.resultDisplay='0';return physicalEditor(next);}
       if(n===3){next.secondActive=!previous.secondActive;return next;}if(n===4||n===6)return null;
-      if(n===7){if(previous.secondActive){next.secondActive=false;return next;}q.input=p.input.slice(0,-1);return next;}if(n===47){q.input=p.input.startsWith('-')?p.input.slice(1):'-'+(p.input||'0');return next;}
+      if(n===7){if(previous.secondActive){next.secondActive=false;return next;}q.input=p.input.slice(0,-1);return next;}if(n===47){q.input=/E-?\d*$/.test(p.input)?p.input.replace(/E(-?)(\d*)$/,(_,sign,digits)=>'E'+(sign?'':'-')+digits):p.input.startsWith('-')?p.input.slice(1):'-'+(p.input||'0');return next;}
       if(n===29||[8,11].includes(n)){
-        try{const value=p.input?physicalNumeric(semantic.evaluate(semantic.parseTokens(semantic.tokenize(closeOpenParentheses(p.input).replaceAll(':','/'),{physical:true}),{physical:true}),physicalAdapter,{angleMode:next.angleMode,answer:0})):p.index===-1?p.list.length:p.list[p.index];
+        try{const value=p.input?physicalNumeric(semantic.evaluate(semantic.parseTokens(semantic.tokenize(closeOpenParentheses(p.input.replace(/E(-?)$/,(_,sign)=>'E'+sign+'0')).replaceAll(':','/'),{physical:true}),{physical:true}),physicalAdapter,{angleMode:next.angleMode,answer:0})):p.index===-1?p.list.length:p.list[p.index];
           if(p.index<0){lists.size(value);if(value!==p.list.length)q.list=lists.fill(0,value);}else q.list[p.index]=lists.list([value])[0];
           q.index=Math.max(-1,Math.min(q.list.length-1,p.index+(n===8?-1:1)));q.input='';q.label=q.index===-1?'SIZE=':'LIST'+(q.index+1)+'=';next.values.last=listToTyped(q.list);next.control.buffers.list=values.copy(next.values.last);next.control.errorCode=null;return next;
         }catch(error){next.workflow=emptyWorkflow();return physicalError(next,error.code||2);}
       }
-      if(DIGIT_KEYS[n]!==undefined)q.input+=DIGIT_KEYS[n];else if(n===46)q.input+=(p.input?'':'0')+'.';else if({33:'(',34:')',38:'*',39:':',43:'+',44:'-'}[n])q.input+=({33:'(',34:')',38:'*',39:':',43:'+',44:'-'})[n];return next;
+      if(DIGIT_KEYS[n]!==undefined)q.input+=DIGIT_KEYS[n];else if(n===46)q.input+=(p.input?'':'0')+'.';else if(n===24&&!p.input.includes('E'))q.input=(p.input||'1')+'E';else if({33:'(',34:')',38:'*',39:':',43:'+',44:'-'}[n])q.input+=({33:'(',34:')',38:'*',39:':',43:'+',44:'-'})[n];return next;
     }
     if(previous.workflow.kind)return null;
     if([8,11].includes(n))return physicalListEdit(next,previous.control.buffers.list?listFromTyped(previous.control.buffers.list):undefined);
@@ -2050,17 +2050,17 @@
       if(n===3){next.secondActive=!previous.secondActive;return next;}
       if(n===4||n===6)return null;
       if(n===7){q.input=p.input.slice(0,-1);return next;}
-      if(n===47){q.input=p.input.startsWith('-')?p.input.slice(1):'-'+(p.input||'0');return next;}
+      if(n===47){q.input=/E-?\d*$/.test(p.input)?p.input.replace(/E(-?)(\d*)$/,(_,sign,digits)=>'E'+(sign?'':'-')+digits):p.input.startsWith('-')?p.input.slice(1):'-'+(p.input||'0');return next;}
       if(n===29||[8,11].includes(n)){
         try{
-          const value=p.input?physicalNumeric(semantic.evaluate(semantic.parseTokens(semantic.tokenize(closeOpenParentheses(p.input).replaceAll(':','/'),{physical:true}),{physical:true}),physicalAdapter,{angleMode:next.angleMode,answer:0})):p.index===-2?p.matrix.rows:p.index===-1?p.matrix.columns:p.matrix.data[p.index];
+          const value=p.input?physicalNumeric(semantic.evaluate(semantic.parseTokens(semantic.tokenize(closeOpenParentheses(p.input.replace(/E(-?)$/,(_,sign)=>'E'+sign+'0')).replaceAll(':','/'),{physical:true}),{physical:true}),physicalAdapter,{angleMode:next.angleMode,answer:0})):p.index===-2?p.matrix.rows:p.index===-1?p.matrix.columns:p.matrix.data[p.index];
           if(p.index<0){if(!Number.isInteger(value)||value<1||value>4){const e=new RangeError('Matrix dimension');e.code=7;throw e;}const rows=p.index===-2?value:p.matrix.rows,columns=p.index===-1?value:p.matrix.columns;q.matrix=rows===p.matrix.rows&&columns===p.matrix.columns?q.matrix:matrices.fill(0,rows,columns);}
           else q.matrix.data[p.index]=value;
           q.index=Math.max(-2,Math.min(q.matrix.data.length-1,p.index+(n===8?-1:1)));q.input='';q.label=q.index===-2?'ROW=':q.index===-1?'COLUMN=':'MAT'+(Math.floor(q.index/q.matrix.columns)+1)+','+(q.index%q.matrix.columns+1)+'=';
           next.values.last=matrixToTyped(q.matrix);next.control.buffers.matrix=values.copy(next.values.last);next.control.errorCode=null;return next;
         }catch(error){next.layers.intent={kind:'matrix-error',workflow:structuredClone(next.workflow)};next.workflow=emptyWorkflow();return physicalError(next,error.code||2);}
       }
-      if(DIGIT_KEYS[n]!==undefined)q.input+=DIGIT_KEYS[n];else if(n===46)q.input+=(p.input?'':'0')+'.';else if({33:'(',34:')',38:'*',39:':',43:'+',44:'-'}[n])q.input+=({33:'(',34:')',38:'*',39:':',43:'+',44:'-'})[n];
+      if(DIGIT_KEYS[n]!==undefined)q.input+=DIGIT_KEYS[n];else if(n===46)q.input+=(p.input?'':'0')+'.';else if(n===24&&!p.input.includes('E'))q.input=(p.input||'1')+'E';else if({33:'(',34:')',38:'*',39:':',43:'+',44:'-'}[n])q.input+=({33:'(',34:')',38:'*',39:':',43:'+',44:'-'})[n];
       return next;
     }
     if(previous.workflow.kind)return null;
@@ -2178,9 +2178,10 @@
     else if({33:'(',34:')',38:'*',39:':',43:'+',44:'-'}[n])q.input+=({33:'(',34:')',38:'*',39:':',43:'+',44:'-'})[n];
     return next;
   }
+  function physicalStatisticsResult(state,name){return statistics.result(statisticalRows(state),state.control.submode,name,state.control.submode==='SD'?{xSum:items=>items.reduce((total,item)=>physicalCollectionBinary('+',total,item),0)}:undefined);}
   function physicalStatisticsAdapter(state){return {...physicalAdapter,
-    symbol:(name,scope)=>{const key=Object.keys(STAT_SYMBOLS).find(k=>STAT_SYMBOLS[k]===name);return key?physicalNumeric(statistics.result(statisticalRows(state),state.control.submode,ALPHA_STATS[key])):physicalAdapter.symbol(name,scope);},
-    call:(name,args,scope)=>name==='statt'?physicalNumeric((args[0]-statistics.result(statisticalRows(state),state.control.submode,'mean-x'))/statistics.result(statisticalRows(state),state.control.submode,'population-deviation-x')):/^prob[pqr]$/.test(name)?statistics.probability(name.slice(-1).toUpperCase(),args[0]):physicalAdapter.call(name,args,scope)};}
+    symbol:(name,scope)=>{const key=Object.keys(STAT_SYMBOLS).find(k=>STAT_SYMBOLS[k]===name);return key?physicalNumeric(physicalStatisticsResult(state,ALPHA_STATS[key])):physicalAdapter.symbol(name,scope);},
+    call:(name,args,scope)=>name==='statt'?physicalNumeric((args[0]-physicalStatisticsResult(state,'mean-x'))/physicalStatisticsResult(state,'population-deviation-x')):/^prob[pqr]$/.test(name)?statistics.probability(name.slice(-1).toUpperCase(),args[0]):physicalAdapter.call(name,args,scope)};}
   function physicalStatisticsMath(previous,index){
     let next=structuredClone(previous);next.workflow=emptyWorkflow();next.lifecycle=previous.workflow.returnPhase;
     try{if(index>0){
@@ -2204,7 +2205,7 @@
       const symbol=STAT_SYMBOLS[n],name=ALPHA_STATS[n];next.secondActive=false;next.layers.alpha=false;
       if(w.payload?.id==='RCL'){
         next.workflow=emptyWorkflow();next.lifecycle=w.returnPhase;
-        try{const number=statistics.result(statisticalRows(previous),previous.control.submode,name);const result=physicalCalculate(next,String(number));result.displayExpression=STAT_LABELS[symbol]+'=';result.layers.intent={kind:'statistics-result'};return result;}
+        try{const number=physicalStatisticsResult(previous,name);const result=physicalCalculate(next,String(number));result.displayExpression=STAT_LABELS[symbol]+'=';result.layers.intent={kind:'statistics-result'};return result;}
         catch{next=physicalError(next,2);next.layers.intent={kind:'statistics-error'};return next;}
       }
       if(!w.kind){if(previous.lifecycle==='evaluated'||previous.layers.intent?.kind==='statistics-display'){next.expression='';next.entry='';next.stagedEntry=null;}

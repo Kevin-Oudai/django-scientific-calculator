@@ -1,0 +1,43 @@
+{
+  "reviewId": "collection-scientific-and-aggregate-2026-10-08",
+  "roadmapItem": "EL506-354",
+  "roadmapItemComplete": false,
+  "references": [
+    "experiments/list-sum-mean-cancellation-native.json",
+    "experiments/matrix-scientific-entry-native.json",
+    "experiments/list-negative-exponent-native.json",
+    "experiments/list-empty-exponent-native.json",
+    "experiments/mat-empty-exponent-native.json"
+  ],
+  "nativeKeys": 78,
+  "nativeActionRange": "1182..1259",
+  "findings": [
+    "LIST L1=[1E13,1,-1E13]: sumL1=0 and meanL1=0.",
+    "MAT and LIST accept Exp in definitions; exponent-stage NEG changes exponent sign and commits positive1E-13.",
+    "Before correction both collection editors dropped Exp and toggled the mantissa sign.",
+    "Repeated Exp ignored in both editors; DAT on blank negative exponent commits one."
+  ],
+  "selectedPolicy": "Physical LIST sum and mean use measured 13-digit component addition; pure module arithmetic remains unchanged. Other aggregates and vector operations retain their existing arithmetic pending measurement.",
+  "validation": {
+    "fullUnitPassed": 720,
+    "browserPassed": 18,
+    "browserEngines": [
+      "Chromium",
+      "Firefox",
+      "WebKit"
+    ],
+    "goldenFixtures": 29,
+    "goldenFrames": 1200,
+    "referenceAndReportChecks": "passed",
+    "compileall": "passed",
+    "dockerComposeConfig": "passed",
+    "dockerRuntime": "unavailable: Docker Desktop Linux pipe absent",
+    "freshPreview": "Port8011 uses fresh stat-collection asset URLs; physical button replay verifies STAT sum0, LIST mean0 and MAT positive1E-13. Port8010 retained during separate full615-case browser suite.",
+    "proofs": [
+      "statistics-cancellation-proof.png",
+      "list-aggregate-cancellation-proof.png",
+      "collection-scientific-proof.png"
+    ]
+  },
+  "remaining": "Complete aggregate/vector/matrix elimination and other result-type accuracy audit remains open."
+}

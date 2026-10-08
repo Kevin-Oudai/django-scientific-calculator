@@ -20,7 +20,8 @@
     "nativeCheckpoints": 63,
     "guideWorkflows": 52,
     "guidePrintedCheckpoints": 148,
-    "goldenAssertedFrames": 1200
+    "goldenAssertedFrames": 1200,
+    "scope": "Historical initial remaining-phase batch; later audits are recorded separately and are not added to these counts."
   },
   "implemented": [
     "Separate matrix/list edit buffers and typed snapshot schema 12 migration",
@@ -41,9 +42,10 @@
     "releaseCandidatePublished": false,
     "version100Published": false,
     "reasons": [
-      "No complete current behavioral assessment and differential coverage for all 430 capability entries",
-      "Exhaustive LIST operations, modifier/type compatibility, cross-mode errors and persistence matrices remain unverified",
-      "Complete precision and limit audit beyond the measured calculus and buffer checkpoints remains pending"
+      "Every430 ledger entry now has explicitly mapped partial unit assertions; complete behavior/mode/type/domain and current differential assessment remains pending.",
+      "Full modifier-by-key-by-mode and function-by-value-type compatibility matrices remain open.",
+      "Measured basic scalar/CPLX/MAT/LIST and SD X cancellation policies do not complete precision assessment for matrix elimination, vector/other aggregates, regression, EQN and remaining operations.",
+      "Manufacturer aggregate470 count still has no authoritative full mapping; no synthetic ledger padding is used."
     ]
   },
   "simulatorExceptions": [
@@ -138,5 +140,15 @@
       "previousApplication": "32.",
       "application": "32.0000005"
     }
+  ],
+  "currentAuditReferences": [
+    "capacity-review.json",
+    "persistence-matrix-review.json",
+    "complex-precision-review.json",
+    "collection-precision-review.json",
+    "menu-differential-review.json",
+    "matrix-type-review.json",
+    "statistics-precision-review.json",
+    "collection-entry-aggregate-review.json"
   ]
 }

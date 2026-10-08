@@ -1510,3 +1510,21 @@ entered right operand. The earlier inventory used editorial `[nCr]` placeholders
 a fresh native trace records exact `0C` entry without rewriting that reference.
 `menu-differential-review.json` records this scope and the unresolved broader
 compatibility and final parity requirements.
+
+The measured SD statistics policy accumulates X sums with13 significant-digit
+truncation: data `1E13, 1, -1E13` gives sum and mean zero, while
+`1E12, 1, -1E12` retains sum one. ALPHA entry, immediate RCL and STAT VAR
+use the same selected policy. The independent48-key trace is recorded in
+`statistics-precision-review.json`; weighted products, higher moments and
+regression precision remain separate audit work.
+
+Every430 capability-ledger entry now has an explicitly mapped partial unit
+assertion, including allten printed digits, allnine ALPHA variables, ANS and
+HEX B–E. These mappings describe tested scopes; they do not establish complete
+mode/type/domain coverage or promote the frozen0.3.1 baseline to full parity.
+
+Physical MAT and LIST definitions accept the Exp key and change the exponent
+sign with +/− during exponent entry. Scientific input appears on the lower LCD
+line. The measured LIST sum and mean of `[1E13, 1, -1E13]` both return zero;
+`collection-entry-aggregate-review.json` records the independent78-key evidence
+and its limits. Other aggregate and vector precision remains under review.

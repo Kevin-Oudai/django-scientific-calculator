@@ -19,16 +19,15 @@
         "missing": 307
       },
       "unitTested": {
-        "pending": 72,
-        "partial": 358
+        "partial": 430
       },
       "goldenTested": {
         "pending": 261,
         "baseline-known-differences": 169
       },
       "browserTested": {
-        "partial": 287,
-        "pending": 143
+        "partial": 291,
+        "pending": 139
       }
     },
     "guide": {
@@ -300,11 +299,15 @@
     },
     {
       "path": "tests/reference/el506ts/report-coverage.json",
-      "sha256": "600eed9c49c6d948c2c1b7b7147bca6c1941e94fe9a3bb046d1bc93c76d219cd"
+      "sha256": "e1528d686d45e6462fa954ee449156951d51645e58239bb5fd4ce998c792da72"
     },
     {
       "path": "tests/reference/el506ts/validate-guide.js",
       "sha256": "945bc9033f6474fa37c2f043087f1c49f66034310de376a3f39a8499ae6ab42d"
+    },
+    {
+      "path": "tests/e2e/collection-empty-exponent-audit.spec.js",
+      "sha256": "4336b9ab6f861528118a1bf8b533e11c629385e4a75c5385d130ea8f2893da35"
     },
     {
       "path": "tests/e2e/golden.spec.js",
@@ -313,6 +316,14 @@
     {
       "path": "tests/e2e/guide-regression.spec.js",
       "sha256": "4dbc88b24accc54308403a5b6deca320f037f97e146d00ed23bfa0d3b5507687"
+    },
+    {
+      "path": "tests/e2e/list-aggregate-precision-audit.spec.js",
+      "sha256": "7753c5811271cfeea07f440f42be68f01fd2fd7355e891f017ba70bfff89bfbf"
+    },
+    {
+      "path": "tests/e2e/matrix-scientific-entry-audit.spec.js",
+      "sha256": "fea506084992b8e48740c699873b286e7d90d0b3dd78e72e9c1c5169a8ef040c"
     },
     {
       "path": "tests/e2e/matrix-type-audit.spec.js",
@@ -371,12 +382,28 @@
       "sha256": "63d3338bd8a981836a3f3200cee443765e5d0410d6954e123ee5a62838fa3b70"
     },
     {
+      "path": "tests/e2e/statistics-precision-audit.spec.js",
+      "sha256": "c453f6424c7376b6445a5b9ffb667590c1496087709c9e28ac640973b928902b"
+    },
+    {
       "path": "tests/unit/calculator.test.js",
       "sha256": "614e78c3b7d74d2e732a21af69db615faa525da196885091d50b49ddb1816edd"
     },
     {
+      "path": "tests/unit/collection-empty-exponent-audit.test.js",
+      "sha256": "2ff852a31438edb8563187beac21784658c119c304854b4e621a3876b74786b1"
+    },
+    {
       "path": "tests/unit/guide-regression.test.js",
       "sha256": "2f373345938aed190961f2c3443ce0f0b1f53d80919d04eae4f2e3d487e1f731"
+    },
+    {
+      "path": "tests/unit/list-aggregate-precision-audit.test.js",
+      "sha256": "5c84fba07464f0268f04345c504a83249b5d7d5d8002633c75db29f869c7cc4a"
+    },
+    {
+      "path": "tests/unit/matrix-scientific-entry-audit.test.js",
+      "sha256": "42b8b23a3f2251385d9153f689fdb76e84a11df9f95f382f274edf12c20cd036"
     },
     {
       "path": "tests/unit/matrix-type-audit.test.js",
@@ -415,6 +442,10 @@
       "sha256": "35ab11d7e33f4931926d8526023551fdcce34f5b09d6e298b91f51827e351758"
     },
     {
+      "path": "tests/unit/phase3.test.js",
+      "sha256": "245a6b72c4958d3e26a294654d44bd11d523f08fe7baff4b29c039d9caf63f1e"
+    },
+    {
       "path": "tests/unit/phase4.test.js",
       "sha256": "494e1cf6534e51c0dcf02cd0d491d3418f9677a626fc8bcefc75b74ddfeb2142"
     },
@@ -443,8 +474,16 @@
       "sha256": "29199c298ddc5a71f742c9a03ca678e2ad13cc295791b4b686b8fb96c8dcb229"
     },
     {
+      "path": "tests/unit/printed-modifier-audit.test.js",
+      "sha256": "d67bff2727be4d714417a2314d84b374109afadd8c3838428d8478c1244125ae"
+    },
+    {
       "path": "tests/unit/reducer.test.js",
       "sha256": "54914eadacfe90f495e30a0b60773bac9ff6dfb53f26d77683de2bce0498816e"
+    },
+    {
+      "path": "tests/unit/statistics-precision-audit.test.js",
+      "sha256": "74a0e67a318c22d35707fa9457f550168eab8b2e64833077132607707665f609"
     }
   ],
   "rows": [
@@ -479,8 +518,19 @@
         "policy": "Frozen baseline classification; infrastructure refactors do not promote capability parity."
       },
       "unitTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "partial",
+        "evidence": [
+          {
+            "kind": "unit",
+            "path": "tests/unit/phase3.test.js",
+            "anchor": "HOME in NORMAL retains ANS",
+            "capabilityIds": [
+              "el506.key.el506-k01",
+              "el506.base.el506-k01"
+            ],
+            "scope": "NORMAL versus mode-exit HOME memory policy. Explicit partial behavior only; no promotion tofullsimulatorparity."
+          }
+        ],
         "scope": "Explicit mapped assertions only; unlisted coverage is unassessed."
       },
       "goldenTested": {
@@ -4689,8 +4739,41 @@
         "policy": "Frozen baseline classification; infrastructure refactors do not promote capability parity."
       },
       "unitTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "partial",
+        "evidence": [
+          {
+            "kind": "unit",
+            "path": "tests/unit/phase5.test.js",
+            "anchor": "NORMAL:",
+            "capabilityIds": [
+              "el506.base.el506-k19",
+              "el506.base.el506-k20",
+              "el506.base.el506-k21",
+              "el506.base.el506-k22",
+              "el506.base.el506-k23",
+              "el506.base.el506-k24",
+              "el506.base.el506-k33",
+              "el506.base.el506-k34",
+              "el506.base.el506-k38",
+              "el506.base.el506-k39",
+              "el506.base.el506-k44",
+              "el506.base.el506-k46",
+              "el506.base.el506-k47",
+              "el506.key.el506-k21",
+              "el506.second.el506-k18",
+              "el506.second.el506-k19",
+              "el506.second.el506-k20",
+              "el506.second.el506-k21",
+              "el506.second.el506-k22",
+              "el506.second.el506-k23",
+              "el506.second.el506-k35",
+              "el506.second.el506-k36",
+              "el506.second.el506-k37",
+              "el506.second.el506-k40"
+            ],
+            "scope": "Named independent NORMAL arithmetic, power, root, logarithm, factorial/permutation/combination, percent andnumeric notation endpoints. Exact boundaries andfullmode behavior are separate. Explicit partial behavior only; no promotion tofullsimulatorparity."
+          }
+        ],
         "scope": "Explicit mapped assertions only; unlisted coverage is unassessed."
       },
       "goldenTested": {
@@ -12454,8 +12537,19 @@
         "policy": "Frozen baseline classification; infrastructure refactors do not promote capability parity."
       },
       "unitTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "partial",
+        "evidence": [
+          {
+            "kind": "unit",
+            "path": "tests/unit/phase3.test.js",
+            "anchor": "HOME in NORMAL retains ANS",
+            "capabilityIds": [
+              "el506.key.el506-k01",
+              "el506.base.el506-k01"
+            ],
+            "scope": "NORMAL versus mode-exit HOME memory policy. Explicit partial behavior only; no promotion tofullsimulatorparity."
+          }
+        ],
         "scope": "Explicit mapped assertions only; unlisted coverage is unassessed."
       },
       "goldenTested": {
@@ -12500,8 +12594,19 @@
         "policy": "Frozen baseline classification; infrastructure refactors do not promote capability parity."
       },
       "unitTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "partial",
+        "evidence": [
+          {
+            "kind": "unit",
+            "path": "tests/unit/phase3.test.js",
+            "anchor": "OFF blanks all display state",
+            "capabilityIds": [
+              "el506.base.el506-k02",
+              "el506.second.el506-k02"
+            ],
+            "scope": "Printed OFF blanks display; ONC wakes retained memories and ignores keys while off. Explicit partial behavior only; no promotion tofullsimulatorparity."
+          }
+        ],
         "scope": "Explicit mapped assertions only; unlisted coverage is unassessed."
       },
       "goldenTested": {
@@ -12552,8 +12657,19 @@
         "policy": "Frozen baseline classification; infrastructure refactors do not promote capability parity."
       },
       "unitTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "partial",
+        "evidence": [
+          {
+            "kind": "unit",
+            "path": "tests/unit/phase3.test.js",
+            "anchor": "modifier consumption, inverse HYP ordering",
+            "capabilityIds": [
+              "el506.base.el506-k03",
+              "el506.second.el506-k07"
+            ],
+            "scope": "2ndF inverseHYP resolution andINS setting persistence. Explicit partial behavior only; no promotion tofullsimulatorparity."
+          }
+        ],
         "scope": "Explicit mapped assertions only; unlisted coverage is unassessed."
       },
       "goldenTested": {
@@ -12596,8 +12712,18 @@
         "policy": "Frozen baseline classification; infrastructure refactors do not promote capability parity."
       },
       "unitTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "partial",
+        "evidence": [
+          {
+            "kind": "unit",
+            "path": "tests/unit/phase3.test.js",
+            "anchor": "all six MODE choices select correctly",
+            "capabilityIds": [
+              "el506.base.el506-k04"
+            ],
+            "scope": "Allsix mode selections and submenu confirmation semantics. Explicit partial behavior only; no promotion tofullsimulatorparity."
+          }
+        ],
         "scope": "Explicit mapped assertions only; unlisted coverage is unassessed."
       },
       "goldenTested": {
@@ -12640,8 +12766,18 @@
         "policy": "Frozen baseline classification; infrastructure refactors do not promote capability parity."
       },
       "unitTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "partial",
+        "evidence": [
+          {
+            "kind": "unit",
+            "path": "tests/unit/printed-modifier-audit.test.js",
+            "anchor": "Printed ALPHA",
+            "capabilityIds": [
+              "el506.base.el506-k05"
+            ],
+            "scope": "Printed ALPHA selects eachstoredscalarvariable andANS withcorrectarithmetic andmodifier consumption. Explicit partial behavior only; no promotion tofullsimulatorparity."
+          }
+        ],
         "scope": "Explicit mapped assertions only; unlisted coverage is unassessed."
       },
       "goldenTested": {
@@ -12684,8 +12820,18 @@
         "policy": "Frozen baseline classification; infrastructure refactors do not promote capability parity."
       },
       "unitTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "partial",
+        "evidence": [
+          {
+            "kind": "unit",
+            "path": "tests/unit/phase4.test.js",
+            "anchor": "SET UP uses DRG FSE TAB",
+            "capabilityIds": [
+              "el506.base.el506-k06"
+            ],
+            "scope": "SETUP menu labels, TAB disabled shortcuts andENT selection. Explicit partial behavior only; no promotion tofullsimulatorparity."
+          }
+        ],
         "scope": "Explicit mapped assertions only; unlisted coverage is unassessed."
       },
       "goldenTested": {
@@ -12730,8 +12876,20 @@
         "policy": "Frozen baseline classification; infrastructure refactors do not promote capability parity."
       },
       "unitTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "partial",
+        "evidence": [
+          {
+            "kind": "unit",
+            "path": "tests/unit/phase3.test.js",
+            "anchor": "end-of-equation DEL backspaces",
+            "capabilityIds": [
+              "el506.base.el506-k07",
+              "el506.base.el506-k09",
+              "el506.base.el506-k10"
+            ],
+            "scope": "Deletion plusLEFT/RIGHT boundaries preserve expected source and cursor. Explicit partial behavior only; no promotion tofullsimulatorparity."
+          }
+        ],
         "scope": "Explicit mapped assertions only; unlisted coverage is unassessed."
       },
       "goldenTested": {
@@ -12776,8 +12934,19 @@
         "policy": "Frozen baseline classification; infrastructure refactors do not promote capability parity."
       },
       "unitTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "partial",
+        "evidence": [
+          {
+            "kind": "unit",
+            "path": "tests/unit/phase3.test.js",
+            "anchor": "playback retains ordering",
+            "capabilityIds": [
+              "el506.base.el506-k08",
+              "el506.base.el506-k11"
+            ],
+            "scope": "UP/DOWN history ordering, oldest/newest boundaries anddraft discard. Explicit partial behavior only; no promotion tofullsimulatorparity."
+          }
+        ],
         "scope": "Explicit mapped assertions only; unlisted coverage is unassessed."
       },
       "goldenTested": {
@@ -12822,8 +12991,20 @@
         "policy": "Frozen baseline classification; infrastructure refactors do not promote capability parity."
       },
       "unitTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "partial",
+        "evidence": [
+          {
+            "kind": "unit",
+            "path": "tests/unit/phase3.test.js",
+            "anchor": "end-of-equation DEL backspaces",
+            "capabilityIds": [
+              "el506.base.el506-k07",
+              "el506.base.el506-k09",
+              "el506.base.el506-k10"
+            ],
+            "scope": "Deletion plusLEFT/RIGHT boundaries preserve expected source and cursor. Explicit partial behavior only; no promotion tofullsimulatorparity."
+          }
+        ],
         "scope": "Explicit mapped assertions only; unlisted coverage is unassessed."
       },
       "goldenTested": {
@@ -12868,8 +13049,20 @@
         "policy": "Frozen baseline classification; infrastructure refactors do not promote capability parity."
       },
       "unitTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "partial",
+        "evidence": [
+          {
+            "kind": "unit",
+            "path": "tests/unit/phase3.test.js",
+            "anchor": "end-of-equation DEL backspaces",
+            "capabilityIds": [
+              "el506.base.el506-k07",
+              "el506.base.el506-k09",
+              "el506.base.el506-k10"
+            ],
+            "scope": "Deletion plusLEFT/RIGHT boundaries preserve expected source and cursor. Explicit partial behavior only; no promotion tofullsimulatorparity."
+          }
+        ],
         "scope": "Explicit mapped assertions only; unlisted coverage is unassessed."
       },
       "goldenTested": {
@@ -12914,8 +13107,19 @@
         "policy": "Frozen baseline classification; infrastructure refactors do not promote capability parity."
       },
       "unitTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "partial",
+        "evidence": [
+          {
+            "kind": "unit",
+            "path": "tests/unit/phase3.test.js",
+            "anchor": "playback retains ordering",
+            "capabilityIds": [
+              "el506.base.el506-k08",
+              "el506.base.el506-k11"
+            ],
+            "scope": "UP/DOWN history ordering, oldest/newest boundaries anddraft discard. Explicit partial behavior only; no promotion tofullsimulatorparity."
+          }
+        ],
         "scope": "Explicit mapped assertions only; unlisted coverage is unassessed."
       },
       "goldenTested": {
@@ -13348,8 +13552,18 @@
         "policy": "Frozen baseline classification; infrastructure refactors do not promote capability parity."
       },
       "unitTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "partial",
+        "evidence": [
+          {
+            "kind": "unit",
+            "path": "tests/unit/phase5.test.js",
+            "anchor": "MATH inventory has two pages",
+            "capabilityIds": [
+              "el506.base.el506-k17"
+            ],
+            "scope": "NORMAL MATH/ENG exposure andemptySOLV rejection. Explicit partial behavior only; no promotion tofullsimulatorparity."
+          }
+        ],
         "scope": "Explicit mapped assertions only; unlisted coverage is unassessed."
       },
       "goldenTested": {
@@ -13394,8 +13608,18 @@
         "policy": "Frozen baseline classification; infrastructure refactors do not promote capability parity."
       },
       "unitTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "partial",
+        "evidence": [
+          {
+            "kind": "unit",
+            "path": "tests/unit/phase5.test.js",
+            "anchor": "pi uses the expression line",
+            "capabilityIds": [
+              "el506.base.el506-k18"
+            ],
+            "scope": "Physicalpi expression andten-digit displayed result. Explicit partial behavior only; no promotion tofullsimulatorparity."
+          }
+        ],
         "scope": "Explicit mapped assertions only; unlisted coverage is unassessed."
       },
       "goldenTested": {
@@ -13446,8 +13670,41 @@
         "policy": "Frozen baseline classification; infrastructure refactors do not promote capability parity."
       },
       "unitTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "partial",
+        "evidence": [
+          {
+            "kind": "unit",
+            "path": "tests/unit/phase5.test.js",
+            "anchor": "NORMAL:",
+            "capabilityIds": [
+              "el506.base.el506-k19",
+              "el506.base.el506-k20",
+              "el506.base.el506-k21",
+              "el506.base.el506-k22",
+              "el506.base.el506-k23",
+              "el506.base.el506-k24",
+              "el506.base.el506-k33",
+              "el506.base.el506-k34",
+              "el506.base.el506-k38",
+              "el506.base.el506-k39",
+              "el506.base.el506-k44",
+              "el506.base.el506-k46",
+              "el506.base.el506-k47",
+              "el506.key.el506-k21",
+              "el506.second.el506-k18",
+              "el506.second.el506-k19",
+              "el506.second.el506-k20",
+              "el506.second.el506-k21",
+              "el506.second.el506-k22",
+              "el506.second.el506-k23",
+              "el506.second.el506-k35",
+              "el506.second.el506-k36",
+              "el506.second.el506-k37",
+              "el506.second.el506-k40"
+            ],
+            "scope": "Named independent NORMAL arithmetic, power, root, logarithm, factorial/permutation/combination, percent andnumeric notation endpoints. Exact boundaries andfullmode behavior are separate. Explicit partial behavior only; no promotion tofullsimulatorparity."
+          }
+        ],
         "scope": "Explicit mapped assertions only; unlisted coverage is unassessed."
       },
       "goldenTested": {
@@ -13515,8 +13772,41 @@
         "policy": "Frozen baseline classification; infrastructure refactors do not promote capability parity."
       },
       "unitTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "partial",
+        "evidence": [
+          {
+            "kind": "unit",
+            "path": "tests/unit/phase5.test.js",
+            "anchor": "NORMAL:",
+            "capabilityIds": [
+              "el506.base.el506-k19",
+              "el506.base.el506-k20",
+              "el506.base.el506-k21",
+              "el506.base.el506-k22",
+              "el506.base.el506-k23",
+              "el506.base.el506-k24",
+              "el506.base.el506-k33",
+              "el506.base.el506-k34",
+              "el506.base.el506-k38",
+              "el506.base.el506-k39",
+              "el506.base.el506-k44",
+              "el506.base.el506-k46",
+              "el506.base.el506-k47",
+              "el506.key.el506-k21",
+              "el506.second.el506-k18",
+              "el506.second.el506-k19",
+              "el506.second.el506-k20",
+              "el506.second.el506-k21",
+              "el506.second.el506-k22",
+              "el506.second.el506-k23",
+              "el506.second.el506-k35",
+              "el506.second.el506-k36",
+              "el506.second.el506-k37",
+              "el506.second.el506-k40"
+            ],
+            "scope": "Named independent NORMAL arithmetic, power, root, logarithm, factorial/permutation/combination, percent andnumeric notation endpoints. Exact boundaries andfullmode behavior are separate. Explicit partial behavior only; no promotion tofullsimulatorparity."
+          }
+        ],
         "scope": "Explicit mapped assertions only; unlisted coverage is unassessed."
       },
       "goldenTested": {
@@ -13559,8 +13849,41 @@
         "policy": "Frozen baseline classification; infrastructure refactors do not promote capability parity."
       },
       "unitTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "partial",
+        "evidence": [
+          {
+            "kind": "unit",
+            "path": "tests/unit/phase5.test.js",
+            "anchor": "NORMAL:",
+            "capabilityIds": [
+              "el506.base.el506-k19",
+              "el506.base.el506-k20",
+              "el506.base.el506-k21",
+              "el506.base.el506-k22",
+              "el506.base.el506-k23",
+              "el506.base.el506-k24",
+              "el506.base.el506-k33",
+              "el506.base.el506-k34",
+              "el506.base.el506-k38",
+              "el506.base.el506-k39",
+              "el506.base.el506-k44",
+              "el506.base.el506-k46",
+              "el506.base.el506-k47",
+              "el506.key.el506-k21",
+              "el506.second.el506-k18",
+              "el506.second.el506-k19",
+              "el506.second.el506-k20",
+              "el506.second.el506-k21",
+              "el506.second.el506-k22",
+              "el506.second.el506-k23",
+              "el506.second.el506-k35",
+              "el506.second.el506-k36",
+              "el506.second.el506-k37",
+              "el506.second.el506-k40"
+            ],
+            "scope": "Named independent NORMAL arithmetic, power, root, logarithm, factorial/permutation/combination, percent andnumeric notation endpoints. Exact boundaries andfullmode behavior are separate. Explicit partial behavior only; no promotion tofullsimulatorparity."
+          }
+        ],
         "scope": "Explicit mapped assertions only; unlisted coverage is unassessed."
       },
       "goldenTested": {
@@ -13605,8 +13928,41 @@
         "policy": "Frozen baseline classification; infrastructure refactors do not promote capability parity."
       },
       "unitTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "partial",
+        "evidence": [
+          {
+            "kind": "unit",
+            "path": "tests/unit/phase5.test.js",
+            "anchor": "NORMAL:",
+            "capabilityIds": [
+              "el506.base.el506-k19",
+              "el506.base.el506-k20",
+              "el506.base.el506-k21",
+              "el506.base.el506-k22",
+              "el506.base.el506-k23",
+              "el506.base.el506-k24",
+              "el506.base.el506-k33",
+              "el506.base.el506-k34",
+              "el506.base.el506-k38",
+              "el506.base.el506-k39",
+              "el506.base.el506-k44",
+              "el506.base.el506-k46",
+              "el506.base.el506-k47",
+              "el506.key.el506-k21",
+              "el506.second.el506-k18",
+              "el506.second.el506-k19",
+              "el506.second.el506-k20",
+              "el506.second.el506-k21",
+              "el506.second.el506-k22",
+              "el506.second.el506-k23",
+              "el506.second.el506-k35",
+              "el506.second.el506-k36",
+              "el506.second.el506-k37",
+              "el506.second.el506-k40"
+            ],
+            "scope": "Named independent NORMAL arithmetic, power, root, logarithm, factorial/permutation/combination, percent andnumeric notation endpoints. Exact boundaries andfullmode behavior are separate. Explicit partial behavior only; no promotion tofullsimulatorparity."
+          }
+        ],
         "scope": "Explicit mapped assertions only; unlisted coverage is unassessed."
       },
       "goldenTested": {
@@ -13651,8 +14007,41 @@
         "policy": "Frozen baseline classification; infrastructure refactors do not promote capability parity."
       },
       "unitTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "partial",
+        "evidence": [
+          {
+            "kind": "unit",
+            "path": "tests/unit/phase5.test.js",
+            "anchor": "NORMAL:",
+            "capabilityIds": [
+              "el506.base.el506-k19",
+              "el506.base.el506-k20",
+              "el506.base.el506-k21",
+              "el506.base.el506-k22",
+              "el506.base.el506-k23",
+              "el506.base.el506-k24",
+              "el506.base.el506-k33",
+              "el506.base.el506-k34",
+              "el506.base.el506-k38",
+              "el506.base.el506-k39",
+              "el506.base.el506-k44",
+              "el506.base.el506-k46",
+              "el506.base.el506-k47",
+              "el506.key.el506-k21",
+              "el506.second.el506-k18",
+              "el506.second.el506-k19",
+              "el506.second.el506-k20",
+              "el506.second.el506-k21",
+              "el506.second.el506-k22",
+              "el506.second.el506-k23",
+              "el506.second.el506-k35",
+              "el506.second.el506-k36",
+              "el506.second.el506-k37",
+              "el506.second.el506-k40"
+            ],
+            "scope": "Named independent NORMAL arithmetic, power, root, logarithm, factorial/permutation/combination, percent andnumeric notation endpoints. Exact boundaries andfullmode behavior are separate. Explicit partial behavior only; no promotion tofullsimulatorparity."
+          }
+        ],
         "scope": "Explicit mapped assertions only; unlisted coverage is unassessed."
       },
       "goldenTested": {
@@ -13697,8 +14086,81 @@
         "policy": "Frozen baseline classification; infrastructure refactors do not promote capability parity."
       },
       "unitTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "partial",
+        "evidence": [
+          {
+            "kind": "unit",
+            "path": "tests/unit/phase5.test.js",
+            "anchor": "NORMAL:",
+            "capabilityIds": [
+              "el506.base.el506-k19",
+              "el506.base.el506-k20",
+              "el506.base.el506-k21",
+              "el506.base.el506-k22",
+              "el506.base.el506-k23",
+              "el506.base.el506-k24",
+              "el506.base.el506-k33",
+              "el506.base.el506-k34",
+              "el506.base.el506-k38",
+              "el506.base.el506-k39",
+              "el506.base.el506-k44",
+              "el506.base.el506-k46",
+              "el506.base.el506-k47",
+              "el506.key.el506-k21",
+              "el506.second.el506-k18",
+              "el506.second.el506-k19",
+              "el506.second.el506-k20",
+              "el506.second.el506-k21",
+              "el506.second.el506-k22",
+              "el506.second.el506-k23",
+              "el506.second.el506-k35",
+              "el506.second.el506-k36",
+              "el506.second.el506-k37",
+              "el506.second.el506-k40"
+            ],
+            "scope": "Named independent NORMAL arithmetic, power, root, logarithm, factorial/permutation/combination, percent andnumeric notation endpoints. Exact boundaries andfullmode behavior are separate. Explicit partial behavior only; no promotion tofullsimulatorparity."
+          },
+          {
+            "kind": "unit",
+            "path": "tests/unit/list-aggregate-precision-audit.test.js",
+            "anchor": "Independent native LIST exponent entry sum and mean cancellation",
+            "capabilityIds": [
+              "el506.list-math.sum",
+              "el506.list-math.mean",
+              "el506.base.el506-k24"
+            ],
+            "scope": "Independent 37-key native LIST trace: scientific definition entry stores [1E13,1,-1E13]; sum and mean return zero. Partial precision evidence only; no inference for other aggregates or modes."
+          },
+          {
+            "kind": "unit",
+            "path": "tests/unit/matrix-scientific-entry-audit.test.js",
+            "anchor": "Independent native MAT definition Exp stores scientific cell",
+            "capabilityIds": [
+              "el506.base.el506-k24"
+            ],
+            "scope": "Sixteen independent native actions establish Exp entry stores 1E13 and exponent NEG stores positive1E-13 in a 1x1 matrix. Partial mode-specific entry evidence."
+          },
+          {
+            "kind": "unit",
+            "path": "tests/unit/list-aggregate-precision-audit.test.js",
+            "anchor": "Independent native LIST definition NEG changes exponent sign",
+            "capabilityIds": [
+              "el506.base.el506-k24",
+              "el506.base.el506-k47"
+            ],
+            "scope": "Independent ten-key LIST trace establishes exponent NEG and committed positive1E-13. Partial entry evidence."
+          },
+          {
+            "kind": "unit",
+            "path": "tests/unit/collection-empty-exponent-audit.test.js",
+            "anchor": "repeated and empty exponent commit",
+            "capabilityIds": [
+              "el506.base.el506-k24",
+              "el506.base.el506-k47"
+            ],
+            "scope": "Independent fifteen native actions across MAT/LIST: repeatedExpignored; blank negativeexponent commitszero exponent andvalue1. Partial editing boundary evidence."
+          }
+        ],
         "scope": "Explicit mapped assertions only; unlisted coverage is unassessed."
       },
       "goldenTested": {
@@ -13707,8 +14169,49 @@
         "scope": "Baseline characterization only; all current supported fixtures have oracle display differences."
       },
       "browserTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "partial",
+        "evidence": [
+          {
+            "kind": "browser",
+            "path": "tests/e2e/list-aggregate-precision-audit.spec.js",
+            "anchor": "Native LIST exponent entry sum and mean cancellation checkpoints",
+            "capabilityIds": [
+              "el506.list-math.sum",
+              "el506.list-math.mean",
+              "el506.base.el506-k24"
+            ],
+            "scope": "Independent 37-key native LIST trace: scientific definition entry stores [1E13,1,-1E13]; sum and mean return zero. Partial precision evidence only; no inference for other aggregates or modes."
+          },
+          {
+            "kind": "browser",
+            "path": "tests/e2e/matrix-scientific-entry-audit.spec.js",
+            "anchor": "Native MAT definition scientific entry and stored cell",
+            "capabilityIds": [
+              "el506.base.el506-k24"
+            ],
+            "scope": "Sixteen independent native actions establish Exp entry stores 1E13 and exponent NEG stores positive1E-13 in a 1x1 matrix. Partial mode-specific entry evidence."
+          },
+          {
+            "kind": "browser",
+            "path": "tests/e2e/list-aggregate-precision-audit.spec.js",
+            "anchor": "Native LIST definition NEG changes exponent sign",
+            "capabilityIds": [
+              "el506.base.el506-k24",
+              "el506.base.el506-k47"
+            ],
+            "scope": "Independent ten-key LIST trace establishes exponent NEG and committed positive1E-13. Partial entry evidence."
+          },
+          {
+            "kind": "browser",
+            "path": "tests/e2e/collection-empty-exponent-audit.spec.js",
+            "anchor": "repeated and empty exponent commit",
+            "capabilityIds": [
+              "el506.base.el506-k24",
+              "el506.base.el506-k47"
+            ],
+            "scope": "Independent fifteen native actions across MAT/LIST: repeatedExpignored; blank negativeexponent commitszero exponent andvalue1. Partial editing boundary evidence."
+          }
+        ],
         "scope": "Explicit canonical baseline browser replays only; legacy regression coverage is not inferred as parity."
       }
     },
@@ -14219,8 +14722,27 @@
         "policy": "Frozen baseline classification; infrastructure refactors do not promote capability parity."
       },
       "unitTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "partial",
+        "evidence": [
+          {
+            "kind": "unit",
+            "path": "tests/unit/printed-modifier-audit.test.js",
+            "anchor": "Printed decimal digit",
+            "capabilityIds": [
+              "el506.base.el506-k45",
+              "el506.base.el506-k40",
+              "el506.base.el506-k41",
+              "el506.base.el506-k42",
+              "el506.base.el506-k35",
+              "el506.base.el506-k36",
+              "el506.base.el506-k37",
+              "el506.base.el506-k30",
+              "el506.base.el506-k31",
+              "el506.base.el506-k32"
+            ],
+            "scope": "Allten printed digits independently enter andevaluate positionalvalues0..9. Explicit partial behavior only; no promotion tofullsimulatorparity."
+          }
+        ],
         "scope": "Explicit mapped assertions only; unlisted coverage is unassessed."
       },
       "goldenTested": {
@@ -14265,8 +14787,27 @@
         "policy": "Frozen baseline classification; infrastructure refactors do not promote capability parity."
       },
       "unitTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "partial",
+        "evidence": [
+          {
+            "kind": "unit",
+            "path": "tests/unit/printed-modifier-audit.test.js",
+            "anchor": "Printed decimal digit",
+            "capabilityIds": [
+              "el506.base.el506-k45",
+              "el506.base.el506-k40",
+              "el506.base.el506-k41",
+              "el506.base.el506-k42",
+              "el506.base.el506-k35",
+              "el506.base.el506-k36",
+              "el506.base.el506-k37",
+              "el506.base.el506-k30",
+              "el506.base.el506-k31",
+              "el506.base.el506-k32"
+            ],
+            "scope": "Allten printed digits independently enter andevaluate positionalvalues0..9. Explicit partial behavior only; no promotion tofullsimulatorparity."
+          }
+        ],
         "scope": "Explicit mapped assertions only; unlisted coverage is unassessed."
       },
       "goldenTested": {
@@ -14311,8 +14852,27 @@
         "policy": "Frozen baseline classification; infrastructure refactors do not promote capability parity."
       },
       "unitTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "partial",
+        "evidence": [
+          {
+            "kind": "unit",
+            "path": "tests/unit/printed-modifier-audit.test.js",
+            "anchor": "Printed decimal digit",
+            "capabilityIds": [
+              "el506.base.el506-k45",
+              "el506.base.el506-k40",
+              "el506.base.el506-k41",
+              "el506.base.el506-k42",
+              "el506.base.el506-k35",
+              "el506.base.el506-k36",
+              "el506.base.el506-k37",
+              "el506.base.el506-k30",
+              "el506.base.el506-k31",
+              "el506.base.el506-k32"
+            ],
+            "scope": "Allten printed digits independently enter andevaluate positionalvalues0..9. Explicit partial behavior only; no promotion tofullsimulatorparity."
+          }
+        ],
         "scope": "Explicit mapped assertions only; unlisted coverage is unassessed."
       },
       "goldenTested": {
@@ -14357,8 +14917,41 @@
         "policy": "Frozen baseline classification; infrastructure refactors do not promote capability parity."
       },
       "unitTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "partial",
+        "evidence": [
+          {
+            "kind": "unit",
+            "path": "tests/unit/phase5.test.js",
+            "anchor": "NORMAL:",
+            "capabilityIds": [
+              "el506.base.el506-k19",
+              "el506.base.el506-k20",
+              "el506.base.el506-k21",
+              "el506.base.el506-k22",
+              "el506.base.el506-k23",
+              "el506.base.el506-k24",
+              "el506.base.el506-k33",
+              "el506.base.el506-k34",
+              "el506.base.el506-k38",
+              "el506.base.el506-k39",
+              "el506.base.el506-k44",
+              "el506.base.el506-k46",
+              "el506.base.el506-k47",
+              "el506.key.el506-k21",
+              "el506.second.el506-k18",
+              "el506.second.el506-k19",
+              "el506.second.el506-k20",
+              "el506.second.el506-k21",
+              "el506.second.el506-k22",
+              "el506.second.el506-k23",
+              "el506.second.el506-k35",
+              "el506.second.el506-k36",
+              "el506.second.el506-k37",
+              "el506.second.el506-k40"
+            ],
+            "scope": "Named independent NORMAL arithmetic, power, root, logarithm, factorial/permutation/combination, percent andnumeric notation endpoints. Exact boundaries andfullmode behavior are separate. Explicit partial behavior only; no promotion tofullsimulatorparity."
+          }
+        ],
         "scope": "Explicit mapped assertions only; unlisted coverage is unassessed."
       },
       "goldenTested": {
@@ -14403,8 +14996,41 @@
         "policy": "Frozen baseline classification; infrastructure refactors do not promote capability parity."
       },
       "unitTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "partial",
+        "evidence": [
+          {
+            "kind": "unit",
+            "path": "tests/unit/phase5.test.js",
+            "anchor": "NORMAL:",
+            "capabilityIds": [
+              "el506.base.el506-k19",
+              "el506.base.el506-k20",
+              "el506.base.el506-k21",
+              "el506.base.el506-k22",
+              "el506.base.el506-k23",
+              "el506.base.el506-k24",
+              "el506.base.el506-k33",
+              "el506.base.el506-k34",
+              "el506.base.el506-k38",
+              "el506.base.el506-k39",
+              "el506.base.el506-k44",
+              "el506.base.el506-k46",
+              "el506.base.el506-k47",
+              "el506.key.el506-k21",
+              "el506.second.el506-k18",
+              "el506.second.el506-k19",
+              "el506.second.el506-k20",
+              "el506.second.el506-k21",
+              "el506.second.el506-k22",
+              "el506.second.el506-k23",
+              "el506.second.el506-k35",
+              "el506.second.el506-k36",
+              "el506.second.el506-k37",
+              "el506.second.el506-k40"
+            ],
+            "scope": "Named independent NORMAL arithmetic, power, root, logarithm, factorial/permutation/combination, percent andnumeric notation endpoints. Exact boundaries andfullmode behavior are separate. Explicit partial behavior only; no promotion tofullsimulatorparity."
+          }
+        ],
         "scope": "Explicit mapped assertions only; unlisted coverage is unassessed."
       },
       "goldenTested": {
@@ -14449,8 +15075,27 @@
         "policy": "Frozen baseline classification; infrastructure refactors do not promote capability parity."
       },
       "unitTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "partial",
+        "evidence": [
+          {
+            "kind": "unit",
+            "path": "tests/unit/printed-modifier-audit.test.js",
+            "anchor": "Printed decimal digit",
+            "capabilityIds": [
+              "el506.base.el506-k45",
+              "el506.base.el506-k40",
+              "el506.base.el506-k41",
+              "el506.base.el506-k42",
+              "el506.base.el506-k35",
+              "el506.base.el506-k36",
+              "el506.base.el506-k37",
+              "el506.base.el506-k30",
+              "el506.base.el506-k31",
+              "el506.base.el506-k32"
+            ],
+            "scope": "Allten printed digits independently enter andevaluate positionalvalues0..9. Explicit partial behavior only; no promotion tofullsimulatorparity."
+          }
+        ],
         "scope": "Explicit mapped assertions only; unlisted coverage is unassessed."
       },
       "goldenTested": {
@@ -14495,8 +15140,27 @@
         "policy": "Frozen baseline classification; infrastructure refactors do not promote capability parity."
       },
       "unitTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "partial",
+        "evidence": [
+          {
+            "kind": "unit",
+            "path": "tests/unit/printed-modifier-audit.test.js",
+            "anchor": "Printed decimal digit",
+            "capabilityIds": [
+              "el506.base.el506-k45",
+              "el506.base.el506-k40",
+              "el506.base.el506-k41",
+              "el506.base.el506-k42",
+              "el506.base.el506-k35",
+              "el506.base.el506-k36",
+              "el506.base.el506-k37",
+              "el506.base.el506-k30",
+              "el506.base.el506-k31",
+              "el506.base.el506-k32"
+            ],
+            "scope": "Allten printed digits independently enter andevaluate positionalvalues0..9. Explicit partial behavior only; no promotion tofullsimulatorparity."
+          }
+        ],
         "scope": "Explicit mapped assertions only; unlisted coverage is unassessed."
       },
       "goldenTested": {
@@ -14541,8 +15205,27 @@
         "policy": "Frozen baseline classification; infrastructure refactors do not promote capability parity."
       },
       "unitTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "partial",
+        "evidence": [
+          {
+            "kind": "unit",
+            "path": "tests/unit/printed-modifier-audit.test.js",
+            "anchor": "Printed decimal digit",
+            "capabilityIds": [
+              "el506.base.el506-k45",
+              "el506.base.el506-k40",
+              "el506.base.el506-k41",
+              "el506.base.el506-k42",
+              "el506.base.el506-k35",
+              "el506.base.el506-k36",
+              "el506.base.el506-k37",
+              "el506.base.el506-k30",
+              "el506.base.el506-k31",
+              "el506.base.el506-k32"
+            ],
+            "scope": "Allten printed digits independently enter andevaluate positionalvalues0..9. Explicit partial behavior only; no promotion tofullsimulatorparity."
+          }
+        ],
         "scope": "Explicit mapped assertions only; unlisted coverage is unassessed."
       },
       "goldenTested": {
@@ -14587,8 +15270,41 @@
         "policy": "Frozen baseline classification; infrastructure refactors do not promote capability parity."
       },
       "unitTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "partial",
+        "evidence": [
+          {
+            "kind": "unit",
+            "path": "tests/unit/phase5.test.js",
+            "anchor": "NORMAL:",
+            "capabilityIds": [
+              "el506.base.el506-k19",
+              "el506.base.el506-k20",
+              "el506.base.el506-k21",
+              "el506.base.el506-k22",
+              "el506.base.el506-k23",
+              "el506.base.el506-k24",
+              "el506.base.el506-k33",
+              "el506.base.el506-k34",
+              "el506.base.el506-k38",
+              "el506.base.el506-k39",
+              "el506.base.el506-k44",
+              "el506.base.el506-k46",
+              "el506.base.el506-k47",
+              "el506.key.el506-k21",
+              "el506.second.el506-k18",
+              "el506.second.el506-k19",
+              "el506.second.el506-k20",
+              "el506.second.el506-k21",
+              "el506.second.el506-k22",
+              "el506.second.el506-k23",
+              "el506.second.el506-k35",
+              "el506.second.el506-k36",
+              "el506.second.el506-k37",
+              "el506.second.el506-k40"
+            ],
+            "scope": "Named independent NORMAL arithmetic, power, root, logarithm, factorial/permutation/combination, percent andnumeric notation endpoints. Exact boundaries andfullmode behavior are separate. Explicit partial behavior only; no promotion tofullsimulatorparity."
+          }
+        ],
         "scope": "Explicit mapped assertions only; unlisted coverage is unassessed."
       },
       "goldenTested": {
@@ -14633,8 +15349,41 @@
         "policy": "Frozen baseline classification; infrastructure refactors do not promote capability parity."
       },
       "unitTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "partial",
+        "evidence": [
+          {
+            "kind": "unit",
+            "path": "tests/unit/phase5.test.js",
+            "anchor": "NORMAL:",
+            "capabilityIds": [
+              "el506.base.el506-k19",
+              "el506.base.el506-k20",
+              "el506.base.el506-k21",
+              "el506.base.el506-k22",
+              "el506.base.el506-k23",
+              "el506.base.el506-k24",
+              "el506.base.el506-k33",
+              "el506.base.el506-k34",
+              "el506.base.el506-k38",
+              "el506.base.el506-k39",
+              "el506.base.el506-k44",
+              "el506.base.el506-k46",
+              "el506.base.el506-k47",
+              "el506.key.el506-k21",
+              "el506.second.el506-k18",
+              "el506.second.el506-k19",
+              "el506.second.el506-k20",
+              "el506.second.el506-k21",
+              "el506.second.el506-k22",
+              "el506.second.el506-k23",
+              "el506.second.el506-k35",
+              "el506.second.el506-k36",
+              "el506.second.el506-k37",
+              "el506.second.el506-k40"
+            ],
+            "scope": "Named independent NORMAL arithmetic, power, root, logarithm, factorial/permutation/combination, percent andnumeric notation endpoints. Exact boundaries andfullmode behavior are separate. Explicit partial behavior only; no promotion tofullsimulatorparity."
+          }
+        ],
         "scope": "Explicit mapped assertions only; unlisted coverage is unassessed."
       },
       "goldenTested": {
@@ -14679,8 +15428,27 @@
         "policy": "Frozen baseline classification; infrastructure refactors do not promote capability parity."
       },
       "unitTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "partial",
+        "evidence": [
+          {
+            "kind": "unit",
+            "path": "tests/unit/printed-modifier-audit.test.js",
+            "anchor": "Printed decimal digit",
+            "capabilityIds": [
+              "el506.base.el506-k45",
+              "el506.base.el506-k40",
+              "el506.base.el506-k41",
+              "el506.base.el506-k42",
+              "el506.base.el506-k35",
+              "el506.base.el506-k36",
+              "el506.base.el506-k37",
+              "el506.base.el506-k30",
+              "el506.base.el506-k31",
+              "el506.base.el506-k32"
+            ],
+            "scope": "Allten printed digits independently enter andevaluate positionalvalues0..9. Explicit partial behavior only; no promotion tofullsimulatorparity."
+          }
+        ],
         "scope": "Explicit mapped assertions only; unlisted coverage is unassessed."
       },
       "goldenTested": {
@@ -14725,8 +15493,27 @@
         "policy": "Frozen baseline classification; infrastructure refactors do not promote capability parity."
       },
       "unitTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "partial",
+        "evidence": [
+          {
+            "kind": "unit",
+            "path": "tests/unit/printed-modifier-audit.test.js",
+            "anchor": "Printed decimal digit",
+            "capabilityIds": [
+              "el506.base.el506-k45",
+              "el506.base.el506-k40",
+              "el506.base.el506-k41",
+              "el506.base.el506-k42",
+              "el506.base.el506-k35",
+              "el506.base.el506-k36",
+              "el506.base.el506-k37",
+              "el506.base.el506-k30",
+              "el506.base.el506-k31",
+              "el506.base.el506-k32"
+            ],
+            "scope": "Allten printed digits independently enter andevaluate positionalvalues0..9. Explicit partial behavior only; no promotion tofullsimulatorparity."
+          }
+        ],
         "scope": "Explicit mapped assertions only; unlisted coverage is unassessed."
       },
       "goldenTested": {
@@ -14771,8 +15558,27 @@
         "policy": "Frozen baseline classification; infrastructure refactors do not promote capability parity."
       },
       "unitTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "partial",
+        "evidence": [
+          {
+            "kind": "unit",
+            "path": "tests/unit/printed-modifier-audit.test.js",
+            "anchor": "Printed decimal digit",
+            "capabilityIds": [
+              "el506.base.el506-k45",
+              "el506.base.el506-k40",
+              "el506.base.el506-k41",
+              "el506.base.el506-k42",
+              "el506.base.el506-k35",
+              "el506.base.el506-k36",
+              "el506.base.el506-k37",
+              "el506.base.el506-k30",
+              "el506.base.el506-k31",
+              "el506.base.el506-k32"
+            ],
+            "scope": "Allten printed digits independently enter andevaluate positionalvalues0..9. Explicit partial behavior only; no promotion tofullsimulatorparity."
+          }
+        ],
         "scope": "Explicit mapped assertions only; unlisted coverage is unassessed."
       },
       "goldenTested": {
@@ -14917,8 +15723,41 @@
         "policy": "Frozen baseline classification; infrastructure refactors do not promote capability parity."
       },
       "unitTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "partial",
+        "evidence": [
+          {
+            "kind": "unit",
+            "path": "tests/unit/phase5.test.js",
+            "anchor": "NORMAL:",
+            "capabilityIds": [
+              "el506.base.el506-k19",
+              "el506.base.el506-k20",
+              "el506.base.el506-k21",
+              "el506.base.el506-k22",
+              "el506.base.el506-k23",
+              "el506.base.el506-k24",
+              "el506.base.el506-k33",
+              "el506.base.el506-k34",
+              "el506.base.el506-k38",
+              "el506.base.el506-k39",
+              "el506.base.el506-k44",
+              "el506.base.el506-k46",
+              "el506.base.el506-k47",
+              "el506.key.el506-k21",
+              "el506.second.el506-k18",
+              "el506.second.el506-k19",
+              "el506.second.el506-k20",
+              "el506.second.el506-k21",
+              "el506.second.el506-k22",
+              "el506.second.el506-k23",
+              "el506.second.el506-k35",
+              "el506.second.el506-k36",
+              "el506.second.el506-k37",
+              "el506.second.el506-k40"
+            ],
+            "scope": "Named independent NORMAL arithmetic, power, root, logarithm, factorial/permutation/combination, percent andnumeric notation endpoints. Exact boundaries andfullmode behavior are separate. Explicit partial behavior only; no promotion tofullsimulatorparity."
+          }
+        ],
         "scope": "Explicit mapped assertions only; unlisted coverage is unassessed."
       },
       "goldenTested": {
@@ -14963,8 +15802,27 @@
         "policy": "Frozen baseline classification; infrastructure refactors do not promote capability parity."
       },
       "unitTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "partial",
+        "evidence": [
+          {
+            "kind": "unit",
+            "path": "tests/unit/printed-modifier-audit.test.js",
+            "anchor": "Printed decimal digit",
+            "capabilityIds": [
+              "el506.base.el506-k45",
+              "el506.base.el506-k40",
+              "el506.base.el506-k41",
+              "el506.base.el506-k42",
+              "el506.base.el506-k35",
+              "el506.base.el506-k36",
+              "el506.base.el506-k37",
+              "el506.base.el506-k30",
+              "el506.base.el506-k31",
+              "el506.base.el506-k32"
+            ],
+            "scope": "Allten printed digits independently enter andevaluate positionalvalues0..9. Explicit partial behavior only; no promotion tofullsimulatorparity."
+          }
+        ],
         "scope": "Explicit mapped assertions only; unlisted coverage is unassessed."
       },
       "goldenTested": {
@@ -15009,8 +15867,41 @@
         "policy": "Frozen baseline classification; infrastructure refactors do not promote capability parity."
       },
       "unitTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "partial",
+        "evidence": [
+          {
+            "kind": "unit",
+            "path": "tests/unit/phase5.test.js",
+            "anchor": "NORMAL:",
+            "capabilityIds": [
+              "el506.base.el506-k19",
+              "el506.base.el506-k20",
+              "el506.base.el506-k21",
+              "el506.base.el506-k22",
+              "el506.base.el506-k23",
+              "el506.base.el506-k24",
+              "el506.base.el506-k33",
+              "el506.base.el506-k34",
+              "el506.base.el506-k38",
+              "el506.base.el506-k39",
+              "el506.base.el506-k44",
+              "el506.base.el506-k46",
+              "el506.base.el506-k47",
+              "el506.key.el506-k21",
+              "el506.second.el506-k18",
+              "el506.second.el506-k19",
+              "el506.second.el506-k20",
+              "el506.second.el506-k21",
+              "el506.second.el506-k22",
+              "el506.second.el506-k23",
+              "el506.second.el506-k35",
+              "el506.second.el506-k36",
+              "el506.second.el506-k37",
+              "el506.second.el506-k40"
+            ],
+            "scope": "Named independent NORMAL arithmetic, power, root, logarithm, factorial/permutation/combination, percent andnumeric notation endpoints. Exact boundaries andfullmode behavior are separate. Explicit partial behavior only; no promotion tofullsimulatorparity."
+          }
+        ],
         "scope": "Explicit mapped assertions only; unlisted coverage is unassessed."
       },
       "goldenTested": {
@@ -15055,8 +15946,61 @@
         "policy": "Frozen baseline classification; infrastructure refactors do not promote capability parity."
       },
       "unitTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "partial",
+        "evidence": [
+          {
+            "kind": "unit",
+            "path": "tests/unit/phase5.test.js",
+            "anchor": "NORMAL:",
+            "capabilityIds": [
+              "el506.base.el506-k19",
+              "el506.base.el506-k20",
+              "el506.base.el506-k21",
+              "el506.base.el506-k22",
+              "el506.base.el506-k23",
+              "el506.base.el506-k24",
+              "el506.base.el506-k33",
+              "el506.base.el506-k34",
+              "el506.base.el506-k38",
+              "el506.base.el506-k39",
+              "el506.base.el506-k44",
+              "el506.base.el506-k46",
+              "el506.base.el506-k47",
+              "el506.key.el506-k21",
+              "el506.second.el506-k18",
+              "el506.second.el506-k19",
+              "el506.second.el506-k20",
+              "el506.second.el506-k21",
+              "el506.second.el506-k22",
+              "el506.second.el506-k23",
+              "el506.second.el506-k35",
+              "el506.second.el506-k36",
+              "el506.second.el506-k37",
+              "el506.second.el506-k40"
+            ],
+            "scope": "Named independent NORMAL arithmetic, power, root, logarithm, factorial/permutation/combination, percent andnumeric notation endpoints. Exact boundaries andfullmode behavior are separate. Explicit partial behavior only; no promotion tofullsimulatorparity."
+          },
+          {
+            "kind": "unit",
+            "path": "tests/unit/list-aggregate-precision-audit.test.js",
+            "anchor": "Independent native LIST definition NEG changes exponent sign",
+            "capabilityIds": [
+              "el506.base.el506-k24",
+              "el506.base.el506-k47"
+            ],
+            "scope": "Independent ten-key LIST trace establishes exponent NEG and committed positive1E-13. Partial entry evidence."
+          },
+          {
+            "kind": "unit",
+            "path": "tests/unit/collection-empty-exponent-audit.test.js",
+            "anchor": "repeated and empty exponent commit",
+            "capabilityIds": [
+              "el506.base.el506-k24",
+              "el506.base.el506-k47"
+            ],
+            "scope": "Independent fifteen native actions across MAT/LIST: repeatedExpignored; blank negativeexponent commitszero exponent andvalue1. Partial editing boundary evidence."
+          }
+        ],
         "scope": "Explicit mapped assertions only; unlisted coverage is unassessed."
       },
       "goldenTested": {
@@ -15065,8 +16009,29 @@
         "scope": "Baseline characterization only; all current supported fixtures have oracle display differences."
       },
       "browserTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "partial",
+        "evidence": [
+          {
+            "kind": "browser",
+            "path": "tests/e2e/list-aggregate-precision-audit.spec.js",
+            "anchor": "Native LIST definition NEG changes exponent sign",
+            "capabilityIds": [
+              "el506.base.el506-k24",
+              "el506.base.el506-k47"
+            ],
+            "scope": "Independent ten-key LIST trace establishes exponent NEG and committed positive1E-13. Partial entry evidence."
+          },
+          {
+            "kind": "browser",
+            "path": "tests/e2e/collection-empty-exponent-audit.spec.js",
+            "anchor": "repeated and empty exponent commit",
+            "capabilityIds": [
+              "el506.base.el506-k24",
+              "el506.base.el506-k47"
+            ],
+            "scope": "Independent fifteen native actions across MAT/LIST: repeatedExpignored; blank negativeexponent commitszero exponent andvalue1. Partial editing boundary evidence."
+          }
+        ],
         "scope": "Explicit canonical baseline browser replays only; legacy regression coverage is not inferred as parity."
       }
     },
@@ -15178,8 +16143,19 @@
         "policy": "Frozen baseline classification; infrastructure refactors do not promote capability parity."
       },
       "unitTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "partial",
+        "evidence": [
+          {
+            "kind": "unit",
+            "path": "tests/unit/phase3.test.js",
+            "anchor": "OFF blanks all display state",
+            "capabilityIds": [
+              "el506.base.el506-k02",
+              "el506.second.el506-k02"
+            ],
+            "scope": "Printed OFF blanks display; ONC wakes retained memories and ignores keys while off. Explicit partial behavior only; no promotion tofullsimulatorparity."
+          }
+        ],
         "scope": "Explicit mapped assertions only; unlisted coverage is unassessed."
       },
       "goldenTested": {
@@ -15222,8 +16198,18 @@
         "policy": "Frozen baseline classification; infrastructure refactors do not promote capability parity."
       },
       "unitTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "partial",
+        "evidence": [
+          {
+            "kind": "unit",
+            "path": "tests/unit/phase3.test.js",
+            "anchor": "ON/C preserves all stores",
+            "capabilityIds": [
+              "el506.second.el506-k04"
+            ],
+            "scope": "CA clears temporary stores and retainsM/formulas; ordinary ONC retains stores. Explicit partial behavior only; no promotion tofullsimulatorparity."
+          }
+        ],
         "scope": "Explicit mapped assertions only; unlisted coverage is unassessed."
       },
       "goldenTested": {
@@ -15266,8 +16252,18 @@
         "policy": "Frozen baseline classification; infrastructure refactors do not promote capability parity."
       },
       "unitTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "partial",
+        "evidence": [
+          {
+            "kind": "unit",
+            "path": "tests/unit/statistics-precision-audit.test.js",
+            "anchor": "Independent native STAT X cancellation",
+            "capabilityIds": [
+              "el506.second.el506-k05"
+            ],
+            "scope": "Independent native SD STATVAR changes2ndF toALPHA, thenmeanENT returns0 forretained1E13,1,-1E13 data. Other modes andmenus notinferred."
+          }
+        ],
         "scope": "Explicit mapped assertions only; unlisted coverage is unassessed."
       },
       "goldenTested": {
@@ -15312,8 +16308,19 @@
         "policy": "Frozen baseline classification; infrastructure refactors do not promote capability parity."
       },
       "unitTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "partial",
+        "evidence": [
+          {
+            "kind": "unit",
+            "path": "tests/unit/phase3.test.js",
+            "anchor": "modifier consumption, inverse HYP ordering",
+            "capabilityIds": [
+              "el506.base.el506-k03",
+              "el506.second.el506-k07"
+            ],
+            "scope": "2ndF inverseHYP resolution andINS setting persistence. Explicit partial behavior only; no promotion tofullsimulatorparity."
+          }
+        ],
         "scope": "Explicit mapped assertions only; unlisted coverage is unassessed."
       },
       "goldenTested": {
@@ -16026,8 +17033,18 @@
         "policy": "Frozen baseline classification; infrastructure refactors do not promote capability parity."
       },
       "unitTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "partial",
+        "evidence": [
+          {
+            "kind": "unit",
+            "path": "tests/unit/phase8.test.js",
+            "anchor": "Phase 8 native ALGB order",
+            "capabilityIds": [
+              "el506.second.el506-k17"
+            ],
+            "scope": "Independent ALGB variable ordering, retainedvalues, repeat andcancellation. Explicit partial behavior only; no promotion tofullsimulatorparity."
+          }
+        ],
         "scope": "Explicit mapped assertions only; unlisted coverage is unassessed."
       },
       "goldenTested": {
@@ -16072,8 +17089,41 @@
         "policy": "Frozen baseline classification; infrastructure refactors do not promote capability parity."
       },
       "unitTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "partial",
+        "evidence": [
+          {
+            "kind": "unit",
+            "path": "tests/unit/phase5.test.js",
+            "anchor": "NORMAL:",
+            "capabilityIds": [
+              "el506.base.el506-k19",
+              "el506.base.el506-k20",
+              "el506.base.el506-k21",
+              "el506.base.el506-k22",
+              "el506.base.el506-k23",
+              "el506.base.el506-k24",
+              "el506.base.el506-k33",
+              "el506.base.el506-k34",
+              "el506.base.el506-k38",
+              "el506.base.el506-k39",
+              "el506.base.el506-k44",
+              "el506.base.el506-k46",
+              "el506.base.el506-k47",
+              "el506.key.el506-k21",
+              "el506.second.el506-k18",
+              "el506.second.el506-k19",
+              "el506.second.el506-k20",
+              "el506.second.el506-k21",
+              "el506.second.el506-k22",
+              "el506.second.el506-k23",
+              "el506.second.el506-k35",
+              "el506.second.el506-k36",
+              "el506.second.el506-k37",
+              "el506.second.el506-k40"
+            ],
+            "scope": "Named independent NORMAL arithmetic, power, root, logarithm, factorial/permutation/combination, percent andnumeric notation endpoints. Exact boundaries andfullmode behavior are separate. Explicit partial behavior only; no promotion tofullsimulatorparity."
+          }
+        ],
         "scope": "Explicit mapped assertions only; unlisted coverage is unassessed."
       },
       "goldenTested": {
@@ -16118,8 +17168,41 @@
         "policy": "Frozen baseline classification; infrastructure refactors do not promote capability parity."
       },
       "unitTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "partial",
+        "evidence": [
+          {
+            "kind": "unit",
+            "path": "tests/unit/phase5.test.js",
+            "anchor": "NORMAL:",
+            "capabilityIds": [
+              "el506.base.el506-k19",
+              "el506.base.el506-k20",
+              "el506.base.el506-k21",
+              "el506.base.el506-k22",
+              "el506.base.el506-k23",
+              "el506.base.el506-k24",
+              "el506.base.el506-k33",
+              "el506.base.el506-k34",
+              "el506.base.el506-k38",
+              "el506.base.el506-k39",
+              "el506.base.el506-k44",
+              "el506.base.el506-k46",
+              "el506.base.el506-k47",
+              "el506.key.el506-k21",
+              "el506.second.el506-k18",
+              "el506.second.el506-k19",
+              "el506.second.el506-k20",
+              "el506.second.el506-k21",
+              "el506.second.el506-k22",
+              "el506.second.el506-k23",
+              "el506.second.el506-k35",
+              "el506.second.el506-k36",
+              "el506.second.el506-k37",
+              "el506.second.el506-k40"
+            ],
+            "scope": "Named independent NORMAL arithmetic, power, root, logarithm, factorial/permutation/combination, percent andnumeric notation endpoints. Exact boundaries andfullmode behavior are separate. Explicit partial behavior only; no promotion tofullsimulatorparity."
+          }
+        ],
         "scope": "Explicit mapped assertions only; unlisted coverage is unassessed."
       },
       "goldenTested": {
@@ -16164,8 +17247,41 @@
         "policy": "Frozen baseline classification; infrastructure refactors do not promote capability parity."
       },
       "unitTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "partial",
+        "evidence": [
+          {
+            "kind": "unit",
+            "path": "tests/unit/phase5.test.js",
+            "anchor": "NORMAL:",
+            "capabilityIds": [
+              "el506.base.el506-k19",
+              "el506.base.el506-k20",
+              "el506.base.el506-k21",
+              "el506.base.el506-k22",
+              "el506.base.el506-k23",
+              "el506.base.el506-k24",
+              "el506.base.el506-k33",
+              "el506.base.el506-k34",
+              "el506.base.el506-k38",
+              "el506.base.el506-k39",
+              "el506.base.el506-k44",
+              "el506.base.el506-k46",
+              "el506.base.el506-k47",
+              "el506.key.el506-k21",
+              "el506.second.el506-k18",
+              "el506.second.el506-k19",
+              "el506.second.el506-k20",
+              "el506.second.el506-k21",
+              "el506.second.el506-k22",
+              "el506.second.el506-k23",
+              "el506.second.el506-k35",
+              "el506.second.el506-k36",
+              "el506.second.el506-k37",
+              "el506.second.el506-k40"
+            ],
+            "scope": "Named independent NORMAL arithmetic, power, root, logarithm, factorial/permutation/combination, percent andnumeric notation endpoints. Exact boundaries andfullmode behavior are separate. Explicit partial behavior only; no promotion tofullsimulatorparity."
+          }
+        ],
         "scope": "Explicit mapped assertions only; unlisted coverage is unassessed."
       },
       "goldenTested": {
@@ -16210,8 +17326,41 @@
         "policy": "Frozen baseline classification; infrastructure refactors do not promote capability parity."
       },
       "unitTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "partial",
+        "evidence": [
+          {
+            "kind": "unit",
+            "path": "tests/unit/phase5.test.js",
+            "anchor": "NORMAL:",
+            "capabilityIds": [
+              "el506.base.el506-k19",
+              "el506.base.el506-k20",
+              "el506.base.el506-k21",
+              "el506.base.el506-k22",
+              "el506.base.el506-k23",
+              "el506.base.el506-k24",
+              "el506.base.el506-k33",
+              "el506.base.el506-k34",
+              "el506.base.el506-k38",
+              "el506.base.el506-k39",
+              "el506.base.el506-k44",
+              "el506.base.el506-k46",
+              "el506.base.el506-k47",
+              "el506.key.el506-k21",
+              "el506.second.el506-k18",
+              "el506.second.el506-k19",
+              "el506.second.el506-k20",
+              "el506.second.el506-k21",
+              "el506.second.el506-k22",
+              "el506.second.el506-k23",
+              "el506.second.el506-k35",
+              "el506.second.el506-k36",
+              "el506.second.el506-k37",
+              "el506.second.el506-k40"
+            ],
+            "scope": "Named independent NORMAL arithmetic, power, root, logarithm, factorial/permutation/combination, percent andnumeric notation endpoints. Exact boundaries andfullmode behavior are separate. Explicit partial behavior only; no promotion tofullsimulatorparity."
+          }
+        ],
         "scope": "Explicit mapped assertions only; unlisted coverage is unassessed."
       },
       "goldenTested": {
@@ -16256,8 +17405,41 @@
         "policy": "Frozen baseline classification; infrastructure refactors do not promote capability parity."
       },
       "unitTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "partial",
+        "evidence": [
+          {
+            "kind": "unit",
+            "path": "tests/unit/phase5.test.js",
+            "anchor": "NORMAL:",
+            "capabilityIds": [
+              "el506.base.el506-k19",
+              "el506.base.el506-k20",
+              "el506.base.el506-k21",
+              "el506.base.el506-k22",
+              "el506.base.el506-k23",
+              "el506.base.el506-k24",
+              "el506.base.el506-k33",
+              "el506.base.el506-k34",
+              "el506.base.el506-k38",
+              "el506.base.el506-k39",
+              "el506.base.el506-k44",
+              "el506.base.el506-k46",
+              "el506.base.el506-k47",
+              "el506.key.el506-k21",
+              "el506.second.el506-k18",
+              "el506.second.el506-k19",
+              "el506.second.el506-k20",
+              "el506.second.el506-k21",
+              "el506.second.el506-k22",
+              "el506.second.el506-k23",
+              "el506.second.el506-k35",
+              "el506.second.el506-k36",
+              "el506.second.el506-k37",
+              "el506.second.el506-k40"
+            ],
+            "scope": "Named independent NORMAL arithmetic, power, root, logarithm, factorial/permutation/combination, percent andnumeric notation endpoints. Exact boundaries andfullmode behavior are separate. Explicit partial behavior only; no promotion tofullsimulatorparity."
+          }
+        ],
         "scope": "Explicit mapped assertions only; unlisted coverage is unassessed."
       },
       "goldenTested": {
@@ -16302,8 +17484,41 @@
         "policy": "Frozen baseline classification; infrastructure refactors do not promote capability parity."
       },
       "unitTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "partial",
+        "evidence": [
+          {
+            "kind": "unit",
+            "path": "tests/unit/phase5.test.js",
+            "anchor": "NORMAL:",
+            "capabilityIds": [
+              "el506.base.el506-k19",
+              "el506.base.el506-k20",
+              "el506.base.el506-k21",
+              "el506.base.el506-k22",
+              "el506.base.el506-k23",
+              "el506.base.el506-k24",
+              "el506.base.el506-k33",
+              "el506.base.el506-k34",
+              "el506.base.el506-k38",
+              "el506.base.el506-k39",
+              "el506.base.el506-k44",
+              "el506.base.el506-k46",
+              "el506.base.el506-k47",
+              "el506.key.el506-k21",
+              "el506.second.el506-k18",
+              "el506.second.el506-k19",
+              "el506.second.el506-k20",
+              "el506.second.el506-k21",
+              "el506.second.el506-k22",
+              "el506.second.el506-k23",
+              "el506.second.el506-k35",
+              "el506.second.el506-k36",
+              "el506.second.el506-k37",
+              "el506.second.el506-k40"
+            ],
+            "scope": "Named independent NORMAL arithmetic, power, root, logarithm, factorial/permutation/combination, percent andnumeric notation endpoints. Exact boundaries andfullmode behavior are separate. Explicit partial behavior only; no promotion tofullsimulatorparity."
+          }
+        ],
         "scope": "Explicit mapped assertions only; unlisted coverage is unassessed."
       },
       "goldenTested": {
@@ -16348,8 +17563,18 @@
         "policy": "Frozen baseline classification; infrastructure refactors do not promote capability parity."
       },
       "unitTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "partial",
+        "evidence": [
+          {
+            "kind": "unit",
+            "path": "tests/unit/phase6.test.js",
+            "anchor": "fraction views preserve exact numerator",
+            "capabilityIds": [
+              "el506.second.el506-k24"
+            ],
+            "scope": "Native fraction/decimal display toggles preserve exact value, restoration andarithmetic continuation. Explicit partial behavior only; no promotion tofullsimulatorparity."
+          }
+        ],
         "scope": "Explicit mapped assertions only; unlisted coverage is unassessed."
       },
       "goldenTested": {
@@ -16722,8 +17947,18 @@
         "policy": "Frozen baseline classification; infrastructure refactors do not promote capability parity."
       },
       "unitTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "partial",
+        "evidence": [
+          {
+            "kind": "unit",
+            "path": "tests/unit/phase7.test.js",
+            "anchor": "Phase 7 random menu order",
+            "capabilityIds": [
+              "el506.second.el506-k30"
+            ],
+            "scope": "Independent native RANDOM menu ordering andENT selection; outputrange testedseparately. Explicit partial behavior only; no promotion tofullsimulatorparity."
+          }
+        ],
         "scope": "Explicit mapped assertions only; unlisted coverage is unassessed."
       },
       "goldenTested": {
@@ -17134,8 +18369,41 @@
         "policy": "Frozen baseline classification; infrastructure refactors do not promote capability parity."
       },
       "unitTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "partial",
+        "evidence": [
+          {
+            "kind": "unit",
+            "path": "tests/unit/phase5.test.js",
+            "anchor": "NORMAL:",
+            "capabilityIds": [
+              "el506.base.el506-k19",
+              "el506.base.el506-k20",
+              "el506.base.el506-k21",
+              "el506.base.el506-k22",
+              "el506.base.el506-k23",
+              "el506.base.el506-k24",
+              "el506.base.el506-k33",
+              "el506.base.el506-k34",
+              "el506.base.el506-k38",
+              "el506.base.el506-k39",
+              "el506.base.el506-k44",
+              "el506.base.el506-k46",
+              "el506.base.el506-k47",
+              "el506.key.el506-k21",
+              "el506.second.el506-k18",
+              "el506.second.el506-k19",
+              "el506.second.el506-k20",
+              "el506.second.el506-k21",
+              "el506.second.el506-k22",
+              "el506.second.el506-k23",
+              "el506.second.el506-k35",
+              "el506.second.el506-k36",
+              "el506.second.el506-k37",
+              "el506.second.el506-k40"
+            ],
+            "scope": "Named independent NORMAL arithmetic, power, root, logarithm, factorial/permutation/combination, percent andnumeric notation endpoints. Exact boundaries andfullmode behavior are separate. Explicit partial behavior only; no promotion tofullsimulatorparity."
+          }
+        ],
         "scope": "Explicit mapped assertions only; unlisted coverage is unassessed."
       },
       "goldenTested": {
@@ -17180,8 +18448,41 @@
         "policy": "Frozen baseline classification; infrastructure refactors do not promote capability parity."
       },
       "unitTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "partial",
+        "evidence": [
+          {
+            "kind": "unit",
+            "path": "tests/unit/phase5.test.js",
+            "anchor": "NORMAL:",
+            "capabilityIds": [
+              "el506.base.el506-k19",
+              "el506.base.el506-k20",
+              "el506.base.el506-k21",
+              "el506.base.el506-k22",
+              "el506.base.el506-k23",
+              "el506.base.el506-k24",
+              "el506.base.el506-k33",
+              "el506.base.el506-k34",
+              "el506.base.el506-k38",
+              "el506.base.el506-k39",
+              "el506.base.el506-k44",
+              "el506.base.el506-k46",
+              "el506.base.el506-k47",
+              "el506.key.el506-k21",
+              "el506.second.el506-k18",
+              "el506.second.el506-k19",
+              "el506.second.el506-k20",
+              "el506.second.el506-k21",
+              "el506.second.el506-k22",
+              "el506.second.el506-k23",
+              "el506.second.el506-k35",
+              "el506.second.el506-k36",
+              "el506.second.el506-k37",
+              "el506.second.el506-k40"
+            ],
+            "scope": "Named independent NORMAL arithmetic, power, root, logarithm, factorial/permutation/combination, percent andnumeric notation endpoints. Exact boundaries andfullmode behavior are separate. Explicit partial behavior only; no promotion tofullsimulatorparity."
+          }
+        ],
         "scope": "Explicit mapped assertions only; unlisted coverage is unassessed."
       },
       "goldenTested": {
@@ -17226,8 +18527,41 @@
         "policy": "Frozen baseline classification; infrastructure refactors do not promote capability parity."
       },
       "unitTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "partial",
+        "evidence": [
+          {
+            "kind": "unit",
+            "path": "tests/unit/phase5.test.js",
+            "anchor": "NORMAL:",
+            "capabilityIds": [
+              "el506.base.el506-k19",
+              "el506.base.el506-k20",
+              "el506.base.el506-k21",
+              "el506.base.el506-k22",
+              "el506.base.el506-k23",
+              "el506.base.el506-k24",
+              "el506.base.el506-k33",
+              "el506.base.el506-k34",
+              "el506.base.el506-k38",
+              "el506.base.el506-k39",
+              "el506.base.el506-k44",
+              "el506.base.el506-k46",
+              "el506.base.el506-k47",
+              "el506.key.el506-k21",
+              "el506.second.el506-k18",
+              "el506.second.el506-k19",
+              "el506.second.el506-k20",
+              "el506.second.el506-k21",
+              "el506.second.el506-k22",
+              "el506.second.el506-k23",
+              "el506.second.el506-k35",
+              "el506.second.el506-k36",
+              "el506.second.el506-k37",
+              "el506.second.el506-k40"
+            ],
+            "scope": "Named independent NORMAL arithmetic, power, root, logarithm, factorial/permutation/combination, percent andnumeric notation endpoints. Exact boundaries andfullmode behavior are separate. Explicit partial behavior only; no promotion tofullsimulatorparity."
+          }
+        ],
         "scope": "Explicit mapped assertions only; unlisted coverage is unassessed."
       },
       "goldenTested": {
@@ -17490,8 +18824,41 @@
         "policy": "Frozen baseline classification; infrastructure refactors do not promote capability parity."
       },
       "unitTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "partial",
+        "evidence": [
+          {
+            "kind": "unit",
+            "path": "tests/unit/phase5.test.js",
+            "anchor": "NORMAL:",
+            "capabilityIds": [
+              "el506.base.el506-k19",
+              "el506.base.el506-k20",
+              "el506.base.el506-k21",
+              "el506.base.el506-k22",
+              "el506.base.el506-k23",
+              "el506.base.el506-k24",
+              "el506.base.el506-k33",
+              "el506.base.el506-k34",
+              "el506.base.el506-k38",
+              "el506.base.el506-k39",
+              "el506.base.el506-k44",
+              "el506.base.el506-k46",
+              "el506.base.el506-k47",
+              "el506.key.el506-k21",
+              "el506.second.el506-k18",
+              "el506.second.el506-k19",
+              "el506.second.el506-k20",
+              "el506.second.el506-k21",
+              "el506.second.el506-k22",
+              "el506.second.el506-k23",
+              "el506.second.el506-k35",
+              "el506.second.el506-k36",
+              "el506.second.el506-k37",
+              "el506.second.el506-k40"
+            ],
+            "scope": "Named independent NORMAL arithmetic, power, root, logarithm, factorial/permutation/combination, percent andnumeric notation endpoints. Exact boundaries andfullmode behavior are separate. Explicit partial behavior only; no promotion tofullsimulatorparity."
+          }
+        ],
         "scope": "Explicit mapped assertions only; unlisted coverage is unassessed."
       },
       "goldenTested": {
@@ -17567,8 +18934,19 @@
         "policy": "Frozen baseline classification; infrastructure refactors do not promote capability parity."
       },
       "unitTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "partial",
+        "evidence": [
+          {
+            "kind": "unit",
+            "path": "tests/unit/phase7.test.js",
+            "anchor": "Phase 7 constants and conversions compose",
+            "capabilityIds": [
+              "el506.second.el506-k41",
+              "el506.second.el506-k42"
+            ],
+            "scope": "Catalogue selectors compose withphysicalarithmetic, fractions andstoredvalues. Explicit partial behavior only; no promotion tofullsimulatorparity."
+          }
+        ],
         "scope": "Explicit mapped assertions only; unlisted coverage is unassessed."
       },
       "goldenTested": {
@@ -17611,8 +18989,19 @@
         "policy": "Frozen baseline classification; infrastructure refactors do not promote capability parity."
       },
       "unitTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "partial",
+        "evidence": [
+          {
+            "kind": "unit",
+            "path": "tests/unit/phase7.test.js",
+            "anchor": "Phase 7 constants and conversions compose",
+            "capabilityIds": [
+              "el506.second.el506-k41",
+              "el506.second.el506-k42"
+            ],
+            "scope": "Catalogue selectors compose withphysicalarithmetic, fractions andstoredvalues. Explicit partial behavior only; no promotion tofullsimulatorparity."
+          }
+        ],
         "scope": "Explicit mapped assertions only; unlisted coverage is unassessed."
       },
       "goldenTested": {
@@ -18033,8 +19422,18 @@
         "policy": "Frozen baseline classification; infrastructure refactors do not promote capability parity."
       },
       "unitTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "partial",
+        "evidence": [
+          {
+            "kind": "unit",
+            "path": "tests/unit/phase3.test.js",
+            "anchor": "M-CLR confirms with zero or ENT",
+            "capabilityIds": [
+              "el506.second.el506-k47"
+            ],
+            "scope": "Memoryclear andRESET confirmation/cancellation preserve orclear the expected stores/settings. Explicit partial behavior only; no promotion tofullsimulatorparity."
+          }
+        ],
         "scope": "Explicit mapped assertions only; unlisted coverage is unassessed."
       },
       "goldenTested": {
@@ -18174,8 +19573,27 @@
         "policy": "Frozen baseline classification; infrastructure refactors do not promote capability parity."
       },
       "unitTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "partial",
+        "evidence": [
+          {
+            "kind": "unit",
+            "path": "tests/unit/printed-modifier-audit.test.js",
+            "anchor": "Printed ALPHA",
+            "capabilityIds": [
+              "el506.alpha.el506-k18",
+              "el506.alpha.el506-k19",
+              "el506.alpha.el506-k20",
+              "el506.alpha.el506-k21",
+              "el506.alpha.el506-k22",
+              "el506.alpha.el506-k23",
+              "el506.alpha.el506-k27",
+              "el506.alpha.el506-k28",
+              "el506.alpha.el506-k29",
+              "el506.alpha.el506-k48"
+            ],
+            "scope": "Independent printed legends and manual scalar variable/ANS substitution: stored7 plus1 returns8 for allnine variables andANS. NORMAL only; other-mode availability and alltype/precision behavior not inferred."
+          }
+        ],
         "scope": "Explicit mapped assertions only; unlisted coverage is unassessed."
       },
       "goldenTested": {
@@ -18218,8 +19636,27 @@
         "policy": "Frozen baseline classification; infrastructure refactors do not promote capability parity."
       },
       "unitTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "partial",
+        "evidence": [
+          {
+            "kind": "unit",
+            "path": "tests/unit/printed-modifier-audit.test.js",
+            "anchor": "Printed ALPHA",
+            "capabilityIds": [
+              "el506.alpha.el506-k18",
+              "el506.alpha.el506-k19",
+              "el506.alpha.el506-k20",
+              "el506.alpha.el506-k21",
+              "el506.alpha.el506-k22",
+              "el506.alpha.el506-k23",
+              "el506.alpha.el506-k27",
+              "el506.alpha.el506-k28",
+              "el506.alpha.el506-k29",
+              "el506.alpha.el506-k48"
+            ],
+            "scope": "Independent printed legends and manual scalar variable/ANS substitution: stored7 plus1 returns8 for allnine variables andANS. NORMAL only; other-mode availability and alltype/precision behavior not inferred."
+          }
+        ],
         "scope": "Explicit mapped assertions only; unlisted coverage is unassessed."
       },
       "goldenTested": {
@@ -18262,8 +19699,27 @@
         "policy": "Frozen baseline classification; infrastructure refactors do not promote capability parity."
       },
       "unitTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "partial",
+        "evidence": [
+          {
+            "kind": "unit",
+            "path": "tests/unit/printed-modifier-audit.test.js",
+            "anchor": "Printed ALPHA",
+            "capabilityIds": [
+              "el506.alpha.el506-k18",
+              "el506.alpha.el506-k19",
+              "el506.alpha.el506-k20",
+              "el506.alpha.el506-k21",
+              "el506.alpha.el506-k22",
+              "el506.alpha.el506-k23",
+              "el506.alpha.el506-k27",
+              "el506.alpha.el506-k28",
+              "el506.alpha.el506-k29",
+              "el506.alpha.el506-k48"
+            ],
+            "scope": "Independent printed legends and manual scalar variable/ANS substitution: stored7 plus1 returns8 for allnine variables andANS. NORMAL only; other-mode availability and alltype/precision behavior not inferred."
+          }
+        ],
         "scope": "Explicit mapped assertions only; unlisted coverage is unassessed."
       },
       "goldenTested": {
@@ -18306,8 +19762,27 @@
         "policy": "Frozen baseline classification; infrastructure refactors do not promote capability parity."
       },
       "unitTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "partial",
+        "evidence": [
+          {
+            "kind": "unit",
+            "path": "tests/unit/printed-modifier-audit.test.js",
+            "anchor": "Printed ALPHA",
+            "capabilityIds": [
+              "el506.alpha.el506-k18",
+              "el506.alpha.el506-k19",
+              "el506.alpha.el506-k20",
+              "el506.alpha.el506-k21",
+              "el506.alpha.el506-k22",
+              "el506.alpha.el506-k23",
+              "el506.alpha.el506-k27",
+              "el506.alpha.el506-k28",
+              "el506.alpha.el506-k29",
+              "el506.alpha.el506-k48"
+            ],
+            "scope": "Independent printed legends and manual scalar variable/ANS substitution: stored7 plus1 returns8 for allnine variables andANS. NORMAL only; other-mode availability and alltype/precision behavior not inferred."
+          }
+        ],
         "scope": "Explicit mapped assertions only; unlisted coverage is unassessed."
       },
       "goldenTested": {
@@ -18350,8 +19825,27 @@
         "policy": "Frozen baseline classification; infrastructure refactors do not promote capability parity."
       },
       "unitTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "partial",
+        "evidence": [
+          {
+            "kind": "unit",
+            "path": "tests/unit/printed-modifier-audit.test.js",
+            "anchor": "Printed ALPHA",
+            "capabilityIds": [
+              "el506.alpha.el506-k18",
+              "el506.alpha.el506-k19",
+              "el506.alpha.el506-k20",
+              "el506.alpha.el506-k21",
+              "el506.alpha.el506-k22",
+              "el506.alpha.el506-k23",
+              "el506.alpha.el506-k27",
+              "el506.alpha.el506-k28",
+              "el506.alpha.el506-k29",
+              "el506.alpha.el506-k48"
+            ],
+            "scope": "Independent printed legends and manual scalar variable/ANS substitution: stored7 plus1 returns8 for allnine variables andANS. NORMAL only; other-mode availability and alltype/precision behavior not inferred."
+          }
+        ],
         "scope": "Explicit mapped assertions only; unlisted coverage is unassessed."
       },
       "goldenTested": {
@@ -18394,8 +19888,27 @@
         "policy": "Frozen baseline classification; infrastructure refactors do not promote capability parity."
       },
       "unitTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "partial",
+        "evidence": [
+          {
+            "kind": "unit",
+            "path": "tests/unit/printed-modifier-audit.test.js",
+            "anchor": "Printed ALPHA",
+            "capabilityIds": [
+              "el506.alpha.el506-k18",
+              "el506.alpha.el506-k19",
+              "el506.alpha.el506-k20",
+              "el506.alpha.el506-k21",
+              "el506.alpha.el506-k22",
+              "el506.alpha.el506-k23",
+              "el506.alpha.el506-k27",
+              "el506.alpha.el506-k28",
+              "el506.alpha.el506-k29",
+              "el506.alpha.el506-k48"
+            ],
+            "scope": "Independent printed legends and manual scalar variable/ANS substitution: stored7 plus1 returns8 for allnine variables andANS. NORMAL only; other-mode availability and alltype/precision behavior not inferred."
+          }
+        ],
         "scope": "Explicit mapped assertions only; unlisted coverage is unassessed."
       },
       "goldenTested": {
@@ -18438,8 +19951,27 @@
         "policy": "Frozen baseline classification; infrastructure refactors do not promote capability parity."
       },
       "unitTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "partial",
+        "evidence": [
+          {
+            "kind": "unit",
+            "path": "tests/unit/printed-modifier-audit.test.js",
+            "anchor": "Printed ALPHA",
+            "capabilityIds": [
+              "el506.alpha.el506-k18",
+              "el506.alpha.el506-k19",
+              "el506.alpha.el506-k20",
+              "el506.alpha.el506-k21",
+              "el506.alpha.el506-k22",
+              "el506.alpha.el506-k23",
+              "el506.alpha.el506-k27",
+              "el506.alpha.el506-k28",
+              "el506.alpha.el506-k29",
+              "el506.alpha.el506-k48"
+            ],
+            "scope": "Independent printed legends and manual scalar variable/ANS substitution: stored7 plus1 returns8 for allnine variables andANS. NORMAL only; other-mode availability and alltype/precision behavior not inferred."
+          }
+        ],
         "scope": "Explicit mapped assertions only; unlisted coverage is unassessed."
       },
       "goldenTested": {
@@ -18482,8 +20014,27 @@
         "policy": "Frozen baseline classification; infrastructure refactors do not promote capability parity."
       },
       "unitTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "partial",
+        "evidence": [
+          {
+            "kind": "unit",
+            "path": "tests/unit/printed-modifier-audit.test.js",
+            "anchor": "Printed ALPHA",
+            "capabilityIds": [
+              "el506.alpha.el506-k18",
+              "el506.alpha.el506-k19",
+              "el506.alpha.el506-k20",
+              "el506.alpha.el506-k21",
+              "el506.alpha.el506-k22",
+              "el506.alpha.el506-k23",
+              "el506.alpha.el506-k27",
+              "el506.alpha.el506-k28",
+              "el506.alpha.el506-k29",
+              "el506.alpha.el506-k48"
+            ],
+            "scope": "Independent printed legends and manual scalar variable/ANS substitution: stored7 plus1 returns8 for allnine variables andANS. NORMAL only; other-mode availability and alltype/precision behavior not inferred."
+          }
+        ],
         "scope": "Explicit mapped assertions only; unlisted coverage is unassessed."
       },
       "goldenTested": {
@@ -18526,8 +20077,27 @@
         "policy": "Frozen baseline classification; infrastructure refactors do not promote capability parity."
       },
       "unitTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "partial",
+        "evidence": [
+          {
+            "kind": "unit",
+            "path": "tests/unit/printed-modifier-audit.test.js",
+            "anchor": "Printed ALPHA",
+            "capabilityIds": [
+              "el506.alpha.el506-k18",
+              "el506.alpha.el506-k19",
+              "el506.alpha.el506-k20",
+              "el506.alpha.el506-k21",
+              "el506.alpha.el506-k22",
+              "el506.alpha.el506-k23",
+              "el506.alpha.el506-k27",
+              "el506.alpha.el506-k28",
+              "el506.alpha.el506-k29",
+              "el506.alpha.el506-k48"
+            ],
+            "scope": "Independent printed legends and manual scalar variable/ANS substitution: stored7 plus1 returns8 for allnine variables andANS. NORMAL only; other-mode availability and alltype/precision behavior not inferred."
+          }
+        ],
         "scope": "Explicit mapped assertions only; unlisted coverage is unassessed."
       },
       "goldenTested": {
@@ -19008,6 +20578,18 @@
               "el506.statistic.el506-k47"
             ],
             "scope": "Canonical replay asserts every printed weighted/corrected/paired statistics checkpoint; printed precision only."
+          },
+          {
+            "kind": "unit",
+            "path": "tests/unit/statistics-precision-audit.test.js",
+            "anchor": "Independent native STAT X cancellation",
+            "capabilityIds": [
+              "el506.alpha.el506-k35",
+              "el506.alpha.el506-k46",
+              "el506.statistic.el506-k35",
+              "el506.statistic.el506-k46"
+            ],
+            "scope": "Independent26-key SD data1E13,1,-1E13 gives sumx0, meanx0 andimmediateRCLsumx0; snapshots and retained data checked. Other moments, weights, regression andhidden precision not inferred."
           }
         ],
         "scope": "Explicit mapped assertions only; unlisted coverage is unassessed."
@@ -19043,6 +20625,18 @@
               "el506.probability.r"
             ],
             "scope": "Actual buttons exercise SD RCL/ALPHA and probability; no transformed-regression browser parity claim."
+          },
+          {
+            "kind": "browser",
+            "path": "tests/e2e/statistics-precision-audit.spec.js",
+            "anchor": "Native STAT X sum",
+            "capabilityIds": [
+              "el506.alpha.el506-k35",
+              "el506.alpha.el506-k46",
+              "el506.statistic.el506-k35",
+              "el506.statistic.el506-k46"
+            ],
+            "scope": "Physical-button replay ofindependent SD cancellation andselected native LCD checkpoints; partial measured numeric scope."
           }
         ],
         "scope": "Explicit canonical baseline browser replays only; legacy regression coverage is not inferred as parity."
@@ -19800,6 +21394,18 @@
               "el506.statistic.el506-k47"
             ],
             "scope": "Canonical replay asserts every printed weighted/corrected/paired statistics checkpoint; printed precision only."
+          },
+          {
+            "kind": "unit",
+            "path": "tests/unit/statistics-precision-audit.test.js",
+            "anchor": "Independent native STAT X cancellation",
+            "capabilityIds": [
+              "el506.alpha.el506-k35",
+              "el506.alpha.el506-k46",
+              "el506.statistic.el506-k35",
+              "el506.statistic.el506-k46"
+            ],
+            "scope": "Independent26-key SD data1E13,1,-1E13 gives sumx0, meanx0 andimmediateRCLsumx0; snapshots and retained data checked. Other moments, weights, regression andhidden precision not inferred."
           }
         ],
         "scope": "Explicit mapped assertions only; unlisted coverage is unassessed."
@@ -19816,8 +21422,21 @@
         "scope": "Baseline characterization only; all current supported fixtures have oracle display differences."
       },
       "browserTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "partial",
+        "evidence": [
+          {
+            "kind": "browser",
+            "path": "tests/e2e/statistics-precision-audit.spec.js",
+            "anchor": "Native STAT X sum",
+            "capabilityIds": [
+              "el506.alpha.el506-k35",
+              "el506.alpha.el506-k46",
+              "el506.statistic.el506-k35",
+              "el506.statistic.el506-k46"
+            ],
+            "scope": "Physical-button replay ofindependent SD cancellation andselected native LCD checkpoints; partial measured numeric scope."
+          }
+        ],
         "scope": "Explicit canonical baseline browser replays only; legacy regression coverage is not inferred as parity."
       }
     },
@@ -19937,8 +21556,27 @@
         "policy": "Frozen baseline classification; infrastructure refactors do not promote capability parity."
       },
       "unitTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "partial",
+        "evidence": [
+          {
+            "kind": "unit",
+            "path": "tests/unit/printed-modifier-audit.test.js",
+            "anchor": "Printed ALPHA",
+            "capabilityIds": [
+              "el506.alpha.el506-k18",
+              "el506.alpha.el506-k19",
+              "el506.alpha.el506-k20",
+              "el506.alpha.el506-k21",
+              "el506.alpha.el506-k22",
+              "el506.alpha.el506-k23",
+              "el506.alpha.el506-k27",
+              "el506.alpha.el506-k28",
+              "el506.alpha.el506-k29",
+              "el506.alpha.el506-k48"
+            ],
+            "scope": "Independent printed legends and manual scalar variable/ANS substitution: stored7 plus1 returns8 for allnine variables andANS. NORMAL only; other-mode availability and alltype/precision behavior not inferred."
+          }
+        ],
         "scope": "Explicit mapped assertions only; unlisted coverage is unassessed."
       },
       "goldenTested": {
@@ -41391,6 +43029,17 @@
               "el506.list.slot.4"
             ],
             "scope": "Independent119-key native exposure inventory,67 unambiguous upper-label and lower-index/digit checkpoints. Whitespace and equivalent micro glyph normalized; blink dots excluded. Entry/menu exposure and ordering only: operation algorithms, stores, hidden precision, domains and full compatibility remain unverified."
+          },
+          {
+            "kind": "unit",
+            "path": "tests/unit/list-aggregate-precision-audit.test.js",
+            "anchor": "Independent native LIST exponent entry sum and mean cancellation",
+            "capabilityIds": [
+              "el506.list-math.sum",
+              "el506.list-math.mean",
+              "el506.base.el506-k24"
+            ],
+            "scope": "Independent 37-key native LIST trace: scientific definition entry stores [1E13,1,-1E13]; sum and mean return zero. Partial precision evidence only; no inference for other aggregates or modes."
           }
         ],
         "scope": "Explicit mapped assertions only; unlisted coverage is unassessed."
@@ -41505,6 +43154,17 @@
               "el506.list.slot.4"
             ],
             "scope": "Independent119-key native exposure inventory,67 unambiguous upper-label and lower-index/digit checkpoints. Whitespace and equivalent micro glyph normalized; blink dots excluded. Entry/menu exposure and ordering only: operation algorithms, stores, hidden precision, domains and full compatibility remain unverified."
+          },
+          {
+            "kind": "browser",
+            "path": "tests/e2e/list-aggregate-precision-audit.spec.js",
+            "anchor": "Native LIST exponent entry sum and mean cancellation checkpoints",
+            "capabilityIds": [
+              "el506.list-math.sum",
+              "el506.list-math.mean",
+              "el506.base.el506-k24"
+            ],
+            "scope": "Independent 37-key native LIST trace: scientific definition entry stores [1E13,1,-1E13]; sum and mean return zero. Partial precision evidence only; no inference for other aggregates or modes."
           }
         ],
         "scope": "Explicit canonical baseline browser replays only; legacy regression coverage is not inferred as parity."
@@ -41971,6 +43631,17 @@
               "el506.list.slot.4"
             ],
             "scope": "Independent119-key native exposure inventory,67 unambiguous upper-label and lower-index/digit checkpoints. Whitespace and equivalent micro glyph normalized; blink dots excluded. Entry/menu exposure and ordering only: operation algorithms, stores, hidden precision, domains and full compatibility remain unverified."
+          },
+          {
+            "kind": "unit",
+            "path": "tests/unit/list-aggregate-precision-audit.test.js",
+            "anchor": "Independent native LIST exponent entry sum and mean cancellation",
+            "capabilityIds": [
+              "el506.list-math.sum",
+              "el506.list-math.mean",
+              "el506.base.el506-k24"
+            ],
+            "scope": "Independent 37-key native LIST trace: scientific definition entry stores [1E13,1,-1E13]; sum and mean return zero. Partial precision evidence only; no inference for other aggregates or modes."
           }
         ],
         "scope": "Explicit mapped assertions only; unlisted coverage is unassessed."
@@ -42085,6 +43756,17 @@
               "el506.list.slot.4"
             ],
             "scope": "Independent119-key native exposure inventory,67 unambiguous upper-label and lower-index/digit checkpoints. Whitespace and equivalent micro glyph normalized; blink dots excluded. Entry/menu exposure and ordering only: operation algorithms, stores, hidden precision, domains and full compatibility remain unverified."
+          },
+          {
+            "kind": "browser",
+            "path": "tests/e2e/list-aggregate-precision-audit.spec.js",
+            "anchor": "Native LIST exponent entry sum and mean cancellation checkpoints",
+            "capabilityIds": [
+              "el506.list-math.sum",
+              "el506.list-math.mean",
+              "el506.base.el506-k24"
+            ],
+            "scope": "Independent 37-key native LIST trace: scientific definition entry stores [1E13,1,-1E13]; sum and mean return zero. Partial precision evidence only; no inference for other aggregates or modes."
           }
         ],
         "scope": "Explicit canonical baseline browser replays only; legacy regression coverage is not inferred as parity."
@@ -69774,6 +71456,18 @@
               "el506.statistic.el506-k47"
             ],
             "scope": "Canonical replay asserts every printed weighted/corrected/paired statistics checkpoint; printed precision only."
+          },
+          {
+            "kind": "unit",
+            "path": "tests/unit/statistics-precision-audit.test.js",
+            "anchor": "Independent native STAT X cancellation",
+            "capabilityIds": [
+              "el506.alpha.el506-k35",
+              "el506.alpha.el506-k46",
+              "el506.statistic.el506-k35",
+              "el506.statistic.el506-k46"
+            ],
+            "scope": "Independent26-key SD data1E13,1,-1E13 gives sumx0, meanx0 andimmediateRCLsumx0; snapshots and retained data checked. Other moments, weights, regression andhidden precision not inferred."
           }
         ],
         "scope": "Explicit mapped assertions only; unlisted coverage is unassessed."
@@ -69809,6 +71503,18 @@
               "el506.probability.r"
             ],
             "scope": "Actual buttons exercise SD RCL/ALPHA and probability; no transformed-regression browser parity claim."
+          },
+          {
+            "kind": "browser",
+            "path": "tests/e2e/statistics-precision-audit.spec.js",
+            "anchor": "Native STAT X sum",
+            "capabilityIds": [
+              "el506.alpha.el506-k35",
+              "el506.alpha.el506-k46",
+              "el506.statistic.el506-k35",
+              "el506.statistic.el506-k46"
+            ],
+            "scope": "Physical-button replay ofindependent SD cancellation andselected native LCD checkpoints; partial measured numeric scope."
           }
         ],
         "scope": "Explicit canonical baseline browser replays only; legacy regression coverage is not inferred as parity."
@@ -70629,6 +72335,18 @@
               "el506.statistic.el506-k47"
             ],
             "scope": "Canonical replay asserts every printed weighted/corrected/paired statistics checkpoint; printed precision only."
+          },
+          {
+            "kind": "unit",
+            "path": "tests/unit/statistics-precision-audit.test.js",
+            "anchor": "Independent native STAT X cancellation",
+            "capabilityIds": [
+              "el506.alpha.el506-k35",
+              "el506.alpha.el506-k46",
+              "el506.statistic.el506-k35",
+              "el506.statistic.el506-k46"
+            ],
+            "scope": "Independent26-key SD data1E13,1,-1E13 gives sumx0, meanx0 andimmediateRCLsumx0; snapshots and retained data checked. Other moments, weights, regression andhidden precision not inferred."
           }
         ],
         "scope": "Explicit mapped assertions only; unlisted coverage is unassessed."
@@ -70645,8 +72363,21 @@
         "scope": "Baseline characterization only; all current supported fixtures have oracle display differences."
       },
       "browserTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "partial",
+        "evidence": [
+          {
+            "kind": "browser",
+            "path": "tests/e2e/statistics-precision-audit.spec.js",
+            "anchor": "Native STAT X sum",
+            "capabilityIds": [
+              "el506.alpha.el506-k35",
+              "el506.alpha.el506-k46",
+              "el506.statistic.el506-k35",
+              "el506.statistic.el506-k46"
+            ],
+            "scope": "Physical-button replay ofindependent SD cancellation andselected native LCD checkpoints; partial measured numeric scope."
+          }
+        ],
         "scope": "Explicit canonical baseline browser replays only; legacy regression coverage is not inferred as parity."
       }
     },
@@ -72264,8 +73995,21 @@
         "policy": "Frozen baseline classification; infrastructure refactors do not promote capability parity."
       },
       "unitTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "partial",
+        "evidence": [
+          {
+            "kind": "unit",
+            "path": "tests/unit/printed-modifier-audit.test.js",
+            "anchor": "Printed HEX digit",
+            "capabilityIds": [
+              "el506.nbase.digit.b",
+              "el506.nbase.digit.c",
+              "el506.nbase.digit.d",
+              "el506.nbase.digit.e"
+            ],
+            "scope": "Independent positional notation: printed HEX B,C,D,E returndecimal11,12,13,14 via physicalkeys andDEC conversion. Other boundaries andallmodifier semantics not inferred."
+          }
+        ],
         "scope": "Explicit mapped assertions only; unlisted coverage is unassessed."
       },
       "goldenTested": {
@@ -72315,8 +74059,21 @@
         "policy": "Frozen baseline classification; infrastructure refactors do not promote capability parity."
       },
       "unitTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "partial",
+        "evidence": [
+          {
+            "kind": "unit",
+            "path": "tests/unit/printed-modifier-audit.test.js",
+            "anchor": "Printed HEX digit",
+            "capabilityIds": [
+              "el506.nbase.digit.b",
+              "el506.nbase.digit.c",
+              "el506.nbase.digit.d",
+              "el506.nbase.digit.e"
+            ],
+            "scope": "Independent positional notation: printed HEX B,C,D,E returndecimal11,12,13,14 via physicalkeys andDEC conversion. Other boundaries andallmodifier semantics not inferred."
+          }
+        ],
         "scope": "Explicit mapped assertions only; unlisted coverage is unassessed."
       },
       "goldenTested": {
@@ -72366,8 +74123,21 @@
         "policy": "Frozen baseline classification; infrastructure refactors do not promote capability parity."
       },
       "unitTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "partial",
+        "evidence": [
+          {
+            "kind": "unit",
+            "path": "tests/unit/printed-modifier-audit.test.js",
+            "anchor": "Printed HEX digit",
+            "capabilityIds": [
+              "el506.nbase.digit.b",
+              "el506.nbase.digit.c",
+              "el506.nbase.digit.d",
+              "el506.nbase.digit.e"
+            ],
+            "scope": "Independent positional notation: printed HEX B,C,D,E returndecimal11,12,13,14 via physicalkeys andDEC conversion. Other boundaries andallmodifier semantics not inferred."
+          }
+        ],
         "scope": "Explicit mapped assertions only; unlisted coverage is unassessed."
       },
       "goldenTested": {
@@ -72417,8 +74187,21 @@
         "policy": "Frozen baseline classification; infrastructure refactors do not promote capability parity."
       },
       "unitTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "partial",
+        "evidence": [
+          {
+            "kind": "unit",
+            "path": "tests/unit/printed-modifier-audit.test.js",
+            "anchor": "Printed HEX digit",
+            "capabilityIds": [
+              "el506.nbase.digit.b",
+              "el506.nbase.digit.c",
+              "el506.nbase.digit.d",
+              "el506.nbase.digit.e"
+            ],
+            "scope": "Independent positional notation: printed HEX B,C,D,E returndecimal11,12,13,14 via physicalkeys andDEC conversion. Other boundaries andallmodifier semantics not inferred."
+          }
+        ],
         "scope": "Explicit mapped assertions only; unlisted coverage is unassessed."
       },
       "goldenTested": {

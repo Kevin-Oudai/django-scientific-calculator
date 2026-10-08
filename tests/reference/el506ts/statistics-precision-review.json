@@ -1,0 +1,47 @@
+{
+  "reviewId": "statistics-x-precision-2026-10-08",
+  "roadmapItem": "EL506-354",
+  "roadmapItemComplete": false,
+  "reference": "experiments/statistics-x-cancellation-native.json",
+  "nativeKeys": 48,
+  "nativeActionRange": "1134..1181",
+  "findings": [
+    "SD data1E13,1,-1E13 returns sumx0, meanx0 andimmediateRCLsumx0.",
+    "STATVAR switches2ndF toALPHA; meanENT returns0 forretaineddata.",
+    "AfterCA, SD data1E12,1,-1E12 retains sumx1."
+  ],
+  "selectedPolicy": "PhysicalSD X accumulation uses exact decimal sums followed by13 significant-digit truncation. Ordinary module summation remains compensated binary arithmetic. The callback istransient andnotserialized.",
+  "policyLimits": "This matches visible measurements without uniquely identifying the hidden algorithm. Weights/products, higher moments, Y accumulation, regression andallremainingresulttypes still require independent assessment.",
+  "validation": {
+    "earlierFullUnitPassed": 705,
+    "statisticsBrowserPassed": 30,
+    "browserEngines": [
+      "Chromium",
+      "Firefox",
+      "WebKit"
+    ],
+    "final48KeyValidation": "715 unit passed; final 48-key trace passed Chromium, Firefox and WebKit (3 browser cases).",
+    "finalCombinedValidation": {
+      "fullUnitPassed": 720,
+      "browserPassed": 18,
+      "browserEngines": [
+        "Chromium",
+        "Firefox",
+        "WebKit"
+      ],
+      "goldenFixtures": 29,
+      "goldenFrames": 1200,
+      "referenceAndReportChecks": "passed",
+      "compileall": "passed",
+      "dockerComposeConfig": "passed",
+      "dockerRuntime": "unavailable: Docker Desktop Linux pipe absent",
+      "freshPreview": "Port8011 uses fresh stat-collection asset URLs; physical button replay verifies STAT sum0, LIST mean0 and MAT positive1E-13. Port8010 retained during separate full615-case browser suite.",
+      "proofs": [
+        "statistics-cancellation-proof.png",
+        "list-aggregate-cancellation-proof.png",
+        "collection-scientific-proof.png"
+      ]
+    }
+  },
+  "releaseGate": "Whole EL506-354 andreleasegates remain open."
+}

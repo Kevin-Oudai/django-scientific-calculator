@@ -11,7 +11,7 @@
  const difference=a=>{if(a.length<2)fail(7);return list(a.slice(1).map((x,i)=>x-a[i]));};
  const sort=(a,descending=false)=>list([...a].sort((x,y)=>descending?y-x:x-y));
  const augment=(a,b)=>list([...a,...b]);
- function aggregate(name,a){list(a);const sum=a.reduce((s,x)=>finite(s+x),0),mean=sum/a.length;
+ function aggregate(name,a,options={}){list(a);const sum=a.reduce((s,x)=>finite((['lsum','lmean'].includes(name)&&options.binary)?options.binary('+',s,x):s+x),0),mean=sum/a.length;
   if(name==='lmin')return Math.min(...a);if(name==='lmax')return Math.max(...a);if(name==='lmean')return finite(mean);if(name==='lsum')return sum;
   if(name==='lprod')return a.reduce((s,x)=>finite(s*x),1);
   if(name==='lmed'){const b=sort(a),i=Math.floor(a.length/2);return finite(a.length%2?b[i]:(b[i-1]+b[i])/2);}
@@ -24,7 +24,7 @@
   number:text=>finite(Number(text)),symbol:name=>/^L[1-4]$/.test(name)?scope.lists[Number(name[1])-1]||fail(10):scalar.symbol(name,scope),
   unary:(op,a)=>Array.isArray(a)?list(a.map(x=>op==='-'?-x:x)):op==='-'?-a:a,
   binary:(op,a,b)=>{const al=Array.isArray(a),bl=Array.isArray(b);if(!al&&!bl)return finite(scalar.binary(op,a,b));if((op==='+'||op==='-')&&al!==bl||op==='/'&&!al&&bl)fail(1);const operation=(x,y)=>finite((scope.binary||scalar.binary)(op,x,y));return al&&bl?pair(a,b,operation):list((al?a:b).map(x=>al?operation(x,b):operation(a,x)));},
-  call:(name,args)=>{const [a,b]=args;if(name==='lsortA'||name==='lsortD')return sort(a,name==='lsortD');if(name==='ldim')return dimension(a,b);if(name==='lfill')return fill(a,b);if(name==='lcumul')return cumulative(a);if(name==='ldiff')return difference(a);if(name==='laug')return augment(a,b);if(name==='linner')return inner(a,b);if(name==='louter')return outer(a,b);if(['lmin','lmax','lmean','lmed','lsum','lprod','lstd','lvar','labs'].includes(name))return aggregate(name,a);if(args.some(Array.isArray))fail(1);return finite(scalar.call(name,args,scope));}
+  call:(name,args)=>{const [a,b]=args;if(name==='lsortA'||name==='lsortD')return sort(a,name==='lsortD');if(name==='ldim')return dimension(a,b);if(name==='lfill')return fill(a,b);if(name==='lcumul')return cumulative(a);if(name==='ldiff')return difference(a);if(name==='laug')return augment(a,b);if(name==='linner')return inner(a,b);if(name==='louter')return outer(a,b);if(['lmin','lmax','lmean','lmed','lsum','lprod','lstd','lvar','labs'].includes(name))return aggregate(name,a,{binary:scope.binary});if(args.some(Array.isArray))fail(1);return finite(scalar.call(name,args,scope));}
  },scope);}
  return Object.freeze({size,list,fill,dimension,pair,cumulative,difference,sort,augment,aggregate,inner,outer,evaluate});
 });
