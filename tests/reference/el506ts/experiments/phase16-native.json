@@ -1,0 +1,1929 @@
+{
+  "schema_version": 1,
+  "experiment_id": "el506-320-phase16-native-v1",
+  "roadmap_item": "EL506-320",
+  "catalog_id": "el506-physical-keys-v1",
+  "simulator": {
+    "profile_id": "sharp-el506ts-pc-simulator-1.0.2.0",
+    "product": "SHARP PC Simulator for EL-506TS",
+    "build": "1.0.2.0",
+    "runtime_sha256": "6bfef4d04900b472892be2d4c54dcfa6013f87232097e32df508ca4c27425530",
+    "locale": "English UI; en-US",
+    "operating_system": "Windows 11"
+  },
+  "capture": {
+    "date": "2026-10-08",
+    "timezone": "America/Port_of_Spain",
+    "method": "Live @oai/sky, exactly one native input then an inspected screenshot per action. Independently transcribed significant LCD checkpoints. Only DEG indicator consistently transcribed; other indicators and hidden stored precision are not claimed by this trace. Intermediate golden frames characterize implementation, not independent parity.",
+    "evidence_kind": "live-simulator",
+    "source_ids": [
+      "live-session"
+    ]
+  },
+  "initial_state": {
+    "reset": {
+      "kind": "documented-state",
+      "description": "Fresh launched NORMAL DEG calculator independently inspected before MODE/LIST."
+    },
+    "setup_sequence": [],
+    "mode": {
+      "status": "observed",
+      "value": "NORMAL (pinned reset default)"
+    },
+    "settings": [
+      {
+        "name": "angle",
+        "observation": {
+          "status": "observed",
+          "value": "DEG"
+        }
+      },
+      {
+        "name": "display-format",
+        "observation": {
+          "status": "observed",
+          "value": "NORM1 (pinned reset default)"
+        }
+      }
+    ],
+    "display": {
+      "upper_line": "",
+      "lower_line": "0.",
+      "indicators": [
+        "DEG"
+      ],
+      "scroll_arrows": [],
+      "cursor": {
+        "status": "unknown",
+        "reason": "Cursor blink phase not measured; only significant LCD checkpoints transcribed."
+      },
+      "insert_mode": {
+        "status": "unknown",
+        "reason": "Insertion timing not measured in this trace."
+      },
+      "prompt": null,
+      "selected_result_component": null
+    },
+    "stores": []
+  },
+  "sequence": [
+    "EL506-K04",
+    "EL506-K36",
+    "EL506-K17",
+    "EL506-K11",
+    "EL506-K11",
+    "EL506-K42",
+    "EL506-K11",
+    "EL506-K11",
+    "EL506-K11",
+    "EL506-K02",
+    "EL506-K17",
+    "EL506-K35",
+    "EL506-K11",
+    "EL506-K11",
+    "EL506-K11",
+    "EL506-K11",
+    "EL506-K02",
+    "EL506-K11",
+    "EL506-K42",
+    "EL506-K29",
+    "EL506-K42",
+    "EL506-K29",
+    "EL506-K40",
+    "EL506-K29",
+    "EL506-K41",
+    "EL506-K29",
+    "EL506-K02",
+    "EL506-K17",
+    "EL506-K41",
+    "EL506-K45",
+    "EL506-K17",
+    "EL506-K45",
+    "EL506-K45",
+    "EL506-K48",
+    "EL506-K40",
+    "EL506-K30",
+    "EL506-K29",
+    "EL506-K02",
+    "EL506-K11",
+    "EL506-K40",
+    "EL506-K37",
+    "EL506-K29",
+    "EL506-K02",
+    "EL506-K17",
+    "EL506-K35",
+    "EL506-K30",
+    "EL506-K17",
+    "EL506-K45",
+    "EL506-K45",
+    "EL506-K48",
+    "EL506-K11",
+    "EL506-K02",
+    "EL506-K17",
+    "EL506-K45",
+    "EL506-K45",
+    "EL506-K38",
+    "EL506-K17",
+    "EL506-K45",
+    "EL506-K45",
+    "EL506-K48",
+    "EL506-K11",
+    "EL506-K11",
+    "EL506-K11",
+    "EL506-K02",
+    "EL506-K03",
+    "EL506-K48",
+    "EL506-K17",
+    "EL506-K35",
+    "EL506-K32",
+    "EL506-K17",
+    "EL506-K45",
+    "EL506-K45",
+    "EL506-K03",
+    "EL506-K28",
+    "EL506-K17",
+    "EL506-K45",
+    "EL506-K45",
+    "EL506-K48",
+    "EL506-K02",
+    "EL506-K17",
+    "EL506-K35",
+    "EL506-K31",
+    "EL506-K17",
+    "EL506-K45",
+    "EL506-K45",
+    "EL506-K03",
+    "EL506-K28",
+    "EL506-K17",
+    "EL506-K45",
+    "EL506-K45",
+    "EL506-K43",
+    "EL506-K40",
+    "EL506-K48",
+    "EL506-K02",
+    "EL506-K17",
+    "EL506-K36",
+    "EL506-K11",
+    "EL506-K02",
+    "EL506-K17",
+    "EL506-K40",
+    "EL506-K45",
+    "EL506-K11",
+    "EL506-K11",
+    "EL506-K11",
+    "EL506-K11",
+    "EL506-K11",
+    "EL506-K02",
+    "EL506-K03",
+    "EL506-K48",
+    "EL506-K04",
+    "EL506-K36",
+    "EL506-K17",
+    "EL506-K45",
+    "EL506-K45",
+    "EL506-K48",
+    "EL506-K02",
+    "EL506-K11",
+    "EL506-K42",
+    "EL506-K29",
+    "EL506-K42",
+    "EL506-K29",
+    "EL506-K40",
+    "EL506-K29",
+    "EL506-K41",
+    "EL506-K29",
+    "EL506-K02",
+    "EL506-K17",
+    "EL506-K41",
+    "EL506-K45",
+    "EL506-K17",
+    "EL506-K45",
+    "EL506-K45",
+    "EL506-K43",
+    "EL506-K40",
+    "EL506-K48",
+    "EL506-K02",
+    "EL506-K17",
+    "EL506-K45",
+    "EL506-K45",
+    "EL506-K38",
+    "EL506-K41",
+    "EL506-K48",
+    "EL506-K11",
+    "EL506-K11",
+    "EL506-K11",
+    "EL506-K02",
+    "EL506-K11",
+    "EL506-K11",
+    "EL506-K40",
+    "EL506-K29",
+    "EL506-K02",
+    "EL506-K17",
+    "EL506-K41",
+    "EL506-K40",
+    "EL506-K17",
+    "EL506-K35",
+    "EL506-K31",
+    "EL506-K17",
+    "EL506-K45",
+    "EL506-K45",
+    "EL506-K03",
+    "EL506-K28",
+    "EL506-K17",
+    "EL506-K45",
+    "EL506-K40",
+    "EL506-K48",
+    "EL506-K11",
+    "EL506-K11",
+    "EL506-K11",
+    "EL506-K04",
+    "EL506-K45",
+    "EL506-K41",
+    "EL506-K25",
+    "EL506-K15",
+    "EL506-K40",
+    "EL506-K30",
+    "EL506-K48",
+    "EL506-K04",
+    "EL506-K42",
+    "EL506-K18",
+    "EL506-K48",
+    "EL506-K04",
+    "EL506-K35",
+    "EL506-K11",
+    "EL506-K41",
+    "EL506-K29",
+    "EL506-K41",
+    "EL506-K29",
+    "EL506-K45",
+    "EL506-K46",
+    "EL506-K32",
+    "EL506-K29",
+    "EL506-K45",
+    "EL506-K46",
+    "EL506-K41",
+    "EL506-K29",
+    "EL506-K45",
+    "EL506-K46",
+    "EL506-K40",
+    "EL506-K29",
+    "EL506-K45",
+    "EL506-K46",
+    "EL506-K31",
+    "EL506-K29",
+    "EL506-K02",
+    "EL506-K17",
+    "EL506-K41",
+    "EL506-K45",
+    "EL506-K17",
+    "EL506-K45",
+    "EL506-K45",
+    "EL506-K20",
+    "EL506-K48",
+    "EL506-K11",
+    "EL506-K11",
+    "EL506-K11",
+    "EL506-K11",
+    "EL506-K11"
+  ],
+  "frames": [
+    {
+      "after_step": 0,
+      "display": {
+        "upper_line": "",
+        "lower_line": "0.",
+        "indicators": [
+          "DEG"
+        ],
+        "scroll_arrows": [],
+        "cursor": {
+          "status": "unknown",
+          "reason": "Cursor blink phase not measured; only significant LCD checkpoints transcribed."
+        },
+        "insert_mode": {
+          "status": "unknown",
+          "reason": "Insertion timing not measured in this trace."
+        },
+        "prompt": null,
+        "selected_result_component": null
+      },
+      "result": {
+        "status": "unknown",
+        "reason": "Hidden initial precision unmeasured."
+      }
+    },
+    {
+      "after_step": 3,
+      "display": {
+        "upper_line": "LST CHK STO",
+        "lower_line": "0. 1 2",
+        "indicators": [
+          "DEG"
+        ],
+        "scroll_arrows": [],
+        "cursor": {
+          "status": "unknown",
+          "reason": "Cursor blink phase not measured; only significant LCD checkpoints transcribed."
+        },
+        "insert_mode": {
+          "status": "unknown",
+          "reason": "Insertion timing not measured in this trace."
+        },
+        "prompt": null,
+        "selected_result_component": null
+      },
+      "result": {
+        "status": "unknown",
+        "reason": "Visible LCD transcript only; hidden precision unmeasured."
+      }
+    },
+    {
+      "after_step": 4,
+      "display": {
+        "upper_line": "OPE MATH",
+        "lower_line": "3. 4",
+        "indicators": [
+          "DEG"
+        ],
+        "scroll_arrows": [],
+        "cursor": {
+          "status": "unknown",
+          "reason": "Cursor blink phase not measured; only significant LCD checkpoints transcribed."
+        },
+        "insert_mode": {
+          "status": "unknown",
+          "reason": "Insertion timing not measured in this trace."
+        },
+        "prompt": null,
+        "selected_result_component": null
+      },
+      "result": {
+        "status": "unknown",
+        "reason": "Visible LCD transcript only; hidden precision unmeasured."
+      }
+    },
+    {
+      "after_step": 5,
+      "display": {
+        "upper_line": "list→mat",
+        "lower_line": "5.",
+        "indicators": [
+          "DEG"
+        ],
+        "scroll_arrows": [],
+        "cursor": {
+          "status": "unknown",
+          "reason": "Cursor blink phase not measured; only significant LCD checkpoints transcribed."
+        },
+        "insert_mode": {
+          "status": "unknown",
+          "reason": "Insertion timing not measured in this trace."
+        },
+        "prompt": null,
+        "selected_result_component": null
+      },
+      "result": {
+        "status": "unknown",
+        "reason": "Visible LCD transcript only; hidden precision unmeasured."
+      }
+    },
+    {
+      "after_step": 6,
+      "display": {
+        "upper_line": "sortA sortD",
+        "lower_line": "0. 1",
+        "indicators": [
+          "DEG"
+        ],
+        "scroll_arrows": [],
+        "cursor": {
+          "status": "unknown",
+          "reason": "Cursor blink phase not measured; only significant LCD checkpoints transcribed."
+        },
+        "insert_mode": {
+          "status": "unknown",
+          "reason": "Insertion timing not measured in this trace."
+        },
+        "prompt": null,
+        "selected_result_component": null
+      },
+      "result": {
+        "status": "unknown",
+        "reason": "Visible LCD transcript only; hidden precision unmeasured."
+      }
+    },
+    {
+      "after_step": 7,
+      "display": {
+        "upper_line": "dim( fill(",
+        "lower_line": "2. 3",
+        "indicators": [
+          "DEG"
+        ],
+        "scroll_arrows": [],
+        "cursor": {
+          "status": "unknown",
+          "reason": "Cursor blink phase not measured; only significant LCD checkpoints transcribed."
+        },
+        "insert_mode": {
+          "status": "unknown",
+          "reason": "Insertion timing not measured in this trace."
+        },
+        "prompt": null,
+        "selected_result_component": null
+      },
+      "result": {
+        "status": "unknown",
+        "reason": "Visible LCD transcript only; hidden precision unmeasured."
+      }
+    },
+    {
+      "after_step": 8,
+      "display": {
+        "upper_line": "cumul",
+        "lower_line": "4.",
+        "indicators": [
+          "DEG"
+        ],
+        "scroll_arrows": [],
+        "cursor": {
+          "status": "unknown",
+          "reason": "Cursor blink phase not measured; only significant LCD checkpoints transcribed."
+        },
+        "insert_mode": {
+          "status": "unknown",
+          "reason": "Insertion timing not measured in this trace."
+        },
+        "prompt": null,
+        "selected_result_component": null
+      },
+      "result": {
+        "status": "unknown",
+        "reason": "Visible LCD transcript only; hidden precision unmeasured."
+      }
+    },
+    {
+      "after_step": 9,
+      "display": {
+        "upper_line": "df_list aug(",
+        "lower_line": "5. 6",
+        "indicators": [
+          "DEG"
+        ],
+        "scroll_arrows": [],
+        "cursor": {
+          "status": "unknown",
+          "reason": "Cursor blink phase not measured; only significant LCD checkpoints transcribed."
+        },
+        "insert_mode": {
+          "status": "unknown",
+          "reason": "Insertion timing not measured in this trace."
+        },
+        "prompt": null,
+        "selected_result_component": null
+      },
+      "result": {
+        "status": "unknown",
+        "reason": "Visible LCD transcript only; hidden precision unmeasured."
+      }
+    },
+    {
+      "after_step": 12,
+      "display": {
+        "upper_line": "min max mean",
+        "lower_line": "0. 1 2",
+        "indicators": [
+          "DEG"
+        ],
+        "scroll_arrows": [],
+        "cursor": {
+          "status": "unknown",
+          "reason": "Cursor blink phase not measured; only significant LCD checkpoints transcribed."
+        },
+        "insert_mode": {
+          "status": "unknown",
+          "reason": "Insertion timing not measured in this trace."
+        },
+        "prompt": null,
+        "selected_result_component": null
+      },
+      "result": {
+        "status": "unknown",
+        "reason": "Visible LCD transcript only; hidden precision unmeasured."
+      }
+    },
+    {
+      "after_step": 13,
+      "display": {
+        "upper_line": "med sum",
+        "lower_line": "3. 4",
+        "indicators": [
+          "DEG"
+        ],
+        "scroll_arrows": [],
+        "cursor": {
+          "status": "unknown",
+          "reason": "Cursor blink phase not measured; only significant LCD checkpoints transcribed."
+        },
+        "insert_mode": {
+          "status": "unknown",
+          "reason": "Insertion timing not measured in this trace."
+        },
+        "prompt": null,
+        "selected_result_component": null
+      },
+      "result": {
+        "status": "unknown",
+        "reason": "Visible LCD transcript only; hidden precision unmeasured."
+      }
+    },
+    {
+      "after_step": 14,
+      "display": {
+        "upper_line": "prod stdDv",
+        "lower_line": "5. 6",
+        "indicators": [
+          "DEG"
+        ],
+        "scroll_arrows": [],
+        "cursor": {
+          "status": "unknown",
+          "reason": "Cursor blink phase not measured; only significant LCD checkpoints transcribed."
+        },
+        "insert_mode": {
+          "status": "unknown",
+          "reason": "Insertion timing not measured in this trace."
+        },
+        "prompt": null,
+        "selected_result_component": null
+      },
+      "result": {
+        "status": "unknown",
+        "reason": "Visible LCD transcript only; hidden precision unmeasured."
+      }
+    },
+    {
+      "after_step": 15,
+      "display": {
+        "upper_line": "vari o_prod(",
+        "lower_line": "7. 8",
+        "indicators": [
+          "DEG"
+        ],
+        "scroll_arrows": [],
+        "cursor": {
+          "status": "unknown",
+          "reason": "Cursor blink phase not measured; only significant LCD checkpoints transcribed."
+        },
+        "insert_mode": {
+          "status": "unknown",
+          "reason": "Insertion timing not measured in this trace."
+        },
+        "prompt": null,
+        "selected_result_component": null
+      },
+      "result": {
+        "status": "unknown",
+        "reason": "Visible LCD transcript only; hidden precision unmeasured."
+      }
+    },
+    {
+      "after_step": 16,
+      "display": {
+        "upper_line": "i_prod( abs",
+        "lower_line": "9. A",
+        "indicators": [
+          "DEG"
+        ],
+        "scroll_arrows": [],
+        "cursor": {
+          "status": "unknown",
+          "reason": "Cursor blink phase not measured; only significant LCD checkpoints transcribed."
+        },
+        "insert_mode": {
+          "status": "unknown",
+          "reason": "Insertion timing not measured in this trace."
+        },
+        "prompt": null,
+        "selected_result_component": null
+      },
+      "result": {
+        "status": "unknown",
+        "reason": "Visible LCD transcript only; hidden precision unmeasured."
+      }
+    },
+    {
+      "after_step": 18,
+      "display": {
+        "upper_line": "SIZE=",
+        "lower_line": "1.",
+        "indicators": [
+          "DEG"
+        ],
+        "scroll_arrows": [],
+        "cursor": {
+          "status": "unknown",
+          "reason": "Cursor blink phase not measured; only significant LCD checkpoints transcribed."
+        },
+        "insert_mode": {
+          "status": "unknown",
+          "reason": "Insertion timing not measured in this trace."
+        },
+        "prompt": null,
+        "selected_result_component": null
+      },
+      "result": {
+        "status": "unknown",
+        "reason": "Visible LCD transcript only; hidden precision unmeasured."
+      }
+    },
+    {
+      "after_step": 20,
+      "display": {
+        "upper_line": "LIST1=",
+        "lower_line": "0.",
+        "indicators": [
+          "DEG"
+        ],
+        "scroll_arrows": [],
+        "cursor": {
+          "status": "unknown",
+          "reason": "Cursor blink phase not measured; only significant LCD checkpoints transcribed."
+        },
+        "insert_mode": {
+          "status": "unknown",
+          "reason": "Insertion timing not measured in this trace."
+        },
+        "prompt": null,
+        "selected_result_component": null
+      },
+      "result": {
+        "status": "unknown",
+        "reason": "Visible LCD transcript only; hidden precision unmeasured."
+      }
+    },
+    {
+      "after_step": 22,
+      "display": {
+        "upper_line": "LIST2=",
+        "lower_line": "0.",
+        "indicators": [
+          "DEG"
+        ],
+        "scroll_arrows": [],
+        "cursor": {
+          "status": "unknown",
+          "reason": "Cursor blink phase not measured; only significant LCD checkpoints transcribed."
+        },
+        "insert_mode": {
+          "status": "unknown",
+          "reason": "Insertion timing not measured in this trace."
+        },
+        "prompt": null,
+        "selected_result_component": null
+      },
+      "result": {
+        "status": "unknown",
+        "reason": "Visible LCD transcript only; hidden precision unmeasured."
+      }
+    },
+    {
+      "after_step": 26,
+      "display": {
+        "upper_line": "LIST3=",
+        "lower_line": "2.",
+        "indicators": [
+          "DEG"
+        ],
+        "scroll_arrows": [],
+        "cursor": {
+          "status": "unknown",
+          "reason": "Cursor blink phase not measured; only significant LCD checkpoints transcribed."
+        },
+        "insert_mode": {
+          "status": "unknown",
+          "reason": "Insertion timing not measured in this trace."
+        },
+        "prompt": null,
+        "selected_result_component": null
+      },
+      "result": {
+        "status": "unknown",
+        "reason": "Visible LCD transcript only; hidden precision unmeasured."
+      }
+    },
+    {
+      "after_step": 29,
+      "display": {
+        "upper_line": "L1 L2 L3 L4",
+        "lower_line": "0. 1 2 3",
+        "indicators": [
+          "DEG"
+        ],
+        "scroll_arrows": [],
+        "cursor": {
+          "status": "unknown",
+          "reason": "Cursor blink phase not measured; only significant LCD checkpoints transcribed."
+        },
+        "insert_mode": {
+          "status": "unknown",
+          "reason": "Insertion timing not measured in this trace."
+        },
+        "prompt": null,
+        "selected_result_component": null
+      },
+      "result": {
+        "status": "unknown",
+        "reason": "Visible LCD transcript only; hidden precision unmeasured."
+      }
+    },
+    {
+      "after_step": 33,
+      "display": {
+        "upper_line": "L1",
+        "lower_line": "0.",
+        "indicators": [
+          "DEG"
+        ],
+        "scroll_arrows": [],
+        "cursor": {
+          "status": "unknown",
+          "reason": "Cursor blink phase not measured; only significant LCD checkpoints transcribed."
+        },
+        "insert_mode": {
+          "status": "unknown",
+          "reason": "Insertion timing not measured in this trace."
+        },
+        "prompt": null,
+        "selected_result_component": null
+      },
+      "result": {
+        "status": "unknown",
+        "reason": "Visible LCD transcript only; hidden precision unmeasured."
+      }
+    },
+    {
+      "after_step": 34,
+      "display": {
+        "upper_line": "SIZE=",
+        "lower_line": "3.",
+        "indicators": [
+          "DEG"
+        ],
+        "scroll_arrows": [],
+        "cursor": {
+          "status": "unknown",
+          "reason": "Cursor blink phase not measured; only significant LCD checkpoints transcribed."
+        },
+        "insert_mode": {
+          "status": "unknown",
+          "reason": "Insertion timing not measured in this trace."
+        },
+        "prompt": null,
+        "selected_result_component": null
+      },
+      "result": {
+        "status": "unknown",
+        "reason": "Visible LCD transcript only; hidden precision unmeasured."
+      }
+    },
+    {
+      "after_step": 37,
+      "display": {
+        "upper_line": "Error 7",
+        "lower_line": "",
+        "indicators": [
+          "DEG"
+        ],
+        "scroll_arrows": [],
+        "cursor": {
+          "status": "unknown",
+          "reason": "Cursor blink phase not measured; only significant LCD checkpoints transcribed."
+        },
+        "insert_mode": {
+          "status": "unknown",
+          "reason": "Insertion timing not measured in this trace."
+        },
+        "prompt": null,
+        "selected_result_component": null
+      },
+      "result": {
+        "status": "unknown",
+        "reason": "Visible LCD transcript only; hidden precision unmeasured."
+      }
+    },
+    {
+      "after_step": 38,
+      "display": {
+        "upper_line": "",
+        "lower_line": "0.",
+        "indicators": [
+          "DEG"
+        ],
+        "scroll_arrows": [],
+        "cursor": {
+          "status": "unknown",
+          "reason": "Cursor blink phase not measured; only significant LCD checkpoints transcribed."
+        },
+        "insert_mode": {
+          "status": "unknown",
+          "reason": "Insertion timing not measured in this trace."
+        },
+        "prompt": null,
+        "selected_result_component": null
+      },
+      "result": {
+        "status": "unknown",
+        "reason": "Visible LCD transcript only; hidden precision unmeasured."
+      }
+    },
+    {
+      "after_step": 39,
+      "display": {
+        "upper_line": "SIZE=",
+        "lower_line": "3.",
+        "indicators": [
+          "DEG"
+        ],
+        "scroll_arrows": [],
+        "cursor": {
+          "status": "unknown",
+          "reason": "Cursor blink phase not measured; only significant LCD checkpoints transcribed."
+        },
+        "insert_mode": {
+          "status": "unknown",
+          "reason": "Insertion timing not measured in this trace."
+        },
+        "prompt": null,
+        "selected_result_component": null
+      },
+      "result": {
+        "status": "unknown",
+        "reason": "Visible LCD transcript only; hidden precision unmeasured."
+      }
+    },
+    {
+      "after_step": 42,
+      "display": {
+        "upper_line": "LIST1=",
+        "lower_line": "0.",
+        "indicators": [
+          "DEG"
+        ],
+        "scroll_arrows": [],
+        "cursor": {
+          "status": "unknown",
+          "reason": "Cursor blink phase not measured; only significant LCD checkpoints transcribed."
+        },
+        "insert_mode": {
+          "status": "unknown",
+          "reason": "Insertion timing not measured in this trace."
+        },
+        "prompt": null,
+        "selected_result_component": null
+      },
+      "result": {
+        "status": "unknown",
+        "reason": "Visible LCD transcript only; hidden precision unmeasured."
+      }
+    },
+    {
+      "after_step": 46,
+      "display": {
+        "upper_line": "vari",
+        "lower_line": "0.",
+        "indicators": [
+          "DEG"
+        ],
+        "scroll_arrows": [],
+        "cursor": {
+          "status": "unknown",
+          "reason": "Cursor blink phase not measured; only significant LCD checkpoints transcribed."
+        },
+        "insert_mode": {
+          "status": "unknown",
+          "reason": "Insertion timing not measured in this trace."
+        },
+        "prompt": null,
+        "selected_result_component": null
+      },
+      "result": {
+        "status": "unknown",
+        "reason": "Visible LCD transcript only; hidden precision unmeasured."
+      }
+    },
+    {
+      "after_step": 49,
+      "display": {
+        "upper_line": "variL1",
+        "lower_line": "0.",
+        "indicators": [
+          "DEG"
+        ],
+        "scroll_arrows": [],
+        "cursor": {
+          "status": "unknown",
+          "reason": "Cursor blink phase not measured; only significant LCD checkpoints transcribed."
+        },
+        "insert_mode": {
+          "status": "unknown",
+          "reason": "Insertion timing not measured in this trace."
+        },
+        "prompt": null,
+        "selected_result_component": null
+      },
+      "result": {
+        "status": "unknown",
+        "reason": "Visible LCD transcript only; hidden precision unmeasured."
+      }
+    },
+    {
+      "after_step": 50,
+      "display": {
+        "upper_line": "variL1=",
+        "lower_line": "1.",
+        "indicators": [
+          "DEG"
+        ],
+        "scroll_arrows": [],
+        "cursor": {
+          "status": "unknown",
+          "reason": "Cursor blink phase not measured; only significant LCD checkpoints transcribed."
+        },
+        "insert_mode": {
+          "status": "unknown",
+          "reason": "Insertion timing not measured in this trace."
+        },
+        "prompt": null,
+        "selected_result_component": null
+      },
+      "result": {
+        "status": "unknown",
+        "reason": "Visible LCD transcript only; hidden precision unmeasured."
+      }
+    },
+    {
+      "after_step": 51,
+      "display": {
+        "upper_line": "SIZE=",
+        "lower_line": "16.",
+        "indicators": [
+          "DEG"
+        ],
+        "scroll_arrows": [],
+        "cursor": {
+          "status": "unknown",
+          "reason": "Cursor blink phase not measured; only significant LCD checkpoints transcribed."
+        },
+        "insert_mode": {
+          "status": "unknown",
+          "reason": "Insertion timing not measured in this trace."
+        },
+        "prompt": null,
+        "selected_result_component": null
+      },
+      "result": {
+        "status": "unknown",
+        "reason": "Visible LCD transcript only; hidden precision unmeasured."
+      }
+    },
+    {
+      "after_step": 60,
+      "display": {
+        "upper_line": "SIZE=",
+        "lower_line": "3.",
+        "indicators": [
+          "DEG"
+        ],
+        "scroll_arrows": [],
+        "cursor": {
+          "status": "unknown",
+          "reason": "Cursor blink phase not measured; only significant LCD checkpoints transcribed."
+        },
+        "insert_mode": {
+          "status": "unknown",
+          "reason": "Insertion timing not measured in this trace."
+        },
+        "prompt": null,
+        "selected_result_component": null
+      },
+      "result": {
+        "status": "unknown",
+        "reason": "Visible LCD transcript only; hidden precision unmeasured."
+      }
+    },
+    {
+      "after_step": 61,
+      "display": {
+        "upper_line": "LIST1=",
+        "lower_line": "9.",
+        "indicators": [
+          "DEG"
+        ],
+        "scroll_arrows": [],
+        "cursor": {
+          "status": "unknown",
+          "reason": "Cursor blink phase not measured; only significant LCD checkpoints transcribed."
+        },
+        "insert_mode": {
+          "status": "unknown",
+          "reason": "Insertion timing not measured in this trace."
+        },
+        "prompt": null,
+        "selected_result_component": null
+      },
+      "result": {
+        "status": "unknown",
+        "reason": "Visible LCD transcript only; hidden precision unmeasured."
+      }
+    },
+    {
+      "after_step": 62,
+      "display": {
+        "upper_line": "LIST2=",
+        "lower_line": "1.",
+        "indicators": [
+          "DEG"
+        ],
+        "scroll_arrows": [],
+        "cursor": {
+          "status": "unknown",
+          "reason": "Cursor blink phase not measured; only significant LCD checkpoints transcribed."
+        },
+        "insert_mode": {
+          "status": "unknown",
+          "reason": "Insertion timing not measured in this trace."
+        },
+        "prompt": null,
+        "selected_result_component": null
+      },
+      "result": {
+        "status": "unknown",
+        "reason": "Visible LCD transcript only; hidden precision unmeasured."
+      }
+    },
+    {
+      "after_step": 63,
+      "display": {
+        "upper_line": "LIST3=",
+        "lower_line": "4.",
+        "indicators": [
+          "DEG"
+        ],
+        "scroll_arrows": [],
+        "cursor": {
+          "status": "unknown",
+          "reason": "Cursor blink phase not measured; only significant LCD checkpoints transcribed."
+        },
+        "insert_mode": {
+          "status": "unknown",
+          "reason": "Insertion timing not measured in this trace."
+        },
+        "prompt": null,
+        "selected_result_component": null
+      },
+      "result": {
+        "status": "unknown",
+        "reason": "Visible LCD transcript only; hidden precision unmeasured."
+      }
+    },
+    {
+      "after_step": 66,
+      "display": {
+        "upper_line": "",
+        "lower_line": "0.",
+        "indicators": [
+          "DEG"
+        ],
+        "scroll_arrows": [],
+        "cursor": {
+          "status": "unknown",
+          "reason": "Cursor blink phase not measured; only significant LCD checkpoints transcribed."
+        },
+        "insert_mode": {
+          "status": "unknown",
+          "reason": "Insertion timing not measured in this trace."
+        },
+        "prompt": null,
+        "selected_result_component": null
+      },
+      "result": {
+        "status": "unknown",
+        "reason": "Visible LCD transcript only; hidden precision unmeasured."
+      }
+    },
+    {
+      "after_step": 69,
+      "display": {
+        "upper_line": "i_prod(",
+        "lower_line": "0.",
+        "indicators": [
+          "DEG"
+        ],
+        "scroll_arrows": [],
+        "cursor": {
+          "status": "unknown",
+          "reason": "Cursor blink phase not measured; only significant LCD checkpoints transcribed."
+        },
+        "insert_mode": {
+          "status": "unknown",
+          "reason": "Insertion timing not measured in this trace."
+        },
+        "prompt": null,
+        "selected_result_component": null
+      },
+      "result": {
+        "status": "unknown",
+        "reason": "Visible LCD transcript only; hidden precision unmeasured."
+      }
+    },
+    {
+      "after_step": 74,
+      "display": {
+        "upper_line": "i_prod(L1,",
+        "lower_line": "0.",
+        "indicators": [
+          "DEG"
+        ],
+        "scroll_arrows": [],
+        "cursor": {
+          "status": "unknown",
+          "reason": "Cursor blink phase not measured; only significant LCD checkpoints transcribed."
+        },
+        "insert_mode": {
+          "status": "unknown",
+          "reason": "Insertion timing not measured in this trace."
+        },
+        "prompt": null,
+        "selected_result_component": null
+      },
+      "result": {
+        "status": "unknown",
+        "reason": "Visible LCD transcript only; hidden precision unmeasured."
+      }
+    },
+    {
+      "after_step": 78,
+      "display": {
+        "upper_line": "i_prod(L1,L1",
+        "lower_line": "14.",
+        "indicators": [
+          "DEG"
+        ],
+        "scroll_arrows": [],
+        "cursor": {
+          "status": "unknown",
+          "reason": "Cursor blink phase not measured; only significant LCD checkpoints transcribed."
+        },
+        "insert_mode": {
+          "status": "unknown",
+          "reason": "Insertion timing not measured in this trace."
+        },
+        "prompt": null,
+        "selected_result_component": null
+      },
+      "result": {
+        "status": "unknown",
+        "reason": "Visible LCD transcript only; hidden precision unmeasured."
+      }
+    },
+    {
+      "after_step": 96,
+      "display": {
+        "upper_line": "",
+        "lower_line": "0.",
+        "indicators": [
+          "DEG"
+        ],
+        "scroll_arrows": [],
+        "cursor": {
+          "status": "unknown",
+          "reason": "Cursor blink phase not measured; only significant LCD checkpoints transcribed."
+        },
+        "insert_mode": {
+          "status": "unknown",
+          "reason": "Insertion timing not measured in this trace."
+        },
+        "prompt": null,
+        "selected_result_component": null
+      },
+      "result": {
+        "status": "unknown",
+        "reason": "Visible LCD transcript only; hidden precision unmeasured."
+      }
+    },
+    {
+      "after_step": 97,
+      "display": {
+        "upper_line": "ROW=",
+        "lower_line": "1.",
+        "indicators": [
+          "DEG"
+        ],
+        "scroll_arrows": [],
+        "cursor": {
+          "status": "unknown",
+          "reason": "Cursor blink phase not measured; only significant LCD checkpoints transcribed."
+        },
+        "insert_mode": {
+          "status": "unknown",
+          "reason": "Insertion timing not measured in this trace."
+        },
+        "prompt": null,
+        "selected_result_component": null
+      },
+      "result": {
+        "status": "unknown",
+        "reason": "Visible LCD transcript only; hidden precision unmeasured."
+      }
+    },
+    {
+      "after_step": 102,
+      "display": {
+        "upper_line": "ROW=",
+        "lower_line": "3.",
+        "indicators": [
+          "DEG"
+        ],
+        "scroll_arrows": [],
+        "cursor": {
+          "status": "unknown",
+          "reason": "Cursor blink phase not measured; only significant LCD checkpoints transcribed."
+        },
+        "insert_mode": {
+          "status": "unknown",
+          "reason": "Insertion timing not measured in this trace."
+        },
+        "prompt": null,
+        "selected_result_component": null
+      },
+      "result": {
+        "status": "unknown",
+        "reason": "Visible LCD transcript only; hidden precision unmeasured."
+      }
+    },
+    {
+      "after_step": 103,
+      "display": {
+        "upper_line": "COLUMN=",
+        "lower_line": "1.",
+        "indicators": [
+          "DEG"
+        ],
+        "scroll_arrows": [],
+        "cursor": {
+          "status": "unknown",
+          "reason": "Cursor blink phase not measured; only significant LCD checkpoints transcribed."
+        },
+        "insert_mode": {
+          "status": "unknown",
+          "reason": "Insertion timing not measured in this trace."
+        },
+        "prompt": null,
+        "selected_result_component": null
+      },
+      "result": {
+        "status": "unknown",
+        "reason": "Visible LCD transcript only; hidden precision unmeasured."
+      }
+    },
+    {
+      "after_step": 104,
+      "display": {
+        "upper_line": "MAT1,1=",
+        "lower_line": "3.",
+        "indicators": [
+          "DEG"
+        ],
+        "scroll_arrows": [],
+        "cursor": {
+          "status": "unknown",
+          "reason": "Cursor blink phase not measured; only significant LCD checkpoints transcribed."
+        },
+        "insert_mode": {
+          "status": "unknown",
+          "reason": "Insertion timing not measured in this trace."
+        },
+        "prompt": null,
+        "selected_result_component": null
+      },
+      "result": {
+        "status": "unknown",
+        "reason": "Visible LCD transcript only; hidden precision unmeasured."
+      }
+    },
+    {
+      "after_step": 105,
+      "display": {
+        "upper_line": "MAT2,1=",
+        "lower_line": "1.",
+        "indicators": [
+          "DEG"
+        ],
+        "scroll_arrows": [],
+        "cursor": {
+          "status": "unknown",
+          "reason": "Cursor blink phase not measured; only significant LCD checkpoints transcribed."
+        },
+        "insert_mode": {
+          "status": "unknown",
+          "reason": "Insertion timing not measured in this trace."
+        },
+        "prompt": null,
+        "selected_result_component": null
+      },
+      "result": {
+        "status": "unknown",
+        "reason": "Visible LCD transcript only; hidden precision unmeasured."
+      }
+    },
+    {
+      "after_step": 106,
+      "display": {
+        "upper_line": "MAT3,1=",
+        "lower_line": "2.",
+        "indicators": [
+          "DEG"
+        ],
+        "scroll_arrows": [],
+        "cursor": {
+          "status": "unknown",
+          "reason": "Cursor blink phase not measured; only significant LCD checkpoints transcribed."
+        },
+        "insert_mode": {
+          "status": "unknown",
+          "reason": "Insertion timing not measured in this trace."
+        },
+        "prompt": null,
+        "selected_result_component": null
+      },
+      "result": {
+        "status": "unknown",
+        "reason": "Visible LCD transcript only; hidden precision unmeasured."
+      }
+    },
+    {
+      "after_step": 109,
+      "display": {
+        "upper_line": "",
+        "lower_line": "0.",
+        "indicators": [
+          "DEG"
+        ],
+        "scroll_arrows": [],
+        "cursor": {
+          "status": "unknown",
+          "reason": "Cursor blink phase not measured; only significant LCD checkpoints transcribed."
+        },
+        "insert_mode": {
+          "status": "unknown",
+          "reason": "Insertion timing not measured in this trace."
+        },
+        "prompt": null,
+        "selected_result_component": null
+      },
+      "result": {
+        "status": "unknown",
+        "reason": "Visible LCD transcript only; hidden precision unmeasured."
+      }
+    },
+    {
+      "after_step": 115,
+      "display": {
+        "upper_line": "Error 10",
+        "lower_line": "",
+        "indicators": [
+          "DEG"
+        ],
+        "scroll_arrows": [],
+        "cursor": {
+          "status": "unknown",
+          "reason": "Cursor blink phase not measured; only significant LCD checkpoints transcribed."
+        },
+        "insert_mode": {
+          "status": "unknown",
+          "reason": "Insertion timing not measured in this trace."
+        },
+        "prompt": null,
+        "selected_result_component": null
+      },
+      "result": {
+        "status": "unknown",
+        "reason": "Visible LCD transcript only; hidden precision unmeasured."
+      }
+    },
+    {
+      "after_step": 135,
+      "display": {
+        "upper_line": "Error 1",
+        "lower_line": "",
+        "indicators": [
+          "DEG"
+        ],
+        "scroll_arrows": [],
+        "cursor": {
+          "status": "unknown",
+          "reason": "Cursor blink phase not measured; only significant LCD checkpoints transcribed."
+        },
+        "insert_mode": {
+          "status": "unknown",
+          "reason": "Insertion timing not measured in this trace."
+        },
+        "prompt": null,
+        "selected_result_component": null
+      },
+      "result": {
+        "status": "unknown",
+        "reason": "Visible LCD transcript only; hidden precision unmeasured."
+      }
+    },
+    {
+      "after_step": 142,
+      "display": {
+        "upper_line": "SIZE=",
+        "lower_line": "3.",
+        "indicators": [
+          "DEG"
+        ],
+        "scroll_arrows": [],
+        "cursor": {
+          "status": "unknown",
+          "reason": "Cursor blink phase not measured; only significant LCD checkpoints transcribed."
+        },
+        "insert_mode": {
+          "status": "unknown",
+          "reason": "Insertion timing not measured in this trace."
+        },
+        "prompt": null,
+        "selected_result_component": null
+      },
+      "result": {
+        "status": "unknown",
+        "reason": "Visible LCD transcript only; hidden precision unmeasured."
+      }
+    },
+    {
+      "after_step": 143,
+      "display": {
+        "upper_line": "LIST1=",
+        "lower_line": "6.",
+        "indicators": [
+          "DEG"
+        ],
+        "scroll_arrows": [],
+        "cursor": {
+          "status": "unknown",
+          "reason": "Cursor blink phase not measured; only significant LCD checkpoints transcribed."
+        },
+        "insert_mode": {
+          "status": "unknown",
+          "reason": "Insertion timing not measured in this trace."
+        },
+        "prompt": null,
+        "selected_result_component": null
+      },
+      "result": {
+        "status": "unknown",
+        "reason": "Visible LCD transcript only; hidden precision unmeasured."
+      }
+    },
+    {
+      "after_step": 144,
+      "display": {
+        "upper_line": "LIST2=",
+        "lower_line": "2.",
+        "indicators": [
+          "DEG"
+        ],
+        "scroll_arrows": [],
+        "cursor": {
+          "status": "unknown",
+          "reason": "Cursor blink phase not measured; only significant LCD checkpoints transcribed."
+        },
+        "insert_mode": {
+          "status": "unknown",
+          "reason": "Insertion timing not measured in this trace."
+        },
+        "prompt": null,
+        "selected_result_component": null
+      },
+      "result": {
+        "status": "unknown",
+        "reason": "Visible LCD transcript only; hidden precision unmeasured."
+      }
+    },
+    {
+      "after_step": 145,
+      "display": {
+        "upper_line": "LIST3=",
+        "lower_line": "4.",
+        "indicators": [
+          "DEG"
+        ],
+        "scroll_arrows": [],
+        "cursor": {
+          "status": "unknown",
+          "reason": "Cursor blink phase not measured; only significant LCD checkpoints transcribed."
+        },
+        "insert_mode": {
+          "status": "unknown",
+          "reason": "Insertion timing not measured in this trace."
+        },
+        "prompt": null,
+        "selected_result_component": null
+      },
+      "result": {
+        "status": "unknown",
+        "reason": "Visible LCD transcript only; hidden precision unmeasured."
+      }
+    },
+    {
+      "after_step": 166,
+      "display": {
+        "upper_line": "SIZE=",
+        "lower_line": "3.",
+        "indicators": [
+          "DEG"
+        ],
+        "scroll_arrows": [],
+        "cursor": {
+          "status": "unknown",
+          "reason": "Cursor blink phase not measured; only significant LCD checkpoints transcribed."
+        },
+        "insert_mode": {
+          "status": "unknown",
+          "reason": "Insertion timing not measured in this trace."
+        },
+        "prompt": null,
+        "selected_result_component": null
+      },
+      "result": {
+        "status": "unknown",
+        "reason": "Visible LCD transcript only; hidden precision unmeasured."
+      }
+    },
+    {
+      "after_step": 167,
+      "display": {
+        "upper_line": "LIST1=",
+        "lower_line": "0.",
+        "indicators": [
+          "DEG"
+        ],
+        "scroll_arrows": [],
+        "cursor": {
+          "status": "unknown",
+          "reason": "Cursor blink phase not measured; only significant LCD checkpoints transcribed."
+        },
+        "insert_mode": {
+          "status": "unknown",
+          "reason": "Insertion timing not measured in this trace."
+        },
+        "prompt": null,
+        "selected_result_component": null
+      },
+      "result": {
+        "status": "unknown",
+        "reason": "Visible LCD transcript only; hidden precision unmeasured."
+      }
+    },
+    {
+      "after_step": 168,
+      "display": {
+        "upper_line": "LIST2=",
+        "lower_line": "-10.",
+        "indicators": [
+          "DEG"
+        ],
+        "scroll_arrows": [],
+        "cursor": {
+          "status": "unknown",
+          "reason": "Cursor blink phase not measured; only significant LCD checkpoints transcribed."
+        },
+        "insert_mode": {
+          "status": "unknown",
+          "reason": "Insertion timing not measured in this trace."
+        },
+        "prompt": null,
+        "selected_result_component": null
+      },
+      "result": {
+        "status": "unknown",
+        "reason": "Visible LCD transcript only; hidden precision unmeasured."
+      }
+    },
+    {
+      "after_step": 169,
+      "display": {
+        "upper_line": "LIST3=",
+        "lower_line": "5.",
+        "indicators": [
+          "DEG"
+        ],
+        "scroll_arrows": [],
+        "cursor": {
+          "status": "unknown",
+          "reason": "Cursor blink phase not measured; only significant LCD checkpoints transcribed."
+        },
+        "insert_mode": {
+          "status": "unknown",
+          "reason": "Insertion timing not measured in this trace."
+        },
+        "prompt": null,
+        "selected_result_component": null
+      },
+      "result": {
+        "status": "unknown",
+        "reason": "Visible LCD transcript only; hidden precision unmeasured."
+      }
+    },
+    {
+      "after_step": 177,
+      "display": {
+        "upper_line": "2┌tan17=",
+        "lower_line": "6.541705237",
+        "indicators": [
+          "DEG"
+        ],
+        "scroll_arrows": [],
+        "cursor": {
+          "status": "unknown",
+          "reason": "Cursor blink phase not measured; only significant LCD checkpoints transcribed."
+        },
+        "insert_mode": {
+          "status": "unknown",
+          "reason": "Insertion timing not measured in this trace."
+        },
+        "prompt": null,
+        "selected_result_component": null
+      },
+      "result": {
+        "status": "unknown",
+        "reason": "Visible LCD transcript only; hidden precision unmeasured."
+      }
+    },
+    {
+      "after_step": 181,
+      "display": {
+        "upper_line": "π=",
+        "lower_line": "3.141592654",
+        "indicators": [
+          "DEG"
+        ],
+        "scroll_arrows": [],
+        "cursor": {
+          "status": "unknown",
+          "reason": "Cursor blink phase not measured; only significant LCD checkpoints transcribed."
+        },
+        "insert_mode": {
+          "status": "unknown",
+          "reason": "Insertion timing not measured in this trace."
+        },
+        "prompt": null,
+        "selected_result_component": null
+      },
+      "result": {
+        "status": "unknown",
+        "reason": "Visible LCD transcript only; hidden precision unmeasured."
+      }
+    },
+    {
+      "after_step": 188,
+      "display": {
+        "upper_line": "MAT1,1=",
+        "lower_line": "0.",
+        "indicators": [
+          "DEG"
+        ],
+        "scroll_arrows": [],
+        "cursor": {
+          "status": "unknown",
+          "reason": "Cursor blink phase not measured; only significant LCD checkpoints transcribed."
+        },
+        "insert_mode": {
+          "status": "unknown",
+          "reason": "Insertion timing not measured in this trace."
+        },
+        "prompt": null,
+        "selected_result_component": null
+      },
+      "result": {
+        "status": "unknown",
+        "reason": "Visible LCD transcript only; hidden precision unmeasured."
+      }
+    },
+    {
+      "after_step": 204,
+      "display": {
+        "upper_line": "MAT2,2=",
+        "lower_line": "0.8",
+        "indicators": [
+          "DEG"
+        ],
+        "scroll_arrows": [],
+        "cursor": {
+          "status": "unknown",
+          "reason": "Cursor blink phase not measured; only significant LCD checkpoints transcribed."
+        },
+        "insert_mode": {
+          "status": "unknown",
+          "reason": "Insertion timing not measured in this trace."
+        },
+        "prompt": null,
+        "selected_result_component": null
+      },
+      "result": {
+        "status": "unknown",
+        "reason": "Visible LCD transcript only; hidden precision unmeasured."
+      }
+    },
+    {
+      "after_step": 213,
+      "display": {
+        "upper_line": "ROW=",
+        "lower_line": "2.",
+        "indicators": [
+          "DEG"
+        ],
+        "scroll_arrows": [],
+        "cursor": {
+          "status": "unknown",
+          "reason": "Cursor blink phase not measured; only significant LCD checkpoints transcribed."
+        },
+        "insert_mode": {
+          "status": "unknown",
+          "reason": "Insertion timing not measured in this trace."
+        },
+        "prompt": null,
+        "selected_result_component": null
+      },
+      "result": {
+        "status": "unknown",
+        "reason": "Visible LCD transcript only; hidden precision unmeasured."
+      }
+    },
+    {
+      "after_step": 214,
+      "display": {
+        "upper_line": "COLUMN=",
+        "lower_line": "2.",
+        "indicators": [
+          "DEG"
+        ],
+        "scroll_arrows": [],
+        "cursor": {
+          "status": "unknown",
+          "reason": "Cursor blink phase not measured; only significant LCD checkpoints transcribed."
+        },
+        "insert_mode": {
+          "status": "unknown",
+          "reason": "Insertion timing not measured in this trace."
+        },
+        "prompt": null,
+        "selected_result_component": null
+      },
+      "result": {
+        "status": "unknown",
+        "reason": "Visible LCD transcript only; hidden precision unmeasured."
+      }
+    },
+    {
+      "after_step": 215,
+      "display": {
+        "upper_line": "MAT1,1=",
+        "lower_line": "0.83",
+        "indicators": [
+          "DEG"
+        ],
+        "scroll_arrows": [],
+        "cursor": {
+          "status": "unknown",
+          "reason": "Cursor blink phase not measured; only significant LCD checkpoints transcribed."
+        },
+        "insert_mode": {
+          "status": "unknown",
+          "reason": "Insertion timing not measured in this trace."
+        },
+        "prompt": null,
+        "selected_result_component": null
+      },
+      "result": {
+        "status": "unknown",
+        "reason": "Visible LCD transcript only; hidden precision unmeasured."
+      }
+    },
+    {
+      "after_step": 216,
+      "display": {
+        "upper_line": "MAT1,2=",
+        "lower_line": "0.34",
+        "indicators": [
+          "DEG"
+        ],
+        "scroll_arrows": [],
+        "cursor": {
+          "status": "unknown",
+          "reason": "Cursor blink phase not measured; only significant LCD checkpoints transcribed."
+        },
+        "insert_mode": {
+          "status": "unknown",
+          "reason": "Insertion timing not measured in this trace."
+        },
+        "prompt": null,
+        "selected_result_component": null
+      },
+      "result": {
+        "status": "unknown",
+        "reason": "Visible LCD transcript only; hidden precision unmeasured."
+      }
+    },
+    {
+      "after_step": 217,
+      "display": {
+        "upper_line": "MAT2,1=",
+        "lower_line": "0.17",
+        "indicators": [
+          "DEG"
+        ],
+        "scroll_arrows": [],
+        "cursor": {
+          "status": "unknown",
+          "reason": "Cursor blink phase not measured; only significant LCD checkpoints transcribed."
+        },
+        "insert_mode": {
+          "status": "unknown",
+          "reason": "Insertion timing not measured in this trace."
+        },
+        "prompt": null,
+        "selected_result_component": null
+      },
+      "result": {
+        "status": "unknown",
+        "reason": "Visible LCD transcript only; hidden precision unmeasured."
+      }
+    },
+    {
+      "after_step": 218,
+      "display": {
+        "upper_line": "MAT2,2=",
+        "lower_line": "0.66",
+        "indicators": [
+          "DEG"
+        ],
+        "scroll_arrows": [],
+        "cursor": {
+          "status": "unknown",
+          "reason": "Cursor blink phase not measured; only significant LCD checkpoints transcribed."
+        },
+        "insert_mode": {
+          "status": "unknown",
+          "reason": "Insertion timing not measured in this trace."
+        },
+        "prompt": null,
+        "selected_result_component": null
+      },
+      "result": {
+        "status": "unknown",
+        "reason": "Visible LCD transcript only; hidden precision unmeasured."
+      }
+    }
+  ],
+  "stored_values": {
+    "coverage": "Visible results only; hidden precision is unmeasured.",
+    "observations": []
+  },
+  "errors": [],
+  "sources": [
+    {
+      "source_id": "live-session",
+      "kind": "simulator",
+      "reference": "simulator-profile.json",
+      "page": null,
+      "scope": "LIST menus, capacity, edit/storage/recall/result paging, sample variance, multiplication, scalar-add rejection, inner/outer product, empty slot and matrix conversion; NORMAL function fraction, CPLX pi and guide transition matrix."
+    }
+  ],
+  "oracle": {
+    "selected_source_id": "live-session",
+    "simulator_exception_ids": [],
+    "disagreements": []
+  },
+  "ambiguities": [],
+  "notes": [
+    "Independent 218-key live session; 63 significant checkpoints. Intermediate application frames are characterization, not independent simulator evidence. Unprobed LIST operations and type restrictions remain pending.",
+    "Step 42: Size 16 accepted; resizing clears buffer cells; stored L1 remains [3,1,2].",
+    "Step 66: 2nd F ENT (ANS) is unavailable in LIST and consumes the modifier.",
+    "Step 78:  Upper line is only the visible clipped prefix.",
+    "Step 96: list→mat switches to MAT mode.",
+    "Step 97: Conversion does not replace matrix edit buffer.",
+    "Step 102: CHK matA selects the converted stored matrix; DOWN opens its dimensions.",
+    "Step 109: 2nd F ENT is unavailable in MAT as well as LIST.",
+    "Step 115: MODE transition clears LIST stores; evaluating empty L1 reports Error 10.",
+    "Step 135: L1+1 is unsupported (scalar addition does not broadcast).",
+    "Step 142: L1×2 returns a three-element list.",
+    "Step 166: o_prod(L1,L2) accepts two three-element stored vectors.",
+    "Step 169: Observed outer product [3,1,2]×[1,2,4] is [0,-10,5].",
+    "Step 177: Native fraction separator retained for a function denominator. The application now projects the same 2┌tan17= upper line and decimal 6.541705237 lower line; raw source/state serialization remains separate from the rendered LCD.",
+    "Step 181: Pi is available in CPLX. applicationUpper records HTML entity serialization of the same glyph. Application rendering serialization: &pi;=.",
+    "Step 188: Guide transition-matrix row-major data entry starts after setting 2×2 dimensions."
+  ]
+}

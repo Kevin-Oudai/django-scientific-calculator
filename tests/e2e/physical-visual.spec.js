@@ -3,7 +3,8 @@ const {test,expect}=require('@playwright/test');
 // all structural/interaction assertions in physical-ui.spec.js.
 test.skip(process.platform!=='win32','Windows Chromium pixel baselines; verified in the windows-visual CI job');
 for(const theme of ['dark','example'])for(const scenario of ['default','focus','second','alpha','menu','error','long-expression','phone','tablet']) {
-  test(`visual ${theme} ${scenario}`,async({page})=>{
+  test(`visual ${theme} ${scenario}`,async({page,browserName})=>{
+    test.skip(browserName!=='chromium','Pixel baselines are pinned to Windows Chromium; other engines run structural checks.');
     await page.setViewportSize({width:scenario==='phone'?320:scenario==='tablet'?768:1440,height:1000});
     await page.emulateMedia({reducedMotion:'reduce'});
     await page.goto('/');const root=page.locator('[data-scientific-calculator]');

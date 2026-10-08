@@ -2659,6 +2659,42 @@ example remain EL506-311–313. No private manual or simulator binary is shipped
     Evidence and verification: shared authorized 44-item batch record above.
     Notes: Scoped behavior and tests complete; later parity audit and EL506-311–313 remain as recorded above.
 
+### Remaining-phase batch review (2026-10-08)
+
+The user authorized work across all 44 remaining items. The current batch
+implements LIST operations and collection buffers, adds security/resource
+budgets, expands browser/package checks, and fixes independently checked guide
+regressions. Its evidence is in
+`tests/reference/el506ts/remaining-phase-review.json` and the canonical
+`phase16-native` experiment/golden trace (218 keys, 63 observed checkpoints).
+All 52 guide workflows and 148 printed checkpoints now have application
+regressions; the derivative discrepancy is explicitly recorded rather than
+accepted as parity.
+
+Local implementation candidates: EL506-311, EL506-313, EL506-321, EL506-322, EL506-324,
+EL506-362, EL506-363, and EL506-370 through EL506-382 (20 items). Checkboxes
+remain unchanged until publication completes. **READY_TO_PUSH**: local gates
+passed for these 20 scoped items. The 537-case browser run passed 493 cases and
+skipped 38 platform-specific cases; its six ordinary upper-fraction failures
+were corrected and all affected cases passed in the subsequent 78-case display
+and guide run (76 passed, two Chromium-only touch skips). Current unit suite:
+534 passed; golden characterization: 1,200 frames; report/reference checks,
+seven Django integration tests, compileall, Compose config, dependency/license
+checks, and clean wheel/sdist installation with 24 assets passed. Docker Linux
+engine remains unavailable locally, so the local Django demo exercised port
+8010. No 1.0.0 parity claim follows from this scoped publication.
+
+The other 24 items remain open. In particular, LIST algorithms and menu
+inventory do not prove exhaustive operation/type compatibility. Current error
+placement, capacities, cross-mode persistence, modifier/type matrices, internal
+precision, and all 430 ledger operations need their final differential audit.
+The derivative display still differs. Function-fraction upper-line glyphs now
+match the independent native checkpoint. Full-manual menu and ALGB blinking
+exceptions passed in Chromium, Firefox and WebKit, including reduced motion. EL506-362 means the
+complete guide regression suite exists, not that its recorded discrepancies
+are waived. No release candidate or 1.0.0 tag is authorized by a passing
+partial regression suite alone; the final release gates remain in force.
+
 ### Phase 15 - Matrix Mode
 
 - [x] **EL506-300 - Discover and record matrix menus, slots, aliases, and

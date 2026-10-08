@@ -1,0 +1,556 @@
+{
+  "date": "2026-10-08",
+  "sequence": [
+    4,
+    36,
+    17,
+    11,
+    11,
+    42,
+    11,
+    11,
+    11,
+    2,
+    17,
+    35,
+    11,
+    11,
+    11,
+    11,
+    2,
+    11,
+    42,
+    29,
+    42,
+    29,
+    40,
+    29,
+    41,
+    29,
+    2,
+    17,
+    41,
+    45,
+    17,
+    45,
+    45,
+    48,
+    40,
+    30,
+    29,
+    2,
+    11,
+    40,
+    37,
+    29,
+    2,
+    17,
+    35,
+    30,
+    17,
+    45,
+    45,
+    48,
+    11,
+    2,
+    17,
+    45,
+    45,
+    38,
+    17,
+    45,
+    45,
+    48,
+    11,
+    11,
+    11,
+    2,
+    3,
+    48,
+    17,
+    35,
+    32,
+    17,
+    45,
+    45,
+    3,
+    28,
+    17,
+    45,
+    45,
+    48,
+    2,
+    17,
+    35,
+    31,
+    17,
+    45,
+    45,
+    3,
+    28,
+    17,
+    45,
+    45,
+    43,
+    40,
+    48,
+    2,
+    17,
+    36,
+    11,
+    2,
+    17,
+    40,
+    45,
+    11,
+    11,
+    11,
+    11,
+    11,
+    2,
+    3,
+    48,
+    4,
+    36,
+    17,
+    45,
+    45,
+    48,
+    2,
+    11,
+    42,
+    29,
+    42,
+    29,
+    40,
+    29,
+    41,
+    29,
+    2,
+    17,
+    41,
+    45,
+    17,
+    45,
+    45,
+    43,
+    40,
+    48,
+    2,
+    17,
+    45,
+    45,
+    38,
+    41,
+    48,
+    11,
+    11,
+    11,
+    2,
+    11,
+    11,
+    40,
+    29,
+    2,
+    17,
+    41,
+    40,
+    17,
+    35,
+    31,
+    17,
+    45,
+    45,
+    3,
+    28,
+    17,
+    45,
+    40,
+    48,
+    11,
+    11,
+    11,
+    4,
+    45,
+    41,
+    25,
+    15,
+    40,
+    30,
+    48,
+    4,
+    42,
+    18,
+    48,
+    4,
+    35,
+    11,
+    41,
+    29,
+    41,
+    29,
+    45,
+    46,
+    32,
+    29,
+    45,
+    46,
+    41,
+    29,
+    45,
+    46,
+    40,
+    29,
+    45,
+    46,
+    31,
+    29,
+    2,
+    17,
+    41,
+    45,
+    17,
+    45,
+    45,
+    20,
+    48,
+    11,
+    11,
+    11,
+    11,
+    11
+  ],
+  "checkpoints": [
+    {
+      "afterStep": 3,
+      "upper": "LST CHK STO",
+      "lower": "0. 1 2"
+    },
+    {
+      "afterStep": 4,
+      "upper": "OPE MATH",
+      "lower": "3. 4"
+    },
+    {
+      "afterStep": 5,
+      "upper": "list→mat",
+      "lower": "5."
+    },
+    {
+      "afterStep": 6,
+      "upper": "sortA sortD",
+      "lower": "0. 1"
+    },
+    {
+      "afterStep": 7,
+      "upper": "dim( fill(",
+      "lower": "2. 3"
+    },
+    {
+      "afterStep": 8,
+      "upper": "cumul",
+      "lower": "4."
+    },
+    {
+      "afterStep": 9,
+      "upper": "df_list aug(",
+      "lower": "5. 6"
+    },
+    {
+      "afterStep": 12,
+      "upper": "min max mean",
+      "lower": "0. 1 2"
+    },
+    {
+      "afterStep": 13,
+      "upper": "med sum",
+      "lower": "3. 4"
+    },
+    {
+      "afterStep": 14,
+      "upper": "prod stdDv",
+      "lower": "5. 6"
+    },
+    {
+      "afterStep": 15,
+      "upper": "vari o_prod(",
+      "lower": "7. 8"
+    },
+    {
+      "afterStep": 16,
+      "upper": "i_prod( abs",
+      "lower": "9. A"
+    },
+    {
+      "afterStep": 18,
+      "upper": "SIZE=",
+      "lower": "1."
+    },
+    {
+      "afterStep": 20,
+      "upper": "LIST1=",
+      "lower": "0."
+    },
+    {
+      "afterStep": 22,
+      "upper": "LIST2=",
+      "lower": "0."
+    },
+    {
+      "afterStep": 26,
+      "upper": "LIST3=",
+      "lower": "2."
+    },
+    {
+      "afterStep": 29,
+      "upper": "L1 L2 L3 L4",
+      "lower": "0. 1 2 3"
+    },
+    {
+      "afterStep": 33,
+      "upper": "L1",
+      "lower": "0."
+    },
+    {
+      "afterStep": 34,
+      "upper": "SIZE=",
+      "lower": "3."
+    },
+    {
+      "afterStep": 37,
+      "upper": "Error 7",
+      "lower": ""
+    },
+    {
+      "afterStep": 38,
+      "upper": "",
+      "lower": "0."
+    },
+    {
+      "afterStep": 39,
+      "upper": "SIZE=",
+      "lower": "3."
+    },
+    {
+      "afterStep": 42,
+      "upper": "LIST1=",
+      "lower": "0.",
+      "note": "Size 16 accepted; resizing clears buffer cells; stored L1 remains [3,1,2]."
+    },
+    {
+      "afterStep": 46,
+      "upper": "vari",
+      "lower": "0."
+    },
+    {
+      "afterStep": 49,
+      "upper": "variL1",
+      "lower": "0."
+    },
+    {
+      "afterStep": 50,
+      "upper": "variL1=",
+      "lower": "1."
+    },
+    {
+      "afterStep": 51,
+      "upper": "SIZE=",
+      "lower": "16."
+    },
+    {
+      "afterStep": 60,
+      "upper": "SIZE=",
+      "lower": "3."
+    },
+    {
+      "afterStep": 61,
+      "upper": "LIST1=",
+      "lower": "9."
+    },
+    {
+      "afterStep": 62,
+      "upper": "LIST2=",
+      "lower": "1."
+    },
+    {
+      "afterStep": 63,
+      "upper": "LIST3=",
+      "lower": "4."
+    },
+    {
+      "afterStep": 66,
+      "upper": "",
+      "lower": "0.",
+      "note": "2nd F ENT (ANS) is unavailable in LIST and consumes the modifier."
+    },
+    {
+      "afterStep": 69,
+      "upper": "i_prod(",
+      "lower": "0."
+    },
+    {
+      "afterStep": 74,
+      "upper": "i_prod(L1,",
+      "lower": "0."
+    },
+    {
+      "afterStep": 78,
+      "upper": "i_prod(L1,L1",
+      "lower": "14.",
+      "upperClipped": true
+    },
+    {
+      "afterStep": 96,
+      "upper": "",
+      "lower": "0.",
+      "note": "list→mat switches to MAT mode."
+    },
+    {
+      "afterStep": 97,
+      "upper": "ROW=",
+      "lower": "1.",
+      "note": "Conversion does not replace matrix edit buffer."
+    },
+    {
+      "afterStep": 102,
+      "upper": "ROW=",
+      "lower": "3.",
+      "note": "CHK matA selects the converted stored matrix; DOWN opens its dimensions."
+    },
+    {
+      "afterStep": 103,
+      "upper": "COLUMN=",
+      "lower": "1."
+    },
+    {
+      "afterStep": 104,
+      "upper": "MAT1,1=",
+      "lower": "3."
+    },
+    {
+      "afterStep": 105,
+      "upper": "MAT2,1=",
+      "lower": "1."
+    },
+    {
+      "afterStep": 106,
+      "upper": "MAT3,1=",
+      "lower": "2."
+    },
+    {
+      "afterStep": 109,
+      "upper": "",
+      "lower": "0.",
+      "note": "2nd F ENT is unavailable in MAT as well as LIST."
+    },
+    {
+      "afterStep": 115,
+      "upper": "Error 10",
+      "lower": "",
+      "note": "MODE transition clears LIST stores; evaluating empty L1 reports Error 10."
+    },
+    {
+      "afterStep": 135,
+      "upper": "Error 1",
+      "lower": "",
+      "note": "L1+1 is unsupported (scalar addition does not broadcast)."
+    },
+    {
+      "afterStep": 142,
+      "upper": "SIZE=",
+      "lower": "3.",
+      "note": "L1×2 returns a three-element list."
+    },
+    {
+      "afterStep": 143,
+      "upper": "LIST1=",
+      "lower": "6."
+    },
+    {
+      "afterStep": 144,
+      "upper": "LIST2=",
+      "lower": "2."
+    },
+    {
+      "afterStep": 145,
+      "upper": "LIST3=",
+      "lower": "4."
+    },
+    {
+      "afterStep": 166,
+      "upper": "SIZE=",
+      "lower": "3.",
+      "note": "o_prod(L1,L2) accepts two three-element stored vectors."
+    },
+    {
+      "afterStep": 167,
+      "upper": "LIST1=",
+      "lower": "0."
+    },
+    {
+      "afterStep": 168,
+      "upper": "LIST2=",
+      "lower": "-10."
+    },
+    {
+      "afterStep": 169,
+      "upper": "LIST3=",
+      "lower": "5.",
+      "note": "Observed outer product [3,1,2]×[1,2,4] is [0,-10,5]."
+    },
+    {
+      "afterStep": 177,
+      "upper": "2┌tan17=",
+      "lower": "6.541705237",
+      "note": "Native fraction separator retained for a function denominator; numeric endpoint and visible upper line now agree with the application."
+    },
+    {
+      "afterStep": 181,
+      "upper": "π=",
+      "applicationUpper": "&pi;=",
+      "lower": "3.141592654",
+      "note": "Pi is available in CPLX. applicationUpper records HTML entity serialization of the same glyph."
+    },
+    {
+      "afterStep": 188,
+      "upper": "MAT1,1=",
+      "lower": "0.",
+      "note": "Guide transition-matrix row-major data entry starts after setting 2×2 dimensions."
+    },
+    {
+      "afterStep": 204,
+      "upper": "MAT2,2=",
+      "lower": "0.8"
+    },
+    {
+      "afterStep": 213,
+      "upper": "ROW=",
+      "lower": "2."
+    },
+    {
+      "afterStep": 214,
+      "upper": "COLUMN=",
+      "lower": "2."
+    },
+    {
+      "afterStep": 215,
+      "upper": "MAT1,1=",
+      "lower": "0.83"
+    },
+    {
+      "afterStep": 216,
+      "upper": "MAT1,2=",
+      "lower": "0.34"
+    },
+    {
+      "afterStep": 217,
+      "upper": "MAT2,1=",
+      "lower": "0.17"
+    },
+    {
+      "afterStep": 218,
+      "upper": "MAT2,2=",
+      "lower": "0.66"
+    }
+  ]
+}

@@ -1,0 +1,146 @@
+{
+  "schemaVersion": 1,
+  "catalogueId": "el506-error-catalogue-v1",
+  "roadmapItem": "EL506-350",
+  "status": "manual catalogue; native completion pending",
+  "manual": {
+    "reference": "https://res.cloudinary.com/hnymxdy5j/raw/upload/v1743873557/media/00d7f000004ckruua4/EL506TSBWH_English_manual.pdf",
+    "page": 2,
+    "sha256": "c5b6a1cc542dee4cd93be2459bba501addf7d3eb32b2bc4dd146407b02b2ab86"
+  },
+  "errors": [
+    {
+      "number": 1,
+      "display": "Error 1",
+      "meaning": "Invalid expression or operation",
+      "nativeStatus": "observed in listed scopes",
+      "nativeEvidence": [
+        {
+          "experiment": "experiments/phase11-statistics.json",
+          "afterStep": 47
+        },
+        {
+          "experiment": "experiments/phase16-native.json",
+          "afterStep": 135
+        },
+        {
+          "experiment": "experiments/phase9-nbase.json",
+          "afterStep": 14
+        }
+      ],
+      "faultCursorAndRecovery": "Scope-specific existing traces; exhaustive verification pending"
+    },
+    {
+      "number": 2,
+      "display": "Error 2",
+      "meaning": "Calculation domain, range or numerical failure",
+      "nativeStatus": "observed in listed scopes",
+      "nativeEvidence": [
+        {
+          "experiment": "experiments/error-recovery.json",
+          "afterStep": 4
+        },
+        {
+          "experiment": "experiments/menu-inventory.json",
+          "afterStep": 84
+        },
+        {
+          "experiment": "experiments/numeric-overflow.json",
+          "afterStep": 9
+        },
+        {
+          "experiment": "experiments/phase10-calculus.json",
+          "afterStep": 18
+        },
+        {
+          "experiment": "experiments/phase12-15-native.json",
+          "afterStep": 349
+        },
+        {
+          "experiment": "experiments/phase8-solver.json",
+          "afterStep": 30
+        },
+        {
+          "experiment": "experiments/phase9-nbase.json",
+          "afterStep": 54
+        }
+      ],
+      "faultCursorAndRecovery": "Scope-specific existing traces; exhaustive verification pending"
+    },
+    {
+      "number": 3,
+      "display": "Error 3",
+      "meaning": "Calculation/data buffer depth exhausted",
+      "nativeStatus": "pending",
+      "nativeEvidence": [],
+      "faultCursorAndRecovery": "Scope-specific existing traces; exhaustive verification pending"
+    },
+    {
+      "number": 4,
+      "display": "Error 4",
+      "meaning": "Expression length exhausted",
+      "nativeStatus": "pending",
+      "nativeEvidence": [],
+      "faultCursorAndRecovery": "Scope-specific existing traces; exhaustive verification pending"
+    },
+    {
+      "number": 5,
+      "display": "Error 5",
+      "meaning": "Recalled expression unavailable in current mode",
+      "nativeStatus": "pending",
+      "nativeEvidence": [],
+      "faultCursorAndRecovery": "Scope-specific existing traces; exhaustive verification pending"
+    },
+    {
+      "number": 6,
+      "display": "Error 6",
+      "meaning": "Shared formula-memory capacity exhausted",
+      "nativeStatus": "pending",
+      "nativeEvidence": [],
+      "faultCursorAndRecovery": "Scope-specific existing traces; exhaustive verification pending"
+    },
+    {
+      "number": 7,
+      "display": "Error 7",
+      "meaning": "Invalid collection definition or value",
+      "nativeStatus": "observed in listed scopes",
+      "nativeEvidence": [
+        {
+          "experiment": "experiments/phase16-native.json",
+          "afterStep": 37
+        }
+      ],
+      "faultCursorAndRecovery": "Scope-specific existing traces; exhaustive verification pending"
+    },
+    {
+      "number": 8,
+      "display": "Error 8",
+      "meaning": "Incompatible collection dimensions",
+      "nativeStatus": "pending",
+      "nativeEvidence": [],
+      "faultCursorAndRecovery": "Scope-specific existing traces; exhaustive verification pending"
+    },
+    {
+      "number": 9,
+      "display": "Error 9",
+      "meaning": "Collection dimensions exceed capacity",
+      "nativeStatus": "pending",
+      "nativeEvidence": [],
+      "faultCursorAndRecovery": "Scope-specific existing traces; exhaustive verification pending"
+    },
+    {
+      "number": 10,
+      "display": "Error 10",
+      "meaning": "Undefined stored collection",
+      "nativeStatus": "observed in listed scopes",
+      "nativeEvidence": [
+        {
+          "experiment": "experiments/phase16-native.json",
+          "afterStep": 115
+        }
+      ],
+      "faultCursorAndRecovery": "Scope-specific existing traces; exhaustive verification pending"
+    }
+  ],
+  "policy": "Manual classification is independent of live simulator observation. Missing native examples and fault positions are not inferred from application output."
+}

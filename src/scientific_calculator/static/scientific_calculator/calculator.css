@@ -533,10 +533,15 @@
 .scicalc__physical[data-insert-mode="overwrite"] .scicalc__selected-char { background: var(--scicalc-screen-ink); color: transparent; }
 .scicalc__physical[data-insert-mode="overwrite"] .scicalc__selected-char::after { content: none; }
 .scicalc__physical[data-cursor-blink="true"] .scicalc__selected-char, .scicalc__physical[data-cursor-blink="true"] .scicalc__cursor { animation: scicalc-cursor-blink 1s step-end infinite; }
+.scicalc__physical .scicalc__native-menu-marker { display: none; }
+.scicalc__physical .scicalc__menu-selected { text-decoration: underline; }
+.scicalc__physical[data-cursor-blink="true"] .scicalc__menu-selected,
+.scicalc__physical[data-cursor-blink="true"] .scicalc__expression u { animation: scicalc-cursor-blink 1s step-end infinite; text-decoration: none; }
 @keyframes scicalc-cursor-blink { 50% { opacity: 0; } }
 .scicalc:has(> .scicalc__physical):focus-visible, .scicalc__physical :focus-visible { outline: 3px solid var(--scicalc-focus); outline-offset: 2px; }
 .scicalc__physical .scicalc__expression:focus-visible, .scicalc__physical .scicalc__result:focus-visible { outline-color: var(--scicalc-screen-ink); outline-offset: -2px; }
 @media (prefers-reduced-motion: reduce) { .scicalc__physical *, .scicalc__physical *::before, .scicalc__physical *::after { animation: none !important; transition: none !important; } }
+@media (prefers-reduced-motion: reduce) { .scicalc__physical .scicalc__menu-selected, .scicalc__physical .scicalc__expression u { text-decoration: underline !important; } }
 @media (forced-colors: active) {
   .scicalc__physical .scicalc__physical-key[aria-pressed="true"] { outline-color: Highlight; }
   .scicalc__second-legend, .scicalc__alpha-legend, .scicalc__mode-legend { color: ButtonText; }

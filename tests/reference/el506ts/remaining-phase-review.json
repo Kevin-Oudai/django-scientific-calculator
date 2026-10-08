@@ -1,0 +1,134 @@
+{
+  "schemaVersion": 1,
+  "reviewId": "remaining-phases-review-2026-10-08",
+  "reviewedOn": "2026-10-08",
+  "request": "Complete all remaining phases",
+  "allRemainingPhasesComplete": false,
+  "sourceReferences": [
+    "simulator-profile.json",
+    "experiments/phase16-native.json",
+    "experiments/menu-inventory.json",
+    "guide-examples.json"
+  ],
+  "fullManual": {
+    "reference": "https://res.cloudinary.com/hnymxdy5j/raw/upload/v1743873557/media/00d7f000004ckruua4/EL506TSBWH_English_manual.pdf",
+    "sha256": "c5b6a1cc542dee4cd93be2459bba501addf7d3eb32b2bc4dd146407b02b2ab86",
+    "review": "Both pages inspected visually; the manual is kept outside the repository."
+  },
+  "evidence": {
+    "nativeKeys": 218,
+    "nativeCheckpoints": 63,
+    "guideWorkflows": 52,
+    "guidePrintedCheckpoints": 148,
+    "goldenAssertedFrames": 1200
+  },
+  "implemented": [
+    "Separate matrix/list edit buffers and typed snapshot schema 12 migration",
+    "LIST menus, four slots, bounded data entry and result paging",
+    "LIST arithmetic and exposed algorithms; observed behavior distinguished from unverified type restrictions",
+    "Canonical AST and snapshot resource budgets",
+    "Repeated cubic-root discriminant correction",
+    "Guide formula-memory adjacent symbols, function denominators, coordinate paging and CPLX pi fixes",
+    "Three browser projects, CSP/offline, phone/tablet touch, orientation and zoom checks",
+    "Clean wheel install, isolated collectstatic and distribution/legal exclusions",
+    "Full-manual flashing selected menu numbers and ALGB variables, with stable underlining for reduced motion",
+    "Timer-yielded integration chunks progress when animation frames are suspended and cancel safely"
+  ],
+  "knownDifferences": [
+    {
+      "fixture": "guide-p31-derivative",
+      "reference": "0.577350268",
+      "application": "0.57735027",
+      "status": "unresolved internal-precision/display difference"
+    }
+  ],
+  "releaseGate": {
+    "status": "not-satisfied",
+    "version": "0.3.1",
+    "releaseCandidatePublished": false,
+    "version100Published": false,
+    "reasons": [
+      "No complete current behavioral assessment and differential coverage for all 430 capability entries",
+      "Unresolved derivative internal-precision/display difference",
+      "Exhaustive LIST operations, modifier/type compatibility, cross-mode errors and persistence matrices remain unverified"
+    ]
+  },
+  "simulatorExceptions": [
+    {
+      "id": "automatic-power-off",
+      "manual": "Approximately ten minutes without a key press",
+      "applicationEvidence": "tests/e2e/phase3.spec.js"
+    },
+    {
+      "id": "random-output-variety",
+      "manual": "Decimal 0.000..0.999, dice 1..6, coin 0..1, integer 0..99",
+      "applicationEvidence": "tests/unit/phase7.test.js; tests/e2e/phase7.spec.js"
+    },
+    {
+      "id": "cursor-blink",
+      "manual": "Flashing insertion/overwrite cursor",
+      "applicationEvidence": "tests/e2e/physical-ui.spec.js; calculator.css"
+    },
+    {
+      "id": "memory-on-application-close",
+      "manual": "Physical memory retained by ON/C/OFF; reset and battery replacement clear memory",
+      "applicationEvidence": "tests/e2e/phase3.spec.js; host snapshot persistence is explicit"
+    },
+    {
+      "id": "menu-selection-marker",
+      "manual": "Flashing selected number",
+      "status": "verified for physical renderer with reduced-motion alternative",
+      "applicationEvidence": "tests/e2e/physical-ui.spec.js: physical manual menu and ALGB selection blink with stable reduced-motion alternatives; passed Chromium, Firefox and WebKit"
+    },
+    {
+      "id": "algb-selection-marker",
+      "manual": "Flashing selected variable",
+      "status": "verified for physical renderer with reduced-motion alternative",
+      "applicationEvidence": "tests/e2e/physical-ui.spec.js: physical manual menu and ALGB selection blink with stable reduced-motion alternatives; passed Chromium, Firefox and WebKit"
+    }
+  ],
+  "legalBranding": {
+    "status": "reviewed for this working-main update",
+    "distributedUI": "Original HTML/CSS and system fonts; no Sharp affiliation claim",
+    "excluded": "Sharp binaries, logos, native screenshots, source PDF/manual artwork and local runtime files",
+    "verification": "tests/ci/check-package.py; tests/ci/check-licenses.js; README.md"
+  },
+  "runtimeLimitation": "Docker Linux engine unavailable at local named pipe; Compose config and local Django demo validation remain available.",
+  "roadmapItemsReadyForPublication": [
+    "EL506-311",
+    "EL506-313",
+    "EL506-321",
+    "EL506-322",
+    "EL506-324",
+    "EL506-362",
+    "EL506-363",
+    "EL506-370",
+    "EL506-371",
+    "EL506-372",
+    "EL506-373",
+    "EL506-374",
+    "EL506-375",
+    "EL506-376",
+    "EL506-377",
+    "EL506-378",
+    "EL506-379",
+    "EL506-380",
+    "EL506-381",
+    "EL506-382"
+  ],
+  "dependencyAudit": {
+    "date": "2026-10-08",
+    "npmKnownVulnerabilities": 0,
+    "pythonKnownVulnerabilities": 0,
+    "pythonRequirements": "src/requirements.txt",
+    "licenseCheck": "node tests/ci/check-licenses.js"
+  },
+  "resolvedDifferences": [
+    {
+      "reference": "2┌tan17=",
+      "application": "2┌tan17=",
+      "evidence": "phase16-native-notes.json checkpoint 177; tests/unit/phase16.test.js",
+      "scope": "Function denominator glyph and decimal result; ordinary DIV remains ÷."
+    }
+  ]
+}

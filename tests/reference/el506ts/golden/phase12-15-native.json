@@ -562,7 +562,7 @@
       },
       "viewAssertions": {
         "expressionHtml": "NORMAL   STAT",
-        "resultHtml": "0•   1",
+        "resultHtml": "<span class=\"scicalc__menu-selected\">0</span><span class=\"scicalc__native-menu-marker\" aria-hidden=\"true\">•</span>   1",
         "indicators": {
           "2ndF": false,
           "HYP": false,
@@ -632,7 +632,7 @@
       },
       "viewAssertions": {
         "expressionHtml": "SD   LINE   QUAD",
-        "resultHtml": "0•   1   2",
+        "resultHtml": "<span class=\"scicalc__menu-selected\">0</span><span class=\"scicalc__native-menu-marker\" aria-hidden=\"true\">•</span>   1   2",
         "indicators": {
           "2ndF": false,
           "HYP": false,
@@ -1324,7 +1324,7 @@
       },
       "viewAssertions": {
         "expressionHtml": "→t   P(   Q(   R(",
-        "resultHtml": "0•   1   2   3",
+        "resultHtml": "<span class=\"scicalc__menu-selected\">0</span><span class=\"scicalc__native-menu-marker\" aria-hidden=\"true\">•</span>   1   2   3",
         "indicators": {
           "2ndF": false,
           "HYP": false,
@@ -1750,7 +1750,7 @@
       },
       "viewAssertions": {
         "expressionHtml": "NORMAL   STAT",
-        "resultHtml": "0•   1",
+        "resultHtml": "<span class=\"scicalc__menu-selected\">0</span><span class=\"scicalc__native-menu-marker\" aria-hidden=\"true\">•</span>   1",
         "indicators": {
           "2ndF": false,
           "HYP": false,
@@ -1820,7 +1820,7 @@
       },
       "viewAssertions": {
         "expressionHtml": "SD   LINE   QUAD",
-        "resultHtml": "0•   1   2",
+        "resultHtml": "<span class=\"scicalc__menu-selected\">0</span><span class=\"scicalc__native-menu-marker\" aria-hidden=\"true\">•</span>   1   2",
         "indicators": {
           "2ndF": false,
           "HYP": false,
@@ -1936,7 +1936,7 @@
       },
       "viewAssertions": {
         "expressionHtml": "→t   P(   Q(   R(",
-        "resultHtml": "0•   1   2   3",
+        "resultHtml": "<span class=\"scicalc__menu-selected\">0</span><span class=\"scicalc__native-menu-marker\" aria-hidden=\"true\">•</span>   1   2   3",
         "indicators": {
           "2ndF": false,
           "HYP": false,
@@ -3121,7 +3121,7 @@
       },
       "viewAssertions": {
         "expressionHtml": "NORMAL   STAT",
-        "resultHtml": "0•   1",
+        "resultHtml": "<span class=\"scicalc__menu-selected\">0</span><span class=\"scicalc__native-menu-marker\" aria-hidden=\"true\">•</span>   1",
         "indicators": {
           "2ndF": false,
           "HYP": false,
@@ -3191,7 +3191,7 @@
       },
       "viewAssertions": {
         "expressionHtml": "SD   LINE   QUAD",
-        "resultHtml": "0•   1   2",
+        "resultHtml": "<span class=\"scicalc__menu-selected\">0</span><span class=\"scicalc__native-menu-marker\" aria-hidden=\"true\">•</span>   1   2",
         "indicators": {
           "2ndF": false,
           "HYP": false,
@@ -6712,7 +6712,7 @@
       },
       "viewAssertions": {
         "expressionHtml": "→t   P(   Q(   R(",
-        "resultHtml": "0•   1   2   3",
+        "resultHtml": "<span class=\"scicalc__menu-selected\">0</span><span class=\"scicalc__native-menu-marker\" aria-hidden=\"true\">•</span>   1   2   3",
         "indicators": {
           "2ndF": false,
           "HYP": false,
@@ -6879,7 +6879,7 @@
       },
       "viewAssertions": {
         "expressionHtml": "→t   P(   Q(   R(",
-        "resultHtml": "0•   1   2   3",
+        "resultHtml": "<span class=\"scicalc__menu-selected\">0</span><span class=\"scicalc__native-menu-marker\" aria-hidden=\"true\">•</span>   1   2   3",
         "indicators": {
           "2ndF": false,
           "HYP": false,
@@ -7097,7 +7097,7 @@
       },
       "viewAssertions": {
         "expressionHtml": "→t   P(   Q(   R(",
-        "resultHtml": "0•   1   2   3",
+        "resultHtml": "<span class=\"scicalc__menu-selected\">0</span><span class=\"scicalc__native-menu-marker\" aria-hidden=\"true\">•</span>   1   2   3",
         "indicators": {
           "2ndF": false,
           "HYP": false,
@@ -7370,7 +7370,7 @@
       },
       "viewAssertions": {
         "expressionHtml": "NORMAL   STAT",
-        "resultHtml": "0•   1",
+        "resultHtml": "<span class=\"scicalc__menu-selected\">0</span><span class=\"scicalc__native-menu-marker\" aria-hidden=\"true\">•</span>   1",
         "indicators": {
           "2ndF": false,
           "HYP": false,
@@ -7440,7 +7440,7 @@
       },
       "viewAssertions": {
         "expressionHtml": "SD   LINE   QUAD",
-        "resultHtml": "0•   1   2",
+        "resultHtml": "<span class=\"scicalc__menu-selected\">0</span><span class=\"scicalc__native-menu-marker\" aria-hidden=\"true\">•</span>   1   2",
         "indicators": {
           "2ndF": false,
           "HYP": false,
@@ -8733,7 +8733,7 @@
       },
       "viewAssertions": {
         "expressionHtml": "NORMAL   STAT",
-        "resultHtml": "0•   1",
+        "resultHtml": "<span class=\"scicalc__menu-selected\">0</span><span class=\"scicalc__native-menu-marker\" aria-hidden=\"true\">•</span>   1",
         "indicators": {
           "2ndF": false,
           "HYP": false,
@@ -8799,7 +8799,7 @@
       },
       "viewAssertions": {
         "expressionHtml": "2-VLE   3-VLE",
-        "resultHtml": "0•   1",
+        "resultHtml": "<span class=\"scicalc__menu-selected\">0</span><span class=\"scicalc__native-menu-marker\" aria-hidden=\"true\">•</span>   1",
         "indicators": {
           "2ndF": false,
           "HYP": false,
@@ -10231,7 +10231,7 @@
       },
       "viewAssertions": {
         "expressionHtml": "NORMAL   STAT",
-        "resultHtml": "0•   1",
+        "resultHtml": "<span class=\"scicalc__menu-selected\">0</span><span class=\"scicalc__native-menu-marker\" aria-hidden=\"true\">•</span>   1",
         "indicators": {
           "2ndF": false,
           "HYP": false,
@@ -10312,7 +10312,7 @@
       },
       "viewAssertions": {
         "expressionHtml": "2-VLE   3-VLE",
-        "resultHtml": "0•   1",
+        "resultHtml": "<span class=\"scicalc__menu-selected\">0</span><span class=\"scicalc__native-menu-marker\" aria-hidden=\"true\">•</span>   1",
         "indicators": {
           "2ndF": false,
           "HYP": false,
@@ -11428,7 +11428,7 @@
       },
       "viewAssertions": {
         "expressionHtml": "NORMAL   STAT",
-        "resultHtml": "0•   1",
+        "resultHtml": "<span class=\"scicalc__menu-selected\">0</span><span class=\"scicalc__native-menu-marker\" aria-hidden=\"true\">•</span>   1",
         "indicators": {
           "2ndF": false,
           "HYP": false,
@@ -11541,7 +11541,7 @@
       },
       "viewAssertions": {
         "expressionHtml": "CONJ",
-        "resultHtml": "0•",
+        "resultHtml": "<span class=\"scicalc__menu-selected\">0</span><span class=\"scicalc__native-menu-marker\" aria-hidden=\"true\">•</span>",
         "indicators": {
           "2ndF": false,
           "HYP": false,
@@ -12394,7 +12394,7 @@
       },
       "viewAssertions": {
         "expressionHtml": "NORMAL   STAT",
-        "resultHtml": "0•   1",
+        "resultHtml": "<span class=\"scicalc__menu-selected\">0</span><span class=\"scicalc__native-menu-marker\" aria-hidden=\"true\">•</span>   1",
         "indicators": {
           "2ndF": false,
           "HYP": false,
@@ -12516,7 +12516,7 @@
       },
       "viewAssertions": {
         "expressionHtml": "MAT   CHK   STO",
-        "resultHtml": "0•   1   2",
+        "resultHtml": "<span class=\"scicalc__menu-selected\">0</span><span class=\"scicalc__native-menu-marker\" aria-hidden=\"true\">•</span>   1   2",
         "indicators": {
           "2ndF": false,
           "HYP": false,
@@ -12587,7 +12587,7 @@
       },
       "viewAssertions": {
         "expressionHtml": "OPE   MATH",
-        "resultHtml": "3•   4",
+        "resultHtml": "<span class=\"scicalc__menu-selected\">3</span><span class=\"scicalc__native-menu-marker\" aria-hidden=\"true\">•</span>   4",
         "indicators": {
           "2ndF": false,
           "HYP": false,
@@ -12657,7 +12657,7 @@
       },
       "viewAssertions": {
         "expressionHtml": "dim(   fill(",
-        "resultHtml": "0•   1",
+        "resultHtml": "<span class=\"scicalc__menu-selected\">0</span><span class=\"scicalc__native-menu-marker\" aria-hidden=\"true\">•</span>   1",
         "indicators": {
           "2ndF": false,
           "HYP": false,
@@ -12727,7 +12727,7 @@
       },
       "viewAssertions": {
         "expressionHtml": "cumul   aug(",
-        "resultHtml": "2•   3",
+        "resultHtml": "<span class=\"scicalc__menu-selected\">2</span><span class=\"scicalc__native-menu-marker\" aria-hidden=\"true\">•</span>   3",
         "indicators": {
           "2ndF": false,
           "HYP": false,
@@ -12797,7 +12797,7 @@
       },
       "viewAssertions": {
         "expressionHtml": "identity",
-        "resultHtml": "4•",
+        "resultHtml": "<span class=\"scicalc__menu-selected\">4</span><span class=\"scicalc__native-menu-marker\" aria-hidden=\"true\">•</span>",
         "indicators": {
           "2ndF": false,
           "HYP": false,
@@ -12867,7 +12867,7 @@
       },
       "viewAssertions": {
         "expressionHtml": "rnd_mat(",
-        "resultHtml": "5•",
+        "resultHtml": "<span class=\"scicalc__menu-selected\">5</span><span class=\"scicalc__native-menu-marker\" aria-hidden=\"true\">•</span>",
         "indicators": {
           "2ndF": false,
           "HYP": false,
@@ -14146,7 +14146,7 @@
       },
       "viewAssertions": {
         "expressionHtml": "MAT   CHK   STO",
-        "resultHtml": "0•   1   2",
+        "resultHtml": "<span class=\"scicalc__menu-selected\">0</span><span class=\"scicalc__native-menu-marker\" aria-hidden=\"true\">•</span>   1   2",
         "indicators": {
           "2ndF": false,
           "HYP": false,
@@ -14232,7 +14232,7 @@
       },
       "viewAssertions": {
         "expressionHtml": "matA   matB",
-        "resultHtml": "0•   1",
+        "resultHtml": "<span class=\"scicalc__menu-selected\">0</span><span class=\"scicalc__native-menu-marker\" aria-hidden=\"true\">•</span>   1",
         "indicators": {
           "2ndF": false,
           "HYP": false,
@@ -14392,7 +14392,7 @@
       },
       "viewAssertions": {
         "expressionHtml": "MAT   CHK   STO",
-        "resultHtml": "0•   1   2",
+        "resultHtml": "<span class=\"scicalc__menu-selected\">0</span><span class=\"scicalc__native-menu-marker\" aria-hidden=\"true\">•</span>   1   2",
         "indicators": {
           "2ndF": false,
           "HYP": false,
@@ -14478,7 +14478,7 @@
       },
       "viewAssertions": {
         "expressionHtml": "matA   matB",
-        "resultHtml": "0•   1",
+        "resultHtml": "<span class=\"scicalc__menu-selected\">0</span><span class=\"scicalc__native-menu-marker\" aria-hidden=\"true\">•</span>   1",
         "indicators": {
           "2ndF": false,
           "HYP": false,
@@ -15294,7 +15294,7 @@
       },
       "viewAssertions": {
         "expressionHtml": "MAT   CHK   STO",
-        "resultHtml": "0•   1   2",
+        "resultHtml": "<span class=\"scicalc__menu-selected\">0</span><span class=\"scicalc__native-menu-marker\" aria-hidden=\"true\">•</span>   1   2",
         "indicators": {
           "2ndF": false,
           "HYP": false,
@@ -15376,7 +15376,7 @@
       },
       "viewAssertions": {
         "expressionHtml": "det   trans",
-        "resultHtml": "0•   1",
+        "resultHtml": "<span class=\"scicalc__menu-selected\">0</span><span class=\"scicalc__native-menu-marker\" aria-hidden=\"true\">•</span>   1",
         "indicators": {
           "2ndF": false,
           "HYP": false,
@@ -15458,7 +15458,7 @@
       },
       "viewAssertions": {
         "expressionHtml": "det   trans",
-        "resultHtml": "0•   1",
+        "resultHtml": "<span class=\"scicalc__menu-selected\">0</span><span class=\"scicalc__native-menu-marker\" aria-hidden=\"true\">•</span>   1",
         "indicators": {
           "2ndF": false,
           "HYP": false,
@@ -15540,7 +15540,7 @@
       },
       "viewAssertions": {
         "expressionHtml": "det   trans",
-        "resultHtml": "0   1•",
+        "resultHtml": "0   <span class=\"scicalc__menu-selected\">1</span><span class=\"scicalc__native-menu-marker\" aria-hidden=\"true\">•</span>",
         "indicators": {
           "2ndF": false,
           "HYP": false,
@@ -15700,7 +15700,7 @@
       },
       "viewAssertions": {
         "expressionHtml": "MAT   CHK   STO",
-        "resultHtml": "0•   1   2",
+        "resultHtml": "<span class=\"scicalc__menu-selected\">0</span><span class=\"scicalc__native-menu-marker\" aria-hidden=\"true\">•</span>   1   2",
         "indicators": {
           "2ndF": false,
           "HYP": false,
@@ -15790,7 +15790,7 @@
       },
       "viewAssertions": {
         "expressionHtml": "OPE   MATH",
-        "resultHtml": "3•   4",
+        "resultHtml": "<span class=\"scicalc__menu-selected\">3</span><span class=\"scicalc__native-menu-marker\" aria-hidden=\"true\">•</span>   4",
         "indicators": {
           "2ndF": false,
           "HYP": false,
@@ -15880,7 +15880,7 @@
       },
       "viewAssertions": {
         "expressionHtml": "mat→list",
-        "resultHtml": "5•",
+        "resultHtml": "<span class=\"scicalc__menu-selected\">5</span><span class=\"scicalc__native-menu-marker\" aria-hidden=\"true\">•</span>",
         "indicators": {
           "2ndF": false,
           "HYP": false,
@@ -15970,7 +15970,7 @@
       },
       "viewAssertions": {
         "expressionHtml": "matA→list",
-        "resultHtml": "6•",
+        "resultHtml": "<span class=\"scicalc__menu-selected\">6</span><span class=\"scicalc__native-menu-marker\" aria-hidden=\"true\">•</span>",
         "indicators": {
           "2ndF": false,
           "HYP": false,
@@ -16128,7 +16128,7 @@
       },
       "viewAssertions": {
         "expressionHtml": "NORMAL   STAT",
-        "resultHtml": "0•   1",
+        "resultHtml": "<span class=\"scicalc__menu-selected\">0</span><span class=\"scicalc__native-menu-marker\" aria-hidden=\"true\">•</span>   1",
         "indicators": {
           "2ndF": false,
           "HYP": false,
@@ -16217,7 +16217,7 @@
       },
       "viewAssertions": {
         "expressionHtml": "SD   LINE   QUAD",
-        "resultHtml": "0•   1   2",
+        "resultHtml": "<span class=\"scicalc__menu-selected\">0</span><span class=\"scicalc__native-menu-marker\" aria-hidden=\"true\">•</span>   1   2",
         "indicators": {
           "2ndF": false,
           "HYP": false,
@@ -20801,7 +20801,7 @@
       },
       "viewAssertions": {
         "expressionHtml": "NORMAL   STAT",
-        "resultHtml": "0•   1",
+        "resultHtml": "<span class=\"scicalc__menu-selected\">0</span><span class=\"scicalc__native-menu-marker\" aria-hidden=\"true\">•</span>   1",
         "indicators": {
           "2ndF": false,
           "HYP": false,
@@ -21750,7 +21750,7 @@
       },
       "viewAssertions": {
         "expressionHtml": "NORMAL   STAT",
-        "resultHtml": "0•   1",
+        "resultHtml": "<span class=\"scicalc__menu-selected\">0</span><span class=\"scicalc__native-menu-marker\" aria-hidden=\"true\">•</span>   1",
         "indicators": {
           "2ndF": false,
           "HYP": false,
@@ -23029,7 +23029,7 @@
       },
       "viewAssertions": {
         "expressionHtml": "MAT   CHK   STO",
-        "resultHtml": "0•   1   2",
+        "resultHtml": "<span class=\"scicalc__menu-selected\">0</span><span class=\"scicalc__native-menu-marker\" aria-hidden=\"true\">•</span>   1   2",
         "indicators": {
           "2ndF": false,
           "HYP": false,
@@ -23115,7 +23115,7 @@
       },
       "viewAssertions": {
         "expressionHtml": "matA   matB",
-        "resultHtml": "0•   1",
+        "resultHtml": "<span class=\"scicalc__menu-selected\">0</span><span class=\"scicalc__native-menu-marker\" aria-hidden=\"true\">•</span>   1",
         "indicators": {
           "2ndF": false,
           "HYP": false,
@@ -23275,7 +23275,7 @@
       },
       "viewAssertions": {
         "expressionHtml": "MAT   CHK   STO",
-        "resultHtml": "0•   1   2",
+        "resultHtml": "<span class=\"scicalc__menu-selected\">0</span><span class=\"scicalc__native-menu-marker\" aria-hidden=\"true\">•</span>   1   2",
         "indicators": {
           "2ndF": false,
           "HYP": false,
@@ -23364,7 +23364,7 @@
       },
       "viewAssertions": {
         "expressionHtml": "dim(   fill(",
-        "resultHtml": "0•   1",
+        "resultHtml": "<span class=\"scicalc__menu-selected\">0</span><span class=\"scicalc__native-menu-marker\" aria-hidden=\"true\">•</span>   1",
         "indicators": {
           "2ndF": false,
           "HYP": false,
@@ -23524,7 +23524,7 @@
       },
       "viewAssertions": {
         "expressionHtml": "MAT   CHK   STO",
-        "resultHtml": "0•   1   2",
+        "resultHtml": "<span class=\"scicalc__menu-selected\">0</span><span class=\"scicalc__native-menu-marker\" aria-hidden=\"true\">•</span>   1   2",
         "indicators": {
           "2ndF": false,
           "HYP": false,
@@ -23610,7 +23610,7 @@
       },
       "viewAssertions": {
         "expressionHtml": "matA   matB",
-        "resultHtml": "0•   1",
+        "resultHtml": "<span class=\"scicalc__menu-selected\">0</span><span class=\"scicalc__native-menu-marker\" aria-hidden=\"true\">•</span>   1",
         "indicators": {
           "2ndF": false,
           "HYP": false,
@@ -24284,7 +24284,7 @@
       },
       "viewAssertions": {
         "expressionHtml": "NORMAL   STAT",
-        "resultHtml": "0•   1",
+        "resultHtml": "<span class=\"scicalc__menu-selected\">0</span><span class=\"scicalc__native-menu-marker\" aria-hidden=\"true\">•</span>   1",
         "indicators": {
           "2ndF": false,
           "HYP": false,
@@ -24369,7 +24369,7 @@
       },
       "viewAssertions": {
         "expressionHtml": "2-VLE   3-VLE",
-        "resultHtml": "0•   1",
+        "resultHtml": "<span class=\"scicalc__menu-selected\">0</span><span class=\"scicalc__native-menu-marker\" aria-hidden=\"true\">•</span>   1",
         "indicators": {
           "2ndF": false,
           "HYP": false,

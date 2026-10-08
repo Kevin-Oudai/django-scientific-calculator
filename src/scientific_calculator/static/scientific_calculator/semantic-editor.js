@@ -4,12 +4,12 @@
   else host.ScientificCalculatorSemantic = api;
 })(typeof globalThis === 'object' ? globalThis : this, function () {
   'use strict';
-  const functions = Object.freeze(['det','trans','dim','fill','identity','rndmat','cumul','aug','cpow', 'conj','polar','statt','probp','probq','probr','sin','cos','tan','asin','acos','atan','sinh','cosh','tanh','asinh','acosh','atanh','sqrt','cbrt','log','ln','tenpow','epow','recip','abs','pct','fact','root','ncr','npr','dms','frac','kilo','mega','giga','tera','milli','micro','nano','pico','femto','cv','random','dice','coin','rint']);
-  const symbols = Object.freeze(['matA','matB','matC','matD','i','xmean','ymean','sx','sy','sigmax','sigmay','statn','sumx','sumxx','sumy','sumyy','sumxy','rega','regb','regc','regr','pi','e','ans','A','B','C','D','E','F','X','Y','M']);
+  const functions = Object.freeze(['lsortA','lsortD','ldim','lfill','lcumul','ldiff','laug','lmin','lmax','lmean','lmed','lsum','lprod','lstd','lvar','linner','louter','labs','det','trans','dim','fill','identity','rndmat','cumul','aug','cpow', 'conj','polar','statt','probp','probq','probr','sin','cos','tan','asin','acos','atan','sinh','cosh','tanh','asinh','acosh','atanh','sqrt','cbrt','log','ln','tenpow','epow','recip','abs','pct','fact','root','ncr','npr','dms','frac','kilo','mega','giga','tera','milli','micro','nano','pico','femto','cv','random','dice','coin','rint']);
+  const symbols = Object.freeze(['L1','L2','L3','L4','matA','matB','matC','matD','i','xmean','ymean','sx','sy','sigmax','sigmay','statn','sumx','sumxx','sumy','sumyy','sumxy','rega','regb','regc','regr','pi','e','ans','A','B','C','D','E','F','X','Y','M']);
   function validateToken(t) {
     if (!t || Object.keys(t).sort().join() !== 'kind,value' || typeof t.value !== 'string') throw new TypeError('Invalid semantic token');
     if(t.kind==='nbase'&&/^(?:[0-9A-F]{1,10}|AND|OR|XOR|XNOR|NOT|NEG|ans|\$[A-FXYM])$/.test(t.value))return;
-    if (t.kind === 'number' && /^(?:\d+(?:\.\d*)?|\.\d+)(?:E[+-]?\d{1,2})?$/.test(t.value)) return;
+    if (t.kind === 'number' && t.value.length<=1100 && /^(?:\d+(?:\.\d*)?|\.\d+)(?:E[+-]?\d{1,2})?$/.test(t.value)) return;
     if (t.kind === 'function' && functions.includes(t.value)) return;
     if (t.kind === 'symbol' && symbols.includes(t.value)) return;
     if (t.kind === 'operator' && ['+','-','*','/',':','^'].includes(t.value)) return;
@@ -23,7 +23,7 @@
     while (i<source.length) {
       if (/\s/.test(source[i])) { i++; continue; }
       const rest=source.slice(i);
-      const match=(options.physical?rest.match(/^(?:\d+(?:\.\d*)?|\.\d+)E[+-]?\d{1,2}(?!\d)/):null) || rest.match(/^(?:\d+(?:\.\d*)?|\.\d+)/) || rest.match(/^[A-Za-z]+/) || rest.match(/^[+\-*/:^(),]/);
+      const match=(options.physical?rest.match(/^(?:\d+(?:\.\d*)?|\.\d+)E[+-]?\d{1,2}(?!\d)/):null) || rest.match(/^(?:\d+(?:\.\d*)?|\.\d+)/) || rest.match(/^L[1-4]/) || (options.physical ? (()=>{const name=[...functions,...symbols].sort((a,b)=>b.length-a.length).find(x=>rest.startsWith(x));return name?[name]:null;})() : null) || rest.match(/^[A-Za-z]+/) || rest.match(/^[+\-*/:^(),]/);
       if (!match) throw new TypeError(`Unsupported entry at ${i}`);
       const word=match[0];
       const value=functions.includes(word.toLowerCase()) || ['pi','ans'].includes(word.toLowerCase()) ? word.toLowerCase() : word;
@@ -53,7 +53,7 @@
           if(!take('('))throw new TypeError('Function requires arguments');
           const args=peek()===')'?[]:[expression()];while(take(','))args.push(expression());
           if(!take(')'))throw new TypeError('Missing parenthesis');
-          const arity=({polar:2,cpow:2,dim:3,fill:3,aug:2,rndmat:2,root:2,ncr:2,npr:2,dms:3,frac:3,cv:2,random:0,dice:0,coin:0,rint:0}[token.value] ?? 1);
+          const arity=({ldim:2,lfill:2,laug:2,linner:2,louter:2,polar:2,cpow:2,dim:3,fill:3,aug:2,rndmat:2,root:2,ncr:2,npr:2,dms:3,frac:3,cv:2,random:0,dice:0,coin:0,rint:0}[token.value] ?? 1);
           if(args.length!==arity)throw new TypeError('Wrong function arity');
           value={kind:'call',name:token.value,args};
         } else throw new TypeError('Invalid operand');
@@ -128,15 +128,15 @@
     } else throw new TypeError('Unknown editor command');
     return createEditor(tokens,cursor,editor.template);
   }
-  function validateAst(ast, depth=0) {
-    if(!ast || depth>100)throw new TypeError('Invalid AST');
+  function validateAst(ast, depth=0, budget={remaining:4096}) {
+    if(!ast || depth>100 || --budget.remaining<0)throw new TypeError('Invalid AST');
     const keys=Object.keys(ast).sort().join();
-    if(ast.kind==='number' && keys==='decimal,kind' && /^(?:\d+(?:\.\d*)?|\.\d+)(?:E[+-]?\d{1,2})?$/.test(ast.decimal))return;
+    if(ast.kind==='number' && keys==='decimal,kind' && typeof ast.decimal==='string' && ast.decimal.length<=1100 && /^(?:\d+(?:\.\d*)?|\.\d+)(?:E[+-]?\d{1,2})?$/.test(ast.decimal))return;
     if(ast.kind==='symbol' && keys==='kind,name' && symbols.includes(ast.name))return;
-    if(ast.kind==='unary' && keys==='kind,operand,operator' && ['+','-'].includes(ast.operator)){validateAst(ast.operand,depth+1);return;}
-    if(ast.kind==='binary' && keys==='implied,kind,left,operator,right' && ['+','-','*','/','^'].includes(ast.operator) && typeof ast.implied==='boolean'){validateAst(ast.left,depth+1);validateAst(ast.right,depth+1);return;}
+    if(ast.kind==='unary' && keys==='kind,operand,operator' && ['+','-'].includes(ast.operator)){validateAst(ast.operand,depth+1,budget);return;}
+    if(ast.kind==='binary' && keys==='implied,kind,left,operator,right' && ['+','-','*','/','^'].includes(ast.operator) && typeof ast.implied==='boolean'){validateAst(ast.left,depth+1,budget);validateAst(ast.right,depth+1,budget);return;}
     if(ast.kind==='call' && keys==='args,kind,name' && functions.includes(ast.name) && Array.isArray(ast.args)
-      && ast.args.length===({polar:2,cpow:2,dim:3,fill:3,aug:2,rndmat:2,root:2,ncr:2,npr:2,dms:3,frac:3,cv:2,random:0,dice:0,coin:0,rint:0}[ast.name]??1)){ast.args.forEach(a=>validateAst(a,depth+1));return;}
+      && ast.args.length===({ldim:2,lfill:2,laug:2,linner:2,louter:2,polar:2,cpow:2,dim:3,fill:3,aug:2,rndmat:2,root:2,ncr:2,npr:2,dms:3,frac:3,cv:2,random:0,dice:0,coin:0,rint:0}[ast.name]??1)){ast.args.forEach(a=>validateAst(a,depth+1,budget));return;}
     throw new TypeError('Unsupported AST node');
   }
   function evaluate(ast, adapter, scope={}) {

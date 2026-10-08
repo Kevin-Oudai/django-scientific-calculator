@@ -140,7 +140,7 @@
       },
       "viewAssertions": {
         "expressionHtml": "NORMAL   STAT",
-        "resultHtml": "0•   1",
+        "resultHtml": "<span class=\"scicalc__menu-selected\">0</span><span class=\"scicalc__native-menu-marker\" aria-hidden=\"true\">•</span>   1",
         "previousPage": false,
         "nextPage": true
       },
@@ -170,7 +170,7 @@
       },
       "viewAssertions": {
         "expressionHtml": "SD   LINE   QUAD",
-        "resultHtml": "0•   1   2",
+        "resultHtml": "<span class=\"scicalc__menu-selected\">0</span><span class=\"scicalc__native-menu-marker\" aria-hidden=\"true\">•</span>   1   2",
         "previousPage": false,
         "nextPage": true
       },
@@ -868,7 +868,7 @@
       },
       "viewAssertions": {
         "expressionHtml": "NORMAL   STAT",
-        "resultHtml": "0•   1",
+        "resultHtml": "<span class=\"scicalc__menu-selected\">0</span><span class=\"scicalc__native-menu-marker\" aria-hidden=\"true\">•</span>   1",
         "previousPage": false,
         "nextPage": true
       },
@@ -898,7 +898,7 @@
       },
       "viewAssertions": {
         "expressionHtml": "SD   LINE   QUAD",
-        "resultHtml": "0•   1   2",
+        "resultHtml": "<span class=\"scicalc__menu-selected\">0</span><span class=\"scicalc__native-menu-marker\" aria-hidden=\"true\">•</span>   1   2",
         "previousPage": false,
         "nextPage": true
       },
@@ -928,7 +928,7 @@
       },
       "viewAssertions": {
         "expressionHtml": "EXP   LOG   PWR",
-        "resultHtml": "3•   4   5",
+        "resultHtml": "<span class=\"scicalc__menu-selected\">3</span><span class=\"scicalc__native-menu-marker\" aria-hidden=\"true\">•</span>   4   5",
         "previousPage": true,
         "nextPage": true
       },
@@ -958,7 +958,7 @@
       },
       "viewAssertions": {
         "expressionHtml": "INV",
-        "resultHtml": "6•",
+        "resultHtml": "<span class=\"scicalc__menu-selected\">6</span><span class=\"scicalc__native-menu-marker\" aria-hidden=\"true\">•</span>",
         "previousPage": true,
         "nextPage": false
       },

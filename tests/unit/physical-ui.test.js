@@ -76,7 +76,9 @@ test('all result families page through the same physical path without changing s
 });
 test('physical menus page and escape display text without interpreting it as markup',()=>{
   let s=press(core.createInitialState(),4);assert.equal(view(s).expressionHtml,'NORMAL   STAT');
-  assert.equal(view(s).resultHtml,'0•   1');
+  assert.equal(view(s).resultHtml.replace(/<[^>]*>/g,''),'0•   1');
+  assert.ok(view(s).resultHtml.includes('scicalc__menu-selected'));
+  assert.ok(view(s).resultHtml.includes('aria-hidden="true"'));
   s=press(s,11);assert.equal(view(s).expressionHtml,'EQN   CPLX');assert.equal(s.workflow.page,1);
   s=press(s,8);assert.equal(s.workflow.page,0);
   s=core.reduceCalculator(core.createInitialState(),{type:'workflow',command:'show-results',payload:{pages:[{label:'<img>',value:'<script>alert(1)</script>'}]}});

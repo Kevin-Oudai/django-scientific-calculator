@@ -7,7 +7,7 @@ const view=s=>fmt.renderState(s,{physical:true});
 const number=(value,format='NORM1',tab=9)=>fmt.sharpNumber(value,{format,tab});
 
 test('SET UP uses DRG FSE TAB; disabled TAB ignores shortcuts and ENT confirms cursor',()=>{
- let s=sequence([6]);assert.equal(view(s).expressionHtml,'DRG   FSE   TAB');assert.equal(view(s).resultHtml,'0.   1');assert.equal(s.layers.settings.tab,9);
+ let s=sequence([6]);assert.equal(view(s).expressionHtml,'DRG   FSE   TAB');assert.equal(view(s).resultHtml.replace(/<[^>]*>/g,''),'0.   1');assert.equal(s.layers.settings.tab,9);
  assert.deepEqual(press(s,41),s);s=press(s,48);assert.equal(view(s).expressionHtml,'DEG   RAD   GRAD');
  s=sequence([10,48],s);assert.equal(s.angleMode,'RAD');assert.equal(s.lifecycle,'empty');assert.equal(view(s).indicators.RAD,true);
  s=sequence([6,45,41],s);assert.equal(s.angleMode,'GRAD');assert.equal(core.restoreCalculator(core.snapshotCalculator(s)).angleMode,'GRAD');

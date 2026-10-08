@@ -4,7 +4,7 @@ const baseURL = process.env.BASE_URL || "http://127.0.0.1:8010";
 
 module.exports = defineConfig({
   testDir: "./tests/e2e",
-  timeout: 30 * 1000,
+  timeout: 60 * 1000,
   expect: {
     timeout: 5 * 1000,
   },
@@ -27,5 +27,7 @@ module.exports = defineConfig({
       name: "desktop-chromium",
       use: { ...devices["Desktop Chrome"] },
     },
+    { name: "desktop-firefox", use: { ...devices["Desktop Firefox"] } },
+    { name: "desktop-webkit", use: { ...devices["Desktop Safari"] } },
   ],
 });

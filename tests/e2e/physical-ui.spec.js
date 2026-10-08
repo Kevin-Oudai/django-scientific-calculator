@@ -2,6 +2,24 @@ const {test,expect}=require('@playwright/test');
 const catalog=require('../../src/scientific_calculator/static/scientific_calculator/physical-keys.json');
 const key=(root,n)=>root.locator(`[data-key-id="EL506-K${String(n).padStart(2,'0')}"]`);
 const snapshot=root=>root.evaluate(el=>el.scientificCalculator.snapshot());
+
+test('physical manual menu and ALGB selection blink with stable reduced-motion alternatives',async({page})=>{
+ const root=await setup(page);await key(root,4).click();
+ const selected=root.locator('.scicalc__menu-selected');
+ await expect(selected).toHaveText('0');await expect(root.locator('.scicalc__native-menu-marker')).toBeHidden();
+ expect(await selected.evaluate(el=>getComputedStyle(el).animationName)).toBe('scicalc-cursor-blink');
+ await expect(root.locator('[data-announcement]')).toContainText('Selected choice 0');
+ await page.emulateMedia({reducedMotion:'reduce'});
+ expect(await selected.evaluate(el=>getComputedStyle(el).animationName)).toBe('none');
+ expect(await selected.evaluate(el=>getComputedStyle(el).textDecorationLine)).toContain('underline');
+ await key(root,2).click();for(const n of [5,18,43,40,3,17])await key(root,n).click();
+ const variable=root.locator('[data-expression] u');await expect(variable).toHaveText('A');
+ expect(await variable.evaluate(el=>getComputedStyle(el).animationName)).toBe('none');
+ await expect(root.locator('[data-announcement]')).toContainText('Selected variable A');
+ await page.emulateMedia({reducedMotion:'no-preference'});
+ expect(await variable.evaluate(el=>getComputedStyle(el).animationName)).toBe('scicalc-cursor-blink');
+ expect(await variable.evaluate(el=>getComputedStyle(el).textDecorationLine)).toBe('none');
+});
 test.beforeEach(async({page},info)=>{
   info.physicalErrors=[];info.physicalRequests=[];
   page.on('pageerror',error=>info.physicalErrors.push(error.message));
@@ -43,7 +61,8 @@ test('pointer, touch, keyboard and native keyboard activation share canonical di
   expect((await snapshot(root)).state.entry).toBe('1');
   await page.keyboard.press('Space');expect((await snapshot(root)).state.entry).toBe('11');
 });
-test('touch rollover accepts the second key before the first touch is released',async({browser})=>{
+test('touch rollover accepts the second key before the first touch is released',async({browser,browserName})=>{
+  test.skip(browserName!=='chromium','Simultaneous native touch injection uses Chromium CDP; tap and keyboard coverage runs in all engines.');
   const context=await browser.newContext({hasTouch:true});const page=await context.newPage();
   const root=await setup(page);const cdp=await context.newCDPSession(page);
   const first=await key(root,3).boundingBox(),second=await key(root,20).boundingBox();

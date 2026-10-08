@@ -3,7 +3,9 @@ const { loadFixtures, baseEvents } = require("../reference/el506ts/golden-runner
 
 for (const fixture of loadFixtures().filter(f => f.status !== "pending")) {
   test(`canonical baseline browser replay: ${fixture.id}`, async ({ page }) => {
-    test.setTimeout(Math.max(30000, fixture.sequence.length * 500));
+    // Long physical transcripts include browser actionability and a state
+    // assertion after every press. Allow the slower desktop engines this work.
+    test.setTimeout(Math.max(60000, 20000 + fixture.sequence.length * 1000));
     const errors = [];
     page.on("pageerror", error => errors.push(error.message));
     await page.goto(fixture.displayProfile === "physical" ? "/" : "/legacy/");

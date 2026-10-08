@@ -244,7 +244,7 @@
     ],
     "PAGE": [
       "EL506-K03",
-      "EL506-K33"
+      "EL506-K24"
     ],
     "HEX": [
       "EL506-K03",
@@ -2491,7 +2491,7 @@
         "EL506-K03",
         "EL506-K31",
         "EL506-K03",
-        "EL506-K33",
+        "EL506-K24",
         "EL506-K30",
         "EL506-K46",
         "EL506-K37",
@@ -2504,7 +2504,7 @@
         "EL506-K03",
         "EL506-K32",
         "EL506-K03",
-        "EL506-K33"
+        "EL506-K24"
       ],
       "printedOperations": [
         "7 COMMA 3 POLAR",
@@ -2527,7 +2527,7 @@
         },
         {
           "afterStep": 19,
-          "printed": "x=6.985428598",
+          "printed": "x=6.985428578",
           "evidenceKind": "guide-print",
           "simulatorStatus": "unmeasured"
         },
@@ -2541,7 +2541,10 @@
       "status": "reference-only",
       "applicationStatus": "pending",
       "simulatorStatus": "unmeasured",
-      "notes": [],
+      "notes": [
+        "2026-10-08 visual source review corrected PAGE to 2nd F Exp (x↔y); the original transcript incorrectly used shifted left parenthesis.",
+        "2026-10-08 page 29 visual review corrected the x display transcription to 6.985428578."
+      ],
       "capabilityIds": [
         "el506.key.el506-k03",
         "el506.key.el506-k28",
@@ -3611,14 +3614,14 @@
         "EL506-K34",
         "EL506-K48",
         "EL506-K03",
-        "EL506-K33",
+        "EL506-K24",
         "EL506-K06",
         "EL506-K45",
         "EL506-K40",
         "EL506-K03",
         "EL506-K31",
         "EL506-K03",
-        "EL506-K33"
+        "EL506-K24"
       ],
       "printedOperations": [
         "MODE 3 RECT",
@@ -3655,7 +3658,7 @@
         },
         {
           "afterStep": 38,
-          "printed": "angle=1.003884822",
+          "printed": "angle=-1.003884822",
           "evidenceKind": "guide-print",
           "simulatorStatus": "unmeasured"
         }
@@ -3664,7 +3667,9 @@
       "applicationStatus": "pending",
       "simulatorStatus": "unmeasured",
       "notes": [
-        "The printed polar-angle image has no obvious minus sign although the preceding imaginary component is negative. Simulator comparison remains unresolved; preserve the printed value."
+        "The printed polar-angle image has no obvious minus sign although the preceding imaginary component is negative. Simulator comparison remains unresolved; preserve the printed value.",
+        "2026-10-08 visual source review corrected PAGE to 2nd F Exp (x↔y); the original transcript incorrectly used shifted left parenthesis.",
+        "2026-10-08 enlarged page 41 LCD review confirms the minus sign preceding the angle indicator; corrected the missing sign in the original transcript."
       ],
       "capabilityIds": [
         "el506.key.el506-k03",

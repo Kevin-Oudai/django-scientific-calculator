@@ -22,5 +22,14 @@ test('Calculus errors preserve ANS and recover with ON/C',async({page})=>{
 });
 test('Calculus jobs resume from snapshots and remain isolated between widgets',async({page})=>{
  const root=await setup(page);await root.evaluate(el=>{const copy=el.cloneNode(true);el.after(copy);ScientificCalculatorBrowser.mount(copy,ScientificCalculatorCore,ScientificCalculatorFormatting);});const two=page.locator('[data-scientific-calculator]').nth(1);
- await seq(root,[5,27,20,16,48,40,48,40,45,45,45,45,48]);const saved=await snap(root);await key(root,2).click();await root.evaluate((el,s)=>el.scientificCalculator.restore(s),saved);await expect(root.locator('[data-result]')).toHaveText('0.333333333',{timeout:15000});expect((await snap(two)).state.answer).toBe(0);expect((await snap(two)).state.workflow.kind).toBe(null);
+ await seq(root,[5,27,20,16,48,40,48,40,45,45,45,45,48]);const saved=await snap(root);await key(root,2).click();await root.evaluate((el,s)=>el.scientificCalculator.restore(s),saved);await expect(root.locator('[data-result]')).toHaveText('0.333333333',{timeout:45000});expect((await snap(two)).state.answer).toBe(0);expect((await snap(two)).state.workflow.kind).toBe(null);
+});
+test('Calculus jobs advance when animation frames are suspended',async({page})=>{
+ await page.addInitScript(()=>{window.requestAnimationFrame=()=>0;});
+ const root=await setup(page);
+ // Real pointer actionability also needs animation frames. Use the public
+ // canonical physical-key API to isolate the scheduler in this regression.
+ await root.evaluate(el=>{for(const n of [5,27,20,16,48,40,48,40,45,45,45,45,48])el.scientificCalculator.pressKey('EL506-K'+String(n).padStart(2,'0'));});
+ await expect(root.locator('[data-result]')).toHaveText('0.333333333',{timeout:45000});
+ expect((await snap(root)).state.workflow.payload?.stage).not.toBe('calculating');
 });

@@ -24,7 +24,10 @@
  }
  function cubic([a,b,c,d]){
   [a,b,c,d].forEach(bounded);if(a===0)throw new RangeError('Zero leading coefficient');
-  const A=bounded(b/a),B=bounded(c/a),C=bounded(d/a),p=bounded(B-A*A/3),q=bounded(2*A**3/27-A*B/3+C),discriminant=bounded((q/2)**2+(p/3)**3),offset=A/3;
+  const A=bounded(b/a),B=bounded(c/a),C=bounded(d/a),p=bounded(B-A*A/3),q=bounded(2*A**3/27-A*B/3+C),offset=A/3;
+  const positive=(q/2)**2,negative=(p/3)**3,rawDiscriminant=bounded(positive+negative);
+  let discriminant=Math.abs(rawDiscriminant)<=16*Number.EPSILON*Math.max(positive,Math.abs(negative))?0:rawDiscriminant;
+  if([a,b,c,d].every(Number.isSafeInteger)){const [aa,bb,cc,dd]=[a,b,c,d].map(BigInt);if(18n*aa*bb*cc*dd-4n*bb**3n*dd+bb**2n*cc**2n-4n*aa*cc**3n-27n*aa**2n*dd**2n===0n)discriminant=0;}
   let roots;
   if(discriminant>0){const u=Math.cbrt(-q/2+Math.sqrt(discriminant)),v=u!==0?-p/(3*u):Math.cbrt(-q/2-Math.sqrt(discriminant)),real=u+v;
    roots=[complex(real-offset),complex(-real/2-offset,Math.sqrt(3)/2*(u-v)),complex(-real/2-offset,-Math.sqrt(3)/2*(u-v))];}
@@ -32,7 +35,7 @@
   else if(discriminant===0){const u=Math.cbrt(-q/2);roots=[complex(2*u-offset),complex(-u-offset),complex(-u-offset)];}
   else {const angle=Math.acos(Math.max(-1,Math.min(1,-q/(2*Math.sqrt(-((p/3)**3)))))),radius=2*Math.sqrt(-p/3);roots=Array.from({length:3},(_,k)=>complex(radius*Math.cos((angle+2*[1,0,2][k]*Math.PI)/3)-offset));}
   // Refine isolated real roots; repeated and complex roots keep their analytic values.
-  for(const r of roots)if(r.imaginary===0){for(let i=0;i<3;i++){const derivative=(3*a*r.real+2*b)*r.real+c;if(derivative===0)break;const residual=((a*r.real+b)*r.real+c)*r.real+d;const next=r.real-residual/derivative;if(!Number.isFinite(next))break;r.real=bounded(next);}}
+  for(const r of roots)if(r.imaginary===0){for(let i=0;i<3;i++){const derivative=(3*a*r.real+2*b)*r.real+c;if(Math.abs(derivative)<=16*Number.EPSILON*Math.max(1,Math.abs(3*a*r.real*r.real),Math.abs(2*b*r.real),Math.abs(c)))break;const residual=((a*r.real+b)*r.real+c)*r.real+d;const next=r.real-residual/derivative;if(!Number.isFinite(next))break;r.real=bounded(next);}}
   return roots;
  }
  return Object.freeze({linear,quadratic,cubic});

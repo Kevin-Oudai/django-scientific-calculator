@@ -86,13 +86,16 @@
         const pending=['pending','statistic','memory-selection'].includes(state.layers.intent?.kind) ? '. Selected operation awaits its later roadmap implementation.' : '';
         const spokenDisplay=element=>{
           const copy=element.cloneNode(true);
+          for(const decoration of copy.querySelectorAll('[aria-hidden="true"]'))decoration.remove();
           for(const fraction of copy.querySelectorAll('.scicalc__display-fraction')){
             const [numerator,denominator]=fraction.children;
             fraction.replaceWith(document.createTextNode(` ${numerator?.textContent||'blank'} over ${denominator?.textContent||'blank'} `));
           }
           return copy.textContent.replace(/\s+/g,' ').trim()||'empty';
         };
-        const text=state.control.power==='off'?'Calculator powered off. Press ON/C to wake.':`Equation: ${spokenDisplay(expressionEl)}. Result: ${spokenDisplay(resultEl)}. ${status}${view.pageStatus?`. Page ${view.pageStatus}, ${view.component}`:''}${pending}`;
+        const selectedNumber=resultEl.querySelector('.scicalc__menu-selected'),selectedVariable=expressionEl.querySelector('u');
+        const selection=selectedNumber?`. Selected choice ${selectedNumber.textContent}`:selectedVariable?`. Selected variable ${selectedVariable.textContent}`:'';
+        const text=state.control.power==='off'?'Calculator powered off. Press ON/C to wake.':`Equation: ${spokenDisplay(expressionEl)}. Result: ${spokenDisplay(resultEl)}. ${status}${view.pageStatus?`. Page ${view.pageStatus}, ${view.component}`:''}${pending}${selection}`;
         if(announcement.textContent!==text) announcement.textContent=text;
         const error=/^Error/.test(state.displayResult)?state.control.errorCode?'Error '+state.control.errorCode:state.displayResult:'';
         if(errorEl.textContent!==error) errorEl.textContent=error;
@@ -107,8 +110,14 @@
         } else expressionEl.scrollLeft=expressionEl.scrollWidth;
         resultEl.scrollLeft=resultEl.scrollWidth;
         scrollIndicators();
-        if(state.workflow.kind==='prompt'&&state.workflow.payload.id==='INTEGRAL'&&state.workflow.payload.stage==='calculating')dispatch({type:'calculus-step'});
       });
+      // Calculation progress must not depend on animation frames: browsers
+      // throttle or suspend those for an inactive or occluded widget. Yield
+      // between bounded chunks and discard callbacks from a replaced render.
+      if(state.workflow.kind==='prompt'&&state.workflow.payload.id==='INTEGRAL'&&state.workflow.payload.stage==='calculating')document.defaultView.setTimeout(()=>{
+        if(generation!==renderGeneration)return;
+        if(state.workflow.kind==='prompt'&&state.workflow.payload.id==='INTEGRAL'&&state.workflow.payload.stage==='calculating')dispatch({type:'calculus-step'});
+      },0);
     };
     const dispatch=event=>{
       if(physical&&event.type==='physical-key'&&event.id==='EL506-K48')event={...event,randomSample:document.defaultView.crypto.getRandomValues(new Uint32Array(1))[0]/4294967296};

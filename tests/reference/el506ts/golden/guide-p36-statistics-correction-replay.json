@@ -140,7 +140,7 @@
       },
       "viewAssertions": {
         "expressionHtml": "NORMAL   STAT",
-        "resultHtml": "0•   1",
+        "resultHtml": "<span class=\"scicalc__menu-selected\">0</span><span class=\"scicalc__native-menu-marker\" aria-hidden=\"true\">•</span>   1",
         "indicators": {
           "2ndF": false,
           "HYP": false,
@@ -210,7 +210,7 @@
       },
       "viewAssertions": {
         "expressionHtml": "SD   LINE   QUAD",
-        "resultHtml": "0•   1   2",
+        "resultHtml": "<span class=\"scicalc__menu-selected\">0</span><span class=\"scicalc__native-menu-marker\" aria-hidden=\"true\">•</span>   1   2",
         "indicators": {
           "2ndF": false,
           "HYP": false,

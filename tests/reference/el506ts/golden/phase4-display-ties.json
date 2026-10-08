@@ -117,7 +117,7 @@
       },
       "domResultText": "0.   1",
       "viewAssertions": {
-        "resultHtml": "0.   1"
+        "resultHtml": "<span class=\"scicalc__menu-selected\">0</span><span class=\"scicalc__native-menu-marker\" aria-hidden=\"true\">.</span>   1"
       }
     },
     {
@@ -133,7 +133,7 @@
       },
       "domResultText": "0.   1   2",
       "viewAssertions": {
-        "resultHtml": "0.   1   2"
+        "resultHtml": "<span class=\"scicalc__menu-selected\">0</span><span class=\"scicalc__native-menu-marker\" aria-hidden=\"true\">.</span>   1   2"
       }
     },
     {
@@ -165,7 +165,7 @@
       },
       "domResultText": "0.   1   2",
       "viewAssertions": {
-        "resultHtml": "0.   1   2"
+        "resultHtml": "<span class=\"scicalc__menu-selected\">0</span><span class=\"scicalc__native-menu-marker\" aria-hidden=\"true\">.</span>   1   2"
       }
     },
     {

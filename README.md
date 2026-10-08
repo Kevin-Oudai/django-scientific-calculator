@@ -59,11 +59,39 @@ django-scientific-calculator @ git+ssh://git@github.com/Kevin-Oudai/django-scien
 
 The target machine must have access to the private repository. SSH installs require a GitHub SSH key that can read the repo.
 
-For future stable installs, prefer a version tag after that tag exists:
+For the existing stable 0.3.1 release, pin its version tag:
 
 ```text
 django-scientific-calculator @ git+ssh://git@github.com/Kevin-Oudai/django-scientific-calculator.git@v0.3.1
 ```
+
+### Refresh an existing downstream installation
+
+Main receives roadmap changes while the package version remains 0.3.1. Force a
+reinstall to replace a cached installation with the current main commit:
+
+```powershell
+python -m pip install --upgrade "Django>=5.2.17,<6.0"
+python -m pip install --force-reinstall --no-deps --no-cache-dir "django-scientific-calculator @ git+ssh://git@github.com/Kevin-Oudai/django-scientific-calculator.git@main"
+python manage.py check
+python manage.py collectstatic --noinput
+```
+
+Record the installed Git revision with `python -m pip freeze`. Restart the site's
+application workers and deploy the collected static directory using that site's
+normal deployment process. Use a new query revision on both calculator.css and
+calculator.js, for example `?v=COLLECTED_COMMIT_SHA`; the loader propagates the
+JavaScript query to every local module. Purge the site's static CDN cache if one
+is configured, then reload the browser and verify a fraction and a LIST result.
+For Django manifest storage, keep every collected calculator module together
+and preserve its ordinary sibling path because the loader resolves local files
+relative to calculator.js.
+
+A consumer pinned to v0.3.1 continues receiving that release. To adopt roadmap
+changes, replace the requirement's tag with main or an actually published newer
+tag, then run the same reinstall, collectstatic, cache refresh, and deployment
+steps. Reinstalling an unchanged tag cannot acquire changes from main. No
+database migration is required.
 
 ## Django Setup
 
@@ -582,8 +610,9 @@ These properties change appearance while retaining key positions, order,
 IDs, and meanings. Avoid overriding grid, button sizing, or functional
 legends. The default and example theme pass automated 4.5:1 text/legend
 contrast checks; consumer overrides should maintain that contrast and visible
-focus. Cursor blinking follows the full-manual exception to the simulator's
-stationary cursor and is disabled by `prefers-reduced-motion`. Forced colors
+focus. Cursor, selected menu number, and selected ALGB variable blinking follow
+the full-manual exceptions to the simulator's stationary markers. Reduced motion
+uses stable underlined selections. Forced colors
 retain native controls and focus outlines.
 
 ### Template override hooks and input
@@ -1288,8 +1317,8 @@ Results open the edit buffer for dimension and cell paging. Implemented
 operations include addition, subtraction, multiplication, scalar scaling,
 integer powers, inverse, transpose, determinant, resize, fill, column-wise cumulative,
 augmentation, identity, and random matrices. The root menu's matrix-to-list
-actions transfer columns into list slots; remaining LIST calculations are a
-later phase.
+actions transfer columns into list slots; LIST calculation coverage is described in
+the collection section below.
 
 These features use local package assets and bounded semantic AST evaluation.
 Native checkpoints, independent guide values, algorithm/domain unit checks,
@@ -1297,3 +1326,75 @@ and physical-button browser tests provide scoped evidence. Cursor timing,
 hidden digits, and exhaustive cross-mode limits remain part of the later parity
 audit; passing implementation regression frames alone does not establish full
 simulator parity.
+
+## Collection buffers and LIST work
+
+LIST uses four independent slots L1–L4 with 1–16 real elements. UP/DOWN opens
+SIZE and element prompts; DATA commits an entry. Changing SIZE clears the edit
+buffer's elements. ON/C closes the buffer; MATH STO copies it into a slot and
+CHK selects a stored copy for subsequent UP/DOWN editing. Calculated lists open
+SIZE and element paging. Scalar aggregates retain the collection edit buffer.
+2nd F ENT is unavailable in MAT and LIST. Mode changes clear their internal
+slots and buffers. Snapshot schema 12 preserves separate matrix and list
+buffers and migrates earlier snapshots.
+
+The LIST menus expose sorting, dimension, fill, cumulative and difference
+operations, augmentation, minimum, maximum, mean, median, sum, product, sample
+standard deviation, sample variance, inner/outer products, and vector magnitude.
+Algorithms are implemented, with native evidence and tests recording the
+specific confirmed sequences; exhaustive operation/type compatibility remains
+in the final parity audit. Pairwise multiplication and scalar scaling are
+supported. `list→mat` maps each list to its corresponding one-column matrix;
+`list→matA` combines lists as columns of matA. These distinct mappings follow
+the full manual; multi-slot simulator verification remains pending. Adding a
+scalar to a list reports the observed Error 1. Evaluating an
+empty stored list reports Error 10; entering SIZE 17 reports Error 7.
+
+## Embedding security and release validation
+
+The calculator treats keyboard input and restored state as data. Its canonical
+AST permits named numeric operations and symbols; the bundled Math.js facade
+does not expose a text evaluator, parser, import, compile, or unit-creation API.
+Formatting escapes dynamic text before writing DOM output. Template branding
+is escaped, including values marked safe by a host template.
+
+Expressions are limited to 10,000 characters, canonical ASTs to depth 100 and
+4,096 visited nodes, and numeric AST text to 1,100 characters. Snapshot restore
+checks plain data, text, depth, and collection budgets before cloning and rejects
+accessors. Physical entry has its separately tested 142-character budget;
+formula stores share 256 characters, STAT shares 100 data units, matrices are
+bounded to 4×4, and lists to 16 elements. Integration uses bounded, interruptible
+chunks. These budgets stop untrusted calculator data from requesting unlimited
+allocation or expression-tree work.
+
+An embedding host controls the page's JavaScript, DOM, styles, and configuration.
+The calculator cannot isolate itself from a hostile same-origin host script;
+use a separate-origin sandboxed iframe if the host must be untrusted. Theme CSS
+and templates are trusted deployment inputs. Keep credentials out of calculator
+state and configuration. The widget does not persist state automatically;
+hosts choose whether and where to save validated snapshots.
+
+All executable assets are local external files. Tests enforce a self-only
+script CSP, no inline executable scripts, no outside asset requests, and offline
+calculations after assets load. Chromium, Firefox, and WebKit run the behavior,
+touch, orientation, zoom, keyboard, contrast, forced-colors, and reduced-motion
+checks. Native simultaneous-touch injection and Windows pixel baselines run in
+Chromium; the other engines run structural and ordinary touch checks.
+
+The locked JavaScript dependencies and installed Python runtime licenses are
+checked in CI. The package ships its LICENSE and THIRD_PARTY_NOTICES.txt with
+the Math.js and decimal dependency notices. Dependency audit results are tied
+to their execution date; npm and Python audits on 2026-10-08 reported no known
+vulnerabilities. A clean wheel install verifies both embeds and every collected
+asset against the wheel; the sdist is also checked for matching package bytes.
+Only original UI assets and independent behavior transcripts are distributed;
+Sharp binaries, logos, screenshots, source PDFs, and manual artwork are excluded.
+The project makes no claim of Sharp affiliation. Version 1.0.0 remains gated by
+the final reference audit and downstream deployment verification.
+
+The guide regression suite covers all 52 worked workflows and 148 printed
+checkpoints. It explicitly records the derivative example's remaining display
+difference: the simulator prints `0.577350268`, while the application prints
+`0.57735027`. Function denominators now evaluate correctly and retain the physical
+fraction separator in the upper display. Passing these regression tests does not
+waive the precision discrepancy or establish full simulator parity.

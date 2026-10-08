@@ -15,7 +15,8 @@ test("generated report is deterministic, current and has independent evidence fo
   assert.equal(power.documented.status, "documented");
   assert.equal(power.simulatorObserved.status, "observed");
   assert.equal(power.implemented.status, "partial");
-  assert.equal(power.unitTested.status, "pending");
+  assert.equal(power.unitTested.status, "partial");
+  assert.ok(power.unitTested.evidence.some(e=>e.path==='tests/unit/guide-regression.test.js'));
   assert.equal(power.goldenTested.status, "baseline-known-differences");
   assert.equal(power.browserTested.status, "partial");
   const mode = report.rows.find(r => r.id === "el506.key.el506-k04");

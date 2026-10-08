@@ -74,7 +74,7 @@ test('Statistics supports numeric expressions fractions exponent range and corre
  s=seq([2,11,36,7,37,29],s);assert.equal(rows(s)[0].x.value,6);
 });
 test('Statistics schema 11 validates metadata and migrates schema 10 without inventing observations',()=>{
- const saved=c.snapshotCalculator(seq([41,3,28,42,29,11],mode()));assert.equal(saved.schemaVersion,11);
+ const saved=c.snapshotCalculator(seq([41,3,28,42,29,11],mode()));assert.equal(saved.schemaVersion,12);
  for(const mutate of [p=>p.cursor=99,p=>p.parts=['1','2','3'],p=>p.parts=[null],p=>p.frequencies=[],p=>p.editing='yes']){const bad=structuredClone(saved);mutate(bad.state.control.statistics);assert.throws(()=>c.restoreCalculator(bad));}
  const old=c.snapshotCalculator(seq([40,29],mode()));old.schemaVersion=10;delete old.state.control.statistics;assert.deepEqual(c.restoreCalculator(old).control.statistics,{parts:[],cursor:null,editing:false,frequencies:[false]});
 });

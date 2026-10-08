@@ -267,14 +267,15 @@
     source=source.replace(/\((-?\d+(?:\.\d*)?)\*tenpow\((-?\d+)\)\)/g,(_,base,exponent)=>base+'E'+(exponent.startsWith('-')?'-':'')+exponent.replace('-','').padStart(2,'0'));
     let output='';
     for(let i=0;i<source.length;){
-      const match=source.slice(i).match(/^(cpow|polar|conj|dim|fill|cumul|aug|identity|rndmat|det|trans|probp|probq|probr|statt|cv|sin|cos|tan|asin|acos|atan|sinh|cosh|tanh|asinh|acosh|atanh|frac|sqrt|cbrt|log|ln|tenpow|epow|fact|root|npr|ncr|kilo|mega|giga|tera|milli|micro|nano|pico|femto)\(/);
-      if(!match){output+=source[i++];continue;}
+      const match=source.slice(i).match(/^(lsortA|lsortD|ldim|lfill|lcumul|ldiff|laug|lmin|lmax|lmean|lmed|lsum|lprod|lstd|lvar|linner|louter|labs|cpow|polar|conj|dim|fill|cumul|aug|identity|rndmat|det|trans|probp|probq|probr|statt|cv|sin|cos|tan|asin|acos|atan|sinh|cosh|tanh|asinh|acosh|atanh|frac|sqrt|cbrt|log|ln|tenpow|epow|fact|root|npr|ncr|kilo|mega|giga|tera|milli|micro|nano|pico|femto)\(/);
+      if(!match){output+=source[i]==='/'&&/^[a-z]+\(/i.test(source.slice(i+1))?'┌':source[i];i++;continue;}
       let depth=1,j=i+match[0].length,start=j,args=[];
       for(;j<source.length;j++){if(source[j]==='(')depth++;else if(source[j]===')'){if(--depth===0)break;}else if(source[j]===','&&depth===1){args.push(source.slice(start,j));start=j+1;}}
       args.push(source.slice(start,j));args=args.map(physicalExpression);
       const name=match[1],units={kilo:'k',mega:'M',giga:'G',tera:'T',milli:'m',micro:'µ',nano:'n',pico:'p',femto:'f'};
       const prefixes={sqrt:'√',cbrt:'³√',tenpow:'10^',epow:'e^'};
-      output+=name==='polar'?args[0]+'\u2220'+(args[1]||''):name==='cpow'?args[0]+'^'+(args[1]||''):/^prob[pqr]$/.test(name)?name.slice(-1).toUpperCase()+'('+args[0]:name==='statt'?args[0]+'\u2192t':name==='cv'?args[0]+'→cv'+args[1]:name==='frac'?(args[0]==='0'?'':args[0]+' ')+args[1]+'/'+(args[2]||''):name==='fact'?args[0]+'!':name==='root'?args[0]+'ˣ√'+(args[1]||''):name==='npr'?args[0]+'P'+(args[1]||''):name==='ncr'?args[0]+'C'+(args[1]||''):units[name]?args[0]+units[name]:prefixes[name]?prefixes[name]+args[0]:({asin:'sin⁻¹',acos:'cos⁻¹',atan:'tan⁻¹',asinh:'sinh⁻¹',acosh:'cosh⁻¹',atanh:'tanh⁻¹'})[name]?( {asin:'sin⁻¹',acos:'cos⁻¹',atan:'tan⁻¹',asinh:'sinh⁻¹',acosh:'cosh⁻¹',atanh:'tanh⁻¹'}[name]+args[0]):name+args[0];
+      const listNames={lsortA:'sortA',lsortD:'sortD',ldim:'dim(',lfill:'fill(',lcumul:'cumul',ldiff:'df_list',laug:'aug(',lmin:'min',lmax:'max',lmean:'mean',lmed:'med',lsum:'sum',lprod:'prod',lstd:'stdDv',lvar:'vari',linner:'i_prod(',louter:'o_prod(',labs:'abs'};
+      output+=listNames[name]?listNames[name]+args.join(','):name==='polar'?args[0]+'\u2220'+(args[1]||''):name==='cpow'?args[0]+'^'+(args[1]||''):/^prob[pqr]$/.test(name)?name.slice(-1).toUpperCase()+'('+args[0]:name==='statt'?args[0]+'\u2192t':name==='cv'?args[0]+'→cv'+args[1]:name==='frac'?(args[0]==='0'?'':args[0]+' ')+args[1]+'/'+(args[2]||''):name==='fact'?args[0]+'!':name==='root'?args[0]+'ˣ√'+(args[1]||''):name==='npr'?args[0]+'P'+(args[1]||''):name==='ncr'?args[0]+'C'+(args[1]||''):units[name]?args[0]+units[name]:prefixes[name]?prefixes[name]+args[0]:({asin:'sin⁻¹',acos:'cos⁻¹',atan:'tan⁻¹',asinh:'sinh⁻¹',acosh:'cosh⁻¹',atanh:'tanh⁻¹'})[name]?( {asin:'sin⁻¹',acos:'cos⁻¹',atan:'tan⁻¹',asinh:'sinh⁻¹',acosh:'cosh⁻¹',atanh:'tanh⁻¹'}[name]+args[0]):name+args[0];
       i=j<source.length?j+1:j;
     }
     return output;
@@ -381,8 +382,12 @@
       const size=groups?groups[workflow.page]:2;
       const shown = choices.slice(start, start + size);
       view.expressionHtml = shown.map(choice => escapeHtml(String(choice))).join('   ');
-      view.resultHtml = shown.map((choice,index) => `${start + index}${workflow.payload.selected!==undefined?workflow.payload.selected===start+index?'•':'':choice === mode || choice === settings.angle || choice === settings.format ? '•' : ''}`).join('   ');
+      view.resultHtml = shown.map((choice,index) => `${workflow.payload.id==='LIST_MATH'?(start+index).toString(16).toUpperCase():start+index}${workflow.payload.selected!==undefined?workflow.payload.selected===start+index?'•':'':choice === mode || choice === settings.angle || choice === settings.format ? '•' : ''}`).join('   ');
       if(['SETUP','ANGLE','FORMAT','RANDOM'].includes(workflow.payload.id))view.resultHtml=shown.map((choice,index)=>workflow.payload.id==='SETUP'&&index===2&&!['FIX','SCI','ENG'].includes(settings.format)?'':`${start+index}${workflow.payload.selected===start+index?'.':''}`).filter(Boolean).join('   ');
+      // The pinned simulator uses a dot; the physical manual specifies a
+      // flashing selected number. Retain that reference marker in the text
+      // transcript while excluding the decoration from the visible display.
+      if(options.physical)view.resultHtml=view.resultHtml.replace(/([0-9A-F])([•.])/g,'<span class="scicalc__menu-selected">$1</span><span class="scicalc__native-menu-marker" aria-hidden="true">$2</span>');
       view.previousPage = start > 0;
       view.nextPage = start + size < choices.length;
       view.cursorVisible = false;
@@ -410,6 +415,7 @@
       }
       if(workflow.payload.id==='TAB')view.resultHtml='';
       if(workflow.payload.id==='EQN_COEFFICIENTS'){const p=workflow.payload;view.resultHtml=p.input?formatExpression(physicalExpression(p.input)):sharpNumber(p.coefficients[p.coefficient],settings).html;indicators['?']=false;}
+      if(workflow.payload.id==='LIST_BUFFER'){const p=workflow.payload;if(p.input)view.expressionHtml='';view.resultHtml=p.input?formatExpression(physicalExpression(p.input)):sharpNumber(p.index===-1?p.list.length:p.list[p.index],settings).html;indicators['?']=false;}
       if(workflow.payload.id==='MAT_BUFFER'){const p=workflow.payload;if(p.input)view.expressionHtml='';view.resultHtml=p.input?formatExpression(physicalExpression(p.input)):sharpNumber(p.index===-2?p.matrix.rows:p.index===-1?p.matrix.columns:p.matrix.data[p.index],settings).html;indicators['?']=false;}
       if(workflow.payload.id==='CNST'){view.expressionHtml='';view.resultHtml=escapeHtml('01-52 ['+(workflow.payload.path||[]).join('')+']');}
       if(workflow.payload.id==='CONV'){view.expressionHtml=formatExpression(physicalExpression(workflow.payload.source)+'→cv');view.resultHtml=sharpEntry((workflow.payload.path||[]).join('')||'0');indicators['?']=false;}
@@ -440,7 +446,7 @@
       view.expressionHtml=state.lifecycle==='error'?escapeHtml('Error '+state.control.errorCode):lcd(state.displayExpression).replace(/:/g,'&divide;').replace(/\*/g,'&times;')+(view.cursorVisible?'<span class="scicalc__cursor" aria-hidden="true"></span>':'');
       view.resultHtml=(state.lifecycle==='error'?'':lcd(state.entry||(state.lifecycle==='evaluated'?state.displayResult:'0')))+'<sup class="scicalc__base-marker" aria-label="'+name+'">'+({2:'b',5:'P',8:'o',16:'H'})[base]+'</sup>';
     }
-    if(options.physical&&['EQN','CPLX','MAT'].includes(mode)&&state.lifecycle==='error'){view.expressionHtml=escapeHtml('Error '+state.control.errorCode);view.resultHtml='';view.cursorVisible=false;}
+    if(options.physical&&['EQN','CPLX','MAT','LIST'].includes(mode)&&state.lifecycle==='error'){view.expressionHtml=escapeHtml('Error '+state.control.errorCode);view.resultHtml='';view.cursorVisible=false;}
     view.indicators = indicators;
     if (!view.cursorVisible) view.cursorPosition = null;
     return view;
