@@ -4,13 +4,13 @@
 - Plan status: Active
 - Current package baseline: 0.3.1
 - Target release: 1.0.0 after verified parity
-- Next item: EL506-311
+- Next item: EL506-312
 - Last updated: 2026-10-08
 
 ## Progress Overview
 
-As of 2026-10-08, **201 of 245 roadmap tasks are complete (82.0%)**, with
-**44 remaining**. The next task is **EL506-311**. These counts measure
+As of 2026-10-08, **221 of 245 roadmap tasks are complete (90.2%)**, with
+**24 remaining**. The next task is **EL506-312**. These counts measure
 completed checklist items, not elapsed effort or verified calculator parity;
 individual tasks vary in size. The detailed checklist below describes every
 remaining task and preserves its evidence and completion requirements.
@@ -29,9 +29,11 @@ integration, condition entry, cancellation and bounded errors). Phase 11 is
 complete (12/12 statistics menus, entry, weighted/paired data, browsing,
 correction, deletion, persistence and capacity). Phase 12 is complete (16/16
 statistics results and regression items). Phase 13 is complete (9/9 equation
-items), and Phase 14 is complete (8/8 complex items). Phase 15 has 11/14 matrix
-items complete; ANS/memory/persistence, complete limits, and the transition
-example remain. Pending simulator/application behavior is visible
+items), and Phase 14 is complete (8/8 complex items). Phase 15 has 13/14 matrix
+items complete; complete limits and errors remain. Phase 16 has 3/11 LIST
+items complete (slot/capacity discovery, entry prompts, and result paging).
+Phase 17 has 2/15 items complete (guide regressions and property tests).
+Phase 18 has 13/15 items complete; release candidates and 1.0.0 remain gated. Pending simulator/application behavior is visible
 in the generated report; phase completion does not establish full parity.
 
 | Roadmap phase | Completed | Remaining |
@@ -51,11 +53,11 @@ in the generated report; phase completion does not establish full parity.
 | Phase 12 - Statistics Results and Regressions | 16 | 0 |
 | Phase 13 - Equation Mode | 9 | 0 |
 | Phase 14 - Complex Mode | 8 | 0 |
-| Phase 15 - Matrix Mode | 11 | 3 |
-| Phase 16 - LIST Mode | 0 | 11 |
-| Phase 17 - Errors, Limits, and Cross-mode Parity | 0 | 15 |
-| Phase 18 - Security, Packaging, Compatibility, and Release | 0 | 15 |
-| **Total** | **201** | **44** |
+| Phase 15 - Matrix Mode | 13 | 1 |
+| Phase 16 - LIST Mode | 3 | 8 |
+| Phase 17 - Errors, Limits, and Cross-mode Parity | 2 | 13 |
+| Phase 18 - Security, Packaging, Compatibility, and Release | 13 | 2 |
+| **Total** | **221** | **24** |
 
 Refresh this overview's date, counts, percentage, and next task in every
 roadmap completion tracking commit, using the checklist as the source of truth.
@@ -420,7 +422,7 @@ The following order takes precedence over the phase layout and numeric IDs:
 EL506-014 -> EL506-019 -> EL506-003 -> EL506-004 -> EL506-006`
 
 The bootstrap chain and Phase 1 are complete as of 2026-10-05.
-Resume with Phase 15, EL506-311.
+Resume with Phase 15, EL506-312.
 Stable physical-key IDs
 must exist before the experiment schema and capability ledger use them. Capture
 the 0.3.1 baseline before refactoring its behavior. Unit testing, the reducer,
@@ -2671,10 +2673,10 @@ All 52 guide workflows and 148 printed checkpoints now have application
 regressions; the derivative discrepancy is explicitly recorded rather than
 accepted as parity.
 
-Local implementation candidates: EL506-311, EL506-313, EL506-321, EL506-322, EL506-324,
-EL506-362, EL506-363, and EL506-370 through EL506-382 (20 items). Checkboxes
-remain unchanged until publication completes. **READY_TO_PUSH**: local gates
-passed for these 20 scoped items. The 537-case browser run passed 493 cases and
+Published scoped implementation batch: EL506-311, EL506-313, EL506-321, EL506-322, EL506-324,
+EL506-362, EL506-363, and EL506-370 through EL506-382 (20 items). Implementation commit 96d066d5bf321f508229f4552a71eaac53a6e007 was pushed and its exact SHA verified
+on origin/main. This separate tracking commit records the 20 scoped completions.
+The implementation carried **READY_TO_PUSH** after local gates passed. The 537-case browser run passed 493 cases and
 skipped 38 platform-specific cases; its six ordinary upper-fraction failures
 were corrected and all affected cases passed in the subsequent 78-case display
 and guide run (76 passed, two Chromium-only touch skips). Current unit suite:
@@ -2766,12 +2768,22 @@ partial regression suite alone; the final release gates remain in force.
     Evidence and verification: shared authorized 44-item batch record above.
     Notes: Scoped behavior and tests complete; later parity audit and EL506-311–313 remain as recorded above.
 
-- [ ] **EL506-311 - Match matrix ANS, memory, copy, replacement, and
+- [x] **EL506-311 - Match matrix ANS, memory, copy, replacement, and
   persistence.**
+
+    Completed: 2026-10-08, implementation commit 96d066d5bf321f508229f4552a71eaac53a6e007
+    Evidence and verification: shared remaining-phase batch review above.
+    Notes: Scoped item complete; unresolved final parity and release gates remain documented.
+
 - [ ] **EL506-312 - Match matrix limits and errors.** Cover dimension mismatch,
   non-square, singular, oversized, empty slot, and division restrictions.
-- [ ] **EL506-313 - Reproduce the guide transition-matrix example including
+- [x] **EL506-313 - Reproduce the guide transition-matrix example including
   result paging.**
+
+    Completed: 2026-10-08, implementation commit 96d066d5bf321f508229f4552a71eaac53a6e007
+    Evidence and verification: shared remaining-phase batch review above.
+    Notes: Scoped item complete; unresolved final parity and release gates remain documented.
+
 
 ### Phase 16 - LIST Mode
 
@@ -2779,11 +2791,26 @@ The operation guide names LIST mode but does not document its behavior. Do not
 guess any item in this phase; observe it in the reference simulator first.
 
 - [ ] **EL506-320 - Inventory every LIST menu and shifted-key action.**
-- [ ] **EL506-321 - Determine and match list slots, aliases, and capacity.**
-- [ ] **EL506-322 - Match list length and element-entry prompts.**
+- [x] **EL506-321 - Determine and match list slots, aliases, and capacity.**
+
+    Completed: 2026-10-08, implementation commit 96d066d5bf321f508229f4552a71eaac53a6e007
+    Evidence and verification: shared remaining-phase batch review above.
+    Notes: Scoped item complete; unresolved final parity and release gates remain documented.
+
+- [x] **EL506-322 - Match list length and element-entry prompts.**
+
+    Completed: 2026-10-08, implementation commit 96d066d5bf321f508229f4552a71eaac53a6e007
+    Evidence and verification: shared remaining-phase batch review above.
+    Notes: Scoped item complete; unresolved final parity and release gates remain documented.
+
 - [ ] **EL506-323 - Match list navigation, correction, insertion, deletion,
   and replacement.**
-- [ ] **EL506-324 - Match list recall and element-by-element result paging.**
+- [x] **EL506-324 - Match list recall and element-by-element result paging.**
+
+    Completed: 2026-10-08, implementation commit 96d066d5bf321f508229f4552a71eaac53a6e007
+    Evidence and verification: shared remaining-phase batch review above.
+    Notes: Scoped item complete; unresolved final parity and release gates remain documented.
+
 - [ ] **EL506-325 - Match list/list arithmetic.**
 - [ ] **EL506-326 - Match scalar/list arithmetic.**
 - [ ] **EL506-327 - Match confirmed list aggregates.** Include sum, product,
@@ -2815,50 +2842,125 @@ guess any item in this phase; observe it in the reference simulator first.
   operation.**
 - [ ] **EL506-361 - Add differential coverage for every capability-ledger
   entry.**
-- [ ] **EL506-362 - Complete the full operation-guide regression suite.**
-- [ ] **EL506-363 - Add property tests.** Cover arithmetic, fractions,
+- [x] **EL506-362 - Complete the full operation-guide regression suite.**
+
+    Completed: 2026-10-08, implementation commit 96d066d5bf321f508229f4552a71eaac53a6e007
+    Evidence and verification: shared remaining-phase batch review above.
+    Notes: Scoped item complete; unresolved final parity and release gates remain documented.
+
+- [x] **EL506-363 - Add property tests.** Cover arithmetic, fractions,
   conversions, statistics, equations, complex values, matrices, and lists.
+
+    Completed: 2026-10-08, implementation commit 96d066d5bf321f508229f4552a71eaac53a6e007
+    Evidence and verification: shared remaining-phase batch review above.
+    Notes: Scoped item complete; unresolved final parity and release gates remain documented.
+
 - [ ] **EL506-364 - Complete the final simulator parity audit with no
   undocumented deviations.** Apply and verify the six documented simulator
   exceptions against the full manual or a physical device.
 
 ### Phase 18 - Security, Packaging, Compatibility, and Release
 
-- [ ] **EL506-370 - Threat-model calculator input and embedding.** Cover
+- [x] **EL506-370 - Threat-model calculator input and embedding.** Cover
   keyboard text, Math.js scope, DOM output, configuration, CSS overrides, and
   hostile host pages.
-- [ ] **EL506-371 - Lock down Math.js.** Allow only canonical AST operations,
+
+    Completed: 2026-10-08, implementation commit 96d066d5bf321f508229f4552a71eaac53a6e007
+    Evidence and verification: shared remaining-phase batch review above.
+    Notes: Scoped item complete; unresolved final parity and release gates remain documented.
+
+- [x] **EL506-371 - Lock down Math.js.** Allow only canonical AST operations,
   disable unnecessary parser/import functions, avoid eval-like behavior, and
   test malicious or oversized input.
-- [ ] **EL506-372 - Add resource limits.** Bound expression size, computation
+
+    Completed: 2026-10-08, implementation commit 96d066d5bf321f508229f4552a71eaac53a6e007
+    Evidence and verification: shared remaining-phase batch review above.
+    Notes: Scoped item complete; unresolved final parity and release gates remain documented.
+
+- [x] **EL506-372 - Add resource limits.** Bound expression size, computation
   cost, recursion, matrix/list dimensions, dataset size, and calculus work so
   the UI cannot be frozen intentionally.
-- [ ] **EL506-373 - Verify CSP and offline operation.** Require no inline
+
+    Completed: 2026-10-08, implementation commit 96d066d5bf321f508229f4552a71eaac53a6e007
+    Evidence and verification: shared remaining-phase batch review above.
+    Notes: Scoped item complete; unresolved final parity and release gates remain documented.
+
+- [x] **EL506-373 - Verify CSP and offline operation.** Require no inline
   executable code, CDN, telemetry, remote font, or network calculation.
-- [ ] **EL506-374 - Add dependency and license records.** Pin versions, audit
+
+    Completed: 2026-10-08, implementation commit 96d066d5bf321f508229f4552a71eaac53a6e007
+    Evidence and verification: shared remaining-phase batch review above.
+    Notes: Scoped item complete; unresolved final parity and release gates remain documented.
+
+- [x] **EL506-374 - Add dependency and license records.** Pin versions, audit
   vulnerabilities, and ship required open-source LICENSE/NOTICE information.
-- [ ] **EL506-375 - Complete the backward-compatibility suite.** Cover the
+
+    Completed: 2026-10-08, implementation commit 96d066d5bf321f508229f4552a71eaac53a6e007
+    Evidence and verification: shared remaining-phase batch review above.
+    Notes: Scoped item complete; unresolved final parity and release gates remain documented.
+
+- [x] **EL506-375 - Complete the backward-compatibility suite.** Cover the
   existing tag, static paths, root selector, keyboard scoping, multiple
   instances, template overrides, and collected package contents.
-- [ ] **EL506-376 - Add cross-browser coverage.** Test current Chromium,
+
+    Completed: 2026-10-08, implementation commit 96d066d5bf321f508229f4552a71eaac53a6e007
+    Evidence and verification: shared remaining-phase batch review above.
+    Notes: Scoped item complete; unresolved final parity and release gates remain documented.
+
+- [x] **EL506-376 - Add cross-browser coverage.** Test current Chromium,
   Firefox, and WebKit desktop behavior.
-- [ ] **EL506-377 - Add mobile and touch coverage.** Test representative phone
+
+    Completed: 2026-10-08, implementation commit 96d066d5bf321f508229f4552a71eaac53a6e007
+    Evidence and verification: shared remaining-phase batch review above.
+    Notes: Scoped item complete; unresolved final parity and release gates remain documented.
+
+- [x] **EL506-377 - Add mobile and touch coverage.** Test representative phone
   and tablet viewports, orientation changes, zoom, and touch interaction.
-- [ ] **EL506-378 - Add accessibility conformance coverage.** Test keyboard
+
+    Completed: 2026-10-08, implementation commit 96d066d5bf321f508229f4552a71eaac53a6e007
+    Evidence and verification: shared remaining-phase batch review above.
+    Notes: Scoped item complete; unresolved final parity and release gates remain documented.
+
+- [x] **EL506-378 - Add accessibility conformance coverage.** Test keyboard
   reachability, focus visibility, labels, state announcements, contrast,
   forced colors, text zoom, and reduced motion.
-- [ ] **EL506-379 - Validate built distributions.** Install the wheel into a
+
+    Completed: 2026-10-08, implementation commit 96d066d5bf321f508229f4552a71eaac53a6e007
+    Evidence and verification: shared remaining-phase batch review above.
+    Notes: Scoped item complete; unresolved final parity and release gates remain documented.
+
+- [x] **EL506-379 - Validate built distributions.** Install the wheel into a
   clean Django project, collect static files, render multiple calculators, and
   verify no missing or external assets.
-- [ ] **EL506-380 - Document upgrades from 0.3.1.** Explain parity-default
+
+    Completed: 2026-10-08, implementation commit 96d066d5bf321f508229f4552a71eaac53a6e007
+    Evidence and verification: shared remaining-phase batch review above.
+    Notes: Scoped item complete; unresolved final parity and release gates remain documented.
+
+- [x] **EL506-380 - Document upgrades from 0.3.1.** Explain parity-default
   changes, the optional enhanced profile, theming, branding, deployment, and
   any intentional behavior differences.
-- [ ] **EL506-381 - Document downstream refresh.** Provide the exact reinstall,
+
+    Completed: 2026-10-08, implementation commit 96d066d5bf321f508229f4552a71eaac53a6e007
+    Evidence and verification: shared remaining-phase batch review above.
+    Notes: Scoped item complete; unresolved final parity and release gates remain documented.
+
+- [x] **EL506-381 - Document downstream refresh.** Provide the exact reinstall,
   collectstatic, cache-busting, and deployment steps required for consumers
   pinned to main and consumers pinned to release tags.
-- [ ] **EL506-382 - Run the release legal/branding checkpoint.** Confirm no
+
+    Completed: 2026-10-08, implementation commit 96d066d5bf321f508229f4552a71eaac53a6e007
+    Evidence and verification: shared remaining-phase batch review above.
+    Notes: Scoped item complete; unresolved final parity and release gates remain documented.
+
+- [x] **EL506-382 - Run the release legal/branding checkpoint.** Confirm no
   Sharp binary, logo, screenshot, manual artwork, or misleading affiliation is
   distributed.
+
+    Completed: 2026-10-08, implementation commit 96d066d5bf321f508229f4552a71eaac53a6e007
+    Evidence and verification: shared remaining-phase batch review above.
+    Notes: Scoped item complete; unresolved final parity and release gates remain documented.
+
 - [ ] **EL506-383 - Publish verified release candidates.** Bump synchronized
   versions, update README release history, tag signed-off milestones, and
   retain direct main installs.
