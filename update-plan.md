@@ -9,8 +9,8 @@
 
 ## Progress Overview
 
-As of 2026-10-08, **231 of 245 roadmap tasks are complete (94.3%)**, with
-**14 remaining**. The next task is **EL506-351**. These counts measure
+As of 2026-10-08, **232 of 245 roadmap tasks are complete (94.7%)**, with
+**13 remaining**. The next task is **EL506-351**. These counts measure
 completed checklist items, not elapsed effort or verified calculator parity;
 individual tasks vary in size. The detailed checklist below describes every
 remaining task and preserves its evidence and completion requirements.
@@ -33,7 +33,7 @@ items), and Phase 14 is complete (8/8 complex items). Phase 15 is complete (14/1
 items). Phase 16 is complete (11/11 LIST items), including entry, arithmetic,
 aggregates, vector operations, paging, memory, copying, conversions,
 persistence and observed limits/errors.
-Phase 17 has 3/15 items complete (guide regressions and property tests).
+Phase 17 has 4/15 items complete (error catalogue, scalar limits, guide regressions and property tests).
 Phase 18 has 13/15 items complete; release candidates and 1.0.0 remain gated. Pending simulator/application behavior is visible
 in the generated report; phase completion does not establish full parity.
 
@@ -56,9 +56,9 @@ in the generated report; phase completion does not establish full parity.
 | Phase 14 - Complex Mode | 8 | 0 |
 | Phase 15 - Matrix Mode | 14 | 0 |
 | Phase 16 - LIST Mode | 11 | 0 |
-| Phase 17 - Errors, Limits, and Cross-mode Parity | 3 | 12 |
+| Phase 17 - Errors, Limits, and Cross-mode Parity | 4 | 11 |
 | Phase 18 - Security, Packaging, Compatibility, and Release | 13 | 2 |
-| **Total** | **231** | **14** |
+| **Total** | **232** | **13** |
 
 Refresh this overview's date, counts, percentage, and next task in every
 roadmap completion tracking commit, using the checklist as the source of truth.
@@ -2912,7 +2912,15 @@ guess any item in this phase; observe it in the reference simulator first.
     Docker Desktop unavailable; no runtime verification claimed.
 - [ ] **EL506-351 - Match error cursor placement and fault navigation.**
 - [ ] **EL506-352 - Match error clearing and preserved expression/state.**
-- [ ] **EL506-353 - Match scalar and exponent limits.**
+- [x] **EL506-353 - Match scalar and exponent limits.**
+
+    Published implementation 01c86a2dc3bcc92b0b66278f2ef9a53a8a7099f0; independently measured signed scalar minimum,
+    underflow zero, largest ten-digit scalar, signed overflow and retained ANS.
+    Evidence: scalar-limits-review.json and independent native traces.
+    Scope: NORMAL scalar/exponent range; result-type precision retains EL506-354.
+    Validation: 557 unit tests, 29 golden fixtures / 1200 frames, 57 browser
+    checks across Chromium, Firefox and WebKit; compileall and compose config passed.
+    Fresh IAB signed minimum display verified; Docker Desktop remains unavailable.
 - [ ] **EL506-354 - Match internal precision and rounding for every result
   type.**
 - [ ] **EL506-355 - Match expression length and nesting limits.**
