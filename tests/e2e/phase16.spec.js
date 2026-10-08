@@ -14,3 +14,32 @@ test('LIST keyboard touch capacity error recovery and two-widget isolation',asyn
  await seq(r,[2,11]);await expect(r.locator('[data-expression]')).toHaveText('SIZE=');await expect(r.locator('[data-result]')).toHaveText('1.');for(const indicator of await second.locator('[data-indicator="LIST"]').all())await expect(indicator).not.toBeVisible();
  const saved=await r.evaluate(el=>el.scientificCalculator.snapshot());expect(saved.schemaVersion).toBe(12);await r.evaluate((el,s)=>el.scientificCalculator.restore(s),saved);await expect(r.locator('[data-expression]')).toHaveText('SIZE=');
 });
+
+test('LIST native editing DEL INS and scalar division restrictions are visible through physical keys',async({page})=>{
+ const r=await setup(page);await seq(r,[4,36,11,42,29,42,29,40,29,41,29,2,17,41,45]);
+ await seq(r,[41,39,17,45,45,48]);await expect(r.locator('[data-expression]')).toHaveText('Error 1');
+ await seq(r,[2,11,11,32,31,7]);await expect(r.locator('[data-result]')).toHaveText('9.');
+ await seq(r,[3,7]);await expect(r.locator('[data-result]')).toHaveText('9.');expect((await r.evaluate(el=>el.scientificCalculator.snapshot())).state.secondActive).toBe(false);
+ await seq(r,[29,8]);await expect(r.locator('[data-expression]')).toHaveText('LIST1=');await expect(r.locator('[data-result]')).toHaveText('9.');
+});
+test('LIST native pairwise addition subtraction multiplication division retain stored copies',async({page})=>{
+ const r=await setup(page);await seq(r,[4,36,11,42,29,42,29,40,29,41,29,2,17,41,45,17,41,40]);
+ for(const [operation,expected]of [[43,['6.','2.','4.']],[44,['0.','0.','0.']],[38,['9.','1.','4.']],[39,['1.','1.','1.']]]){
+  await seq(r,[17,45,45,operation,17,45,40,48]);await expect(r.locator('[data-result]')).toHaveText('3.');for(const result of expected){await seq(r,[11]);await expect(r.locator('[data-result]')).toHaveText(result);}await seq(r,[2]);
+ }
+});
+
+test('LIST horizontal arrows abandon pending input and undefined CHK resets the edit buffer',async({page})=>{
+ const r=await setup(page);await seq(r,[4,36,11,42,29,11,32,31,9]);await expect(r.locator('[data-expression]')).toHaveText('');await expect(r.locator('[data-result]')).toHaveText('0.');await expect(r.locator('[data-expression] .scicalc__cursor')).toBeVisible();
+ await seq(r,[10,11]);await expect(r.locator('[data-expression]')).toHaveText('SIZE=');await expect(r.locator('[data-result]')).toHaveText('3.');
+ await seq(r,[2,17,40,41,11]);await expect(r.locator('[data-expression]')).toHaveText('SIZE=');await expect(r.locator('[data-result]')).toHaveText('1.');
+});
+
+
+test('LIST independently observed aggregates and magnitude shortcut',async({page})=>{
+ test.setTimeout(180000);
+ const r=await setup(page);await seq(r,[4,36,11,42,29,42,29,40,29,41,29,2,17,41,45]);
+ for(const [choice,expected]of [[45,'1.'],[40,'3.'],[41,'2.'],[42,'2.'],[35,'6.'],[36,'6.'],[37,'1.'],[30,'1.'],[18,'3.741657387']]){
+  await seq(r,[17,35,choice,17,45,45,48]);await expect(r.locator('[data-result]')).toHaveText(expected);await seq(r,[2]);
+ }
+});

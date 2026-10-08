@@ -228,7 +228,7 @@
     },
     {
       "path": "tests/reference/el506ts/golden/phase16-native.json",
-      "sha256": "0091127cd2f1bc2eacb5c09721a60c67ffd399c05671c2f073c4b3e1a14c1831"
+      "sha256": "d508420d909df13773172bc1613753279ab3444ca093d83112ee8eb87fdd0ffd"
     },
     {
       "path": "tests/reference/el506ts/golden/phase3-power.json",
@@ -332,7 +332,7 @@
     },
     {
       "path": "tests/e2e/phase16.spec.js",
-      "sha256": "80aac3443f524bbc3438c41a88db84bd283c62491bb1e30d9a8b36da27073569"
+      "sha256": "1ff5d5b1527e0595872a3d496b3c91ef28d5349d9380784f8872198b130470f3"
     },
     {
       "path": "tests/e2e/phase4.spec.js",
@@ -396,7 +396,7 @@
     },
     {
       "path": "tests/unit/phase16.test.js",
-      "sha256": "3d1de1120c8948737d7aea41b766f13eeb95d8afc4b12ae452f9064d4a00b332"
+      "sha256": "343512475da06530bbbe2aaa54d8dc8d9af134fa9f7b54b7668e1bac14e0ae16"
     },
     {
       "path": "tests/unit/phase4.test.js",

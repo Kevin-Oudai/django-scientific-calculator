@@ -47,3 +47,12 @@ test('LIST conversion menus preserve the full-manual distinction between per-slo
  const combined=seq([17,37],s);assert.deepEqual([combined.control.matrices[0].rows,combined.control.matrices[0].columns,combined.control.matrices[0].elements.map(x=>x.value)],[3,2,[3,1,1,2,2,4]]);
  const menu=seq([17,11,11,11],s);assert.equal(menu.workflow.page,3);assert.equal(f.renderState(menu,{physical:true}).expressionHtml,'list→matA');
 });
+
+test('Native LIST scalar divided by list reports Error 1 rather than broadcasting reciprocals',()=>{const s=seq([41,39,17,45,45,48],stored());assert.equal(s.control.errorCode,1);});
+
+test('Independent LIST arithmetic and editing checkpoints match the native sequence',()=>{
+ const n=require('../reference/el506ts/collection-operations-native-notes');let s=c.createInitialState(),count=0;
+ const norm=x=>x.replace(/<[^>]*>/g,'').replace(/[\s_]/g,'').replace(/&divide;/g,'÷').replace(/&times;/g,'×');
+ for(let i=0;i<n.sequence.length;i++){s=press(s,n.sequence[i]);for(const frame of n.checkpoints.filter(x=>x.afterStep===i+1)){const v=f.renderState(s,{physical:true});if(frame.upperClipped)assert.ok(norm(v.expressionHtml).endsWith(norm(frame.upper)));else assert.equal(norm(v.expressionHtml),norm(frame.upper),'native upper '+(i+1));assert.equal(norm(v.resultHtml),norm(frame.lower),'native lower '+(i+1));if(frame.second!==undefined)assert.equal(s.secondActive,frame.second);if(frame.cursor==='start'){assert.equal(v.cursorVisible,true);assert.equal(s.cursor,0);}count++;}}
+ assert.equal(count,n.checkpoints.length-1);
+});

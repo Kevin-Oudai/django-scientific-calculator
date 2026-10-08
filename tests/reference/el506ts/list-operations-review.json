@@ -1,0 +1,32 @@
+{
+  "reviewId": "list-operations-2026-10-08",
+  "items": [
+    "EL506-323",
+    "EL506-325",
+    "EL506-326",
+    "EL506-327"
+  ],
+  "reference": "experiments/collection-operations-native.json",
+  "rawReference": "collection-operations-native-notes.json",
+  "observations": [
+    "341 individually observed native keys; significant LCD checkpoints independently transcribed",
+    "Working-buffer DEL and unavailable INS; replacement, horizontal abandonment, cursor at start and undefined CHK reset",
+    "Pairwise addition subtraction multiplication division; scalar multiplication in both orders, list divided by scalar, reciprocal direction Error 1; mixed addition/subtraction rejected",
+    "Sum product min max mean median sample standard deviation and magnitude; variance independently captured in experiments/phase16-native.json",
+    "A-labelled physical key selects index A directly without ALPHA"
+  ],
+  "validation": {
+    "units": "540 passed in list-aggregates-validation.log; latest raw replay 9 passed",
+    "golden": "29 fixtures / 1200 frames passed",
+    "browser": "15 LIST tests passed across three engines. Nine-aggregate replay passed Chromium and Firefox; WebKit passed with 180-second test budget after initial 60-second timeout. See list-final-validation.log, list-aggregates-validation.log and list-aggregates-webkit-final.log.",
+    "python": "compileall passed",
+    "compose": "config passed; Docker daemon unavailable"
+  },
+  "unresolved": [
+    "Full LIST menu/modifier inventory",
+    "Vector-like operations and sorting/cumulative numerical probes",
+    "Full LIST persistence and conversion matrix",
+    "Remaining errors and cross-mode parity audit",
+    "Release candidate and 1.0 parity gates"
+  ]
+}

@@ -1951,7 +1951,7 @@
     if(id==='LIST_SLOTS'){
       const operation=previous.workflow.payload.operation;next.workflow=emptyWorkflow();
       if(operation===2){if(!previous.control.buffers.list)return physicalError(next,7);next.control.lists[index]=values.copy(previous.control.buffers.list);next.lifecycle='empty';return next;}
-      if(operation===1){if(!previous.control.lists[index])return physicalError(next,10);next=physicalListEdit(next,listFromTyped(previous.control.lists[index]));next.workflow=emptyWorkflow();next.lifecycle='empty';return next;}
+      if(operation===1){if(!previous.control.lists[index]){next.control.buffers.list=null;next.expression='';next.entry='';next.stagedEntry=null;next.lifecycle='empty';return next;}next=physicalListEdit(next,listFromTyped(previous.control.lists[index]));next.workflow=emptyWorkflow();next.lifecycle='empty';return next;}
       if(previous.workflow.returnPhase==='evaluated'){next.expression='';next.entry='';}
       next=physicalFlush(next,false);next.expression+='L'+(index+1);return physicalEditor(next);
     }
@@ -1971,8 +1971,9 @@
     const p=previous.workflow.payload;
     if(previous.workflow.kind==='data-entry'&&p?.id==='LIST_BUFFER'){
       const q=next.workflow.payload;
+      if([9,10].includes(n)){next.workflow=emptyWorkflow();next.expression='';next.entry='';next.stagedEntry=null;next.selectionActive=true;next.cursor=0;next.displayResult=next.resultDisplay='0';return physicalEditor(next);}
       if(n===3){next.secondActive=!previous.secondActive;return next;}if(n===4||n===6)return null;
-      if(n===7){q.input=p.input.slice(0,-1);return next;}if(n===47){q.input=p.input.startsWith('-')?p.input.slice(1):'-'+(p.input||'0');return next;}
+      if(n===7){if(previous.secondActive){next.secondActive=false;return next;}q.input=p.input.slice(0,-1);return next;}if(n===47){q.input=p.input.startsWith('-')?p.input.slice(1):'-'+(p.input||'0');return next;}
       if(n===29||[8,11].includes(n)){
         try{const value=p.input?physicalNumeric(semantic.evaluate(semantic.parseTokens(semantic.tokenize(closeOpenParentheses(p.input).replaceAll(':','/'),{physical:true}),{physical:true}),physicalAdapter,{angleMode:next.angleMode,answer:0})):p.index===-1?p.list.length:p.list[p.index];
           if(p.index<0){lists.size(value);if(value!==p.list.length)q.list=lists.fill(0,value);}else q.list[p.index]=lists.list([value])[0];
@@ -2292,6 +2293,7 @@
       const w=next.workflow,groups=w.payload.groups;let selected=w.payload.selected;
       if(n===9||n===10){selected=Math.max(0,Math.min(w.payload.choices.length-1,selected+(n===9?-1:1)));}
       else if(n===8||n===11){w.page=w.payload.id==='FORMAT'?(w.page+1)%groups.length:Math.max(0,Math.min(groups.length-1,w.page+(n===8?-1:1)));selected=groups.slice(0,w.page).reduce((a,b)=>a+b,0);}
+      else if(n===18&&w.payload.choices.length>10)return physicalSelect(next,10)||next;
       else if(n===48||DIGIT_KEYS[n]!==undefined)return physicalSelect(next,n===48?selected:Number(DIGIT_KEYS[n]))||next;
       w.payload.selected=selected;
       if(n===9||n===10){let total=0;w.page=groups.findIndex(size=>(total+=size)>selected);}
@@ -2412,7 +2414,7 @@
       if(!previous.selectionActive)next.cursor=n===9?(evaluated?source.length:cells.at(-1)?.start||0):0;
       else if(n===9)next.cursor=cells.filter(c=>c.start<previous.cursor).at(-1)?.start||0;
       else next.cursor=cells.find(c=>c.start>=previous.cursor)?.end??source.length;
-      next.selectionActive=Boolean(source);next.displayResult=next.resultDisplay=next.cursor<source.length?'':'0';next.historyIndex=null;
+      next.selectionActive=Boolean(source)||(previous.layers.mode==='LIST'&&previous.selectionActive);next.displayResult=next.resultDisplay=next.cursor<source.length?'':'0';next.historyIndex=null;
       return physicalEditor(next);
     }
     if(n===7&&!previous.secondActive&&previous.selectionActive&&!previous.stagedEntry){

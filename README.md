@@ -1339,6 +1339,9 @@ SIZE and element prompts; DATA commits an entry. Changing SIZE clears the edit
 buffer's elements. ON/C closes the buffer; MATH STO copies it into a slot and
 CHK selects a stored copy for subsequent UP/DOWN editing. Calculated lists open
 SIZE and element paging. Scalar aggregates retain the collection edit buffer.
+DEL removes pending input digits; INS leaves LIST cell input unchanged and
+consumes 2nd F. Horizontal arrows discard pending cell input and return to a
+blank expression editor. CHK of an undefined list clears the buffer.
 2nd F ENT is unavailable in MAT and LIST. Mode changes clear their internal
 slots and buffers. Snapshot schema 12 preserves separate matrix and list
 buffers and migrates earlier snapshots.
@@ -1348,8 +1351,10 @@ operations, augmentation, minimum, maximum, mean, median, sum, product, sample
 standard deviation, sample variance, inner/outer products, and vector magnitude.
 Algorithms are implemented, with native evidence and tests recording the
 specific confirmed sequences; exhaustive operation/type compatibility remains
-in the final parity audit. Pairwise multiplication and scalar scaling are
-supported. `list→mat` maps each list to its corresponding one-column matrix;
+in the final parity audit. Pairwise addition, subtraction, multiplication and
+division operate element by element. Scalar multiplication works in either
+order; list divided by scalar is supported, while scalar divided by list
+reports Error 1. `list→mat` maps each list to its corresponding one-column matrix;
 `list→matA` combines lists as columns of matA. These distinct mappings follow
 the full manual; multi-slot simulator verification remains pending. Adding a
 scalar to a list reports the observed Error 1. Evaluating an
@@ -1403,3 +1408,5 @@ difference: the simulator prints `0.577350268`, while the application prints
 `0.57735027`. Function denominators now evaluate correctly and retain the physical
 fraction separator in the upper display. Passing these regression tests does not
 waive the precision discrepancy or establish full simulator parity.
+
+The LIST magnitude shortcut uses the A-labelled key directly in its MATH menu. Sum, product, minimum, maximum, mean, median, sample standard deviation, variance and magnitude have independent native LCD checkpoints.

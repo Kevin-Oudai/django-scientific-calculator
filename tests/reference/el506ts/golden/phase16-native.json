@@ -1918,7 +1918,7 @@
       },
       "viewAssertions": {
         "expressionHtml": "",
-        "resultHtml": "3",
+        "resultHtml": "3.",
         "indicators": {
           "2ndF": false,
           "HYP": false,
@@ -1946,7 +1946,7 @@
           "i": false
         }
       },
-      "domResultText": "3"
+      "domResultText": "3."
     },
     {
       "afterStep": 20,
@@ -2132,7 +2132,7 @@
       },
       "viewAssertions": {
         "expressionHtml": "",
-        "resultHtml": "3",
+        "resultHtml": "3.",
         "indicators": {
           "2ndF": false,
           "HYP": false,
@@ -2160,7 +2160,7 @@
           "i": false
         }
       },
-      "domResultText": "3"
+      "domResultText": "3."
     },
     {
       "afterStep": 22,
@@ -2346,7 +2346,7 @@
       },
       "viewAssertions": {
         "expressionHtml": "",
-        "resultHtml": "1",
+        "resultHtml": "1.",
         "indicators": {
           "2ndF": false,
           "HYP": false,
@@ -2374,7 +2374,7 @@
           "i": false
         }
       },
-      "domResultText": "1"
+      "domResultText": "1."
     },
     {
       "afterStep": 24,
@@ -2560,7 +2560,7 @@
       },
       "viewAssertions": {
         "expressionHtml": "",
-        "resultHtml": "2",
+        "resultHtml": "2.",
         "indicators": {
           "2ndF": false,
           "HYP": false,
@@ -2588,7 +2588,7 @@
           "i": false
         }
       },
-      "domResultText": "2"
+      "domResultText": "2."
     },
     {
       "afterStep": 26,
@@ -3719,7 +3719,7 @@
       },
       "viewAssertions": {
         "expressionHtml": "",
-        "resultHtml": "1",
+        "resultHtml": "1.",
         "indicators": {
           "2ndF": false,
           "HYP": false,
@@ -3747,7 +3747,7 @@
           "i": false
         }
       },
-      "domResultText": "1"
+      "domResultText": "1."
     },
     {
       "afterStep": 36,
@@ -3842,7 +3842,7 @@
       },
       "viewAssertions": {
         "expressionHtml": "",
-        "resultHtml": "17",
+        "resultHtml": "17.",
         "indicators": {
           "2ndF": false,
           "HYP": false,
@@ -3870,7 +3870,7 @@
           "i": false
         }
       },
-      "domResultText": "17"
+      "domResultText": "17."
     },
     {
       "afterStep": 37,
@@ -4312,7 +4312,7 @@
       },
       "viewAssertions": {
         "expressionHtml": "",
-        "resultHtml": "1",
+        "resultHtml": "1.",
         "indicators": {
           "2ndF": false,
           "HYP": false,
@@ -4340,7 +4340,7 @@
           "i": false
         }
       },
-      "domResultText": "1"
+      "domResultText": "1."
     },
     {
       "afterStep": 41,
@@ -4435,7 +4435,7 @@
       },
       "viewAssertions": {
         "expressionHtml": "",
-        "resultHtml": "16",
+        "resultHtml": "16.",
         "indicators": {
           "2ndF": false,
           "HYP": false,
@@ -4463,7 +4463,7 @@
           "i": false
         }
       },
-      "domResultText": "16"
+      "domResultText": "16."
     },
     {
       "afterStep": 42,
@@ -15458,7 +15458,7 @@
       },
       "viewAssertions": {
         "expressionHtml": "",
-        "resultHtml": "3",
+        "resultHtml": "3.",
         "indicators": {
           "2ndF": false,
           "HYP": false,
@@ -15486,7 +15486,7 @@
           "i": false
         }
       },
-      "domResultText": "3"
+      "domResultText": "3."
     },
     {
       "afterStep": 119,
@@ -15672,7 +15672,7 @@
       },
       "viewAssertions": {
         "expressionHtml": "",
-        "resultHtml": "3",
+        "resultHtml": "3.",
         "indicators": {
           "2ndF": false,
           "HYP": false,
@@ -15700,7 +15700,7 @@
           "i": false
         }
       },
-      "domResultText": "3"
+      "domResultText": "3."
     },
     {
       "afterStep": 121,
@@ -15886,7 +15886,7 @@
       },
       "viewAssertions": {
         "expressionHtml": "",
-        "resultHtml": "1",
+        "resultHtml": "1.",
         "indicators": {
           "2ndF": false,
           "HYP": false,
@@ -15914,7 +15914,7 @@
           "i": false
         }
       },
-      "domResultText": "1"
+      "domResultText": "1."
     },
     {
       "afterStep": 123,
@@ -16100,7 +16100,7 @@
       },
       "viewAssertions": {
         "expressionHtml": "",
-        "resultHtml": "2",
+        "resultHtml": "2.",
         "indicators": {
           "2ndF": false,
           "HYP": false,
@@ -16128,7 +16128,7 @@
           "i": false
         }
       },
-      "domResultText": "2"
+      "domResultText": "2."
     },
     {
       "afterStep": 125,
@@ -19029,7 +19029,7 @@
       },
       "viewAssertions": {
         "expressionHtml": "",
-        "resultHtml": "1",
+        "resultHtml": "1.",
         "indicators": {
           "2ndF": false,
           "HYP": false,
@@ -19057,7 +19057,7 @@
           "i": false
         }
       },
-      "domResultText": "1"
+      "domResultText": "1."
     },
     {
       "afterStep": 150,

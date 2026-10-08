@@ -355,7 +355,7 @@
     if(state.lifecycle==='editing'&&state.displayResult==='')view.resultHtml='';
     if(state.layers.mode==='STAT'&&!expression&&!state.entry&&!workflow.kind)view.expressionHtml=escapeHtml('Stat '+(coreSubmodeIndex(state.control?.submode)));
     if(state.lifecycle==='error'&&state.control?.errorCode)view.resultHtml=escapeHtml('Error '+state.control.errorCode);
-    view.cursorVisible = Boolean(expression) && ['entering','editing'].includes(state.lifecycle);
+    view.cursorVisible = (Boolean(expression)||mode==='LIST'&&state.selectionActive) && ['entering','editing'].includes(state.lifecycle);
     if (view.cursorVisible && (!state.selectionActive || state.cursor >= expression.length)) view.expressionHtml += '<span class="scicalc__cursor" aria-hidden="true"></span>';
     view.insertMode = settings.insert === false ? 'overwrite' : 'insert';
     view.cursorPosition = view.cursorVisible ? state.selectionActive ? state.cursor : expression.length : null;
@@ -415,7 +415,7 @@
       }
       if(workflow.payload.id==='TAB')view.resultHtml='';
       if(workflow.payload.id==='EQN_COEFFICIENTS'){const p=workflow.payload;view.resultHtml=p.input?formatExpression(physicalExpression(p.input)):sharpNumber(p.coefficients[p.coefficient],settings).html;indicators['?']=false;}
-      if(workflow.payload.id==='LIST_BUFFER'){const p=workflow.payload;if(p.input)view.expressionHtml='';view.resultHtml=p.input?formatExpression(physicalExpression(p.input)):sharpNumber(p.index===-1?p.list.length:p.list[p.index],settings).html;indicators['?']=false;}
+      if(workflow.payload.id==='LIST_BUFFER'){const p=workflow.payload;if(p.input)view.expressionHtml='';view.resultHtml=p.input?(/^-?\d+(?:\.\d*)?$/.test(p.input)?sharpEntry(p.input):formatExpression(physicalExpression(p.input))):sharpNumber(p.index===-1?p.list.length:p.list[p.index],settings).html;indicators['?']=false;}
       if(workflow.payload.id==='MAT_BUFFER'){const p=workflow.payload;if(p.input)view.expressionHtml='';view.resultHtml=p.input?formatExpression(physicalExpression(p.input)):sharpNumber(p.index===-2?p.matrix.rows:p.index===-1?p.matrix.columns:p.matrix.data[p.index],settings).html;indicators['?']=false;}
       if(workflow.payload.id==='CNST'){view.expressionHtml='';view.resultHtml=escapeHtml('01-52 ['+(workflow.payload.path||[]).join('')+']');}
       if(workflow.payload.id==='CONV'){view.expressionHtml=formatExpression(physicalExpression(workflow.payload.source)+'→cv');view.resultHtml=sharpEntry((workflow.payload.path||[]).join('')||'0');indicators['?']=false;}
