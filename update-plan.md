@@ -4,13 +4,13 @@
 - Plan status: Active
 - Current package baseline: 0.3.1
 - Target release: 1.0.0 after verified parity
-- Next item: EL506-220
+- Next item: EL506-240
 - Last updated: 2026-10-07
 
 ## Progress Overview
 
-As of 2026-10-07, **145 of 245 roadmap tasks are complete (59.2%)**, with
-**100 remaining**. The next task is **EL506-220**. These counts measure
+As of 2026-10-07, **157 of 245 roadmap tasks are complete (64.1%)**, with
+**88 remaining**. The next task is **EL506-240**. These counts measure
 completed checklist items, not elapsed effort or verified calculator parity;
 individual tasks vary in size. The detailed checklist below describes every
 remaining task and preserves its evidence and completion requirements.
@@ -25,7 +25,9 @@ and coordinate items). Phase 7 is complete (10/10 random, constant and
 conversion items). Phase 8 is complete (14/14 memories, formula simulation,
 and solver items). Phase 9 is complete (10/10 number bases, arithmetic, logic,
 memories and limits). Phase 10 is complete (8/8 numerical differentiation,
-integration, condition entry, cancellation and bounded errors). Pending
+integration, condition entry, cancellation and bounded errors). Phase 11 is
+complete (12/12 statistics menus, entry, weighted/paired data, browsing,
+correction, deletion, persistence and capacity). Pending
 simulator/application behavior is visible
 in the generated report; phase completion does not establish full parity.
 
@@ -42,7 +44,7 @@ in the generated report; phase completion does not establish full parity.
 | Phase 8 - Memories, Formula Memories, Simulation, and Solver | 14 | 0 |
 | Phase 9 - N-base Operations | 10 | 0 |
 | Phase 10 - Numerical Differentiation and Integration | 8 | 0 |
-| Phase 11 - Statistics Data Management | 0 | 12 |
+| Phase 11 - Statistics Data Management | 12 | 0 |
 | Phase 12 - Statistics Results and Regressions | 0 | 16 |
 | Phase 13 - Equation Mode | 0 | 9 |
 | Phase 14 - Complex Mode | 0 | 8 |
@@ -50,7 +52,7 @@ in the generated report; phase completion does not establish full parity.
 | Phase 16 - LIST Mode | 0 | 11 |
 | Phase 17 - Errors, Limits, and Cross-mode Parity | 0 | 15 |
 | Phase 18 - Security, Packaging, Compatibility, and Release | 0 | 15 |
-| **Total** | **145** | **100** |
+| **Total** | **157** | **88** |
 
 Refresh this overview's date, counts, percentage, and next task in every
 roadmap completion tracking commit, using the checklist as the source of truth.
@@ -415,7 +417,7 @@ The following order takes precedence over the phase layout and numeric IDs:
 EL506-014 -> EL506-019 -> EL506-003 -> EL506-004 -> EL506-006`
 
 The bootstrap chain and Phase 1 are complete as of 2026-10-05.
-Resume with Phase 11, EL506-220.
+Resume with Phase 12, EL506-240.
 Stable physical-key IDs
 must exist before the experiment schema and capability ledger use them. Capture
 the 0.3.1 baseline before refactoring its behavior. Unit testing, the reducer,
@@ -2293,9 +2295,10 @@ Snapshot remains schema 10; the package version remains 0.3.1.
 ### Phase 11 - Statistics Data Management
 
 User requested the full Phase 11 batch (EL506-220 through EL506-231).
-READY_TO_PUSH: 2026-10-07. All twelve items passed local gates; leave the
-checklist and Next item unchanged until the implementation commit is published
-and its exact origin/main SHA verified.
+Completed: 2026-10-07. Implementation commit
+83d3e9706a294d2e232f785e21c55962ff31ed74 was published to origin/main and its
+exact remote SHA verified. All twelve Phase 11 items are complete; next is
+EL506-240. Completion remains scoped to the evidence and limitations below.
 
 Verification: npm test passed (433 unit, 154 browser, 401 golden frames),
 focused statistics/browser checks, Django (7), compileall, pip dry runs,
@@ -2325,21 +2328,80 @@ Snapshot schema 11 retains entry/browse metadata and migrates schemas 1–10;
 the package version remains 0.3.1. The requested 12px legends and fraction
 layout remain covered by the existing UI regressions.
 
-- [ ] **EL506-220 - Match the STAT menu.** Include SD plus LINE, QUAD, EXP,
+- [x] **EL506-220 - Match the STAT menu.** Include SD plus LINE, QUAD, EXP,
   LOG, POWER, and INV selections and indicators.
-- [ ] **EL506-221 - Match one-variable data entry.**
-- [ ] **EL506-222 - Match frequency entry and weighted observations.**
-- [ ] **EL506-223 - Match two-variable paired entry and separator behavior.**
-- [ ] **EL506-224 - Resolve any regional/simulator claim of three-variable
+
+    Completed: 2026-10-07, implementation commit 83d3e9706a294d2e232f785e21c55962ff31ed74
+    Evidence and verification: shared Phase 11 completion record above.
+    Notes: Native seven selections use PWR; results/regressions remain Phase 12.
+
+- [x] **EL506-221 - Match one-variable data entry.**
+
+    Completed: 2026-10-07, implementation commit 83d3e9706a294d2e232f785e21c55962ff31ed74
+    Evidence and verification: shared Phase 11 completion record above.
+    Notes: Physical DATA stores scalar observations and displays record count.
+
+- [x] **EL506-222 - Match frequency entry and weighted observations.**
+
+    Completed: 2026-10-07, implementation commit 83d3e9706a294d2e232f785e21c55962ff31ed74
+    Evidence and verification: shared Phase 11 completion record above.
+    Notes: Signed/fractional frequencies retained; explicit frequency consumes a slot.
+
+- [x] **EL506-223 - Match two-variable paired entry and separator behavior.**
+
+    Completed: 2026-10-07, implementation commit 83d3e9706a294d2e232f785e21c55962ff31ed74
+    Evidence and verification: shared Phase 11 completion record above.
+    Notes: Comma separates X/Y; a third operand is frequency.
+
+- [x] **EL506-224 - Resolve any regional/simulator claim of three-variable
   statistics.** Do not add it unless this exact EL-506TS simulator exposes it.
-- [ ] **EL506-225 - Match dataset clear and persistence rules.**
-- [ ] **EL506-226 - Match oldest-first and newest-first dataset browsing.**
-- [ ] **EL506-227 - Match X, Y, F, sequence-number, and hidden-data displays.**
-- [ ] **EL506-228 - Match single-field data correction and commit.**
-- [ ] **EL506-229 - Match whole-record data correction.**
-- [ ] **EL506-230 - Match record deletion and addition while browsing.**
-- [ ] **EL506-231 - Match dataset capacity and errors.** Cover frequency
+
+    Completed: 2026-10-07, implementation commit 83d3e9706a294d2e232f785e21c55962ff31ed74
+    Evidence and verification: shared Phase 11 completion record above.
+    Notes: Proven inapplicable: no three-variable STAT in the pinned seven-choice menu.
+
+- [x] **EL506-225 - Match dataset clear and persistence rules.**
+
+    Completed: 2026-10-07, implementation commit 83d3e9706a294d2e232f785e21c55962ff31ed74
+    Evidence and verification: shared Phase 11 completion record above.
+    Notes: ON/C/power preserve data; CA, HOME, confirmed mode/submode and reset clear.
+
+- [x] **EL506-226 - Match oldest-first and newest-first dataset browsing.**
+
+    Completed: 2026-10-07, implementation commit 83d3e9706a294d2e232f785e21c55962ff31ed74
+    Evidence and verification: shared Phase 11 completion record above.
+    Notes: DOWN starts oldest X; UP starts newest frequency; boundaries clamp.
+
+- [x] **EL506-227 - Match X, Y, F, sequence-number, and hidden-data displays.**
+
+    Completed: 2026-10-07, implementation commit 83d3e9706a294d2e232f785e21c55962ff31ed74
+    Evidence and verification: shared Phase 11 completion record above.
+    Notes: Native frequency is labeled Nn=, not Fn=; indexed fields and hidden arrows match.
+
+- [x] **EL506-228 - Match single-field data correction and commit.**
+
+    Completed: 2026-10-07, implementation commit 83d3e9706a294d2e232f785e21c55962ff31ed74
+    Evidence and verification: shared Phase 11 completion record above.
+    Notes: DATA commits current field; ENT evaluates without dataset commit.
+
+- [x] **EL506-229 - Match whole-record data correction.**
+
+    Completed: 2026-10-07, implementation commit 83d3e9706a294d2e232f785e21c55962ff31ed74
+    Evidence and verification: shared Phase 11 completion record above.
+    Notes: Comma-separated correction replaces a whole record from any selected field.
+
+- [x] **EL506-230 - Match record deletion and addition while browsing.**
+
+    Completed: 2026-10-07, implementation commit 83d3e9706a294d2e232f785e21c55962ff31ed74
+    Evidence and verification: shared Phase 11 completion record above.
+    Notes: Shifted CD removes the selected record; ON/C allows addition; indices renumber.
+
+- [x] **EL506-231 - Match dataset capacity and errors.** Cover frequency
   limits, zero/negative frequency, partial records, and full-data behavior.
+
+    Completed: 2026-10-07, implementation commit 83d3e9706a294d2e232f785e21c55962ff31ed74
+    Evidence and verification: shared Phase 11 completion record above.
+    Notes: 100 storage slots and Error 3 use the full manual; zero/sign/partial/full/range cases tested; native extreme hidden digits remain the later audit.
 
 ### Phase 12 - Statistics Results and Regressions
 
