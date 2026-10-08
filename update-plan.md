@@ -4,13 +4,13 @@
 - Plan status: Active
 - Current package baseline: 0.3.1
 - Target release: 1.0.0 after verified parity
-- Next item: EL506-312
+- Next item: EL506-320
 - Last updated: 2026-10-08
 
 ## Progress Overview
 
-As of 2026-10-08, **221 of 245 roadmap tasks are complete (90.2%)**, with
-**24 remaining**. The next task is **EL506-312**. These counts measure
+As of 2026-10-08, **222 of 245 roadmap tasks are complete (90.6%)**, with
+**23 remaining**. The next task is **EL506-320**. These counts measure
 completed checklist items, not elapsed effort or verified calculator parity;
 individual tasks vary in size. The detailed checklist below describes every
 remaining task and preserves its evidence and completion requirements.
@@ -29,8 +29,8 @@ integration, condition entry, cancellation and bounded errors). Phase 11 is
 complete (12/12 statistics menus, entry, weighted/paired data, browsing,
 correction, deletion, persistence and capacity). Phase 12 is complete (16/16
 statistics results and regression items). Phase 13 is complete (9/9 equation
-items), and Phase 14 is complete (8/8 complex items). Phase 15 has 13/14 matrix
-items complete; complete limits and errors remain. Phase 16 has 3/11 LIST
+items), and Phase 14 is complete (8/8 complex items). Phase 15 is complete (14/14 matrix
+items). Phase 16 has 3/11 LIST
 items complete (slot/capacity discovery, entry prompts, and result paging).
 Phase 17 has 2/15 items complete (guide regressions and property tests).
 Phase 18 has 13/15 items complete; release candidates and 1.0.0 remain gated. Pending simulator/application behavior is visible
@@ -422,7 +422,7 @@ The following order takes precedence over the phase layout and numeric IDs:
 EL506-014 -> EL506-019 -> EL506-003 -> EL506-004 -> EL506-006`
 
 The bootstrap chain and Phase 1 are complete as of 2026-10-05.
-Resume with Phase 15, EL506-312.
+Resume with Phase 16, EL506-320.
 Stable physical-key IDs
 must exist before the experiment schema and capability ledger use them. Capture
 the 0.3.1 baseline before refactoring its behavior. Unit testing, the reducer,
@@ -2775,7 +2775,8 @@ partial regression suite alone; the final release gates remain in force.
     Evidence and verification: shared remaining-phase batch review above.
     Notes: Scoped item complete; unresolved final parity and release gates remain documented.
 
-Matrix limits review (2026-10-08, implementation publication pending):
+Matrix limits review (2026-10-08): implementation commit
+c0df14138bb4345380c010faf241a5ac305bb22c pushed and its exact SHA verified on origin/main.
 142 independently inspected native keys cover 46 significant LCD checkpoints;
 the first 133 keys and all 44 matrix checkpoints are replayed in phase15.test.js.
 They distinguish invalid dimensions (7), shape mismatch/non-square inverse (8),
@@ -2792,8 +2793,12 @@ Firefox and WebKit. Python compileall, compose config and git diff --check passe
 Docker engine remains unavailable; the local Django demo was used.
 Final cross-mode/type/capacity audits remain separate pending tasks.
 
-- [ ] **EL506-312 - Match matrix limits and errors.** Cover dimension mismatch,
+- [x] **EL506-312 - Match matrix limits and errors.** Cover dimension mismatch,
   non-square, singular, oversized, empty slot, and division restrictions.
+
+    Completed: 2026-10-08, implementation commit c0df14138bb4345380c010faf241a5ac305bb22c
+    Evidence and verification: matrix limits review above; 44 independent matrix LCD checkpoints, 538 unit tests and 18 browser tests.
+    Notes: Final cross-mode/type/precision audit and release gates remain pending.
 - [x] **EL506-313 - Reproduce the guide transition-matrix example including
   result paging.**
 
