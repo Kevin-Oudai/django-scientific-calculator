@@ -2069,7 +2069,7 @@
     if(n===48&&!previous.secondActive){
       try{
         const source=physicalSource(previous)||'0',ast=semantic.parseTokens(semantic.tokenize(closeOpenParentheses(source).replaceAll(':','/'),{physical:true}),{physical:true});
-        const result=matrices.evaluate(ast,semantic,physicalAdapter,{angleMode:previous.angleMode,answer:previous.answer,matrices:previous.control.matrices.map(v=>v?matrixFromTyped(v):null),sum:(a,b)=>physicalNumeric(Number(engine.quantize(engine.decimalBinary('+',String(a),String(b)),13,'truncate'))),random:()=>randomSample===undefined?Math.random():randomSample});
+        const result=matrices.evaluate(ast,semantic,physicalAdapter,{angleMode:previous.angleMode,answer:previous.answer,matrices:previous.control.matrices.map(v=>v?matrixFromTyped(v):null),sum:(a,b)=>physicalCollectionBinary('+',a,b),binary:physicalCollectionBinary,random:()=>randomSample===undefined?Math.random():randomSample});
         if(typeof result==='object')return physicalMatrixEdit(next,result);
         next=physicalCalculate(next,String(result),source);return next;
       }catch(error){return physicalError(next,error.code|| (error instanceof RangeError?2:1));}

@@ -1492,6 +1492,11 @@ Measured physical MAT and LIST cancellation is also reproduced: unit matrix
 48-key MAT and 53-key LIST traces and the deliberately scoped arithmetic policy
 are recorded in `collection-precision-review.json`. Elimination, aggregate,
 vector-product and other result-type accuracy remain part of the open audit.
+An additional independent34-key MAT trace verifies
+`identity 1 / 3 * 1E13 - identity 1 * 3333333333E3 = 333.3`.
+Physical matrix-by-scalar products now truncate to14 significant digits;
+component division preserves the measured cancellation above. Matrix-by-matrix
+multiplication and elimination still require their own precision assessment.
 
 The current menu differential audit replays the independently captured119-key
 menu inventory against67 unambiguous label/index checkpoints. Engineering

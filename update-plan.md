@@ -2946,6 +2946,10 @@ guess any item in this phase; observe it in the reference simulator first.
     24 browser checks across three engines, reference/report and golden gates,
     compileall and Compose config. Independent 101-key native evidence and
     scoped policy: collection-precision-review.json. EL506-354 remains open.
+    Additional34-key native scaled-matrix probe reproduces333.3 with bounded
+    component division and14-digit scalar products. READY_TO_PUSH after687 unit
+    tests and six browser checks across three engines; the complete result-type
+    precision audit remains open.
 
 - [x] **EL506-355 - Match expression length and nesting limits.**
 - [x] **EL506-356 - Match history, formula, dataset, matrix, and list
