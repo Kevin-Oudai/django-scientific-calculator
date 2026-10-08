@@ -2953,7 +2953,7 @@ guess any item in this phase; observe it in the reference simulator first.
     precision audit remains open.
     SD X-sum/mean accumulation now reproduces independently measured zero
     at1E13 cancellation andone at1E12 cancellation. Independent48-key trace
-    includes ALPHA, RCL andSTATVAR. READY_TO_PUSH:720 unit tests,18 focused
+    includes ALPHA, RCL andSTATVAR. Published as ca4eda327d423b9a0b1b1aaa8ea2125380316484,\n    verified on origin/main:720 unit tests,18 focused
     browser checks across three engines,29 golden fixtures/1200 frames and
     reference/report,compileall/Compose gates passed; fresh previewproof.
     weighted products, higher moments andregression precision remain open.
@@ -2961,7 +2961,7 @@ guess any item in this phase; observe it in the reference simulator first.
     definition entry, exponent-sign editing, and LIST sum/mean cancellation0.
     Corrected droppedExp, wrongmantissa NEG and precision; scoped review:
     collection-entry-aggregate-review.json. Same720/18 validation batch;
-    fresh preview verifies exponent input and LIST cancellation. READY_TO_PUSH.
+    fresh preview verifies exponent input and LIST cancellation. Published in\n    ca4eda327d423b9a0b1b1aaa8ea2125380316484, verified on origin/main.
 
 - [x] **EL506-355 - Match expression length and nesting limits.**
 - [x] **EL506-356 - Match history, formula, dataset, matrix, and list
