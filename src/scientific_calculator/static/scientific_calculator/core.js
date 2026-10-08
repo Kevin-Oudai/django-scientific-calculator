@@ -1395,8 +1395,13 @@
     const next=structuredClone(state);next.expression=physicalSource(state);next.entry='';next.stagedEntry=null;
     // A function key supplies an implicit argument; a separately entered '(' is
     // an explicit grouping and stays open until ')' or ENT.
-    const stack=[];for(let i=0;i<next.expression.length;i++){if(next.expression[i]==='(')stack.push(/[a-z]$/i.test(next.expression.slice(0,i)));else if(next.expression[i]===')')stack.pop();}
-    if(closeFunctions&&!/[a-z]+\($/i.test(next.expression))while(stack.at(-1)===true){next.expression+=')';stack.pop();}
+    const arities={ldim:2,lfill:2,laug:2,linner:2,louter:2,polar:2,cpow:2,dim:3,fill:3,aug:2,rndmat:2,root:2,ncr:2,npr:2,dms:3,frac:3,cv:2};
+    const stack=[];for(let i=0;i<next.expression.length;i++){
+      if(next.expression[i]==='('){const name=next.expression.slice(0,i).match(/[a-z]+$/i)?.[0];stack.push({function:!!name,remaining:(arities[name]||1)-1});}
+      else if(next.expression[i]===','&&stack.at(-1)?.function)stack.at(-1).remaining--;
+      else if(next.expression[i]===')')stack.pop();
+    }
+    if(closeFunctions&&!/[a-z]+\($/i.test(next.expression))while(stack.at(-1)?.function&&stack.at(-1).remaining<=0){next.expression+=')';stack.pop();}
     next.cursor=Math.max(0,next.expression.length-1);next.displayResult=next.resultDisplay='0';return physicalEditor(next);
   }
   function physicalNumeric(value){
@@ -2010,7 +2015,7 @@
     if(previous.secondActive&&n===28){next=physicalFlush(next,false);next.expression+=',';next.secondActive=false;return physicalEditor(next);}
     if([20,21].includes(n)&&!previous.secondActive){next=physicalFlush(next);next.expression+=n===20?'^2':'^3';return physicalEditor(next);}
     if(n===18&&previous.secondActive){next=physicalFlush(next);next.expression+='^(-1)';next.secondActive=false;return physicalEditor(next);}
-    if(!previous.secondActive&&[38,39,43,44,33,34].includes(n)){next=physicalFlush(next);next.expression+=({38:'*',39:':',43:'+',44:'-',33:'(',34:')'})[n];return physicalEditor(next);}return null;
+    if(!previous.secondActive&&[38,39,43,44,33,34].includes(n)){next=physicalFlush(next,n!==34);next.expression+=({38:'*',39:':',43:'+',44:'-',33:'(',34:')'})[n];return physicalEditor(next);}return null;
   }
   const matrixFromTyped=v=>({rows:v.rows,columns:v.columns,data:v.elements.map(values.toNumber)});
   const matrixToTyped=m=>({kind:'matrix',rows:m.rows,columns:m.columns,elements:m.data.map(values.scalar)});
@@ -2144,6 +2149,7 @@
     if(previous.workflow.kind==='multi-result'&&p?.id==='EQN_RESULTS'){
       if(n===4||n===6)return null;
       if(n===3){next.secondActive=!previous.secondActive;return next;}
+      if(n===11&&!previous.secondActive&&previous.control.submode==='QUAD')return next;
       if(n===48||[8,11].includes(n)){
         const direction=previous.secondActive||n===8?-1:1,page=previous.workflow.page+direction;
         next.secondActive=false;
@@ -2165,7 +2171,7 @@
         const direction=previous.secondActive||n===8?-1:1,index=p.coefficient+direction;
         next.secondActive=false;
         if(index<p.labels.length){q.coefficient=Math.max(0,index);q.label=q.labels[q.coefficient];q.input='';return next;}
-        const solved=p.size?equations.linear(q.coefficients,p.size):{solutions:next.control.submode==='QUAD'?equations.quadratic(q.coefficients):equations.cubic(q.coefficients)};
+        const solved=p.size?equations.linear(q.coefficients,p.size):{solutions:next.control.submode==='QUAD'?equations.quadratic(q.coefficients,{directFormula:true}):equations.cubic(q.coefficients)};
         const pages=solved.solutions.map((r,i)=>({label:p.size?['x=','y=','z='][i]:'X'+(i+1)+'=',value:values.scalar(r.real),...(r.imaginary?{alternate:values.scalar(r.imaginary),component:'xy'}:{})}));
         if(p.size)pages.push({label:'det=',value:values.scalar(solved.determinant)});
         next.values.last={kind:'equation',components:solved.solutions.map((r,i)=>({label:pages[i].label,value:r.imaginary?{kind:'complex',real:values.scalar(r.real),imaginary:values.scalar(r.imaginary)}:values.scalar(r.real)}))};
@@ -2178,7 +2184,7 @@
     else if({33:'(',34:')',38:'*',39:':',43:'+',44:'-'}[n])q.input+=({33:'(',34:')',38:'*',39:':',43:'+',44:'-'})[n];
     return next;
   }
-  function physicalStatisticsResult(state,name){return statistics.result(statisticalRows(state),state.control.submode,name,state.control.submode==='SD'?{xSum:items=>items.reduce((total,item)=>physicalCollectionBinary('+',total,item),0)}:undefined);}
+  function physicalStatisticsResult(state,name){const accumulate=items=>items.reduce((total,item)=>physicalCollectionBinary('+',total,item),0);const options=state.control.submode==='SD'?{xSum:accumulate}:state.control.submode==='LINE'&&['sum-y','mean-y'].includes(name)?{ySum:accumulate}:undefined;return statistics.result(statisticalRows(state),state.control.submode,name,options);}
   function physicalStatisticsAdapter(state){return {...physicalAdapter,
     symbol:(name,scope)=>{const key=Object.keys(STAT_SYMBOLS).find(k=>STAT_SYMBOLS[k]===name);return key?physicalNumeric(physicalStatisticsResult(state,ALPHA_STATS[key])):physicalAdapter.symbol(name,scope);},
     call:(name,args,scope)=>name==='statt'?physicalNumeric((args[0]-physicalStatisticsResult(state,'mean-x'))/physicalStatisticsResult(state,'population-deviation-x')):/^prob[pqr]$/.test(name)?statistics.probability(name.slice(-1).toUpperCase(),args[0]):physicalAdapter.call(name,args,scope)};}

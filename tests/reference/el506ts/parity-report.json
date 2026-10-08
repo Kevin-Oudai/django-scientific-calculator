@@ -26,8 +26,8 @@
         "baseline-known-differences": 169
       },
       "browserTested": {
-        "partial": 291,
-        "pending": 139
+        "partial": 298,
+        "pending": 132
       }
     },
     "guide": {
@@ -307,7 +307,7 @@
     },
     {
       "path": "tests/reference/el506ts/report-coverage.json",
-      "sha256": "2d8020a08069db3d10a9c5378c33351e1be77451a52cec09c4d2bca0f08106d8"
+      "sha256": "07ddff1f32e244d55a178f91edf5e77ed76633c94e3cfa3e83a5b3a59c88a0ea"
     },
     {
       "path": "tests/reference/el506ts/validate-guide.js",
@@ -327,11 +327,15 @@
     },
     {
       "path": "tests/e2e/list-aggregate-precision-audit.spec.js",
-      "sha256": "7753c5811271cfeea07f440f42be68f01fd2fd7355e891f017ba70bfff89bfbf"
+      "sha256": "0cef24674468194b52eef3938fb2df1ca03cee3e9590906f916e1e21727c8462"
     },
     {
       "path": "tests/e2e/matrix-definition-precision-audit.spec.js",
       "sha256": "77689e76c34582dfb6990e45f6498dbe3a7d6580f143056b0be26632560ccde3"
+    },
+    {
+      "path": "tests/e2e/matrix-precision-audit.spec.js",
+      "sha256": "4c058c89da209dce19e30e0d0d8eec45dc6f62186cecd93f08eed7a47aa52b63"
     },
     {
       "path": "tests/e2e/matrix-scientific-entry-audit.spec.js",
@@ -359,7 +363,7 @@
     },
     {
       "path": "tests/e2e/phase13-15.spec.js",
-      "sha256": "336a7c9644dd29436b7dcebbdb1e0811f065a7875837d1066ce208e9d91d48e4"
+      "sha256": "3488988c0788b6907c66975f8f94adbfbe24e9d4b2f27099c1b8699af84fdb72"
     },
     {
       "path": "tests/e2e/phase16.spec.js",
@@ -395,7 +399,7 @@
     },
     {
       "path": "tests/e2e/statistics-precision-audit.spec.js",
-      "sha256": "c453f6424c7376b6445a5b9ffb667590c1496087709c9e28ac640973b928902b"
+      "sha256": "0f3ea3e5f1dfc6d988a1da8bf47f823f9ecf216a7e4decf6d66ce4f1a1ba26c3"
     },
     {
       "path": "tests/unit/calculator.test.js",
@@ -411,11 +415,15 @@
     },
     {
       "path": "tests/unit/list-aggregate-precision-audit.test.js",
-      "sha256": "5c84fba07464f0268f04345c504a83249b5d7d5d8002633c75db29f869c7cc4a"
+      "sha256": "b7adef1881d31e659575510f80e5c83cfb93bae8ac0244f407dbcc567471243d"
     },
     {
       "path": "tests/unit/matrix-definition-precision-audit.test.js",
       "sha256": "f816365847d64376c19c82571796027a9303b5be30fdbec8efc25dfbbd80ad39"
+    },
+    {
+      "path": "tests/unit/matrix-precision-audit.test.js",
+      "sha256": "42b8a84c5384627825155201942d99128001eb6c8028f64132c4daac6ad25b8e"
     },
     {
       "path": "tests/unit/matrix-scientific-entry-audit.test.js",
@@ -443,7 +451,7 @@
     },
     {
       "path": "tests/unit/phase13.test.js",
-      "sha256": "d8aa53e51bfef53fc546cf4703a731a977f189024ef20ed56e14003c9ef2cf2a"
+      "sha256": "61cb73be91ea36bf0d7dfc2b44d4ae953cfb153c86422ee68abdef4356354a59"
     },
     {
       "path": "tests/unit/phase14.test.js",
@@ -499,7 +507,7 @@
     },
     {
       "path": "tests/unit/statistics-precision-audit.test.js",
-      "sha256": "74a0e67a318c22d35707fa9457f550168eab8b2e64833077132607707665f609"
+      "sha256": "de3435f75d1d6f1dba6ef17942720b0e35e066c178d508dc98ef06e22d54f3d0"
     }
   ],
   "rows": [
@@ -13184,6 +13192,18 @@
               "el506.base.el506-k11"
             ],
             "scope": "UP/DOWN history ordering, oldest/newest boundaries anddraft discard. Explicit partial behavior only; no promotion tofullsimulatorparity."
+          },
+          {
+            "kind": "unit",
+            "path": "tests/unit/phase13.test.js",
+            "anchor": "Independent native quadratic cancellation",
+            "capabilityIds": [
+              "el506.mode.eqn",
+              "el506.base.el506-k48",
+              "el506.base.el506-k11",
+              "el506.eqn.2"
+            ],
+            "scope": "Independent14-key QUAD cancellation X1=0,X2=-1E13; plainDOWN leavesX1 unchanged andENT advances. Does not establish full quadratic internal precision or all modifier/arrow behavior."
           }
         ],
         "scope": "Explicit mapped assertions only; unlisted coverage is unassessed."
@@ -13194,8 +13214,21 @@
         "scope": "Baseline characterization only; all current supported fixtures have oracle display differences."
       },
       "browserTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "partial",
+        "evidence": [
+          {
+            "kind": "browser",
+            "path": "tests/e2e/phase13-15.spec.js",
+            "anchor": "Native quadratic cancellation and root paging",
+            "capabilityIds": [
+              "el506.mode.eqn",
+              "el506.base.el506-k48",
+              "el506.base.el506-k11",
+              "el506.eqn.2"
+            ],
+            "scope": "Independent14-key QUAD cancellation X1=0,X2=-1E13; plainDOWN leavesX1 unchanged andENT advances. Does not establish full quadratic internal precision or all modifier/arrow behavior."
+          }
+        ],
         "scope": "Explicit canonical baseline browser replays only; legacy regression coverage is not inferred as parity."
       }
     },
@@ -15095,6 +15128,18 @@
               "el506.second.el506-k40"
             ],
             "scope": "Named independent NORMAL arithmetic, power, root, logarithm, factorial/permutation/combination, percent andnumeric notation endpoints. Exact boundaries andfullmode behavior are separate. Explicit partial behavior only; no promotion tofullsimulatorparity."
+          },
+          {
+            "kind": "unit",
+            "path": "tests/unit/list-aggregate-precision-audit.test.js",
+            "anchor": "Independent native LIST inner product",
+            "capabilityIds": [
+              "el506.base.el506-k34",
+              "el506.list-math.i-prod",
+              "el506.list-ope.fill",
+              "el506.list.slot.1"
+            ],
+            "scope": "Independent61-key LIST inner products with nested fill values1 and1/3 plus explicit closing parentheses return0. General product and outer-product precision remain unmeasured."
           }
         ],
         "scope": "Explicit mapped assertions only; unlisted coverage is unassessed."
@@ -15105,8 +15150,21 @@
         "scope": "Baseline characterization only; all current supported fixtures have oracle display differences."
       },
       "browserTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "partial",
+        "evidence": [
+          {
+            "kind": "browser",
+            "path": "tests/e2e/list-aggregate-precision-audit.spec.js",
+            "anchor": "Native LIST inner product accepts nested fill",
+            "capabilityIds": [
+              "el506.base.el506-k34",
+              "el506.list-math.i-prod",
+              "el506.list-ope.fill",
+              "el506.list.slot.1"
+            ],
+            "scope": "Independent61-key LIST inner products with nested fill values1 and1/3 plus explicit closing parentheses return0. General product and outer-product precision remain unmeasured."
+          }
+        ],
         "scope": "Explicit canonical baseline browser replays only; legacy regression coverage is not inferred as parity."
       }
     },
@@ -15369,6 +15427,19 @@
               "el506.second.el506-k40"
             ],
             "scope": "Named independent NORMAL arithmetic, power, root, logarithm, factorial/permutation/combination, percent andnumeric notation endpoints. Exact boundaries andfullmode behavior are separate. Explicit partial behavior only; no promotion tofullsimulatorparity."
+          },
+          {
+            "kind": "unit",
+            "path": "tests/unit/matrix-precision-audit.test.js",
+            "anchor": "matrix-product-precision-native",
+            "capabilityIds": [
+              "el506.base.el506-k38",
+              "el506.base.el506-k39",
+              "el506.base.el506-k44",
+              "el506.matrix-ope.identity",
+              "el506.context.matrix-or-list-result-element-paging"
+            ],
+            "scope": "Independent41-key native single-term matrix product residual333.3 and row/column paging. Does not establish multi-term accumulation, elimination, powers or full result-type precision."
           }
         ],
         "scope": "Explicit mapped assertions only; unlisted coverage is unassessed."
@@ -15379,8 +15450,22 @@
         "scope": "Baseline characterization only; all current supported fixtures have oracle display differences."
       },
       "browserTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "partial",
+        "evidence": [
+          {
+            "kind": "browser",
+            "path": "tests/e2e/matrix-precision-audit.spec.js",
+            "anchor": "matrix-product-precision-native",
+            "capabilityIds": [
+              "el506.base.el506-k38",
+              "el506.base.el506-k39",
+              "el506.base.el506-k44",
+              "el506.matrix-ope.identity",
+              "el506.context.matrix-or-list-result-element-paging"
+            ],
+            "scope": "Independent41-key native single-term matrix product residual333.3 and row/column paging. Does not establish multi-term accumulation, elimination, powers or full result-type precision."
+          }
+        ],
         "scope": "Explicit canonical baseline browser replays only; legacy regression coverage is not inferred as parity."
       }
     },
@@ -15448,6 +15533,19 @@
               "el506.second.el506-k40"
             ],
             "scope": "Named independent NORMAL arithmetic, power, root, logarithm, factorial/permutation/combination, percent andnumeric notation endpoints. Exact boundaries andfullmode behavior are separate. Explicit partial behavior only; no promotion tofullsimulatorparity."
+          },
+          {
+            "kind": "unit",
+            "path": "tests/unit/matrix-precision-audit.test.js",
+            "anchor": "matrix-product-precision-native",
+            "capabilityIds": [
+              "el506.base.el506-k38",
+              "el506.base.el506-k39",
+              "el506.base.el506-k44",
+              "el506.matrix-ope.identity",
+              "el506.context.matrix-or-list-result-element-paging"
+            ],
+            "scope": "Independent41-key native single-term matrix product residual333.3 and row/column paging. Does not establish multi-term accumulation, elimination, powers or full result-type precision."
           }
         ],
         "scope": "Explicit mapped assertions only; unlisted coverage is unassessed."
@@ -15458,8 +15556,22 @@
         "scope": "Baseline characterization only; all current supported fixtures have oracle display differences."
       },
       "browserTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "partial",
+        "evidence": [
+          {
+            "kind": "browser",
+            "path": "tests/e2e/matrix-precision-audit.spec.js",
+            "anchor": "matrix-product-precision-native",
+            "capabilityIds": [
+              "el506.base.el506-k38",
+              "el506.base.el506-k39",
+              "el506.base.el506-k44",
+              "el506.matrix-ope.identity",
+              "el506.context.matrix-or-list-result-element-paging"
+            ],
+            "scope": "Independent41-key native single-term matrix product residual333.3 and row/column paging. Does not establish multi-term accumulation, elimination, powers or full result-type precision."
+          }
+        ],
         "scope": "Explicit canonical baseline browser replays only; legacy regression coverage is not inferred as parity."
       }
     },
@@ -15822,6 +15934,19 @@
               "el506.second.el506-k40"
             ],
             "scope": "Named independent NORMAL arithmetic, power, root, logarithm, factorial/permutation/combination, percent andnumeric notation endpoints. Exact boundaries andfullmode behavior are separate. Explicit partial behavior only; no promotion tofullsimulatorparity."
+          },
+          {
+            "kind": "unit",
+            "path": "tests/unit/matrix-precision-audit.test.js",
+            "anchor": "matrix-product-precision-native",
+            "capabilityIds": [
+              "el506.base.el506-k38",
+              "el506.base.el506-k39",
+              "el506.base.el506-k44",
+              "el506.matrix-ope.identity",
+              "el506.context.matrix-or-list-result-element-paging"
+            ],
+            "scope": "Independent41-key native single-term matrix product residual333.3 and row/column paging. Does not establish multi-term accumulation, elimination, powers or full result-type precision."
           }
         ],
         "scope": "Explicit mapped assertions only; unlisted coverage is unassessed."
@@ -15832,8 +15957,22 @@
         "scope": "Baseline characterization only; all current supported fixtures have oracle display differences."
       },
       "browserTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "partial",
+        "evidence": [
+          {
+            "kind": "browser",
+            "path": "tests/e2e/matrix-precision-audit.spec.js",
+            "anchor": "matrix-product-precision-native",
+            "capabilityIds": [
+              "el506.base.el506-k38",
+              "el506.base.el506-k39",
+              "el506.base.el506-k44",
+              "el506.matrix-ope.identity",
+              "el506.context.matrix-or-list-result-element-paging"
+            ],
+            "scope": "Independent41-key native single-term matrix product residual333.3 and row/column paging. Does not establish multi-term accumulation, elimination, powers or full result-type precision."
+          }
+        ],
         "scope": "Explicit canonical baseline browser replays only; legacy regression coverage is not inferred as parity."
       }
     },
@@ -16154,6 +16293,18 @@
               "el506.base.el506-k48"
             ],
             "scope": "Measured NORMAL retained constants, clearing and snapshot isolation; partial scalar evidence only."
+          },
+          {
+            "kind": "unit",
+            "path": "tests/unit/phase13.test.js",
+            "anchor": "Independent native quadratic cancellation",
+            "capabilityIds": [
+              "el506.mode.eqn",
+              "el506.base.el506-k48",
+              "el506.base.el506-k11",
+              "el506.eqn.2"
+            ],
+            "scope": "Independent14-key QUAD cancellation X1=0,X2=-1E13; plainDOWN leavesX1 unchanged andENT advances. Does not establish full quadratic internal precision or all modifier/arrow behavior."
           }
         ],
         "scope": "Explicit mapped assertions only; unlisted coverage is unassessed."
@@ -16175,6 +16326,18 @@
               "el506.base.el506-k48"
             ],
             "scope": "Immediate contextual percent, ENT recomputation and retained K browser displays."
+          },
+          {
+            "kind": "browser",
+            "path": "tests/e2e/phase13-15.spec.js",
+            "anchor": "Native quadratic cancellation and root paging",
+            "capabilityIds": [
+              "el506.mode.eqn",
+              "el506.base.el506-k48",
+              "el506.base.el506-k11",
+              "el506.eqn.2"
+            ],
+            "scope": "Independent14-key QUAD cancellation X1=0,X2=-1E13; plainDOWN leavesX1 unchanged andENT advances. Does not establish full quadratic internal precision or all modifier/arrow behavior."
           }
         ],
         "scope": "Explicit canonical baseline browser replays only; legacy regression coverage is not inferred as parity."
@@ -20239,6 +20402,16 @@
               "el506.statistic.el506-k47"
             ],
             "scope": "Canonical replay asserts every printed weighted/corrected/paired statistics checkpoint; printed precision only."
+          },
+          {
+            "kind": "unit",
+            "path": "tests/unit/statistics-precision-audit.test.js",
+            "anchor": "Independent native LINE Y cancellation",
+            "capabilityIds": [
+              "el506.alpha.el506-k41",
+              "el506.alpha.el506-k30"
+            ],
+            "scope": "Independent32-key LINE unweighted Y sum and mean cancellation, three paired observations retained through ON/C. Higher moments, weights and regression accuracy unmeasured."
           }
         ],
         "scope": "Explicit mapped assertions only; unlisted coverage is unassessed."
@@ -20255,8 +20428,19 @@
         "scope": "Baseline characterization only; all current supported fixtures have oracle display differences."
       },
       "browserTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "partial",
+        "evidence": [
+          {
+            "kind": "browser",
+            "path": "tests/e2e/statistics-precision-audit.spec.js",
+            "anchor": "Native LINE Y sum and mean cancellation checkpoints",
+            "capabilityIds": [
+              "el506.alpha.el506-k41",
+              "el506.alpha.el506-k30"
+            ],
+            "scope": "Independent32-key LINE unweighted Y sum and mean cancellation, three paired observations retained through ON/C. Higher moments, weights and regression accuracy unmeasured."
+          }
+        ],
         "scope": "Explicit canonical baseline browser replays only; legacy regression coverage is not inferred as parity."
       }
     },
@@ -21207,6 +21391,16 @@
               "el506.statistic.el506-k47"
             ],
             "scope": "Canonical replay asserts every printed weighted/corrected/paired statistics checkpoint; printed precision only."
+          },
+          {
+            "kind": "unit",
+            "path": "tests/unit/statistics-precision-audit.test.js",
+            "anchor": "Independent native LINE Y cancellation",
+            "capabilityIds": [
+              "el506.alpha.el506-k41",
+              "el506.alpha.el506-k30"
+            ],
+            "scope": "Independent32-key LINE unweighted Y sum and mean cancellation, three paired observations retained through ON/C. Higher moments, weights and regression accuracy unmeasured."
           }
         ],
         "scope": "Explicit mapped assertions only; unlisted coverage is unassessed."
@@ -21223,8 +21417,19 @@
         "scope": "Baseline characterization only; all current supported fixtures have oracle display differences."
       },
       "browserTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "partial",
+        "evidence": [
+          {
+            "kind": "browser",
+            "path": "tests/e2e/statistics-precision-audit.spec.js",
+            "anchor": "Native LINE Y sum and mean cancellation checkpoints",
+            "capabilityIds": [
+              "el506.alpha.el506-k41",
+              "el506.alpha.el506-k30"
+            ],
+            "scope": "Independent32-key LINE unweighted Y sum and mean cancellation, three paired observations retained through ON/C. Higher moments, weights and regression accuracy unmeasured."
+          }
+        ],
         "scope": "Explicit canonical baseline browser replays only; legacy regression coverage is not inferred as parity."
       }
     },
@@ -23729,6 +23934,18 @@
               "el506.list.slot.4"
             ],
             "scope": "Independent119-key native exposure inventory,67 unambiguous upper-label and lower-index/digit checkpoints. Whitespace and equivalent micro glyph normalized; blink dots excluded. Entry/menu exposure and ordering only: operation algorithms, stores, hidden precision, domains and full compatibility remain unverified."
+          },
+          {
+            "kind": "unit",
+            "path": "tests/unit/phase13.test.js",
+            "anchor": "Independent native quadratic cancellation",
+            "capabilityIds": [
+              "el506.mode.eqn",
+              "el506.base.el506-k48",
+              "el506.base.el506-k11",
+              "el506.eqn.2"
+            ],
+            "scope": "Independent14-key QUAD cancellation X1=0,X2=-1E13; plainDOWN leavesX1 unchanged andENT advances. Does not establish full quadratic internal precision or all modifier/arrow behavior."
           }
         ],
         "scope": "Explicit mapped assertions only; unlisted coverage is unassessed."
@@ -23854,6 +24071,18 @@
               "el506.list.slot.4"
             ],
             "scope": "Independent119-key native exposure inventory,67 unambiguous upper-label and lower-index/digit checkpoints. Whitespace and equivalent micro glyph normalized; blink dots excluded. Entry/menu exposure and ordering only: operation algorithms, stores, hidden precision, domains and full compatibility remain unverified."
+          },
+          {
+            "kind": "browser",
+            "path": "tests/e2e/phase13-15.spec.js",
+            "anchor": "Native quadratic cancellation and root paging",
+            "capabilityIds": [
+              "el506.mode.eqn",
+              "el506.base.el506-k48",
+              "el506.base.el506-k11",
+              "el506.eqn.2"
+            ],
+            "scope": "Independent14-key QUAD cancellation X1=0,X2=-1E13; plainDOWN leavesX1 unchanged andENT advances. Does not establish full quadratic internal precision or all modifier/arrow behavior."
           }
         ],
         "scope": "Explicit canonical baseline browser replays only; legacy regression coverage is not inferred as parity."
@@ -27594,6 +27823,18 @@
               "el506.list.slot.4"
             ],
             "scope": "Independent119-key native exposure inventory,67 unambiguous upper-label and lower-index/digit checkpoints. Whitespace and equivalent micro glyph normalized; blink dots excluded. Entry/menu exposure and ordering only: operation algorithms, stores, hidden precision, domains and full compatibility remain unverified."
+          },
+          {
+            "kind": "unit",
+            "path": "tests/unit/phase13.test.js",
+            "anchor": "Independent native quadratic cancellation",
+            "capabilityIds": [
+              "el506.mode.eqn",
+              "el506.base.el506-k48",
+              "el506.base.el506-k11",
+              "el506.eqn.2"
+            ],
+            "scope": "Independent14-key QUAD cancellation X1=0,X2=-1E13; plainDOWN leavesX1 unchanged andENT advances. Does not establish full quadratic internal precision or all modifier/arrow behavior."
           }
         ],
         "scope": "Explicit mapped assertions only; unlisted coverage is unassessed."
@@ -27708,6 +27949,18 @@
               "el506.list.slot.4"
             ],
             "scope": "Independent119-key native exposure inventory,67 unambiguous upper-label and lower-index/digit checkpoints. Whitespace and equivalent micro glyph normalized; blink dots excluded. Entry/menu exposure and ordering only: operation algorithms, stores, hidden precision, domains and full compatibility remain unverified."
+          },
+          {
+            "kind": "browser",
+            "path": "tests/e2e/phase13-15.spec.js",
+            "anchor": "Native quadratic cancellation and root paging",
+            "capabilityIds": [
+              "el506.mode.eqn",
+              "el506.base.el506-k48",
+              "el506.base.el506-k11",
+              "el506.eqn.2"
+            ],
+            "scope": "Independent14-key QUAD cancellation X1=0,X2=-1E13; plainDOWN leavesX1 unchanged andENT advances. Does not establish full quadratic internal precision or all modifier/arrow behavior."
           }
         ],
         "scope": "Explicit canonical baseline browser replays only; legacy regression coverage is not inferred as parity."
@@ -37326,6 +37579,19 @@
               "el506.list.slot.4"
             ],
             "scope": "Independent119-key native exposure inventory,67 unambiguous upper-label and lower-index/digit checkpoints. Whitespace and equivalent micro glyph normalized; blink dots excluded. Entry/menu exposure and ordering only: operation algorithms, stores, hidden precision, domains and full compatibility remain unverified."
+          },
+          {
+            "kind": "unit",
+            "path": "tests/unit/matrix-precision-audit.test.js",
+            "anchor": "matrix-product-precision-native",
+            "capabilityIds": [
+              "el506.base.el506-k38",
+              "el506.base.el506-k39",
+              "el506.base.el506-k44",
+              "el506.matrix-ope.identity",
+              "el506.context.matrix-or-list-result-element-paging"
+            ],
+            "scope": "Independent41-key native single-term matrix product residual333.3 and row/column paging. Does not establish multi-term accumulation, elimination, powers or full result-type precision."
           }
         ],
         "scope": "Explicit mapped assertions only; unlisted coverage is unassessed."
@@ -37440,6 +37706,19 @@
               "el506.list.slot.4"
             ],
             "scope": "Independent119-key native exposure inventory,67 unambiguous upper-label and lower-index/digit checkpoints. Whitespace and equivalent micro glyph normalized; blink dots excluded. Entry/menu exposure and ordering only: operation algorithms, stores, hidden precision, domains and full compatibility remain unverified."
+          },
+          {
+            "kind": "browser",
+            "path": "tests/e2e/matrix-precision-audit.spec.js",
+            "anchor": "matrix-product-precision-native",
+            "capabilityIds": [
+              "el506.base.el506-k38",
+              "el506.base.el506-k39",
+              "el506.base.el506-k44",
+              "el506.matrix-ope.identity",
+              "el506.context.matrix-or-list-result-element-paging"
+            ],
+            "scope": "Independent41-key native single-term matrix product residual333.3 and row/column paging. Does not establish multi-term accumulation, elimination, powers or full result-type precision."
           }
         ],
         "scope": "Explicit canonical baseline browser replays only; legacy regression coverage is not inferred as parity."
@@ -41385,6 +41664,18 @@
               "el506.list.slot.4"
             ],
             "scope": "Independent119-key native exposure inventory,67 unambiguous upper-label and lower-index/digit checkpoints. Whitespace and equivalent micro glyph normalized; blink dots excluded. Entry/menu exposure and ordering only: operation algorithms, stores, hidden precision, domains and full compatibility remain unverified."
+          },
+          {
+            "kind": "unit",
+            "path": "tests/unit/list-aggregate-precision-audit.test.js",
+            "anchor": "Independent native LIST inner product",
+            "capabilityIds": [
+              "el506.base.el506-k34",
+              "el506.list-math.i-prod",
+              "el506.list-ope.fill",
+              "el506.list.slot.1"
+            ],
+            "scope": "Independent61-key LIST inner products with nested fill values1 and1/3 plus explicit closing parentheses return0. General product and outer-product precision remain unmeasured."
           }
         ],
         "scope": "Explicit mapped assertions only; unlisted coverage is unassessed."
@@ -41499,6 +41790,18 @@
               "el506.list.slot.4"
             ],
             "scope": "Independent119-key native exposure inventory,67 unambiguous upper-label and lower-index/digit checkpoints. Whitespace and equivalent micro glyph normalized; blink dots excluded. Entry/menu exposure and ordering only: operation algorithms, stores, hidden precision, domains and full compatibility remain unverified."
+          },
+          {
+            "kind": "browser",
+            "path": "tests/e2e/list-aggregate-precision-audit.spec.js",
+            "anchor": "Native LIST inner product accepts nested fill",
+            "capabilityIds": [
+              "el506.base.el506-k34",
+              "el506.list-math.i-prod",
+              "el506.list-ope.fill",
+              "el506.list.slot.1"
+            ],
+            "scope": "Independent61-key LIST inner products with nested fill values1 and1/3 plus explicit closing parentheses return0. General product and outer-product precision remain unmeasured."
           }
         ],
         "scope": "Explicit canonical baseline browser replays only; legacy regression coverage is not inferred as parity."
@@ -45199,6 +45502,18 @@
               "el506.list.slot.4"
             ],
             "scope": "Independent119-key native exposure inventory,67 unambiguous upper-label and lower-index/digit checkpoints. Whitespace and equivalent micro glyph normalized; blink dots excluded. Entry/menu exposure and ordering only: operation algorithms, stores, hidden precision, domains and full compatibility remain unverified."
+          },
+          {
+            "kind": "unit",
+            "path": "tests/unit/list-aggregate-precision-audit.test.js",
+            "anchor": "Independent native LIST inner product",
+            "capabilityIds": [
+              "el506.base.el506-k34",
+              "el506.list-math.i-prod",
+              "el506.list-ope.fill",
+              "el506.list.slot.1"
+            ],
+            "scope": "Independent61-key LIST inner products with nested fill values1 and1/3 plus explicit closing parentheses return0. General product and outer-product precision remain unmeasured."
           }
         ],
         "scope": "Explicit mapped assertions only; unlisted coverage is unassessed."
@@ -45313,6 +45628,18 @@
               "el506.list.slot.4"
             ],
             "scope": "Independent119-key native exposure inventory,67 unambiguous upper-label and lower-index/digit checkpoints. Whitespace and equivalent micro glyph normalized; blink dots excluded. Entry/menu exposure and ordering only: operation algorithms, stores, hidden precision, domains and full compatibility remain unverified."
+          },
+          {
+            "kind": "browser",
+            "path": "tests/e2e/list-aggregate-precision-audit.spec.js",
+            "anchor": "Native LIST inner product accepts nested fill",
+            "capabilityIds": [
+              "el506.base.el506-k34",
+              "el506.list-math.i-prod",
+              "el506.list-ope.fill",
+              "el506.list.slot.1"
+            ],
+            "scope": "Independent61-key LIST inner products with nested fill values1 and1/3 plus explicit closing parentheses return0. General product and outer-product precision remain unmeasured."
           }
         ],
         "scope": "Explicit canonical baseline browser replays only; legacy regression coverage is not inferred as parity."
@@ -47666,6 +47993,18 @@
               "el506.list.slot.4"
             ],
             "scope": "Independent119-key native exposure inventory,67 unambiguous upper-label and lower-index/digit checkpoints. Whitespace and equivalent micro glyph normalized; blink dots excluded. Entry/menu exposure and ordering only: operation algorithms, stores, hidden precision, domains and full compatibility remain unverified."
+          },
+          {
+            "kind": "unit",
+            "path": "tests/unit/list-aggregate-precision-audit.test.js",
+            "anchor": "Independent native LIST inner product",
+            "capabilityIds": [
+              "el506.base.el506-k34",
+              "el506.list-math.i-prod",
+              "el506.list-ope.fill",
+              "el506.list.slot.1"
+            ],
+            "scope": "Independent61-key LIST inner products with nested fill values1 and1/3 plus explicit closing parentheses return0. General product and outer-product precision remain unmeasured."
           }
         ],
         "scope": "Explicit mapped assertions only; unlisted coverage is unassessed."
@@ -47780,6 +48119,18 @@
               "el506.list.slot.4"
             ],
             "scope": "Independent119-key native exposure inventory,67 unambiguous upper-label and lower-index/digit checkpoints. Whitespace and equivalent micro glyph normalized; blink dots excluded. Entry/menu exposure and ordering only: operation algorithms, stores, hidden precision, domains and full compatibility remain unverified."
+          },
+          {
+            "kind": "browser",
+            "path": "tests/e2e/list-aggregate-precision-audit.spec.js",
+            "anchor": "Native LIST inner product accepts nested fill",
+            "capabilityIds": [
+              "el506.base.el506-k34",
+              "el506.list-math.i-prod",
+              "el506.list-ope.fill",
+              "el506.list.slot.1"
+            ],
+            "scope": "Independent61-key LIST inner products with nested fill values1 and1/3 plus explicit closing parentheses return0. General product and outer-product precision remain unmeasured."
           }
         ],
         "scope": "Explicit canonical baseline browser replays only; legacy regression coverage is not inferred as parity."
@@ -70653,6 +71004,19 @@
               "el506.list.slot.4",
               "el506.context.matrix-or-list-result-element-paging"
             ]
+          },
+          {
+            "kind": "unit",
+            "path": "tests/unit/matrix-precision-audit.test.js",
+            "anchor": "matrix-product-precision-native",
+            "capabilityIds": [
+              "el506.base.el506-k38",
+              "el506.base.el506-k39",
+              "el506.base.el506-k44",
+              "el506.matrix-ope.identity",
+              "el506.context.matrix-or-list-result-element-paging"
+            ],
+            "scope": "Independent41-key native single-term matrix product residual333.3 and row/column paging. Does not establish multi-term accumulation, elimination, powers or full result-type precision."
           }
         ],
         "scope": "Explicit mapped assertions only; unlisted coverage is unassessed."
@@ -70698,6 +71062,19 @@
               "el506.context.matrix-or-list-result-element-paging"
             ],
             "scope": "Physical entry/store/multiplication/paging and keyboard/touch capacity-error recovery with isolated widgets across three engines."
+          },
+          {
+            "kind": "browser",
+            "path": "tests/e2e/matrix-precision-audit.spec.js",
+            "anchor": "matrix-product-precision-native",
+            "capabilityIds": [
+              "el506.base.el506-k38",
+              "el506.base.el506-k39",
+              "el506.base.el506-k44",
+              "el506.matrix-ope.identity",
+              "el506.context.matrix-or-list-result-element-paging"
+            ],
+            "scope": "Independent41-key native single-term matrix product residual333.3 and row/column paging. Does not establish multi-term accumulation, elimination, powers or full result-type precision."
           }
         ],
         "scope": "Explicit canonical baseline browser replays only; legacy regression coverage is not inferred as parity."

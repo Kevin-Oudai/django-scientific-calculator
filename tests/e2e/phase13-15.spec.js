@@ -3,6 +3,16 @@ test.use({hasTouch:true});
 const key=(r,n)=>r.locator('[data-key-id="EL506-K'+String(n).padStart(2,'0')+'"]');
 async function seq(r,keys){for(const n of keys)await key(r,n).click();}
 async function setup(page){await page.goto('/');const r=page.locator('[data-scientific-calculator]').first();await expect.poll(()=>r.evaluate(el=>!!el.scientificCalculator)).toBe(true);return r;}
+
+test('Native quadratic cancellation and root paging match independent LCD frames',async({page})=>{
+ const r=await setup(page),trace=require('../reference/el506ts/experiments/quadratic-cancellation-native.json');
+ for(let step=1;step<=trace.sequence.length;step++){
+  await r.locator('[data-key-id="'+trace.sequence[step-1]+'"]').click();const frame=trace.frames.find(x=>x.after_step===step);if(!frame)continue;
+  await expect(r.locator('[data-expression]')).toHaveText(frame.display.upper_line);
+  await expect(r.locator('[data-result]')).toHaveText(step===14?'-1.×1013':frame.display.lower_line);
+  expect((await r.evaluate(el=>el.scientificCalculator.snapshot())).state.control.errorCode).toBe(null);
+ }
+});
 test('EQN coefficients solve page determinant correct retained input and recover',async({page})=>{
  const r=await setup(page);await seq(r,[4,41,45,40,48,40,48,42,48,40,48,40,47,48,40,48]);await expect(r.locator('[data-expression]')).toHaveText('x=');await expect(r.locator('[data-result]')).toHaveText('2.');await seq(r,[48]);await expect(r.locator('[data-expression]')).toHaveText('y=');await expect(r.locator('[data-result]')).toHaveText('1.');await seq(r,[48]);await expect(r.locator('[data-expression]')).toHaveText('det=');await expect(r.locator('[data-result]')).toHaveText('-2.');await seq(r,[48]);await expect(r.locator('[data-expression]')).toHaveText('a1?');await expect(r.locator('[data-result]')).toHaveText('1.');
 });

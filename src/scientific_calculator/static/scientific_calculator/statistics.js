@@ -18,7 +18,7 @@
   if(xx/n>=0)out['population-deviation-x']=Math.sqrt(xx/n);
   if(n!==1&&xx/(n-1)>=0)out['sample-deviation-x']=Math.sqrt(xx/(n-1));
   if(mode==='SD')return out;
-  const sy=sum(data.map(r=>r.w*r.y)),syy=sum(data.map(r=>r.w*r.y*r.y)),sxy=sum(data.map(r=>r.w*r.x*r.y));
+  const sy=(options.ySum||sum)(data.map(r=>r.w*r.y)),syy=sum(data.map(r=>r.w*r.y*r.y)),sxy=sum(data.map(r=>r.w*r.x*r.y));
   Object.assign(out,{'sum-y':sy,'sum-y-squared':syy,'sum-xy':sxy,'mean-y':finite(sy/n)});
   const yy=sum(data.map(r=>r.w*(r.y-out['mean-y'])**2)),xy=sum(data.map(r=>r.w*(r.x-out['mean-x'])*(r.y-out['mean-y'])));
   if(yy/n>=0)out['population-deviation-y']=Math.sqrt(yy/n);

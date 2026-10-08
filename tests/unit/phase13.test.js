@@ -6,6 +6,20 @@ const press=(s,n)=>c.reduceCalculator(s,{type:'physical-key',id:'EL506-K'+String
 const seq=(keys,s=c.createInitialState())=>keys.reduce(press,s);
 const number=x=>String(Math.abs(x)).split('').map(ch=>({0:45,1:40,2:41,3:42,4:35,5:36,6:37,7:30,8:31,9:32,'.':46})[ch]).concat(x<0?[47]:[]);
 const solve=(mode,coefficients)=>coefficients.reduce((s,x)=>seq([...number(x),48],s),seq([4,41,[45,40,41,42][mode]]));
+
+test('Independent native quadratic cancellation preserves zero first root and second root paging',()=>{
+ const trace=require('../reference/el506ts/experiments/quadratic-cancellation-native.json');let s=c.createInitialState();
+ const plain=h=>h.replace(/<span[^>]*>&times;<\/span>10<sup>(.*?)<\/sup>/g,'E$1').replace(/<[^>]*>/g,'');
+ trace.sequence.forEach((id,i)=>{
+  s=c.reduceCalculator(s,{type:'physical-key',id});const frame=trace.frames.find(x=>x.after_step===i+1);if(!frame)return;
+  assert.equal(s.control.errorCode,null);assert.equal(s.layers.mode,'EQN');
+  const view=f.renderState(s,{physical:true});assert.equal(plain(view.expressionHtml),frame.display.upper_line);assert.equal(plain(view.resultHtml),frame.display.lower_line);
+  assert.deepEqual(c.restoreCalculator(c.snapshotCalculator(s)),s);
+ });
+ assert.deepEqual(s.workflow.payload.coefficients,[1,1e13,1]);
+ assert.equal(s.workflow.payload.pages[0].value.value,0);assert.equal(s.workflow.payload.pages[1].value.value,-1e13);
+ assert.equal(equations.quadratic([1,1e13,1])[0].real,-1e-13,'pure module retains stable small root');
+});
 test('EQN physical simultaneous entry pages solutions determinant and retained coefficient defaults',()=>{
  let s=solve(0,[1,1,3,1,-1,1]);assert.equal(s.workflow.kind,'multi-result');assert.equal(f.renderState(s,{physical:true}).expressionHtml,'x=');assert.equal(s.workflow.payload.pages[0].value.value,2);
  s=press(s,48);assert.equal(s.workflow.payload.pages[s.workflow.page].label,'y=');s=press(s,48);assert.equal(s.workflow.payload.pages[s.workflow.page].label,'det=');assert.equal(s.workflow.payload.pages[s.workflow.page].value.value,-2);

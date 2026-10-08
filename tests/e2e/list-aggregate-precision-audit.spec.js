@@ -1,4 +1,17 @@
 const {test,expect}=require('@playwright/test');
+test('Native LIST inner product accepts nested fill and cancels to zero',async({page})=>{
+ test.setTimeout(180000);await page.goto('/');const root=page.locator('[data-scientific-calculator]').first();
+ await expect.poll(()=>root.evaluate(el=>!!el.scientificCalculator)).toBe(true);
+ const trace=require('../reference/el506ts/experiments/list-inner-cancellation-native.json');
+ for(let step=1;step<=trace.sequence.length;step++){
+  await root.locator('[data-key-id="'+trace.sequence[step-1]+'"]').click();
+  const frame=trace.frames.find(x=>x.after_step===step);if(!frame)continue;
+  await expect(root.locator('[data-result]')).toHaveText(frame.display.lower_line);
+  expect((await root.evaluate(el=>el.scientificCalculator.snapshot())).state.control.errorCode).toBe(null);
+ }
+ const state=(await root.evaluate(el=>el.scientificCalculator.snapshot())).state;
+ expect(state.answer).toBe(0);expect(state.control.lists[0].elements.map(x=>x.value)).toEqual([1e13,1,-1e13]);
+});
 test('Native LIST exponent entry sum and mean cancellation checkpoints',async({page})=>{
  test.setTimeout(180000);await page.goto('/');const root=page.locator('[data-scientific-calculator]').first();
  await expect.poll(()=>root.evaluate(el=>!!el.scientificCalculator)).toBe(true);

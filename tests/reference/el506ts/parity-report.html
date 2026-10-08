@@ -19,8 +19,8 @@
     &quot;baseline-known-differences&quot;: 169
   },
   &quot;browserTested&quot;: {
-    &quot;partial&quot;: 291,
-    &quot;pending&quot;: 139
+    &quot;partial&quot;: 298,
+    &quot;pending&quot;: 132
   }
 }</pre></details><p><label for="filter">Filter by capability, family, owner or evidence status</label><br><input id="filter" type="search" placeholder="For example: matrix or EL506-146"><span id="count" aria-live="polite"> 430 entries</span></p><div class="scroll"><table><caption>Independent status and scoped evidence</caption><thead><tr><th>Capability</th><th>Documented</th><th>Simulator observed</th><th>Implemented</th><th>Unit tested</th><th>Golden tested</th><th>Browser tested</th></tr></thead><tbody><tr><td>el506.key.el506-k01<br><strong>HOME</strong><br>physical-key / EL506-013</td><td><strong>not-recorded</strong><details><summary>Evidence and scope</summary><p>Ledger documentation evidence only.</p><pre>[]</pre></details></td><td><strong>observed</strong><details><summary>Evidence and scope</summary><p>Position verified under EL506-013; semantic layers listed separately.</p><pre>[
   {
@@ -10533,8 +10533,33 @@
       &quot;el506.base.el506-k11&quot;
     ],
     &quot;scope&quot;: &quot;UP/DOWN history ordering, oldest/newest boundaries anddraft discard. Explicit partial behavior only; no promotion tofullsimulatorparity.&quot;
+  },
+  {
+    &quot;kind&quot;: &quot;unit&quot;,
+    &quot;path&quot;: &quot;tests/unit/phase13.test.js&quot;,
+    &quot;anchor&quot;: &quot;Independent native quadratic cancellation&quot;,
+    &quot;capabilityIds&quot;: [
+      &quot;el506.mode.eqn&quot;,
+      &quot;el506.base.el506-k48&quot;,
+      &quot;el506.base.el506-k11&quot;,
+      &quot;el506.eqn.2&quot;
+    ],
+    &quot;scope&quot;: &quot;Independent14-key QUAD cancellation X1=0,X2=-1E13; plainDOWN leavesX1 unchanged andENT advances. Does not establish full quadratic internal precision or all modifier/arrow behavior.&quot;
   }
-]</pre></details></td><td><strong>pending</strong><details><summary>Evidence and scope</summary><p>Baseline characterization only; all current supported fixtures have oracle display differences.</p><pre>[]</pre></details></td><td><strong>pending</strong><details><summary>Evidence and scope</summary><p>Explicit canonical baseline browser replays only; legacy regression coverage is not inferred as parity.</p><pre>[]</pre></details></td></tr>
+]</pre></details></td><td><strong>pending</strong><details><summary>Evidence and scope</summary><p>Baseline characterization only; all current supported fixtures have oracle display differences.</p><pre>[]</pre></details></td><td><strong>partial</strong><details><summary>Evidence and scope</summary><p>Explicit canonical baseline browser replays only; legacy regression coverage is not inferred as parity.</p><pre>[
+  {
+    &quot;kind&quot;: &quot;browser&quot;,
+    &quot;path&quot;: &quot;tests/e2e/phase13-15.spec.js&quot;,
+    &quot;anchor&quot;: &quot;Native quadratic cancellation and root paging&quot;,
+    &quot;capabilityIds&quot;: [
+      &quot;el506.mode.eqn&quot;,
+      &quot;el506.base.el506-k48&quot;,
+      &quot;el506.base.el506-k11&quot;,
+      &quot;el506.eqn.2&quot;
+    ],
+    &quot;scope&quot;: &quot;Independent14-key QUAD cancellation X1=0,X2=-1E13; plainDOWN leavesX1 unchanged andENT advances. Does not establish full quadratic internal precision or all modifier/arrow behavior.&quot;
+  }
+]</pre></details></td></tr>
 <tr><td>el506.base.el506-k12<br><strong>hyp</strong><br>base / EL506-124</td><td><strong>not-recorded</strong><details><summary>Evidence and scope</summary><p>Ledger documentation evidence only.</p><pre>[]</pre></details></td><td><strong>observed</strong><details><summary>Evidence and scope</summary><p>Numeric behavior, valid modes, state changes, boundaries and application parity require the owning roadmap item.</p><pre>[
   {
     &quot;source_id&quot;: &quot;live-panel&quot;,
@@ -11593,8 +11618,33 @@
       &quot;el506.second.el506-k40&quot;
     ],
     &quot;scope&quot;: &quot;Named independent NORMAL arithmetic, power, root, logarithm, factorial/permutation/combination, percent andnumeric notation endpoints. Exact boundaries andfullmode behavior are separate. Explicit partial behavior only; no promotion tofullsimulatorparity.&quot;
+  },
+  {
+    &quot;kind&quot;: &quot;unit&quot;,
+    &quot;path&quot;: &quot;tests/unit/list-aggregate-precision-audit.test.js&quot;,
+    &quot;anchor&quot;: &quot;Independent native LIST inner product&quot;,
+    &quot;capabilityIds&quot;: [
+      &quot;el506.base.el506-k34&quot;,
+      &quot;el506.list-math.i-prod&quot;,
+      &quot;el506.list-ope.fill&quot;,
+      &quot;el506.list.slot.1&quot;
+    ],
+    &quot;scope&quot;: &quot;Independent61-key LIST inner products with nested fill values1 and1/3 plus explicit closing parentheses return0. General product and outer-product precision remain unmeasured.&quot;
   }
-]</pre></details></td><td><strong>pending</strong><details><summary>Evidence and scope</summary><p>Baseline characterization only; all current supported fixtures have oracle display differences.</p><pre>[]</pre></details></td><td><strong>pending</strong><details><summary>Evidence and scope</summary><p>Explicit canonical baseline browser replays only; legacy regression coverage is not inferred as parity.</p><pre>[]</pre></details></td></tr>
+]</pre></details></td><td><strong>pending</strong><details><summary>Evidence and scope</summary><p>Baseline characterization only; all current supported fixtures have oracle display differences.</p><pre>[]</pre></details></td><td><strong>partial</strong><details><summary>Evidence and scope</summary><p>Explicit canonical baseline browser replays only; legacy regression coverage is not inferred as parity.</p><pre>[
+  {
+    &quot;kind&quot;: &quot;browser&quot;,
+    &quot;path&quot;: &quot;tests/e2e/list-aggregate-precision-audit.spec.js&quot;,
+    &quot;anchor&quot;: &quot;Native LIST inner product accepts nested fill&quot;,
+    &quot;capabilityIds&quot;: [
+      &quot;el506.base.el506-k34&quot;,
+      &quot;el506.list-math.i-prod&quot;,
+      &quot;el506.list-ope.fill&quot;,
+      &quot;el506.list.slot.1&quot;
+    ],
+    &quot;scope&quot;: &quot;Independent61-key LIST inner products with nested fill values1 and1/3 plus explicit closing parentheses return0. General product and outer-product precision remain unmeasured.&quot;
+  }
+]</pre></details></td></tr>
 <tr><td>el506.base.el506-k35<br><strong>4</strong><br>base / EL506-090</td><td><strong>not-recorded</strong><details><summary>Evidence and scope</summary><p>Ledger documentation evidence only.</p><pre>[]</pre></details></td><td><strong>observed</strong><details><summary>Evidence and scope</summary><p>Numeric behavior, valid modes, state changes, boundaries and application parity require the owning roadmap item.</p><pre>[
   {
     &quot;source_id&quot;: &quot;live-panel&quot;,
@@ -11719,8 +11769,35 @@
       &quot;el506.second.el506-k40&quot;
     ],
     &quot;scope&quot;: &quot;Named independent NORMAL arithmetic, power, root, logarithm, factorial/permutation/combination, percent andnumeric notation endpoints. Exact boundaries andfullmode behavior are separate. Explicit partial behavior only; no promotion tofullsimulatorparity.&quot;
+  },
+  {
+    &quot;kind&quot;: &quot;unit&quot;,
+    &quot;path&quot;: &quot;tests/unit/matrix-precision-audit.test.js&quot;,
+    &quot;anchor&quot;: &quot;matrix-product-precision-native&quot;,
+    &quot;capabilityIds&quot;: [
+      &quot;el506.base.el506-k38&quot;,
+      &quot;el506.base.el506-k39&quot;,
+      &quot;el506.base.el506-k44&quot;,
+      &quot;el506.matrix-ope.identity&quot;,
+      &quot;el506.context.matrix-or-list-result-element-paging&quot;
+    ],
+    &quot;scope&quot;: &quot;Independent41-key native single-term matrix product residual333.3 and row/column paging. Does not establish multi-term accumulation, elimination, powers or full result-type precision.&quot;
   }
-]</pre></details></td><td><strong>pending</strong><details><summary>Evidence and scope</summary><p>Baseline characterization only; all current supported fixtures have oracle display differences.</p><pre>[]</pre></details></td><td><strong>pending</strong><details><summary>Evidence and scope</summary><p>Explicit canonical baseline browser replays only; legacy regression coverage is not inferred as parity.</p><pre>[]</pre></details></td></tr>
+]</pre></details></td><td><strong>pending</strong><details><summary>Evidence and scope</summary><p>Baseline characterization only; all current supported fixtures have oracle display differences.</p><pre>[]</pre></details></td><td><strong>partial</strong><details><summary>Evidence and scope</summary><p>Explicit canonical baseline browser replays only; legacy regression coverage is not inferred as parity.</p><pre>[
+  {
+    &quot;kind&quot;: &quot;browser&quot;,
+    &quot;path&quot;: &quot;tests/e2e/matrix-precision-audit.spec.js&quot;,
+    &quot;anchor&quot;: &quot;matrix-product-precision-native&quot;,
+    &quot;capabilityIds&quot;: [
+      &quot;el506.base.el506-k38&quot;,
+      &quot;el506.base.el506-k39&quot;,
+      &quot;el506.base.el506-k44&quot;,
+      &quot;el506.matrix-ope.identity&quot;,
+      &quot;el506.context.matrix-or-list-result-element-paging&quot;
+    ],
+    &quot;scope&quot;: &quot;Independent41-key native single-term matrix product residual333.3 and row/column paging. Does not establish multi-term accumulation, elimination, powers or full result-type precision.&quot;
+  }
+]</pre></details></td></tr>
 <tr><td>el506.base.el506-k39<br><strong>divide</strong><br>base / EL506-094</td><td><strong>not-recorded</strong><details><summary>Evidence and scope</summary><p>Ledger documentation evidence only.</p><pre>[]</pre></details></td><td><strong>observed</strong><details><summary>Evidence and scope</summary><p>Numeric behavior, valid modes, state changes, boundaries and application parity require the owning roadmap item.</p><pre>[
   {
     &quot;source_id&quot;: &quot;live-panel&quot;,
@@ -11761,8 +11838,35 @@
       &quot;el506.second.el506-k40&quot;
     ],
     &quot;scope&quot;: &quot;Named independent NORMAL arithmetic, power, root, logarithm, factorial/permutation/combination, percent andnumeric notation endpoints. Exact boundaries andfullmode behavior are separate. Explicit partial behavior only; no promotion tofullsimulatorparity.&quot;
+  },
+  {
+    &quot;kind&quot;: &quot;unit&quot;,
+    &quot;path&quot;: &quot;tests/unit/matrix-precision-audit.test.js&quot;,
+    &quot;anchor&quot;: &quot;matrix-product-precision-native&quot;,
+    &quot;capabilityIds&quot;: [
+      &quot;el506.base.el506-k38&quot;,
+      &quot;el506.base.el506-k39&quot;,
+      &quot;el506.base.el506-k44&quot;,
+      &quot;el506.matrix-ope.identity&quot;,
+      &quot;el506.context.matrix-or-list-result-element-paging&quot;
+    ],
+    &quot;scope&quot;: &quot;Independent41-key native single-term matrix product residual333.3 and row/column paging. Does not establish multi-term accumulation, elimination, powers or full result-type precision.&quot;
   }
-]</pre></details></td><td><strong>pending</strong><details><summary>Evidence and scope</summary><p>Baseline characterization only; all current supported fixtures have oracle display differences.</p><pre>[]</pre></details></td><td><strong>pending</strong><details><summary>Evidence and scope</summary><p>Explicit canonical baseline browser replays only; legacy regression coverage is not inferred as parity.</p><pre>[]</pre></details></td></tr>
+]</pre></details></td><td><strong>pending</strong><details><summary>Evidence and scope</summary><p>Baseline characterization only; all current supported fixtures have oracle display differences.</p><pre>[]</pre></details></td><td><strong>partial</strong><details><summary>Evidence and scope</summary><p>Explicit canonical baseline browser replays only; legacy regression coverage is not inferred as parity.</p><pre>[
+  {
+    &quot;kind&quot;: &quot;browser&quot;,
+    &quot;path&quot;: &quot;tests/e2e/matrix-precision-audit.spec.js&quot;,
+    &quot;anchor&quot;: &quot;matrix-product-precision-native&quot;,
+    &quot;capabilityIds&quot;: [
+      &quot;el506.base.el506-k38&quot;,
+      &quot;el506.base.el506-k39&quot;,
+      &quot;el506.base.el506-k44&quot;,
+      &quot;el506.matrix-ope.identity&quot;,
+      &quot;el506.context.matrix-or-list-result-element-paging&quot;
+    ],
+    &quot;scope&quot;: &quot;Independent41-key native single-term matrix product residual333.3 and row/column paging. Does not establish multi-term accumulation, elimination, powers or full result-type precision.&quot;
+  }
+]</pre></details></td></tr>
 <tr><td>el506.base.el506-k40<br><strong>1</strong><br>base / EL506-090</td><td><strong>not-recorded</strong><details><summary>Evidence and scope</summary><p>Ledger documentation evidence only.</p><pre>[]</pre></details></td><td><strong>observed</strong><details><summary>Evidence and scope</summary><p>Numeric behavior, valid modes, state changes, boundaries and application parity require the owning roadmap item.</p><pre>[
   {
     &quot;source_id&quot;: &quot;live-panel&quot;,
@@ -11950,8 +12054,35 @@
       &quot;el506.second.el506-k40&quot;
     ],
     &quot;scope&quot;: &quot;Named independent NORMAL arithmetic, power, root, logarithm, factorial/permutation/combination, percent andnumeric notation endpoints. Exact boundaries andfullmode behavior are separate. Explicit partial behavior only; no promotion tofullsimulatorparity.&quot;
+  },
+  {
+    &quot;kind&quot;: &quot;unit&quot;,
+    &quot;path&quot;: &quot;tests/unit/matrix-precision-audit.test.js&quot;,
+    &quot;anchor&quot;: &quot;matrix-product-precision-native&quot;,
+    &quot;capabilityIds&quot;: [
+      &quot;el506.base.el506-k38&quot;,
+      &quot;el506.base.el506-k39&quot;,
+      &quot;el506.base.el506-k44&quot;,
+      &quot;el506.matrix-ope.identity&quot;,
+      &quot;el506.context.matrix-or-list-result-element-paging&quot;
+    ],
+    &quot;scope&quot;: &quot;Independent41-key native single-term matrix product residual333.3 and row/column paging. Does not establish multi-term accumulation, elimination, powers or full result-type precision.&quot;
   }
-]</pre></details></td><td><strong>pending</strong><details><summary>Evidence and scope</summary><p>Baseline characterization only; all current supported fixtures have oracle display differences.</p><pre>[]</pre></details></td><td><strong>pending</strong><details><summary>Evidence and scope</summary><p>Explicit canonical baseline browser replays only; legacy regression coverage is not inferred as parity.</p><pre>[]</pre></details></td></tr>
+]</pre></details></td><td><strong>pending</strong><details><summary>Evidence and scope</summary><p>Baseline characterization only; all current supported fixtures have oracle display differences.</p><pre>[]</pre></details></td><td><strong>partial</strong><details><summary>Evidence and scope</summary><p>Explicit canonical baseline browser replays only; legacy regression coverage is not inferred as parity.</p><pre>[
+  {
+    &quot;kind&quot;: &quot;browser&quot;,
+    &quot;path&quot;: &quot;tests/e2e/matrix-precision-audit.spec.js&quot;,
+    &quot;anchor&quot;: &quot;matrix-product-precision-native&quot;,
+    &quot;capabilityIds&quot;: [
+      &quot;el506.base.el506-k38&quot;,
+      &quot;el506.base.el506-k39&quot;,
+      &quot;el506.base.el506-k44&quot;,
+      &quot;el506.matrix-ope.identity&quot;,
+      &quot;el506.context.matrix-or-list-result-element-paging&quot;
+    ],
+    &quot;scope&quot;: &quot;Independent41-key native single-term matrix product residual333.3 and row/column paging. Does not establish multi-term accumulation, elimination, powers or full result-type precision.&quot;
+  }
+]</pre></details></td></tr>
 <tr><td>el506.base.el506-k45<br><strong>0</strong><br>base / EL506-090</td><td><strong>not-recorded</strong><details><summary>Evidence and scope</summary><p>Ledger documentation evidence only.</p><pre>[]</pre></details></td><td><strong>observed</strong><details><summary>Evidence and scope</summary><p>Numeric behavior, valid modes, state changes, boundaries and application parity require the owning roadmap item.</p><pre>[
   {
     &quot;source_id&quot;: &quot;live-panel&quot;,
@@ -12134,6 +12265,18 @@
       &quot;el506.base.el506-k48&quot;
     ],
     &quot;scope&quot;: &quot;Measured NORMAL retained constants, clearing and snapshot isolation; partial scalar evidence only.&quot;
+  },
+  {
+    &quot;kind&quot;: &quot;unit&quot;,
+    &quot;path&quot;: &quot;tests/unit/phase13.test.js&quot;,
+    &quot;anchor&quot;: &quot;Independent native quadratic cancellation&quot;,
+    &quot;capabilityIds&quot;: [
+      &quot;el506.mode.eqn&quot;,
+      &quot;el506.base.el506-k48&quot;,
+      &quot;el506.base.el506-k11&quot;,
+      &quot;el506.eqn.2&quot;
+    ],
+    &quot;scope&quot;: &quot;Independent14-key QUAD cancellation X1=0,X2=-1E13; plainDOWN leavesX1 unchanged andENT advances. Does not establish full quadratic internal precision or all modifier/arrow behavior.&quot;
   }
 ]</pre></details></td><td><strong>pending</strong><details><summary>Evidence and scope</summary><p>Baseline characterization only; all current supported fixtures have oracle display differences.</p><pre>[]</pre></details></td><td><strong>partial</strong><details><summary>Evidence and scope</summary><p>Explicit canonical baseline browser replays only; legacy regression coverage is not inferred as parity.</p><pre>[
   {
@@ -12145,6 +12288,18 @@
       &quot;el506.base.el506-k48&quot;
     ],
     &quot;scope&quot;: &quot;Immediate contextual percent, ENT recomputation and retained K browser displays.&quot;
+  },
+  {
+    &quot;kind&quot;: &quot;browser&quot;,
+    &quot;path&quot;: &quot;tests/e2e/phase13-15.spec.js&quot;,
+    &quot;anchor&quot;: &quot;Native quadratic cancellation and root paging&quot;,
+    &quot;capabilityIds&quot;: [
+      &quot;el506.mode.eqn&quot;,
+      &quot;el506.base.el506-k48&quot;,
+      &quot;el506.base.el506-k11&quot;,
+      &quot;el506.eqn.2&quot;
+    ],
+    &quot;scope&quot;: &quot;Independent14-key QUAD cancellation X1=0,X2=-1E13; plainDOWN leavesX1 unchanged andENT advances. Does not establish full quadratic internal precision or all modifier/arrow behavior.&quot;
   }
 ]</pre></details></td></tr>
 <tr><td>el506.second.el506-k02<br><strong>OFF</strong><br>2ndF / EL506-051</td><td><strong>not-recorded</strong><details><summary>Evidence and scope</summary><p>Ledger documentation evidence only.</p><pre>[]</pre></details></td><td><strong>observed</strong><details><summary>Evidence and scope</summary><p>Numeric behavior, valid modes, state changes, boundaries and application parity require the owning roadmap item.</p><pre>[
@@ -14258,6 +14413,16 @@
       &quot;el506.statistic.el506-k47&quot;
     ],
     &quot;scope&quot;: &quot;Canonical replay asserts every printed weighted/corrected/paired statistics checkpoint; printed precision only.&quot;
+  },
+  {
+    &quot;kind&quot;: &quot;unit&quot;,
+    &quot;path&quot;: &quot;tests/unit/statistics-precision-audit.test.js&quot;,
+    &quot;anchor&quot;: &quot;Independent native LINE Y cancellation&quot;,
+    &quot;capabilityIds&quot;: [
+      &quot;el506.alpha.el506-k41&quot;,
+      &quot;el506.alpha.el506-k30&quot;
+    ],
+    &quot;scope&quot;: &quot;Independent32-key LINE unweighted Y sum and mean cancellation, three paired observations retained through ON/C. Higher moments, weights and regression accuracy unmeasured.&quot;
   }
 ]</pre></details></td><td><strong>baseline-known-differences</strong><details><summary>Evidence and scope</summary><p>Baseline characterization only; all current supported fixtures have oracle display differences.</p><pre>[
   {
@@ -14265,7 +14430,18 @@
     &quot;status&quot;: &quot;known-differences&quot;,
     &quot;assertedFrames&quot;: 397
   }
-]</pre></details></td><td><strong>pending</strong><details><summary>Evidence and scope</summary><p>Explicit canonical baseline browser replays only; legacy regression coverage is not inferred as parity.</p><pre>[]</pre></details></td></tr>
+]</pre></details></td><td><strong>partial</strong><details><summary>Evidence and scope</summary><p>Explicit canonical baseline browser replays only; legacy regression coverage is not inferred as parity.</p><pre>[
+  {
+    &quot;kind&quot;: &quot;browser&quot;,
+    &quot;path&quot;: &quot;tests/e2e/statistics-precision-audit.spec.js&quot;,
+    &quot;anchor&quot;: &quot;Native LINE Y sum and mean cancellation checkpoints&quot;,
+    &quot;capabilityIds&quot;: [
+      &quot;el506.alpha.el506-k41&quot;,
+      &quot;el506.alpha.el506-k30&quot;
+    ],
+    &quot;scope&quot;: &quot;Independent32-key LINE unweighted Y sum and mean cancellation, three paired observations retained through ON/C. Higher moments, weights and regression accuracy unmeasured.&quot;
+  }
+]</pre></details></td></tr>
 <tr><td>el506.alpha.el506-k31<br><strong>sample deviation y</strong><br>ALPHA / EL506-244</td><td><strong>not-recorded</strong><details><summary>Evidence and scope</summary><p>Ledger documentation evidence only.</p><pre>[]</pre></details></td><td><strong>observed</strong><details><summary>Evidence and scope</summary><p>Numeric behavior, valid modes, state changes, boundaries and application parity require the owning roadmap item.</p><pre>[
   {
     &quot;source_id&quot;: &quot;live-panel&quot;,
@@ -14819,6 +14995,16 @@
       &quot;el506.statistic.el506-k47&quot;
     ],
     &quot;scope&quot;: &quot;Canonical replay asserts every printed weighted/corrected/paired statistics checkpoint; printed precision only.&quot;
+  },
+  {
+    &quot;kind&quot;: &quot;unit&quot;,
+    &quot;path&quot;: &quot;tests/unit/statistics-precision-audit.test.js&quot;,
+    &quot;anchor&quot;: &quot;Independent native LINE Y cancellation&quot;,
+    &quot;capabilityIds&quot;: [
+      &quot;el506.alpha.el506-k41&quot;,
+      &quot;el506.alpha.el506-k30&quot;
+    ],
+    &quot;scope&quot;: &quot;Independent32-key LINE unweighted Y sum and mean cancellation, three paired observations retained through ON/C. Higher moments, weights and regression accuracy unmeasured.&quot;
   }
 ]</pre></details></td><td><strong>baseline-known-differences</strong><details><summary>Evidence and scope</summary><p>Baseline characterization only; all current supported fixtures have oracle display differences.</p><pre>[
   {
@@ -14826,7 +15012,18 @@
     &quot;status&quot;: &quot;known-differences&quot;,
     &quot;assertedFrames&quot;: 397
   }
-]</pre></details></td><td><strong>pending</strong><details><summary>Evidence and scope</summary><p>Explicit canonical baseline browser replays only; legacy regression coverage is not inferred as parity.</p><pre>[]</pre></details></td></tr>
+]</pre></details></td><td><strong>partial</strong><details><summary>Evidence and scope</summary><p>Explicit canonical baseline browser replays only; legacy regression coverage is not inferred as parity.</p><pre>[
+  {
+    &quot;kind&quot;: &quot;browser&quot;,
+    &quot;path&quot;: &quot;tests/e2e/statistics-precision-audit.spec.js&quot;,
+    &quot;anchor&quot;: &quot;Native LINE Y sum and mean cancellation checkpoints&quot;,
+    &quot;capabilityIds&quot;: [
+      &quot;el506.alpha.el506-k41&quot;,
+      &quot;el506.alpha.el506-k30&quot;
+    ],
+    &quot;scope&quot;: &quot;Independent32-key LINE unweighted Y sum and mean cancellation, three paired observations retained through ON/C. Higher moments, weights and regression accuracy unmeasured.&quot;
+  }
+]</pre></details></td></tr>
 <tr><td>el506.alpha.el506-k42<br><strong>sum y squared</strong><br>ALPHA / EL506-245</td><td><strong>not-recorded</strong><details><summary>Evidence and scope</summary><p>Ledger documentation evidence only.</p><pre>[]</pre></details></td><td><strong>observed</strong><details><summary>Evidence and scope</summary><p>Numeric behavior, valid modes, state changes, boundaries and application parity require the owning roadmap item.</p><pre>[
   {
     &quot;source_id&quot;: &quot;live-panel&quot;,
@@ -16490,6 +16687,18 @@
       &quot;el506.list.slot.4&quot;
     ],
     &quot;scope&quot;: &quot;Independent119-key native exposure inventory,67 unambiguous upper-label and lower-index/digit checkpoints. Whitespace and equivalent micro glyph normalized; blink dots excluded. Entry/menu exposure and ordering only: operation algorithms, stores, hidden precision, domains and full compatibility remain unverified.&quot;
+  },
+  {
+    &quot;kind&quot;: &quot;unit&quot;,
+    &quot;path&quot;: &quot;tests/unit/phase13.test.js&quot;,
+    &quot;anchor&quot;: &quot;Independent native quadratic cancellation&quot;,
+    &quot;capabilityIds&quot;: [
+      &quot;el506.mode.eqn&quot;,
+      &quot;el506.base.el506-k48&quot;,
+      &quot;el506.base.el506-k11&quot;,
+      &quot;el506.eqn.2&quot;
+    ],
+    &quot;scope&quot;: &quot;Independent14-key QUAD cancellation X1=0,X2=-1E13; plainDOWN leavesX1 unchanged andENT advances. Does not establish full quadratic internal precision or all modifier/arrow behavior.&quot;
   }
 ]</pre></details></td><td><strong>baseline-known-differences</strong><details><summary>Evidence and scope</summary><p>Baseline characterization only; all current supported fixtures have oracle display differences.</p><pre>[
   {
@@ -16605,6 +16814,18 @@
       &quot;el506.list.slot.4&quot;
     ],
     &quot;scope&quot;: &quot;Independent119-key native exposure inventory,67 unambiguous upper-label and lower-index/digit checkpoints. Whitespace and equivalent micro glyph normalized; blink dots excluded. Entry/menu exposure and ordering only: operation algorithms, stores, hidden precision, domains and full compatibility remain unverified.&quot;
+  },
+  {
+    &quot;kind&quot;: &quot;browser&quot;,
+    &quot;path&quot;: &quot;tests/e2e/phase13-15.spec.js&quot;,
+    &quot;anchor&quot;: &quot;Native quadratic cancellation and root paging&quot;,
+    &quot;capabilityIds&quot;: [
+      &quot;el506.mode.eqn&quot;,
+      &quot;el506.base.el506-k48&quot;,
+      &quot;el506.base.el506-k11&quot;,
+      &quot;el506.eqn.2&quot;
+    ],
+    &quot;scope&quot;: &quot;Independent14-key QUAD cancellation X1=0,X2=-1E13; plainDOWN leavesX1 unchanged andENT advances. Does not establish full quadratic internal precision or all modifier/arrow behavior.&quot;
   }
 ]</pre></details></td></tr>
 <tr><td>el506.mode.cplx<br><strong>CPLX</strong><br>mode / EL506-280</td><td><strong>not-recorded</strong><details><summary>Evidence and scope</summary><p>Ledger documentation evidence only.</p><pre>[]</pre></details></td><td><strong>observed</strong><details><summary>Evidence and scope</summary><p>Numeric behavior, valid modes, state changes, boundaries and application parity require the owning roadmap item.</p><pre>[
@@ -19874,6 +20095,18 @@
       &quot;el506.list.slot.4&quot;
     ],
     &quot;scope&quot;: &quot;Independent119-key native exposure inventory,67 unambiguous upper-label and lower-index/digit checkpoints. Whitespace and equivalent micro glyph normalized; blink dots excluded. Entry/menu exposure and ordering only: operation algorithms, stores, hidden precision, domains and full compatibility remain unverified.&quot;
+  },
+  {
+    &quot;kind&quot;: &quot;unit&quot;,
+    &quot;path&quot;: &quot;tests/unit/phase13.test.js&quot;,
+    &quot;anchor&quot;: &quot;Independent native quadratic cancellation&quot;,
+    &quot;capabilityIds&quot;: [
+      &quot;el506.mode.eqn&quot;,
+      &quot;el506.base.el506-k48&quot;,
+      &quot;el506.base.el506-k11&quot;,
+      &quot;el506.eqn.2&quot;
+    ],
+    &quot;scope&quot;: &quot;Independent14-key QUAD cancellation X1=0,X2=-1E13; plainDOWN leavesX1 unchanged andENT advances. Does not establish full quadratic internal precision or all modifier/arrow behavior.&quot;
   }
 ]</pre></details></td><td><strong>baseline-known-differences</strong><details><summary>Evidence and scope</summary><p>Baseline characterization only; all current supported fixtures have oracle display differences.</p><pre>[
   {
@@ -19978,6 +20211,18 @@
       &quot;el506.list.slot.4&quot;
     ],
     &quot;scope&quot;: &quot;Independent119-key native exposure inventory,67 unambiguous upper-label and lower-index/digit checkpoints. Whitespace and equivalent micro glyph normalized; blink dots excluded. Entry/menu exposure and ordering only: operation algorithms, stores, hidden precision, domains and full compatibility remain unverified.&quot;
+  },
+  {
+    &quot;kind&quot;: &quot;browser&quot;,
+    &quot;path&quot;: &quot;tests/e2e/phase13-15.spec.js&quot;,
+    &quot;anchor&quot;: &quot;Native quadratic cancellation and root paging&quot;,
+    &quot;capabilityIds&quot;: [
+      &quot;el506.mode.eqn&quot;,
+      &quot;el506.base.el506-k48&quot;,
+      &quot;el506.base.el506-k11&quot;,
+      &quot;el506.eqn.2&quot;
+    ],
+    &quot;scope&quot;: &quot;Independent14-key QUAD cancellation X1=0,X2=-1E13; plainDOWN leavesX1 unchanged andENT advances. Does not establish full quadratic internal precision or all modifier/arrow behavior.&quot;
   }
 ]</pre></details></td></tr>
 <tr><td>el506.eqn.3<br><strong>CUBIC</strong><br>equation / EL506-264</td><td><strong>not-recorded</strong><details><summary>Evidence and scope</summary><p>Ledger documentation evidence only.</p><pre>[]</pre></details></td><td><strong>observed</strong><details><summary>Evidence and scope</summary><p>Numeric behavior, valid modes, state changes, boundaries and application parity require the owning roadmap item.</p><pre>[
@@ -27793,6 +28038,19 @@
       &quot;el506.list.slot.4&quot;
     ],
     &quot;scope&quot;: &quot;Independent119-key native exposure inventory,67 unambiguous upper-label and lower-index/digit checkpoints. Whitespace and equivalent micro glyph normalized; blink dots excluded. Entry/menu exposure and ordering only: operation algorithms, stores, hidden precision, domains and full compatibility remain unverified.&quot;
+  },
+  {
+    &quot;kind&quot;: &quot;unit&quot;,
+    &quot;path&quot;: &quot;tests/unit/matrix-precision-audit.test.js&quot;,
+    &quot;anchor&quot;: &quot;matrix-product-precision-native&quot;,
+    &quot;capabilityIds&quot;: [
+      &quot;el506.base.el506-k38&quot;,
+      &quot;el506.base.el506-k39&quot;,
+      &quot;el506.base.el506-k44&quot;,
+      &quot;el506.matrix-ope.identity&quot;,
+      &quot;el506.context.matrix-or-list-result-element-paging&quot;
+    ],
+    &quot;scope&quot;: &quot;Independent41-key native single-term matrix product residual333.3 and row/column paging. Does not establish multi-term accumulation, elimination, powers or full result-type precision.&quot;
   }
 ]</pre></details></td><td><strong>baseline-known-differences</strong><details><summary>Evidence and scope</summary><p>Baseline characterization only; all current supported fixtures have oracle display differences.</p><pre>[
   {
@@ -27897,6 +28155,19 @@
       &quot;el506.list.slot.4&quot;
     ],
     &quot;scope&quot;: &quot;Independent119-key native exposure inventory,67 unambiguous upper-label and lower-index/digit checkpoints. Whitespace and equivalent micro glyph normalized; blink dots excluded. Entry/menu exposure and ordering only: operation algorithms, stores, hidden precision, domains and full compatibility remain unverified.&quot;
+  },
+  {
+    &quot;kind&quot;: &quot;browser&quot;,
+    &quot;path&quot;: &quot;tests/e2e/matrix-precision-audit.spec.js&quot;,
+    &quot;anchor&quot;: &quot;matrix-product-precision-native&quot;,
+    &quot;capabilityIds&quot;: [
+      &quot;el506.base.el506-k38&quot;,
+      &quot;el506.base.el506-k39&quot;,
+      &quot;el506.base.el506-k44&quot;,
+      &quot;el506.matrix-ope.identity&quot;,
+      &quot;el506.context.matrix-or-list-result-element-paging&quot;
+    ],
+    &quot;scope&quot;: &quot;Independent41-key native single-term matrix product residual333.3 and row/column paging. Does not establish multi-term accumulation, elimination, powers or full result-type precision.&quot;
   }
 ]</pre></details></td></tr>
 <tr><td>el506.matrix-ope.rnd-mat<br><strong>rnd_mat(</strong><br>menu.matrix-ope / EL506-310</td><td><strong>not-recorded</strong><details><summary>Evidence and scope</summary><p>Ledger documentation evidence only.</p><pre>[]</pre></details></td><td><strong>observed</strong><details><summary>Evidence and scope</summary><p>Numeric behavior, valid modes, state changes, boundaries and application parity require the owning roadmap item.</p><pre>[
@@ -31334,6 +31605,18 @@
       &quot;el506.list.slot.4&quot;
     ],
     &quot;scope&quot;: &quot;Independent119-key native exposure inventory,67 unambiguous upper-label and lower-index/digit checkpoints. Whitespace and equivalent micro glyph normalized; blink dots excluded. Entry/menu exposure and ordering only: operation algorithms, stores, hidden precision, domains and full compatibility remain unverified.&quot;
+  },
+  {
+    &quot;kind&quot;: &quot;unit&quot;,
+    &quot;path&quot;: &quot;tests/unit/list-aggregate-precision-audit.test.js&quot;,
+    &quot;anchor&quot;: &quot;Independent native LIST inner product&quot;,
+    &quot;capabilityIds&quot;: [
+      &quot;el506.base.el506-k34&quot;,
+      &quot;el506.list-math.i-prod&quot;,
+      &quot;el506.list-ope.fill&quot;,
+      &quot;el506.list.slot.1&quot;
+    ],
+    &quot;scope&quot;: &quot;Independent61-key LIST inner products with nested fill values1 and1/3 plus explicit closing parentheses return0. General product and outer-product precision remain unmeasured.&quot;
   }
 ]</pre></details></td><td><strong>baseline-known-differences</strong><details><summary>Evidence and scope</summary><p>Baseline characterization only; all current supported fixtures have oracle display differences.</p><pre>[
   {
@@ -31438,6 +31721,18 @@
       &quot;el506.list.slot.4&quot;
     ],
     &quot;scope&quot;: &quot;Independent119-key native exposure inventory,67 unambiguous upper-label and lower-index/digit checkpoints. Whitespace and equivalent micro glyph normalized; blink dots excluded. Entry/menu exposure and ordering only: operation algorithms, stores, hidden precision, domains and full compatibility remain unverified.&quot;
+  },
+  {
+    &quot;kind&quot;: &quot;browser&quot;,
+    &quot;path&quot;: &quot;tests/e2e/list-aggregate-precision-audit.spec.js&quot;,
+    &quot;anchor&quot;: &quot;Native LIST inner product accepts nested fill&quot;,
+    &quot;capabilityIds&quot;: [
+      &quot;el506.base.el506-k34&quot;,
+      &quot;el506.list-math.i-prod&quot;,
+      &quot;el506.list-ope.fill&quot;,
+      &quot;el506.list.slot.1&quot;
+    ],
+    &quot;scope&quot;: &quot;Independent61-key LIST inner products with nested fill values1 and1/3 plus explicit closing parentheses return0. General product and outer-product precision remain unmeasured.&quot;
   }
 ]</pre></details></td></tr>
 <tr><td>el506.list-ope.cumul<br><strong>cumul</strong><br>menu.list-ope / EL506-328</td><td><strong>not-recorded</strong><details><summary>Evidence and scope</summary><p>Ledger documentation evidence only.</p><pre>[]</pre></details></td><td><strong>observed</strong><details><summary>Evidence and scope</summary><p>Numeric behavior, valid modes, state changes, boundaries and application parity require the owning roadmap item.</p><pre>[
@@ -34667,6 +34962,18 @@
       &quot;el506.list.slot.4&quot;
     ],
     &quot;scope&quot;: &quot;Independent119-key native exposure inventory,67 unambiguous upper-label and lower-index/digit checkpoints. Whitespace and equivalent micro glyph normalized; blink dots excluded. Entry/menu exposure and ordering only: operation algorithms, stores, hidden precision, domains and full compatibility remain unverified.&quot;
+  },
+  {
+    &quot;kind&quot;: &quot;unit&quot;,
+    &quot;path&quot;: &quot;tests/unit/list-aggregate-precision-audit.test.js&quot;,
+    &quot;anchor&quot;: &quot;Independent native LIST inner product&quot;,
+    &quot;capabilityIds&quot;: [
+      &quot;el506.base.el506-k34&quot;,
+      &quot;el506.list-math.i-prod&quot;,
+      &quot;el506.list-ope.fill&quot;,
+      &quot;el506.list.slot.1&quot;
+    ],
+    &quot;scope&quot;: &quot;Independent61-key LIST inner products with nested fill values1 and1/3 plus explicit closing parentheses return0. General product and outer-product precision remain unmeasured.&quot;
   }
 ]</pre></details></td><td><strong>baseline-known-differences</strong><details><summary>Evidence and scope</summary><p>Baseline characterization only; all current supported fixtures have oracle display differences.</p><pre>[
   {
@@ -34771,6 +35078,18 @@
       &quot;el506.list.slot.4&quot;
     ],
     &quot;scope&quot;: &quot;Independent119-key native exposure inventory,67 unambiguous upper-label and lower-index/digit checkpoints. Whitespace and equivalent micro glyph normalized; blink dots excluded. Entry/menu exposure and ordering only: operation algorithms, stores, hidden precision, domains and full compatibility remain unverified.&quot;
+  },
+  {
+    &quot;kind&quot;: &quot;browser&quot;,
+    &quot;path&quot;: &quot;tests/e2e/list-aggregate-precision-audit.spec.js&quot;,
+    &quot;anchor&quot;: &quot;Native LIST inner product accepts nested fill&quot;,
+    &quot;capabilityIds&quot;: [
+      &quot;el506.base.el506-k34&quot;,
+      &quot;el506.list-math.i-prod&quot;,
+      &quot;el506.list-ope.fill&quot;,
+      &quot;el506.list.slot.1&quot;
+    ],
+    &quot;scope&quot;: &quot;Independent61-key LIST inner products with nested fill values1 and1/3 plus explicit closing parentheses return0. General product and outer-product precision remain unmeasured.&quot;
   }
 ]</pre></details></td></tr>
 <tr><td>el506.list-math.abs<br><strong>abs</strong><br>menu.list-math / EL506-327</td><td><strong>not-recorded</strong><details><summary>Evidence and scope</summary><p>Ledger documentation evidence only.</p><pre>[]</pre></details></td><td><strong>observed</strong><details><summary>Evidence and scope</summary><p>Numeric behavior, valid modes, state changes, boundaries and application parity require the owning roadmap item.</p><pre>[
@@ -36801,6 +37120,18 @@
       &quot;el506.list.slot.4&quot;
     ],
     &quot;scope&quot;: &quot;Independent119-key native exposure inventory,67 unambiguous upper-label and lower-index/digit checkpoints. Whitespace and equivalent micro glyph normalized; blink dots excluded. Entry/menu exposure and ordering only: operation algorithms, stores, hidden precision, domains and full compatibility remain unverified.&quot;
+  },
+  {
+    &quot;kind&quot;: &quot;unit&quot;,
+    &quot;path&quot;: &quot;tests/unit/list-aggregate-precision-audit.test.js&quot;,
+    &quot;anchor&quot;: &quot;Independent native LIST inner product&quot;,
+    &quot;capabilityIds&quot;: [
+      &quot;el506.base.el506-k34&quot;,
+      &quot;el506.list-math.i-prod&quot;,
+      &quot;el506.list-ope.fill&quot;,
+      &quot;el506.list.slot.1&quot;
+    ],
+    &quot;scope&quot;: &quot;Independent61-key LIST inner products with nested fill values1 and1/3 plus explicit closing parentheses return0. General product and outer-product precision remain unmeasured.&quot;
   }
 ]</pre></details></td><td><strong>baseline-known-differences</strong><details><summary>Evidence and scope</summary><p>Baseline characterization only; all current supported fixtures have oracle display differences.</p><pre>[
   {
@@ -36905,6 +37236,18 @@
       &quot;el506.list.slot.4&quot;
     ],
     &quot;scope&quot;: &quot;Independent119-key native exposure inventory,67 unambiguous upper-label and lower-index/digit checkpoints. Whitespace and equivalent micro glyph normalized; blink dots excluded. Entry/menu exposure and ordering only: operation algorithms, stores, hidden precision, domains and full compatibility remain unverified.&quot;
+  },
+  {
+    &quot;kind&quot;: &quot;browser&quot;,
+    &quot;path&quot;: &quot;tests/e2e/list-aggregate-precision-audit.spec.js&quot;,
+    &quot;anchor&quot;: &quot;Native LIST inner product accepts nested fill&quot;,
+    &quot;capabilityIds&quot;: [
+      &quot;el506.base.el506-k34&quot;,
+      &quot;el506.list-math.i-prod&quot;,
+      &quot;el506.list-ope.fill&quot;,
+      &quot;el506.list.slot.1&quot;
+    ],
+    &quot;scope&quot;: &quot;Independent61-key LIST inner products with nested fill values1 and1/3 plus explicit closing parentheses return0. General product and outer-product precision remain unmeasured.&quot;
   }
 ]</pre></details></td></tr>
 <tr><td>el506.matrix.slot.b<br><strong>matB</strong><br>matrix-slot / EL506-300</td><td><strong>documented</strong><details><summary>Evidence and scope</summary><p>Ledger documentation evidence only.</p><pre>[
@@ -55866,6 +56209,19 @@
       &quot;el506.list.slot.4&quot;,
       &quot;el506.context.matrix-or-list-result-element-paging&quot;
     ]
+  },
+  {
+    &quot;kind&quot;: &quot;unit&quot;,
+    &quot;path&quot;: &quot;tests/unit/matrix-precision-audit.test.js&quot;,
+    &quot;anchor&quot;: &quot;matrix-product-precision-native&quot;,
+    &quot;capabilityIds&quot;: [
+      &quot;el506.base.el506-k38&quot;,
+      &quot;el506.base.el506-k39&quot;,
+      &quot;el506.base.el506-k44&quot;,
+      &quot;el506.matrix-ope.identity&quot;,
+      &quot;el506.context.matrix-or-list-result-element-paging&quot;
+    ],
+    &quot;scope&quot;: &quot;Independent41-key native single-term matrix product residual333.3 and row/column paging. Does not establish multi-term accumulation, elimination, powers or full result-type precision.&quot;
   }
 ]</pre></details></td><td><strong>baseline-known-differences</strong><details><summary>Evidence and scope</summary><p>Baseline characterization only; all current supported fixtures have oracle display differences.</p><pre>[
   {
@@ -55901,6 +56257,19 @@
       &quot;el506.context.matrix-or-list-result-element-paging&quot;
     ],
     &quot;scope&quot;: &quot;Physical entry/store/multiplication/paging and keyboard/touch capacity-error recovery with isolated widgets across three engines.&quot;
+  },
+  {
+    &quot;kind&quot;: &quot;browser&quot;,
+    &quot;path&quot;: &quot;tests/e2e/matrix-precision-audit.spec.js&quot;,
+    &quot;anchor&quot;: &quot;matrix-product-precision-native&quot;,
+    &quot;capabilityIds&quot;: [
+      &quot;el506.base.el506-k38&quot;,
+      &quot;el506.base.el506-k39&quot;,
+      &quot;el506.base.el506-k44&quot;,
+      &quot;el506.matrix-ope.identity&quot;,
+      &quot;el506.context.matrix-or-list-result-element-paging&quot;
+    ],
+    &quot;scope&quot;: &quot;Independent41-key native single-term matrix product residual333.3 and row/column paging. Does not establish multi-term accumulation, elimination, powers or full result-type precision.&quot;
   }
 ]</pre></details></td></tr>
 <tr><td>el506.context.stat-data-commit<br><strong>STAT data commit</strong><br>mode-key / EL506-221</td><td><strong>documented</strong><details><summary>Evidence and scope</summary><p>Ledger documentation evidence only.</p><pre>[

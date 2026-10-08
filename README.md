@@ -1495,8 +1495,11 @@ vector-product and other result-type accuracy remain part of the open audit.
 An additional independent34-key MAT trace verifies
 `identity 1 / 3 * 1E13 - identity 1 * 3333333333E3 = 333.3`.
 Physical matrix-by-scalar products now truncate to14 significant digits;
-component division preserves the measured cancellation above. Matrix-by-matrix
-multiplication and elimination still require their own precision assessment.
+component division preserves the measured cancellation above. An independent
+41-key matrix product trace also verifies
+`identity 1 / 3 * (identity 1 * 1E13) - identity 1 * 3333333333E3 = 333.3`.
+Physical matrix products apply the same 14-digit component product policy.
+Multi-term accumulation, powers and elimination still require precision assessment.
 The type audit independently confirms that determinant, transpose and resize
 reject scalar operands with `Error 1`. These errors preserve matrix memory and
 recover with ON/C. Scalar determinant and resize previously produced a numeric
@@ -1516,7 +1519,17 @@ truncation: data `1E13, 1, -1E13` gives sum and mean zero, while
 `1E12, 1, -1E12` retains sum one. ALPHA entry, immediate RCL and STAT VAR
 use the same selected policy. The independent48-key trace is recorded in
 `statistics-precision-review.json`; weighted products, higher moments and
-regression precision remain separate audit work.
+regression precision remain separate audit work. An independent 32-key LINE
+trace verifies that paired Y values `1E13, 1, -1E13` also return sum and mean
+zero. Physical LINE Y sum and mean now use the measured 13-digit accumulation
+policy; other regression results retain their existing arithmetic pending measurement.
+
+An independent 14-key EQN trace verifies the cancellation boundary for
+`x² + 1E13·x + 1 = 0`: the physical solver displays `X1=0` and `X2=-1E13`.
+Physical real quadratic roots use the direct formula; the standalone equation
+module retains its stable small root `-1E-13`. Plain DOWN leaves the current
+quadratic result unchanged, and ENT advances to the next root. This measured case
+does not complete the equation precision or modifier compatibility audits.
 
 Every430 capability-ledger entry now has an explicitly mapped partial unit
 assertion, including allten printed digits, allnine ALPHA variables, ANS and
@@ -1527,7 +1540,12 @@ Physical MAT and LIST definitions accept the Exp key and change the exponent
 sign with +/− during exponent entry. Scientific input appears on the lower LCD
 line. The measured LIST sum and mean of `[1E13, 1, -1E13]` both return zero;
 `collection-entry-aggregate-review.json` records the independent78-key evidence
-and its limits. Other aggregate and vector precision remains under review.
+and its limits. An additional independent 61-key trace verifies
+`i_Prod(L1, fill(1,3)) = 0` and `i_Prod(L1, fill(1/3,3)) = 0` for
+`L1 = [1E13, 1, -1E13]`, including explicit closing parentheses and division
+inside nested LIST function arguments. Physical inner products use
+the collection arithmetic policy; general products, outer products
+and other vector precision remain under review.
 
 Matrix definition entry uses the same split LCD arithmetic display as LIST
 entry: pending operators appear above the current operand, and integer entry

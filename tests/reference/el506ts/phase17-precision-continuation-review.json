@@ -1,0 +1,58 @@
+{
+  "reviewId": "phase17-precision-continuation-2026-10-08",
+  "roadmapItem": "EL506-354",
+  "roadmapItemComplete": false,
+  "references": [
+    "experiments/matrix-product-precision-native.json",
+    "experiments/statistics-y-cancellation-native.json",
+    "experiments/list-inner-cancellation-native.json",
+    "experiments/quadratic-cancellation-native.json"
+  ],
+  "nativeKeys": 148,
+  "findings": [
+    "Single-term matrix product residual333.3; app previously333.333.",
+    "Paired LINE Y data1E13,1,-1E13 sum0 and mean0; app previouslysum1.",
+    "LIST i_Prod(L1,fill(1,3)) returns0; app previouslyError1 from duplicate closing parentheses, and raw inner accumulation returned1.",
+    "Additional21-key native fractional fill probe returns0; app prematurely closed the incomplete fill call before division.",
+    "NativeQUAD1,1E13,1 reportsX1=0,X2=-1E13; physical app previouslypreservedX1=-1E-13 withstableformula.",
+    "PlainDOWN leaves nativeQUAD resultX1 unchanged; app previouslyadvanced toX2. ENT advancesX2."
+  ],
+  "policies": [
+    "Physical matrix multiplication shares the measured14-digit product callback with scalar scaling; accumulation and power/elimination algorithms retain existing policy. Pure module multiplication unchanged.",
+    "Physical LINE sum-y and mean-y use13-digit sequential decimal truncation. Other LINE results and transformed modes unchanged. Pure module statistics unchanged.",
+    "Explicit LIST right parentheses flush the operand without inserting implicit function closers. Physical inner products use the collection product/accumulation callback; pure API unchanged.",
+    "Implicit function completion waits until required argument separators have been supplied. This preserves division in the first fill argument.",
+    "Physical real quadratic roots use direct formula to reproduce measured cancellation; pure module keeps stable formula. Complex roots unchanged.",
+    "PlainDOWN is ignored on QUAD result pages. Other submodes, shiftedDOWN andUP retain existing policy pending independent measurement."
+  ],
+  "remaining": [
+    "Matrix multi-term accumulation, powers and elimination precision",
+    "Weighted statistics products, higher moments, X accumulation in regression modes and coefficient/estimate accuracy",
+    "Remaining result-type precision and full Phase17 compatibility/differential audit"
+  ],
+  "validation": {
+    "fullUnitPassed": 751,
+    "fullUnitFailed": 0,
+    "fullBrowserValidation": "616 applicable cases passed and 38 expected platform skips; runner process completion not yet observed.",
+    "matrixAndStatisticsBrowserPassed": 15,
+    "finalListBrowserPassed": 9,
+    "equationExistingBrowserPassed": 18,
+    "correctedQuadraticBrowserPassed": 3,
+    "goldenFixtures": 30,
+    "goldenFrames": 1209,
+    "djangoTestsPassed": 7,
+    "compileall": "passed",
+    "composeConfig": "passed",
+    "dockerBuildStart": "unavailable: Docker Desktop Linux engine pipe absent",
+    "liveApp": "Reloaded final code; physical 2+3= displays 5 at http://127.0.0.1:8010/",
+    "browserEngines": [
+      "Chromium",
+      "Firefox",
+      "WebKit"
+    ],
+    "fullBrowserPassed": 616,
+    "fullBrowserSkipped": 38,
+    "fullBrowserFailed": 0,
+    "validationScope": "Broad npm test run started before the additional STAT Y, LIST and QUAD cases were added. Final code is covered by 751 passing unit tests and focused browser reruns in all three engines; the three initially failing QUAD cases passed after correction."
+  }
+}

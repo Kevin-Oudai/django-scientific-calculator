@@ -14,11 +14,13 @@
   const result=Array(size).fill(0);for(let i=size-1;i>=0;i--){let right=a[i][size];for(let j=i+1;j<size;j++)right=bounded(right-a[i][j]*result[j]);result[i]=bounded(right/a[i][i]);}
   if(determinant===0)throw new RangeError('Zero determinant');return {solutions:result.map(x=>complex(x)),determinant};
  }
- function quadratic([a,b,c]){
+ function quadratic([a,b,c],{directFormula=false}={}){
   [a,b,c].forEach(bounded);if(a===0)throw new RangeError('Zero leading coefficient');
   const discriminant=bounded(bounded(b*b)-bounded(4*a*c));
   if(discriminant<0){const real=-b/(2*a),imaginary=Math.sqrt(-discriminant)/(2*Math.abs(a));return [complex(real,imaginary),complex(real,-imaginary)];}
-  const root=Math.sqrt(discriminant),q=-.5*(b+(b<0?-root:root));
+  const root=Math.sqrt(discriminant);
+  if(directFormula)return [complex((-b+root)/(2*a)),complex((-b-root)/(2*a))];
+  const q=-.5*(b+(b<0?-root:root));
   if(root===0)return [complex(-b/(2*a)),complex(-b/(2*a))];
   const first=q/a,second=c/q;return (b<0?[first,second]:[second,first]).map(x=>complex(x));
  }

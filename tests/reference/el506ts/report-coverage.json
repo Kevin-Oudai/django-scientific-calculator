@@ -1789,6 +1789,100 @@
         "el506.key.el506-k41"
       ],
       "scope": "Physical buttons reproduce independent dimension and first-cell LCD punctuation and stored-third cancellation in Chromium, Firefox and WebKit. This is scoped evidence, not full matrix parity."
+    },
+    {
+      "kind": "unit",
+      "path": "tests/unit/matrix-precision-audit.test.js",
+      "anchor": "matrix-product-precision-native",
+      "capabilityIds": [
+        "el506.base.el506-k38",
+        "el506.base.el506-k39",
+        "el506.base.el506-k44",
+        "el506.matrix-ope.identity",
+        "el506.context.matrix-or-list-result-element-paging"
+      ],
+      "scope": "Independent41-key native single-term matrix product residual333.3 and row/column paging. Does not establish multi-term accumulation, elimination, powers or full result-type precision."
+    },
+    {
+      "kind": "browser",
+      "path": "tests/e2e/matrix-precision-audit.spec.js",
+      "anchor": "matrix-product-precision-native",
+      "capabilityIds": [
+        "el506.base.el506-k38",
+        "el506.base.el506-k39",
+        "el506.base.el506-k44",
+        "el506.matrix-ope.identity",
+        "el506.context.matrix-or-list-result-element-paging"
+      ],
+      "scope": "Independent41-key native single-term matrix product residual333.3 and row/column paging. Does not establish multi-term accumulation, elimination, powers or full result-type precision."
+    },
+    {
+      "kind": "unit",
+      "path": "tests/unit/statistics-precision-audit.test.js",
+      "anchor": "Independent native LINE Y cancellation",
+      "capabilityIds": [
+        "el506.alpha.el506-k41",
+        "el506.alpha.el506-k30"
+      ],
+      "scope": "Independent32-key LINE unweighted Y sum and mean cancellation, three paired observations retained through ON/C. Higher moments, weights and regression accuracy unmeasured."
+    },
+    {
+      "kind": "browser",
+      "path": "tests/e2e/statistics-precision-audit.spec.js",
+      "anchor": "Native LINE Y sum and mean cancellation checkpoints",
+      "capabilityIds": [
+        "el506.alpha.el506-k41",
+        "el506.alpha.el506-k30"
+      ],
+      "scope": "Independent32-key LINE unweighted Y sum and mean cancellation, three paired observations retained through ON/C. Higher moments, weights and regression accuracy unmeasured."
+    },
+    {
+      "kind": "unit",
+      "path": "tests/unit/list-aggregate-precision-audit.test.js",
+      "anchor": "Independent native LIST inner product",
+      "capabilityIds": [
+        "el506.base.el506-k34",
+        "el506.list-math.i-prod",
+        "el506.list-ope.fill",
+        "el506.list.slot.1"
+      ],
+      "scope": "Independent61-key LIST inner products with nested fill values1 and1/3 plus explicit closing parentheses return0. General product and outer-product precision remain unmeasured."
+    },
+    {
+      "kind": "browser",
+      "path": "tests/e2e/list-aggregate-precision-audit.spec.js",
+      "anchor": "Native LIST inner product accepts nested fill",
+      "capabilityIds": [
+        "el506.base.el506-k34",
+        "el506.list-math.i-prod",
+        "el506.list-ope.fill",
+        "el506.list.slot.1"
+      ],
+      "scope": "Independent61-key LIST inner products with nested fill values1 and1/3 plus explicit closing parentheses return0. General product and outer-product precision remain unmeasured."
+    },
+    {
+      "kind": "unit",
+      "path": "tests/unit/phase13.test.js",
+      "anchor": "Independent native quadratic cancellation",
+      "capabilityIds": [
+        "el506.mode.eqn",
+        "el506.base.el506-k48",
+        "el506.base.el506-k11",
+        "el506.eqn.2"
+      ],
+      "scope": "Independent14-key QUAD cancellation X1=0,X2=-1E13; plainDOWN leavesX1 unchanged andENT advances. Does not establish full quadratic internal precision or all modifier/arrow behavior."
+    },
+    {
+      "kind": "browser",
+      "path": "tests/e2e/phase13-15.spec.js",
+      "anchor": "Native quadratic cancellation and root paging",
+      "capabilityIds": [
+        "el506.mode.eqn",
+        "el506.base.el506-k48",
+        "el506.base.el506-k11",
+        "el506.eqn.2"
+      ],
+      "scope": "Independent14-key QUAD cancellation X1=0,X2=-1E13; plainDOWN leavesX1 unchanged andENT advances. Does not establish full quadratic internal precision or all modifier/arrow behavior."
     }
   ]
 }
