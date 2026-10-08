@@ -2974,7 +2974,8 @@ guess any item in this phase; observe it in the reference simulator first.
 - [ ] **EL506-358 - Complete the modifier-by-key-by-mode compatibility
   matrix.**
 
-    Scoped menu differential: READY_TO_PUSH after 686 unit tests,67
+    Scoped menu differential published as
+    6c008d4d9c94dd8a6b2811074ebf417aae4e9452, verified on origin/main, after 686 unit tests,67
     independently observed menu checkpoints,10 fresh native engineering/nCr
     keys, three browser engines, golden/reference/report checks, compileall and
     Compose config. See menu-differential-review.json. Corrected engineering
