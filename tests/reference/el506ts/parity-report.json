@@ -19,16 +19,16 @@
         "missing": 307
       },
       "unitTested": {
-        "pending": 271,
-        "partial": 159
+        "pending": 256,
+        "partial": 174
       },
       "goldenTested": {
-        "pending": 380,
-        "baseline-known-differences": 50
+        "pending": 369,
+        "baseline-known-differences": 61
       },
       "browserTested": {
-        "partial": 188,
-        "pending": 242
+        "partial": 197,
+        "pending": 233
       }
     },
     "guide": {
@@ -38,8 +38,8 @@
       "pending": 51
     },
     "golden": {
-      "fixtures": 23,
-      "assertedFrames": 335,
+      "fixtures": 24,
+      "assertedFrames": 401,
       "pending": 1
     },
     "verifiedFullParity": 0
@@ -89,6 +89,10 @@
     {
       "path": "tests/reference/el506ts/experiments/phase10-calculus.json",
       "sha256": "252e441b7d651a07039a13d1dbf0b8d3ad96382abd30bf782c246b4f9cb74f3e"
+    },
+    {
+      "path": "tests/reference/el506ts/experiments/phase11-statistics.json",
+      "sha256": "638e31ef0832420a68470a5a7857c0cdb12292d6075ce4a43e378e9ec994d71d"
     },
     {
       "path": "tests/reference/el506ts/experiments/phase3-power.json",
@@ -183,6 +187,10 @@
       "sha256": "f921e7f145f0e2f9e95d98aaf944fc1976b689b0772feab8a190fd15e67d20c7"
     },
     {
+      "path": "tests/reference/el506ts/golden/phase11-statistics.json",
+      "sha256": "213e3086b65774e7e01c4edba6f15dfcaf37f02b187acfce6618ea10294af3b1"
+    },
+    {
       "path": "tests/reference/el506ts/golden/phase3-power.json",
       "sha256": "e56f7424510e986ff8fb10642052c086177790b0d15fee9f55582011265745ff"
     },
@@ -252,7 +260,7 @@
     },
     {
       "path": "tests/reference/el506ts/report-coverage.json",
-      "sha256": "7ecfa13ef9bcd05dcafa59480bf06aaff65faa37882e803819acb65316bc42a7"
+      "sha256": "42a5d81fbbaaf47ff1dd9afe1af82b6dd743e7d5388990ec5f64040505304306"
     },
     {
       "path": "tests/reference/el506ts/validate-guide.js",
@@ -265,6 +273,10 @@
     {
       "path": "tests/e2e/phase10.spec.js",
       "sha256": "2760d1994250a62adce22712394742ab1c737374b8eb85db3c3303103c83dbae"
+    },
+    {
+      "path": "tests/e2e/phase11.spec.js",
+      "sha256": "e219fdc0be0338d5bbe3a06f2b1e942d34b1810b5ce930fd9067fb16142d7e64"
     },
     {
       "path": "tests/e2e/phase4.spec.js",
@@ -284,11 +296,11 @@
     },
     {
       "path": "tests/e2e/phase8.spec.js",
-      "sha256": "68dca8ca04a1d96a64d6eb84345c8b38973ab55e86b327834dbe812a680a15ef"
+      "sha256": "0e3429ce5e8ec8fff75a20248f11840f79762bf9cb5eedfce5dd6651e687710e"
     },
     {
       "path": "tests/e2e/phase9.spec.js",
-      "sha256": "36559ce572008dddf850756f9819e3e812def98b85178dd54b30b4e408581ade"
+      "sha256": "7ae58e194862c553aab89155831f312738516b0ca32c44a018562b9bc09e2e79"
     },
     {
       "path": "tests/e2e/physical-ui.spec.js",
@@ -303,6 +315,10 @@
       "sha256": "3cf089af8014de22b6c52ff7ec93aa4579d954b47620d5567e7fa498451c634f"
     },
     {
+      "path": "tests/unit/phase11.test.js",
+      "sha256": "0d10a52443b8a9ba82c24495d79b61aeb7ff7329c1ec9ecd04c86c6b4deaaa24"
+    },
+    {
       "path": "tests/unit/phase4.test.js",
       "sha256": "5ce6a86c3ba0f684194a1ecefb2019736ec243467a36d115b1438fe182c68cba"
     },
@@ -312,7 +328,7 @@
     },
     {
       "path": "tests/unit/phase6.test.js",
-      "sha256": "10934ecb9479dfc1cf2396f75cb1937ccaec8ff32fdad4a37946fb6e27888225"
+      "sha256": "8fa75c2d39bd2ed631cb3740585d223b185f06003c528608bf6d2d6b27146bcc"
     },
     {
       "path": "tests/unit/phase7.test.js",
@@ -320,11 +336,11 @@
     },
     {
       "path": "tests/unit/phase8.test.js",
-      "sha256": "bdadc8e7cd6f0cf3c962991a8a934b0ef2345f19bfc9e2eb814346634ec51d08"
+      "sha256": "9648c9b09abc51fe0d498e3fa6a14cff6587541e9ea9ba52a9cafcacae6fcf45"
     },
     {
       "path": "tests/unit/phase9.test.js",
-      "sha256": "17b7a3b267d9b052942b98c9ea28ee8389c4da2f42b06f3a354c55ff28181181"
+      "sha256": "5203bcd603183cb5e9d84b6d1161575150c3a52d373a7aa7b434bacf5130b71c"
     },
     {
       "path": "tests/unit/physical-ui.test.js",
@@ -987,17 +1003,42 @@
         "policy": "Frozen baseline classification; infrastructure refactors do not promote capability parity."
       },
       "unitTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "partial",
+        "evidence": [
+          {
+            "kind": "unit",
+            "path": "tests/unit/phase11.test.js",
+            "anchor": "Statistics DATA stores independent observations and explicit signed weights",
+            "capabilityIds": [
+              "el506.key.el506-k29",
+              "el506.base.el506-k29",
+              "el506.second.el506-k29",
+              "el506.second.el506-k28",
+              "el506.key.el506-k04",
+              "el506.context.stat.data-separator",
+              "el506.mode.stat",
+              "el506.stat.submode.sd",
+              "el506.stat.submode.line",
+              "el506.context.stat-data-commit",
+              "el506.context.stat-data-deletion"
+            ],
+            "scope": "Physical statistics entry, signed weights, browsing/correction/deletion/persistence, 100-slot capacity and snapshot schema 11; results and regressions stay Phase 12."
+          }
+        ],
         "scope": "Explicit mapped assertions only; unlisted coverage is unassessed."
       },
       "goldenTested": {
-        "status": "pending",
+        "status": "baseline-known-differences",
         "evidence": [
           {
             "fixtureId": "menus-pending-v1",
             "status": "pending",
             "assertedFrames": 0
+          },
+          {
+            "fixtureId": "phase11-statistics",
+            "status": "known-differences",
+            "assertedFrames": 66
           }
         ],
         "scope": "Baseline characterization only; all current supported fixtures have oracle display differences."
@@ -1060,6 +1101,47 @@
               "el506.key.el506-k48"
             ],
             "scope": "Actual 48-button layout, primary/shifted accessibility names and modifier exposure; does not assert function algorithms or complete key parity."
+          },
+          {
+            "kind": "browser",
+            "path": "tests/e2e/phase11.spec.js",
+            "anchor": "Statistics weighted DATA browse correct and delete use physical buttons",
+            "capabilityIds": [
+              "el506.key.el506-k29",
+              "el506.base.el506-k29",
+              "el506.second.el506-k29",
+              "el506.second.el506-k28",
+              "el506.key.el506-k04",
+              "el506.context.stat.data-separator",
+              "el506.mode.stat",
+              "el506.stat.submode.sd",
+              "el506.stat.submode.line",
+              "el506.context.stat-data-commit",
+              "el506.context.stat-data-deletion"
+            ],
+            "scope": "Physical SD/paired DATA, keyboard comma, browsing, correction/deletion, capacity errors, snapshot isolation and fraction bounds."
+          },
+          {
+            "kind": "browser",
+            "path": "tests/e2e/golden.spec.js",
+            "anchor": "canonical baseline browser replay",
+            "fixtureIds": [
+              "phase11-statistics"
+            ],
+            "scope": "66 implementation regression frames; 40 independently transcribed significant native checkpoints. Raw numeric/entry-state differences remain explicit.",
+            "capabilityIds": [
+              "el506.key.el506-k29",
+              "el506.base.el506-k29",
+              "el506.second.el506-k29",
+              "el506.second.el506-k28",
+              "el506.key.el506-k04",
+              "el506.context.stat.data-separator",
+              "el506.mode.stat",
+              "el506.stat.submode.sd",
+              "el506.stat.submode.line",
+              "el506.context.stat-data-commit",
+              "el506.context.stat-data-deletion"
+            ]
           }
         ],
         "scope": "Explicit canonical baseline browser replays only; legacy regression coverage is not inferred as parity."
@@ -4228,13 +4310,39 @@
         "policy": "Frozen baseline classification; infrastructure refactors do not promote capability parity."
       },
       "unitTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "partial",
+        "evidence": [
+          {
+            "kind": "unit",
+            "path": "tests/unit/phase11.test.js",
+            "anchor": "Statistics DATA stores independent observations and explicit signed weights",
+            "capabilityIds": [
+              "el506.key.el506-k29",
+              "el506.base.el506-k29",
+              "el506.second.el506-k29",
+              "el506.second.el506-k28",
+              "el506.key.el506-k04",
+              "el506.context.stat.data-separator",
+              "el506.mode.stat",
+              "el506.stat.submode.sd",
+              "el506.stat.submode.line",
+              "el506.context.stat-data-commit",
+              "el506.context.stat-data-deletion"
+            ],
+            "scope": "Physical statistics entry, signed weights, browsing/correction/deletion/persistence, 100-slot capacity and snapshot schema 11; results and regressions stay Phase 12."
+          }
+        ],
         "scope": "Explicit mapped assertions only; unlisted coverage is unassessed."
       },
       "goldenTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "baseline-known-differences",
+        "evidence": [
+          {
+            "fixtureId": "phase11-statistics",
+            "status": "known-differences",
+            "assertedFrames": 66
+          }
+        ],
         "scope": "Baseline characterization only; all current supported fixtures have oracle display differences."
       },
       "browserTested": {
@@ -4295,6 +4403,47 @@
               "el506.key.el506-k48"
             ],
             "scope": "Actual 48-button layout, primary/shifted accessibility names and modifier exposure; does not assert function algorithms or complete key parity."
+          },
+          {
+            "kind": "browser",
+            "path": "tests/e2e/phase11.spec.js",
+            "anchor": "Statistics weighted DATA browse correct and delete use physical buttons",
+            "capabilityIds": [
+              "el506.key.el506-k29",
+              "el506.base.el506-k29",
+              "el506.second.el506-k29",
+              "el506.second.el506-k28",
+              "el506.key.el506-k04",
+              "el506.context.stat.data-separator",
+              "el506.mode.stat",
+              "el506.stat.submode.sd",
+              "el506.stat.submode.line",
+              "el506.context.stat-data-commit",
+              "el506.context.stat-data-deletion"
+            ],
+            "scope": "Physical SD/paired DATA, keyboard comma, browsing, correction/deletion, capacity errors, snapshot isolation and fraction bounds."
+          },
+          {
+            "kind": "browser",
+            "path": "tests/e2e/golden.spec.js",
+            "anchor": "canonical baseline browser replay",
+            "fixtureIds": [
+              "phase11-statistics"
+            ],
+            "scope": "66 implementation regression frames; 40 independently transcribed significant native checkpoints. Raw numeric/entry-state differences remain explicit.",
+            "capabilityIds": [
+              "el506.key.el506-k29",
+              "el506.base.el506-k29",
+              "el506.second.el506-k29",
+              "el506.second.el506-k28",
+              "el506.key.el506-k04",
+              "el506.context.stat.data-separator",
+              "el506.mode.stat",
+              "el506.stat.submode.sd",
+              "el506.stat.submode.line",
+              "el506.context.stat-data-commit",
+              "el506.context.stat-data-deletion"
+            ]
           }
         ],
         "scope": "Explicit canonical baseline browser replays only; legacy regression coverage is not inferred as parity."
@@ -9900,18 +10049,85 @@
               "el506.base.el506-k48"
             ],
             "scope": "Baseline addition, equals and M+ state isolation only; simulator persistence and sequencing not established."
+          },
+          {
+            "kind": "unit",
+            "path": "tests/unit/phase11.test.js",
+            "anchor": "Statistics DATA stores independent observations and explicit signed weights",
+            "capabilityIds": [
+              "el506.key.el506-k29",
+              "el506.base.el506-k29",
+              "el506.second.el506-k29",
+              "el506.second.el506-k28",
+              "el506.key.el506-k04",
+              "el506.context.stat.data-separator",
+              "el506.mode.stat",
+              "el506.stat.submode.sd",
+              "el506.stat.submode.line",
+              "el506.context.stat-data-commit",
+              "el506.context.stat-data-deletion"
+            ],
+            "scope": "Physical statistics entry, signed weights, browsing/correction/deletion/persistence, 100-slot capacity and snapshot schema 11; results and regressions stay Phase 12."
           }
         ],
         "scope": "Explicit mapped assertions only; unlisted coverage is unassessed."
       },
       "goldenTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "baseline-known-differences",
+        "evidence": [
+          {
+            "fixtureId": "phase11-statistics",
+            "status": "known-differences",
+            "assertedFrames": 66
+          }
+        ],
         "scope": "Baseline characterization only; all current supported fixtures have oracle display differences."
       },
       "browserTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "partial",
+        "evidence": [
+          {
+            "kind": "browser",
+            "path": "tests/e2e/phase11.spec.js",
+            "anchor": "Statistics weighted DATA browse correct and delete use physical buttons",
+            "capabilityIds": [
+              "el506.key.el506-k29",
+              "el506.base.el506-k29",
+              "el506.second.el506-k29",
+              "el506.second.el506-k28",
+              "el506.key.el506-k04",
+              "el506.context.stat.data-separator",
+              "el506.mode.stat",
+              "el506.stat.submode.sd",
+              "el506.stat.submode.line",
+              "el506.context.stat-data-commit",
+              "el506.context.stat-data-deletion"
+            ],
+            "scope": "Physical SD/paired DATA, keyboard comma, browsing, correction/deletion, capacity errors, snapshot isolation and fraction bounds."
+          },
+          {
+            "kind": "browser",
+            "path": "tests/e2e/golden.spec.js",
+            "anchor": "canonical baseline browser replay",
+            "fixtureIds": [
+              "phase11-statistics"
+            ],
+            "scope": "66 implementation regression frames; 40 independently transcribed significant native checkpoints. Raw numeric/entry-state differences remain explicit.",
+            "capabilityIds": [
+              "el506.key.el506-k29",
+              "el506.base.el506-k29",
+              "el506.second.el506-k29",
+              "el506.second.el506-k28",
+              "el506.key.el506-k04",
+              "el506.context.stat.data-separator",
+              "el506.mode.stat",
+              "el506.stat.submode.sd",
+              "el506.stat.submode.line",
+              "el506.context.stat-data-commit",
+              "el506.context.stat-data-deletion"
+            ]
+          }
+        ],
         "scope": "Explicit canonical baseline browser replays only; legacy regression coverage is not inferred as parity."
       }
     },
@@ -12268,18 +12484,86 @@
         "policy": "Frozen baseline classification; infrastructure refactors do not promote capability parity."
       },
       "unitTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "partial",
+        "evidence": [
+          {
+            "kind": "unit",
+            "path": "tests/unit/phase11.test.js",
+            "anchor": "Statistics DATA stores independent observations and explicit signed weights",
+            "capabilityIds": [
+              "el506.key.el506-k29",
+              "el506.base.el506-k29",
+              "el506.second.el506-k29",
+              "el506.second.el506-k28",
+              "el506.key.el506-k04",
+              "el506.context.stat.data-separator",
+              "el506.mode.stat",
+              "el506.stat.submode.sd",
+              "el506.stat.submode.line",
+              "el506.context.stat-data-commit",
+              "el506.context.stat-data-deletion"
+            ],
+            "scope": "Physical statistics entry, signed weights, browsing/correction/deletion/persistence, 100-slot capacity and snapshot schema 11; results and regressions stay Phase 12."
+          }
+        ],
         "scope": "Explicit mapped assertions only; unlisted coverage is unassessed."
       },
       "goldenTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "baseline-known-differences",
+        "evidence": [
+          {
+            "fixtureId": "phase11-statistics",
+            "status": "known-differences",
+            "assertedFrames": 66
+          }
+        ],
         "scope": "Baseline characterization only; all current supported fixtures have oracle display differences."
       },
       "browserTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "partial",
+        "evidence": [
+          {
+            "kind": "browser",
+            "path": "tests/e2e/phase11.spec.js",
+            "anchor": "Statistics weighted DATA browse correct and delete use physical buttons",
+            "capabilityIds": [
+              "el506.key.el506-k29",
+              "el506.base.el506-k29",
+              "el506.second.el506-k29",
+              "el506.second.el506-k28",
+              "el506.key.el506-k04",
+              "el506.context.stat.data-separator",
+              "el506.mode.stat",
+              "el506.stat.submode.sd",
+              "el506.stat.submode.line",
+              "el506.context.stat-data-commit",
+              "el506.context.stat-data-deletion"
+            ],
+            "scope": "Physical SD/paired DATA, keyboard comma, browsing, correction/deletion, capacity errors, snapshot isolation and fraction bounds."
+          },
+          {
+            "kind": "browser",
+            "path": "tests/e2e/golden.spec.js",
+            "anchor": "canonical baseline browser replay",
+            "fixtureIds": [
+              "phase11-statistics"
+            ],
+            "scope": "66 implementation regression frames; 40 independently transcribed significant native checkpoints. Raw numeric/entry-state differences remain explicit.",
+            "capabilityIds": [
+              "el506.key.el506-k29",
+              "el506.base.el506-k29",
+              "el506.second.el506-k29",
+              "el506.second.el506-k28",
+              "el506.key.el506-k04",
+              "el506.context.stat.data-separator",
+              "el506.mode.stat",
+              "el506.stat.submode.sd",
+              "el506.stat.submode.line",
+              "el506.context.stat-data-commit",
+              "el506.context.stat-data-deletion"
+            ]
+          }
+        ],
         "scope": "Explicit canonical baseline browser replays only; legacy regression coverage is not inferred as parity."
       }
     },
@@ -14872,18 +15156,86 @@
         "policy": "Frozen baseline classification; infrastructure refactors do not promote capability parity."
       },
       "unitTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "partial",
+        "evidence": [
+          {
+            "kind": "unit",
+            "path": "tests/unit/phase11.test.js",
+            "anchor": "Statistics DATA stores independent observations and explicit signed weights",
+            "capabilityIds": [
+              "el506.key.el506-k29",
+              "el506.base.el506-k29",
+              "el506.second.el506-k29",
+              "el506.second.el506-k28",
+              "el506.key.el506-k04",
+              "el506.context.stat.data-separator",
+              "el506.mode.stat",
+              "el506.stat.submode.sd",
+              "el506.stat.submode.line",
+              "el506.context.stat-data-commit",
+              "el506.context.stat-data-deletion"
+            ],
+            "scope": "Physical statistics entry, signed weights, browsing/correction/deletion/persistence, 100-slot capacity and snapshot schema 11; results and regressions stay Phase 12."
+          }
+        ],
         "scope": "Explicit mapped assertions only; unlisted coverage is unassessed."
       },
       "goldenTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "baseline-known-differences",
+        "evidence": [
+          {
+            "fixtureId": "phase11-statistics",
+            "status": "known-differences",
+            "assertedFrames": 66
+          }
+        ],
         "scope": "Baseline characterization only; all current supported fixtures have oracle display differences."
       },
       "browserTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "partial",
+        "evidence": [
+          {
+            "kind": "browser",
+            "path": "tests/e2e/phase11.spec.js",
+            "anchor": "Statistics weighted DATA browse correct and delete use physical buttons",
+            "capabilityIds": [
+              "el506.key.el506-k29",
+              "el506.base.el506-k29",
+              "el506.second.el506-k29",
+              "el506.second.el506-k28",
+              "el506.key.el506-k04",
+              "el506.context.stat.data-separator",
+              "el506.mode.stat",
+              "el506.stat.submode.sd",
+              "el506.stat.submode.line",
+              "el506.context.stat-data-commit",
+              "el506.context.stat-data-deletion"
+            ],
+            "scope": "Physical SD/paired DATA, keyboard comma, browsing, correction/deletion, capacity errors, snapshot isolation and fraction bounds."
+          },
+          {
+            "kind": "browser",
+            "path": "tests/e2e/golden.spec.js",
+            "anchor": "canonical baseline browser replay",
+            "fixtureIds": [
+              "phase11-statistics"
+            ],
+            "scope": "66 implementation regression frames; 40 independently transcribed significant native checkpoints. Raw numeric/entry-state differences remain explicit.",
+            "capabilityIds": [
+              "el506.key.el506-k29",
+              "el506.base.el506-k29",
+              "el506.second.el506-k29",
+              "el506.second.el506-k28",
+              "el506.key.el506-k04",
+              "el506.context.stat.data-separator",
+              "el506.mode.stat",
+              "el506.stat.submode.sd",
+              "el506.stat.submode.line",
+              "el506.context.stat-data-commit",
+              "el506.context.stat-data-deletion"
+            ]
+          }
+        ],
         "scope": "Explicit canonical baseline browser replays only; legacy regression coverage is not inferred as parity."
       }
     },
@@ -16027,18 +16379,102 @@
         "policy": "Frozen baseline classification; infrastructure refactors do not promote capability parity."
       },
       "unitTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "partial",
+        "evidence": [
+          {
+            "kind": "unit",
+            "path": "tests/unit/phase11.test.js",
+            "anchor": "Statistics DATA stores independent observations and explicit signed weights",
+            "capabilityIds": [
+              "el506.key.el506-k29",
+              "el506.base.el506-k29",
+              "el506.second.el506-k29",
+              "el506.second.el506-k28",
+              "el506.key.el506-k04",
+              "el506.context.stat.data-separator",
+              "el506.mode.stat",
+              "el506.stat.submode.sd",
+              "el506.stat.submode.line",
+              "el506.context.stat-data-commit",
+              "el506.context.stat-data-deletion"
+            ],
+            "scope": "Physical statistics entry, signed weights, browsing/correction/deletion/persistence, 100-slot capacity and snapshot schema 11; results and regressions stay Phase 12."
+          },
+          {
+            "kind": "unit",
+            "path": "tests/unit/phase11.test.js",
+            "anchor": "Statistics seven native submodes and indicators exclude three-variable STAT",
+            "capabilityIds": [
+              "el506.mode.stat",
+              "el506.stat.submode.sd",
+              "el506.stat.submode.line",
+              "el506.stat.submode.quad",
+              "el506.stat.submode.exp",
+              "el506.stat.submode.log",
+              "el506.stat.submode.pwr",
+              "el506.stat.submode.inv"
+            ],
+            "scope": "Phase 11 submenu selection names/indices and STAT indicator only. Statistical results and all regression algorithms remain Phase 12."
+          }
+        ],
         "scope": "Explicit mapped assertions only; unlisted coverage is unassessed."
       },
       "goldenTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "baseline-known-differences",
+        "evidence": [
+          {
+            "fixtureId": "phase11-statistics",
+            "status": "known-differences",
+            "assertedFrames": 66
+          }
+        ],
         "scope": "Baseline characterization only; all current supported fixtures have oracle display differences."
       },
       "browserTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "partial",
+        "evidence": [
+          {
+            "kind": "browser",
+            "path": "tests/e2e/phase11.spec.js",
+            "anchor": "Statistics weighted DATA browse correct and delete use physical buttons",
+            "capabilityIds": [
+              "el506.key.el506-k29",
+              "el506.base.el506-k29",
+              "el506.second.el506-k29",
+              "el506.second.el506-k28",
+              "el506.key.el506-k04",
+              "el506.context.stat.data-separator",
+              "el506.mode.stat",
+              "el506.stat.submode.sd",
+              "el506.stat.submode.line",
+              "el506.context.stat-data-commit",
+              "el506.context.stat-data-deletion"
+            ],
+            "scope": "Physical SD/paired DATA, keyboard comma, browsing, correction/deletion, capacity errors, snapshot isolation and fraction bounds."
+          },
+          {
+            "kind": "browser",
+            "path": "tests/e2e/golden.spec.js",
+            "anchor": "canonical baseline browser replay",
+            "fixtureIds": [
+              "phase11-statistics"
+            ],
+            "scope": "66 implementation regression frames; 40 independently transcribed significant native checkpoints. Raw numeric/entry-state differences remain explicit.",
+            "capabilityIds": [
+              "el506.key.el506-k29",
+              "el506.base.el506-k29",
+              "el506.second.el506-k29",
+              "el506.second.el506-k28",
+              "el506.key.el506-k04",
+              "el506.context.stat.data-separator",
+              "el506.mode.stat",
+              "el506.stat.submode.sd",
+              "el506.stat.submode.line",
+              "el506.context.stat-data-commit",
+              "el506.context.stat-data-deletion"
+            ]
+          }
+        ],
         "scope": "Explicit canonical baseline browser replays only; legacy regression coverage is not inferred as parity."
       }
     },
@@ -16254,18 +16690,102 @@
         "policy": "Frozen baseline classification; infrastructure refactors do not promote capability parity."
       },
       "unitTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "partial",
+        "evidence": [
+          {
+            "kind": "unit",
+            "path": "tests/unit/phase11.test.js",
+            "anchor": "Statistics DATA stores independent observations and explicit signed weights",
+            "capabilityIds": [
+              "el506.key.el506-k29",
+              "el506.base.el506-k29",
+              "el506.second.el506-k29",
+              "el506.second.el506-k28",
+              "el506.key.el506-k04",
+              "el506.context.stat.data-separator",
+              "el506.mode.stat",
+              "el506.stat.submode.sd",
+              "el506.stat.submode.line",
+              "el506.context.stat-data-commit",
+              "el506.context.stat-data-deletion"
+            ],
+            "scope": "Physical statistics entry, signed weights, browsing/correction/deletion/persistence, 100-slot capacity and snapshot schema 11; results and regressions stay Phase 12."
+          },
+          {
+            "kind": "unit",
+            "path": "tests/unit/phase11.test.js",
+            "anchor": "Statistics seven native submodes and indicators exclude three-variable STAT",
+            "capabilityIds": [
+              "el506.mode.stat",
+              "el506.stat.submode.sd",
+              "el506.stat.submode.line",
+              "el506.stat.submode.quad",
+              "el506.stat.submode.exp",
+              "el506.stat.submode.log",
+              "el506.stat.submode.pwr",
+              "el506.stat.submode.inv"
+            ],
+            "scope": "Phase 11 submenu selection names/indices and STAT indicator only. Statistical results and all regression algorithms remain Phase 12."
+          }
+        ],
         "scope": "Explicit mapped assertions only; unlisted coverage is unassessed."
       },
       "goldenTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "baseline-known-differences",
+        "evidence": [
+          {
+            "fixtureId": "phase11-statistics",
+            "status": "known-differences",
+            "assertedFrames": 66
+          }
+        ],
         "scope": "Baseline characterization only; all current supported fixtures have oracle display differences."
       },
       "browserTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "partial",
+        "evidence": [
+          {
+            "kind": "browser",
+            "path": "tests/e2e/phase11.spec.js",
+            "anchor": "Statistics weighted DATA browse correct and delete use physical buttons",
+            "capabilityIds": [
+              "el506.key.el506-k29",
+              "el506.base.el506-k29",
+              "el506.second.el506-k29",
+              "el506.second.el506-k28",
+              "el506.key.el506-k04",
+              "el506.context.stat.data-separator",
+              "el506.mode.stat",
+              "el506.stat.submode.sd",
+              "el506.stat.submode.line",
+              "el506.context.stat-data-commit",
+              "el506.context.stat-data-deletion"
+            ],
+            "scope": "Physical SD/paired DATA, keyboard comma, browsing, correction/deletion, capacity errors, snapshot isolation and fraction bounds."
+          },
+          {
+            "kind": "browser",
+            "path": "tests/e2e/golden.spec.js",
+            "anchor": "canonical baseline browser replay",
+            "fixtureIds": [
+              "phase11-statistics"
+            ],
+            "scope": "66 implementation regression frames; 40 independently transcribed significant native checkpoints. Raw numeric/entry-state differences remain explicit.",
+            "capabilityIds": [
+              "el506.key.el506-k29",
+              "el506.base.el506-k29",
+              "el506.second.el506-k29",
+              "el506.second.el506-k28",
+              "el506.key.el506-k04",
+              "el506.context.stat.data-separator",
+              "el506.mode.stat",
+              "el506.stat.submode.sd",
+              "el506.stat.submode.line",
+              "el506.context.stat-data-commit",
+              "el506.context.stat-data-deletion"
+            ]
+          }
+        ],
         "scope": "Explicit canonical baseline browser replays only; legacy regression coverage is not inferred as parity."
       }
     },
@@ -16305,18 +16825,102 @@
         "policy": "Frozen baseline classification; infrastructure refactors do not promote capability parity."
       },
       "unitTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "partial",
+        "evidence": [
+          {
+            "kind": "unit",
+            "path": "tests/unit/phase11.test.js",
+            "anchor": "Statistics DATA stores independent observations and explicit signed weights",
+            "capabilityIds": [
+              "el506.key.el506-k29",
+              "el506.base.el506-k29",
+              "el506.second.el506-k29",
+              "el506.second.el506-k28",
+              "el506.key.el506-k04",
+              "el506.context.stat.data-separator",
+              "el506.mode.stat",
+              "el506.stat.submode.sd",
+              "el506.stat.submode.line",
+              "el506.context.stat-data-commit",
+              "el506.context.stat-data-deletion"
+            ],
+            "scope": "Physical statistics entry, signed weights, browsing/correction/deletion/persistence, 100-slot capacity and snapshot schema 11; results and regressions stay Phase 12."
+          },
+          {
+            "kind": "unit",
+            "path": "tests/unit/phase11.test.js",
+            "anchor": "Statistics seven native submodes and indicators exclude three-variable STAT",
+            "capabilityIds": [
+              "el506.mode.stat",
+              "el506.stat.submode.sd",
+              "el506.stat.submode.line",
+              "el506.stat.submode.quad",
+              "el506.stat.submode.exp",
+              "el506.stat.submode.log",
+              "el506.stat.submode.pwr",
+              "el506.stat.submode.inv"
+            ],
+            "scope": "Phase 11 submenu selection names/indices and STAT indicator only. Statistical results and all regression algorithms remain Phase 12."
+          }
+        ],
         "scope": "Explicit mapped assertions only; unlisted coverage is unassessed."
       },
       "goldenTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "baseline-known-differences",
+        "evidence": [
+          {
+            "fixtureId": "phase11-statistics",
+            "status": "known-differences",
+            "assertedFrames": 66
+          }
+        ],
         "scope": "Baseline characterization only; all current supported fixtures have oracle display differences."
       },
       "browserTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "partial",
+        "evidence": [
+          {
+            "kind": "browser",
+            "path": "tests/e2e/phase11.spec.js",
+            "anchor": "Statistics weighted DATA browse correct and delete use physical buttons",
+            "capabilityIds": [
+              "el506.key.el506-k29",
+              "el506.base.el506-k29",
+              "el506.second.el506-k29",
+              "el506.second.el506-k28",
+              "el506.key.el506-k04",
+              "el506.context.stat.data-separator",
+              "el506.mode.stat",
+              "el506.stat.submode.sd",
+              "el506.stat.submode.line",
+              "el506.context.stat-data-commit",
+              "el506.context.stat-data-deletion"
+            ],
+            "scope": "Physical SD/paired DATA, keyboard comma, browsing, correction/deletion, capacity errors, snapshot isolation and fraction bounds."
+          },
+          {
+            "kind": "browser",
+            "path": "tests/e2e/golden.spec.js",
+            "anchor": "canonical baseline browser replay",
+            "fixtureIds": [
+              "phase11-statistics"
+            ],
+            "scope": "66 implementation regression frames; 40 independently transcribed significant native checkpoints. Raw numeric/entry-state differences remain explicit.",
+            "capabilityIds": [
+              "el506.key.el506-k29",
+              "el506.base.el506-k29",
+              "el506.second.el506-k29",
+              "el506.second.el506-k28",
+              "el506.key.el506-k04",
+              "el506.context.stat.data-separator",
+              "el506.mode.stat",
+              "el506.stat.submode.sd",
+              "el506.stat.submode.line",
+              "el506.context.stat-data-commit",
+              "el506.context.stat-data-deletion"
+            ]
+          }
+        ],
         "scope": "Explicit canonical baseline browser replays only; legacy regression coverage is not inferred as parity."
       }
     },
@@ -16356,8 +16960,25 @@
         "policy": "Frozen baseline classification; infrastructure refactors do not promote capability parity."
       },
       "unitTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "partial",
+        "evidence": [
+          {
+            "kind": "unit",
+            "path": "tests/unit/phase11.test.js",
+            "anchor": "Statistics seven native submodes and indicators exclude three-variable STAT",
+            "capabilityIds": [
+              "el506.mode.stat",
+              "el506.stat.submode.sd",
+              "el506.stat.submode.line",
+              "el506.stat.submode.quad",
+              "el506.stat.submode.exp",
+              "el506.stat.submode.log",
+              "el506.stat.submode.pwr",
+              "el506.stat.submode.inv"
+            ],
+            "scope": "Phase 11 submenu selection names/indices and STAT indicator only. Statistical results and all regression algorithms remain Phase 12."
+          }
+        ],
         "scope": "Explicit mapped assertions only; unlisted coverage is unassessed."
       },
       "goldenTested": {
@@ -16407,8 +17028,25 @@
         "policy": "Frozen baseline classification; infrastructure refactors do not promote capability parity."
       },
       "unitTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "partial",
+        "evidence": [
+          {
+            "kind": "unit",
+            "path": "tests/unit/phase11.test.js",
+            "anchor": "Statistics seven native submodes and indicators exclude three-variable STAT",
+            "capabilityIds": [
+              "el506.mode.stat",
+              "el506.stat.submode.sd",
+              "el506.stat.submode.line",
+              "el506.stat.submode.quad",
+              "el506.stat.submode.exp",
+              "el506.stat.submode.log",
+              "el506.stat.submode.pwr",
+              "el506.stat.submode.inv"
+            ],
+            "scope": "Phase 11 submenu selection names/indices and STAT indicator only. Statistical results and all regression algorithms remain Phase 12."
+          }
+        ],
         "scope": "Explicit mapped assertions only; unlisted coverage is unassessed."
       },
       "goldenTested": {
@@ -16458,8 +17096,25 @@
         "policy": "Frozen baseline classification; infrastructure refactors do not promote capability parity."
       },
       "unitTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "partial",
+        "evidence": [
+          {
+            "kind": "unit",
+            "path": "tests/unit/phase11.test.js",
+            "anchor": "Statistics seven native submodes and indicators exclude three-variable STAT",
+            "capabilityIds": [
+              "el506.mode.stat",
+              "el506.stat.submode.sd",
+              "el506.stat.submode.line",
+              "el506.stat.submode.quad",
+              "el506.stat.submode.exp",
+              "el506.stat.submode.log",
+              "el506.stat.submode.pwr",
+              "el506.stat.submode.inv"
+            ],
+            "scope": "Phase 11 submenu selection names/indices and STAT indicator only. Statistical results and all regression algorithms remain Phase 12."
+          }
+        ],
         "scope": "Explicit mapped assertions only; unlisted coverage is unassessed."
       },
       "goldenTested": {
@@ -16509,8 +17164,25 @@
         "policy": "Frozen baseline classification; infrastructure refactors do not promote capability parity."
       },
       "unitTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "partial",
+        "evidence": [
+          {
+            "kind": "unit",
+            "path": "tests/unit/phase11.test.js",
+            "anchor": "Statistics seven native submodes and indicators exclude three-variable STAT",
+            "capabilityIds": [
+              "el506.mode.stat",
+              "el506.stat.submode.sd",
+              "el506.stat.submode.line",
+              "el506.stat.submode.quad",
+              "el506.stat.submode.exp",
+              "el506.stat.submode.log",
+              "el506.stat.submode.pwr",
+              "el506.stat.submode.inv"
+            ],
+            "scope": "Phase 11 submenu selection names/indices and STAT indicator only. Statistical results and all regression algorithms remain Phase 12."
+          }
+        ],
         "scope": "Explicit mapped assertions only; unlisted coverage is unassessed."
       },
       "goldenTested": {
@@ -16560,8 +17232,25 @@
         "policy": "Frozen baseline classification; infrastructure refactors do not promote capability parity."
       },
       "unitTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "partial",
+        "evidence": [
+          {
+            "kind": "unit",
+            "path": "tests/unit/phase11.test.js",
+            "anchor": "Statistics seven native submodes and indicators exclude three-variable STAT",
+            "capabilityIds": [
+              "el506.mode.stat",
+              "el506.stat.submode.sd",
+              "el506.stat.submode.line",
+              "el506.stat.submode.quad",
+              "el506.stat.submode.exp",
+              "el506.stat.submode.log",
+              "el506.stat.submode.pwr",
+              "el506.stat.submode.inv"
+            ],
+            "scope": "Phase 11 submenu selection names/indices and STAT indicator only. Statistical results and all regression algorithms remain Phase 12."
+          }
+        ],
         "scope": "Explicit mapped assertions only; unlisted coverage is unassessed."
       },
       "goldenTested": {
@@ -37355,18 +38044,86 @@
         "policy": "Frozen baseline classification; infrastructure refactors do not promote capability parity."
       },
       "unitTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "partial",
+        "evidence": [
+          {
+            "kind": "unit",
+            "path": "tests/unit/phase11.test.js",
+            "anchor": "Statistics DATA stores independent observations and explicit signed weights",
+            "capabilityIds": [
+              "el506.key.el506-k29",
+              "el506.base.el506-k29",
+              "el506.second.el506-k29",
+              "el506.second.el506-k28",
+              "el506.key.el506-k04",
+              "el506.context.stat.data-separator",
+              "el506.mode.stat",
+              "el506.stat.submode.sd",
+              "el506.stat.submode.line",
+              "el506.context.stat-data-commit",
+              "el506.context.stat-data-deletion"
+            ],
+            "scope": "Physical statistics entry, signed weights, browsing/correction/deletion/persistence, 100-slot capacity and snapshot schema 11; results and regressions stay Phase 12."
+          }
+        ],
         "scope": "Explicit mapped assertions only; unlisted coverage is unassessed."
       },
       "goldenTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "baseline-known-differences",
+        "evidence": [
+          {
+            "fixtureId": "phase11-statistics",
+            "status": "known-differences",
+            "assertedFrames": 66
+          }
+        ],
         "scope": "Baseline characterization only; all current supported fixtures have oracle display differences."
       },
       "browserTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "partial",
+        "evidence": [
+          {
+            "kind": "browser",
+            "path": "tests/e2e/phase11.spec.js",
+            "anchor": "Statistics weighted DATA browse correct and delete use physical buttons",
+            "capabilityIds": [
+              "el506.key.el506-k29",
+              "el506.base.el506-k29",
+              "el506.second.el506-k29",
+              "el506.second.el506-k28",
+              "el506.key.el506-k04",
+              "el506.context.stat.data-separator",
+              "el506.mode.stat",
+              "el506.stat.submode.sd",
+              "el506.stat.submode.line",
+              "el506.context.stat-data-commit",
+              "el506.context.stat-data-deletion"
+            ],
+            "scope": "Physical SD/paired DATA, keyboard comma, browsing, correction/deletion, capacity errors, snapshot isolation and fraction bounds."
+          },
+          {
+            "kind": "browser",
+            "path": "tests/e2e/golden.spec.js",
+            "anchor": "canonical baseline browser replay",
+            "fixtureIds": [
+              "phase11-statistics"
+            ],
+            "scope": "66 implementation regression frames; 40 independently transcribed significant native checkpoints. Raw numeric/entry-state differences remain explicit.",
+            "capabilityIds": [
+              "el506.key.el506-k29",
+              "el506.base.el506-k29",
+              "el506.second.el506-k29",
+              "el506.second.el506-k28",
+              "el506.key.el506-k04",
+              "el506.context.stat.data-separator",
+              "el506.mode.stat",
+              "el506.stat.submode.sd",
+              "el506.stat.submode.line",
+              "el506.context.stat-data-commit",
+              "el506.context.stat-data-deletion"
+            ]
+          }
+        ],
         "scope": "Explicit canonical baseline browser replays only; legacy regression coverage is not inferred as parity."
       }
     },
@@ -37400,18 +38157,86 @@
         "policy": "Frozen baseline classification; infrastructure refactors do not promote capability parity."
       },
       "unitTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "partial",
+        "evidence": [
+          {
+            "kind": "unit",
+            "path": "tests/unit/phase11.test.js",
+            "anchor": "Statistics DATA stores independent observations and explicit signed weights",
+            "capabilityIds": [
+              "el506.key.el506-k29",
+              "el506.base.el506-k29",
+              "el506.second.el506-k29",
+              "el506.second.el506-k28",
+              "el506.key.el506-k04",
+              "el506.context.stat.data-separator",
+              "el506.mode.stat",
+              "el506.stat.submode.sd",
+              "el506.stat.submode.line",
+              "el506.context.stat-data-commit",
+              "el506.context.stat-data-deletion"
+            ],
+            "scope": "Physical statistics entry, signed weights, browsing/correction/deletion/persistence, 100-slot capacity and snapshot schema 11; results and regressions stay Phase 12."
+          }
+        ],
         "scope": "Explicit mapped assertions only; unlisted coverage is unassessed."
       },
       "goldenTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "baseline-known-differences",
+        "evidence": [
+          {
+            "fixtureId": "phase11-statistics",
+            "status": "known-differences",
+            "assertedFrames": 66
+          }
+        ],
         "scope": "Baseline characterization only; all current supported fixtures have oracle display differences."
       },
       "browserTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "partial",
+        "evidence": [
+          {
+            "kind": "browser",
+            "path": "tests/e2e/phase11.spec.js",
+            "anchor": "Statistics weighted DATA browse correct and delete use physical buttons",
+            "capabilityIds": [
+              "el506.key.el506-k29",
+              "el506.base.el506-k29",
+              "el506.second.el506-k29",
+              "el506.second.el506-k28",
+              "el506.key.el506-k04",
+              "el506.context.stat.data-separator",
+              "el506.mode.stat",
+              "el506.stat.submode.sd",
+              "el506.stat.submode.line",
+              "el506.context.stat-data-commit",
+              "el506.context.stat-data-deletion"
+            ],
+            "scope": "Physical SD/paired DATA, keyboard comma, browsing, correction/deletion, capacity errors, snapshot isolation and fraction bounds."
+          },
+          {
+            "kind": "browser",
+            "path": "tests/e2e/golden.spec.js",
+            "anchor": "canonical baseline browser replay",
+            "fixtureIds": [
+              "phase11-statistics"
+            ],
+            "scope": "66 implementation regression frames; 40 independently transcribed significant native checkpoints. Raw numeric/entry-state differences remain explicit.",
+            "capabilityIds": [
+              "el506.key.el506-k29",
+              "el506.base.el506-k29",
+              "el506.second.el506-k29",
+              "el506.second.el506-k28",
+              "el506.key.el506-k04",
+              "el506.context.stat.data-separator",
+              "el506.mode.stat",
+              "el506.stat.submode.sd",
+              "el506.stat.submode.line",
+              "el506.context.stat-data-commit",
+              "el506.context.stat-data-deletion"
+            ]
+          }
+        ],
         "scope": "Explicit canonical baseline browser replays only; legacy regression coverage is not inferred as parity."
       }
     },
@@ -37444,18 +38269,86 @@
         "policy": "Frozen baseline classification; infrastructure refactors do not promote capability parity."
       },
       "unitTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "partial",
+        "evidence": [
+          {
+            "kind": "unit",
+            "path": "tests/unit/phase11.test.js",
+            "anchor": "Statistics DATA stores independent observations and explicit signed weights",
+            "capabilityIds": [
+              "el506.key.el506-k29",
+              "el506.base.el506-k29",
+              "el506.second.el506-k29",
+              "el506.second.el506-k28",
+              "el506.key.el506-k04",
+              "el506.context.stat.data-separator",
+              "el506.mode.stat",
+              "el506.stat.submode.sd",
+              "el506.stat.submode.line",
+              "el506.context.stat-data-commit",
+              "el506.context.stat-data-deletion"
+            ],
+            "scope": "Physical statistics entry, signed weights, browsing/correction/deletion/persistence, 100-slot capacity and snapshot schema 11; results and regressions stay Phase 12."
+          }
+        ],
         "scope": "Explicit mapped assertions only; unlisted coverage is unassessed."
       },
       "goldenTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "baseline-known-differences",
+        "evidence": [
+          {
+            "fixtureId": "phase11-statistics",
+            "status": "known-differences",
+            "assertedFrames": 66
+          }
+        ],
         "scope": "Baseline characterization only; all current supported fixtures have oracle display differences."
       },
       "browserTested": {
-        "status": "pending",
-        "evidence": [],
+        "status": "partial",
+        "evidence": [
+          {
+            "kind": "browser",
+            "path": "tests/e2e/phase11.spec.js",
+            "anchor": "Statistics weighted DATA browse correct and delete use physical buttons",
+            "capabilityIds": [
+              "el506.key.el506-k29",
+              "el506.base.el506-k29",
+              "el506.second.el506-k29",
+              "el506.second.el506-k28",
+              "el506.key.el506-k04",
+              "el506.context.stat.data-separator",
+              "el506.mode.stat",
+              "el506.stat.submode.sd",
+              "el506.stat.submode.line",
+              "el506.context.stat-data-commit",
+              "el506.context.stat-data-deletion"
+            ],
+            "scope": "Physical SD/paired DATA, keyboard comma, browsing, correction/deletion, capacity errors, snapshot isolation and fraction bounds."
+          },
+          {
+            "kind": "browser",
+            "path": "tests/e2e/golden.spec.js",
+            "anchor": "canonical baseline browser replay",
+            "fixtureIds": [
+              "phase11-statistics"
+            ],
+            "scope": "66 implementation regression frames; 40 independently transcribed significant native checkpoints. Raw numeric/entry-state differences remain explicit.",
+            "capabilityIds": [
+              "el506.key.el506-k29",
+              "el506.base.el506-k29",
+              "el506.second.el506-k29",
+              "el506.second.el506-k28",
+              "el506.key.el506-k04",
+              "el506.context.stat.data-separator",
+              "el506.mode.stat",
+              "el506.stat.submode.sd",
+              "el506.stat.submode.line",
+              "el506.context.stat-data-commit",
+              "el506.context.stat-data-deletion"
+            ]
+          }
+        ],
         "scope": "Explicit canonical baseline browser replays only; legacy regression coverage is not inferred as parity."
       }
     },

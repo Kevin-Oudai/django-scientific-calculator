@@ -683,6 +683,69 @@
         "phase10-calculus"
       ],
       "scope": "42 implementation regression frames; 24 independently transcribed native checkpoints. Derivative guide precision gap and raw-state differences remain explicit."
+    },
+    {
+      "kind": "unit",
+      "path": "tests/unit/phase11.test.js",
+      "anchor": "Statistics DATA stores independent observations and explicit signed weights",
+      "capabilityIds": [
+        "el506.key.el506-k29",
+        "el506.base.el506-k29",
+        "el506.second.el506-k29",
+        "el506.second.el506-k28",
+        "el506.key.el506-k04",
+        "el506.context.stat.data-separator",
+        "el506.mode.stat",
+        "el506.stat.submode.sd",
+        "el506.stat.submode.line",
+        "el506.context.stat-data-commit",
+        "el506.context.stat-data-deletion"
+      ],
+      "scope": "Physical statistics entry, signed weights, browsing/correction/deletion/persistence, 100-slot capacity and snapshot schema 11; results and regressions stay Phase 12."
+    },
+    {
+      "kind": "browser",
+      "path": "tests/e2e/phase11.spec.js",
+      "anchor": "Statistics weighted DATA browse correct and delete use physical buttons",
+      "capabilityIds": [
+        "el506.key.el506-k29",
+        "el506.base.el506-k29",
+        "el506.second.el506-k29",
+        "el506.second.el506-k28",
+        "el506.key.el506-k04",
+        "el506.context.stat.data-separator",
+        "el506.mode.stat",
+        "el506.stat.submode.sd",
+        "el506.stat.submode.line",
+        "el506.context.stat-data-commit",
+        "el506.context.stat-data-deletion"
+      ],
+      "scope": "Physical SD/paired DATA, keyboard comma, browsing, correction/deletion, capacity errors, snapshot isolation and fraction bounds."
+    },
+    {
+      "kind": "browser",
+      "path": "tests/e2e/golden.spec.js",
+      "anchor": "canonical baseline browser replay",
+      "fixtureIds": [
+        "phase11-statistics"
+      ],
+      "scope": "66 implementation regression frames; 40 independently transcribed significant native checkpoints. Raw numeric/entry-state differences remain explicit."
+    },
+    {
+      "kind": "unit",
+      "path": "tests/unit/phase11.test.js",
+      "anchor": "Statistics seven native submodes and indicators exclude three-variable STAT",
+      "capabilityIds": [
+        "el506.mode.stat",
+        "el506.stat.submode.sd",
+        "el506.stat.submode.line",
+        "el506.stat.submode.quad",
+        "el506.stat.submode.exp",
+        "el506.stat.submode.log",
+        "el506.stat.submode.pwr",
+        "el506.stat.submode.inv"
+      ],
+      "scope": "Phase 11 submenu selection names/indices and STAT indicator only. Statistical results and all regression algorithms remain Phase 12."
     }
   ]
 }

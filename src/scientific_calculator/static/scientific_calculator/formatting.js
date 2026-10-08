@@ -411,6 +411,13 @@
     if(state.layers.intent?.kind==='solver-error'){view.expressionHtml=escapeHtml('Error '+state.control.errorCode);view.resultHtml='';}
     if(state.layers.intent?.kind==='calculus-error'){view.expressionHtml=escapeHtml('Error '+state.control.errorCode);view.resultHtml='';view.cursorVisible=false;}
     if(state.layers.intent?.kind==='calculus-result'&&!workflow.kind&&state.lifecycle==='evaluated'){view.expressionHtml=escapeHtml(state.displayExpression);view.cursorVisible=false;}
+    if(mode==='STAT'&&!workflow.kind&&state.control.power==='on'){
+      const p=state.control.statistics,width=state.control.submode==='SD'?2:3;
+      if(p.parts.length){view.expressionHtml=formatExpression(p.parts.join(',')+',')+'<span class="scicalc__cursor" aria-hidden="true"></span>';view.cursorVisible=true;}
+      if(state.layers.intent?.kind==='statistics-display'){view.expressionHtml=escapeHtml(state.displayExpression);view.resultHtml=sharpNumber(Number(state.displayResult),settings).html;view.cursorVisible=false;}
+      if(p.cursor!==null){view.previousPage=p.cursor>0;view.nextPage=p.cursor<state.values.statistics.rows.length*width-1;}
+      if(state.layers.intent?.kind==='statistics-error'){view.expressionHtml=escapeHtml('Error '+state.control.errorCode);view.resultHtml='';view.cursorVisible=false;}
+    }
     if(state.control?.nbase?.radix!==10&&state.control?.nbase&&state.control.power==='on'&&(!workflow.kind||workflow.kind==='prompt'&&['STO','RCL'].includes(workflow.payload.id))){
       const base=state.control.nbase.radix,name=({2:'BIN',5:'PEN',8:'OCT',16:'HEX'})[base];
       for(const k of ['BIN','PEN','OCT','DEC','HEX'])indicators[k]=k===name;

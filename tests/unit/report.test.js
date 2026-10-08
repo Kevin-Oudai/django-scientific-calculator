@@ -19,9 +19,10 @@ test("generated report is deterministic, current and has independent evidence fo
   assert.equal(power.goldenTested.status, "baseline-known-differences");
   assert.equal(power.browserTested.status, "partial");
   const mode = report.rows.find(r => r.id === "el506.key.el506-k04");
-  assert.equal(mode.goldenTested.status, "pending");
+  assert.equal(mode.goldenTested.status, "baseline-known-differences");
   assert.equal(mode.browserTested.status, "partial");
   assert.equal(mode.goldenTested.evidence[0].assertedFrames, 0);
+  assert.equal(mode.goldenTested.evidence.find(e=>e.fixtureId==='phase11-statistics').assertedFrames,66);
   for (const [file, text] of Object.entries(artifacts())) {
     assert.equal(normalizeText(fs.readFileSync(path.join(__dirname, "../reference/el506ts", file), "utf8")), text);
     assert.equal(normalizeText(text.replace(/\n/g, "\r\n")), text);

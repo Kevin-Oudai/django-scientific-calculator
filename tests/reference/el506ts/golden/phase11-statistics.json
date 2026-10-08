@@ -1,0 +1,2919 @@
+{
+  "schemaVersion": 1,
+  "id": "phase11-statistics",
+  "dispatch": "physical",
+  "displayProfile": "physical",
+  "status": "baseline-characterization",
+  "reference": "experiments/phase11-statistics.json",
+  "sequence": [
+    "EL506-K04",
+    "EL506-K40",
+    "EL506-K45",
+    "EL506-K40",
+    "EL506-K29",
+    "EL506-K11",
+    "EL506-K11",
+    "EL506-K41",
+    "EL506-K48",
+    "EL506-K29",
+    "EL506-K02",
+    "EL506-K42",
+    "EL506-K03",
+    "EL506-K28",
+    "EL506-K45",
+    "EL506-K29",
+    "EL506-K08",
+    "EL506-K03",
+    "EL506-K29",
+    "EL506-K04",
+    "EL506-K40",
+    "EL506-K11",
+    "EL506-K11",
+    "EL506-K40",
+    "EL506-K41",
+    "EL506-K03",
+    "EL506-K28",
+    "EL506-K35",
+    "EL506-K29",
+    "EL506-K11",
+    "EL506-K11",
+    "EL506-K45",
+    "EL506-K03",
+    "EL506-K28",
+    "EL506-K36",
+    "EL506-K29",
+    "EL506-K08",
+    "EL506-K11",
+    "EL506-K11",
+    "EL506-K41",
+    "EL506-K47",
+    "EL506-K29",
+    "EL506-K08",
+    "EL506-K11",
+    "EL506-K45",
+    "EL506-K29",
+    "EL506-K29",
+    "EL506-K02",
+    "EL506-K40",
+    "EL506-K03",
+    "EL506-K28",
+    "EL506-K41",
+    "EL506-K03",
+    "EL506-K28",
+    "EL506-K46",
+    "EL506-K36",
+    "EL506-K29",
+    "EL506-K08",
+    "EL506-K03",
+    "EL506-K02",
+    "EL506-K02",
+    "EL506-K08",
+    "EL506-K03",
+    "EL506-K04",
+    "EL506-K08"
+  ],
+  "capabilityIds": [
+    "el506.key.el506-k29",
+    "el506.base.el506-k29",
+    "el506.second.el506-k29",
+    "el506.second.el506-k28",
+    "el506.key.el506-k04",
+    "el506.context.stat.data-separator",
+    "el506.mode.stat",
+    "el506.stat.submode.sd",
+    "el506.stat.submode.line",
+    "el506.context.stat-data-commit",
+    "el506.context.stat-data-deletion"
+  ],
+  "expected": [
+    {
+      "afterStep": 0,
+      "assertions": {
+        "displayExpression": "",
+        "displayResult": "0",
+        "lifecycle": "empty",
+        "answer": 0,
+        "memoryValue": 0,
+        "workflow.kind": null,
+        "control.submode": null,
+        "control.statistics": {
+          "parts": [],
+          "cursor": null,
+          "editing": false,
+          "frequencies": []
+        },
+        "values.statistics": {
+          "kind": "statistics",
+          "rows": []
+        },
+        "control.errorCode": null
+      },
+      "viewAssertions": {
+        "expressionHtml": "",
+        "resultHtml": "0.",
+        "previousPage": false,
+        "nextPage": false
+      },
+      "domResultText": "0."
+    },
+    {
+      "afterStep": 1,
+      "assertions": {
+        "displayExpression": "",
+        "displayResult": "0",
+        "lifecycle": "menu",
+        "answer": 0,
+        "memoryValue": 0,
+        "workflow.kind": "menu",
+        "control.submode": null,
+        "control.statistics": {
+          "parts": [],
+          "cursor": null,
+          "editing": false,
+          "frequencies": []
+        },
+        "values.statistics": {
+          "kind": "statistics",
+          "rows": []
+        },
+        "control.errorCode": null
+      },
+      "viewAssertions": {
+        "expressionHtml": "NORMAL   STAT",
+        "resultHtml": "0•   1",
+        "previousPage": false,
+        "nextPage": true
+      },
+      "domResultText": "0•   1"
+    },
+    {
+      "afterStep": 2,
+      "assertions": {
+        "displayExpression": "",
+        "displayResult": "0",
+        "lifecycle": "menu",
+        "answer": 0,
+        "memoryValue": 0,
+        "workflow.kind": "menu",
+        "control.submode": null,
+        "control.statistics": {
+          "parts": [],
+          "cursor": null,
+          "editing": false,
+          "frequencies": []
+        },
+        "values.statistics": {
+          "kind": "statistics",
+          "rows": []
+        },
+        "control.errorCode": null
+      },
+      "viewAssertions": {
+        "expressionHtml": "SD   LINE   QUAD",
+        "resultHtml": "0•   1   2",
+        "previousPage": false,
+        "nextPage": true
+      },
+      "domResultText": "0•   1   2"
+    },
+    {
+      "afterStep": 3,
+      "assertions": {
+        "displayExpression": "",
+        "displayResult": "0",
+        "lifecycle": "empty",
+        "answer": 0,
+        "memoryValue": 0,
+        "workflow.kind": null,
+        "control.submode": "SD",
+        "control.statistics": {
+          "parts": [],
+          "cursor": null,
+          "editing": false,
+          "frequencies": []
+        },
+        "values.statistics": {
+          "kind": "statistics",
+          "rows": []
+        },
+        "control.errorCode": null
+      },
+      "viewAssertions": {
+        "expressionHtml": "Stat 0",
+        "resultHtml": "0.",
+        "previousPage": false,
+        "nextPage": false
+      },
+      "domResultText": "0."
+    },
+    {
+      "afterStep": 4,
+      "assertions": {
+        "displayExpression": "",
+        "displayResult": "1",
+        "lifecycle": "entering",
+        "answer": 0,
+        "memoryValue": 0,
+        "workflow.kind": null,
+        "control.submode": "SD",
+        "control.statistics": {
+          "parts": [],
+          "cursor": null,
+          "editing": true,
+          "frequencies": []
+        },
+        "values.statistics": {
+          "kind": "statistics",
+          "rows": []
+        },
+        "control.errorCode": null
+      },
+      "viewAssertions": {
+        "expressionHtml": "",
+        "resultHtml": "1.",
+        "previousPage": false,
+        "nextPage": false
+      },
+      "domResultText": "1."
+    },
+    {
+      "afterStep": 5,
+      "assertions": {
+        "displayExpression": "DATA SET=",
+        "displayResult": "1",
+        "lifecycle": "empty",
+        "answer": 0,
+        "memoryValue": 0,
+        "workflow.kind": null,
+        "control.submode": "SD",
+        "control.statistics": {
+          "parts": [],
+          "cursor": null,
+          "editing": false,
+          "frequencies": [
+            false
+          ]
+        },
+        "values.statistics": {
+          "kind": "statistics",
+          "rows": [
+            {
+              "x": {
+                "kind": "scalar",
+                "value": 1
+              },
+              "y": null,
+              "weight": 1
+            }
+          ]
+        },
+        "control.errorCode": null
+      },
+      "viewAssertions": {
+        "expressionHtml": "DATA SET=",
+        "resultHtml": "1.",
+        "previousPage": false,
+        "nextPage": false
+      },
+      "domResultText": "1."
+    },
+    {
+      "afterStep": 6,
+      "assertions": {
+        "displayExpression": "X1=",
+        "displayResult": "1",
+        "lifecycle": "empty",
+        "answer": 0,
+        "memoryValue": 0,
+        "workflow.kind": null,
+        "control.submode": "SD",
+        "control.statistics": {
+          "parts": [],
+          "cursor": 0,
+          "editing": false,
+          "frequencies": [
+            false
+          ]
+        },
+        "values.statistics": {
+          "kind": "statistics",
+          "rows": [
+            {
+              "x": {
+                "kind": "scalar",
+                "value": 1
+              },
+              "y": null,
+              "weight": 1
+            }
+          ]
+        },
+        "control.errorCode": null
+      },
+      "viewAssertions": {
+        "expressionHtml": "X1=",
+        "resultHtml": "1.",
+        "previousPage": false,
+        "nextPage": true
+      },
+      "domResultText": "1."
+    },
+    {
+      "afterStep": 7,
+      "assertions": {
+        "displayExpression": "N1=",
+        "displayResult": "1",
+        "lifecycle": "empty",
+        "answer": 0,
+        "memoryValue": 0,
+        "workflow.kind": null,
+        "control.submode": "SD",
+        "control.statistics": {
+          "parts": [],
+          "cursor": 1,
+          "editing": false,
+          "frequencies": [
+            false
+          ]
+        },
+        "values.statistics": {
+          "kind": "statistics",
+          "rows": [
+            {
+              "x": {
+                "kind": "scalar",
+                "value": 1
+              },
+              "y": null,
+              "weight": 1
+            }
+          ]
+        },
+        "control.errorCode": null
+      },
+      "viewAssertions": {
+        "expressionHtml": "N1=",
+        "resultHtml": "1.",
+        "previousPage": true,
+        "nextPage": false
+      },
+      "domResultText": "1."
+    },
+    {
+      "afterStep": 8,
+      "assertions": {
+        "displayExpression": "",
+        "displayResult": "2",
+        "lifecycle": "entering",
+        "answer": 0,
+        "memoryValue": 0,
+        "workflow.kind": null,
+        "control.submode": "SD",
+        "control.statistics": {
+          "parts": [],
+          "cursor": 1,
+          "editing": true,
+          "frequencies": [
+            false
+          ]
+        },
+        "values.statistics": {
+          "kind": "statistics",
+          "rows": [
+            {
+              "x": {
+                "kind": "scalar",
+                "value": 1
+              },
+              "y": null,
+              "weight": 1
+            }
+          ]
+        },
+        "control.errorCode": null
+      },
+      "viewAssertions": {
+        "expressionHtml": "",
+        "resultHtml": "2.",
+        "previousPage": true,
+        "nextPage": false
+      },
+      "domResultText": "2."
+    },
+    {
+      "afterStep": 9,
+      "assertions": {
+        "displayExpression": "2=",
+        "displayResult": "2",
+        "lifecycle": "evaluated",
+        "answer": 2,
+        "memoryValue": 0,
+        "workflow.kind": null,
+        "control.submode": "SD",
+        "control.statistics": {
+          "parts": [],
+          "cursor": 1,
+          "editing": true,
+          "frequencies": [
+            false
+          ]
+        },
+        "values.statistics": {
+          "kind": "statistics",
+          "rows": [
+            {
+              "x": {
+                "kind": "scalar",
+                "value": 1
+              },
+              "y": null,
+              "weight": 1
+            }
+          ]
+        },
+        "control.errorCode": null
+      },
+      "viewAssertions": {
+        "expressionHtml": "2<span class=\"scicalc__display-operator\">=</span>",
+        "resultHtml": "2.",
+        "previousPage": true,
+        "nextPage": false
+      },
+      "domResultText": "2."
+    },
+    {
+      "afterStep": 10,
+      "assertions": {
+        "displayExpression": "N1=",
+        "displayResult": "2",
+        "lifecycle": "empty",
+        "answer": 2,
+        "memoryValue": 0,
+        "workflow.kind": null,
+        "control.submode": "SD",
+        "control.statistics": {
+          "parts": [],
+          "cursor": 1,
+          "editing": false,
+          "frequencies": [
+            true
+          ]
+        },
+        "values.statistics": {
+          "kind": "statistics",
+          "rows": [
+            {
+              "x": {
+                "kind": "scalar",
+                "value": 1
+              },
+              "y": null,
+              "weight": 2
+            }
+          ]
+        },
+        "control.errorCode": null
+      },
+      "viewAssertions": {
+        "expressionHtml": "N1=",
+        "resultHtml": "2.",
+        "previousPage": true,
+        "nextPage": false
+      },
+      "domResultText": "2."
+    },
+    {
+      "afterStep": 11,
+      "assertions": {
+        "displayExpression": "",
+        "displayResult": "0",
+        "lifecycle": "empty",
+        "answer": 2,
+        "memoryValue": 0,
+        "workflow.kind": null,
+        "control.submode": "SD",
+        "control.statistics": {
+          "parts": [],
+          "cursor": null,
+          "editing": false,
+          "frequencies": [
+            true
+          ]
+        },
+        "values.statistics": {
+          "kind": "statistics",
+          "rows": [
+            {
+              "x": {
+                "kind": "scalar",
+                "value": 1
+              },
+              "y": null,
+              "weight": 2
+            }
+          ]
+        },
+        "control.errorCode": null
+      },
+      "viewAssertions": {
+        "expressionHtml": "Stat 0",
+        "resultHtml": "0.",
+        "previousPage": false,
+        "nextPage": false
+      },
+      "domResultText": "0."
+    },
+    {
+      "afterStep": 12,
+      "assertions": {
+        "displayExpression": "",
+        "displayResult": "3",
+        "lifecycle": "entering",
+        "answer": 2,
+        "memoryValue": 0,
+        "workflow.kind": null,
+        "control.submode": "SD",
+        "control.statistics": {
+          "parts": [],
+          "cursor": null,
+          "editing": true,
+          "frequencies": [
+            true
+          ]
+        },
+        "values.statistics": {
+          "kind": "statistics",
+          "rows": [
+            {
+              "x": {
+                "kind": "scalar",
+                "value": 1
+              },
+              "y": null,
+              "weight": 2
+            }
+          ]
+        },
+        "control.errorCode": null
+      },
+      "viewAssertions": {
+        "expressionHtml": "",
+        "resultHtml": "3.",
+        "previousPage": false,
+        "nextPage": false
+      },
+      "domResultText": "3."
+    },
+    {
+      "afterStep": 13,
+      "assertions": {
+        "displayExpression": "",
+        "displayResult": "3",
+        "lifecycle": "entering",
+        "answer": 2,
+        "memoryValue": 0,
+        "workflow.kind": null,
+        "control.submode": "SD",
+        "control.statistics": {
+          "parts": [],
+          "cursor": null,
+          "editing": true,
+          "frequencies": [
+            true
+          ]
+        },
+        "values.statistics": {
+          "kind": "statistics",
+          "rows": [
+            {
+              "x": {
+                "kind": "scalar",
+                "value": 1
+              },
+              "y": null,
+              "weight": 2
+            }
+          ]
+        },
+        "control.errorCode": null
+      },
+      "viewAssertions": {
+        "expressionHtml": "",
+        "resultHtml": "3.",
+        "previousPage": false,
+        "nextPage": false
+      },
+      "domResultText": "3."
+    },
+    {
+      "afterStep": 14,
+      "assertions": {
+        "displayExpression": "",
+        "displayResult": "0",
+        "lifecycle": "entering",
+        "answer": 2,
+        "memoryValue": 0,
+        "workflow.kind": null,
+        "control.submode": "SD",
+        "control.statistics": {
+          "parts": [
+            "3"
+          ],
+          "cursor": null,
+          "editing": true,
+          "frequencies": [
+            true
+          ]
+        },
+        "values.statistics": {
+          "kind": "statistics",
+          "rows": [
+            {
+              "x": {
+                "kind": "scalar",
+                "value": 1
+              },
+              "y": null,
+              "weight": 2
+            }
+          ]
+        },
+        "control.errorCode": null
+      },
+      "viewAssertions": {
+        "expressionHtml": "3,<span class=\"scicalc__cursor\" aria-hidden=\"true\"></span>",
+        "resultHtml": "0.",
+        "previousPage": false,
+        "nextPage": false
+      },
+      "domResultText": "0."
+    },
+    {
+      "afterStep": 15,
+      "assertions": {
+        "displayExpression": "",
+        "displayResult": "0",
+        "lifecycle": "entering",
+        "answer": 2,
+        "memoryValue": 0,
+        "workflow.kind": null,
+        "control.submode": "SD",
+        "control.statistics": {
+          "parts": [
+            "3"
+          ],
+          "cursor": null,
+          "editing": true,
+          "frequencies": [
+            true
+          ]
+        },
+        "values.statistics": {
+          "kind": "statistics",
+          "rows": [
+            {
+              "x": {
+                "kind": "scalar",
+                "value": 1
+              },
+              "y": null,
+              "weight": 2
+            }
+          ]
+        },
+        "control.errorCode": null
+      },
+      "viewAssertions": {
+        "expressionHtml": "3,<span class=\"scicalc__cursor\" aria-hidden=\"true\"></span>",
+        "resultHtml": "0.",
+        "previousPage": false,
+        "nextPage": false
+      },
+      "domResultText": "0."
+    },
+    {
+      "afterStep": 16,
+      "assertions": {
+        "displayExpression": "DATA SET=",
+        "displayResult": "1",
+        "lifecycle": "empty",
+        "answer": 2,
+        "memoryValue": 0,
+        "workflow.kind": null,
+        "control.submode": "SD",
+        "control.statistics": {
+          "parts": [],
+          "cursor": null,
+          "editing": false,
+          "frequencies": [
+            true
+          ]
+        },
+        "values.statistics": {
+          "kind": "statistics",
+          "rows": [
+            {
+              "x": {
+                "kind": "scalar",
+                "value": 1
+              },
+              "y": null,
+              "weight": 2
+            }
+          ]
+        },
+        "control.errorCode": null
+      },
+      "viewAssertions": {
+        "expressionHtml": "DATA SET=",
+        "resultHtml": "1.",
+        "previousPage": false,
+        "nextPage": false
+      },
+      "domResultText": "1."
+    },
+    {
+      "afterStep": 17,
+      "assertions": {
+        "displayExpression": "N1=",
+        "displayResult": "2",
+        "lifecycle": "empty",
+        "answer": 2,
+        "memoryValue": 0,
+        "workflow.kind": null,
+        "control.submode": "SD",
+        "control.statistics": {
+          "parts": [],
+          "cursor": 1,
+          "editing": false,
+          "frequencies": [
+            true
+          ]
+        },
+        "values.statistics": {
+          "kind": "statistics",
+          "rows": [
+            {
+              "x": {
+                "kind": "scalar",
+                "value": 1
+              },
+              "y": null,
+              "weight": 2
+            }
+          ]
+        },
+        "control.errorCode": null
+      },
+      "viewAssertions": {
+        "expressionHtml": "N1=",
+        "resultHtml": "2.",
+        "previousPage": true,
+        "nextPage": false
+      },
+      "domResultText": "2."
+    },
+    {
+      "afterStep": 18,
+      "assertions": {
+        "displayExpression": "N1=",
+        "displayResult": "2",
+        "lifecycle": "empty",
+        "answer": 2,
+        "memoryValue": 0,
+        "workflow.kind": null,
+        "control.submode": "SD",
+        "control.statistics": {
+          "parts": [],
+          "cursor": 1,
+          "editing": false,
+          "frequencies": [
+            true
+          ]
+        },
+        "values.statistics": {
+          "kind": "statistics",
+          "rows": [
+            {
+              "x": {
+                "kind": "scalar",
+                "value": 1
+              },
+              "y": null,
+              "weight": 2
+            }
+          ]
+        },
+        "control.errorCode": null
+      },
+      "viewAssertions": {
+        "expressionHtml": "N1=",
+        "resultHtml": "2.",
+        "previousPage": true,
+        "nextPage": false
+      },
+      "domResultText": "2."
+    },
+    {
+      "afterStep": 19,
+      "assertions": {
+        "displayExpression": "DATA SET=",
+        "displayResult": "0",
+        "lifecycle": "empty",
+        "answer": 2,
+        "memoryValue": 0,
+        "workflow.kind": null,
+        "control.submode": "SD",
+        "control.statistics": {
+          "parts": [],
+          "cursor": null,
+          "editing": false,
+          "frequencies": []
+        },
+        "values.statistics": {
+          "kind": "statistics",
+          "rows": []
+        },
+        "control.errorCode": null
+      },
+      "viewAssertions": {
+        "expressionHtml": "DATA SET=",
+        "resultHtml": "0.",
+        "previousPage": false,
+        "nextPage": false
+      },
+      "domResultText": "0."
+    },
+    {
+      "afterStep": 20,
+      "assertions": {
+        "displayExpression": "DATA SET=",
+        "displayResult": "0",
+        "lifecycle": "menu",
+        "answer": 2,
+        "memoryValue": 0,
+        "workflow.kind": "menu",
+        "control.submode": "SD",
+        "control.statistics": {
+          "parts": [],
+          "cursor": null,
+          "editing": false,
+          "frequencies": []
+        },
+        "values.statistics": {
+          "kind": "statistics",
+          "rows": []
+        },
+        "control.errorCode": null
+      },
+      "viewAssertions": {
+        "expressionHtml": "NORMAL   STAT",
+        "resultHtml": "0•   1",
+        "previousPage": false,
+        "nextPage": true
+      },
+      "domResultText": "0•   1"
+    },
+    {
+      "afterStep": 21,
+      "assertions": {
+        "displayExpression": "DATA SET=",
+        "displayResult": "0",
+        "lifecycle": "menu",
+        "answer": 2,
+        "memoryValue": 0,
+        "workflow.kind": "menu",
+        "control.submode": "SD",
+        "control.statistics": {
+          "parts": [],
+          "cursor": null,
+          "editing": false,
+          "frequencies": []
+        },
+        "values.statistics": {
+          "kind": "statistics",
+          "rows": []
+        },
+        "control.errorCode": null
+      },
+      "viewAssertions": {
+        "expressionHtml": "SD   LINE   QUAD",
+        "resultHtml": "0•   1   2",
+        "previousPage": false,
+        "nextPage": true
+      },
+      "domResultText": "0•   1   2"
+    },
+    {
+      "afterStep": 22,
+      "assertions": {
+        "displayExpression": "DATA SET=",
+        "displayResult": "0",
+        "lifecycle": "menu",
+        "answer": 2,
+        "memoryValue": 0,
+        "workflow.kind": "menu",
+        "control.submode": "SD",
+        "control.statistics": {
+          "parts": [],
+          "cursor": null,
+          "editing": false,
+          "frequencies": []
+        },
+        "values.statistics": {
+          "kind": "statistics",
+          "rows": []
+        },
+        "control.errorCode": null
+      },
+      "viewAssertions": {
+        "expressionHtml": "EXP   LOG   PWR",
+        "resultHtml": "3•   4   5",
+        "previousPage": true,
+        "nextPage": true
+      },
+      "domResultText": "3•   4   5"
+    },
+    {
+      "afterStep": 23,
+      "assertions": {
+        "displayExpression": "DATA SET=",
+        "displayResult": "0",
+        "lifecycle": "menu",
+        "answer": 2,
+        "memoryValue": 0,
+        "workflow.kind": "menu",
+        "control.submode": "SD",
+        "control.statistics": {
+          "parts": [],
+          "cursor": null,
+          "editing": false,
+          "frequencies": []
+        },
+        "values.statistics": {
+          "kind": "statistics",
+          "rows": []
+        },
+        "control.errorCode": null
+      },
+      "viewAssertions": {
+        "expressionHtml": "INV",
+        "resultHtml": "6•",
+        "previousPage": true,
+        "nextPage": false
+      },
+      "domResultText": "6•"
+    },
+    {
+      "afterStep": 24,
+      "assertions": {
+        "displayExpression": "",
+        "displayResult": "0",
+        "lifecycle": "empty",
+        "answer": 0,
+        "memoryValue": 0,
+        "workflow.kind": null,
+        "control.submode": "LINE",
+        "control.statistics": {
+          "parts": [],
+          "cursor": null,
+          "editing": false,
+          "frequencies": []
+        },
+        "values.statistics": {
+          "kind": "statistics",
+          "rows": []
+        },
+        "control.errorCode": null
+      },
+      "viewAssertions": {
+        "expressionHtml": "Stat 1",
+        "resultHtml": "0.",
+        "previousPage": false,
+        "nextPage": false
+      },
+      "domResultText": "0."
+    },
+    {
+      "afterStep": 25,
+      "assertions": {
+        "displayExpression": "",
+        "displayResult": "2",
+        "lifecycle": "entering",
+        "answer": 0,
+        "memoryValue": 0,
+        "workflow.kind": null,
+        "control.submode": "LINE",
+        "control.statistics": {
+          "parts": [],
+          "cursor": null,
+          "editing": true,
+          "frequencies": []
+        },
+        "values.statistics": {
+          "kind": "statistics",
+          "rows": []
+        },
+        "control.errorCode": null
+      },
+      "viewAssertions": {
+        "expressionHtml": "",
+        "resultHtml": "2.",
+        "previousPage": false,
+        "nextPage": false
+      },
+      "domResultText": "2."
+    },
+    {
+      "afterStep": 26,
+      "assertions": {
+        "displayExpression": "",
+        "displayResult": "2",
+        "lifecycle": "entering",
+        "answer": 0,
+        "memoryValue": 0,
+        "workflow.kind": null,
+        "control.submode": "LINE",
+        "control.statistics": {
+          "parts": [],
+          "cursor": null,
+          "editing": true,
+          "frequencies": []
+        },
+        "values.statistics": {
+          "kind": "statistics",
+          "rows": []
+        },
+        "control.errorCode": null
+      },
+      "viewAssertions": {
+        "expressionHtml": "",
+        "resultHtml": "2.",
+        "previousPage": false,
+        "nextPage": false
+      },
+      "domResultText": "2."
+    },
+    {
+      "afterStep": 27,
+      "assertions": {
+        "displayExpression": "",
+        "displayResult": "0",
+        "lifecycle": "entering",
+        "answer": 0,
+        "memoryValue": 0,
+        "workflow.kind": null,
+        "control.submode": "LINE",
+        "control.statistics": {
+          "parts": [
+            "2"
+          ],
+          "cursor": null,
+          "editing": true,
+          "frequencies": []
+        },
+        "values.statistics": {
+          "kind": "statistics",
+          "rows": []
+        },
+        "control.errorCode": null
+      },
+      "viewAssertions": {
+        "expressionHtml": "2,<span class=\"scicalc__cursor\" aria-hidden=\"true\"></span>",
+        "resultHtml": "0.",
+        "previousPage": false,
+        "nextPage": false
+      },
+      "domResultText": "0."
+    },
+    {
+      "afterStep": 28,
+      "assertions": {
+        "displayExpression": "",
+        "displayResult": "4",
+        "lifecycle": "entering",
+        "answer": 0,
+        "memoryValue": 0,
+        "workflow.kind": null,
+        "control.submode": "LINE",
+        "control.statistics": {
+          "parts": [
+            "2"
+          ],
+          "cursor": null,
+          "editing": true,
+          "frequencies": []
+        },
+        "values.statistics": {
+          "kind": "statistics",
+          "rows": []
+        },
+        "control.errorCode": null
+      },
+      "viewAssertions": {
+        "expressionHtml": "2,<span class=\"scicalc__cursor\" aria-hidden=\"true\"></span>",
+        "resultHtml": "4.",
+        "previousPage": false,
+        "nextPage": false
+      },
+      "domResultText": "4."
+    },
+    {
+      "afterStep": 29,
+      "assertions": {
+        "displayExpression": "DATA SET=",
+        "displayResult": "1",
+        "lifecycle": "empty",
+        "answer": 0,
+        "memoryValue": 0,
+        "workflow.kind": null,
+        "control.submode": "LINE",
+        "control.statistics": {
+          "parts": [],
+          "cursor": null,
+          "editing": false,
+          "frequencies": [
+            false
+          ]
+        },
+        "values.statistics": {
+          "kind": "statistics",
+          "rows": [
+            {
+              "x": {
+                "kind": "scalar",
+                "value": 2
+              },
+              "y": {
+                "kind": "scalar",
+                "value": 4
+              },
+              "weight": 1
+            }
+          ]
+        },
+        "control.errorCode": null
+      },
+      "viewAssertions": {
+        "expressionHtml": "DATA SET=",
+        "resultHtml": "1.",
+        "previousPage": false,
+        "nextPage": false
+      },
+      "domResultText": "1."
+    },
+    {
+      "afterStep": 30,
+      "assertions": {
+        "displayExpression": "X1=",
+        "displayResult": "2",
+        "lifecycle": "empty",
+        "answer": 0,
+        "memoryValue": 0,
+        "workflow.kind": null,
+        "control.submode": "LINE",
+        "control.statistics": {
+          "parts": [],
+          "cursor": 0,
+          "editing": false,
+          "frequencies": [
+            false
+          ]
+        },
+        "values.statistics": {
+          "kind": "statistics",
+          "rows": [
+            {
+              "x": {
+                "kind": "scalar",
+                "value": 2
+              },
+              "y": {
+                "kind": "scalar",
+                "value": 4
+              },
+              "weight": 1
+            }
+          ]
+        },
+        "control.errorCode": null
+      },
+      "viewAssertions": {
+        "expressionHtml": "X1=",
+        "resultHtml": "2.",
+        "previousPage": false,
+        "nextPage": true
+      },
+      "domResultText": "2."
+    },
+    {
+      "afterStep": 31,
+      "assertions": {
+        "displayExpression": "Y1=",
+        "displayResult": "4",
+        "lifecycle": "empty",
+        "answer": 0,
+        "memoryValue": 0,
+        "workflow.kind": null,
+        "control.submode": "LINE",
+        "control.statistics": {
+          "parts": [],
+          "cursor": 1,
+          "editing": false,
+          "frequencies": [
+            false
+          ]
+        },
+        "values.statistics": {
+          "kind": "statistics",
+          "rows": [
+            {
+              "x": {
+                "kind": "scalar",
+                "value": 2
+              },
+              "y": {
+                "kind": "scalar",
+                "value": 4
+              },
+              "weight": 1
+            }
+          ]
+        },
+        "control.errorCode": null
+      },
+      "viewAssertions": {
+        "expressionHtml": "Y1=",
+        "resultHtml": "4.",
+        "previousPage": true,
+        "nextPage": true
+      },
+      "domResultText": "4."
+    },
+    {
+      "afterStep": 32,
+      "assertions": {
+        "displayExpression": "",
+        "displayResult": "0",
+        "lifecycle": "entering",
+        "answer": 0,
+        "memoryValue": 0,
+        "workflow.kind": null,
+        "control.submode": "LINE",
+        "control.statistics": {
+          "parts": [],
+          "cursor": 1,
+          "editing": true,
+          "frequencies": [
+            false
+          ]
+        },
+        "values.statistics": {
+          "kind": "statistics",
+          "rows": [
+            {
+              "x": {
+                "kind": "scalar",
+                "value": 2
+              },
+              "y": {
+                "kind": "scalar",
+                "value": 4
+              },
+              "weight": 1
+            }
+          ]
+        },
+        "control.errorCode": null
+      },
+      "viewAssertions": {
+        "expressionHtml": "",
+        "resultHtml": "0.",
+        "previousPage": true,
+        "nextPage": true
+      },
+      "domResultText": "0."
+    },
+    {
+      "afterStep": 33,
+      "assertions": {
+        "displayExpression": "",
+        "displayResult": "0",
+        "lifecycle": "entering",
+        "answer": 0,
+        "memoryValue": 0,
+        "workflow.kind": null,
+        "control.submode": "LINE",
+        "control.statistics": {
+          "parts": [],
+          "cursor": 1,
+          "editing": true,
+          "frequencies": [
+            false
+          ]
+        },
+        "values.statistics": {
+          "kind": "statistics",
+          "rows": [
+            {
+              "x": {
+                "kind": "scalar",
+                "value": 2
+              },
+              "y": {
+                "kind": "scalar",
+                "value": 4
+              },
+              "weight": 1
+            }
+          ]
+        },
+        "control.errorCode": null
+      },
+      "viewAssertions": {
+        "expressionHtml": "",
+        "resultHtml": "0.",
+        "previousPage": true,
+        "nextPage": true
+      },
+      "domResultText": "0."
+    },
+    {
+      "afterStep": 34,
+      "assertions": {
+        "displayExpression": "",
+        "displayResult": "0",
+        "lifecycle": "entering",
+        "answer": 0,
+        "memoryValue": 0,
+        "workflow.kind": null,
+        "control.submode": "LINE",
+        "control.statistics": {
+          "parts": [
+            "0"
+          ],
+          "cursor": 1,
+          "editing": true,
+          "frequencies": [
+            false
+          ]
+        },
+        "values.statistics": {
+          "kind": "statistics",
+          "rows": [
+            {
+              "x": {
+                "kind": "scalar",
+                "value": 2
+              },
+              "y": {
+                "kind": "scalar",
+                "value": 4
+              },
+              "weight": 1
+            }
+          ]
+        },
+        "control.errorCode": null
+      },
+      "viewAssertions": {
+        "expressionHtml": "0,<span class=\"scicalc__cursor\" aria-hidden=\"true\"></span>",
+        "resultHtml": "0.",
+        "previousPage": true,
+        "nextPage": true
+      },
+      "domResultText": "0."
+    },
+    {
+      "afterStep": 35,
+      "assertions": {
+        "displayExpression": "",
+        "displayResult": "5",
+        "lifecycle": "entering",
+        "answer": 0,
+        "memoryValue": 0,
+        "workflow.kind": null,
+        "control.submode": "LINE",
+        "control.statistics": {
+          "parts": [
+            "0"
+          ],
+          "cursor": 1,
+          "editing": true,
+          "frequencies": [
+            false
+          ]
+        },
+        "values.statistics": {
+          "kind": "statistics",
+          "rows": [
+            {
+              "x": {
+                "kind": "scalar",
+                "value": 2
+              },
+              "y": {
+                "kind": "scalar",
+                "value": 4
+              },
+              "weight": 1
+            }
+          ]
+        },
+        "control.errorCode": null
+      },
+      "viewAssertions": {
+        "expressionHtml": "0,<span class=\"scicalc__cursor\" aria-hidden=\"true\"></span>",
+        "resultHtml": "5.",
+        "previousPage": true,
+        "nextPage": true
+      },
+      "domResultText": "5."
+    },
+    {
+      "afterStep": 36,
+      "assertions": {
+        "displayExpression": "Y1=",
+        "displayResult": "5",
+        "lifecycle": "empty",
+        "answer": 0,
+        "memoryValue": 0,
+        "workflow.kind": null,
+        "control.submode": "LINE",
+        "control.statistics": {
+          "parts": [],
+          "cursor": 1,
+          "editing": false,
+          "frequencies": [
+            false
+          ]
+        },
+        "values.statistics": {
+          "kind": "statistics",
+          "rows": [
+            {
+              "x": {
+                "kind": "scalar",
+                "value": 0
+              },
+              "y": {
+                "kind": "scalar",
+                "value": 5
+              },
+              "weight": 1
+            }
+          ]
+        },
+        "control.errorCode": null
+      },
+      "viewAssertions": {
+        "expressionHtml": "Y1=",
+        "resultHtml": "5.",
+        "previousPage": true,
+        "nextPage": true
+      },
+      "domResultText": "5."
+    },
+    {
+      "afterStep": 37,
+      "assertions": {
+        "displayExpression": "X1=",
+        "displayResult": "0",
+        "lifecycle": "empty",
+        "answer": 0,
+        "memoryValue": 0,
+        "workflow.kind": null,
+        "control.submode": "LINE",
+        "control.statistics": {
+          "parts": [],
+          "cursor": 0,
+          "editing": false,
+          "frequencies": [
+            false
+          ]
+        },
+        "values.statistics": {
+          "kind": "statistics",
+          "rows": [
+            {
+              "x": {
+                "kind": "scalar",
+                "value": 0
+              },
+              "y": {
+                "kind": "scalar",
+                "value": 5
+              },
+              "weight": 1
+            }
+          ]
+        },
+        "control.errorCode": null
+      },
+      "viewAssertions": {
+        "expressionHtml": "X1=",
+        "resultHtml": "0.",
+        "previousPage": false,
+        "nextPage": true
+      },
+      "domResultText": "0."
+    },
+    {
+      "afterStep": 38,
+      "assertions": {
+        "displayExpression": "Y1=",
+        "displayResult": "5",
+        "lifecycle": "empty",
+        "answer": 0,
+        "memoryValue": 0,
+        "workflow.kind": null,
+        "control.submode": "LINE",
+        "control.statistics": {
+          "parts": [],
+          "cursor": 1,
+          "editing": false,
+          "frequencies": [
+            false
+          ]
+        },
+        "values.statistics": {
+          "kind": "statistics",
+          "rows": [
+            {
+              "x": {
+                "kind": "scalar",
+                "value": 0
+              },
+              "y": {
+                "kind": "scalar",
+                "value": 5
+              },
+              "weight": 1
+            }
+          ]
+        },
+        "control.errorCode": null
+      },
+      "viewAssertions": {
+        "expressionHtml": "Y1=",
+        "resultHtml": "5.",
+        "previousPage": true,
+        "nextPage": true
+      },
+      "domResultText": "5."
+    },
+    {
+      "afterStep": 39,
+      "assertions": {
+        "displayExpression": "N1=",
+        "displayResult": "1",
+        "lifecycle": "empty",
+        "answer": 0,
+        "memoryValue": 0,
+        "workflow.kind": null,
+        "control.submode": "LINE",
+        "control.statistics": {
+          "parts": [],
+          "cursor": 2,
+          "editing": false,
+          "frequencies": [
+            false
+          ]
+        },
+        "values.statistics": {
+          "kind": "statistics",
+          "rows": [
+            {
+              "x": {
+                "kind": "scalar",
+                "value": 0
+              },
+              "y": {
+                "kind": "scalar",
+                "value": 5
+              },
+              "weight": 1
+            }
+          ]
+        },
+        "control.errorCode": null
+      },
+      "viewAssertions": {
+        "expressionHtml": "N1=",
+        "resultHtml": "1.",
+        "previousPage": true,
+        "nextPage": false
+      },
+      "domResultText": "1."
+    },
+    {
+      "afterStep": 40,
+      "assertions": {
+        "displayExpression": "",
+        "displayResult": "2",
+        "lifecycle": "entering",
+        "answer": 0,
+        "memoryValue": 0,
+        "workflow.kind": null,
+        "control.submode": "LINE",
+        "control.statistics": {
+          "parts": [],
+          "cursor": 2,
+          "editing": true,
+          "frequencies": [
+            false
+          ]
+        },
+        "values.statistics": {
+          "kind": "statistics",
+          "rows": [
+            {
+              "x": {
+                "kind": "scalar",
+                "value": 0
+              },
+              "y": {
+                "kind": "scalar",
+                "value": 5
+              },
+              "weight": 1
+            }
+          ]
+        },
+        "control.errorCode": null
+      },
+      "viewAssertions": {
+        "expressionHtml": "",
+        "resultHtml": "2.",
+        "previousPage": true,
+        "nextPage": false
+      },
+      "domResultText": "2."
+    },
+    {
+      "afterStep": 41,
+      "assertions": {
+        "displayExpression": "",
+        "displayResult": "-2",
+        "lifecycle": "entering",
+        "answer": 0,
+        "memoryValue": 0,
+        "workflow.kind": null,
+        "control.submode": "LINE",
+        "control.statistics": {
+          "parts": [],
+          "cursor": 2,
+          "editing": true,
+          "frequencies": [
+            false
+          ]
+        },
+        "values.statistics": {
+          "kind": "statistics",
+          "rows": [
+            {
+              "x": {
+                "kind": "scalar",
+                "value": 0
+              },
+              "y": {
+                "kind": "scalar",
+                "value": 5
+              },
+              "weight": 1
+            }
+          ]
+        },
+        "control.errorCode": null
+      },
+      "viewAssertions": {
+        "expressionHtml": "",
+        "resultHtml": "-2.",
+        "previousPage": true,
+        "nextPage": false
+      },
+      "domResultText": "-2."
+    },
+    {
+      "afterStep": 42,
+      "assertions": {
+        "displayExpression": "N1=",
+        "displayResult": "-2",
+        "lifecycle": "empty",
+        "answer": 0,
+        "memoryValue": 0,
+        "workflow.kind": null,
+        "control.submode": "LINE",
+        "control.statistics": {
+          "parts": [],
+          "cursor": 2,
+          "editing": false,
+          "frequencies": [
+            true
+          ]
+        },
+        "values.statistics": {
+          "kind": "statistics",
+          "rows": [
+            {
+              "x": {
+                "kind": "scalar",
+                "value": 0
+              },
+              "y": {
+                "kind": "scalar",
+                "value": 5
+              },
+              "weight": -2
+            }
+          ]
+        },
+        "control.errorCode": null
+      },
+      "viewAssertions": {
+        "expressionHtml": "N1=",
+        "resultHtml": "-2.",
+        "previousPage": true,
+        "nextPage": false
+      },
+      "domResultText": "-2."
+    },
+    {
+      "afterStep": 43,
+      "assertions": {
+        "displayExpression": "Y1=",
+        "displayResult": "5",
+        "lifecycle": "empty",
+        "answer": 0,
+        "memoryValue": 0,
+        "workflow.kind": null,
+        "control.submode": "LINE",
+        "control.statistics": {
+          "parts": [],
+          "cursor": 1,
+          "editing": false,
+          "frequencies": [
+            true
+          ]
+        },
+        "values.statistics": {
+          "kind": "statistics",
+          "rows": [
+            {
+              "x": {
+                "kind": "scalar",
+                "value": 0
+              },
+              "y": {
+                "kind": "scalar",
+                "value": 5
+              },
+              "weight": -2
+            }
+          ]
+        },
+        "control.errorCode": null
+      },
+      "viewAssertions": {
+        "expressionHtml": "Y1=",
+        "resultHtml": "5.",
+        "previousPage": true,
+        "nextPage": true
+      },
+      "domResultText": "5."
+    },
+    {
+      "afterStep": 44,
+      "assertions": {
+        "displayExpression": "N1=",
+        "displayResult": "-2",
+        "lifecycle": "empty",
+        "answer": 0,
+        "memoryValue": 0,
+        "workflow.kind": null,
+        "control.submode": "LINE",
+        "control.statistics": {
+          "parts": [],
+          "cursor": 2,
+          "editing": false,
+          "frequencies": [
+            true
+          ]
+        },
+        "values.statistics": {
+          "kind": "statistics",
+          "rows": [
+            {
+              "x": {
+                "kind": "scalar",
+                "value": 0
+              },
+              "y": {
+                "kind": "scalar",
+                "value": 5
+              },
+              "weight": -2
+            }
+          ]
+        },
+        "control.errorCode": null
+      },
+      "viewAssertions": {
+        "expressionHtml": "N1=",
+        "resultHtml": "-2.",
+        "previousPage": true,
+        "nextPage": false
+      },
+      "domResultText": "-2."
+    },
+    {
+      "afterStep": 45,
+      "assertions": {
+        "displayExpression": "",
+        "displayResult": "0",
+        "lifecycle": "entering",
+        "answer": 0,
+        "memoryValue": 0,
+        "workflow.kind": null,
+        "control.submode": "LINE",
+        "control.statistics": {
+          "parts": [],
+          "cursor": 2,
+          "editing": true,
+          "frequencies": [
+            true
+          ]
+        },
+        "values.statistics": {
+          "kind": "statistics",
+          "rows": [
+            {
+              "x": {
+                "kind": "scalar",
+                "value": 0
+              },
+              "y": {
+                "kind": "scalar",
+                "value": 5
+              },
+              "weight": -2
+            }
+          ]
+        },
+        "control.errorCode": null
+      },
+      "viewAssertions": {
+        "expressionHtml": "",
+        "resultHtml": "0.",
+        "previousPage": true,
+        "nextPage": false
+      },
+      "domResultText": "0."
+    },
+    {
+      "afterStep": 46,
+      "assertions": {
+        "displayExpression": "DATA SET=",
+        "displayResult": "0",
+        "lifecycle": "empty",
+        "answer": 0,
+        "memoryValue": 0,
+        "workflow.kind": null,
+        "control.submode": "LINE",
+        "control.statistics": {
+          "parts": [],
+          "cursor": null,
+          "editing": false,
+          "frequencies": []
+        },
+        "values.statistics": {
+          "kind": "statistics",
+          "rows": []
+        },
+        "control.errorCode": null
+      },
+      "viewAssertions": {
+        "expressionHtml": "DATA SET=",
+        "resultHtml": "0.",
+        "previousPage": false,
+        "nextPage": false
+      },
+      "domResultText": "0."
+    },
+    {
+      "afterStep": 47,
+      "assertions": {
+        "displayExpression": "DATA SET=",
+        "displayResult": "Error",
+        "lifecycle": "error",
+        "answer": 0,
+        "memoryValue": 0,
+        "workflow.kind": null,
+        "control.submode": "LINE",
+        "control.statistics": {
+          "parts": [],
+          "cursor": null,
+          "editing": false,
+          "frequencies": []
+        },
+        "values.statistics": {
+          "kind": "statistics",
+          "rows": []
+        },
+        "control.errorCode": 1
+      },
+      "viewAssertions": {
+        "expressionHtml": "Error 1",
+        "resultHtml": "",
+        "previousPage": false,
+        "nextPage": false
+      },
+      "domResultText": ""
+    },
+    {
+      "afterStep": 48,
+      "assertions": {
+        "displayExpression": "",
+        "displayResult": "0",
+        "lifecycle": "empty",
+        "answer": 0,
+        "memoryValue": 0,
+        "workflow.kind": null,
+        "control.submode": "LINE",
+        "control.statistics": {
+          "parts": [],
+          "cursor": null,
+          "editing": false,
+          "frequencies": []
+        },
+        "values.statistics": {
+          "kind": "statistics",
+          "rows": []
+        },
+        "control.errorCode": null
+      },
+      "viewAssertions": {
+        "expressionHtml": "Stat 1",
+        "resultHtml": "0.",
+        "previousPage": false,
+        "nextPage": false
+      },
+      "domResultText": "0."
+    },
+    {
+      "afterStep": 49,
+      "assertions": {
+        "displayExpression": "",
+        "displayResult": "1",
+        "lifecycle": "entering",
+        "answer": 0,
+        "memoryValue": 0,
+        "workflow.kind": null,
+        "control.submode": "LINE",
+        "control.statistics": {
+          "parts": [],
+          "cursor": null,
+          "editing": true,
+          "frequencies": []
+        },
+        "values.statistics": {
+          "kind": "statistics",
+          "rows": []
+        },
+        "control.errorCode": null
+      },
+      "viewAssertions": {
+        "expressionHtml": "",
+        "resultHtml": "1.",
+        "previousPage": false,
+        "nextPage": false
+      },
+      "domResultText": "1."
+    },
+    {
+      "afterStep": 50,
+      "assertions": {
+        "displayExpression": "",
+        "displayResult": "1",
+        "lifecycle": "entering",
+        "answer": 0,
+        "memoryValue": 0,
+        "workflow.kind": null,
+        "control.submode": "LINE",
+        "control.statistics": {
+          "parts": [],
+          "cursor": null,
+          "editing": true,
+          "frequencies": []
+        },
+        "values.statistics": {
+          "kind": "statistics",
+          "rows": []
+        },
+        "control.errorCode": null
+      },
+      "viewAssertions": {
+        "expressionHtml": "",
+        "resultHtml": "1.",
+        "previousPage": false,
+        "nextPage": false
+      },
+      "domResultText": "1."
+    },
+    {
+      "afterStep": 51,
+      "assertions": {
+        "displayExpression": "",
+        "displayResult": "0",
+        "lifecycle": "entering",
+        "answer": 0,
+        "memoryValue": 0,
+        "workflow.kind": null,
+        "control.submode": "LINE",
+        "control.statistics": {
+          "parts": [
+            "1"
+          ],
+          "cursor": null,
+          "editing": true,
+          "frequencies": []
+        },
+        "values.statistics": {
+          "kind": "statistics",
+          "rows": []
+        },
+        "control.errorCode": null
+      },
+      "viewAssertions": {
+        "expressionHtml": "1,<span class=\"scicalc__cursor\" aria-hidden=\"true\"></span>",
+        "resultHtml": "0.",
+        "previousPage": false,
+        "nextPage": false
+      },
+      "domResultText": "0."
+    },
+    {
+      "afterStep": 52,
+      "assertions": {
+        "displayExpression": "",
+        "displayResult": "2",
+        "lifecycle": "entering",
+        "answer": 0,
+        "memoryValue": 0,
+        "workflow.kind": null,
+        "control.submode": "LINE",
+        "control.statistics": {
+          "parts": [
+            "1"
+          ],
+          "cursor": null,
+          "editing": true,
+          "frequencies": []
+        },
+        "values.statistics": {
+          "kind": "statistics",
+          "rows": []
+        },
+        "control.errorCode": null
+      },
+      "viewAssertions": {
+        "expressionHtml": "1,<span class=\"scicalc__cursor\" aria-hidden=\"true\"></span>",
+        "resultHtml": "2.",
+        "previousPage": false,
+        "nextPage": false
+      },
+      "domResultText": "2."
+    },
+    {
+      "afterStep": 53,
+      "assertions": {
+        "displayExpression": "",
+        "displayResult": "2",
+        "lifecycle": "entering",
+        "answer": 0,
+        "memoryValue": 0,
+        "workflow.kind": null,
+        "control.submode": "LINE",
+        "control.statistics": {
+          "parts": [
+            "1"
+          ],
+          "cursor": null,
+          "editing": true,
+          "frequencies": []
+        },
+        "values.statistics": {
+          "kind": "statistics",
+          "rows": []
+        },
+        "control.errorCode": null
+      },
+      "viewAssertions": {
+        "expressionHtml": "1,<span class=\"scicalc__cursor\" aria-hidden=\"true\"></span>",
+        "resultHtml": "2.",
+        "previousPage": false,
+        "nextPage": false
+      },
+      "domResultText": "2."
+    },
+    {
+      "afterStep": 54,
+      "assertions": {
+        "displayExpression": "",
+        "displayResult": "0",
+        "lifecycle": "entering",
+        "answer": 0,
+        "memoryValue": 0,
+        "workflow.kind": null,
+        "control.submode": "LINE",
+        "control.statistics": {
+          "parts": [
+            "1",
+            "2"
+          ],
+          "cursor": null,
+          "editing": true,
+          "frequencies": []
+        },
+        "values.statistics": {
+          "kind": "statistics",
+          "rows": []
+        },
+        "control.errorCode": null
+      },
+      "viewAssertions": {
+        "expressionHtml": "1,2,<span class=\"scicalc__cursor\" aria-hidden=\"true\"></span>",
+        "resultHtml": "0.",
+        "previousPage": false,
+        "nextPage": false
+      },
+      "domResultText": "0."
+    },
+    {
+      "afterStep": 55,
+      "assertions": {
+        "displayExpression": "",
+        "displayResult": "0.",
+        "lifecycle": "entering",
+        "answer": 0,
+        "memoryValue": 0,
+        "workflow.kind": null,
+        "control.submode": "LINE",
+        "control.statistics": {
+          "parts": [
+            "1",
+            "2"
+          ],
+          "cursor": null,
+          "editing": true,
+          "frequencies": []
+        },
+        "values.statistics": {
+          "kind": "statistics",
+          "rows": []
+        },
+        "control.errorCode": null
+      },
+      "viewAssertions": {
+        "expressionHtml": "1,2,<span class=\"scicalc__cursor\" aria-hidden=\"true\"></span>",
+        "resultHtml": "0.",
+        "previousPage": false,
+        "nextPage": false
+      },
+      "domResultText": "0."
+    },
+    {
+      "afterStep": 56,
+      "assertions": {
+        "displayExpression": "",
+        "displayResult": "0.5",
+        "lifecycle": "entering",
+        "answer": 0,
+        "memoryValue": 0,
+        "workflow.kind": null,
+        "control.submode": "LINE",
+        "control.statistics": {
+          "parts": [
+            "1",
+            "2"
+          ],
+          "cursor": null,
+          "editing": true,
+          "frequencies": []
+        },
+        "values.statistics": {
+          "kind": "statistics",
+          "rows": []
+        },
+        "control.errorCode": null
+      },
+      "viewAssertions": {
+        "expressionHtml": "1,2,<span class=\"scicalc__cursor\" aria-hidden=\"true\"></span>",
+        "resultHtml": "0.5",
+        "previousPage": false,
+        "nextPage": false
+      },
+      "domResultText": "0.5"
+    },
+    {
+      "afterStep": 57,
+      "assertions": {
+        "displayExpression": "DATA SET=",
+        "displayResult": "1",
+        "lifecycle": "empty",
+        "answer": 0,
+        "memoryValue": 0,
+        "workflow.kind": null,
+        "control.submode": "LINE",
+        "control.statistics": {
+          "parts": [],
+          "cursor": null,
+          "editing": false,
+          "frequencies": [
+            true
+          ]
+        },
+        "values.statistics": {
+          "kind": "statistics",
+          "rows": [
+            {
+              "x": {
+                "kind": "scalar",
+                "value": 1
+              },
+              "y": {
+                "kind": "scalar",
+                "value": 2
+              },
+              "weight": 0.5
+            }
+          ]
+        },
+        "control.errorCode": null
+      },
+      "viewAssertions": {
+        "expressionHtml": "DATA SET=",
+        "resultHtml": "1.",
+        "previousPage": false,
+        "nextPage": false
+      },
+      "domResultText": "1."
+    },
+    {
+      "afterStep": 58,
+      "assertions": {
+        "displayExpression": "N1=",
+        "displayResult": "0.5",
+        "lifecycle": "empty",
+        "answer": 0,
+        "memoryValue": 0,
+        "workflow.kind": null,
+        "control.submode": "LINE",
+        "control.statistics": {
+          "parts": [],
+          "cursor": 2,
+          "editing": false,
+          "frequencies": [
+            true
+          ]
+        },
+        "values.statistics": {
+          "kind": "statistics",
+          "rows": [
+            {
+              "x": {
+                "kind": "scalar",
+                "value": 1
+              },
+              "y": {
+                "kind": "scalar",
+                "value": 2
+              },
+              "weight": 0.5
+            }
+          ]
+        },
+        "control.errorCode": null
+      },
+      "viewAssertions": {
+        "expressionHtml": "N1=",
+        "resultHtml": "0.5",
+        "previousPage": true,
+        "nextPage": false
+      },
+      "domResultText": "0.5"
+    },
+    {
+      "afterStep": 59,
+      "assertions": {
+        "displayExpression": "N1=",
+        "displayResult": "0.5",
+        "lifecycle": "empty",
+        "answer": 0,
+        "memoryValue": 0,
+        "workflow.kind": null,
+        "control.submode": "LINE",
+        "control.statistics": {
+          "parts": [],
+          "cursor": 2,
+          "editing": false,
+          "frequencies": [
+            true
+          ]
+        },
+        "values.statistics": {
+          "kind": "statistics",
+          "rows": [
+            {
+              "x": {
+                "kind": "scalar",
+                "value": 1
+              },
+              "y": {
+                "kind": "scalar",
+                "value": 2
+              },
+              "weight": 0.5
+            }
+          ]
+        },
+        "control.errorCode": null
+      },
+      "viewAssertions": {
+        "expressionHtml": "N1=",
+        "resultHtml": "0.5",
+        "previousPage": true,
+        "nextPage": false
+      },
+      "domResultText": "0.5"
+    },
+    {
+      "afterStep": 60,
+      "assertions": {
+        "displayExpression": "",
+        "displayResult": "0",
+        "lifecycle": "empty",
+        "answer": 0,
+        "memoryValue": 0,
+        "workflow.kind": null,
+        "control.submode": "LINE",
+        "control.statistics": {
+          "parts": [],
+          "cursor": null,
+          "editing": false,
+          "frequencies": [
+            true
+          ]
+        },
+        "values.statistics": {
+          "kind": "statistics",
+          "rows": [
+            {
+              "x": {
+                "kind": "scalar",
+                "value": 1
+              },
+              "y": {
+                "kind": "scalar",
+                "value": 2
+              },
+              "weight": 0.5
+            }
+          ]
+        },
+        "control.errorCode": null
+      },
+      "viewAssertions": {
+        "expressionHtml": "",
+        "resultHtml": "",
+        "previousPage": false,
+        "nextPage": false
+      },
+      "domResultText": ""
+    },
+    {
+      "afterStep": 61,
+      "assertions": {
+        "displayExpression": "",
+        "displayResult": "0",
+        "lifecycle": "empty",
+        "answer": 0,
+        "memoryValue": 0,
+        "workflow.kind": null,
+        "control.submode": "LINE",
+        "control.statistics": {
+          "parts": [],
+          "cursor": null,
+          "editing": false,
+          "frequencies": [
+            true
+          ]
+        },
+        "values.statistics": {
+          "kind": "statistics",
+          "rows": [
+            {
+              "x": {
+                "kind": "scalar",
+                "value": 1
+              },
+              "y": {
+                "kind": "scalar",
+                "value": 2
+              },
+              "weight": 0.5
+            }
+          ]
+        },
+        "control.errorCode": null
+      },
+      "viewAssertions": {
+        "expressionHtml": "Stat 1",
+        "resultHtml": "0.",
+        "previousPage": false,
+        "nextPage": false
+      },
+      "domResultText": "0."
+    },
+    {
+      "afterStep": 62,
+      "assertions": {
+        "displayExpression": "N1=",
+        "displayResult": "0.5",
+        "lifecycle": "empty",
+        "answer": 0,
+        "memoryValue": 0,
+        "workflow.kind": null,
+        "control.submode": "LINE",
+        "control.statistics": {
+          "parts": [],
+          "cursor": 2,
+          "editing": false,
+          "frequencies": [
+            true
+          ]
+        },
+        "values.statistics": {
+          "kind": "statistics",
+          "rows": [
+            {
+              "x": {
+                "kind": "scalar",
+                "value": 1
+              },
+              "y": {
+                "kind": "scalar",
+                "value": 2
+              },
+              "weight": 0.5
+            }
+          ]
+        },
+        "control.errorCode": null
+      },
+      "viewAssertions": {
+        "expressionHtml": "N1=",
+        "resultHtml": "0.5",
+        "previousPage": true,
+        "nextPage": false
+      },
+      "domResultText": "0.5"
+    },
+    {
+      "afterStep": 63,
+      "assertions": {
+        "displayExpression": "N1=",
+        "displayResult": "0.5",
+        "lifecycle": "empty",
+        "answer": 0,
+        "memoryValue": 0,
+        "workflow.kind": null,
+        "control.submode": "LINE",
+        "control.statistics": {
+          "parts": [],
+          "cursor": 2,
+          "editing": false,
+          "frequencies": [
+            true
+          ]
+        },
+        "values.statistics": {
+          "kind": "statistics",
+          "rows": [
+            {
+              "x": {
+                "kind": "scalar",
+                "value": 1
+              },
+              "y": {
+                "kind": "scalar",
+                "value": 2
+              },
+              "weight": 0.5
+            }
+          ]
+        },
+        "control.errorCode": null
+      },
+      "viewAssertions": {
+        "expressionHtml": "N1=",
+        "resultHtml": "0.5",
+        "previousPage": true,
+        "nextPage": false
+      },
+      "domResultText": "0.5"
+    },
+    {
+      "afterStep": 64,
+      "assertions": {
+        "displayExpression": "",
+        "displayResult": "0",
+        "lifecycle": "empty",
+        "answer": 0,
+        "memoryValue": 0,
+        "workflow.kind": null,
+        "control.submode": "LINE",
+        "control.statistics": {
+          "parts": [],
+          "cursor": null,
+          "editing": false,
+          "frequencies": []
+        },
+        "values.statistics": {
+          "kind": "statistics",
+          "rows": []
+        },
+        "control.errorCode": null
+      },
+      "viewAssertions": {
+        "expressionHtml": "Stat 1",
+        "resultHtml": "0.",
+        "previousPage": false,
+        "nextPage": false
+      },
+      "domResultText": "0."
+    },
+    {
+      "afterStep": 65,
+      "assertions": {
+        "displayExpression": "",
+        "displayResult": "0",
+        "lifecycle": "empty",
+        "answer": 0,
+        "memoryValue": 0,
+        "workflow.kind": null,
+        "control.submode": "LINE",
+        "control.statistics": {
+          "parts": [],
+          "cursor": null,
+          "editing": false,
+          "frequencies": []
+        },
+        "values.statistics": {
+          "kind": "statistics",
+          "rows": []
+        },
+        "control.errorCode": null
+      },
+      "viewAssertions": {
+        "expressionHtml": "Stat 1",
+        "resultHtml": "0.",
+        "previousPage": false,
+        "nextPage": false
+      },
+      "domResultText": "0."
+    }
+  ],
+  "knownDifferences": [
+    {
+      "afterStep": 0,
+      "field": "displayResult",
+      "expected": "0.",
+      "actual": "0"
+    },
+    {
+      "afterStep": 3,
+      "field": "displayExpression",
+      "expected": "Stat 0",
+      "actual": ""
+    },
+    {
+      "afterStep": 3,
+      "field": "displayResult",
+      "expected": "0.",
+      "actual": "0"
+    },
+    {
+      "afterStep": 5,
+      "field": "displayResult",
+      "expected": "1.",
+      "actual": "1"
+    },
+    {
+      "afterStep": 6,
+      "field": "displayResult",
+      "expected": "1.",
+      "actual": "1"
+    },
+    {
+      "afterStep": 7,
+      "field": "displayResult",
+      "expected": "1.",
+      "actual": "1"
+    },
+    {
+      "afterStep": 9,
+      "field": "displayResult",
+      "expected": "2.",
+      "actual": "2"
+    },
+    {
+      "afterStep": 10,
+      "field": "displayResult",
+      "expected": "2.",
+      "actual": "2"
+    },
+    {
+      "afterStep": 11,
+      "field": "displayExpression",
+      "expected": "Stat 0",
+      "actual": ""
+    },
+    {
+      "afterStep": 11,
+      "field": "displayResult",
+      "expected": "0.",
+      "actual": "0"
+    },
+    {
+      "afterStep": 14,
+      "field": "displayExpression",
+      "expected": "3,",
+      "actual": ""
+    },
+    {
+      "afterStep": 14,
+      "field": "displayResult",
+      "expected": "0.",
+      "actual": "0"
+    },
+    {
+      "afterStep": 16,
+      "field": "displayResult",
+      "expected": "1.",
+      "actual": "1"
+    },
+    {
+      "afterStep": 17,
+      "field": "displayResult",
+      "expected": "2.",
+      "actual": "2"
+    },
+    {
+      "afterStep": 19,
+      "field": "displayResult",
+      "expected": "0.",
+      "actual": "0"
+    },
+    {
+      "afterStep": 22,
+      "field": "displayExpression",
+      "expected": "EXP LOG PWR",
+      "actual": "DATA SET="
+    },
+    {
+      "afterStep": 22,
+      "field": "displayResult",
+      "expected": "3. 4 5",
+      "actual": "0"
+    },
+    {
+      "afterStep": 23,
+      "field": "displayExpression",
+      "expected": "INV",
+      "actual": "DATA SET="
+    },
+    {
+      "afterStep": 23,
+      "field": "displayResult",
+      "expected": "6.",
+      "actual": "0"
+    },
+    {
+      "afterStep": 24,
+      "field": "displayExpression",
+      "expected": "Stat 1",
+      "actual": ""
+    },
+    {
+      "afterStep": 24,
+      "field": "displayResult",
+      "expected": "0.",
+      "actual": "0"
+    },
+    {
+      "afterStep": 27,
+      "field": "displayExpression",
+      "expected": "2,",
+      "actual": ""
+    },
+    {
+      "afterStep": 27,
+      "field": "displayResult",
+      "expected": "0.",
+      "actual": "0"
+    },
+    {
+      "afterStep": 28,
+      "field": "displayExpression",
+      "expected": "2,",
+      "actual": ""
+    },
+    {
+      "afterStep": 28,
+      "field": "displayResult",
+      "expected": "4.",
+      "actual": "4"
+    },
+    {
+      "afterStep": 29,
+      "field": "displayResult",
+      "expected": "1.",
+      "actual": "1"
+    },
+    {
+      "afterStep": 30,
+      "field": "displayResult",
+      "expected": "2.",
+      "actual": "2"
+    },
+    {
+      "afterStep": 31,
+      "field": "displayResult",
+      "expected": "4.",
+      "actual": "4"
+    },
+    {
+      "afterStep": 34,
+      "field": "displayExpression",
+      "expected": "0,",
+      "actual": ""
+    },
+    {
+      "afterStep": 34,
+      "field": "displayResult",
+      "expected": "0.",
+      "actual": "0"
+    },
+    {
+      "afterStep": 35,
+      "field": "displayExpression",
+      "expected": "0,",
+      "actual": ""
+    },
+    {
+      "afterStep": 35,
+      "field": "displayResult",
+      "expected": "5.",
+      "actual": "5"
+    },
+    {
+      "afterStep": 36,
+      "field": "displayResult",
+      "expected": "5.",
+      "actual": "5"
+    },
+    {
+      "afterStep": 37,
+      "field": "displayResult",
+      "expected": "0.",
+      "actual": "0"
+    },
+    {
+      "afterStep": 39,
+      "field": "displayResult",
+      "expected": "1.",
+      "actual": "1"
+    },
+    {
+      "afterStep": 42,
+      "field": "displayResult",
+      "expected": "-2.",
+      "actual": "-2"
+    },
+    {
+      "afterStep": 44,
+      "field": "displayResult",
+      "expected": "-2.",
+      "actual": "-2"
+    },
+    {
+      "afterStep": 46,
+      "field": "displayResult",
+      "expected": "0.",
+      "actual": "0"
+    },
+    {
+      "afterStep": 47,
+      "field": "displayExpression",
+      "expected": "Error 1",
+      "actual": "DATA SET="
+    },
+    {
+      "afterStep": 47,
+      "field": "displayResult",
+      "expected": "",
+      "actual": "Error"
+    },
+    {
+      "afterStep": 48,
+      "field": "displayExpression",
+      "expected": "Stat 1",
+      "actual": ""
+    },
+    {
+      "afterStep": 48,
+      "field": "displayResult",
+      "expected": "0.",
+      "actual": "0"
+    },
+    {
+      "afterStep": 51,
+      "field": "displayExpression",
+      "expected": "1,",
+      "actual": ""
+    },
+    {
+      "afterStep": 51,
+      "field": "displayResult",
+      "expected": "0.",
+      "actual": "0"
+    },
+    {
+      "afterStep": 54,
+      "field": "displayExpression",
+      "expected": "1,2,",
+      "actual": ""
+    },
+    {
+      "afterStep": 54,
+      "field": "displayResult",
+      "expected": "0.",
+      "actual": "0"
+    },
+    {
+      "afterStep": 56,
+      "field": "displayExpression",
+      "expected": "1,2,",
+      "actual": ""
+    },
+    {
+      "afterStep": 57,
+      "field": "displayResult",
+      "expected": "1.",
+      "actual": "1"
+    },
+    {
+      "afterStep": 60,
+      "field": "displayResult",
+      "expected": "",
+      "actual": "0"
+    },
+    {
+      "afterStep": 61,
+      "field": "displayExpression",
+      "expected": "Stat 1",
+      "actual": ""
+    },
+    {
+      "afterStep": 61,
+      "field": "displayResult",
+      "expected": "0.",
+      "actual": "0"
+    },
+    {
+      "afterStep": 64,
+      "field": "displayExpression",
+      "expected": "Stat 1",
+      "actual": ""
+    },
+    {
+      "afterStep": 64,
+      "field": "displayResult",
+      "expected": "0.",
+      "actual": "0"
+    },
+    {
+      "afterStep": 65,
+      "field": "displayExpression",
+      "expected": "Stat 1",
+      "actual": ""
+    },
+    {
+      "afterStep": 65,
+      "field": "displayResult",
+      "expected": "0.",
+      "actual": "0"
+    }
+  ]
+}

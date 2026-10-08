@@ -151,6 +151,11 @@
       if(physical) {
         if(event.target.closest('[data-expression],[data-result]') && ['ArrowLeft','ArrowRight','Home','End'].includes(event.key)) return;
         if(event.target.closest('button') && ['Enter',' '].includes(event.key)) return;
+        if(event.key===','&&state.layers.mode==='STAT'&&!state.workflow.kind){
+          event.preventDefault();
+          if(!state.secondActive)dispatch({type:'physical-key',id:'EL506-K03'});
+          dispatch({type:'physical-key',id:'EL506-K28'});return;
+        }
         const id=keyboardKeyId(event,state.control.nbase.radix);
         if(!id) return;
         event.preventDefault();

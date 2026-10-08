@@ -1,0 +1,64 @@
+{
+  "schemaVersion": 1,
+  "reviewId": "phase-11-statistics-data-review",
+  "reviewedOn": "2026-10-07",
+  "simulatorProfile": "sharp-el506ts-pc-simulator-1.0.2.0",
+  "runtimeSha256": "6bfef4d04900b472892be2d4c54dcfa6013f87232097e32df508ca4c27425530",
+  "method": "Live @oai/sky with one physical input and refreshed screenshot per action; 40 significant native checkpoints independently transcribed. Pinned full-manual statistics/data/capacity/error sections read from local OCR. Native runtime and extractor subsequently closed.",
+  "manualPolicy": {
+    "entry": "SD x DATA or x comma frequency DATA; paired x comma y DATA or x comma y comma frequency DATA. DATA is K29; comma is K03,K28.",
+    "capacity": "100 storage slots: SD costs 1 or 2 with explicit frequency; paired costs 2 or 3 with explicit frequency. Error 3 on exceeding capacity.",
+    "correction": "Browse with DOWN oldest-first or UP newest-first; change current field then DATA. Comma-separated input replaces the entire selected record. Shifted CD deletes the current record. ON/C leaves browsing and starts fresh input.",
+    "range": "Existing pinned full-manual numeric range and error policy; signed/fractional weights observed natively; zero omits/deletes a record."
+  },
+  "observations": [
+    "STAT submenu pages show SD LINE QUAD, EXP LOG PWR, and INV; no three-variable STAT.",
+    "SD observation 1 stored as DATA SET= 1.; DOWN shows X1= 1. then N1= 1.",
+    "Editing N1 to 2 then ENT shows 2= 2.; DATA commits N1= 2.",
+    "SD observation 3 with frequency 0 leaves the existing DATA SET= 1. unchanged.",
+    "UP enters newest N field; shifted CD removes the record and shows DATA SET= 0.",
+    "LINE pair (2,4) stores one record; browsing shows X1= 2. and Y1= 4.",
+    "Whole-record correction 0,5 entered while browsing Y1 replaces X and Y; browsing X1 afterward shows 0.",
+    "Setting paired N1 to -2 commits -2.; setting it to 0 removes the whole record.",
+    "Paired DATA without a Y value shows Error 1, lower blank; ON/C recovers to Stat 1, 0.",
+    "Pair (1,2) with frequency 0.5 stores N1= 0.5; power off/on preserves it.",
+    "CA clears paired data; UP afterward remains Stat 1, 0."
+  ],
+  "roadmapItems": {
+    "220": "Shared phase11-statistics experiment/golden replay and phase11 unit/browser tests; detailed scope in root README.",
+    "221": "Shared phase11-statistics experiment/golden replay and phase11 unit/browser tests; detailed scope in root README.",
+    "222": "Shared phase11-statistics experiment/golden replay and phase11 unit/browser tests; detailed scope in root README.",
+    "223": "Shared phase11-statistics experiment/golden replay and phase11 unit/browser tests; detailed scope in root README.",
+    "224": "Shared phase11-statistics experiment/golden replay and phase11 unit/browser tests; detailed scope in root README.",
+    "225": "Shared phase11-statistics experiment/golden replay and phase11 unit/browser tests; detailed scope in root README.",
+    "226": "Shared phase11-statistics experiment/golden replay and phase11 unit/browser tests; detailed scope in root README.",
+    "227": "Shared phase11-statistics experiment/golden replay and phase11 unit/browser tests; detailed scope in root README.",
+    "228": "Shared phase11-statistics experiment/golden replay and phase11 unit/browser tests; detailed scope in root README.",
+    "229": "Shared phase11-statistics experiment/golden replay and phase11 unit/browser tests; detailed scope in root README.",
+    "230": "Shared phase11-statistics experiment/golden replay and phase11 unit/browser tests; detailed scope in root README.",
+    "231": "Shared phase11-statistics experiment/golden replay and phase11 unit/browser tests; detailed scope in root README."
+  },
+  "limitations": [
+    "The 100-slot stress cases and Error 3 use the primary full manual and implementation tests; the native simulator was not filled with 101 live records.",
+    "Native hidden precision at extreme input/frequency boundaries, cross-mode function/buffer restrictions and all private rounding remain the later Phase 17 audit. This phase does not establish full parity.",
+    "Golden raw-state numeric strings and entry/menu labels differ from native LCD strings; those differences are explicitly listed. Rendered significant field labels and values follow the observed LCD.",
+    "Physical means, deviations, regressions, estimates and normal probabilities remain Phase 12. No three-variable STAT is added."
+  ],
+  "verification": {
+    "unit": "433 passed",
+    "focusedStatisticsUnit": "15 passed as part of full suite",
+    "focusedBrowser": "6 passed",
+    "browser": "154 passed",
+    "golden": "401 asserted frames; 66 new statistics frames with 40 native checkpoints",
+    "django": "7 passed",
+    "package": "Installed wheel/sdist smoke passed; 19 package assets",
+    "compileall": "passed",
+    "pipDryRun": "passed; no-deps dry run passed",
+    "composeConfig": "passed",
+    "dockerDemo": "Unavailable: Docker Desktop Linux backend pipe absent; compose up --build attempted. Local Django server 127.0.0.1:8010 exercised browser tests.",
+    "liveBrowser": "Paired weighted observation (2,4), frequency 3 entered with physical buttons; browsing Y1= 4. and both hidden-data arrows verified; screenshot saved outside repository.",
+    "report": "Generated and checked; after adding explicit STAT ledger mappings, five report/golden unit tests and the report browser test passed; full parity remains unpromoted.",
+    "nativeCleanup": "Agent-opened runtime and extractor confirmed closed",
+    "gitDiffCheck": "passed"
+  }
+}

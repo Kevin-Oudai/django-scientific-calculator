@@ -1,0 +1,1241 @@
+{
+  "schema_version": 1,
+  "experiment_id": "el506-220-phase11-statistics-v1",
+  "roadmap_item": "EL506-220",
+  "catalog_id": "el506-physical-keys-v1",
+  "simulator": {
+    "profile_id": "sharp-el506ts-pc-simulator-1.0.2.0",
+    "product": "SHARP PC Simulator for EL-506TS",
+    "build": "1.0.2.0",
+    "runtime_sha256": "6bfef4d04900b472892be2d4c54dcfa6013f87232097e32df508ca4c27425530",
+    "locale": "English UI; en-US",
+    "operating_system": "Windows 11"
+  },
+  "capture": {
+    "date": "2026-10-07",
+    "timezone": "America/Port_of_Spain",
+    "method": "Live @oai/sky, one physical input and refreshed screenshot per action. Native significant frames independently transcribed. Full manual statistics/data/capacity/error sections read from the pinned local OCR reference. Intermediate golden frames characterize implementation, not independent parity.",
+    "evidence_kind": "live-simulator",
+    "source_ids": [
+      "live-session"
+    ]
+  },
+  "initial_state": {
+    "reset": {
+      "kind": "documented-state",
+      "description": "Fresh launched native NORMAL DEG calculator, independently inspected before opening MODE/STAT."
+    },
+    "setup_sequence": [],
+    "mode": {
+      "status": "observed",
+      "value": "NORMAL (pinned reset default)"
+    },
+    "settings": [
+      {
+        "name": "angle",
+        "observation": {
+          "status": "observed",
+          "value": "DEG"
+        }
+      },
+      {
+        "name": "display-format",
+        "observation": {
+          "status": "observed",
+          "value": "NORM1 (pinned reset default)"
+        }
+      }
+    ],
+    "display": {
+      "upper_line": "",
+      "lower_line": "0.",
+      "indicators": [
+        "DEG"
+      ],
+      "scroll_arrows": [],
+      "cursor": {
+        "status": "unknown",
+        "reason": "Cursor blink phase not measured; only significant LCD checkpoints transcribed."
+      },
+      "insert_mode": {
+        "status": "unknown",
+        "reason": "Insertion timing not probed by calculus transcript."
+      },
+      "prompt": null,
+      "selected_result_component": null
+    },
+    "stores": []
+  },
+  "sequence": [
+    "EL506-K04",
+    "EL506-K40",
+    "EL506-K45",
+    "EL506-K40",
+    "EL506-K29",
+    "EL506-K11",
+    "EL506-K11",
+    "EL506-K41",
+    "EL506-K48",
+    "EL506-K29",
+    "EL506-K02",
+    "EL506-K42",
+    "EL506-K03",
+    "EL506-K28",
+    "EL506-K45",
+    "EL506-K29",
+    "EL506-K08",
+    "EL506-K03",
+    "EL506-K29",
+    "EL506-K04",
+    "EL506-K40",
+    "EL506-K11",
+    "EL506-K11",
+    "EL506-K40",
+    "EL506-K41",
+    "EL506-K03",
+    "EL506-K28",
+    "EL506-K35",
+    "EL506-K29",
+    "EL506-K11",
+    "EL506-K11",
+    "EL506-K45",
+    "EL506-K03",
+    "EL506-K28",
+    "EL506-K36",
+    "EL506-K29",
+    "EL506-K08",
+    "EL506-K11",
+    "EL506-K11",
+    "EL506-K41",
+    "EL506-K47",
+    "EL506-K29",
+    "EL506-K08",
+    "EL506-K11",
+    "EL506-K45",
+    "EL506-K29",
+    "EL506-K29",
+    "EL506-K02",
+    "EL506-K40",
+    "EL506-K03",
+    "EL506-K28",
+    "EL506-K41",
+    "EL506-K03",
+    "EL506-K28",
+    "EL506-K46",
+    "EL506-K36",
+    "EL506-K29",
+    "EL506-K08",
+    "EL506-K03",
+    "EL506-K02",
+    "EL506-K02",
+    "EL506-K08",
+    "EL506-K03",
+    "EL506-K04",
+    "EL506-K08"
+  ],
+  "frames": [
+    {
+      "after_step": 0,
+      "display": {
+        "upper_line": "",
+        "lower_line": "0.",
+        "indicators": [
+          "DEG"
+        ],
+        "scroll_arrows": [],
+        "cursor": {
+          "status": "unknown",
+          "reason": "Cursor blink phase not measured; only significant LCD checkpoints transcribed."
+        },
+        "insert_mode": {
+          "status": "unknown",
+          "reason": "Insertion timing not probed by calculus transcript."
+        },
+        "prompt": null,
+        "selected_result_component": null
+      },
+      "result": {
+        "status": "unknown",
+        "reason": "Baseline LCD independently inspected."
+      }
+    },
+    {
+      "after_step": 3,
+      "display": {
+        "upper_line": "Stat 0",
+        "lower_line": "0.",
+        "indicators": [
+          "DEG",
+          "STAT"
+        ],
+        "scroll_arrows": [],
+        "cursor": {
+          "status": "unknown",
+          "reason": "Cursor blink phase not measured; only significant LCD checkpoints transcribed."
+        },
+        "insert_mode": {
+          "status": "unknown",
+          "reason": "Insertion timing not probed by calculus transcript."
+        },
+        "prompt": null,
+        "selected_result_component": null
+      },
+      "result": {
+        "status": "unknown",
+        "reason": "Visible native LCD independently transcribed; hidden stored digits not measured."
+      }
+    },
+    {
+      "after_step": 5,
+      "display": {
+        "upper_line": "DATA SET=",
+        "lower_line": "1.",
+        "indicators": [
+          "DEG",
+          "STAT"
+        ],
+        "scroll_arrows": [],
+        "cursor": {
+          "status": "unknown",
+          "reason": "Cursor blink phase not measured; only significant LCD checkpoints transcribed."
+        },
+        "insert_mode": {
+          "status": "unknown",
+          "reason": "Insertion timing not probed by calculus transcript."
+        },
+        "prompt": null,
+        "selected_result_component": null
+      },
+      "result": {
+        "status": "unknown",
+        "reason": "Visible native LCD independently transcribed; hidden stored digits not measured."
+      }
+    },
+    {
+      "after_step": 6,
+      "display": {
+        "upper_line": "X1=",
+        "lower_line": "1.",
+        "indicators": [
+          "DEG",
+          "STAT"
+        ],
+        "scroll_arrows": [
+          "down"
+        ],
+        "cursor": {
+          "status": "unknown",
+          "reason": "Cursor blink phase not measured; only significant LCD checkpoints transcribed."
+        },
+        "insert_mode": {
+          "status": "unknown",
+          "reason": "Insertion timing not probed by calculus transcript."
+        },
+        "prompt": null,
+        "selected_result_component": null
+      },
+      "result": {
+        "status": "unknown",
+        "reason": "Visible native LCD independently transcribed; hidden stored digits not measured."
+      }
+    },
+    {
+      "after_step": 7,
+      "display": {
+        "upper_line": "N1=",
+        "lower_line": "1.",
+        "indicators": [
+          "DEG",
+          "STAT"
+        ],
+        "scroll_arrows": [
+          "up"
+        ],
+        "cursor": {
+          "status": "unknown",
+          "reason": "Cursor blink phase not measured; only significant LCD checkpoints transcribed."
+        },
+        "insert_mode": {
+          "status": "unknown",
+          "reason": "Insertion timing not probed by calculus transcript."
+        },
+        "prompt": null,
+        "selected_result_component": null
+      },
+      "result": {
+        "status": "unknown",
+        "reason": "Visible native LCD independently transcribed; hidden stored digits not measured."
+      }
+    },
+    {
+      "after_step": 9,
+      "display": {
+        "upper_line": "2=",
+        "lower_line": "2.",
+        "indicators": [
+          "DEG",
+          "STAT"
+        ],
+        "scroll_arrows": [],
+        "cursor": {
+          "status": "unknown",
+          "reason": "Cursor blink phase not measured; only significant LCD checkpoints transcribed."
+        },
+        "insert_mode": {
+          "status": "unknown",
+          "reason": "Insertion timing not probed by calculus transcript."
+        },
+        "prompt": null,
+        "selected_result_component": null
+      },
+      "result": {
+        "status": "unknown",
+        "reason": "Visible native LCD independently transcribed; hidden stored digits not measured."
+      }
+    },
+    {
+      "after_step": 10,
+      "display": {
+        "upper_line": "N1=",
+        "lower_line": "2.",
+        "indicators": [
+          "DEG",
+          "STAT"
+        ],
+        "scroll_arrows": [
+          "up"
+        ],
+        "cursor": {
+          "status": "unknown",
+          "reason": "Cursor blink phase not measured; only significant LCD checkpoints transcribed."
+        },
+        "insert_mode": {
+          "status": "unknown",
+          "reason": "Insertion timing not probed by calculus transcript."
+        },
+        "prompt": null,
+        "selected_result_component": null
+      },
+      "result": {
+        "status": "unknown",
+        "reason": "Visible native LCD independently transcribed; hidden stored digits not measured."
+      }
+    },
+    {
+      "after_step": 11,
+      "display": {
+        "upper_line": "Stat 0",
+        "lower_line": "0.",
+        "indicators": [
+          "DEG",
+          "STAT"
+        ],
+        "scroll_arrows": [],
+        "cursor": {
+          "status": "unknown",
+          "reason": "Cursor blink phase not measured; only significant LCD checkpoints transcribed."
+        },
+        "insert_mode": {
+          "status": "unknown",
+          "reason": "Insertion timing not probed by calculus transcript."
+        },
+        "prompt": null,
+        "selected_result_component": null
+      },
+      "result": {
+        "status": "unknown",
+        "reason": "Visible native LCD independently transcribed; hidden stored digits not measured."
+      }
+    },
+    {
+      "after_step": 14,
+      "display": {
+        "upper_line": "3,",
+        "lower_line": "0.",
+        "indicators": [
+          "DEG",
+          "STAT"
+        ],
+        "scroll_arrows": [],
+        "cursor": {
+          "status": "unknown",
+          "reason": "Cursor blink phase not measured; only significant LCD checkpoints transcribed."
+        },
+        "insert_mode": {
+          "status": "unknown",
+          "reason": "Insertion timing not probed by calculus transcript."
+        },
+        "prompt": null,
+        "selected_result_component": null
+      },
+      "result": {
+        "status": "unknown",
+        "reason": "Visible native LCD independently transcribed; hidden stored digits not measured."
+      }
+    },
+    {
+      "after_step": 16,
+      "display": {
+        "upper_line": "DATA SET=",
+        "lower_line": "1.",
+        "indicators": [
+          "DEG",
+          "STAT"
+        ],
+        "scroll_arrows": [],
+        "cursor": {
+          "status": "unknown",
+          "reason": "Cursor blink phase not measured; only significant LCD checkpoints transcribed."
+        },
+        "insert_mode": {
+          "status": "unknown",
+          "reason": "Insertion timing not probed by calculus transcript."
+        },
+        "prompt": null,
+        "selected_result_component": null
+      },
+      "result": {
+        "status": "unknown",
+        "reason": "Visible native LCD independently transcribed; hidden stored digits not measured."
+      }
+    },
+    {
+      "after_step": 17,
+      "display": {
+        "upper_line": "N1=",
+        "lower_line": "2.",
+        "indicators": [
+          "DEG",
+          "STAT"
+        ],
+        "scroll_arrows": [
+          "up"
+        ],
+        "cursor": {
+          "status": "unknown",
+          "reason": "Cursor blink phase not measured; only significant LCD checkpoints transcribed."
+        },
+        "insert_mode": {
+          "status": "unknown",
+          "reason": "Insertion timing not probed by calculus transcript."
+        },
+        "prompt": null,
+        "selected_result_component": null
+      },
+      "result": {
+        "status": "unknown",
+        "reason": "Visible native LCD independently transcribed; hidden stored digits not measured."
+      }
+    },
+    {
+      "after_step": 19,
+      "display": {
+        "upper_line": "DATA SET=",
+        "lower_line": "0.",
+        "indicators": [
+          "DEG",
+          "STAT"
+        ],
+        "scroll_arrows": [],
+        "cursor": {
+          "status": "unknown",
+          "reason": "Cursor blink phase not measured; only significant LCD checkpoints transcribed."
+        },
+        "insert_mode": {
+          "status": "unknown",
+          "reason": "Insertion timing not probed by calculus transcript."
+        },
+        "prompt": null,
+        "selected_result_component": null
+      },
+      "result": {
+        "status": "unknown",
+        "reason": "Visible native LCD independently transcribed; hidden stored digits not measured."
+      }
+    },
+    {
+      "after_step": 22,
+      "display": {
+        "upper_line": "EXP LOG PWR",
+        "lower_line": "3. 4 5",
+        "indicators": [
+          "DEG",
+          "STAT"
+        ],
+        "scroll_arrows": [
+          "up",
+          "down"
+        ],
+        "cursor": {
+          "status": "unknown",
+          "reason": "Cursor blink phase not measured; only significant LCD checkpoints transcribed."
+        },
+        "insert_mode": {
+          "status": "unknown",
+          "reason": "Insertion timing not probed by calculus transcript."
+        },
+        "prompt": null,
+        "selected_result_component": null
+      },
+      "result": {
+        "status": "unknown",
+        "reason": "Visible native LCD independently transcribed; hidden stored digits not measured."
+      }
+    },
+    {
+      "after_step": 23,
+      "display": {
+        "upper_line": "INV",
+        "lower_line": "6.",
+        "indicators": [
+          "DEG",
+          "STAT"
+        ],
+        "scroll_arrows": [
+          "up"
+        ],
+        "cursor": {
+          "status": "unknown",
+          "reason": "Cursor blink phase not measured; only significant LCD checkpoints transcribed."
+        },
+        "insert_mode": {
+          "status": "unknown",
+          "reason": "Insertion timing not probed by calculus transcript."
+        },
+        "prompt": null,
+        "selected_result_component": null
+      },
+      "result": {
+        "status": "unknown",
+        "reason": "Visible native LCD independently transcribed; hidden stored digits not measured."
+      }
+    },
+    {
+      "after_step": 24,
+      "display": {
+        "upper_line": "Stat 1",
+        "lower_line": "0.",
+        "indicators": [
+          "DEG",
+          "STAT"
+        ],
+        "scroll_arrows": [],
+        "cursor": {
+          "status": "unknown",
+          "reason": "Cursor blink phase not measured; only significant LCD checkpoints transcribed."
+        },
+        "insert_mode": {
+          "status": "unknown",
+          "reason": "Insertion timing not probed by calculus transcript."
+        },
+        "prompt": null,
+        "selected_result_component": null
+      },
+      "result": {
+        "status": "unknown",
+        "reason": "Visible native LCD independently transcribed; hidden stored digits not measured."
+      }
+    },
+    {
+      "after_step": 27,
+      "display": {
+        "upper_line": "2,",
+        "lower_line": "0.",
+        "indicators": [
+          "DEG",
+          "STAT"
+        ],
+        "scroll_arrows": [],
+        "cursor": {
+          "status": "unknown",
+          "reason": "Cursor blink phase not measured; only significant LCD checkpoints transcribed."
+        },
+        "insert_mode": {
+          "status": "unknown",
+          "reason": "Insertion timing not probed by calculus transcript."
+        },
+        "prompt": null,
+        "selected_result_component": null
+      },
+      "result": {
+        "status": "unknown",
+        "reason": "Visible native LCD independently transcribed; hidden stored digits not measured."
+      }
+    },
+    {
+      "after_step": 28,
+      "display": {
+        "upper_line": "2,",
+        "lower_line": "4.",
+        "indicators": [
+          "DEG",
+          "STAT"
+        ],
+        "scroll_arrows": [],
+        "cursor": {
+          "status": "unknown",
+          "reason": "Cursor blink phase not measured; only significant LCD checkpoints transcribed."
+        },
+        "insert_mode": {
+          "status": "unknown",
+          "reason": "Insertion timing not probed by calculus transcript."
+        },
+        "prompt": null,
+        "selected_result_component": null
+      },
+      "result": {
+        "status": "unknown",
+        "reason": "Visible native LCD independently transcribed; hidden stored digits not measured."
+      }
+    },
+    {
+      "after_step": 29,
+      "display": {
+        "upper_line": "DATA SET=",
+        "lower_line": "1.",
+        "indicators": [
+          "DEG",
+          "STAT"
+        ],
+        "scroll_arrows": [],
+        "cursor": {
+          "status": "unknown",
+          "reason": "Cursor blink phase not measured; only significant LCD checkpoints transcribed."
+        },
+        "insert_mode": {
+          "status": "unknown",
+          "reason": "Insertion timing not probed by calculus transcript."
+        },
+        "prompt": null,
+        "selected_result_component": null
+      },
+      "result": {
+        "status": "unknown",
+        "reason": "Visible native LCD independently transcribed; hidden stored digits not measured."
+      }
+    },
+    {
+      "after_step": 30,
+      "display": {
+        "upper_line": "X1=",
+        "lower_line": "2.",
+        "indicators": [
+          "DEG",
+          "STAT"
+        ],
+        "scroll_arrows": [
+          "down"
+        ],
+        "cursor": {
+          "status": "unknown",
+          "reason": "Cursor blink phase not measured; only significant LCD checkpoints transcribed."
+        },
+        "insert_mode": {
+          "status": "unknown",
+          "reason": "Insertion timing not probed by calculus transcript."
+        },
+        "prompt": null,
+        "selected_result_component": null
+      },
+      "result": {
+        "status": "unknown",
+        "reason": "Visible native LCD independently transcribed; hidden stored digits not measured."
+      }
+    },
+    {
+      "after_step": 31,
+      "display": {
+        "upper_line": "Y1=",
+        "lower_line": "4.",
+        "indicators": [
+          "DEG",
+          "STAT"
+        ],
+        "scroll_arrows": [
+          "up",
+          "down"
+        ],
+        "cursor": {
+          "status": "unknown",
+          "reason": "Cursor blink phase not measured; only significant LCD checkpoints transcribed."
+        },
+        "insert_mode": {
+          "status": "unknown",
+          "reason": "Insertion timing not probed by calculus transcript."
+        },
+        "prompt": null,
+        "selected_result_component": null
+      },
+      "result": {
+        "status": "unknown",
+        "reason": "Visible native LCD independently transcribed; hidden stored digits not measured."
+      }
+    },
+    {
+      "after_step": 34,
+      "display": {
+        "upper_line": "0,",
+        "lower_line": "0.",
+        "indicators": [
+          "DEG",
+          "STAT"
+        ],
+        "scroll_arrows": [],
+        "cursor": {
+          "status": "unknown",
+          "reason": "Cursor blink phase not measured; only significant LCD checkpoints transcribed."
+        },
+        "insert_mode": {
+          "status": "unknown",
+          "reason": "Insertion timing not probed by calculus transcript."
+        },
+        "prompt": null,
+        "selected_result_component": null
+      },
+      "result": {
+        "status": "unknown",
+        "reason": "Visible native LCD independently transcribed; hidden stored digits not measured."
+      }
+    },
+    {
+      "after_step": 35,
+      "display": {
+        "upper_line": "0,",
+        "lower_line": "5.",
+        "indicators": [
+          "DEG",
+          "STAT"
+        ],
+        "scroll_arrows": [],
+        "cursor": {
+          "status": "unknown",
+          "reason": "Cursor blink phase not measured; only significant LCD checkpoints transcribed."
+        },
+        "insert_mode": {
+          "status": "unknown",
+          "reason": "Insertion timing not probed by calculus transcript."
+        },
+        "prompt": null,
+        "selected_result_component": null
+      },
+      "result": {
+        "status": "unknown",
+        "reason": "Visible native LCD independently transcribed; hidden stored digits not measured."
+      }
+    },
+    {
+      "after_step": 36,
+      "display": {
+        "upper_line": "Y1=",
+        "lower_line": "5.",
+        "indicators": [
+          "DEG",
+          "STAT"
+        ],
+        "scroll_arrows": [
+          "up",
+          "down"
+        ],
+        "cursor": {
+          "status": "unknown",
+          "reason": "Cursor blink phase not measured; only significant LCD checkpoints transcribed."
+        },
+        "insert_mode": {
+          "status": "unknown",
+          "reason": "Insertion timing not probed by calculus transcript."
+        },
+        "prompt": null,
+        "selected_result_component": null
+      },
+      "result": {
+        "status": "unknown",
+        "reason": "Visible native LCD independently transcribed; hidden stored digits not measured."
+      }
+    },
+    {
+      "after_step": 37,
+      "display": {
+        "upper_line": "X1=",
+        "lower_line": "0.",
+        "indicators": [
+          "DEG",
+          "STAT"
+        ],
+        "scroll_arrows": [
+          "down"
+        ],
+        "cursor": {
+          "status": "unknown",
+          "reason": "Cursor blink phase not measured; only significant LCD checkpoints transcribed."
+        },
+        "insert_mode": {
+          "status": "unknown",
+          "reason": "Insertion timing not probed by calculus transcript."
+        },
+        "prompt": null,
+        "selected_result_component": null
+      },
+      "result": {
+        "status": "unknown",
+        "reason": "Visible native LCD independently transcribed; hidden stored digits not measured."
+      }
+    },
+    {
+      "after_step": 39,
+      "display": {
+        "upper_line": "N1=",
+        "lower_line": "1.",
+        "indicators": [
+          "DEG",
+          "STAT"
+        ],
+        "scroll_arrows": [
+          "up"
+        ],
+        "cursor": {
+          "status": "unknown",
+          "reason": "Cursor blink phase not measured; only significant LCD checkpoints transcribed."
+        },
+        "insert_mode": {
+          "status": "unknown",
+          "reason": "Insertion timing not probed by calculus transcript."
+        },
+        "prompt": null,
+        "selected_result_component": null
+      },
+      "result": {
+        "status": "unknown",
+        "reason": "Visible native LCD independently transcribed; hidden stored digits not measured."
+      }
+    },
+    {
+      "after_step": 42,
+      "display": {
+        "upper_line": "N1=",
+        "lower_line": "-2.",
+        "indicators": [
+          "DEG",
+          "STAT"
+        ],
+        "scroll_arrows": [
+          "up"
+        ],
+        "cursor": {
+          "status": "unknown",
+          "reason": "Cursor blink phase not measured; only significant LCD checkpoints transcribed."
+        },
+        "insert_mode": {
+          "status": "unknown",
+          "reason": "Insertion timing not probed by calculus transcript."
+        },
+        "prompt": null,
+        "selected_result_component": null
+      },
+      "result": {
+        "status": "unknown",
+        "reason": "Visible native LCD independently transcribed; hidden stored digits not measured."
+      }
+    },
+    {
+      "after_step": 44,
+      "display": {
+        "upper_line": "N1=",
+        "lower_line": "-2.",
+        "indicators": [
+          "DEG",
+          "STAT"
+        ],
+        "scroll_arrows": [
+          "up"
+        ],
+        "cursor": {
+          "status": "unknown",
+          "reason": "Cursor blink phase not measured; only significant LCD checkpoints transcribed."
+        },
+        "insert_mode": {
+          "status": "unknown",
+          "reason": "Insertion timing not probed by calculus transcript."
+        },
+        "prompt": null,
+        "selected_result_component": null
+      },
+      "result": {
+        "status": "unknown",
+        "reason": "Visible native LCD independently transcribed; hidden stored digits not measured."
+      }
+    },
+    {
+      "after_step": 46,
+      "display": {
+        "upper_line": "DATA SET=",
+        "lower_line": "0.",
+        "indicators": [
+          "DEG",
+          "STAT"
+        ],
+        "scroll_arrows": [],
+        "cursor": {
+          "status": "unknown",
+          "reason": "Cursor blink phase not measured; only significant LCD checkpoints transcribed."
+        },
+        "insert_mode": {
+          "status": "unknown",
+          "reason": "Insertion timing not probed by calculus transcript."
+        },
+        "prompt": null,
+        "selected_result_component": null
+      },
+      "result": {
+        "status": "unknown",
+        "reason": "Visible native LCD independently transcribed; hidden stored digits not measured."
+      }
+    },
+    {
+      "after_step": 47,
+      "display": {
+        "upper_line": "Error 1",
+        "lower_line": "",
+        "indicators": [
+          "DEG",
+          "STAT"
+        ],
+        "scroll_arrows": [],
+        "cursor": {
+          "status": "unknown",
+          "reason": "Cursor blink phase not measured; only significant LCD checkpoints transcribed."
+        },
+        "insert_mode": {
+          "status": "unknown",
+          "reason": "Insertion timing not probed by calculus transcript."
+        },
+        "prompt": null,
+        "selected_result_component": null
+      },
+      "result": {
+        "status": "unknown",
+        "reason": "Visible native LCD independently transcribed; hidden stored digits not measured."
+      }
+    },
+    {
+      "after_step": 48,
+      "display": {
+        "upper_line": "Stat 1",
+        "lower_line": "0.",
+        "indicators": [
+          "DEG",
+          "STAT"
+        ],
+        "scroll_arrows": [],
+        "cursor": {
+          "status": "unknown",
+          "reason": "Cursor blink phase not measured; only significant LCD checkpoints transcribed."
+        },
+        "insert_mode": {
+          "status": "unknown",
+          "reason": "Insertion timing not probed by calculus transcript."
+        },
+        "prompt": null,
+        "selected_result_component": null
+      },
+      "result": {
+        "status": "unknown",
+        "reason": "Visible native LCD independently transcribed; hidden stored digits not measured."
+      }
+    },
+    {
+      "after_step": 51,
+      "display": {
+        "upper_line": "1,",
+        "lower_line": "0.",
+        "indicators": [
+          "DEG",
+          "STAT"
+        ],
+        "scroll_arrows": [],
+        "cursor": {
+          "status": "unknown",
+          "reason": "Cursor blink phase not measured; only significant LCD checkpoints transcribed."
+        },
+        "insert_mode": {
+          "status": "unknown",
+          "reason": "Insertion timing not probed by calculus transcript."
+        },
+        "prompt": null,
+        "selected_result_component": null
+      },
+      "result": {
+        "status": "unknown",
+        "reason": "Visible native LCD independently transcribed; hidden stored digits not measured."
+      }
+    },
+    {
+      "after_step": 54,
+      "display": {
+        "upper_line": "1,2,",
+        "lower_line": "0.",
+        "indicators": [
+          "DEG",
+          "STAT"
+        ],
+        "scroll_arrows": [],
+        "cursor": {
+          "status": "unknown",
+          "reason": "Cursor blink phase not measured; only significant LCD checkpoints transcribed."
+        },
+        "insert_mode": {
+          "status": "unknown",
+          "reason": "Insertion timing not probed by calculus transcript."
+        },
+        "prompt": null,
+        "selected_result_component": null
+      },
+      "result": {
+        "status": "unknown",
+        "reason": "Visible native LCD independently transcribed; hidden stored digits not measured."
+      }
+    },
+    {
+      "after_step": 56,
+      "display": {
+        "upper_line": "1,2,",
+        "lower_line": "0.5",
+        "indicators": [
+          "DEG",
+          "STAT"
+        ],
+        "scroll_arrows": [],
+        "cursor": {
+          "status": "unknown",
+          "reason": "Cursor blink phase not measured; only significant LCD checkpoints transcribed."
+        },
+        "insert_mode": {
+          "status": "unknown",
+          "reason": "Insertion timing not probed by calculus transcript."
+        },
+        "prompt": null,
+        "selected_result_component": null
+      },
+      "result": {
+        "status": "unknown",
+        "reason": "Visible native LCD independently transcribed; hidden stored digits not measured."
+      }
+    },
+    {
+      "after_step": 57,
+      "display": {
+        "upper_line": "DATA SET=",
+        "lower_line": "1.",
+        "indicators": [
+          "DEG",
+          "STAT"
+        ],
+        "scroll_arrows": [],
+        "cursor": {
+          "status": "unknown",
+          "reason": "Cursor blink phase not measured; only significant LCD checkpoints transcribed."
+        },
+        "insert_mode": {
+          "status": "unknown",
+          "reason": "Insertion timing not probed by calculus transcript."
+        },
+        "prompt": null,
+        "selected_result_component": null
+      },
+      "result": {
+        "status": "unknown",
+        "reason": "Visible native LCD independently transcribed; hidden stored digits not measured."
+      }
+    },
+    {
+      "after_step": 58,
+      "display": {
+        "upper_line": "N1=",
+        "lower_line": "0.5",
+        "indicators": [
+          "DEG",
+          "STAT"
+        ],
+        "scroll_arrows": [
+          "up"
+        ],
+        "cursor": {
+          "status": "unknown",
+          "reason": "Cursor blink phase not measured; only significant LCD checkpoints transcribed."
+        },
+        "insert_mode": {
+          "status": "unknown",
+          "reason": "Insertion timing not probed by calculus transcript."
+        },
+        "prompt": null,
+        "selected_result_component": null
+      },
+      "result": {
+        "status": "unknown",
+        "reason": "Visible native LCD independently transcribed; hidden stored digits not measured."
+      }
+    },
+    {
+      "after_step": 60,
+      "display": {
+        "upper_line": "",
+        "lower_line": "",
+        "indicators": [],
+        "scroll_arrows": [],
+        "cursor": {
+          "status": "unknown",
+          "reason": "Cursor blink phase not measured; only significant LCD checkpoints transcribed."
+        },
+        "insert_mode": {
+          "status": "unknown",
+          "reason": "Insertion timing not probed by calculus transcript."
+        },
+        "prompt": null,
+        "selected_result_component": null
+      },
+      "result": {
+        "status": "unknown",
+        "reason": "Visible native LCD independently transcribed; hidden stored digits not measured."
+      }
+    },
+    {
+      "after_step": 61,
+      "display": {
+        "upper_line": "Stat 1",
+        "lower_line": "0.",
+        "indicators": [
+          "DEG",
+          "STAT"
+        ],
+        "scroll_arrows": [],
+        "cursor": {
+          "status": "unknown",
+          "reason": "Cursor blink phase not measured; only significant LCD checkpoints transcribed."
+        },
+        "insert_mode": {
+          "status": "unknown",
+          "reason": "Insertion timing not probed by calculus transcript."
+        },
+        "prompt": null,
+        "selected_result_component": null
+      },
+      "result": {
+        "status": "unknown",
+        "reason": "Visible native LCD independently transcribed; hidden stored digits not measured."
+      }
+    },
+    {
+      "after_step": 62,
+      "display": {
+        "upper_line": "N1=",
+        "lower_line": "0.5",
+        "indicators": [
+          "DEG",
+          "STAT"
+        ],
+        "scroll_arrows": [
+          "up"
+        ],
+        "cursor": {
+          "status": "unknown",
+          "reason": "Cursor blink phase not measured; only significant LCD checkpoints transcribed."
+        },
+        "insert_mode": {
+          "status": "unknown",
+          "reason": "Insertion timing not probed by calculus transcript."
+        },
+        "prompt": null,
+        "selected_result_component": null
+      },
+      "result": {
+        "status": "unknown",
+        "reason": "Visible native LCD independently transcribed; hidden stored digits not measured."
+      }
+    },
+    {
+      "after_step": 64,
+      "display": {
+        "upper_line": "Stat 1",
+        "lower_line": "0.",
+        "indicators": [
+          "DEG",
+          "STAT"
+        ],
+        "scroll_arrows": [],
+        "cursor": {
+          "status": "unknown",
+          "reason": "Cursor blink phase not measured; only significant LCD checkpoints transcribed."
+        },
+        "insert_mode": {
+          "status": "unknown",
+          "reason": "Insertion timing not probed by calculus transcript."
+        },
+        "prompt": null,
+        "selected_result_component": null
+      },
+      "result": {
+        "status": "unknown",
+        "reason": "Visible native LCD independently transcribed; hidden stored digits not measured."
+      }
+    },
+    {
+      "after_step": 65,
+      "display": {
+        "upper_line": "Stat 1",
+        "lower_line": "0.",
+        "indicators": [
+          "DEG",
+          "STAT"
+        ],
+        "scroll_arrows": [],
+        "cursor": {
+          "status": "unknown",
+          "reason": "Cursor blink phase not measured; only significant LCD checkpoints transcribed."
+        },
+        "insert_mode": {
+          "status": "unknown",
+          "reason": "Insertion timing not probed by calculus transcript."
+        },
+        "prompt": null,
+        "selected_result_component": null
+      },
+      "result": {
+        "status": "unknown",
+        "reason": "Visible native LCD independently transcribed; hidden stored digits not measured."
+      }
+    }
+  ],
+  "stored_values": {
+    "coverage": "Dataset records verified by native browse fields; manual capacity rules and implementation snapshot/capacity tests additionally covered without claiming live hidden-digit parity.",
+    "observations": []
+  },
+  "errors": [],
+  "sources": [
+    {
+      "source_id": "live-session",
+      "kind": "simulator",
+      "reference": "simulator-profile.json",
+      "page": null,
+      "scope": "STAT submode menu, SD and paired data, separators, field/whole-record corrections, signed/fractional and zero frequency, deletion, power persistence, CA and malformed-pair error."
+    },
+    {
+      "source_id": "manual-statistics",
+      "kind": "full-manual",
+      "reference": "https://res.cloudinary.com/hnymxdy5j/raw/upload/v1743873557/media/00d7f000004ckruua4/EL506TSBWH_English_manual.pdf",
+      "page": 2,
+      "scope": "Statistics data entry/correction, 100-slot capacity accounting, Error 3; general numerical range in calculation ranges."
+    }
+  ],
+  "oracle": {
+    "selected_source_id": "live-session",
+    "simulator_exception_ids": [],
+    "disagreements": []
+  },
+  "ambiguities": [],
+  "notes": [
+    "Native frequency label is Nn=, not Fn=; seven submodes expose no three-variable STAT.",
+    "Zero frequency omits a new observation or deletes an existing record; signed and fractional frequencies are retained.",
+    "Native expressions show a blinking cursor after commas; comma text is transcribed without that cursor.",
+    "100 storage slots and Error 3 come from the full manual, not a live 101-record stress probe. Numeric range is the existing pinned manual range; private boundary digits remain a later cross-mode precision audit.",
+    "Native significant checkpoints are independent evidence; all intermediate golden frames are implementation regression assertions."
+  ]
+}

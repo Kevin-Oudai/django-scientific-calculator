@@ -37,7 +37,7 @@
       if(n<lower || n>upper)throw new RangeError('Fixed-width integer overflow');return;
     }
     if(v.kind==='statistics' && keys==='kind,rows' && Array.isArray(v.rows) && v.rows.length<=10000){
-      for(const row of v.rows){if(!row || Object.keys(row).sort().join()!=='weight,x,y' || !Number.isFinite(row.weight) || row.weight<=0)throw new TypeError('Invalid observation');numeric(row.x);if(row.y!==null)numeric(row.y);}return;
+      for(const row of v.rows){if(!row || Object.keys(row).sort().join()!=='weight,x,y' || !Number.isFinite(row.weight) || row.weight===0)throw new TypeError('Invalid observation');numeric(row.x);if(row.y!==null)numeric(row.y);}return;
     }
     if(v.kind==='equation' && keys==='components,kind' && Array.isArray(v.components) && v.components.length<=10000){
       for(const c of v.components){if(!c || Object.keys(c).sort().join()!=='label,value' || typeof c.label!=='string')throw new TypeError('Invalid result component');child(c.value);}return;

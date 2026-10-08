@@ -2292,6 +2292,39 @@ Snapshot remains schema 10; the package version remains 0.3.1.
 
 ### Phase 11 - Statistics Data Management
 
+User requested the full Phase 11 batch (EL506-220 through EL506-231).
+READY_TO_PUSH: 2026-10-07. All twelve items passed local gates; leave the
+checklist and Next item unchanged until the implementation commit is published
+and its exact origin/main SHA verified.
+
+Verification: npm test passed (433 unit, 154 browser, 401 golden frames),
+focused statistics/browser checks, Django (7), compileall, pip dry runs,
+Compose config, installed wheel/sdist smoke (19 assets), report checks,
+live browser display and git diff --check. Explicit STAT ledger mappings were
+then added and verified with five report/golden unit tests and the report
+browser test. Docker build/start was attempted but its Linux backend pipe is
+unavailable; the local Django server at 127.0.0.1:8010 exercised browser tests.
+Agent-opened native runtime and extractor were confirmed closed.
+
+Evidence: `tests/reference/el506ts/phase-11-review.json`, statistics experiment
+and 66-frame golden fixture (40 independent native checkpoints), pinned full
+manual statistics/data/capacity/error sections, unit/browser mappings and
+regenerated parity report. SD and paired data, field/whole-record corrections,
+frequency signs/fractions/zero, CD deletion, browsing, ON/C recovery, power
+persistence and CA were observed in the exact pinned simulator.
+
+Notes: The native frequency label is Nn= rather than Fn=. STAT exposes seven
+submodes; three-variable STAT is inapplicable. The third paired operand is a
+frequency, while 3-VLE belongs to EQN. Capacity is 100 storage slots, with one
+extra slot for explicit frequency; full/partial/range errors are atomic.
+The full manual defines capacity/Error 3; the simulator was not filled with
+101 live records. Hidden precision at extreme boundaries, cross-mode buffers
+and all private rounding remain the later audit; full parity is not claimed.
+Physical means, deviations and regression algorithms remain Phase 12.
+Snapshot schema 11 retains entry/browse metadata and migrates schemas 1–10;
+the package version remains 0.3.1. The requested 12px legends and fraction
+layout remain covered by the existing UI regressions.
+
 - [ ] **EL506-220 - Match the STAT menu.** Include SD plus LINE, QUAD, EXP,
   LOG, POWER, and INV selections and indicators.
 - [ ] **EL506-221 - Match one-variable data entry.**

@@ -78,7 +78,7 @@ test('Phase 8 Newton iteration handles multiple roots, domain errors and bounded
 });
 test('Phase 8 snapshot 9 migrates published scalar variables and string formula stores',()=>{
  let s=seq([30,28,18,2,5,18,43,40,28,8]);const old=core.snapshotCalculator(s);old.schemaVersion=8;delete old.state.values.variables;old.state.control.formulas=old.state.control.formulas.map(core.semanticEditor.serialize);
- const restored=core.restoreCalculator(old);assert.equal(restored.values.variables.A.value,7);assert.equal(core.semanticEditor.serialize(restored.control.formulas[0]),'A+1');assert.equal(core.snapshotCalculator(restored).schemaVersion,10);
+ const restored=core.restoreCalculator(old);assert.equal(restored.values.variables.A.value,7);assert.equal(core.semanticEditor.serialize(restored.control.formulas[0]),'A+1');assert.equal(core.snapshotCalculator(restored).schemaVersion,11);
 });
 test('Phase 8 memory and ANS policy covers every mode and structured result type',()=>{
  const v=core.valueTypes;
@@ -101,7 +101,7 @@ for(const [name,keys,temporary,independent,formula,answer] of [
  let s=seq([30,28,18,28,29,2,40,43,41,28,8]);
  for(const key of [19,20,21,22,23,27,28])s=seq([2,30,28,key],s);
  for(const key of [9,10,11])s=seq([2,40,43,41,28,key],s);
- s.statsValues=[2];s.values.statistics.rows=[{x:core.valueTypes.scalar(2),y:null,weight:1}];
+ s.statsValues=[2];s.control.statistics.frequencies=[false];s.values.statistics.rows=[{x:core.valueTypes.scalar(2),y:null,weight:1}];
  for(let i=0;i<4;i++){s.control.matrices[i]={kind:'matrix',rows:1,columns:1,elements:[core.valueTypes.scalar(2)]};s.control.lists[i]={kind:'list',elements:[core.valueTypes.scalar(2)]};}
  if(name==='idle/ON'){s=core.reduceCalculator(s,{type:'idle',elapsedMs:600000});s=press(s,2);}else s=seq(keys,s);
  assert.equal(s.control.variables.A,temporary);assert.equal(s.memoryValue,independent);assert.equal(Boolean(s.control.formulas[0].length),formula);assert.equal(s.answer,answer);

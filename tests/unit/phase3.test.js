@@ -3,7 +3,7 @@ const core=require('../../src/scientific_calculator/static/scientific_calculator
 const fmt=require('../../src/scientific_calculator/static/scientific_calculator/formatting.js');
 const press=(s,n)=>core.reduceCalculator(s,{type:'physical-key',id:`EL506-K${String(n).padStart(2,'0')}`});
 const sequence=(numbers,s=core.createInitialState())=>numbers.reduce(press,s);
-function stores(){const s=sequence([41,43,42,48]);s.memoryValue=7;s.values.memory=core.valueTypes.scalar(7);s.statsValues=[2];s.values.statistics.rows=[{x:core.valueTypes.scalar(2),y:null,weight:1}];s.control.variables.A=8;s.control.formulas[0]=core.semanticEditor.tokenize('2+3',{physical:true});s.control.matrices[0]={kind:'matrix',rows:1,columns:1,elements:[core.valueTypes.scalar(1)]};return s;}
+function stores(){const s=sequence([41,43,42,48]);s.memoryValue=7;s.values.memory=core.valueTypes.scalar(7);s.statsValues=[2];s.control.statistics.frequencies=[false];s.values.statistics.rows=[{x:core.valueTypes.scalar(2),y:null,weight:1}];s.control.variables.A=8;s.control.formulas[0]=core.semanticEditor.tokenize('2+3',{physical:true});s.control.matrices[0]={kind:'matrix',rows:1,columns:1,elements:[core.valueTypes.scalar(1)]};return s;}
 test('OFF blanks all display state, ignores other keys and ON/C wakes with retained values',()=>{
   const s=stores(),off=sequence([3,2],s),view=fmt.renderState(off,{physical:true});
   assert.equal(off.control.power,'off');assert.equal(view.resultHtml,'');assert.ok(Object.values(view.indicators).every(v=>!v));assert.deepEqual(press(off,40),off);
@@ -74,7 +74,7 @@ test('post-result digits start fresh, arithmetic continues from ANS, modifier pr
   const s=sequence([41,43,42,48]);assert.equal(press(s,40).entry,'1');assert.equal(sequence([43,41,48],s).answer,7);assert.equal(press(s,3).answer,5);
 });
 test('control snapshots migrate schema 5 and reject malformed power/storage state atomically',()=>{
-  const snap=core.snapshotCalculator(stores());assert.equal(snap.schemaVersion,10);const old=structuredClone(snap);old.schemaVersion=5;delete old.state.control;assert.equal(core.restoreCalculator(old).control.power,'on');
+  const snap=core.snapshotCalculator(stores());assert.equal(snap.schemaVersion,11);const old=structuredClone(snap);old.schemaVersion=5;delete old.state.control;assert.equal(core.restoreCalculator(old).control.power,'on');
   const bad=structuredClone(snap);bad.state.control.power='awake';assert.throws(()=>core.restoreCalculator(bad),TypeError);assert.equal(snap.state.control.power,'on');
 });
 

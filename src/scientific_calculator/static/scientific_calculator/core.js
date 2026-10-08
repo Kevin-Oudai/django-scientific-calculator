@@ -932,7 +932,8 @@
     }
     return editor;
   }
-  function initialControl() { return {power:"on",idleMs:0,submode:null,errorCode:null,arithmetic:{constant:null,percent:false},nbase:{radix:10},variables:Object.fromEntries(["A","B","C","D","E","F","X","Y"].map(k=>[k,0])),formulas:[[],[],[],[]],matrices:[null,null,null,null],lists:[null,null,null,null]}; }
+  function initialStatistics() { return {parts:[],cursor:null,editing:false,frequencies:[]}; }
+  function initialControl() { return {power:"on",idleMs:0,submode:null,errorCode:null,arithmetic:{constant:null,percent:false},nbase:{radix:10},statistics:initialStatistics(),variables:Object.fromEntries(["A","B","C","D","E","F","X","Y"].map(k=>[k,0])),formulas:[[],[],[],[]],matrices:[null,null,null,null],lists:[null,null,null,null]}; }
   function createInitialState() {
     const state = { ...createLegacyInitialState(), lifecycle: "empty", workflow: emptyWorkflow(), layers: initialLayers(), control: initialControl() };
     return { ...state, editor: editorForState(state), values: initialValues(state) };
@@ -960,6 +961,7 @@
     }
     if (["memory-clear","home"].includes(event.action)) typed.memory = values.scalar(next.memoryValue);
     typed.statistics = {kind:"statistics",rows:next.statsValues.map((x,i)=>({x:previous.statsValues[i]===x && previous.values.statistics.rows[i]?values.copy(previous.values.statistics.rows[i].x):values.scalar(x),y:null,weight:1}))};
+    next.control.statistics={...initialStatistics(),frequencies:next.statsValues.map(()=>false)};
     const historyOffset = evaluated ? Math.max(0,previous.history.length+1-next.history.length) : 0;
     typed.history = next.history.map((h,i)=>i+historyOffset >= previous.history.length ? values.copy(typed.answer) : values.copy(previous.values.history[i+historyOffset]));
     return typed;
@@ -1014,6 +1016,9 @@
     const constant=c.arithmetic.constant;
     if(constant!==null && (!constant || Object.keys(constant).sort().join()!=='operand,operator' || !['+','-', '*',':'].includes(constant.operator) || typeof constant.operand!=='string'))throw new TypeError('Invalid constant calculation');
     if(!c.nbase || Object.keys(c.nbase).join()!=='radix'||![2,5,8,10,16].includes(c.nbase.radix))throw new TypeError('Invalid N-base state');
+    const stat=c.statistics;
+    if(!stat||Object.keys(stat).sort().join()!=='cursor,editing,frequencies,parts'||!Array.isArray(stat.parts)||stat.parts.length>2||!stat.parts.every(p=>typeof p==='string'&&p.length<=142)||typeof stat.editing!=='boolean'||!Array.isArray(stat.frequencies)||stat.frequencies.length!==state.statsValues.length||!stat.frequencies.every(p=>typeof p==='boolean')||!(stat.cursor===null||Number.isInteger(stat.cursor)&&stat.cursor>=0&&stat.cursor<state.statsValues.length*(c.submode==='SD'?2:3)))throw new TypeError('Invalid statistics control');
+    if(state.layers.mode==='STAT'&&stat.frequencies.reduce((total,frequency,i)=>total+1+(state.values.statistics.rows[i].y!==null?1:0)+(frequency?1:0),0)>100)throw new TypeError('Statistics data capacity');
     semantic.validateEditor(state.editor);
     if (state.editor.ast !== null) semantic.validateAst(state.editor.ast);
     if (!state.values || Object.keys(state.values).sort().join() !== "answer,history,last,memory,statistics,variables" || !Array.isArray(state.values.history)
@@ -1073,11 +1078,11 @@
   // part of this contract. Future modes must version and extend these fields.
   function snapshotCalculator(state) {
     validateState(state);
-    return { schemaVersion: 10, profile: "legacy-0.3.1", state: structuredClone(state) };
+    return { schemaVersion: 11, profile: "legacy-0.3.1", state: structuredClone(state) };
   }
 
   function restoreCalculator(snapshot) {
-    if (!snapshot || ![1, 2, 3, 4, 5, 6, 7, 8, 9, 10].includes(snapshot.schemaVersion) || snapshot.profile !== "legacy-0.3.1"
+    if (!snapshot || ![1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11].includes(snapshot.schemaVersion) || snapshot.profile !== "legacy-0.3.1"
       || Object.keys(snapshot).sort().join() !== "profile,schemaVersion,state") {
       throw new TypeError("Unsupported calculator snapshot");
     }
@@ -1095,6 +1100,7 @@
     if(snapshot.schemaVersion<6) state.control=initialControl();
     if(snapshot.schemaVersion<7) state.control.arithmetic=initialControl().arithmetic;
     if(snapshot.schemaVersion<10)state.control.nbase={radix:10};
+    if(snapshot.schemaVersion<11)state.control.statistics={...initialStatistics(),frequencies:state.statsValues.map(()=>false)};
     if(snapshot.schemaVersion<9){
       if(snapshot.schemaVersion>=6)state.control.formulas=state.control.formulas.map(t=>semantic.tokenize(t,{physical:true}));
       state.values.variables=Object.fromEntries(Object.entries(state.control.variables).map(([k,v])=>[k,values.scalar(v)]));
@@ -1223,6 +1229,7 @@
     const next=createInitialState();next.layers.settings=structuredClone(previous.layers.settings);next.angleMode=previous.angleMode;
     next.layers.mode=previous.layers.mode;next.control=structuredClone(previous.control);next.control.errorCode=null;next.control.idleMs=0;
     next.control.arithmetic=initialControl().arithmetic;
+    next.control.statistics={...initialStatistics(),frequencies:scope==='command'?structuredClone(previous.control.statistics.frequencies):[]};
     if(scope!=='command')next.control.nbase={radix:10};
     if(scope==='command'){
       for(const name of ['answer','lastValue','memoryValue','statsValues','values','history'])next[name]=structuredClone(previous[name]);
@@ -1883,6 +1890,79 @@
       next.secondActive=false;return next; // Scientific functions and fractional digits are unavailable.
     }catch(error){next=physicalError(next,error instanceof RangeError?2:1);next.layers.intent={kind:'nbase-error'};next.secondActive=false;next.workflow=emptyWorkflow();return next;}
   }
+  // Statistics stores typed observations; entry uses the same numeric editor as
+  // NORMAL, while DATA, comma and browsing own their distinct state transitions.
+  function physicalStatisticsDisplay(next,browse=false){
+    const p=next.control.statistics,rows=next.values.statistics.rows,width=next.control.submode==='SD'?2:3;
+    next.expression='';next.entry='';next.stagedEntry=null;next.selectionActive=false;next.workflow=emptyWorkflow();next.lifecycle='empty';next.control.errorCode=null;next.secondActive=false;next.layers.alpha=false;
+    if(browse&&p.cursor!==null){
+      const index=Math.floor(p.cursor/width),field=p.cursor%width,row=rows[index];
+      next.displayExpression=(field===0?'X':width===3&&field===1?'Y':'N')+(index+1)+'=';
+      next.displayResult=next.resultDisplay=String(field===0?values.toNumber(row.x):width===3&&field===1?values.toNumber(row.y):row.weight);
+    }else {next.displayExpression='DATA SET=';next.displayResult=next.resultDisplay=String(rows.length);p.cursor=null;}
+    p.parts=[];p.editing=false;next.layers.intent={kind:'statistics-display'};next.editor=editorForState(next);return next;
+  }
+  function physicalPhase11(previous,next,intent,n,randomSample){
+    if(previous.layers.mode!=='STAT'||previous.workflow.kind!==null)return null;
+    const p=next.control.statistics,rows=next.values.statistics.rows,width=previous.control.submode==='SD'?2:3;
+    const index=p.cursor===null?null:Math.floor(p.cursor/width),field=p.cursor===null?null:p.cursor%width;
+    const error=code=>{const failed=physicalError(next,code);failed.layers.intent={kind:'statistics-error'};failed.secondActive=false;return failed;};
+    if(n===16||previous.secondActive&&n===17){next.secondActive=false;return next;}
+    if(n===3){next.secondActive=!previous.secondActive;next.layers.alpha=false;return next;}
+    if(n===5&&!previous.secondActive){next.layers.alpha=!previous.layers.alpha;next.secondActive=false;return next;}
+    if(n===8||n===11){
+      if(!rows.length)return next;
+      p.cursor=p.cursor===null?(n===11?0:rows.length*width-1):Math.max(0,Math.min(rows.length*width-1,p.cursor+(n===11?1:-1)));
+      return physicalStatisticsDisplay(next,true);
+    }
+    if(previous.secondActive&&n===29){
+      if(index!==null){rows.splice(index,1);p.frequencies.splice(index,1);next.statsValues.splice(index,1);}
+      return physicalStatisticsDisplay(next);
+    }
+    if((n===29&&!previous.layers.alpha&&!previous.secondActive)||(n===28&&previous.secondActive)){
+      if(previous.lifecycle==='error')return next;
+      try{
+        let source=physicalSource(previous);
+        if(p.cursor!==null&&!p.editing&&!p.parts.length)source=String(field===0?values.toNumber(rows[index].x):width===3&&field===1?values.toNumber(rows[index].y):rows[index].weight);
+        const calculated=physicalCalculate(previous,source||'0');
+        if(calculated.lifecycle==='error')return error(calculated.control.errorCode);
+        if(n===28){
+          if(p.parts.length>=width-1)return error(1);
+          p.parts.push(source||'0');p.editing=true;next.expression='';next.entry='';next.stagedEntry=null;next.displayExpression='';next.displayResult=next.resultDisplay='0';next.lifecycle='entering';next.secondActive=false;next.layers.intent={kind:'statistics-entry'};next.editor=editorForState(next);return next;
+        }
+        const numbers=[...p.parts,source||'0'].map(part=>{const r=physicalCalculate(previous,part);if(r.lifecycle==='error'){const e=new Error('Invalid statistical operand');e.code=r.control.errorCode;throw e;}return r.lastValue;});
+        let row,explicit;
+        if(index!==null&&!p.parts.length){
+          row=structuredClone(rows[index]);explicit=p.frequencies[index];
+          if(field===0)row.x=values.scalar(numbers[0]);else if(width===3&&field===1)row.y=values.scalar(numbers[0]);else {row.weight=numbers[0];explicit=true;}
+        }else{
+          if(width===3&&numbers.length<2)return error(1);
+          row={x:values.scalar(numbers[0]),y:width===3?values.scalar(numbers[1]):null,weight:numbers.length===width?numbers.at(-1):1};explicit=numbers.length===width;
+        }
+        const cost=(r,e)=>1+(r.y===null?0:1)+(e?1:0);
+        const used=rows.reduce((total,r,i)=>total+cost(r,p.frequencies[i]),0)-(index===null?0:cost(rows[index],p.frequencies[index]));
+        if(row.weight!==0&&used+cost(row,explicit)>100)return error(3);
+        if(index!==null){
+          if(row.weight===0){rows.splice(index,1);p.frequencies.splice(index,1);next.statsValues.splice(index,1);return physicalStatisticsDisplay(next);}
+          rows[index]=row;p.frequencies[index]=explicit;next.statsValues[index]=values.toNumber(row.x);return physicalStatisticsDisplay(next,true);
+        }
+        if(row.weight!==0){rows.push(row);p.frequencies.push(explicit);next.statsValues.push(values.toNumber(row.x));}
+        return physicalStatisticsDisplay(next);
+      }catch(e){return error(e.code|| (e instanceof RangeError?2:1));}
+    }
+    // Memory/result selector workflows remain owned by their own controllers.
+    if([27,28].includes(n)||intent.kind==='statistic'||previous.layers.alpha&&n!==48)return null;
+    if(previous.lifecycle==='error')return next;
+    const normal=structuredClone(previous);normal.layers.mode='NORMAL';normal.control.arithmetic=initialControl().arithmetic;
+    if(p.cursor!==null&&!p.editing||previous.layers.intent?.kind==='statistics-display'){
+      normal.expression='';normal.entry='';normal.stagedEntry=null;normal.displayExpression='';normal.displayResult='0';normal.lifecycle='empty';normal.layers.intent=null;
+    }
+    const entered=reducePhysicalKey(normal,physicalId(n),randomSample);
+    entered.layers.mode='STAT';entered.control.submode=previous.control.submode;entered.control.statistics=structuredClone(p);entered.values.statistics=values.copy(previous.values.statistics);entered.statsValues=[...previous.statsValues];
+    if(intent.kind==='operation'||n===48)entered.control.statistics.editing=true;
+    if(entered.lifecycle==='error')entered.layers.intent={kind:'statistics-error'};
+    return entered;
+  }
   function reducePhysicalKey(previous,id,randomSample){
     if(randomSample!==undefined&&(!Number.isFinite(randomSample)||randomSample<0||randomSample>=1))throw new TypeError("Invalid random sample");
     const intent=resolvePhysicalKey(previous,id); // Reject malformed identities even while asleep.
@@ -1926,6 +2006,7 @@
       if(n===45||n===48)return previous.workflow.payload.id==='CONFIRM_RESET'?createInitialState():physicalClear(previous,'memory');
       return next;
     }
+    const statisticsKey=physicalPhase11(previous,next,intent,n,randomSample);if(statisticsKey)return statisticsKey;
     const memoryKey=physicalPhase8(previous,next,intent,n,randomSample);if(memoryKey)return memoryKey;
     const catalogueKey=physicalPhase7(previous,next,intent,n,randomSample);if(catalogueKey)return catalogueKey;
     const scalarKey=physicalPhase6(previous,next,intent,n);if(scalarKey)return scalarKey;

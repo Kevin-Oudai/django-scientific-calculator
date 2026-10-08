@@ -811,7 +811,7 @@ The compatible `calculator.js` entry now loads local companion modules.
 `browser-adapter.js` owns root events, rendering and focus. Node consumers of
 the existing entry receive the same core API. Existing Django tags and asset
 paths need no template change; collect and deploy all package static assets
-together. State snapshots use schema 10 with the legacy profile; older schemas migrate in memory.
+together. State snapshots use schema 11 with the legacy profile; older schemas migrate in memory.
 
 Multiple template-tag embeds own independent entry, ANS, memory, statistics,
 history, modifiers, settings, token cursors and snapshots. Keyboard input
@@ -1192,7 +1192,7 @@ and replaces ANS only on success. Integration displays `Calculating!` and runs
 64 samples per animation frame; ON/C cancels and recovers from errors. Snapshots
 retain condition entry and integration progress and resume when restored.
 Deploy `calculus.js` with the other reusable package assets; the existing loader
-includes it automatically. Snapshot schema remains 10.
+includes it automatically. Phase 10 introduced no snapshot fields; current schema 11 includes statistics entry metadata.
 
 The web implementation bounds `n` to integers `1..10000` (at most 20001 samples)
 and calculus expressions to 1000 characters. Invalid numerical conditions,
@@ -1209,3 +1209,46 @@ versus `0.57735027` here, a known absolute difference of `2e-9`. Fourteen-digit
 sample arithmetic approximates private native arithmetic; exact sample rounding,
 every discontinuity, native work limits and cancellation timing remain unmeasured.
 The new tests cover these workflows and bounds without claiming full parity.
+
+
+## Statistics data management (Phase 11)
+
+Choose MODE, 1 (STAT), then 0 (SD), 1 (LINE), 2 (QUAD), 3 (EXP),
+4 (LOG), 5 (PWR), or 6 (INV). STAT supports one variable in SD and paired
+X/Y observations in the six regression submodes. The reference has no
+three-variable STAT option; 3-VLE belongs to EQN.
+
+Use DATA (the M+ key) to store an observation. Enter `x DATA` in SD or
+`x , y DATA` in paired modes. The comma is 2ndF, STO; the keyboard comma
+also follows that physical sequence. Add a final comma and frequency for
+weighted data. The pinned simulator accepts signed and fractional frequencies.
+Zero frequency adds no observation, and setting an existing frequency to zero
+removes that record. These are reference behavior, not input recommendations.
+
+DOWN starts at the oldest X field; UP starts at the newest frequency field.
+Continue with arrows through X, Y (paired modes), and frequency. The native LCD
+calls frequency `N1=`, `N2=`, etc., rather than F. The number identifies the
+record; arrow indicators show additional fields. Type a replacement and press
+DATA to correct one field. ENT evaluates the entry without committing it to
+the dataset. Comma-separated replacement values correct the whole selected
+record. 2ndF, DATA (CD) deletes that record and renumbers the rest. ON/C exits
+browsing so you can add another observation.
+
+Storage has 100 slots: an SD record costs one slot, a pair costs two, and an
+explicit frequency costs one additional slot, even when it equals one.
+Exceeding capacity displays Error 3 without changing records; malformed or
+incomplete records display Error 1, and numeric overflow displays Error 2.
+ON/C and power off/on preserve the dataset; CA, HOME, reset, and a completed
+mode/submode selection clear it. Merely opening or canceling MODE preserves it.
+
+Snapshot schema 11 retains paired values, signed weights, explicit-frequency
+storage costs, browsing position, and incomplete entry; schemas 1–10 migrate
+in memory. All assets stay in the reusable package. Statistics results and
+regression calculations are Phase 12 and remain pending in the physical layout.
+
+Verification includes the Phase 11 independently transcribed simulator
+checkpoints, canonical golden replay, unit tests for capacity and persistence,
+and browser tests for physical buttons, keyboard comma, correction, recovery,
+snapshots, multiple widgets, and fraction display bounds. Capacity/range rules
+also use the pinned full manual. Intermediate golden frames are regression
+assertions, not independently observed simulator parity.
