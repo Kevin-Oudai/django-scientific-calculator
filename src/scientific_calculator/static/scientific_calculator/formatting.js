@@ -275,7 +275,7 @@
       const name=match[1],units={kilo:'k',mega:'M',giga:'G',tera:'T',milli:'m',micro:'µ',nano:'n',pico:'p',femto:'f'};
       const prefixes={sqrt:'√',cbrt:'³√',tenpow:'10^',epow:'e^'};
       const listNames={lsortA:'sortA',lsortD:'sortD',ldim:'dim(',lfill:'fill(',lcumul:'cumul',ldiff:'df_list',laug:'aug(',lmin:'min',lmax:'max',lmean:'mean',lmed:'med',lsum:'sum',lprod:'prod',lstd:'stdDv',lvar:'vari',linner:'i_prod(',louter:'o_prod(',labs:'abs'};
-      output+=listNames[name]?listNames[name]+args.join(','):name==='polar'?args[0]+'\u2220'+(args[1]||''):name==='cpow'?args[0]+'^'+(args[1]||''):/^prob[pqr]$/.test(name)?name.slice(-1).toUpperCase()+'('+args[0]:name==='statt'?args[0]+'\u2192t':name==='cv'?args[0]+'→cv'+args[1]:name==='frac'?(args[0]==='0'?'':args[0]+' ')+args[1]+'/'+(args[2]||''):name==='fact'?args[0]+'!':name==='root'?args[0]+'ˣ√'+(args[1]||''):name==='npr'?args[0]+'P'+(args[1]||''):name==='ncr'?args[0]+'C'+(args[1]||''):units[name]?args[0]+units[name]:prefixes[name]?prefixes[name]+args[0]:({asin:'sin⁻¹',acos:'cos⁻¹',atan:'tan⁻¹',asinh:'sinh⁻¹',acosh:'cosh⁻¹',atanh:'tanh⁻¹'})[name]?( {asin:'sin⁻¹',acos:'cos⁻¹',atan:'tan⁻¹',asinh:'sinh⁻¹',acosh:'cosh⁻¹',atanh:'tanh⁻¹'}[name]+args[0]):name+args[0];
+      output+=listNames[name]?listNames[name]+args.join(','):name==='aug'?'aug('+args.join(','):name==='polar'?args[0]+'\u2220'+(args[1]||''):name==='cpow'?args[0]+'^'+(args[1]||''):/^prob[pqr]$/.test(name)?name.slice(-1).toUpperCase()+'('+args[0]:name==='statt'?args[0]+'\u2192t':name==='cv'?args[0]+'→cv'+args[1]:name==='frac'?(args[0]==='0'?'':args[0]+' ')+args[1]+'/'+(args[2]||''):name==='fact'?args[0]+'!':name==='root'?args[0]+'ˣ√'+(args[1]||''):name==='npr'?args[0]+'P'+(args[1]||''):name==='ncr'?args[0]+'C'+(args[1]||''):units[name]?args[0]+units[name]:prefixes[name]?prefixes[name]+args[0]:({asin:'sin⁻¹',acos:'cos⁻¹',atan:'tan⁻¹',asinh:'sinh⁻¹',acosh:'cosh⁻¹',atanh:'tanh⁻¹'})[name]?( {asin:'sin⁻¹',acos:'cos⁻¹',atan:'tan⁻¹',asinh:'sinh⁻¹',acosh:'cosh⁻¹',atanh:'tanh⁻¹'}[name]+args[0]):name+args[0];
       i=j<source.length?j+1:j;
     }
     return output;
@@ -355,7 +355,7 @@
     if(state.lifecycle==='editing'&&state.displayResult==='')view.resultHtml='';
     if(state.layers.mode==='STAT'&&!expression&&!state.entry&&!workflow.kind)view.expressionHtml=escapeHtml('Stat '+(coreSubmodeIndex(state.control?.submode)));
     if(state.lifecycle==='error'&&state.control?.errorCode)view.resultHtml=escapeHtml('Error '+state.control.errorCode);
-    view.cursorVisible = (Boolean(expression)||mode==='LIST'&&state.selectionActive) && ['entering','editing'].includes(state.lifecycle);
+    view.cursorVisible = (Boolean(expression)||(mode==='LIST'||state.layers.intent?.kind==='nbase-entry')&&state.selectionActive) && ['entering','editing'].includes(state.lifecycle);
     if (view.cursorVisible && (!state.selectionActive || state.cursor >= expression.length)) view.expressionHtml += '<span class="scicalc__cursor" aria-hidden="true"></span>';
     view.insertMode = settings.insert === false ? 'overwrite' : 'insert';
     view.cursorPosition = view.cursorVisible ? state.selectionActive ? state.cursor : expression.length : null;

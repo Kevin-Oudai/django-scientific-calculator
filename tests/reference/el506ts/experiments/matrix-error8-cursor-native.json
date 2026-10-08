@@ -1,0 +1,264 @@
+{
+  "schema_version": 1,
+  "experiment_id": "el506-351-matrix-error8-cursor-native-v1",
+  "roadmap_item": "EL506-351",
+  "catalog_id": "el506-physical-keys-v1",
+  "simulator": {
+    "profile_id": "sharp-el506ts-pc-simulator-1.0.2.0",
+    "product": "SHARP PC Simulator for EL-506TS",
+    "build": "1.0.2.0",
+    "runtime_sha256": "6bfef4d04900b472892be2d4c54dcfa6013f87232097e32df508ca4c27425530",
+    "locale": "English UI; en-US",
+    "operating_system": "Windows 11"
+  },
+  "capture": {
+    "date": "2026-10-08",
+    "timezone": "America/Port_of_Spain",
+    "method": "Live @oai/sky, exactly one native input then an inspected screenshot per action. Independently transcribed significant LCD checkpoints. Only DEG indicator consistently transcribed; other indicators and hidden stored precision are not claimed by this trace. Intermediate golden frames characterize implementation, not independent parity.",
+    "evidence_kind": "live-simulator",
+    "source_ids": [
+      "live-session"
+    ]
+  },
+  "initial_state": {
+    "reset": {
+      "kind": "documented-state",
+      "description": "MAT DEG blank0 independently observed at807 after ON/C. Matrix stores and ANS unused."
+    },
+    "setup_sequence": [],
+    "mode": {
+      "status": "observed",
+      "value": "MAT"
+    },
+    "settings": [
+      {
+        "name": "angle",
+        "observation": {
+          "status": "observed",
+          "value": "DEG"
+        }
+      },
+      {
+        "name": "display-format",
+        "observation": {
+          "status": "observed",
+          "value": "NORM1 (pinned reset default)"
+        }
+      }
+    ],
+    "display": {
+      "upper_line": "",
+      "lower_line": "0.",
+      "indicators": [
+        "DEG"
+      ],
+      "scroll_arrows": [],
+      "cursor": {
+        "status": "unknown",
+        "reason": "Blink timing not measured; cursor start separately asserted where observed."
+      },
+      "insert_mode": {
+        "status": "unknown",
+        "reason": "No timing claim."
+      },
+      "prompt": null,
+      "selected_result_component": null
+    },
+    "stores": []
+  },
+  "sequence": [
+    "EL506-K17",
+    "EL506-K42",
+    "EL506-K35",
+    "EL506-K41",
+    "EL506-K43",
+    "EL506-K17",
+    "EL506-K42",
+    "EL506-K35",
+    "EL506-K42",
+    "EL506-K48",
+    "EL506-K09",
+    "EL506-K48",
+    "EL506-K10"
+  ],
+  "frames": [
+    {
+      "after_step": 0,
+      "display": {
+        "upper_line": "",
+        "lower_line": "0.",
+        "indicators": [
+          "DEG"
+        ],
+        "scroll_arrows": [],
+        "cursor": {
+          "status": "unknown",
+          "reason": "Blink timing not measured; cursor start separately asserted where observed."
+        },
+        "insert_mode": {
+          "status": "unknown",
+          "reason": "No timing claim."
+        },
+        "prompt": null,
+        "selected_result_component": null
+      },
+      "result": {
+        "status": "unknown",
+        "reason": "Hidden precision is unmeasured."
+      }
+    },
+    {
+      "after_step": 10,
+      "display": {
+        "upper_line": "Error 8",
+        "lower_line": "",
+        "indicators": [
+          "DEG"
+        ],
+        "scroll_arrows": [],
+        "cursor": {
+          "status": "unknown",
+          "reason": "Blink timing not measured; cursor start separately asserted where observed."
+        },
+        "insert_mode": {
+          "status": "unknown",
+          "reason": "No timing claim."
+        },
+        "prompt": null,
+        "selected_result_component": null
+      },
+      "result": {
+        "status": "unknown",
+        "reason": "Hidden precision is unmeasured."
+      }
+    },
+    {
+      "after_step": 11,
+      "display": {
+        "upper_line": "2+identity3",
+        "lower_line": "0.",
+        "indicators": [
+          "DEG"
+        ],
+        "scroll_arrows": [
+          "left"
+        ],
+        "cursor": {
+          "status": "observed",
+          "value": "insertion underscore after3"
+        },
+        "insert_mode": {
+          "status": "unknown",
+          "reason": "No timing claim."
+        },
+        "prompt": null,
+        "selected_result_component": null
+      },
+      "result": {
+        "status": "unknown",
+        "reason": "Hidden precision is unmeasured."
+      }
+    },
+    {
+      "after_step": 12,
+      "display": {
+        "upper_line": "Error 8",
+        "lower_line": "",
+        "indicators": [
+          "DEG"
+        ],
+        "scroll_arrows": [],
+        "cursor": {
+          "status": "unknown",
+          "reason": "Blink timing not measured; cursor start separately asserted where observed."
+        },
+        "insert_mode": {
+          "status": "unknown",
+          "reason": "No timing claim."
+        },
+        "prompt": null,
+        "selected_result_component": null
+      },
+      "result": {
+        "status": "unknown",
+        "reason": "Hidden precision is unmeasured."
+      }
+    },
+    {
+      "after_step": 13,
+      "display": {
+        "upper_line": "2+identity3",
+        "lower_line": "0.",
+        "indicators": [
+          "DEG"
+        ],
+        "scroll_arrows": [
+          "left"
+        ],
+        "cursor": {
+          "status": "observed",
+          "value": "insertion underscore after3"
+        },
+        "insert_mode": {
+          "status": "unknown",
+          "reason": "No timing claim."
+        },
+        "prompt": null,
+        "selected_result_component": null
+      },
+      "result": {
+        "status": "unknown",
+        "reason": "Hidden precision is unmeasured."
+      }
+    }
+  ],
+  "stored_values": {
+    "coverage": "Visible results only; hidden precision is unmeasured.",
+    "observations": []
+  },
+  "errors": [
+    {
+      "at_step": 10,
+      "message": "Error 8",
+      "position": {
+        "status": "unknown",
+        "reason": "Error screen hides source."
+      },
+      "recovery_steps": [
+        11
+      ],
+      "recovered_at_step": 11
+    },
+    {
+      "at_step": 12,
+      "message": "Error 8",
+      "position": {
+        "status": "unknown",
+        "reason": "Error screen hides source."
+      },
+      "recovery_steps": [
+        13
+      ],
+      "recovered_at_step": 13
+    }
+  ],
+  "sources": [
+    {
+      "source_id": "live-session",
+      "kind": "simulator",
+      "reference": "simulator-profile.json",
+      "page": null,
+      "scope": "MAT DEG blank0 independently observed at807 after ON/C. Matrix stores and ANS unused."
+    }
+  ],
+  "oracle": {
+    "selected_source_id": "live-session",
+    "simulator_exception_ids": [],
+    "disagreements": []
+  },
+  "ambiguities": [],
+  "notes": [
+    "Independent physical native steps 808..820; each input followed by an inspected screenshot.",
+    "The visible recovery line is scrolled; complete retained source is separately verified by the replay, not transcribed as fully visible."
+  ]
+}

@@ -20,7 +20,7 @@
  function power(a,n){if(!Number.isInteger(n)||Math.abs(n)>100000)fail(7);if(a.rows!==a.columns)fail(8);if(n<0){a=elimination(a,true);n=-n;}let result=identity(a.rows);while(n){if(n%2)result=multiply(result,a);n=Math.floor(n/2);if(n)a=multiply(a,a);}return result;}
  const dimension=(a,rows,columns)=>{dimensions(rows,columns,7);return matrix(rows,columns,Array.from({length:rows*columns},(_,i)=>{const r=Math.floor(i/columns),c=i%columns;return r<a.rows&&c<a.columns?a.data[r*a.columns+c]:0;}));};
  const cumulative=a=>{const sums=Array(a.columns).fill(0);return matrix(a.rows,a.columns,a.data.map((x,i)=>sums[i%a.columns]=finite(sums[i%a.columns]+x)));};
- function augment(a,b){if(a.rows!==b.rows)fail(8);return matrix(a.rows,a.columns+b.columns,Array.from({length:a.rows},(_,r)=>a.data.slice(r*a.columns,(r+1)*a.columns).concat(b.data.slice(r*b.columns,(r+1)*b.columns))).flat());}
+ function augment(a,b){if(!a||!b||typeof a!=='object'||typeof b!=='object')fail(1);if(a.rows!==b.rows)fail(8);return matrix(a.rows,a.columns+b.columns,Array.from({length:a.rows},(_,r)=>a.data.slice(r*a.columns,(r+1)*a.columns).concat(b.data.slice(r*b.columns,(r+1)*b.columns))).flat());}
  function evaluate(ast,semantic,scalar,scope){return semantic.evaluate(ast,{
   number:text=>finite(Number(text)),symbol:name=>/^mat[A-D]$/.test(name)?scope.matrices[name.charCodeAt(3)-65]||fail(10):scalar.symbol(name,scope),
   unary:(op,a)=>typeof a==='number'?op==='-'?-a:a:op==='-'?scale(a,-1):a,

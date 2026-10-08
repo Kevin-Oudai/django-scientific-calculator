@@ -1,0 +1,60 @@
+{
+  "reviewId": "manual-state-persistence-matrix-2026-10-08",
+  "roadmapItem": "EL506-357",
+  "status": "validated; ready for publication",
+  "reference": "Full English manual page1 clearing table, HOME note, memory table and playback paragraph; independent native phase3/8/11/15/16 references supplement policy.",
+  "sourceSha256": "c5b6a1cc542dee4cd93be2459bba501addf7d3eb32b2bc4dd146407b02b2ab86",
+  "sourceModes": [
+    "NORMAL",
+    "STAT",
+    "EQN",
+    "CPLX",
+    "MAT",
+    "LIST"
+  ],
+  "transitions": [
+    "ON/C",
+    "CA",
+    "OFF/ON",
+    "MEM",
+    "RESET",
+    "HOME",
+    "MODE NORMAL",
+    "MODE STAT",
+    "MODE EQN",
+    "MODE CPLX",
+    "MODE MAT",
+    "MODE LIST"
+  ],
+  "stores": [
+    "ANS",
+    "M",
+    "A-F/X/Y scalar and typed mirrors",
+    "F1-F4",
+    "STAT rows and frequency flags",
+    "matA-D",
+    "L1-4",
+    "matrix/list edit buffers",
+    "history"
+  ],
+  "settings": [
+    "angle",
+    "notation",
+    "TAB",
+    "insert/overwrite"
+  ],
+  "policy": {
+    "ON/C and OFF/ON": "retain stores, clear command; preserve settings",
+    "CA and MODE": "clear temporary variables/ANS/statistics/matrices/lists/buffers/history; retain M and formulas/settings",
+    "HOME": "NORMAL command clearing; otherwise mode clearing to NORMAL",
+    "MEM": "clear all stores; retain settings and selected mode",
+    "RESET": "reset all stores/settings to defaults"
+  },
+  "testEvidence": "tests/unit/persistence-matrix.test.js",
+  "validation": {
+    "transitionsPassed": 72,
+    "snapshotRoundTrips": "all non-reset post-transition states validated; reset exact initial state",
+    "inputMutation": "none"
+  },
+  "scopeNote": "Manual policy fixtures validate every typed store, not a fabricated native capture. Existing phase3 idle/OFF, EQN prompt retention and complex M real-component transition tests supplement the matrix."
+}

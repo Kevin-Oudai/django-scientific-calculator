@@ -1944,7 +1944,12 @@
       if(n===29&&!previous.layers.alpha){const value=number(),sum=nbase.checked(stores.M+(previous.secondActive?-value:value),radix);publish(value,radix,source()+(previous.secondActive?'M−':'M+'));physicalStore(next,'M',nbase.typed(sum,radix));return next;}
       if(n===48&&!previous.secondActive&&!previous.layers.alpha){if(phase==='evaluated')return next;if(nbase.tokens(source()).reduce((sum,t)=>sum+(/^[0-9A-F]+$/.test(t)?t.length:1),0)+1>142){next=physicalError(next,4);next.layers.intent={kind:'nbase-error'};return next;}return publish(number(),radix,source()+'=');}
       if(n===7&&!previous.secondActive){if(next.entry)next.entry=next.entry.slice(0,-1);else{const cells=nbase.tokens(next.expression);cells.pop();next.expression=cells.join('');}return editing();}
-      if(n===9||n===10)return next;
+      if(n===9||n===10){
+        // Native BIN Error 5 discards the unavailable recalled formula and
+        // restores an empty insertion cursor with the current base retained.
+        if(previous.control.errorCode===5){next.expression='';next.entry='';next.stagedEntry=null;next.workflow=emptyWorkflow();next.selectionActive=true;next.cursor=0;return editing();}
+        return next;
+      }
       let digit=previous.secondActive||previous.layers.alpha?undefined:DIGIT_KEYS[n];
       if(!previous.secondActive&&!previous.layers.alpha&&radix===16&&n>=18&&n<=23)digit='ABCDEF'[n-18];
       if(digit!==undefined){if(parseInt(digit,16)>=radix)return next;if(phase==='evaluated'||previous.lifecycle==='error'){next.expression='';next.entry='';}if(next.entry.length>=10)return next;next.entry+=digit;next.secondActive=false;return editing();}
@@ -2060,6 +2065,7 @@
     }
     if(previous.workflow.kind)return null;
     if([8,11].includes(n))return physicalMatrixEdit(next,previous.control.buffers.matrix?matrixFromTyped(previous.control.buffers.matrix):undefined);
+    if(n===48&&previous.layers.alpha){next=physicalFlush(next,false);next.expression+='ans';next.layers.alpha=false;return physicalEditor(next);}
     if(n===48&&!previous.secondActive){
       try{
         const source=physicalSource(previous)||'0',ast=semantic.parseTokens(semantic.tokenize(closeOpenParentheses(source).replaceAll(':','/'),{physical:true}),{physical:true});
@@ -2287,7 +2293,7 @@
       return next;
     }
     if(['MAT','CPLX','LIST'].includes(previous.layers.mode)&&previous.secondActive&&n===17){next.secondActive=false;return next;}
-    if(previous.layers.mode==='MAT'&&previous.lifecycle==='error'&&[7,8].includes(previous.control.errorCode)&&[9,10].includes(n)){
+    if(previous.layers.mode==='MAT'&&previous.lifecycle==='error'&&[7,8,9].includes(previous.control.errorCode)&&[9,10].includes(n)){
       const source=previous.layers.intent?.kind==='matrix-error'?previous.layers.intent.workflow.payload.input:physicalSource(previous).replace(/=$/,'');
       next.workflow=emptyWorkflow();next.expression=source;next.entry='';next.stagedEntry=null;next.selectionActive=Boolean(source);next.cursor=source.length;next.displayResult=next.resultDisplay='0';next.layers.intent=null;return physicalEditor(next);
     }
@@ -2430,11 +2436,14 @@
       const lengthFault=previous.layers.mode==='NORMAL'&&previous.control.errorCode===4;
       const endFault=previous.layers.mode==='NORMAL'&&[2,6].includes(previous.control.errorCode);
       const syntaxFault=previous.layers.mode==='NORMAL'&&previous.control.errorCode===1;
-      const source=(bufferFault||lengthFault||endFault||syntaxFault?physicalSource(previous):previous.expression).replace(/=$/,'');const cells=physicalCells(source);
+      const undefinedMatrixFault=previous.layers.mode==='MAT'&&previous.control.errorCode===10;
+      const matrixAugSyntaxFault=previous.layers.mode==='MAT'&&previous.control.errorCode===1&&previous.expression.startsWith('aug(');
+      const source=(bufferFault||lengthFault||endFault||syntaxFault||matrixAugSyntaxFault?physicalSource(previous):previous.expression).replace(/=$/,'');const cells=physicalCells(source);
     const evaluated=previous.expression.endsWith('=');next.expression=source;next.entry='';next.stagedEntry=null;
       if(bufferFault)next.cursor=physicalBufferUsage(source).faultIndex??0;
       else if(lengthFault)next.cursor=cells.at(-1)?.start||0;
-      else if(endFault)next.cursor=source.length;
+      else if(endFault||matrixAugSyntaxFault)next.cursor=source.length;
+      else if(undefinedMatrixFault)next.cursor=0;
       else if(syntaxFault)next.cursor=Math.min(previous.cursor,source.length);
       else if(!previous.selectionActive)next.cursor=n===9?(evaluated?source.length:cells.at(-1)?.start||0):0;
       else if(n===9)next.cursor=cells.filter(c=>c.start<previous.cursor).at(-1)?.start||0;

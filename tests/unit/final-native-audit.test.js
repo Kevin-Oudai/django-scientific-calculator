@@ -103,3 +103,34 @@ test('Independent signed upper scalar limit, overflow and retained ANS match the
  }
  assert.equal(s.answer,-9.999999999e99);assert.equal(s.control.errorCode,null);
 });
+
+for(const name of ['nbase-error5-cursor-native','matrix-error7-10-cursor-native','matrix-error8-cursor-native','matrix-error9-cursor-native'])test('Independent native fault recovery: '+name,()=>{
+ const ref=require('../reference/el506ts/experiments/'+name+'.json');let s=c.createInitialState();
+ if(ref.initial_state.mode.value==='MAT')s=[4,35].reduce((s,n)=>press(s,'EL506-K'+String(n).padStart(2,'0')),s);
+ for(let step=1;step<=ref.sequence.length;step++){
+  s=press(s,ref.sequence[step-1]);const frame=ref.frames.find(x=>x.after_step===step);if(!frame)continue;
+  const view=f.renderState(s,{physical:true}),upper=plain(view.expressionHtml);
+  assert.equal(plain(view.resultHtml),frame.display.lower_line,name+' lower '+step);
+  if(frame.display.cursor.value?.includes('block over')){assert.equal(s.expression,'matD');assert.equal(s.cursor,0);assert.match(view.expressionHtml,/selected-char/);}
+  else if(frame.display.scroll_arrows.includes('left'))assert.ok(upper.endsWith(frame.display.upper_line),name+' scrolled suffix '+step);
+  else assert.equal(upper,frame.display.upper_line,name+' upper '+step);
+  if(frame.display.cursor.status==='observed'){
+   assert.equal(s.control.errorCode,null);assert.equal(view.cursorVisible,true);
+   if(frame.display.cursor.value.includes('insertion'))assert.equal(s.cursor,s.expression.length);
+  }
+ }
+ if(name.startsWith('nbase')){assert.equal(s.control.nbase.radix,2);assert.deepEqual(s.control.formulas[0],[{kind:'number',value:'2'}]);}
+});
+
+const recoveryRefs={1:'syntax-error-cursor-native',2:'division-error-cursor-native',3:'calculation-buffer-error3-native',4:'capacity-cursor-recovery-native',5:'nbase-error5-cursor-native',6:'capacity-cursor-recovery-native',7:'matrix-error7-10-cursor-native',8:'matrix-error8-cursor-native',9:'matrix-error9-cursor-native',10:'matrix-error7-10-cursor-native'};
+for(const [code,name]of Object.entries(recoveryRefs))test('Manual preserved stores and ON/C clearing after native Error '+code,()=>{
+ const ref=require('../reference/el506ts/experiments/'+name+'.json');let s=c.createInitialState();
+ if(ref.initial_state.mode.value==='MAT')s=[4,35].reduce((s,n)=>press(s,'EL506-K'+String(n).padStart(2,'0')),s);
+ const frame=ref.frames.find(f=>f.display.upper_line==='Error '+code);assert.ok(frame);
+ for(let step=1;step<frame.after_step;step++)s=press(s,ref.sequence[step-1]);
+ const stores=state=>({answer:state.answer,memory:state.values.memory,variables:state.control.variables,typedVariables:state.values.variables,formulas:state.control.formulas,matrices:state.control.matrices,lists:state.control.lists,buffers:state.control.buffers,statistics:state.values.statistics,history:state.history});
+ const before=structuredClone(stores(s));s=press(s,ref.sequence[frame.after_step-1]);assert.equal(s.control.errorCode,Number(code));assert.deepEqual(stores(s),before,'failed operation leaves stored values intact');
+ const failed=structuredClone(s),cleared=press(s,'EL506-K02');assert.deepEqual(s,failed,'input immutable');assert.deepEqual(stores(cleared),before,'manual ON/C retains stores');
+ assert.equal(cleared.control.errorCode,null);assert.equal(cleared.expression,'');assert.equal(cleared.entry,'');assert.equal(cleared.layers.mode,s.layers.mode);assert.equal(cleared.control.nbase.radix,s.control.nbase.radix);
+ assert.deepEqual(c.restoreCalculator(c.snapshotCalculator(cleared)),cleared);
+});

@@ -4,12 +4,16 @@
     "EL506-351",
     "EL506-352"
   ],
-  "complete": false,
+  "complete": true,
   "references": [
     "experiments/capacity-cursor-recovery-native.json",
     "experiments/division-error-cursor-native.json",
     "experiments/syntax-error-cursor-native.json",
-    "experiments/missing-operand-cursor-native.json"
+    "experiments/missing-operand-cursor-native.json",
+    "experiments/nbase-error5-cursor-native.json",
+    "experiments/matrix-error7-10-cursor-native.json",
+    "experiments/matrix-error8-cursor-native.json",
+    "experiments/matrix-error9-cursor-native.json"
   ],
   "verified": [
     "Error6 both arrows retain long formula at end insertion with lower zero",
@@ -17,24 +21,37 @@
     "Error3 LEFT independently observed at native step698 to fault sine with both scroll arrows, matching RIGHT at638",
     "Division-by-zero Error2 both arrows return to full expression end including entered zero",
     "Syntax )1 both arrows select entered operand1; parser failure cursor and full retained source now reproduced",
-    "Missing final operand1+ Error1 RIGHT returns end insertion/lower0"
+    "Missing final operand1+ Error1 RIGHT returns end insertion/lower0",
+    "BIN Error5 both arrows clear unavailable formula and restore blank insertion cursor/base b; F1 retained",
+    "MAT Error10 both arrows select first character of undefined matD, lower blank",
+    "MAT Error7/8/9 both arrows restore expression-end insertion and lower zero",
+    "MAT ALPHA ANS enters scalar ANS; aug(ANS,ANS rejects scalar arguments with Error1; RIGHT restores retained operands",
+    "MAT augmentation retains function opening parenthesis and both operands in visible source",
+    "All ten independently captured error triggers preserve stored values on failure; ON/C clears expression/error while preserving stored values and active mode/base according to manual table."
   ],
   "unresolved": [
-    "All unmeasured error/mode combinations and clearing/state transitions",
-    "Native attempted insertion at steps686..690 did not change displayed tiny result; editor semantics not inferred from that trial"
+    "Cross-mode compatibility and state persistence matrices retain EL506-357..359; these are independent of the ten measured catalogue recovery paths.",
+    "Native attempted insertion at686..690 did not change tiny result; no editing semantics inferred."
   ],
   "validation": {
-    "unitPassed": 557,
-    "browserPassed": 57,
-    "browserEngines": [
+    "fullUnitPassed": 561,
+    "additionalPreservationUnitPassed": 10,
+    "additionalPersistenceUnitPassed": 72,
+    "browserPassed": 39,
+    "engines": [
       "Chromium",
       "Firefox",
       "WebKit"
     ],
     "goldenFrames": 1200,
     "compileall": "passed",
-    "dockerComposeConfig": "passed",
-    "dockerRuntime": "unavailable: Docker Desktop Linux pipe absent",
-    "proof": "scalar-boundary-proof.png (outside repository)"
-  }
+    "composeConfig": "passed",
+    "liveDemo": "matrix augmentation retained both operands and end cursor",
+    "dockerRuntime": "unavailable"
+  },
+  "status": "Validated ten-code cursor/recovery catalogue and independent manual preserved-state policy; ready for publication.",
+  "completedScope": [
+    "EL506-351",
+    "EL506-352"
+  ]
 }

@@ -74,3 +74,19 @@ test('Native signed scalar boundaries preserve ANS through overflow and clamp un
  }
  expect((await root.evaluate(el=>el.scientificCalculator.snapshot())).state.answer).toBe(-9.999999999e99);
 });
+
+for(const name of ['nbase-error5-cursor-native','matrix-error7-10-cursor-native','matrix-error8-cursor-native','matrix-error9-cursor-native'])test('Native base/matrix recovery checkpoints: '+name,async({page})=>{
+ test.setTimeout(180000);await page.goto('/');const root=page.locator('[data-scientific-calculator]').first();
+ await expect.poll(()=>root.evaluate(el=>!!el.scientificCalculator)).toBe(true);
+ const ref=require('../reference/el506ts/experiments/'+name+'.json');
+ if(ref.initial_state.mode.value==='MAT')for(const n of [4,35])await root.locator('[data-key-id="EL506-K'+String(n).padStart(2,'0')+'"]').click();
+ for(let step=1;step<=ref.sequence.length;step++){
+  await root.locator('[data-key-id="'+ref.sequence[step-1]+'"]').click();const frame=ref.frames.find(f=>f.after_step===step);if(!frame)continue;
+  await expect(root.locator('[data-result]')).toHaveText(frame.display.lower_line);
+  const state=(await root.evaluate(el=>el.scientificCalculator.snapshot())).state;
+  if(frame.display.cursor.value?.includes('block over')){expect(state.expression).toBe('matD');expect(state.cursor).toBe(0);await expect(root.locator('.scicalc__selected-char')).toBeVisible();}
+  else if(frame.display.scroll_arrows.includes('left'))expect(await root.locator('[data-expression]').textContent()).toContain(frame.display.upper_line);
+  else await expect(root.locator('[data-expression]')).toHaveText(frame.display.upper_line);
+  if(frame.display.cursor.value?.includes('insertion')){expect(state.control.errorCode).toBe(null);expect(state.cursor).toBe(state.expression.length);await expect(root.locator('.scicalc__cursor')).toBeVisible();}
+ }
+});

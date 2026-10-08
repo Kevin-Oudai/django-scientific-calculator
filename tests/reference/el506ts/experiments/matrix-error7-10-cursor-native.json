@@ -1,0 +1,417 @@
+{
+  "schema_version": 1,
+  "experiment_id": "el506-351-matrix-error7-10-cursor-native-v1",
+  "roadmap_item": "EL506-351",
+  "catalog_id": "el506-physical-keys-v1",
+  "simulator": {
+    "profile_id": "sharp-el506ts-pc-simulator-1.0.2.0",
+    "product": "SHARP PC Simulator for EL-506TS",
+    "build": "1.0.2.0",
+    "runtime_sha256": "6bfef4d04900b472892be2d4c54dcfa6013f87232097e32df508ca4c27425530",
+    "locale": "English UI; en-US",
+    "operating_system": "Windows 11"
+  },
+  "capture": {
+    "date": "2026-10-08",
+    "timezone": "America/Port_of_Spain",
+    "method": "Live @oai/sky, exactly one native input then an inspected screenshot per action. Independently transcribed significant LCD checkpoints. Only DEG indicator consistently transcribed; other indicators and hidden stored precision are not claimed by this trace. Intermediate golden frames characterize implementation, not independent parity.",
+    "evidence_kind": "live-simulator",
+    "source_ids": [
+      "live-session"
+    ]
+  },
+  "initial_state": {
+    "reset": {
+      "kind": "documented-state",
+      "description": "BIN blank0b at785; MODE4 enters MAT at787. matD independently observed undefined. Matrix A and scalar stores are unmeasured and unused."
+    },
+    "setup_sequence": [],
+    "mode": {
+      "status": "observed",
+      "value": "NORMAL"
+    },
+    "settings": [
+      {
+        "name": "angle",
+        "observation": {
+          "status": "observed",
+          "value": "DEG"
+        }
+      },
+      {
+        "name": "display-format",
+        "observation": {
+          "status": "observed",
+          "value": "NORM1 (pinned reset default)"
+        }
+      }
+    ],
+    "display": {
+      "upper_line": "",
+      "lower_line": "0b",
+      "indicators": [
+        "DEG"
+      ],
+      "scroll_arrows": [],
+      "cursor": {
+        "status": "observed",
+        "value": "insertion underscore at empty entry"
+      },
+      "insert_mode": {
+        "status": "unknown",
+        "reason": "No timing claim."
+      },
+      "prompt": null,
+      "selected_result_component": null
+    },
+    "stores": []
+  },
+  "sequence": [
+    "EL506-K04",
+    "EL506-K35",
+    "EL506-K05",
+    "EL506-K21",
+    "EL506-K02",
+    "EL506-K17",
+    "EL506-K45",
+    "EL506-K42",
+    "EL506-K48",
+    "EL506-K09",
+    "EL506-K48",
+    "EL506-K10",
+    "EL506-K02",
+    "EL506-K17",
+    "EL506-K42",
+    "EL506-K35",
+    "EL506-K36",
+    "EL506-K48",
+    "EL506-K09",
+    "EL506-K48",
+    "EL506-K10"
+  ],
+  "frames": [
+    {
+      "after_step": 0,
+      "display": {
+        "upper_line": "",
+        "lower_line": "0b",
+        "indicators": [
+          "DEG"
+        ],
+        "scroll_arrows": [],
+        "cursor": {
+          "status": "observed",
+          "value": "insertion underscore at empty entry"
+        },
+        "insert_mode": {
+          "status": "unknown",
+          "reason": "No timing claim."
+        },
+        "prompt": null,
+        "selected_result_component": null
+      },
+      "result": {
+        "status": "unknown",
+        "reason": "Hidden precision is unmeasured."
+      }
+    },
+    {
+      "after_step": 2,
+      "display": {
+        "upper_line": "",
+        "lower_line": "0.",
+        "indicators": [
+          "DEG"
+        ],
+        "scroll_arrows": [],
+        "cursor": {
+          "status": "unknown",
+          "reason": "Blink timing not measured; cursor start separately asserted where observed."
+        },
+        "insert_mode": {
+          "status": "unknown",
+          "reason": "No timing claim."
+        },
+        "prompt": null,
+        "selected_result_component": null
+      },
+      "result": {
+        "status": "unknown",
+        "reason": "Hidden precision is unmeasured."
+      }
+    },
+    {
+      "after_step": 9,
+      "display": {
+        "upper_line": "Error 10",
+        "lower_line": "",
+        "indicators": [
+          "DEG"
+        ],
+        "scroll_arrows": [],
+        "cursor": {
+          "status": "unknown",
+          "reason": "Blink timing not measured; cursor start separately asserted where observed."
+        },
+        "insert_mode": {
+          "status": "unknown",
+          "reason": "No timing claim."
+        },
+        "prompt": null,
+        "selected_result_component": null
+      },
+      "result": {
+        "status": "unknown",
+        "reason": "Hidden precision is unmeasured."
+      }
+    },
+    {
+      "after_step": 10,
+      "display": {
+        "upper_line": "atD",
+        "lower_line": "",
+        "indicators": [
+          "DEG"
+        ],
+        "scroll_arrows": [],
+        "cursor": {
+          "status": "observed",
+          "value": "block over first matD character"
+        },
+        "insert_mode": {
+          "status": "unknown",
+          "reason": "No timing claim."
+        },
+        "prompt": null,
+        "selected_result_component": null
+      },
+      "result": {
+        "status": "unknown",
+        "reason": "Hidden precision is unmeasured."
+      }
+    },
+    {
+      "after_step": 11,
+      "display": {
+        "upper_line": "Error 10",
+        "lower_line": "",
+        "indicators": [
+          "DEG"
+        ],
+        "scroll_arrows": [],
+        "cursor": {
+          "status": "unknown",
+          "reason": "Blink timing not measured; cursor start separately asserted where observed."
+        },
+        "insert_mode": {
+          "status": "unknown",
+          "reason": "No timing claim."
+        },
+        "prompt": null,
+        "selected_result_component": null
+      },
+      "result": {
+        "status": "unknown",
+        "reason": "Hidden precision is unmeasured."
+      }
+    },
+    {
+      "after_step": 12,
+      "display": {
+        "upper_line": "atD",
+        "lower_line": "",
+        "indicators": [
+          "DEG"
+        ],
+        "scroll_arrows": [],
+        "cursor": {
+          "status": "observed",
+          "value": "block over first matD character"
+        },
+        "insert_mode": {
+          "status": "unknown",
+          "reason": "No timing claim."
+        },
+        "prompt": null,
+        "selected_result_component": null
+      },
+      "result": {
+        "status": "unknown",
+        "reason": "Hidden precision is unmeasured."
+      }
+    },
+    {
+      "after_step": 18,
+      "display": {
+        "upper_line": "Error 7",
+        "lower_line": "",
+        "indicators": [
+          "DEG"
+        ],
+        "scroll_arrows": [],
+        "cursor": {
+          "status": "unknown",
+          "reason": "Blink timing not measured; cursor start separately asserted where observed."
+        },
+        "insert_mode": {
+          "status": "unknown",
+          "reason": "No timing claim."
+        },
+        "prompt": null,
+        "selected_result_component": null
+      },
+      "result": {
+        "status": "unknown",
+        "reason": "Hidden precision is unmeasured."
+      }
+    },
+    {
+      "after_step": 19,
+      "display": {
+        "upper_line": "identity5",
+        "lower_line": "0.",
+        "indicators": [
+          "DEG"
+        ],
+        "scroll_arrows": [],
+        "cursor": {
+          "status": "observed",
+          "value": "insertion underscore after5"
+        },
+        "insert_mode": {
+          "status": "unknown",
+          "reason": "No timing claim."
+        },
+        "prompt": null,
+        "selected_result_component": null
+      },
+      "result": {
+        "status": "unknown",
+        "reason": "Hidden precision is unmeasured."
+      }
+    },
+    {
+      "after_step": 20,
+      "display": {
+        "upper_line": "Error 7",
+        "lower_line": "",
+        "indicators": [
+          "DEG"
+        ],
+        "scroll_arrows": [],
+        "cursor": {
+          "status": "unknown",
+          "reason": "Blink timing not measured; cursor start separately asserted where observed."
+        },
+        "insert_mode": {
+          "status": "unknown",
+          "reason": "No timing claim."
+        },
+        "prompt": null,
+        "selected_result_component": null
+      },
+      "result": {
+        "status": "unknown",
+        "reason": "Hidden precision is unmeasured."
+      }
+    },
+    {
+      "after_step": 21,
+      "display": {
+        "upper_line": "identity5",
+        "lower_line": "0.",
+        "indicators": [
+          "DEG"
+        ],
+        "scroll_arrows": [],
+        "cursor": {
+          "status": "observed",
+          "value": "insertion underscore after5"
+        },
+        "insert_mode": {
+          "status": "unknown",
+          "reason": "No timing claim."
+        },
+        "prompt": null,
+        "selected_result_component": null
+      },
+      "result": {
+        "status": "unknown",
+        "reason": "Hidden precision is unmeasured."
+      }
+    }
+  ],
+  "stored_values": {
+    "coverage": "Visible results only; hidden precision is unmeasured.",
+    "observations": []
+  },
+  "errors": [
+    {
+      "at_step": 9,
+      "message": "Error 10",
+      "position": {
+        "status": "unknown",
+        "reason": "Error screen hides source."
+      },
+      "recovery_steps": [
+        10
+      ],
+      "recovered_at_step": 10
+    },
+    {
+      "at_step": 11,
+      "message": "Error 10",
+      "position": {
+        "status": "unknown",
+        "reason": "Error screen hides source."
+      },
+      "recovery_steps": [
+        12
+      ],
+      "recovered_at_step": 12
+    },
+    {
+      "at_step": 18,
+      "message": "Error 7",
+      "position": {
+        "status": "unknown",
+        "reason": "Error screen hides source."
+      },
+      "recovery_steps": [
+        19
+      ],
+      "recovered_at_step": 19
+    },
+    {
+      "at_step": 20,
+      "message": "Error 7",
+      "position": {
+        "status": "unknown",
+        "reason": "Error screen hides source."
+      },
+      "recovery_steps": [
+        21
+      ],
+      "recovered_at_step": 21
+    }
+  ],
+  "sources": [
+    {
+      "source_id": "live-session",
+      "kind": "simulator",
+      "reference": "simulator-profile.json",
+      "page": null,
+      "scope": "BIN blank0b at785; MODE4 enters MAT at787. matD independently observed undefined. Matrix A and scalar stores are unmeasured and unused."
+    }
+  ],
+  "oracle": {
+    "selected_source_id": "live-session",
+    "simulator_exception_ids": [],
+    "disagreements": []
+  },
+  "ambiguities": [],
+  "notes": [
+    "Independent physical native steps 786..806; each input followed by an inspected screenshot.",
+    "Initial BIN state only enters MAT; replay may begin from NORMAL because the recorded MODE4 transition resets current calculation. Masked m is not claimed visible. ALPHA D trial at788..789 cleared at790."
+  ]
+}

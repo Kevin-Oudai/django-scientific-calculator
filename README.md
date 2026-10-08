@@ -1460,3 +1460,12 @@ scientific operands in parentheses. Signed `1e-99` values remain nonzero; values
 below that magnitude normalize to zero. Signed `9.999999999e99` values are
 accepted and doubling either gives Error 2. Broader cross-mode recovery,
 precision and final parity/release gates remain tracked in `update-plan.md`.
+
+The final error-navigation audit now includes all ten measured error-code recovery
+paths. Both arrows clear unavailable binary formula recalls to an empty cursor;
+matrix size faults return to the retained expression end, and undefined matrix
+slots select their first character. Matrix augmentation displays both operands.
+The manual persistence matrix verifies 72 transitions across all six modes,
+including ON/C, CA, OFF/ON, MEM, RESET, HOME and each mode selection. Its source
+policy and store coverage are recorded in `persistence-matrix-review.json`.
+These checks do not remove the remaining precision, compatibility and release gates.
