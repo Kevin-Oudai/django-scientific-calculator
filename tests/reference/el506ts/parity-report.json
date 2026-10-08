@@ -307,7 +307,7 @@
     },
     {
       "path": "tests/reference/el506ts/report-coverage.json",
-      "sha256": "f075dc5dedc4b4c8a42dc73b4c24635edcf3ac8d2c96a0f548ba695f7d8c31e5"
+      "sha256": "e1d8d4209b7563dc412603b6f8d2ee8f1bb197bc8114ad6f98f8466d63a91a69"
     },
     {
       "path": "tests/reference/el506ts/validate-guide.js",
@@ -336,6 +336,10 @@
     {
       "path": "tests/e2e/matrix-definition-precision-audit.spec.js",
       "sha256": "77689e76c34582dfb6990e45f6498dbe3a7d6580f143056b0be26632560ccde3"
+    },
+    {
+      "path": "tests/e2e/matrix-multiterm.spec.js",
+      "sha256": "5c71e1cc048e6e7cbbe17ceaf75fbd3aaa42c6f9dadbf77bcdc6c29d8b8a945a"
     },
     {
       "path": "tests/e2e/matrix-precision-audit.spec.js",
@@ -428,6 +432,10 @@
     {
       "path": "tests/unit/matrix-definition-precision-audit.test.js",
       "sha256": "f816365847d64376c19c82571796027a9303b5be30fdbec8efc25dfbbd80ad39"
+    },
+    {
+      "path": "tests/unit/matrix-multiterm.test.js",
+      "sha256": "0ca118773155bc54a29be65c653d5d25c6872235c2bb5d88dcd93a542b109053"
     },
     {
       "path": "tests/unit/matrix-precision-audit.test.js",
@@ -8477,6 +8485,17 @@
               "el506.base.el506-k34"
             ],
             "scope": "Application boundary and invalid-input contracts for the listed operations; parameter bindings are recorded in boundary-coverage.js. Numeric expressions may be seeded before physical ENT. This does not establish independent native parity or exhaustive mode/type compatibility."
+          },
+          {
+            "kind": "unit",
+            "path": "tests/unit/matrix-multiterm.test.js",
+            "anchor": "MAT explicit closing parentheses permit the independently observed multiterm workflow",
+            "capabilityIds": [
+              "el506.matrix-ope.fill",
+              "el506.base.el506-k34",
+              "el506.key.el506-k34"
+            ],
+            "scope": "Exact 35-key independently observed matrix workflow no longer fails with duplicate closing parentheses. This asserts entry, result shape, snapshot restoration and recovery only; native numeric zero remains different from the application residual."
           }
         ],
         "scope": "Explicit mapped assertions only; unlisted coverage is unassessed."
@@ -8587,6 +8606,17 @@
               "el506.key.el506-k48"
             ],
             "scope": "Physical-button regressions for adjacent-symbol formula storage, function fraction denominators, coordinate components, complex pi and all four simulator-observed transition-matrix cells."
+          },
+          {
+            "kind": "browser",
+            "path": "tests/e2e/matrix-multiterm.spec.js",
+            "anchor": "MAT explicit closing parentheses permit multiterm calculation and recovery",
+            "capabilityIds": [
+              "el506.matrix-ope.fill",
+              "el506.base.el506-k34",
+              "el506.key.el506-k34"
+            ],
+            "scope": "Exact 35-key independently observed matrix workflow no longer fails with duplicate closing parentheses. This asserts entry, result shape, snapshot restoration and recovery only; native numeric zero remains different from the application residual."
           }
         ],
         "scope": "Explicit canonical baseline browser replays only; legacy regression coverage is not inferred as parity."
@@ -16754,6 +16784,17 @@
               "el506.base.el506-k34"
             ],
             "scope": "Application boundary and invalid-input contracts for the listed operations; parameter bindings are recorded in boundary-coverage.js. Numeric expressions may be seeded before physical ENT. This does not establish independent native parity or exhaustive mode/type compatibility."
+          },
+          {
+            "kind": "unit",
+            "path": "tests/unit/matrix-multiterm.test.js",
+            "anchor": "MAT explicit closing parentheses permit the independently observed multiterm workflow",
+            "capabilityIds": [
+              "el506.matrix-ope.fill",
+              "el506.base.el506-k34",
+              "el506.key.el506-k34"
+            ],
+            "scope": "Exact 35-key independently observed matrix workflow no longer fails with duplicate closing parentheses. This asserts entry, result shape, snapshot restoration and recovery only; native numeric zero remains different from the application residual."
           }
         ],
         "scope": "Explicit mapped assertions only; unlisted coverage is unassessed."
@@ -16777,6 +16818,17 @@
               "el506.list.slot.1"
             ],
             "scope": "Independent61-key LIST inner products with nested fill values1 and1/3 plus explicit closing parentheses return0. General product and outer-product precision remain unmeasured."
+          },
+          {
+            "kind": "browser",
+            "path": "tests/e2e/matrix-multiterm.spec.js",
+            "anchor": "MAT explicit closing parentheses permit multiterm calculation and recovery",
+            "capabilityIds": [
+              "el506.matrix-ope.fill",
+              "el506.base.el506-k34",
+              "el506.key.el506-k34"
+            ],
+            "scope": "Exact 35-key independently observed matrix workflow no longer fails with duplicate closing parentheses. This asserts entry, result shape, snapshot restoration and recovery only; native numeric zero remains different from the application residual."
           }
         ],
         "scope": "Explicit canonical baseline browser replays only; legacy regression coverage is not inferred as parity."
@@ -41646,6 +41698,17 @@
               "el506.matrix-math.trans"
             ],
             "scope": "Application boundary and invalid-input contracts for the listed operations; parameter bindings are recorded in boundary-coverage.js. Numeric expressions may be seeded before physical ENT. This does not establish independent native parity or exhaustive mode/type compatibility."
+          },
+          {
+            "kind": "unit",
+            "path": "tests/unit/matrix-multiterm.test.js",
+            "anchor": "MAT explicit closing parentheses permit the independently observed multiterm workflow",
+            "capabilityIds": [
+              "el506.matrix-ope.fill",
+              "el506.base.el506-k34",
+              "el506.key.el506-k34"
+            ],
+            "scope": "Exact 35-key independently observed matrix workflow no longer fails with duplicate closing parentheses. This asserts entry, result shape, snapshot restoration and recovery only; native numeric zero remains different from the application residual."
           }
         ],
         "scope": "Explicit mapped assertions only; unlisted coverage is unassessed."
@@ -41760,6 +41823,17 @@
               "el506.list.slot.4"
             ],
             "scope": "Independent119-key native exposure inventory,67 unambiguous upper-label and lower-index/digit checkpoints. Whitespace and equivalent micro glyph normalized; blink dots excluded. Entry/menu exposure and ordering only: operation algorithms, stores, hidden precision, domains and full compatibility remain unverified."
+          },
+          {
+            "kind": "browser",
+            "path": "tests/e2e/matrix-multiterm.spec.js",
+            "anchor": "MAT explicit closing parentheses permit multiterm calculation and recovery",
+            "capabilityIds": [
+              "el506.matrix-ope.fill",
+              "el506.base.el506-k34",
+              "el506.key.el506-k34"
+            ],
+            "scope": "Exact 35-key independently observed matrix workflow no longer fails with duplicate closing parentheses. This asserts entry, result shape, snapshot restoration and recovery only; native numeric zero remains different from the application residual."
           }
         ],
         "scope": "Explicit canonical baseline browser replays only; legacy regression coverage is not inferred as parity."

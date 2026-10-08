@@ -1579,3 +1579,10 @@ menu before reporting their existing error code. Their error states can be
 saved and restored, and ON/C recovers without changing stored collections.
 Browser regressions exercise these errors and subsequent arithmetic in all
 three supported engines.
+
+MAT expression entry now respects an explicitly entered closing parenthesis
+without adding a second one. The independently observed three-term matrix
+workflow is recorded in `matrix-multiterm-residual-native.json`. Its native cell
+is zero; the application's numeric residual remains under investigation in
+EL506-354. The regression checks entry, calculation and recovery without
+claiming numeric parity.

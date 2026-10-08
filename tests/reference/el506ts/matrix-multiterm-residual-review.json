@@ -1,0 +1,31 @@
+{
+  "roadmapItem": "EL506-354",
+  "roadmapItemComplete": false,
+  "reference": "experiments/matrix-multiterm-residual-native.json",
+  "nativeKeys": 35,
+  "expression": "fill(1/3,1,3)*fill(1,3,1)-identity(1)",
+  "nativeCell": "0",
+  "applicationCell": "-9.99e-14",
+  "status": "Input syntax defect fixed; numeric precision mismatch confirmed and unresolved",
+  "nextProbe": "Compare fill(1/3,1,1) and identity(1)/3 through scaled subtraction before changing accumulation. Then probe cancellation using directly entered matrix cells.",
+  "implementationChanged": true,
+  "reason": "One scoped native precision probe; whole EL506-354 remains open. Closing safely above the user 85% allowance floor.",
+  "validation": {
+    "fullUnitPassed": 1118,
+    "fullUnitFailed": 0,
+    "targetedBrowserPassed": 3,
+    "browserEngines": [
+      "Chromium",
+      "Firefox",
+      "WebKit"
+    ],
+    "focusedUnitAndReportPassed": 3,
+    "referenceAndGolden": "passed; frozen baseline known differences unchanged",
+    "compileall": "passed",
+    "composeConfig": "passed",
+    "dockerBuild": "unavailable: Docker Desktop Linux engine pipe missing",
+    "liveApp": "Reloaded final code; 2+3=5",
+    "scope": "Complete unit suite and targeted new browser workflows; whole browser suite not repeated."
+  },
+  "implementation": "Explicit MAT right parenthesis flushes the operand without an additional implicit function closer, matching the existing LIST policy."
+}

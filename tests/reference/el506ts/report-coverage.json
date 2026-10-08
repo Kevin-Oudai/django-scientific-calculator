@@ -2540,6 +2540,28 @@
         "el506.nbase.digit.f"
       ],
       "scope": "Application boundary and invalid-input contracts for the listed operations; parameter bindings are recorded in boundary-coverage.js. Numeric expressions may be seeded before physical ENT. This does not establish independent native parity or exhaustive mode/type compatibility."
+    },
+    {
+      "kind": "unit",
+      "path": "tests/unit/matrix-multiterm.test.js",
+      "anchor": "MAT explicit closing parentheses permit the independently observed multiterm workflow",
+      "capabilityIds": [
+        "el506.matrix-ope.fill",
+        "el506.base.el506-k34",
+        "el506.key.el506-k34"
+      ],
+      "scope": "Exact 35-key independently observed matrix workflow no longer fails with duplicate closing parentheses. This asserts entry, result shape, snapshot restoration and recovery only; native numeric zero remains different from the application residual."
+    },
+    {
+      "kind": "browser",
+      "path": "tests/e2e/matrix-multiterm.spec.js",
+      "anchor": "MAT explicit closing parentheses permit multiterm calculation and recovery",
+      "capabilityIds": [
+        "el506.matrix-ope.fill",
+        "el506.base.el506-k34",
+        "el506.key.el506-k34"
+      ],
+      "scope": "Exact 35-key independently observed matrix workflow no longer fails with duplicate closing parentheses. This asserts entry, result shape, snapshot restoration and recovery only; native numeric zero remains different from the application residual."
     }
   ]
 }

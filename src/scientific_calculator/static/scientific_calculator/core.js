@@ -2083,7 +2083,7 @@
     if(previous.secondActive&&n===28){next=physicalFlush(next,false);next.expression+=',';next.secondActive=false;return physicalEditor(next);}
     if([20,21].includes(n)&&!previous.secondActive){next=physicalFlush(next);next.expression+=n===20?'^2':'^3';return physicalEditor(next);}
     if(n===18&&previous.secondActive){next=physicalFlush(next);next.expression+='^(-1)';next.secondActive=false;return physicalEditor(next);}
-    if(!previous.secondActive&&[38,39,43,44,33,34].includes(n)){next=physicalFlush(next);next.expression+=({38:'*',39:':',43:'+',44:'-',33:'(',34:')'})[n];return physicalEditor(next);}
+    if(!previous.secondActive&&[38,39,43,44,33,34].includes(n)){next=physicalFlush(next,n!==34);next.expression+=({38:'*',39:':',43:'+',44:'-',33:'(',34:')'})[n];return physicalEditor(next);}
     return null;
   }
   function physicalCollectionBinary(op,a,b){
