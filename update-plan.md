@@ -2991,7 +2991,8 @@ guess any item in this phase; observe it in the reference simulator first.
     products with fractional fill, and QUAD cancellation plus plain DOWN.
     Scoped review: phase17-precision-continuation-review.json. Final unit suite
     751/751; full browser run executed 616 passing applicable cases and 38
-    expected platform skips (runner completion not yet observed). Additional
+    expected platform skips; npm test exited 0 after releasing a stalled owned
+    worker during teardown. Additional
     final-code native cases passed in all three engines: STAT Y, LIST and QUAD;
     initial QUAD failures were corrected and all three reruns passed.
     Golden replay, reference/report, compileall, Compose config and seven

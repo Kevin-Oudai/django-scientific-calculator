@@ -33,7 +33,7 @@
   "validation": {
     "fullUnitPassed": 751,
     "fullUnitFailed": 0,
-    "fullBrowserValidation": "616 applicable cases passed and 38 expected platform skips; runner process completion not yet observed.",
+    "fullBrowserValidation": "npm test completed with exit code 0: 616 passed and 38 expected platform skips. After all cases completed, an owned worker stalled without child browsers; stopping that worker released the runner and generated its final report.",
     "matrixAndStatisticsBrowserPassed": 15,
     "finalListBrowserPassed": 9,
     "equationExistingBrowserPassed": 18,
