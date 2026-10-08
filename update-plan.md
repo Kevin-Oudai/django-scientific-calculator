@@ -3002,6 +3002,21 @@ guess any item in this phase; observe it in the reference simulator first.
     At the user's 90% weekly-allowance boundary, implementation is closed for
     this batch after safe validation and publication; full parity is unclaimed.
 
+    Additional scoped continuation published as
+    0155c991a07356a10f9f2e458e8065019fb258a1, verified on origin/main.
+    A fresh 35-key native MAT probe observes cell zero for
+    fill(1/3,1,3)*fill(1,3,1)-identity1. Exact physical application replay
+    exposed duplicate explicit closing parentheses and Error 1. Fixed operand
+    flushing; the successful application residual is -9.99E-14, so numeric
+    parity remains unresolved. A default edit buffer entered after Error 1
+    must not be mistaken for the calculated result. Evidence and next probe:
+    matrix-multiterm-residual-review.json and its independent experiment.
+    Validation: 1,118 full unit tests, three targeted browser checks across all
+    engines, reference/golden/report gates, compileall and Compose config.
+    Docker engine unavailable; fresh local 2+3=5 verified. Closed this batch
+    at 86% weekly allowance remaining, reserving the user's 85% floor.
+    EL506-354 remains open; roadmap counts and package version unchanged.
+
 - [x] **EL506-355 - Match expression length and nesting limits.**
 - [x] **EL506-356 - Match history, formula, dataset, matrix, and list
   capacities.**
