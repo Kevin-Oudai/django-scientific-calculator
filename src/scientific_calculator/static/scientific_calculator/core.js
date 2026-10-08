@@ -1,8 +1,8 @@
 (function(host,factory){
   if(typeof module==='object' && module.exports && typeof document==='undefined')
-    module.exports=factory(require('./semantic-editor.js'),require('./values.js'),require('./math-engine.js'),require('./numeric-model.js'),require('./formatting.js'),require('./catalogues.js'),require('./solver.js'),require('./nbase.js'));
-  else host.ScientificCalculatorCore=factory(host.ScientificCalculatorSemantic,host.ScientificCalculatorValues,host.ScientificCalculatorEngine,host.ScientificCalculatorNumericModel,host.ScientificCalculatorFormatting,host.ScientificCalculatorCatalogues,host.ScientificCalculatorSolver,host.ScientificCalculatorNbase);
-})(globalThis,function(semantic,values,bundle,numericModel,formatting,catalogues,solver,nbase){
+    module.exports=factory(require('./semantic-editor.js'),require('./values.js'),require('./math-engine.js'),require('./numeric-model.js'),require('./formatting.js'),require('./catalogues.js'),require('./solver.js'),require('./nbase.js'),require('./calculus.js'));
+  else host.ScientificCalculatorCore=factory(host.ScientificCalculatorSemantic,host.ScientificCalculatorValues,host.ScientificCalculatorEngine,host.ScientificCalculatorNumericModel,host.ScientificCalculatorFormatting,host.ScientificCalculatorCatalogues,host.ScientificCalculatorSolver,host.ScientificCalculatorNbase,host.ScientificCalculatorCalculus);
+})(globalThis,function(semantic,values,bundle,numericModel,formatting,catalogues,solver,nbase,calculus){
   'use strict';
   const engine=bundle.createEngine();
   const {formatValue}=formatting;
@@ -984,6 +984,14 @@
         if(p.id==='ALGB'&&(!Array.isArray(p.variables)||!p.variables.length||p.variables.length>9||!p.variables.every(k=>/^[A-FXYM]$/.test(k))||!Number.isInteger(p.index)||p.index<0||p.index>=p.variables.length))throw new TypeError('Invalid simulation workflow');
         if(p.id==='SOLV'){if(!['start','dx'].includes(p.stage)||!Number.isFinite(p.start)||!Number.isFinite(p.dx))throw new TypeError('Invalid solver workflow');semantic.validateAst(p.ast);}
       }
+      if(w.kind==='prompt'&&['DERIV','INTEGRAL'].includes(w.payload.id)){
+        const p=w.payload,stages=p.id==='DERIV'?['x','dx']:['a','b','n','calculating'];
+        if(typeof p.source!=='string'||p.source.length>1000||typeof p.input!=='string'||p.input.length>40||!Number.isFinite(p.defaultValue)||!stages.includes(p.stage)||p.operation!==(p.id==='DERIV'?'derivative':'integral')||!p.conditions||Object.keys(p.conditions).sort().join(',')!=='a,b,dx,n,x'||!Object.values(p.conditions).every(Number.isFinite))throw new TypeError('Invalid calculus workflow');
+        semantic.validateAst(p.ast);
+        const parsed=semantic.parseTokens(semantic.tokenize(closeOpenParentheses(p.source).replaceAll(':','/'),{physical:true}),{physical:true});
+        if(JSON.stringify(parsed)!==JSON.stringify(p.ast)||/(?:random|dice|coin|rint)\(/.test(p.source))throw new TypeError('Invalid calculus expression');
+        if(p.stage==='calculating'){calculus.validate(p.job);if(p.job.a!==p.conditions.a||p.job.b!==p.conditions.b||p.job.n!==p.conditions.n)throw new TypeError('Invalid calculus conditions');}
+      }
     }
   }
   function validateState(state) {
@@ -1024,6 +1032,12 @@
       || !Number.isInteger(layers.settings.tab) || layers.settings.tab < 0 || layers.settings.tab > 9
       || !(layers.settings.insert === undefined || typeof layers.settings.insert === "boolean")
       || !(layers.intent === null || layers.intent && typeof layers.intent.kind === "string")) throw new TypeError("Invalid key layers");
+    if(layers.intent?.kind==='calculus-result'){
+      const p=layers.intent;
+      if(!['derivative','integral'].includes(p.operation)||typeof p.source!=='string'||p.source.length>1000||!p.conditions||Object.keys(p.conditions).sort().join(',')!=='a,b,dx,n,x'||!Object.values(p.conditions).every(Number.isFinite))throw new TypeError('Invalid calculus result');
+      if(p.operation==='integral')calculus.begin(p.conditions.a,p.conditions.b,p.conditions.n);
+      else if(p.conditions.dx<=0)throw new TypeError('Invalid derivative conditions');
+    }
     for (const name of Object.keys(initial)) {
       if (initial[name] !== null && !Array.isArray(initial[name])
         && typeof state[name] !== typeof initial[name]) throw new TypeError(`Invalid state: ${name}`);
@@ -1106,6 +1120,7 @@
       return next;
     }
     if (event.type === "physical-key") return reducePhysicalKey(previous, event.id, event.randomSample);
+    if (event.type === "calculus-step") return physicalCalculusStep(previous);
     if (event.type === "token-edit") {
       if (previous.workflow.kind !== null) throw new TypeError("Cannot edit during a workflow");
       const next = structuredClone(previous);
@@ -1158,7 +1173,7 @@
   const BASE_KEYS = Object.freeze(Object.fromEntries([
     [1,{action:"home"}], [2,{action:"clear"}], [7,{action:"delete"}], [8,{action:"history-up"}],
     [9,{action:"cursor-left"}], [10,{action:"cursor-right"}], [11,{action:"history-down"}],
-    [13,{insert:"sin("}], [14,{insert:"cos("}], [15,{insert:"tan("}], [18,{insert:"pi"}],
+    [13,{insert:"sin("}], [14,{insert:"cos("}], [15,{insert:"tan("}], [16,{action:"integral"}], [18,{insert:"pi"}],
     [19,{action:"power"}], [20,{insert:"^2"}], [21,{insert:"^3"}], [22,{insert:"log("}],
     [23,{insert:"ln("}], [24,{action:"exp"}], [25,{action:"fraction"}], [26,{action:"dms"}],
     [29,{action:"memory-add"}], [33,{insert:"("}], [34,{insert:")"}], [38,{insert:"*"}],
@@ -1166,7 +1181,7 @@
     [47,{action:"sign"}], [48,{action:"equals"}],
     ...Object.entries(DIGIT_KEYS).map(([n,insert]) => [Number(n),{insert}]),
   ]));
-  const SECOND_KEYS = Object.freeze({13:{insert:"asin("},14:{insert:"acos("},15:{insert:"atan("},
+  const SECOND_KEYS = Object.freeze({13:{insert:"asin("},14:{insert:"acos("},15:{insert:"atan("},16:{action:"derivative"},
     18:{insert:"^(-1)"},19:{action:"root"},20:{insert:"sqrt("},21:{insert:"cbrt("},
     22:{insert:"10^("},23:{insert:"e^("},
     29:{action:"memory-subtract"},35:{insert:"!"},36:{action:"ncr"},37:{action:"npr"},40:{insert:"%"}});
@@ -1469,6 +1484,83 @@
       next.workflow={kind:'prompt',payload:{id:'SOLV',keyLayer:true,source,stage:'start',start,dx,input:'',defaultValue:start,ast},page:0,returnPhase:'editing'};
       next.lifecycle='prompt';next.secondActive=false;next.layers.alpha=false;return next;
     }catch(error){next.workflow=emptyWorkflow();return physicalError(next,error instanceof RangeError?2:1);}
+  }
+  function physicalCalculusError(next,error){
+    next.workflow=emptyWorkflow();next.secondActive=false;next.layers.alpha=false;
+    next=physicalError(next,error instanceof RangeError?2:1);next.layers.intent={kind:'calculus-error'};return next;
+  }
+  function physicalCalculusPrompt(previous,operation){
+    const next=structuredClone(previous);
+    try{
+      const old=previous.layers.intent?.kind==='calculus-result'&&previous.lifecycle==='evaluated'?previous.layers.intent:null;
+      const source=old?old.source:physicalSource(previous);
+      if(source.length>1000)throw new RangeError('Calculus expression budget');
+      const ast=semantic.parseTokens(semantic.tokenize(closeOpenParentheses(source).replaceAll(':','/'),{physical:true}),{physical:true});
+      if(/(?:random|dice|coin|rint)\(/.test(source))throw new SyntaxError('Calculus random expression');
+      const conditions=old?.operation===operation?{...old.conditions}:{x:0,dx:1e-5,a:0,b:0,n:100};
+      const stage=operation==='derivative'?'x':'a';
+      next.workflow={kind:'prompt',payload:{id:operation==='derivative'?'DERIV':'INTEGRAL',keyLayer:true,source,ast,operation,stage,conditions,input:'',defaultValue:conditions[stage]},page:0,returnPhase:'editing'};
+      next.lifecycle='prompt';next.secondActive=false;next.layers.alpha=false;next.layers.hyp=false;return next;
+    }catch(error){return physicalCalculusError(next,error);}
+  }
+  function physicalCalculusEvaluate(state,p,x){
+    const scope={angleMode:state.angleMode,answer:state.answer,variables:{...physicalVariables(state),X:x}};
+    // Calculus retains a fourteen-digit mantissa at sample boundaries, rather
+    // than using the ordinary arithmetic's thirteen-digit binary profile.
+    const adapter={...physicalAdapter,binary(op,a,b){
+      if(op==='/'&&b===0)throw new RangeError('Calculus division by zero');
+      if(['+','-','*','/'].includes(op)||op==='^'&&Number.isInteger(b)&&Math.abs(b)<=1000){
+        const exact=engine.decimalBinary(op,String(a),String(b)),bounded=physicalNumeric(Number(exact));
+        return bounded===0?0:physicalNumeric(Number(engine.quantize(exact,14,'half-up')));
+      }
+      return physicalAdapter.binary(op,a,b);
+    }};
+    return physicalNumeric(Number(engine.quantize(String(physicalNumeric(semantic.evaluate(p.ast,adapter,scope))),14,'half-up')));
+  }
+  function physicalCalculusComplete(next,p,value){
+    next.workflow=emptyWorkflow();physicalStore(next,'X',values.scalar(0));
+    next=physicalCalculate(next,String(value),p.source);
+    if(next.lifecycle==='error')return physicalCalculusError(next,new RangeError('Calculus result'));
+    next.expression=p.source+'=';next.displayExpression=p.operation==='derivative'?'d/dx=':'\u222bdx=';
+    next.editor=editorForState(next);next.resultMode='decimal';next.lastExactDisplay='';
+    if(next.history.length)next.history.at(-1).expression=next.expression;
+    next.layers.intent={kind:'calculus-result',operation:p.operation,source:p.source,conditions:{...p.conditions}};return next;
+  }
+  function physicalCalculusStep(previous){
+    const p=previous.workflow.payload;
+    if(previous.control.power!=='on'||previous.workflow.kind!=='prompt'||p?.id!=='INTEGRAL'||p.stage!=='calculating')return previous;
+    const next=structuredClone(previous);
+    try{
+      const progress=calculus.step(x=>physicalCalculusEvaluate(previous,p,x),p.job);
+      if(progress.done)return physicalCalculusComplete(next,p,progress.value);
+      next.workflow.payload.job=progress.job;return next;
+    }catch(error){return physicalCalculusError(next,error);}
+  }
+  function physicalPhase10(previous,next,n){
+    const p=previous.workflow.payload;
+    if(previous.workflow.kind==='prompt'&&['DERIV','INTEGRAL'].includes(p?.id)){
+      if(p.stage==='calculating')return next;
+      let input=p.input;
+      if(DIGIT_KEYS[n]!==undefined){if(input.length<40){const part=input.split('/').at(-1),digits=part.split('E').at(-1).replace(/\D/g,'');if(digits.length<(part.includes('E')?2:10))next.workflow.payload.input+=DIGIT_KEYS[n];}return next;}
+      if(n===46){const part=input.split('/').at(-1);if(!part.includes('.')&&!part.includes('E'))next.workflow.payload.input+=(part?'':'0')+'.';return next;}
+      if(n===24){if(!input.includes('/')&&!input.includes('E'))next.workflow.payload.input=(input||'1')+'E';return next;}
+      if(n===25){if(input&&input.split('/').length<3&&!input.includes('E'))next.workflow.payload.input+='/';return next;}
+      if(n===7){next.workflow.payload.input=input.slice(0,-1);return next;}
+      if(n===47){const at=input.indexOf('E')+1;next.workflow.payload.input=at?input.slice(0,at)+(input[at]==='-'?input.slice(at+1):'-'+input.slice(at)):input?input.startsWith('-')?input.slice(1):'-'+input:p.defaultValue===0?'-0':String(-p.defaultValue);return next;}
+      if(n!==48)return next;
+      try{
+        const number=calculus.condition(p.input,p.defaultValue),q=next.workflow.payload;q.conditions[p.stage]=number;
+        const stage=p.stage==='x'?'dx':p.stage==='a'?'b':p.stage==='b'?'n':null;
+        if(stage){q.stage=stage;q.input='';q.defaultValue=stage==='dx'?calculus.defaultDx(number):q.conditions[stage];return next;}
+        physicalStore(next,'X',values.scalar(0));
+        if(p.operation==='derivative')return physicalCalculusComplete(next,q,calculus.derivative(x=>physicalCalculusEvaluate(previous,p,x),q.conditions.x,number,engine));
+        q.job=calculus.begin(q.conditions.a,q.conditions.b,number);q.stage='calculating';q.input='';return next;
+      }catch(error){physicalStore(next,'X',values.scalar(0));return physicalCalculusError(next,error);}
+    }
+    if(previous.layers.mode!=='NORMAL'||previous.control.nbase.radix!==10||previous.layers.alpha||previous.layers.hyp||previous.workflow.kind)return null;
+    if(n===16)return physicalCalculusPrompt(previous,previous.secondActive?'derivative':'integral');
+    if(n===48&&!previous.secondActive&&previous.lifecycle==='evaluated'&&previous.layers.intent?.kind==='calculus-result')return physicalCalculusPrompt(previous,previous.layers.intent.operation);
+    return null;
   }
   function physicalSimulationPrompt(previous){
     const next=structuredClone(previous);
@@ -1812,6 +1904,7 @@
       return next;
     }
     const baseKey=physicalPhase9(previous,next,n);if(baseKey)return baseKey;
+    const calculusKey=physicalPhase10(previous,next,n);if(calculusKey)return calculusKey;
     const promptKey=physicalPhase8Prompt(previous,next,n);if(promptKey)return promptKey;
     if(n===4)return physicalMenu(previous,'MODE');
     if(n===6)return physicalMenu(previous,'SETUP');
@@ -1908,6 +2001,10 @@
         }
         if(['power','root','npr','ncr'].includes(action)&&['physicalFraction','dms'].includes(previous.stagedEntry?.type)){try{next=physicalFlush(next);}catch{return physicalError(next,1);}const operand=physicalLastOperand(next.expression);next.entry=operand;next.expression=next.expression.slice(0,-operand.length);return reducePhysicalKey(next,id);}
         if(action==='power'&&previous.stagedEntry){try{next=physicalFlush(next);}catch{return physicalError(next,1);}next.expression+='^';next.secondActive=false;return physicalEditor(next);}
+        if(action==='power'&&!previous.entry&&!previous.stagedEntry&&previous.lifecycle!=='evaluated'){
+          const operand=physicalLastOperand(next.expression);
+          if(operand){next.entry=operand;next.expression=next.expression.slice(0,-operand.length);}
+        }
         if(['power','root','npr','ncr'].includes(action)&&previous.lifecycle==='evaluated'){next.expression='';next.entry='ans';next.stagedEntry=null;next.control.arithmetic={constant:null,percent:false};}
         if(action==='sign'&&previous.lifecycle==='evaluated'){next.expression='';next.entry='';next.stagedEntry=null;next.control.arithmetic={constant:null,percent:false};}
         if(previous.lifecycle==='evaluated'&&/^\d$/.test(insert||'')){next.expression='';next.entry='';next.stagedEntry=null;next.control.arithmetic.percent=false;}

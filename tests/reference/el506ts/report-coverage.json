@@ -619,6 +619,70 @@
         "phase9-nbase"
       ],
       "scope": "67 canonical implementation frames including 23 independently observed native frames. Native viewport/raw-state differences remain explicitly recorded."
+    },
+    {
+      "kind": "unit",
+      "path": "tests/unit/phase10.test.js",
+      "anchor": "Calculus measured derivative prompts default interval and native polynomial result",
+      "capabilityIds": [
+        "el506.key.el506-k16",
+        "el506.base.el506-k16",
+        "el506.second.el506-k16"
+      ],
+      "scope": "Native polynomial derivative and prompt sequence; no claim of all sample arithmetic parity."
+    },
+    {
+      "kind": "unit",
+      "path": "tests/unit/phase10.test.js",
+      "anchor": "Calculus measured Simpson prompts default n and polynomial integral",
+      "capabilityIds": [
+        "el506.key.el506-k16",
+        "el506.base.el506-k16",
+        "el506.second.el506-k16"
+      ],
+      "scope": "Manual composite Simpson 2*n panels, native polynomial prompts/display and repeat."
+    },
+    {
+      "kind": "browser",
+      "path": "tests/e2e/phase10.spec.js",
+      "anchor": "Calculus physical derivative prompts editing and repeat produce native display",
+      "capabilityIds": [
+        "el506.key.el506-k16",
+        "el506.base.el506-k16",
+        "el506.second.el506-k16"
+      ],
+      "scope": "Physical derivative buttons, prompts, defaults, repeat and rendered LCD."
+    },
+    {
+      "kind": "browser",
+      "path": "tests/e2e/phase10.spec.js",
+      "anchor": "Calculus integration guide and repeated conditions use real buttons",
+      "capabilityIds": [
+        "el506.key.el506-k16",
+        "el506.base.el506-k16",
+        "el506.second.el506-k16"
+      ],
+      "scope": "Physical integrand/bounds/n entry, guide integral display and repeated conditions."
+    },
+    {
+      "kind": "browser",
+      "path": "tests/e2e/phase10.spec.js",
+      "anchor": "Calculus chunked job cancels and stale work cannot change ANS",
+      "capabilityIds": [
+        "el506.key.el506-k16",
+        "el506.base.el506-k16",
+        "el506.second.el506-k16"
+      ],
+      "scope": "Web bounded integration and ON/C cancellation, not native timing parity."
+    },
+    {
+      "kind": "browser",
+      "path": "tests/e2e/golden.spec.js",
+      "anchor": "canonical baseline browser replay",
+      "fixtureIds": [
+        "phase10-calculus"
+      ],
+      "scope": "42 implementation regression frames; 24 independently transcribed native checkpoints. Derivative guide precision gap and raw-state differences remain explicit."
     }
   ]
 }

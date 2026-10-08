@@ -389,6 +389,12 @@
         view.resultHtml=p.input?sharpEntry(p.input):sharpNumber(p.defaultValue,settings).html;
         view.cursorVisible=false;indicators['?']=p.id==='ALGB';
       }
+      if(['DERIV','INTEGRAL'].includes(workflow.payload.id)){
+        const p=workflow.payload;
+        view.expressionHtml=escapeHtml(p.stage==='calculating'?'Calculating!':({x:'X?',dx:'dx?',a:'a?',b:'b?',n:'n?'})[p.stage]);
+        view.resultHtml=p.stage==='calculating'?'':p.input?p.input.includes('/')?formatExpression(p.input):sharpEntry(p.input):sharpNumber(p.defaultValue,settings).html;
+        view.cursorVisible=false;indicators['?']=false;
+      }
       if(workflow.payload.id==='TAB')view.resultHtml='';
       if(workflow.payload.id==='CNST'){view.expressionHtml='';view.resultHtml=escapeHtml('01-52 ['+(workflow.payload.path||[]).join('')+']');}
       if(workflow.payload.id==='CONV'){view.expressionHtml=formatExpression(physicalExpression(workflow.payload.source)+'→cv');view.resultHtml=sharpEntry((workflow.payload.path||[]).join('')||'0');indicators['?']=false;}
@@ -403,6 +409,8 @@
     if(state.layers.intent?.kind==='formula-store'){view.resultHtml=escapeHtml(state.displayResult);view.cursorVisible=false;}
     if(state.layers.intent?.kind==='nbase-error'){view.expressionHtml=escapeHtml('Error '+state.control.errorCode);view.resultHtml='';view.cursorVisible=false;}
     if(state.layers.intent?.kind==='solver-error'){view.expressionHtml=escapeHtml('Error '+state.control.errorCode);view.resultHtml='';}
+    if(state.layers.intent?.kind==='calculus-error'){view.expressionHtml=escapeHtml('Error '+state.control.errorCode);view.resultHtml='';view.cursorVisible=false;}
+    if(state.layers.intent?.kind==='calculus-result'&&!workflow.kind&&state.lifecycle==='evaluated'){view.expressionHtml=escapeHtml(state.displayExpression);view.cursorVisible=false;}
     if(state.control?.nbase?.radix!==10&&state.control?.nbase&&state.control.power==='on'&&(!workflow.kind||workflow.kind==='prompt'&&['STO','RCL'].includes(workflow.payload.id))){
       const base=state.control.nbase.radix,name=({2:'BIN',5:'PEN',8:'OCT',16:'HEX'})[base];
       for(const k of ['BIN','PEN','OCT','DEC','HEX'])indicators[k]=k===name;

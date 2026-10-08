@@ -66,6 +66,7 @@ function runFixture(fixture) {
     if (step) state = core.reduceCalculator(state, fixture.dispatch === "physical"
       ? {type:"physical-key",id:fixture.sequence[step-1]}
       : canonicalEvent(state, fixture.sequence[step - 1]));
+    while(state.workflow.payload?.stage==='calculating'&&state.workflow.payload.id==='INTEGRAL')state=core.reduceCalculator(state,{type:'calculus-step'});
     const expected = fixture.expected[step];
     assert.equal(expected.afterStep, step);
     assert.ok(Object.keys(expected.assertions).length > 0);

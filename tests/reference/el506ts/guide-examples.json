@@ -2779,7 +2779,7 @@
       "frames": [
         {
           "afterStep": 16,
-          "printed": "0.7853957562",
+          "printed": "0.785357562",
           "evidenceKind": "guide-print",
           "simulatorStatus": "unmeasured"
         }
@@ -2787,7 +2787,9 @@
       "status": "reference-only",
       "applicationStatus": "pending",
       "simulatorStatus": "unmeasured",
-      "notes": [],
+      "notes": [
+        "Phase 10 visual reinspection of page 32 and independent native LCD confirm 0.785357562; corrected earlier OCR transcription 0.7853957562. Native Phase 10 transcript is separate; this connected guide fixture remains reference-only."
+      ],
       "capabilityIds": [
         "el506.key.el506-k02",
         "el506.key.el506-k03",

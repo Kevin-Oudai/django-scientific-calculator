@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "reviewId": "phase-10-calculus-review",
+  "reviewedOn": "2026-10-07",
+  "simulatorProfile": "sharp-el506ts-pc-simulator-1.0.2.0",
+  "runtimeSha256": "6bfef4d04900b472892be2d4c54dcfa6013f87232097e32df508ca4c27425530",
+  "method": "Live @oai/sky one physical action followed by refreshed native screenshot; significant native LCD frames transcribed independently. Pinned full manual section 6 and local guide pages 31-32 read and visually inspected.",
+  "manualPolicy": {
+    "derivative": "[f(x+dx/2)-f(x-dx/2)]/dx; blank dx uses abs(x)*1e-5, or 1e-5 when x=0.",
+    "integral": "Composite Simpson rule with N=2*n and h=(b-a)/N; blank n uses 100; a<=x<=b.",
+    "input": "Numeric conditions only, including numeric fractions illustrated by guide; no arbitrary condition equations. Reuse expression while changing conditions. NORMAL only. Calculation clears X.",
+    "guideDerivative": "sqrt(1-X^2) at -1/2 with blank dx; printed 0.577350268.",
+    "guideIntegral": "sqrt(1-X^2) from 0 to 1 with blank n; visually verified printed 0.785357562 (earlier OCR interpretation discarded)."
+  },
+  "observations": [
+    "X squared then 2nd F integral key opens upper X? with lower 0. and DEG.",
+    "Derivative X squared at 2: X? default 0., dx? default 0.00002, d/dx= 4.",
+    "Integral X squared: a? default 0., b? default 0., n? default 100.; integral 0..1 displays 0.333333333.",
+    "ENT repeats integration with retained a=0 and b=1. Entering n=0 displays Error 2 with blank lower line; ON/C restores empty upper, 0. lower.",
+    "Guide derivative sqrt(1-X squared) at negative one half: default dx=0.000005; native LCD 0.577350268.",
+    "Guide integral sqrt(1-X squared), 0..1, n default 100: native LCD 0.785357562."
+  ],
+  "limitations": [
+    "Exact private arithmetic, discontinuity handling and maximum native work limits must remain scoped to measured cases; published manual formulas are not evidence for every edge case.",
+    "Derivative guide case: application 0.57735027 versus native 0.577350268 (2e-9 absolute difference); private sample rounding is unmeasured. Fourteen-significant-digit half-up sample arithmetic is an explicit implementation approximation, not a fully identified native algorithm.",
+    "Web integration limit is 10000 Simpson pairs (20001 samples), 64 samples per animation frame, expression length capped at 1000. Native maximum n, cancellation timing, negative dx/reversed bounds and every discontinuity are unmeasured. Singular sampled points produce Error 2; unsampled discontinuities are not automatically diagnosed.",
+    "Numeric condition fractions use the existing stacked fraction display requested by the user; the native LCD uses inline fraction separators."
+  ],
+  "verification": {
+    "focusedUnit": "62 passed (Phase 10 and NORMAL arithmetic after final overflow/power fixes)",
+    "unit": "418 passed",
+    "browser": "147 passed",
+    "golden": "335 asserted frames; 42 new calculus frames with 24 native checkpoints",
+    "django": "7 passed",
+    "package": "Installed wheel and sdist smoke passed; 19 package assets",
+    "compileall": "passed",
+    "pipDryRun": "passed",
+    "composeConfig": "passed",
+    "dockerDemo": "Unavailable: Docker Desktop Linux backend pipe is absent; compose up --build attempted, Docker CLI start/status also checked. Local Django 5.2.17 runserver at 127.0.0.1:8010 exercised all browser tests.",
+    "liveBrowser": "X squared derivative at 2 displays 4.; X^4 derivative at 2 displays 32.; X squared integral 0..1 displays 0.333333333; final screenshot saved outside repository.",
+    "report": "Generated and checked; no full parity promotion",
+    "nativeCleanup": "Agent-opened simulator and extractor confirmed closed",
+    "gitDiffCheck": "passed"
+  }
+}

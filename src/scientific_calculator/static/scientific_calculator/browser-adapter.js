@@ -107,6 +107,7 @@
         } else expressionEl.scrollLeft=expressionEl.scrollWidth;
         resultEl.scrollLeft=resultEl.scrollWidth;
         scrollIndicators();
+        if(state.workflow.kind==='prompt'&&state.workflow.payload.id==='INTEGRAL'&&state.workflow.payload.stage==='calculating')dispatch({type:'calculus-step'});
       });
     };
     const dispatch=event=>{

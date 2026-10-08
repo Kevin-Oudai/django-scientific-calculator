@@ -20,6 +20,7 @@ for (const fixture of loadFixtures().filter(f => f.status !== "pending")) {
         }
       }
       const expected = fixture.expected[step].assertions;
+      await expect(root.locator('[data-expression]')).not.toHaveText('Calculating!');
       const actual = await root.evaluate(el => el.scientificCalculator.snapshot().state);
       for (const [field, value] of Object.entries(expected)) {
         expect(field.split(".").reduce((v, k) => v[k], actual)).toEqual(value);

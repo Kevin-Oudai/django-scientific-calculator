@@ -2201,6 +2201,37 @@ memories; schemas 1-9 migrate in memory.
 
 ### Phase 10 - Numerical Differentiation and Integration
 
+User requested the full Phase 10 batch (EL506-200 through EL506-207).
+READY_TO_PUSH: 2026-10-07. Eight implementations and their scoped evidence
+passed local verification; all eight remain unchecked and Next item stays
+EL506-200 until the implementation commit is published and verified.
+
+Verification: npm test passed (418 unit, 147 browser, 335 golden frames),
+focused calculus/NORMAL arithmetic checks (62), Django (7), compileall, pip dry
+run, Compose config, installed wheel/sdist smoke (19 assets), report checks,
+live browser display checks and git diff --check. Docker build/start was
+attempted, but Docker Desktop's Linux backend pipe is unavailable; the local
+Django server at 127.0.0.1:8010 exercised the browser suite and remains open.
+Agent-opened native runtime and extractor were confirmed closed.
+
+Evidence: `tests/reference/el506ts/phase-10-review.json`, calculus experiment
+and 42-frame golden fixture (24 independent native checkpoints), pinned manual
+section 6, visually inspected guide pages 31-32, unit/browser mappings and
+generated parity report. Native polynomial derivatives/integrals, prompts,
+default dx/n, integration repeat and n=0 Error 2/recovery were observed. The
+guide integral agrees at 0.785357562; its earlier OCR transcription was corrected.
+
+Notes: Central differences and composite Simpson (2*n panels) use fourteen-
+digit sample arithmetic as an explicit approximation. The guide derivative
+shows 0.577350268 natively versus 0.57735027 here (2e-9 absolute difference).
+Private rounding, all discontinuities, native resource limits and cancellation
+timing remain unmeasured; full native numerical parity is not claimed. Web work
+is bounded to 10000 Simpson pairs, 64 samples per animation frame and 1000-
+character formulas. Numeric fractions use the user's stacked display. ON/C
+cancellation, numeric/domain failures, memories/angles, snapshots, stale-job
+protection and general powers of variables have implementation coverage.
+Snapshot remains schema 10; the package version remains 0.3.1.
+
 - [ ] **EL506-200 - Match the differentiation template and cursor sequence.**
 - [ ] **EL506-201 - Match derivative expression, variable, point, editing, and
   confirmation.**

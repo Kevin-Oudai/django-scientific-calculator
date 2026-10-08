@@ -1,4 +1,4 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>EL-506TS parity evidence report</title><style>body{font:16px system-ui;margin:2rem;color:#162130;background:#f5f7fa}main{max-width:1600px;margin:auto}table{border-collapse:collapse;width:100%;background:white}th,td{padding:12px;border:1px solid #b7c2d0;text-align:left;vertical-align:top}th{background:#163858;color:white}pre{white-space:pre-wrap;overflow-wrap:anywhere;font-size:12px}input{font:inherit;padding:10px;min-width:280px}details{margin-top:8px}summary{cursor:pointer}a{color:#174d80}.scroll{overflow:auto}caption{text-align:left;padding:12px 0;font-weight:bold}</style></head><body><main><h1>EL-506TS parity evidence</h1><p>430 ledger entries. Full verified parity: 0.</p><p>Evidence status is independent across columns. Inventory observation, partial implementation and baseline tests do not establish full calculator parity. Test mappings identify assertions, not a new test execution record. Run npm test for verification.</p><p>Guide: 52 workflows; 1 baseline replay; 51 pending. Golden: 293 asserted frames; 1 pending fixture.</p><details><summary>Column totals</summary><pre>{
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>EL-506TS parity evidence report</title><style>body{font:16px system-ui;margin:2rem;color:#162130;background:#f5f7fa}main{max-width:1600px;margin:auto}table{border-collapse:collapse;width:100%;background:white}th,td{padding:12px;border:1px solid #b7c2d0;text-align:left;vertical-align:top}th{background:#163858;color:white}pre{white-space:pre-wrap;overflow-wrap:anywhere;font-size:12px}input{font:inherit;padding:10px;min-width:280px}details{margin-top:8px}summary{cursor:pointer}a{color:#174d80}.scroll{overflow:auto}caption{text-align:left;padding:12px 0;font-weight:bold}</style></head><body><main><h1>EL-506TS parity evidence</h1><p>430 ledger entries. Full verified parity: 0.</p><p>Evidence status is independent across columns. Inventory observation, partial implementation and baseline tests do not establish full calculator parity. Test mappings identify assertions, not a new test execution record. Run npm test for verification.</p><p>Guide: 52 workflows; 1 baseline replay; 51 pending. Golden: 335 asserted frames; 1 pending fixture.</p><details><summary>Column totals</summary><pre>{
   &quot;documented&quot;: {
     &quot;not-recorded&quot;: 235,
     &quot;documented&quot;: 195
@@ -12,16 +12,16 @@
     &quot;missing&quot;: 307
   },
   &quot;unitTested&quot;: {
-    &quot;pending&quot;: 274,
-    &quot;partial&quot;: 156
+    &quot;pending&quot;: 271,
+    &quot;partial&quot;: 159
   },
   &quot;goldenTested&quot;: {
-    &quot;pending&quot;: 383,
-    &quot;baseline-known-differences&quot;: 47
+    &quot;pending&quot;: 380,
+    &quot;baseline-known-differences&quot;: 50
   },
   &quot;browserTested&quot;: {
-    &quot;partial&quot;: 186,
-    &quot;pending&quot;: 244
+    &quot;partial&quot;: 188,
+    &quot;pending&quot;: 242
   }
 }</pre></details><p><label for="filter">Filter by capability, family, owner or evidence status</label><br><input id="filter" type="search" placeholder="For example: matrix or EL506-146"><span id="count" aria-live="polite"> 430 entries</span></p><div class="scroll"><table><caption>Independent status and scoped evidence</caption><thead><tr><th>Capability</th><th>Documented</th><th>Simulator observed</th><th>Implemented</th><th>Unit tested</th><th>Golden tested</th><th>Browser tested</th></tr></thead><tbody><tr><td>el506.key.el506-k01<br><strong>HOME</strong><br>physical-key / EL506-013</td><td><strong>not-recorded</strong><details><summary>Evidence and scope</summary><p>Ledger documentation evidence only.</p><pre>[]</pre></details></td><td><strong>observed</strong><details><summary>Evidence and scope</summary><p>Position verified under EL506-013; semantic layers listed separately.</p><pre>[
   {
@@ -1577,7 +1577,36 @@
   }
 ]</pre></details></td><td><strong>partial</strong><details><summary>Evidence and scope</summary><p>48-key catalogue is shipped, but live DOM layout and dispatch do not use the canonical IDs.</p><pre>[
   &quot;css-layout&quot;
-]</pre></details></td><td><strong>pending</strong><details><summary>Evidence and scope</summary><p>Explicit mapped assertions only; unlisted coverage is unassessed.</p><pre>[]</pre></details></td><td><strong>pending</strong><details><summary>Evidence and scope</summary><p>Baseline characterization only; all current supported fixtures have oracle display differences.</p><pre>[]</pre></details></td><td><strong>partial</strong><details><summary>Evidence and scope</summary><p>Explicit canonical baseline browser replays only; legacy regression coverage is not inferred as parity.</p><pre>[
+]</pre></details></td><td><strong>partial</strong><details><summary>Evidence and scope</summary><p>Explicit mapped assertions only; unlisted coverage is unassessed.</p><pre>[
+  {
+    &quot;kind&quot;: &quot;unit&quot;,
+    &quot;path&quot;: &quot;tests/unit/phase10.test.js&quot;,
+    &quot;anchor&quot;: &quot;Calculus measured derivative prompts default interval and native polynomial result&quot;,
+    &quot;capabilityIds&quot;: [
+      &quot;el506.key.el506-k16&quot;,
+      &quot;el506.base.el506-k16&quot;,
+      &quot;el506.second.el506-k16&quot;
+    ],
+    &quot;scope&quot;: &quot;Native polynomial derivative and prompt sequence; no claim of all sample arithmetic parity.&quot;
+  },
+  {
+    &quot;kind&quot;: &quot;unit&quot;,
+    &quot;path&quot;: &quot;tests/unit/phase10.test.js&quot;,
+    &quot;anchor&quot;: &quot;Calculus measured Simpson prompts default n and polynomial integral&quot;,
+    &quot;capabilityIds&quot;: [
+      &quot;el506.key.el506-k16&quot;,
+      &quot;el506.base.el506-k16&quot;,
+      &quot;el506.second.el506-k16&quot;
+    ],
+    &quot;scope&quot;: &quot;Manual composite Simpson 2*n panels, native polynomial prompts/display and repeat.&quot;
+  }
+]</pre></details></td><td><strong>baseline-known-differences</strong><details><summary>Evidence and scope</summary><p>Baseline characterization only; all current supported fixtures have oracle display differences.</p><pre>[
+  {
+    &quot;fixtureId&quot;: &quot;phase10-calculus&quot;,
+    &quot;status&quot;: &quot;known-differences&quot;,
+    &quot;assertedFrames&quot;: 42
+  }
+]</pre></details></td><td><strong>partial</strong><details><summary>Evidence and scope</summary><p>Explicit canonical baseline browser replays only; legacy regression coverage is not inferred as parity.</p><pre>[
   {
     &quot;kind&quot;: &quot;browser&quot;,
     &quot;path&quot;: &quot;tests/e2e/physical-ui.spec.js&quot;,
@@ -1633,6 +1662,53 @@
       &quot;el506.key.el506-k48&quot;
     ],
     &quot;scope&quot;: &quot;Actual 48-button layout, primary/shifted accessibility names and modifier exposure; does not assert function algorithms or complete key parity.&quot;
+  },
+  {
+    &quot;kind&quot;: &quot;browser&quot;,
+    &quot;path&quot;: &quot;tests/e2e/phase10.spec.js&quot;,
+    &quot;anchor&quot;: &quot;Calculus physical derivative prompts editing and repeat produce native display&quot;,
+    &quot;capabilityIds&quot;: [
+      &quot;el506.key.el506-k16&quot;,
+      &quot;el506.base.el506-k16&quot;,
+      &quot;el506.second.el506-k16&quot;
+    ],
+    &quot;scope&quot;: &quot;Physical derivative buttons, prompts, defaults, repeat and rendered LCD.&quot;
+  },
+  {
+    &quot;kind&quot;: &quot;browser&quot;,
+    &quot;path&quot;: &quot;tests/e2e/phase10.spec.js&quot;,
+    &quot;anchor&quot;: &quot;Calculus integration guide and repeated conditions use real buttons&quot;,
+    &quot;capabilityIds&quot;: [
+      &quot;el506.key.el506-k16&quot;,
+      &quot;el506.base.el506-k16&quot;,
+      &quot;el506.second.el506-k16&quot;
+    ],
+    &quot;scope&quot;: &quot;Physical integrand/bounds/n entry, guide integral display and repeated conditions.&quot;
+  },
+  {
+    &quot;kind&quot;: &quot;browser&quot;,
+    &quot;path&quot;: &quot;tests/e2e/phase10.spec.js&quot;,
+    &quot;anchor&quot;: &quot;Calculus chunked job cancels and stale work cannot change ANS&quot;,
+    &quot;capabilityIds&quot;: [
+      &quot;el506.key.el506-k16&quot;,
+      &quot;el506.base.el506-k16&quot;,
+      &quot;el506.second.el506-k16&quot;
+    ],
+    &quot;scope&quot;: &quot;Web bounded integration and ON/C cancellation, not native timing parity.&quot;
+  },
+  {
+    &quot;kind&quot;: &quot;browser&quot;,
+    &quot;path&quot;: &quot;tests/e2e/golden.spec.js&quot;,
+    &quot;anchor&quot;: &quot;canonical baseline browser replay&quot;,
+    &quot;fixtureIds&quot;: [
+      &quot;phase10-calculus&quot;
+    ],
+    &quot;scope&quot;: &quot;42 implementation regression frames; 24 independently transcribed native checkpoints. Derivative guide precision gap and raw-state differences remain explicit.&quot;,
+    &quot;capabilityIds&quot;: [
+      &quot;el506.key.el506-k16&quot;,
+      &quot;el506.base.el506-k16&quot;,
+      &quot;el506.second.el506-k16&quot;
+    ]
   }
 ]</pre></details></td></tr>
 <tr><td>el506.key.el506-k17<br><strong>MATH</strong><br>physical-key / EL506-013</td><td><strong>documented</strong><details><summary>Evidence and scope</summary><p>Printed guide sequence uses this physical key; no behavior parity implied.</p><pre>[
@@ -6336,7 +6412,84 @@
     &quot;key_id&quot;: &quot;EL506-K16&quot;,
     &quot;scope&quot;: &quot;Visible panel legend; action semantics not executed.&quot;
   }
-]</pre></details></td><td><strong>missing</strong><details><summary>Evidence and scope</summary><p>No corresponding mode/controller/function in the frozen 0.3.1 implementation; reference exposure is not implementation evidence.</p><pre>[]</pre></details></td><td><strong>pending</strong><details><summary>Evidence and scope</summary><p>Explicit mapped assertions only; unlisted coverage is unassessed.</p><pre>[]</pre></details></td><td><strong>pending</strong><details><summary>Evidence and scope</summary><p>Baseline characterization only; all current supported fixtures have oracle display differences.</p><pre>[]</pre></details></td><td><strong>pending</strong><details><summary>Evidence and scope</summary><p>Explicit canonical baseline browser replays only; legacy regression coverage is not inferred as parity.</p><pre>[]</pre></details></td></tr>
+]</pre></details></td><td><strong>missing</strong><details><summary>Evidence and scope</summary><p>No corresponding mode/controller/function in the frozen 0.3.1 implementation; reference exposure is not implementation evidence.</p><pre>[]</pre></details></td><td><strong>partial</strong><details><summary>Evidence and scope</summary><p>Explicit mapped assertions only; unlisted coverage is unassessed.</p><pre>[
+  {
+    &quot;kind&quot;: &quot;unit&quot;,
+    &quot;path&quot;: &quot;tests/unit/phase10.test.js&quot;,
+    &quot;anchor&quot;: &quot;Calculus measured derivative prompts default interval and native polynomial result&quot;,
+    &quot;capabilityIds&quot;: [
+      &quot;el506.key.el506-k16&quot;,
+      &quot;el506.base.el506-k16&quot;,
+      &quot;el506.second.el506-k16&quot;
+    ],
+    &quot;scope&quot;: &quot;Native polynomial derivative and prompt sequence; no claim of all sample arithmetic parity.&quot;
+  },
+  {
+    &quot;kind&quot;: &quot;unit&quot;,
+    &quot;path&quot;: &quot;tests/unit/phase10.test.js&quot;,
+    &quot;anchor&quot;: &quot;Calculus measured Simpson prompts default n and polynomial integral&quot;,
+    &quot;capabilityIds&quot;: [
+      &quot;el506.key.el506-k16&quot;,
+      &quot;el506.base.el506-k16&quot;,
+      &quot;el506.second.el506-k16&quot;
+    ],
+    &quot;scope&quot;: &quot;Manual composite Simpson 2*n panels, native polynomial prompts/display and repeat.&quot;
+  }
+]</pre></details></td><td><strong>baseline-known-differences</strong><details><summary>Evidence and scope</summary><p>Baseline characterization only; all current supported fixtures have oracle display differences.</p><pre>[
+  {
+    &quot;fixtureId&quot;: &quot;phase10-calculus&quot;,
+    &quot;status&quot;: &quot;known-differences&quot;,
+    &quot;assertedFrames&quot;: 42
+  }
+]</pre></details></td><td><strong>partial</strong><details><summary>Evidence and scope</summary><p>Explicit canonical baseline browser replays only; legacy regression coverage is not inferred as parity.</p><pre>[
+  {
+    &quot;kind&quot;: &quot;browser&quot;,
+    &quot;path&quot;: &quot;tests/e2e/phase10.spec.js&quot;,
+    &quot;anchor&quot;: &quot;Calculus physical derivative prompts editing and repeat produce native display&quot;,
+    &quot;capabilityIds&quot;: [
+      &quot;el506.key.el506-k16&quot;,
+      &quot;el506.base.el506-k16&quot;,
+      &quot;el506.second.el506-k16&quot;
+    ],
+    &quot;scope&quot;: &quot;Physical derivative buttons, prompts, defaults, repeat and rendered LCD.&quot;
+  },
+  {
+    &quot;kind&quot;: &quot;browser&quot;,
+    &quot;path&quot;: &quot;tests/e2e/phase10.spec.js&quot;,
+    &quot;anchor&quot;: &quot;Calculus integration guide and repeated conditions use real buttons&quot;,
+    &quot;capabilityIds&quot;: [
+      &quot;el506.key.el506-k16&quot;,
+      &quot;el506.base.el506-k16&quot;,
+      &quot;el506.second.el506-k16&quot;
+    ],
+    &quot;scope&quot;: &quot;Physical integrand/bounds/n entry, guide integral display and repeated conditions.&quot;
+  },
+  {
+    &quot;kind&quot;: &quot;browser&quot;,
+    &quot;path&quot;: &quot;tests/e2e/phase10.spec.js&quot;,
+    &quot;anchor&quot;: &quot;Calculus chunked job cancels and stale work cannot change ANS&quot;,
+    &quot;capabilityIds&quot;: [
+      &quot;el506.key.el506-k16&quot;,
+      &quot;el506.base.el506-k16&quot;,
+      &quot;el506.second.el506-k16&quot;
+    ],
+    &quot;scope&quot;: &quot;Web bounded integration and ON/C cancellation, not native timing parity.&quot;
+  },
+  {
+    &quot;kind&quot;: &quot;browser&quot;,
+    &quot;path&quot;: &quot;tests/e2e/golden.spec.js&quot;,
+    &quot;anchor&quot;: &quot;canonical baseline browser replay&quot;,
+    &quot;fixtureIds&quot;: [
+      &quot;phase10-calculus&quot;
+    ],
+    &quot;scope&quot;: &quot;42 implementation regression frames; 24 independently transcribed native checkpoints. Derivative guide precision gap and raw-state differences remain explicit.&quot;,
+    &quot;capabilityIds&quot;: [
+      &quot;el506.key.el506-k16&quot;,
+      &quot;el506.base.el506-k16&quot;,
+      &quot;el506.second.el506-k16&quot;
+    ]
+  }
+]</pre></details></td></tr>
 <tr><td>el506.base.el506-k17<br><strong>MATH</strong><br>base / EL506-016</td><td><strong>not-recorded</strong><details><summary>Evidence and scope</summary><p>Ledger documentation evidence only.</p><pre>[]</pre></details></td><td><strong>observed</strong><details><summary>Evidence and scope</summary><p>Numeric behavior, valid modes, state changes, boundaries and application parity require the owning roadmap item.</p><pre>[
   {
     &quot;source_id&quot;: &quot;live-panel&quot;,
@@ -7078,7 +7231,84 @@
     &quot;key_id&quot;: &quot;EL506-K16&quot;,
     &quot;scope&quot;: &quot;Visible panel legend; action semantics not executed.&quot;
   }
-]</pre></details></td><td><strong>missing</strong><details><summary>Evidence and scope</summary><p>No corresponding mode/controller/function in the frozen 0.3.1 implementation; reference exposure is not implementation evidence.</p><pre>[]</pre></details></td><td><strong>pending</strong><details><summary>Evidence and scope</summary><p>Explicit mapped assertions only; unlisted coverage is unassessed.</p><pre>[]</pre></details></td><td><strong>pending</strong><details><summary>Evidence and scope</summary><p>Baseline characterization only; all current supported fixtures have oracle display differences.</p><pre>[]</pre></details></td><td><strong>pending</strong><details><summary>Evidence and scope</summary><p>Explicit canonical baseline browser replays only; legacy regression coverage is not inferred as parity.</p><pre>[]</pre></details></td></tr>
+]</pre></details></td><td><strong>missing</strong><details><summary>Evidence and scope</summary><p>No corresponding mode/controller/function in the frozen 0.3.1 implementation; reference exposure is not implementation evidence.</p><pre>[]</pre></details></td><td><strong>partial</strong><details><summary>Evidence and scope</summary><p>Explicit mapped assertions only; unlisted coverage is unassessed.</p><pre>[
+  {
+    &quot;kind&quot;: &quot;unit&quot;,
+    &quot;path&quot;: &quot;tests/unit/phase10.test.js&quot;,
+    &quot;anchor&quot;: &quot;Calculus measured derivative prompts default interval and native polynomial result&quot;,
+    &quot;capabilityIds&quot;: [
+      &quot;el506.key.el506-k16&quot;,
+      &quot;el506.base.el506-k16&quot;,
+      &quot;el506.second.el506-k16&quot;
+    ],
+    &quot;scope&quot;: &quot;Native polynomial derivative and prompt sequence; no claim of all sample arithmetic parity.&quot;
+  },
+  {
+    &quot;kind&quot;: &quot;unit&quot;,
+    &quot;path&quot;: &quot;tests/unit/phase10.test.js&quot;,
+    &quot;anchor&quot;: &quot;Calculus measured Simpson prompts default n and polynomial integral&quot;,
+    &quot;capabilityIds&quot;: [
+      &quot;el506.key.el506-k16&quot;,
+      &quot;el506.base.el506-k16&quot;,
+      &quot;el506.second.el506-k16&quot;
+    ],
+    &quot;scope&quot;: &quot;Manual composite Simpson 2*n panels, native polynomial prompts/display and repeat.&quot;
+  }
+]</pre></details></td><td><strong>baseline-known-differences</strong><details><summary>Evidence and scope</summary><p>Baseline characterization only; all current supported fixtures have oracle display differences.</p><pre>[
+  {
+    &quot;fixtureId&quot;: &quot;phase10-calculus&quot;,
+    &quot;status&quot;: &quot;known-differences&quot;,
+    &quot;assertedFrames&quot;: 42
+  }
+]</pre></details></td><td><strong>partial</strong><details><summary>Evidence and scope</summary><p>Explicit canonical baseline browser replays only; legacy regression coverage is not inferred as parity.</p><pre>[
+  {
+    &quot;kind&quot;: &quot;browser&quot;,
+    &quot;path&quot;: &quot;tests/e2e/phase10.spec.js&quot;,
+    &quot;anchor&quot;: &quot;Calculus physical derivative prompts editing and repeat produce native display&quot;,
+    &quot;capabilityIds&quot;: [
+      &quot;el506.key.el506-k16&quot;,
+      &quot;el506.base.el506-k16&quot;,
+      &quot;el506.second.el506-k16&quot;
+    ],
+    &quot;scope&quot;: &quot;Physical derivative buttons, prompts, defaults, repeat and rendered LCD.&quot;
+  },
+  {
+    &quot;kind&quot;: &quot;browser&quot;,
+    &quot;path&quot;: &quot;tests/e2e/phase10.spec.js&quot;,
+    &quot;anchor&quot;: &quot;Calculus integration guide and repeated conditions use real buttons&quot;,
+    &quot;capabilityIds&quot;: [
+      &quot;el506.key.el506-k16&quot;,
+      &quot;el506.base.el506-k16&quot;,
+      &quot;el506.second.el506-k16&quot;
+    ],
+    &quot;scope&quot;: &quot;Physical integrand/bounds/n entry, guide integral display and repeated conditions.&quot;
+  },
+  {
+    &quot;kind&quot;: &quot;browser&quot;,
+    &quot;path&quot;: &quot;tests/e2e/phase10.spec.js&quot;,
+    &quot;anchor&quot;: &quot;Calculus chunked job cancels and stale work cannot change ANS&quot;,
+    &quot;capabilityIds&quot;: [
+      &quot;el506.key.el506-k16&quot;,
+      &quot;el506.base.el506-k16&quot;,
+      &quot;el506.second.el506-k16&quot;
+    ],
+    &quot;scope&quot;: &quot;Web bounded integration and ON/C cancellation, not native timing parity.&quot;
+  },
+  {
+    &quot;kind&quot;: &quot;browser&quot;,
+    &quot;path&quot;: &quot;tests/e2e/golden.spec.js&quot;,
+    &quot;anchor&quot;: &quot;canonical baseline browser replay&quot;,
+    &quot;fixtureIds&quot;: [
+      &quot;phase10-calculus&quot;
+    ],
+    &quot;scope&quot;: &quot;42 implementation regression frames; 24 independently transcribed native checkpoints. Derivative guide precision gap and raw-state differences remain explicit.&quot;,
+    &quot;capabilityIds&quot;: [
+      &quot;el506.key.el506-k16&quot;,
+      &quot;el506.base.el506-k16&quot;,
+      &quot;el506.second.el506-k16&quot;
+    ]
+  }
+]</pre></details></td></tr>
 <tr><td>el506.second.el506-k17<br><strong>ALGB</strong><br>2ndF / EL506-169</td><td><strong>not-recorded</strong><details><summary>Evidence and scope</summary><p>Ledger documentation evidence only.</p><pre>[]</pre></details></td><td><strong>observed</strong><details><summary>Evidence and scope</summary><p>Numeric behavior, valid modes, state changes, boundaries and application parity require the owning roadmap item.</p><pre>[
   {
     &quot;source_id&quot;: &quot;live-panel&quot;,

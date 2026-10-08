@@ -1,0 +1,858 @@
+{
+  "schemaVersion": 1,
+  "id": "phase10-calculus",
+  "dispatch": "physical",
+  "displayProfile": "physical",
+  "status": "baseline-characterization",
+  "reference": "experiments/phase10-calculus.json",
+  "sequence": [
+    "EL506-K05",
+    "EL506-K27",
+    "EL506-K20",
+    "EL506-K03",
+    "EL506-K16",
+    "EL506-K41",
+    "EL506-K48",
+    "EL506-K48",
+    "EL506-K16",
+    "EL506-K48",
+    "EL506-K40",
+    "EL506-K48",
+    "EL506-K48",
+    "EL506-K48",
+    "EL506-K48",
+    "EL506-K48",
+    "EL506-K45",
+    "EL506-K48",
+    "EL506-K02",
+    "EL506-K03",
+    "EL506-K20",
+    "EL506-K33",
+    "EL506-K40",
+    "EL506-K44",
+    "EL506-K05",
+    "EL506-K27",
+    "EL506-K20",
+    "EL506-K34",
+    "EL506-K03",
+    "EL506-K16",
+    "EL506-K47",
+    "EL506-K40",
+    "EL506-K25",
+    "EL506-K41",
+    "EL506-K48",
+    "EL506-K48",
+    "EL506-K16",
+    "EL506-K48",
+    "EL506-K40",
+    "EL506-K48",
+    "EL506-K48"
+  ],
+  "capabilityIds": [
+    "el506.key.el506-k16",
+    "el506.base.el506-k16",
+    "el506.second.el506-k16"
+  ],
+  "expected": [
+    {
+      "afterStep": 0,
+      "assertions": {
+        "displayExpression": "",
+        "displayResult": "0",
+        "lifecycle": "empty",
+        "answer": 0,
+        "memoryValue": 0,
+        "workflow.kind": null,
+        "control.variables.X": 0
+      },
+      "domResultText": "0."
+    },
+    {
+      "afterStep": 1,
+      "assertions": {
+        "displayExpression": "",
+        "displayResult": "0",
+        "lifecycle": "empty",
+        "answer": 0,
+        "memoryValue": 0,
+        "workflow.kind": null,
+        "control.variables.X": 0
+      },
+      "domResultText": "0."
+    },
+    {
+      "afterStep": 2,
+      "assertions": {
+        "displayExpression": "X",
+        "displayResult": "0",
+        "lifecycle": "entering",
+        "answer": 0,
+        "memoryValue": 0,
+        "workflow.kind": null,
+        "control.variables.X": 0
+      },
+      "domResultText": "0."
+    },
+    {
+      "afterStep": 3,
+      "assertions": {
+        "displayExpression": "X^2",
+        "displayResult": "0",
+        "lifecycle": "entering",
+        "answer": 0,
+        "memoryValue": 0,
+        "workflow.kind": null,
+        "control.variables.X": 0
+      },
+      "domResultText": "0."
+    },
+    {
+      "afterStep": 4,
+      "assertions": {
+        "displayExpression": "X^2",
+        "displayResult": "0",
+        "lifecycle": "entering",
+        "answer": 0,
+        "memoryValue": 0,
+        "workflow.kind": null,
+        "control.variables.X": 0
+      },
+      "domResultText": "0."
+    },
+    {
+      "afterStep": 5,
+      "assertions": {
+        "displayExpression": "X^2",
+        "displayResult": "0",
+        "lifecycle": "prompt",
+        "answer": 0,
+        "memoryValue": 0,
+        "workflow.kind": "prompt",
+        "control.variables.X": 0
+      },
+      "domResultText": "0."
+    },
+    {
+      "afterStep": 6,
+      "assertions": {
+        "displayExpression": "X^2",
+        "displayResult": "0",
+        "lifecycle": "prompt",
+        "answer": 0,
+        "memoryValue": 0,
+        "workflow.kind": "prompt",
+        "control.variables.X": 0
+      },
+      "domResultText": "2."
+    },
+    {
+      "afterStep": 7,
+      "assertions": {
+        "displayExpression": "X^2",
+        "displayResult": "0",
+        "lifecycle": "prompt",
+        "answer": 0,
+        "memoryValue": 0,
+        "workflow.kind": "prompt",
+        "control.variables.X": 0
+      },
+      "domResultText": "0.00002"
+    },
+    {
+      "afterStep": 8,
+      "assertions": {
+        "displayExpression": "d/dx=",
+        "displayResult": "4",
+        "lifecycle": "evaluated",
+        "answer": 4,
+        "memoryValue": 0,
+        "workflow.kind": null,
+        "control.variables.X": 0
+      },
+      "domResultText": "4."
+    },
+    {
+      "afterStep": 9,
+      "assertions": {
+        "displayExpression": "d/dx=",
+        "displayResult": "4",
+        "lifecycle": "prompt",
+        "answer": 4,
+        "memoryValue": 0,
+        "workflow.kind": "prompt",
+        "control.variables.X": 0
+      },
+      "domResultText": "0."
+    },
+    {
+      "afterStep": 10,
+      "assertions": {
+        "displayExpression": "d/dx=",
+        "displayResult": "4",
+        "lifecycle": "prompt",
+        "answer": 4,
+        "memoryValue": 0,
+        "workflow.kind": "prompt",
+        "control.variables.X": 0
+      },
+      "domResultText": "0."
+    },
+    {
+      "afterStep": 11,
+      "assertions": {
+        "displayExpression": "d/dx=",
+        "displayResult": "4",
+        "lifecycle": "prompt",
+        "answer": 4,
+        "memoryValue": 0,
+        "workflow.kind": "prompt",
+        "control.variables.X": 0
+      },
+      "domResultText": "1."
+    },
+    {
+      "afterStep": 12,
+      "assertions": {
+        "displayExpression": "d/dx=",
+        "displayResult": "4",
+        "lifecycle": "prompt",
+        "answer": 4,
+        "memoryValue": 0,
+        "workflow.kind": "prompt",
+        "control.variables.X": 0
+      },
+      "domResultText": "100."
+    },
+    {
+      "afterStep": 13,
+      "assertions": {
+        "displayExpression": "∫dx=",
+        "displayResult": "0.333333333333",
+        "lifecycle": "evaluated",
+        "answer": 0.3333333333333333,
+        "memoryValue": 0,
+        "workflow.kind": null,
+        "control.variables.X": 0
+      },
+      "domResultText": "0.333333333"
+    },
+    {
+      "afterStep": 14,
+      "assertions": {
+        "displayExpression": "∫dx=",
+        "displayResult": "0.333333333333",
+        "lifecycle": "prompt",
+        "answer": 0.3333333333333333,
+        "memoryValue": 0,
+        "workflow.kind": "prompt",
+        "control.variables.X": 0
+      },
+      "domResultText": "0."
+    },
+    {
+      "afterStep": 15,
+      "assertions": {
+        "displayExpression": "∫dx=",
+        "displayResult": "0.333333333333",
+        "lifecycle": "prompt",
+        "answer": 0.3333333333333333,
+        "memoryValue": 0,
+        "workflow.kind": "prompt",
+        "control.variables.X": 0
+      },
+      "domResultText": "1."
+    },
+    {
+      "afterStep": 16,
+      "assertions": {
+        "displayExpression": "∫dx=",
+        "displayResult": "0.333333333333",
+        "lifecycle": "prompt",
+        "answer": 0.3333333333333333,
+        "memoryValue": 0,
+        "workflow.kind": "prompt",
+        "control.variables.X": 0
+      },
+      "domResultText": "100."
+    },
+    {
+      "afterStep": 17,
+      "assertions": {
+        "displayExpression": "∫dx=",
+        "displayResult": "0.333333333333",
+        "lifecycle": "prompt",
+        "answer": 0.3333333333333333,
+        "memoryValue": 0,
+        "workflow.kind": "prompt",
+        "control.variables.X": 0
+      },
+      "domResultText": "0."
+    },
+    {
+      "afterStep": 18,
+      "assertions": {
+        "displayExpression": "∫dx=",
+        "displayResult": "Error",
+        "lifecycle": "error",
+        "answer": 0.3333333333333333,
+        "memoryValue": 0,
+        "workflow.kind": null,
+        "control.variables.X": 0
+      },
+      "domResultText": ""
+    },
+    {
+      "afterStep": 19,
+      "assertions": {
+        "displayExpression": "",
+        "displayResult": "0",
+        "lifecycle": "empty",
+        "answer": 0.3333333333333333,
+        "memoryValue": 0,
+        "workflow.kind": null,
+        "control.variables.X": 0
+      },
+      "domResultText": "0."
+    },
+    {
+      "afterStep": 20,
+      "assertions": {
+        "displayExpression": "",
+        "displayResult": "0",
+        "lifecycle": "empty",
+        "answer": 0.3333333333333333,
+        "memoryValue": 0,
+        "workflow.kind": null,
+        "control.variables.X": 0
+      },
+      "domResultText": "0."
+    },
+    {
+      "afterStep": 21,
+      "assertions": {
+        "displayExpression": "sqrt(",
+        "displayResult": "0",
+        "lifecycle": "entering",
+        "answer": 0.3333333333333333,
+        "memoryValue": 0,
+        "workflow.kind": null,
+        "control.variables.X": 0
+      },
+      "domResultText": "0."
+    },
+    {
+      "afterStep": 22,
+      "assertions": {
+        "displayExpression": "sqrt((",
+        "displayResult": "0",
+        "lifecycle": "entering",
+        "answer": 0.3333333333333333,
+        "memoryValue": 0,
+        "workflow.kind": null,
+        "control.variables.X": 0
+      },
+      "domResultText": "0."
+    },
+    {
+      "afterStep": 23,
+      "assertions": {
+        "displayExpression": "sqrt((",
+        "displayResult": "1",
+        "lifecycle": "entering",
+        "answer": 0.3333333333333333,
+        "memoryValue": 0,
+        "workflow.kind": null,
+        "control.variables.X": 0
+      },
+      "domResultText": "1."
+    },
+    {
+      "afterStep": 24,
+      "assertions": {
+        "displayExpression": "sqrt((1-",
+        "displayResult": "0",
+        "lifecycle": "entering",
+        "answer": 0.3333333333333333,
+        "memoryValue": 0,
+        "workflow.kind": null,
+        "control.variables.X": 0
+      },
+      "domResultText": "0."
+    },
+    {
+      "afterStep": 25,
+      "assertions": {
+        "displayExpression": "sqrt((1-",
+        "displayResult": "0",
+        "lifecycle": "entering",
+        "answer": 0.3333333333333333,
+        "memoryValue": 0,
+        "workflow.kind": null,
+        "control.variables.X": 0
+      },
+      "domResultText": "0."
+    },
+    {
+      "afterStep": 26,
+      "assertions": {
+        "displayExpression": "sqrt((1-X",
+        "displayResult": "0",
+        "lifecycle": "entering",
+        "answer": 0.3333333333333333,
+        "memoryValue": 0,
+        "workflow.kind": null,
+        "control.variables.X": 0
+      },
+      "domResultText": "0."
+    },
+    {
+      "afterStep": 27,
+      "assertions": {
+        "displayExpression": "sqrt((1-X^2",
+        "displayResult": "0",
+        "lifecycle": "entering",
+        "answer": 0.3333333333333333,
+        "memoryValue": 0,
+        "workflow.kind": null,
+        "control.variables.X": 0
+      },
+      "domResultText": "0."
+    },
+    {
+      "afterStep": 28,
+      "assertions": {
+        "displayExpression": "sqrt((1-X^2)",
+        "displayResult": "0",
+        "lifecycle": "entering",
+        "answer": 0.3333333333333333,
+        "memoryValue": 0,
+        "workflow.kind": null,
+        "control.variables.X": 0
+      },
+      "domResultText": "0."
+    },
+    {
+      "afterStep": 29,
+      "assertions": {
+        "displayExpression": "sqrt((1-X^2)",
+        "displayResult": "0",
+        "lifecycle": "entering",
+        "answer": 0.3333333333333333,
+        "memoryValue": 0,
+        "workflow.kind": null,
+        "control.variables.X": 0
+      },
+      "domResultText": "0."
+    },
+    {
+      "afterStep": 30,
+      "assertions": {
+        "displayExpression": "sqrt((1-X^2)",
+        "displayResult": "0",
+        "lifecycle": "prompt",
+        "answer": 0.3333333333333333,
+        "memoryValue": 0,
+        "workflow.kind": "prompt",
+        "control.variables.X": 0
+      },
+      "domResultText": "0."
+    },
+    {
+      "afterStep": 31,
+      "assertions": {
+        "displayExpression": "sqrt((1-X^2)",
+        "displayResult": "0",
+        "lifecycle": "prompt",
+        "answer": 0.3333333333333333,
+        "memoryValue": 0,
+        "workflow.kind": "prompt",
+        "control.variables.X": 0
+      },
+      "domResultText": "-0."
+    },
+    {
+      "afterStep": 32,
+      "assertions": {
+        "displayExpression": "sqrt((1-X^2)",
+        "displayResult": "0",
+        "lifecycle": "prompt",
+        "answer": 0.3333333333333333,
+        "memoryValue": 0,
+        "workflow.kind": "prompt",
+        "control.variables.X": 0
+      },
+      "domResultText": "-01."
+    },
+    {
+      "afterStep": 33,
+      "assertions": {
+        "displayExpression": "sqrt((1-X^2)",
+        "displayResult": "0",
+        "lifecycle": "prompt",
+        "answer": 0.3333333333333333,
+        "memoryValue": 0,
+        "workflow.kind": "prompt",
+        "control.variables.X": 0
+      },
+      "domResultText": "-01 "
+    },
+    {
+      "afterStep": 34,
+      "assertions": {
+        "displayExpression": "sqrt((1-X^2)",
+        "displayResult": "0",
+        "lifecycle": "prompt",
+        "answer": 0.3333333333333333,
+        "memoryValue": 0,
+        "workflow.kind": "prompt",
+        "control.variables.X": 0
+      },
+      "domResultText": "-012"
+    },
+    {
+      "afterStep": 35,
+      "assertions": {
+        "displayExpression": "sqrt((1-X^2)",
+        "displayResult": "0",
+        "lifecycle": "prompt",
+        "answer": 0.3333333333333333,
+        "memoryValue": 0,
+        "workflow.kind": "prompt",
+        "control.variables.X": 0
+      },
+      "domResultText": "0.000005"
+    },
+    {
+      "afterStep": 36,
+      "assertions": {
+        "displayExpression": "d/dx=",
+        "displayResult": "0.57735027",
+        "lifecycle": "evaluated",
+        "answer": 0.57735027,
+        "memoryValue": 0,
+        "workflow.kind": null,
+        "control.variables.X": 0
+      },
+      "domResultText": "0.57735027"
+    },
+    {
+      "afterStep": 37,
+      "assertions": {
+        "displayExpression": "d/dx=",
+        "displayResult": "0.57735027",
+        "lifecycle": "prompt",
+        "answer": 0.57735027,
+        "memoryValue": 0,
+        "workflow.kind": "prompt",
+        "control.variables.X": 0
+      },
+      "domResultText": "0."
+    },
+    {
+      "afterStep": 38,
+      "assertions": {
+        "displayExpression": "d/dx=",
+        "displayResult": "0.57735027",
+        "lifecycle": "prompt",
+        "answer": 0.57735027,
+        "memoryValue": 0,
+        "workflow.kind": "prompt",
+        "control.variables.X": 0
+      },
+      "domResultText": "0."
+    },
+    {
+      "afterStep": 39,
+      "assertions": {
+        "displayExpression": "d/dx=",
+        "displayResult": "0.57735027",
+        "lifecycle": "prompt",
+        "answer": 0.57735027,
+        "memoryValue": 0,
+        "workflow.kind": "prompt",
+        "control.variables.X": 0
+      },
+      "domResultText": "1."
+    },
+    {
+      "afterStep": 40,
+      "assertions": {
+        "displayExpression": "d/dx=",
+        "displayResult": "0.57735027",
+        "lifecycle": "prompt",
+        "answer": 0.57735027,
+        "memoryValue": 0,
+        "workflow.kind": "prompt",
+        "control.variables.X": 0
+      },
+      "domResultText": "100."
+    },
+    {
+      "afterStep": 41,
+      "assertions": {
+        "displayExpression": "∫dx=",
+        "displayResult": "0.785357562298",
+        "lifecycle": "evaluated",
+        "answer": 0.785357562298255,
+        "memoryValue": 0,
+        "workflow.kind": null,
+        "control.variables.X": 0
+      },
+      "domResultText": "0.785357562"
+    }
+  ],
+  "knownDifferences": [
+    {
+      "afterStep": 0,
+      "field": "displayResult",
+      "expected": "0.",
+      "actual": "0"
+    },
+    {
+      "afterStep": 5,
+      "field": "displayExpression",
+      "expected": "X?",
+      "actual": "X^2"
+    },
+    {
+      "afterStep": 5,
+      "field": "displayResult",
+      "expected": "0.",
+      "actual": "0"
+    },
+    {
+      "afterStep": 6,
+      "field": "displayExpression",
+      "expected": "X?",
+      "actual": "X^2"
+    },
+    {
+      "afterStep": 6,
+      "field": "displayResult",
+      "expected": "2.",
+      "actual": "0"
+    },
+    {
+      "afterStep": 7,
+      "field": "displayExpression",
+      "expected": "dx?",
+      "actual": "X^2"
+    },
+    {
+      "afterStep": 7,
+      "field": "displayResult",
+      "expected": "0.00002",
+      "actual": "0"
+    },
+    {
+      "afterStep": 8,
+      "field": "displayResult",
+      "expected": "4.",
+      "actual": "4"
+    },
+    {
+      "afterStep": 9,
+      "field": "displayExpression",
+      "expected": "a?",
+      "actual": "d/dx="
+    },
+    {
+      "afterStep": 9,
+      "field": "displayResult",
+      "expected": "0.",
+      "actual": "4"
+    },
+    {
+      "afterStep": 10,
+      "field": "displayExpression",
+      "expected": "b?",
+      "actual": "d/dx="
+    },
+    {
+      "afterStep": 10,
+      "field": "displayResult",
+      "expected": "0.",
+      "actual": "4"
+    },
+    {
+      "afterStep": 11,
+      "field": "displayExpression",
+      "expected": "b?",
+      "actual": "d/dx="
+    },
+    {
+      "afterStep": 11,
+      "field": "displayResult",
+      "expected": "1.",
+      "actual": "4"
+    },
+    {
+      "afterStep": 12,
+      "field": "displayExpression",
+      "expected": "n?",
+      "actual": "d/dx="
+    },
+    {
+      "afterStep": 12,
+      "field": "displayResult",
+      "expected": "100.",
+      "actual": "4"
+    },
+    {
+      "afterStep": 13,
+      "field": "displayResult",
+      "expected": "0.333333333",
+      "actual": "0.333333333333"
+    },
+    {
+      "afterStep": 14,
+      "field": "displayExpression",
+      "expected": "a?",
+      "actual": "∫dx="
+    },
+    {
+      "afterStep": 14,
+      "field": "displayResult",
+      "expected": "0.",
+      "actual": "0.333333333333"
+    },
+    {
+      "afterStep": 15,
+      "field": "displayExpression",
+      "expected": "b?",
+      "actual": "∫dx="
+    },
+    {
+      "afterStep": 15,
+      "field": "displayResult",
+      "expected": "1.",
+      "actual": "0.333333333333"
+    },
+    {
+      "afterStep": 16,
+      "field": "displayExpression",
+      "expected": "n?",
+      "actual": "∫dx="
+    },
+    {
+      "afterStep": 16,
+      "field": "displayResult",
+      "expected": "100.",
+      "actual": "0.333333333333"
+    },
+    {
+      "afterStep": 17,
+      "field": "displayExpression",
+      "expected": "n?",
+      "actual": "∫dx="
+    },
+    {
+      "afterStep": 17,
+      "field": "displayResult",
+      "expected": "0.",
+      "actual": "0.333333333333"
+    },
+    {
+      "afterStep": 18,
+      "field": "displayExpression",
+      "expected": "Error 2",
+      "actual": "∫dx="
+    },
+    {
+      "afterStep": 18,
+      "field": "displayResult",
+      "expected": "",
+      "actual": "Error"
+    },
+    {
+      "afterStep": 19,
+      "field": "displayResult",
+      "expected": "0.",
+      "actual": "0"
+    },
+    {
+      "afterStep": 30,
+      "field": "displayExpression",
+      "expected": "X?",
+      "actual": "sqrt((1-X^2)"
+    },
+    {
+      "afterStep": 30,
+      "field": "displayResult",
+      "expected": "0.",
+      "actual": "0"
+    },
+    {
+      "afterStep": 35,
+      "field": "displayExpression",
+      "expected": "dx?",
+      "actual": "sqrt((1-X^2)"
+    },
+    {
+      "afterStep": 35,
+      "field": "displayResult",
+      "expected": "0.000005",
+      "actual": "0"
+    },
+    {
+      "afterStep": 36,
+      "field": "displayResult",
+      "expected": "0.577350268",
+      "actual": "0.57735027"
+    },
+    {
+      "afterStep": 37,
+      "field": "displayExpression",
+      "expected": "a?",
+      "actual": "d/dx="
+    },
+    {
+      "afterStep": 37,
+      "field": "displayResult",
+      "expected": "0.",
+      "actual": "0.57735027"
+    },
+    {
+      "afterStep": 38,
+      "field": "displayExpression",
+      "expected": "b?",
+      "actual": "d/dx="
+    },
+    {
+      "afterStep": 38,
+      "field": "displayResult",
+      "expected": "0.",
+      "actual": "0.57735027"
+    },
+    {
+      "afterStep": 39,
+      "field": "displayExpression",
+      "expected": "b?",
+      "actual": "d/dx="
+    },
+    {
+      "afterStep": 39,
+      "field": "displayResult",
+      "expected": "1.",
+      "actual": "0.57735027"
+    },
+    {
+      "afterStep": 40,
+      "field": "displayExpression",
+      "expected": "n?",
+      "actual": "d/dx="
+    },
+    {
+      "afterStep": 40,
+      "field": "displayResult",
+      "expected": "100.",
+      "actual": "0.57735027"
+    },
+    {
+      "afterStep": 41,
+      "field": "displayResult",
+      "expected": "0.785357562",
+      "actual": "0.785357562298"
+    }
+  ]
+}

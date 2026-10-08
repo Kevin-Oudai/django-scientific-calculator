@@ -1169,3 +1169,43 @@ Reference observations and limitations are recorded in
 `tests/reference/el506ts/phase-9-review.json`. Native display transcripts are
 kept separate from implementation regression assertions; this phase does not
 claim full simulator parity for unmeasured cursor timing or scrolling.
+
+## Numerical differentiation and integration (Phase 10)
+
+In decimal NORMAL mode, enter a formula using ALPHA X. Press **2nd F, integral**
+for a derivative, enter the point at `X?`, then confirm `dx?`. A blank interval
+uses `abs(X) * 10^-5`, or `10^-5` at zero. The central difference samples
+`f(X + dx/2)` and `f(X - dx/2)`, divides their difference by `dx`, and displays
+`d/dx=`. For example, `X squared`, point `2`, and the default interval return `4`.
+
+For an integral, press **integral**, enter the lower and upper bounds at `a?`
+and `b?`, then confirm `n?`. Blank `n` uses `100`. Composite Simpson integration
+uses `2*n` panels and `2*n + 1` samples. Integrating `X squared` from `0` to `1`
+returns `0.333333333`. Press ENT after either result to reuse the formula and
+change its conditions. Condition fields accept numbers, scientific notation,
+numeric fractions and mixed fractions; DEL and the sign key edit these values.
+General expressions such as `2*pi` are not accepted in condition fields.
+
+Calculus follows DEG/RAD/GRAD and the current display settings, constants,
+temporary variables, M and ANS. Calculation clears X, preserves other memories,
+and replaces ANS only on success. Integration displays `Calculating!` and runs
+64 samples per animation frame; ON/C cancels and recovers from errors. Snapshots
+retain condition entry and integration progress and resume when restored.
+Deploy `calculus.js` with the other reusable package assets; the existing loader
+includes it automatically. Snapshot schema remains 10.
+
+The web implementation bounds `n` to integers `1..10000` (at most 20001 samples)
+and calculus expressions to 1000 characters. Invalid numerical conditions,
+nonfinite samples, singular sampled points, arithmetic overflow and intervals
+that cannot be resolved produce Error 2; malformed expressions/entries produce
+Error 1. Zero-width integrals return zero. Reversed bounds and nonpositive `dx`
+are rejected. Discontinuities between sampled points can escape detection;
+split such integrals into suitable intervals, as the manual advises.
+
+Native evidence and limitations are in `tests/reference/el506ts/phase-10-review.json`
+and the calculus experiment/golden fixtures. Polynomial results and the guide's
+integral display agree. The guide derivative displays `0.577350268` natively
+versus `0.57735027` here, a known absolute difference of `2e-9`. Fourteen-digit
+sample arithmetic approximates private native arithmetic; exact sample rounding,
+every discontinuity, native work limits and cancellation timing remain unmeasured.
+The new tests cover these workflows and bounds without claiming full parity.
