@@ -2930,6 +2930,15 @@ guess any item in this phase; observe it in the reference simulator first.
     Fresh IAB signed minimum display verified; Docker Desktop remains unavailable.
 - [ ] **EL506-354 - Match internal precision and rounding for every result
   type.**
+
+    Measured CPLX precision patch READY_TO_PUSH. Independent74-key native trace
+    reproduces real/imaginary cancellation, storedANS reuse and scaled333.3
+    residual. Selected component policy and its limits are recorded in
+    complex-precision-review.json. This is progress within the item; other
+    result types and complex algorithms still require precision assessment.
+    Validation: 682 unit tests, 29 golden fixtures / 1200 frames, reference/report
+    gates,21 browser tests across three engines, compileall and Compose config;
+    fresh IAB333.3 proof. Docker runtime unavailable.
 - [x] **EL506-355 - Match expression length and nesting limits.**
 - [x] **EL506-356 - Match history, formula, dataset, matrix, and list
   capacities.**

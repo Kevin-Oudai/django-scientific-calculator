@@ -1478,3 +1478,9 @@ selects the sixth plus with either arrow and leaves the lower display empty.
 Playback uses a shared 142-character budget and evicts complete oldest equations;
 the four formula slots share 256 characters. The manual and native evidence,
 including STAT, matrix and list capacities, is recorded in `capacity-review.json`.
+
+Physical CPLX arithmetic now matches the measured real/imaginary cancellation
+and scaled intermediate probes. `1E13 + 1 - 1E13` returns zero, and
+`1 / 3 * 1E13 - 3333333333E3` returns `333.3`. The independent trace and selected
+component arithmetic policy are recorded in `complex-precision-review.json`.
+The complete precision audit across all result types remains open.

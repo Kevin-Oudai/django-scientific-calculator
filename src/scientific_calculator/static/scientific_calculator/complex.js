@@ -13,7 +13,7 @@
  function evaluate(ast,semantic,scalar,scope){return semantic.evaluate(ast,{
   number:text=>z(Number(text)),symbol:name=>name==='i'?z(0,1):name==='ans'?scope.answer:name==='M'?scope.memory:z(scalar.symbol(name,scope)),
   unary:(op,a)=>op==='-'?negate(a):a,
-  binary:(op,a,b)=>op==='+'?add(a,b):op==='-'?add(a,negate(b)):op==='*'?multiply(a,b):op==='/'?divide(a,b):power(a,b),
+  binary:(op,a,b)=>scope.binary?scope.binary(op,a,b):op==='+'?add(a,b):op==='-'?add(a,negate(b)):op==='*'?multiply(a,b):op==='/'?divide(a,b):power(a,b),
   call:(name,args)=>{if(name==='cpow'){if(args.some(a=>a.imaginary))throw new RangeError('Unavailable complex exponent');return z(scalar.binary('^',args[0].real,args[1].real));}if(name==='conj')return z(args[0].real,-args[0].imaginary);if(name==='polar'){if(args.some(a=>a.imaginary))throw new RangeError('Polar operand');return rectangular(args[0].real,args[1].real,scope.angleMode);}if(name==='abs')return z(Math.hypot(args[0].real,args[0].imaginary));if(args.some(a=>a.imaginary)||!['frac','dms'].includes(name))throw new TypeError('Unavailable complex function');return z(scalar.call(name,args.map(a=>a.real),scope));}
  },scope);}
  return Object.freeze({z,add,negate,multiply,divide,power,polar,rectangular,evaluate});

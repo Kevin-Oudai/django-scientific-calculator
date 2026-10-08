@@ -2080,12 +2080,23 @@
     if(!previous.secondActive&&[38,39,43,44,33,34].includes(n)){next=physicalFlush(next);next.expression+=({38:'*',39:':',43:'+',44:'-',33:'(',34:')'})[n];return physicalEditor(next);}
     return null;
   }
+  function physicalComplexBinary(op,a,b){
+    // Independent CPLX probes constrain different intermediate budgets: sums
+    // lose the fourteenth significant digit, while scaled products retain it.
+    // Keep native binary division behavior, including ANS(1/3)*3-1 = zero.
+    const quantize=(text,digits)=>physicalNumeric(Number(engine.quantize(text,digits,'truncate')));
+    if(op==='+'||op==='-')return complex.z(
+      quantize(engine.decimalBinary(op,String(a.real),String(b.real)),13),
+      quantize(engine.decimalBinary(op,String(a.imaginary),String(b.imaginary)),13));
+    if(op==='*'){const result=complex.multiply(a,b);return complex.z(quantize(String(result.real),14),quantize(String(result.imaginary),14));}
+    return op==='/'?complex.divide(a,b):complex.power(a,b);
+  }
   function physicalComplexResult(previous,source) {
     let next=structuredClone(previous);
     try{
       const numeric=v=>v.kind==='complex'?complex.z(values.toNumber(v.real),values.toNumber(v.imaginary)):complex.z(values.toNumber(v));
       const ast=semantic.parseTokens(semantic.tokenize(closeOpenParentheses(source).replaceAll(':','/'),{physical:true}),{physical:true});
-      const result=complex.evaluate(ast,semantic,physicalAdapter,{angleMode:previous.angleMode,answer:numeric(previous.values.answer),memory:numeric(previous.values.memory)});
+      const result=complex.evaluate(ast,semantic,physicalAdapter,{angleMode:previous.angleMode,answer:numeric(previous.values.answer),memory:numeric(previous.values.memory),binary:physicalComplexBinary});
       const typed=result.imaginary?{kind:'complex',real:values.scalar(result.real),imaginary:values.scalar(result.imaginary)}:values.scalar(result.real);
       next=commitTypedResult(next,typed);next.expression=source+'=';next.entry='';next.stagedEntry=null;next.editor=editorForState(next);next.lifecycle='evaluated';next.displayExpression=source+'=';next.resultMode='decimal';next.control.errorCode=null;
       next.layers.intent={kind:'complex-result',polar:previous.layers.intent?.polar===true,component:result.real===0&&result.imaginary!==0?1:0};return next;

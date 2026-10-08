@@ -1,0 +1,40 @@
+{
+  "reviewId": "complex-intermediate-precision-2026-10-08",
+  "roadmapItem": "EL506-354",
+  "roadmapItemComplete": false,
+  "status": "measured complex scope validated; ready for publication",
+  "reference": "experiments/complex-intermediate-precision-native.json",
+  "nativeKeys": 74,
+  "nativeFindings": [
+    "CPLX1E13+1-1E13 displays0; equivalent imaginary cancellation also displays0.",
+    "Both1/3*3-1 and storedANS(1/3)*3-1 display0.",
+    "Scaled1/3*1E13-3333333333E3 displays333.3, distinguishing native from unmodified binary component arithmetic.",
+    "A repeated native third confirmed nine fractional LCD digits; an extra digit in the unpublished draft transcription was corrected."
+  ],
+  "implementationPolicy": {
+    "scope": "Physical CPLX basic component arithmetic only",
+    "sums": "Exact decimal addition/subtraction followed by13 significant digit truncation",
+    "products": "Existing binary component product followed by14 significant digit truncation",
+    "division": "Existing bounded binary division, preserving measured cancellation and ANS behavior",
+    "basis": "Policy selected to reproduce independent measured outcomes; these outcomes do not uniquely prove all hidden native internal algorithms."
+  },
+  "validation": {
+    "fullUnitPassed": 682,
+    "browserPassed": 21,
+    "browserEngines": ["Chromium", "Firefox", "WebKit"],
+    "goldenFixtures": 29,
+    "goldenFrames": 1200,
+    "referenceAndReportChecks": "passed",
+    "compileall": "passed",
+    "dockerComposeConfig": "passed",
+    "dockerRuntime": "unavailable: Docker Desktop Linux pipe absent",
+    "proof": "complex-precision-proof.png (outside repository)",
+    "localDemo": "Verified333.3 after refreshing cached Django template and browser dependencies"
+  },
+  "remaining": [
+    "Matrix and list component/aggregate precision",
+    "STAT and EQN internal accuracy and display rounding",
+    "Complex power, inverse and polar component precision",
+    "Complete cross-type precision assessment and final differential audit"
+  ]
+}
