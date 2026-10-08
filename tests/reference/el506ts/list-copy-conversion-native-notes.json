@@ -1,0 +1,308 @@
+{
+  "date": "2026-10-08",
+  "sequence": [
+    4,
+    36,
+    11,
+    41,
+    29,
+    42,
+    29,
+    35,
+    29,
+    2,
+    17,
+    41,
+    45,
+    17,
+    41,
+    40,
+    17,
+    41,
+    41,
+    17,
+    41,
+    42,
+    17,
+    40,
+    42,
+    11,
+    11,
+    32,
+    29,
+    2,
+    17,
+    37,
+    17,
+    40,
+    45,
+    11,
+    11,
+    11,
+    11,
+    11,
+    11,
+    11,
+    11,
+    11,
+    11,
+    2,
+    17,
+    37,
+    17,
+    36,
+    17,
+    40,
+    42,
+    11,
+    11,
+    11,
+    11,
+    2,
+    17,
+    36,
+    3,
+    47,
+    45,
+    45,
+    17,
+    45,
+    42,
+    48,
+    2,
+    11,
+    11,
+    30,
+    29,
+    2,
+    17,
+    41,
+    42,
+    3,
+    47,
+    40,
+    45,
+    4,
+    36,
+    17,
+    45,
+    42,
+    48,
+    2,
+    11,
+    11,
+    30,
+    29,
+    2,
+    17,
+    41,
+    42,
+    1,
+    4,
+    36,
+    17,
+    45,
+    42,
+    48
+  ],
+  "checkpoints": [
+    {
+      "afterStep": 0,
+      "upper": "",
+      "lower": "0.",
+      "mode": "NORMAL"
+    },
+    {
+      "afterStep": 9,
+      "upper": "LIST2=",
+      "lower": "4.",
+      "mode": "LIST"
+    },
+    {
+      "afterStep": 26,
+      "upper": "SIZE=",
+      "lower": "2.",
+      "mode": "LIST"
+    },
+    {
+      "afterStep": 27,
+      "upper": "LIST1=",
+      "lower": "3.",
+      "mode": "LIST"
+    },
+    {
+      "afterStep": 32,
+      "upper": "",
+      "lower": "0.",
+      "mode": "MAT",
+      "note": "list→matA changes mode to MAT; pending working-copy edit was not explicitly stored."
+    },
+    {
+      "afterStep": 36,
+      "upper": "ROW=",
+      "lower": "2.",
+      "mode": "MAT"
+    },
+    {
+      "afterStep": 37,
+      "upper": "COLUMN=",
+      "lower": "4.",
+      "mode": "MAT"
+    },
+    {
+      "afterStep": 38,
+      "upper": "MAT1,1=",
+      "lower": "3.",
+      "mode": "MAT"
+    },
+    {
+      "afterStep": 39,
+      "upper": "MAT1,2=",
+      "lower": "3.",
+      "mode": "MAT"
+    },
+    {
+      "afterStep": 40,
+      "upper": "MAT1,3=",
+      "lower": "3.",
+      "mode": "MAT"
+    },
+    {
+      "afterStep": 41,
+      "upper": "MAT1,4=",
+      "lower": "3.",
+      "mode": "MAT",
+      "note": "Stored L4 remains 3 despite working copy changed to 9."
+    },
+    {
+      "afterStep": 42,
+      "upper": "MAT2,1=",
+      "lower": "4.",
+      "mode": "MAT"
+    },
+    {
+      "afterStep": 43,
+      "upper": "MAT2,2=",
+      "lower": "4.",
+      "mode": "MAT"
+    },
+    {
+      "afterStep": 44,
+      "upper": "MAT2,3=",
+      "lower": "4.",
+      "mode": "MAT"
+    },
+    {
+      "afterStep": 45,
+      "upper": "MAT2,4=",
+      "lower": "4.",
+      "mode": "MAT"
+    },
+    {
+      "afterStep": 48,
+      "upper": "",
+      "lower": "0.",
+      "mode": "LIST"
+    },
+    {
+      "afterStep": 50,
+      "upper": "",
+      "lower": "0.",
+      "mode": "MAT"
+    },
+    {
+      "afterStep": 54,
+      "upper": "ROW=",
+      "lower": "2.",
+      "mode": "MAT"
+    },
+    {
+      "afterStep": 55,
+      "upper": "COLUMN=",
+      "lower": "1.",
+      "mode": "MAT"
+    },
+    {
+      "afterStep": 56,
+      "upper": "MAT1,1=",
+      "lower": "3.",
+      "mode": "MAT"
+    },
+    {
+      "afterStep": 57,
+      "upper": "MAT2,1=",
+      "lower": "4.",
+      "mode": "MAT"
+    },
+    {
+      "afterStep": 63,
+      "upper": "CLR_MEMORY?",
+      "lower": "0.",
+      "mode": "LIST"
+    },
+    {
+      "afterStep": 64,
+      "upper": "",
+      "lower": "0.",
+      "mode": "LIST"
+    },
+    {
+      "afterStep": 68,
+      "upper": "Error 10",
+      "lower": "",
+      "mode": "LIST",
+      "note": "M-CLR MEM clears L4 while preserving LIST mode."
+    },
+    {
+      "afterStep": 70,
+      "upper": "SIZE=",
+      "lower": "1.",
+      "mode": "LIST"
+    },
+    {
+      "afterStep": 73,
+      "upper": "LIST1=",
+      "lower": "7.",
+      "mode": "LIST"
+    },
+    {
+      "afterStep": 80,
+      "upper": "RESET?",
+      "lower": "0.",
+      "mode": "LIST"
+    },
+    {
+      "afterStep": 81,
+      "upper": "",
+      "lower": "0.",
+      "mode": "NORMAL"
+    },
+    {
+      "afterStep": 87,
+      "upper": "Error 10",
+      "lower": "",
+      "mode": "LIST",
+      "note": "RESET clears stored L4 and restores NORMAL; returning to LIST and recall gives Error 10."
+    },
+    {
+      "afterStep": 97,
+      "upper": "",
+      "lower": "0.",
+      "mode": "NORMAL"
+    },
+    {
+      "afterStep": 103,
+      "upper": "Error 10",
+      "lower": "",
+      "mode": "LIST",
+      "note": "HOME exits LIST to NORMAL and clears the stored L4=[7]; re-entering LIST and recall gives Error 10."
+    }
+  ],
+  "notes": [
+    "Starts after independently observed HOME at native step 486; NORMAL DEG blank 0. All 103 following physical inputs individually clicked and followed by fresh screenshot observation.",
+    "Four stored [3,4] copies; working L4 copy edited to [9,4]; combined conversion to 2×4 matA uses stored [3,4] values in all four columns. matA columns convert back to LIST; separate list→mat conversion gives matD 2×1 [3,4].",
+    "MEM clear preserves LIST and clears L4; RESET restores NORMAL and clears newly stored L4=[7]; subsequent recall in LIST gives Error 10. Confirmation screens independently read CLR_MEMORY? 0. and RESET? 0.",
+    "Hidden precision and unrelated prior memories are unmeasured.",
+    "HOME from LIST returns NORMAL and clears stored L4=[7]; subsequent LIST recall gives Error 10."
+  ]
+}

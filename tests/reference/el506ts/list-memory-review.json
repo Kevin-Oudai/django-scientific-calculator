@@ -1,0 +1,33 @@
+{
+  "reviewId": "list-memory-conversion-persistence-2026-10-08",
+  "items": [
+    "EL506-329"
+  ],
+  "reference": "experiments/list-copy-conversion-native.json",
+  "rawReference": "list-copy-conversion-native-notes.json",
+  "additionalReferences": [
+    "experiments/phase16-native.json",
+    "experiments/vector-limits-native.json"
+  ],
+  "observations": [
+    "103 independently clicked and inspected native inputs with significant LCD checkpoints",
+    "STO copies working buffer independently into all four slots; CHK recalls L4; working-copy edits do not replace stored values",
+    "Both LIST/MAT conversion mappings observed; combined 2\u00d74 matrix cells and separate matD 2\u00d71 cells independently read",
+    "ANS unavailable in LIST; phase16-native frame 66. ON/C preserves working buffer and stored slots. MODE transition clears stores; phase16-native frame 115",
+    "OFF/ON preserves L3; vector-limits-native frames 437..442. CA clears stores; frames 445..449",
+    "MEM clearing retains LIST mode and clears L4; RESET restores NORMAL and clears L4; HOME exits LIST and clears L4"
+  ],
+  "validation": {
+    "focusedUnit": "11 passed including all 103 native copy/conversion/clear/reset/HOME keys",
+    "unit": "542 passed in list-copy-clear-final-validation.log",
+    "golden": "29 fixtures / 1200 asserted frames passed",
+    "browser": "Three-engine four-slot conversion regression: 3 passed in list-copy-browser-validation.log. Confirmed RESET, LIST clearing and cursor recovery: 9 passed in list-copy-clear-final-validation.log.",
+    "reference": "All experiment schemas valid",
+    "compose": "config passed; Docker daemon unavailable"
+  },
+  "unresolved": [
+    "Full LIST menu/shifted-key inventory EL506-320",
+    "Cross-mode exhaustive compatibility, precision and final parity audit",
+    "Release candidate and 1.0 gates remain unsatisfied"
+  ]
+}

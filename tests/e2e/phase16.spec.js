@@ -56,3 +56,25 @@ test('LIST native sorting cumulative differences augmentation and invalid operan
  await seq(r,[2,17,45,45,20,48,11,11,11,40,39]);await expect(r.locator('[data-expression]')).toHaveText('1÷');await expect(r.locator('[data-result]')).toHaveText('0.');await expect(r.locator('[data-expression] .scicalc__cursor')).toBeVisible();
  await seq(r,[45,29]);await expect(r.locator('[data-expression]')).toHaveText('Error 2');
 });
+
+
+test('LIST four-slot copies isolate working edits and preserve native conversion mappings',async({page})=>{
+ test.setTimeout(180000);const r=await setup(page);
+ await seq(r,[4,36,11,41,29,42,29,35,29,2]);
+ for(const slot of [45,40,41,42])await seq(r,[17,41,slot]);
+ await seq(r,[17,40,42,11,11]);await expect(r.locator('[data-result]')).toHaveText('3.');
+ await seq(r,[32,29,2,17,37,17,40,45,11]);await expect(r.locator('[data-expression]')).toHaveText('ROW=');await expect(r.locator('[data-result]')).toHaveText('2.');
+ await seq(r,[11]);await expect(r.locator('[data-result]')).toHaveText('4.');
+ for(const result of ['3.','3.','3.','3.','4.','4.','4.','4.']){await seq(r,[11]);await expect(r.locator('[data-result]')).toHaveText(result);}
+ await seq(r,[2,17,37,17,36,17,40,42,11]);await expect(r.locator('[data-result]')).toHaveText('2.');await seq(r,[11]);await expect(r.locator('[data-result]')).toHaveText('1.');await seq(r,[11]);await expect(r.locator('[data-result]')).toHaveText('3.');await seq(r,[11]);await expect(r.locator('[data-result]')).toHaveText('4.');
+});
+
+
+test('LIST memory clearing and RESET preserve the native mode and prompt displays',async({page})=>{
+ test.setTimeout(180000);const r=await setup(page);
+ await seq(r,[4,36,11,11,30,29,2,17,41,42,3,47,45]);await expect(r.locator('[data-expression]')).toHaveText('CLR_MEMORY?');await expect(r.locator('[data-result]')).toHaveText('0.');
+ await seq(r,[45,17,45,42,48]);await expect(r.locator('[data-expression]')).toHaveText('Error 10');expect((await r.evaluate(el=>el.scientificCalculator.snapshot())).state.layers.mode).toBe('LIST');
+ await seq(r,[2,11,11,30,29,2,17,41,42,3,47,40]);await expect(r.locator('[data-expression]')).toHaveText('RESET?');await expect(r.locator('[data-result]')).toHaveText('0.');
+ await seq(r,[45]);expect((await r.evaluate(el=>el.scientificCalculator.snapshot())).state.layers.mode).toBe('NORMAL');await expect(r.locator('[data-result]')).toHaveText('0.');
+ await seq(r,[4,36,17,45,42,48]);await expect(r.locator('[data-expression]')).toHaveText('Error 10');
+});

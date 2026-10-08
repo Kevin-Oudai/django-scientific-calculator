@@ -1423,3 +1423,11 @@ Generic scalar functions such as `sin L1` report `Error 1`, while list squaring
 remains available. Sorting, cumulative totals, adjacent differences and
 augmentation have independently observed numerical reference checkpoints in
 `tests/reference/el506ts/experiments/vector-limits-native.json`.
+
+LIST STO copies the working buffer into L1-L4; editing a CHK copy does not
+replace its stored slot. Combined conversion fills matA columns, while separate
+conversion fills the corresponding matrix slots. ON/C and power cycling retain
+LIST storage; CA, MEM clearing, RESET, HOME and mode changes clear it. MEM clearing
+keeps LIST mode, whereas RESET and HOME restore NORMAL. Independent reference
+traces and validation are consolidated in
+`tests/reference/el506ts/list-memory-review.json`.

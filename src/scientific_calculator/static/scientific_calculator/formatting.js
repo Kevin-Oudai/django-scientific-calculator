@@ -395,6 +395,7 @@
       const retainedResultHtml=view.resultHtml;
       view.expressionHtml = escapeHtml(String(workflow.payload.label||workflow.payload.id));
       view.resultHtml = workflow.payload.label?escapeHtml(state.entry||'0'):escapeHtml((workflow.payload.path || []).join('') || '?');
+      if(options.physical&&['CONFIRM_MEMORY_CLEAR','CONFIRM_RESET'].includes(workflow.payload.id))view.resultHtml=escapeHtml(sharpEntry(state.entry||'0'));
       if(['STO','RCL'].includes(workflow.payload.id)){
         view.expressionHtml=expression?formatExpression(physicalExpression(expressionForDisplay())):'';
         view.resultHtml=state.stagedEntry?retainedResultHtml:workflow.returnPhase==='evaluated'

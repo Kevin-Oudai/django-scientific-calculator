@@ -1,0 +1,1006 @@
+{
+  "schema_version": 1,
+  "experiment_id": "el506-329-list-copy-conversion-native-v1",
+  "roadmap_item": "EL506-329",
+  "catalog_id": "el506-physical-keys-v1",
+  "simulator": {
+    "profile_id": "sharp-el506ts-pc-simulator-1.0.2.0",
+    "product": "SHARP PC Simulator for EL-506TS",
+    "build": "1.0.2.0",
+    "runtime_sha256": "6bfef4d04900b472892be2d4c54dcfa6013f87232097e32df508ca4c27425530",
+    "locale": "English UI; en-US",
+    "operating_system": "Windows 11"
+  },
+  "capture": {
+    "date": "2026-10-08",
+    "timezone": "America/Port_of_Spain",
+    "method": "Live @oai/sky, exactly one native input then an inspected screenshot per action. Independently transcribed significant LCD checkpoints. Only DEG indicator consistently transcribed; other indicators and hidden stored precision are not claimed by this trace. Intermediate golden frames characterize implementation, not independent parity.",
+    "evidence_kind": "live-simulator",
+    "source_ids": [
+      "live-session"
+    ]
+  },
+  "initial_state": {
+    "reset": {
+      "kind": "documented-state",
+      "description": "Starts after independently observed HOME at native step 486; NORMAL DEG blank 0. All 103 following physical inputs individually clicked and followed by fresh screenshot observation."
+    },
+    "setup_sequence": [],
+    "mode": {
+      "status": "observed",
+      "value": "NORMAL"
+    },
+    "settings": [
+      {
+        "name": "angle",
+        "observation": {
+          "status": "observed",
+          "value": "DEG"
+        }
+      },
+      {
+        "name": "display-format",
+        "observation": {
+          "status": "observed",
+          "value": "NORM1 (pinned reset default)"
+        }
+      }
+    ],
+    "display": {
+      "upper_line": "",
+      "lower_line": "0.",
+      "indicators": [
+        "DEG"
+      ],
+      "scroll_arrows": [],
+      "cursor": {
+        "status": "unknown",
+        "reason": "Blink timing not measured; cursor start separately asserted where observed."
+      },
+      "insert_mode": {
+        "status": "unknown",
+        "reason": "No timing claim."
+      },
+      "prompt": null,
+      "selected_result_component": null
+    },
+    "stores": []
+  },
+  "sequence": [
+    "EL506-K04",
+    "EL506-K36",
+    "EL506-K11",
+    "EL506-K41",
+    "EL506-K29",
+    "EL506-K42",
+    "EL506-K29",
+    "EL506-K35",
+    "EL506-K29",
+    "EL506-K02",
+    "EL506-K17",
+    "EL506-K41",
+    "EL506-K45",
+    "EL506-K17",
+    "EL506-K41",
+    "EL506-K40",
+    "EL506-K17",
+    "EL506-K41",
+    "EL506-K41",
+    "EL506-K17",
+    "EL506-K41",
+    "EL506-K42",
+    "EL506-K17",
+    "EL506-K40",
+    "EL506-K42",
+    "EL506-K11",
+    "EL506-K11",
+    "EL506-K32",
+    "EL506-K29",
+    "EL506-K02",
+    "EL506-K17",
+    "EL506-K37",
+    "EL506-K17",
+    "EL506-K40",
+    "EL506-K45",
+    "EL506-K11",
+    "EL506-K11",
+    "EL506-K11",
+    "EL506-K11",
+    "EL506-K11",
+    "EL506-K11",
+    "EL506-K11",
+    "EL506-K11",
+    "EL506-K11",
+    "EL506-K11",
+    "EL506-K02",
+    "EL506-K17",
+    "EL506-K37",
+    "EL506-K17",
+    "EL506-K36",
+    "EL506-K17",
+    "EL506-K40",
+    "EL506-K42",
+    "EL506-K11",
+    "EL506-K11",
+    "EL506-K11",
+    "EL506-K11",
+    "EL506-K02",
+    "EL506-K17",
+    "EL506-K36",
+    "EL506-K03",
+    "EL506-K47",
+    "EL506-K45",
+    "EL506-K45",
+    "EL506-K17",
+    "EL506-K45",
+    "EL506-K42",
+    "EL506-K48",
+    "EL506-K02",
+    "EL506-K11",
+    "EL506-K11",
+    "EL506-K30",
+    "EL506-K29",
+    "EL506-K02",
+    "EL506-K17",
+    "EL506-K41",
+    "EL506-K42",
+    "EL506-K03",
+    "EL506-K47",
+    "EL506-K40",
+    "EL506-K45",
+    "EL506-K04",
+    "EL506-K36",
+    "EL506-K17",
+    "EL506-K45",
+    "EL506-K42",
+    "EL506-K48",
+    "EL506-K02",
+    "EL506-K11",
+    "EL506-K11",
+    "EL506-K30",
+    "EL506-K29",
+    "EL506-K02",
+    "EL506-K17",
+    "EL506-K41",
+    "EL506-K42",
+    "EL506-K01",
+    "EL506-K04",
+    "EL506-K36",
+    "EL506-K17",
+    "EL506-K45",
+    "EL506-K42",
+    "EL506-K48"
+  ],
+  "frames": [
+    {
+      "after_step": 0,
+      "display": {
+        "upper_line": "",
+        "lower_line": "0.",
+        "indicators": [
+          "DEG"
+        ],
+        "scroll_arrows": [],
+        "cursor": {
+          "status": "unknown",
+          "reason": "Blink timing not measured; cursor start separately asserted where observed."
+        },
+        "insert_mode": {
+          "status": "unknown",
+          "reason": "No timing claim."
+        },
+        "prompt": null,
+        "selected_result_component": null
+      },
+      "result": {
+        "status": "unknown",
+        "reason": "Hidden precision unmeasured."
+      }
+    },
+    {
+      "after_step": 9,
+      "display": {
+        "upper_line": "LIST2=",
+        "lower_line": "4.",
+        "indicators": [
+          "DEG",
+          "LIST"
+        ],
+        "scroll_arrows": [],
+        "cursor": {
+          "status": "unknown",
+          "reason": "Blink timing not measured; cursor start separately asserted where observed."
+        },
+        "insert_mode": {
+          "status": "unknown",
+          "reason": "No timing claim."
+        },
+        "prompt": null,
+        "selected_result_component": null
+      },
+      "result": {
+        "status": "unknown",
+        "reason": "Hidden precision unmeasured."
+      }
+    },
+    {
+      "after_step": 26,
+      "display": {
+        "upper_line": "SIZE=",
+        "lower_line": "2.",
+        "indicators": [
+          "DEG",
+          "LIST"
+        ],
+        "scroll_arrows": [],
+        "cursor": {
+          "status": "unknown",
+          "reason": "Blink timing not measured; cursor start separately asserted where observed."
+        },
+        "insert_mode": {
+          "status": "unknown",
+          "reason": "No timing claim."
+        },
+        "prompt": null,
+        "selected_result_component": null
+      },
+      "result": {
+        "status": "unknown",
+        "reason": "Hidden precision unmeasured."
+      }
+    },
+    {
+      "after_step": 27,
+      "display": {
+        "upper_line": "LIST1=",
+        "lower_line": "3.",
+        "indicators": [
+          "DEG",
+          "LIST"
+        ],
+        "scroll_arrows": [],
+        "cursor": {
+          "status": "unknown",
+          "reason": "Blink timing not measured; cursor start separately asserted where observed."
+        },
+        "insert_mode": {
+          "status": "unknown",
+          "reason": "No timing claim."
+        },
+        "prompt": null,
+        "selected_result_component": null
+      },
+      "result": {
+        "status": "unknown",
+        "reason": "Hidden precision unmeasured."
+      }
+    },
+    {
+      "after_step": 32,
+      "display": {
+        "upper_line": "",
+        "lower_line": "0.",
+        "indicators": [
+          "DEG",
+          "MAT"
+        ],
+        "scroll_arrows": [],
+        "cursor": {
+          "status": "unknown",
+          "reason": "Blink timing not measured; cursor start separately asserted where observed."
+        },
+        "insert_mode": {
+          "status": "unknown",
+          "reason": "No timing claim."
+        },
+        "prompt": null,
+        "selected_result_component": null
+      },
+      "result": {
+        "status": "unknown",
+        "reason": "Hidden precision unmeasured."
+      }
+    },
+    {
+      "after_step": 36,
+      "display": {
+        "upper_line": "ROW=",
+        "lower_line": "2.",
+        "indicators": [
+          "DEG",
+          "MAT"
+        ],
+        "scroll_arrows": [],
+        "cursor": {
+          "status": "unknown",
+          "reason": "Blink timing not measured; cursor start separately asserted where observed."
+        },
+        "insert_mode": {
+          "status": "unknown",
+          "reason": "No timing claim."
+        },
+        "prompt": null,
+        "selected_result_component": null
+      },
+      "result": {
+        "status": "unknown",
+        "reason": "Hidden precision unmeasured."
+      }
+    },
+    {
+      "after_step": 37,
+      "display": {
+        "upper_line": "COLUMN=",
+        "lower_line": "4.",
+        "indicators": [
+          "DEG",
+          "MAT"
+        ],
+        "scroll_arrows": [],
+        "cursor": {
+          "status": "unknown",
+          "reason": "Blink timing not measured; cursor start separately asserted where observed."
+        },
+        "insert_mode": {
+          "status": "unknown",
+          "reason": "No timing claim."
+        },
+        "prompt": null,
+        "selected_result_component": null
+      },
+      "result": {
+        "status": "unknown",
+        "reason": "Hidden precision unmeasured."
+      }
+    },
+    {
+      "after_step": 38,
+      "display": {
+        "upper_line": "MAT1,1=",
+        "lower_line": "3.",
+        "indicators": [
+          "DEG",
+          "MAT"
+        ],
+        "scroll_arrows": [],
+        "cursor": {
+          "status": "unknown",
+          "reason": "Blink timing not measured; cursor start separately asserted where observed."
+        },
+        "insert_mode": {
+          "status": "unknown",
+          "reason": "No timing claim."
+        },
+        "prompt": null,
+        "selected_result_component": null
+      },
+      "result": {
+        "status": "unknown",
+        "reason": "Hidden precision unmeasured."
+      }
+    },
+    {
+      "after_step": 39,
+      "display": {
+        "upper_line": "MAT1,2=",
+        "lower_line": "3.",
+        "indicators": [
+          "DEG",
+          "MAT"
+        ],
+        "scroll_arrows": [],
+        "cursor": {
+          "status": "unknown",
+          "reason": "Blink timing not measured; cursor start separately asserted where observed."
+        },
+        "insert_mode": {
+          "status": "unknown",
+          "reason": "No timing claim."
+        },
+        "prompt": null,
+        "selected_result_component": null
+      },
+      "result": {
+        "status": "unknown",
+        "reason": "Hidden precision unmeasured."
+      }
+    },
+    {
+      "after_step": 40,
+      "display": {
+        "upper_line": "MAT1,3=",
+        "lower_line": "3.",
+        "indicators": [
+          "DEG",
+          "MAT"
+        ],
+        "scroll_arrows": [],
+        "cursor": {
+          "status": "unknown",
+          "reason": "Blink timing not measured; cursor start separately asserted where observed."
+        },
+        "insert_mode": {
+          "status": "unknown",
+          "reason": "No timing claim."
+        },
+        "prompt": null,
+        "selected_result_component": null
+      },
+      "result": {
+        "status": "unknown",
+        "reason": "Hidden precision unmeasured."
+      }
+    },
+    {
+      "after_step": 41,
+      "display": {
+        "upper_line": "MAT1,4=",
+        "lower_line": "3.",
+        "indicators": [
+          "DEG",
+          "MAT"
+        ],
+        "scroll_arrows": [],
+        "cursor": {
+          "status": "unknown",
+          "reason": "Blink timing not measured; cursor start separately asserted where observed."
+        },
+        "insert_mode": {
+          "status": "unknown",
+          "reason": "No timing claim."
+        },
+        "prompt": null,
+        "selected_result_component": null
+      },
+      "result": {
+        "status": "unknown",
+        "reason": "Hidden precision unmeasured."
+      }
+    },
+    {
+      "after_step": 42,
+      "display": {
+        "upper_line": "MAT2,1=",
+        "lower_line": "4.",
+        "indicators": [
+          "DEG",
+          "MAT"
+        ],
+        "scroll_arrows": [],
+        "cursor": {
+          "status": "unknown",
+          "reason": "Blink timing not measured; cursor start separately asserted where observed."
+        },
+        "insert_mode": {
+          "status": "unknown",
+          "reason": "No timing claim."
+        },
+        "prompt": null,
+        "selected_result_component": null
+      },
+      "result": {
+        "status": "unknown",
+        "reason": "Hidden precision unmeasured."
+      }
+    },
+    {
+      "after_step": 43,
+      "display": {
+        "upper_line": "MAT2,2=",
+        "lower_line": "4.",
+        "indicators": [
+          "DEG",
+          "MAT"
+        ],
+        "scroll_arrows": [],
+        "cursor": {
+          "status": "unknown",
+          "reason": "Blink timing not measured; cursor start separately asserted where observed."
+        },
+        "insert_mode": {
+          "status": "unknown",
+          "reason": "No timing claim."
+        },
+        "prompt": null,
+        "selected_result_component": null
+      },
+      "result": {
+        "status": "unknown",
+        "reason": "Hidden precision unmeasured."
+      }
+    },
+    {
+      "after_step": 44,
+      "display": {
+        "upper_line": "MAT2,3=",
+        "lower_line": "4.",
+        "indicators": [
+          "DEG",
+          "MAT"
+        ],
+        "scroll_arrows": [],
+        "cursor": {
+          "status": "unknown",
+          "reason": "Blink timing not measured; cursor start separately asserted where observed."
+        },
+        "insert_mode": {
+          "status": "unknown",
+          "reason": "No timing claim."
+        },
+        "prompt": null,
+        "selected_result_component": null
+      },
+      "result": {
+        "status": "unknown",
+        "reason": "Hidden precision unmeasured."
+      }
+    },
+    {
+      "after_step": 45,
+      "display": {
+        "upper_line": "MAT2,4=",
+        "lower_line": "4.",
+        "indicators": [
+          "DEG",
+          "MAT"
+        ],
+        "scroll_arrows": [],
+        "cursor": {
+          "status": "unknown",
+          "reason": "Blink timing not measured; cursor start separately asserted where observed."
+        },
+        "insert_mode": {
+          "status": "unknown",
+          "reason": "No timing claim."
+        },
+        "prompt": null,
+        "selected_result_component": null
+      },
+      "result": {
+        "status": "unknown",
+        "reason": "Hidden precision unmeasured."
+      }
+    },
+    {
+      "after_step": 48,
+      "display": {
+        "upper_line": "",
+        "lower_line": "0.",
+        "indicators": [
+          "DEG",
+          "LIST"
+        ],
+        "scroll_arrows": [],
+        "cursor": {
+          "status": "unknown",
+          "reason": "Blink timing not measured; cursor start separately asserted where observed."
+        },
+        "insert_mode": {
+          "status": "unknown",
+          "reason": "No timing claim."
+        },
+        "prompt": null,
+        "selected_result_component": null
+      },
+      "result": {
+        "status": "unknown",
+        "reason": "Hidden precision unmeasured."
+      }
+    },
+    {
+      "after_step": 50,
+      "display": {
+        "upper_line": "",
+        "lower_line": "0.",
+        "indicators": [
+          "DEG",
+          "MAT"
+        ],
+        "scroll_arrows": [],
+        "cursor": {
+          "status": "unknown",
+          "reason": "Blink timing not measured; cursor start separately asserted where observed."
+        },
+        "insert_mode": {
+          "status": "unknown",
+          "reason": "No timing claim."
+        },
+        "prompt": null,
+        "selected_result_component": null
+      },
+      "result": {
+        "status": "unknown",
+        "reason": "Hidden precision unmeasured."
+      }
+    },
+    {
+      "after_step": 54,
+      "display": {
+        "upper_line": "ROW=",
+        "lower_line": "2.",
+        "indicators": [
+          "DEG",
+          "MAT"
+        ],
+        "scroll_arrows": [],
+        "cursor": {
+          "status": "unknown",
+          "reason": "Blink timing not measured; cursor start separately asserted where observed."
+        },
+        "insert_mode": {
+          "status": "unknown",
+          "reason": "No timing claim."
+        },
+        "prompt": null,
+        "selected_result_component": null
+      },
+      "result": {
+        "status": "unknown",
+        "reason": "Hidden precision unmeasured."
+      }
+    },
+    {
+      "after_step": 55,
+      "display": {
+        "upper_line": "COLUMN=",
+        "lower_line": "1.",
+        "indicators": [
+          "DEG",
+          "MAT"
+        ],
+        "scroll_arrows": [],
+        "cursor": {
+          "status": "unknown",
+          "reason": "Blink timing not measured; cursor start separately asserted where observed."
+        },
+        "insert_mode": {
+          "status": "unknown",
+          "reason": "No timing claim."
+        },
+        "prompt": null,
+        "selected_result_component": null
+      },
+      "result": {
+        "status": "unknown",
+        "reason": "Hidden precision unmeasured."
+      }
+    },
+    {
+      "after_step": 56,
+      "display": {
+        "upper_line": "MAT1,1=",
+        "lower_line": "3.",
+        "indicators": [
+          "DEG",
+          "MAT"
+        ],
+        "scroll_arrows": [],
+        "cursor": {
+          "status": "unknown",
+          "reason": "Blink timing not measured; cursor start separately asserted where observed."
+        },
+        "insert_mode": {
+          "status": "unknown",
+          "reason": "No timing claim."
+        },
+        "prompt": null,
+        "selected_result_component": null
+      },
+      "result": {
+        "status": "unknown",
+        "reason": "Hidden precision unmeasured."
+      }
+    },
+    {
+      "after_step": 57,
+      "display": {
+        "upper_line": "MAT2,1=",
+        "lower_line": "4.",
+        "indicators": [
+          "DEG",
+          "MAT"
+        ],
+        "scroll_arrows": [],
+        "cursor": {
+          "status": "unknown",
+          "reason": "Blink timing not measured; cursor start separately asserted where observed."
+        },
+        "insert_mode": {
+          "status": "unknown",
+          "reason": "No timing claim."
+        },
+        "prompt": null,
+        "selected_result_component": null
+      },
+      "result": {
+        "status": "unknown",
+        "reason": "Hidden precision unmeasured."
+      }
+    },
+    {
+      "after_step": 63,
+      "display": {
+        "upper_line": "CLR_MEMORY?",
+        "lower_line": "0.",
+        "indicators": [
+          "DEG",
+          "LIST"
+        ],
+        "scroll_arrows": [],
+        "cursor": {
+          "status": "unknown",
+          "reason": "Blink timing not measured; cursor start separately asserted where observed."
+        },
+        "insert_mode": {
+          "status": "unknown",
+          "reason": "No timing claim."
+        },
+        "prompt": null,
+        "selected_result_component": null
+      },
+      "result": {
+        "status": "unknown",
+        "reason": "Hidden precision unmeasured."
+      }
+    },
+    {
+      "after_step": 64,
+      "display": {
+        "upper_line": "",
+        "lower_line": "0.",
+        "indicators": [
+          "DEG",
+          "LIST"
+        ],
+        "scroll_arrows": [],
+        "cursor": {
+          "status": "unknown",
+          "reason": "Blink timing not measured; cursor start separately asserted where observed."
+        },
+        "insert_mode": {
+          "status": "unknown",
+          "reason": "No timing claim."
+        },
+        "prompt": null,
+        "selected_result_component": null
+      },
+      "result": {
+        "status": "unknown",
+        "reason": "Hidden precision unmeasured."
+      }
+    },
+    {
+      "after_step": 68,
+      "display": {
+        "upper_line": "Error 10",
+        "lower_line": "",
+        "indicators": [
+          "DEG",
+          "LIST"
+        ],
+        "scroll_arrows": [],
+        "cursor": {
+          "status": "unknown",
+          "reason": "Blink timing not measured; cursor start separately asserted where observed."
+        },
+        "insert_mode": {
+          "status": "unknown",
+          "reason": "No timing claim."
+        },
+        "prompt": null,
+        "selected_result_component": null
+      },
+      "result": {
+        "status": "unknown",
+        "reason": "Hidden precision unmeasured."
+      }
+    },
+    {
+      "after_step": 70,
+      "display": {
+        "upper_line": "SIZE=",
+        "lower_line": "1.",
+        "indicators": [
+          "DEG",
+          "LIST"
+        ],
+        "scroll_arrows": [],
+        "cursor": {
+          "status": "unknown",
+          "reason": "Blink timing not measured; cursor start separately asserted where observed."
+        },
+        "insert_mode": {
+          "status": "unknown",
+          "reason": "No timing claim."
+        },
+        "prompt": null,
+        "selected_result_component": null
+      },
+      "result": {
+        "status": "unknown",
+        "reason": "Hidden precision unmeasured."
+      }
+    },
+    {
+      "after_step": 73,
+      "display": {
+        "upper_line": "LIST1=",
+        "lower_line": "7.",
+        "indicators": [
+          "DEG",
+          "LIST"
+        ],
+        "scroll_arrows": [],
+        "cursor": {
+          "status": "unknown",
+          "reason": "Blink timing not measured; cursor start separately asserted where observed."
+        },
+        "insert_mode": {
+          "status": "unknown",
+          "reason": "No timing claim."
+        },
+        "prompt": null,
+        "selected_result_component": null
+      },
+      "result": {
+        "status": "unknown",
+        "reason": "Hidden precision unmeasured."
+      }
+    },
+    {
+      "after_step": 80,
+      "display": {
+        "upper_line": "RESET?",
+        "lower_line": "0.",
+        "indicators": [
+          "DEG",
+          "LIST"
+        ],
+        "scroll_arrows": [],
+        "cursor": {
+          "status": "unknown",
+          "reason": "Blink timing not measured; cursor start separately asserted where observed."
+        },
+        "insert_mode": {
+          "status": "unknown",
+          "reason": "No timing claim."
+        },
+        "prompt": null,
+        "selected_result_component": null
+      },
+      "result": {
+        "status": "unknown",
+        "reason": "Hidden precision unmeasured."
+      }
+    },
+    {
+      "after_step": 81,
+      "display": {
+        "upper_line": "",
+        "lower_line": "0.",
+        "indicators": [
+          "DEG"
+        ],
+        "scroll_arrows": [],
+        "cursor": {
+          "status": "unknown",
+          "reason": "Blink timing not measured; cursor start separately asserted where observed."
+        },
+        "insert_mode": {
+          "status": "unknown",
+          "reason": "No timing claim."
+        },
+        "prompt": null,
+        "selected_result_component": null
+      },
+      "result": {
+        "status": "unknown",
+        "reason": "Hidden precision unmeasured."
+      }
+    },
+    {
+      "after_step": 87,
+      "display": {
+        "upper_line": "Error 10",
+        "lower_line": "",
+        "indicators": [
+          "DEG",
+          "LIST"
+        ],
+        "scroll_arrows": [],
+        "cursor": {
+          "status": "unknown",
+          "reason": "Blink timing not measured; cursor start separately asserted where observed."
+        },
+        "insert_mode": {
+          "status": "unknown",
+          "reason": "No timing claim."
+        },
+        "prompt": null,
+        "selected_result_component": null
+      },
+      "result": {
+        "status": "unknown",
+        "reason": "Hidden precision unmeasured."
+      }
+    },
+    {
+      "after_step": 97,
+      "display": {
+        "upper_line": "",
+        "lower_line": "0.",
+        "indicators": [
+          "DEG"
+        ],
+        "scroll_arrows": [],
+        "cursor": {
+          "status": "unknown",
+          "reason": "Blink timing not measured; cursor start separately asserted where observed."
+        },
+        "insert_mode": {
+          "status": "unknown",
+          "reason": "No timing claim."
+        },
+        "prompt": null,
+        "selected_result_component": null
+      },
+      "result": {
+        "status": "unknown",
+        "reason": "Hidden precision unmeasured."
+      }
+    },
+    {
+      "after_step": 103,
+      "display": {
+        "upper_line": "Error 10",
+        "lower_line": "",
+        "indicators": [
+          "DEG",
+          "LIST"
+        ],
+        "scroll_arrows": [],
+        "cursor": {
+          "status": "unknown",
+          "reason": "Blink timing not measured; cursor start separately asserted where observed."
+        },
+        "insert_mode": {
+          "status": "unknown",
+          "reason": "No timing claim."
+        },
+        "prompt": null,
+        "selected_result_component": null
+      },
+      "result": {
+        "status": "unknown",
+        "reason": "Hidden precision unmeasured."
+      }
+    }
+  ],
+  "stored_values": {
+    "coverage": "Visible results only; hidden precision is unmeasured.",
+    "observations": []
+  },
+  "errors": [],
+  "sources": [
+    {
+      "source_id": "live-session",
+      "kind": "simulator",
+      "reference": "simulator-profile.json",
+      "page": null,
+      "scope": "Four-slot LIST storage, working-copy isolation, both conversion mappings, memory clear, RESET and HOME with stored list values."
+    }
+  ],
+  "oracle": {
+    "selected_source_id": "live-session",
+    "simulator_exception_ids": [],
+    "disagreements": []
+  },
+  "ambiguities": [],
+  "notes": [
+    "Starts after independently observed HOME at native step 486; NORMAL DEG blank 0. All 103 following physical inputs individually clicked and followed by fresh screenshot observation.",
+    "Four stored [3,4] copies; working L4 copy edited to [9,4]; combined conversion to 2\u00d74 matA uses stored [3,4] values in all four columns. matA columns convert back to LIST; separate list\u2192mat conversion gives matD 2\u00d71 [3,4].",
+    "MEM clear preserves LIST and clears L4; RESET restores NORMAL and clears newly stored L4=[7]; subsequent recall in LIST gives Error 10. Confirmation screens independently read CLR_MEMORY? 0. and RESET? 0.",
+    "Hidden precision and unrelated prior memories are unmeasured.",
+    "HOME from LIST returns NORMAL and clears stored L4=[7]; subsequent LIST recall gives Error 10."
+  ]
+}
