@@ -43,3 +43,16 @@ test('LIST independently observed aggregates and magnitude shortcut',async({page
   await seq(r,[17,35,choice,17,45,45,48]);await expect(r.locator('[data-result]')).toHaveText(expected);await seq(r,[2]);
  }
 });
+
+
+test('LIST native sorting cumulative differences augmentation and invalid operand errors',async({page})=>{
+ test.setTimeout(180000);const r=await setup(page);await seq(r,[4,36,11,42,29,42,29,40,29,41,29,2,17,41,45,17,41,40]);
+ for(const [choice,expected]of [[45,['1.','2.','3.']],[40,['3.','2.','1.']],[35,['3.','4.','6.']],[36,['-2.','1.']]]){
+  await seq(r,[17,42,choice,17,45,45,48]);await expect(r.locator('[data-result]')).toHaveText(String(expected.length)+'.');for(const value of expected){await seq(r,[11]);await expect(r.locator('[data-result]')).toHaveText(value);}await seq(r,[2]);
+ }
+ await seq(r,[17,42,37,17,45,45,3,28,17,45,40,48]);await expect(r.locator('[data-result]')).toHaveText('6.');for(const value of ['3.','1.','2.','3.','1.','2.']){await seq(r,[11]);await expect(r.locator('[data-result]')).toHaveText(value);}
+ await seq(r,[2,17,41,41,17,45,45,43,17,45,41,48]);await expect(r.locator('[data-expression]')).toHaveText('Error 8');
+ await seq(r,[2,13,17,45,45,48]);await expect(r.locator('[data-expression]')).toHaveText('Error 1');
+ await seq(r,[2,17,45,45,20,48,11,11,11,40,39]);await expect(r.locator('[data-expression]')).toHaveText('1÷');await expect(r.locator('[data-result]')).toHaveText('0.');await expect(r.locator('[data-expression] .scicalc__cursor')).toBeVisible();
+ await seq(r,[45,29]);await expect(r.locator('[data-expression]')).toHaveText('Error 2');
+});

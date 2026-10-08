@@ -1,0 +1,32 @@
+{
+  "reviewId": "list-vector-errors-2026-10-08",
+  "items": [
+    "EL506-328",
+    "EL506-330"
+  ],
+  "reference": "experiments/vector-limits-native.json",
+  "rawReference": "vector-limits-native-notes.json",
+  "additionalReferences": [
+    "experiments/phase16-native.json"
+  ],
+  "observations": [
+    "449 individually observed native inputs with independently transcribed significant LCD checkpoints",
+    "sortA [1,2,3], sortD [3,2,1], cumul [3,4,6], df_list [-2,1], aug [3,1,2,3,1,2]; inner and outer products independently captured in phase16-native.json",
+    "Unequal lengths Error 8, undefined slot Error 10, size 17 Error 7 while size 16 accepted, unsupported sin-list and scalar/list division Error 1, invalid element 1/0 Error 2; list square remains valid",
+    "Power cycle retains L3 size six; CA clears stored lists; broader persistence matrix remains separate"
+  ],
+  "validation": {
+    "units": "541 passed in vector-browser-validation.log; independent LIST raw replays included",
+    "golden": "29 fixtures / 1200 asserted frames passed",
+    "browser": "21 passed across Chromium Firefox WebKit in vector-browser-validation.log (4.8 minutes)",
+    "reference": "All experiments, ledger, frozen baseline and guide schema validated; report current",
+    "python": "compileall passed",
+    "compose": "config passed; Docker daemon unavailable",
+    "visual": "Local browser physical-button element entry verified upper 1\u00f7 with cursor and lower 0.; screenshot kept outside repository"
+  },
+  "unresolved": [
+    "Full menu and shifted-key inventory EL506-320",
+    "Four-slot LIST copying, conversions and persistence EL506-329",
+    "Complete cross-mode precision, compatibility and final release audit"
+  ]
+}

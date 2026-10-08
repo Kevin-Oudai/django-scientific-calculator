@@ -1,0 +1,1356 @@
+{
+  "date": "2026-10-08",
+  "sequence": [
+    4,
+    35,
+    3,
+    17,
+    17,
+    45,
+    45,
+    48,
+    9,
+    7,
+    11,
+    36,
+    29,
+    9,
+    2,
+    11,
+    45,
+    29,
+    2,
+    17,
+    42,
+    35,
+    36,
+    48,
+    9,
+    7,
+    42,
+    48,
+    11,
+    11,
+    11,
+    11,
+    11,
+    11,
+    11,
+    11,
+    11,
+    11,
+    2,
+    17,
+    41,
+    45,
+    17,
+    42,
+    42,
+    17,
+    45,
+    45,
+    3,
+    28,
+    17,
+    45,
+    45,
+    48,
+    2,
+    17,
+    45,
+    45,
+    43,
+    17,
+    42,
+    35,
+    41,
+    48,
+    10,
+    2,
+    13,
+    17,
+    45,
+    45,
+    48,
+    2,
+    40,
+    43,
+    17,
+    45,
+    45,
+    48,
+    2,
+    17,
+    40,
+    40,
+    11,
+    2,
+    17,
+    41,
+    40,
+    17,
+    45,
+    40,
+    48,
+    2,
+    17,
+    45,
+    45,
+    39,
+    41,
+    48,
+    2,
+    17,
+    45,
+    45,
+    39,
+    17,
+    45,
+    45,
+    48,
+    2,
+    17,
+    42,
+    35,
+    35,
+    48,
+    11,
+    40,
+    29,
+    2,
+    17,
+    41,
+    41,
+    17,
+    45,
+    41,
+    3,
+    18,
+    48,
+    2,
+    17,
+    45,
+    40,
+    3,
+    18,
+    48,
+    2,
+    4,
+    42,
+    3,
+    17,
+    4,
+    36,
+    3,
+    17,
+    11,
+    42,
+    29,
+    42,
+    29,
+    40,
+    29,
+    41,
+    29,
+    2,
+    17,
+    41,
+    45,
+    17,
+    41,
+    40,
+    17,
+    45,
+    45,
+    43,
+    17,
+    45,
+    40,
+    48,
+    11,
+    11,
+    11,
+    2,
+    41,
+    39,
+    17,
+    45,
+    45,
+    48,
+    2,
+    17,
+    45,
+    45,
+    38,
+    17,
+    45,
+    40,
+    48,
+    11,
+    11,
+    11,
+    2,
+    17,
+    45,
+    45,
+    39,
+    17,
+    45,
+    40,
+    48,
+    11,
+    11,
+    11,
+    8,
+    8,
+    7,
+    32,
+    31,
+    7,
+    3,
+    7,
+    29,
+    8,
+    2,
+    17,
+    45,
+    45,
+    44,
+    17,
+    45,
+    40,
+    48,
+    11,
+    11,
+    11,
+    2,
+    17,
+    45,
+    45,
+    39,
+    41,
+    48,
+    11,
+    11,
+    11,
+    2,
+    41,
+    38,
+    17,
+    45,
+    45,
+    48,
+    11,
+    11,
+    11,
+    9,
+    10,
+    11,
+    2,
+    17,
+    40,
+    41,
+    11,
+    11,
+    32,
+    31,
+    9,
+    11,
+    11,
+    2,
+    17,
+    35,
+    35,
+    17,
+    45,
+    45,
+    48,
+    2,
+    17,
+    35,
+    36,
+    17,
+    45,
+    45,
+    48,
+    2,
+    17,
+    35,
+    37,
+    17,
+    45,
+    45,
+    48,
+    2,
+    17,
+    35,
+    41,
+    17,
+    45,
+    45,
+    48,
+    2,
+    17,
+    35,
+    42,
+    17,
+    45,
+    45,
+    48,
+    2,
+    17,
+    35,
+    45,
+    17,
+    45,
+    45,
+    48,
+    2,
+    17,
+    35,
+    40,
+    17,
+    45,
+    45,
+    48,
+    2,
+    17,
+    35,
+    18,
+    17,
+    45,
+    45,
+    48,
+    2,
+    41,
+    44,
+    17,
+    45,
+    45,
+    48,
+    2,
+    17,
+    45,
+    45,
+    44,
+    41,
+    48,
+    2,
+    41,
+    43,
+    17,
+    45,
+    45,
+    48,
+    2,
+    17,
+    42,
+    45,
+    17,
+    45,
+    45,
+    48,
+    11,
+    11,
+    11,
+    2,
+    17,
+    42,
+    40,
+    17,
+    45,
+    45,
+    48,
+    11,
+    11,
+    11,
+    2,
+    17,
+    42,
+    35,
+    17,
+    45,
+    45,
+    48,
+    11,
+    11,
+    11,
+    2,
+    17,
+    42,
+    36,
+    17,
+    45,
+    45,
+    48,
+    11,
+    11,
+    2,
+    17,
+    42,
+    37,
+    17,
+    45,
+    45,
+    3,
+    28,
+    17,
+    45,
+    40,
+    48,
+    11,
+    11,
+    11,
+    11,
+    11,
+    11,
+    2,
+    17,
+    41,
+    41,
+    17,
+    45,
+    45,
+    43,
+    17,
+    45,
+    41,
+    48,
+    2,
+    13,
+    17,
+    45,
+    45,
+    48,
+    2,
+    17,
+    45,
+    45,
+    20,
+    48,
+    11,
+    11,
+    11,
+    40,
+    39,
+    45,
+    29,
+    2,
+    3,
+    2,
+    2,
+    17,
+    40,
+    41,
+    11,
+    2,
+    3,
+    4,
+    17,
+    45,
+    41,
+    48
+  ],
+  "checkpoints": [
+    {
+      "afterStep": 0,
+      "upper": "",
+      "lower": "0.",
+      "mode": "NORMAL"
+    },
+    {
+      "afterStep": 2,
+      "upper": "",
+      "lower": "0.",
+      "mode": "MAT"
+    },
+    {
+      "afterStep": 4,
+      "upper": "",
+      "lower": "0.",
+      "mode": "MAT",
+      "second": false,
+      "note": "ALGB unavailable: consumes 2ndF, leaves no prompt."
+    },
+    {
+      "afterStep": 7,
+      "upper": "matA",
+      "lower": "0.",
+      "mode": "MAT"
+    },
+    {
+      "afterStep": 8,
+      "upper": "Error 10",
+      "lower": "",
+      "mode": "MAT",
+      "note": "Undefined matA evaluates to Error 10."
+    },
+    {
+      "afterStep": 9,
+      "upper": "matA",
+      "lower": "",
+      "mode": "MAT",
+      "cursor": "First character of matA; overwrite marker",
+      "note": "LEFT dismisses Error 10 and preserves the operand for correction."
+    },
+    {
+      "afterStep": 10,
+      "upper": "",
+      "lower": "0.",
+      "mode": "MAT",
+      "note": "DEL removes matA as one token."
+    },
+    {
+      "afterStep": 11,
+      "upper": "ROW=",
+      "lower": "1.",
+      "mode": "MAT"
+    },
+    {
+      "afterStep": 13,
+      "upper": "Error 7",
+      "lower": "",
+      "mode": "MAT",
+      "note": "ROW=5 entered with M+ reports Error 7, not Error 9; input-definition error."
+    },
+    {
+      "afterStep": 14,
+      "upper": "5",
+      "lower": "0.",
+      "mode": "MAT",
+      "cursor": "End after 5",
+      "note": "LEFT restores failed input as upper-line expression 5 rather than reopening ROW=."
+    },
+    {
+      "afterStep": 15,
+      "upper": "",
+      "lower": "0.",
+      "mode": "MAT"
+    },
+    {
+      "afterStep": 16,
+      "upper": "ROW=",
+      "lower": "1.",
+      "mode": "MAT",
+      "note": "Rejected five-row definition leaves previous one-row buffer intact."
+    },
+    {
+      "afterStep": 18,
+      "upper": "Error 7",
+      "lower": "",
+      "mode": "MAT",
+      "note": "ROW=0 reports Error 7."
+    },
+    {
+      "afterStep": 24,
+      "upper": "Error 7",
+      "lower": "",
+      "mode": "MAT",
+      "note": "identity 5 reports Error 7; oversized operation parameters are invalid definitions, not computed-result Error 9."
+    },
+    {
+      "afterStep": 25,
+      "upper": "identity5",
+      "lower": "0.",
+      "mode": "MAT",
+      "cursor": "End after 5",
+      "note": "LEFT restores invalid identity call at its end."
+    },
+    {
+      "afterStep": 28,
+      "upper": "ROW=",
+      "lower": "3.",
+      "mode": "MAT",
+      "note": "Correcting identity 5 to identity 3 returns a three-row matrix."
+    },
+    {
+      "afterStep": 29,
+      "upper": "COLUMN=",
+      "lower": "3.",
+      "mode": "MAT"
+    },
+    {
+      "afterStep": 30,
+      "upper": "MAT1,1=",
+      "lower": "1.",
+      "mode": "MAT"
+    },
+    {
+      "afterStep": 31,
+      "upper": "MAT1,2=",
+      "lower": "0.",
+      "mode": "MAT"
+    },
+    {
+      "afterStep": 32,
+      "upper": "MAT1,3=",
+      "lower": "0.",
+      "mode": "MAT"
+    },
+    {
+      "afterStep": 33,
+      "upper": "MAT2,1=",
+      "lower": "0.",
+      "mode": "MAT"
+    },
+    {
+      "afterStep": 34,
+      "upper": "MAT2,2=",
+      "lower": "1.",
+      "mode": "MAT"
+    },
+    {
+      "afterStep": 35,
+      "upper": "MAT2,3=",
+      "lower": "0.",
+      "mode": "MAT"
+    },
+    {
+      "afterStep": 36,
+      "upper": "MAT3,1=",
+      "lower": "0.",
+      "mode": "MAT"
+    },
+    {
+      "afterStep": 37,
+      "upper": "MAT3,2=",
+      "lower": "0.",
+      "mode": "MAT"
+    },
+    {
+      "afterStep": 38,
+      "upper": "MAT3,3=",
+      "lower": "1.",
+      "mode": "MAT",
+      "note": "All nine row-major identity 3 cells inspected: [1,0,0,0,1,0,0,0,1]."
+    },
+    {
+      "afterStep": 42,
+      "upper": "",
+      "lower": "0.",
+      "mode": "MAT",
+      "note": "Stored identity-3 edit buffer in matA after ON/C."
+    },
+    {
+      "afterStep": 54,
+      "upper": "Error 9",
+      "lower": "",
+      "mode": "MAT",
+      "note": "aug(matA,matA) on two valid 3×3 identity matrices would allocate six columns and reports Error 9."
+    },
+    {
+      "afterStep": 64,
+      "upper": "Error 8",
+      "lower": "",
+      "mode": "MAT",
+      "note": "3×3 matA plus identity 2 reports dimension mismatch Error 8."
+    },
+    {
+      "afterStep": 65,
+      "upper": "+identity2",
+      "upperClipped": "left",
+      "lower": "0.",
+      "mode": "MAT",
+      "cursor": "End after 2",
+      "note": "RIGHT restores failed addition at its end; visible suffix is clipped from the left."
+    },
+    {
+      "afterStep": 67,
+      "upper": "sin",
+      "lower": "0.",
+      "mode": "MAT",
+      "note": "SIN key is available for entering a MAT-mode expression."
+    },
+    {
+      "afterStep": 71,
+      "upper": "Error 1",
+      "lower": "",
+      "mode": "MAT",
+      "note": "sin(matA) is invalid operand type and reports Error 1, not dimension Error 8."
+    },
+    {
+      "afterStep": 78,
+      "upper": "Error 1",
+      "lower": "",
+      "mode": "MAT",
+      "note": "1+matA is invalid operand type and reports Error 1."
+    },
+    {
+      "afterStep": 79,
+      "upper": "",
+      "lower": "0.",
+      "mode": "MAT"
+    },
+    {
+      "afterStep": 82,
+      "upper": "",
+      "lower": "0.",
+      "mode": "MAT",
+      "note": "CHK of undefined matB returns empty entry without reporting an error."
+    },
+    {
+      "afterStep": 83,
+      "upper": "ROW=",
+      "lower": "1.",
+      "mode": "MAT",
+      "note": "CHK of undefined matB clears the previous three-row buffer."
+    },
+    {
+      "afterStep": 87,
+      "upper": "",
+      "lower": "0.",
+      "mode": "MAT",
+      "note": "STO matB after opening default ROW then ON/C completes without error."
+    },
+    {
+      "afterStep": 91,
+      "upper": "ROW=",
+      "lower": "1.",
+      "mode": "MAT",
+      "note": "Default matrix buffer opened before STO becomes a defined 1x1 zero matrix."
+    },
+    {
+      "afterStep": 98,
+      "upper": "ROW=",
+      "lower": "3.",
+      "mode": "MAT",
+      "note": "matA divided by scalar 2 is accepted as a 3x3 result."
+    },
+    {
+      "afterStep": 107,
+      "upper": "Error 1",
+      "lower": "",
+      "mode": "MAT",
+      "note": "Matrix by matrix division is a syntax/type error, even for invertible identity matrices."
+    },
+    {
+      "afterStep": 113,
+      "upper": "ROW=",
+      "lower": "4.",
+      "mode": "MAT",
+      "note": "identity4 is accepted at the maximum row dimension."
+    },
+    {
+      "afterStep": 114,
+      "upper": "COLUMN=",
+      "lower": "4.",
+      "mode": "MAT"
+    },
+    {
+      "afterStep": 116,
+      "upper": "MAT1,1=",
+      "lower": "0.",
+      "mode": "MAT",
+      "note": "Changing COLUMN from 4 to 1 clears the identity buffer cells."
+    },
+    {
+      "afterStep": 126,
+      "upper": "Error 8",
+      "lower": "",
+      "mode": "MAT",
+      "note": "Inverse of the stored 4x1 matrix is rejected as dimension mismatch."
+    },
+    {
+      "afterStep": 133,
+      "upper": "Error 2",
+      "lower": "",
+      "mode": "MAT",
+      "note": "Inverse of defined 1x1 zero matrix is rejected as singular."
+    },
+    {
+      "afterStep": 138,
+      "upper": "",
+      "lower": "0.",
+      "mode": "CPLX",
+      "second": false,
+      "note": "ALGB unavailable in CPLX; consumes 2nd F."
+    },
+    {
+      "afterStep": 142,
+      "upper": "",
+      "lower": "0.",
+      "mode": "LIST",
+      "second": false,
+      "note": "ALGB unavailable in LIST; consumes 2nd F."
+    },
+    {
+      "afterStep": 151,
+      "upper": "LIST3=",
+      "lower": "2.",
+      "mode": "LIST",
+      "note": "Entered [3,1,2] before independent LIST operation checks."
+    },
+    {
+      "afterStep": 166,
+      "upper": "SIZE=",
+      "lower": "3.",
+      "mode": "LIST",
+      "note": "L1+L2 accepts equal-length lists."
+    },
+    {
+      "afterStep": 167,
+      "upper": "LIST1=",
+      "lower": "6.",
+      "mode": "LIST"
+    },
+    {
+      "afterStep": 168,
+      "upper": "LIST2=",
+      "lower": "2.",
+      "mode": "LIST"
+    },
+    {
+      "afterStep": 169,
+      "upper": "LIST3=",
+      "lower": "4.",
+      "mode": "LIST",
+      "note": "L1+L2 produces [6,2,4] without changing stored operands."
+    },
+    {
+      "afterStep": 176,
+      "upper": "Error 1",
+      "lower": "",
+      "mode": "LIST",
+      "note": "Scalar divided by list is unsupported; no reciprocal broadcasting."
+    },
+    {
+      "afterStep": 185,
+      "upper": "SIZE=",
+      "lower": "3.",
+      "mode": "LIST",
+      "note": "L1×L2 accepts equally sized lists."
+    },
+    {
+      "afterStep": 186,
+      "upper": "LIST1=",
+      "lower": "9.",
+      "mode": "LIST"
+    },
+    {
+      "afterStep": 187,
+      "upper": "LIST2=",
+      "lower": "1.",
+      "mode": "LIST"
+    },
+    {
+      "afterStep": 188,
+      "upper": "LIST3=",
+      "lower": "4.",
+      "mode": "LIST",
+      "note": "L1×L2 is elementwise [9,1,4]."
+    },
+    {
+      "afterStep": 197,
+      "upper": "SIZE=",
+      "lower": "3.",
+      "mode": "LIST",
+      "note": "L1÷L2 is accepted."
+    },
+    {
+      "afterStep": 198,
+      "upper": "LIST1=",
+      "lower": "1.",
+      "mode": "LIST"
+    },
+    {
+      "afterStep": 199,
+      "upper": "LIST2=",
+      "lower": "1.",
+      "mode": "LIST"
+    },
+    {
+      "afterStep": 200,
+      "upper": "LIST3=",
+      "lower": "1.",
+      "mode": "LIST",
+      "note": "L1÷L2 divides elementwise to [1,1,1]."
+    },
+    {
+      "afterStep": 201,
+      "upper": "LIST2=",
+      "lower": "1.",
+      "mode": "LIST"
+    },
+    {
+      "afterStep": 202,
+      "upper": "LIST1=",
+      "lower": "1.",
+      "mode": "LIST"
+    },
+    {
+      "afterStep": 203,
+      "upper": "LIST1=",
+      "lower": "1.",
+      "mode": "LIST",
+      "note": "DEL with no pending input does not remove a list element."
+    },
+    {
+      "afterStep": 204,
+      "upper": "",
+      "lower": "9.",
+      "mode": "LIST"
+    },
+    {
+      "afterStep": 205,
+      "upper": "",
+      "lower": "98.",
+      "mode": "LIST"
+    },
+    {
+      "afterStep": 206,
+      "upper": "",
+      "lower": "9.",
+      "mode": "LIST",
+      "note": "DEL removes the final pending digit only."
+    },
+    {
+      "afterStep": 208,
+      "upper": "",
+      "lower": "9.",
+      "mode": "LIST",
+      "second": false,
+      "note": "INS is unavailable in LIST cell entry; leaves input unchanged and consumes 2nd F."
+    },
+    {
+      "afterStep": 209,
+      "upper": "LIST2=",
+      "lower": "1.",
+      "mode": "LIST"
+    },
+    {
+      "afterStep": 210,
+      "upper": "LIST1=",
+      "lower": "9.",
+      "mode": "LIST",
+      "note": "DATA commits replacement of one buffer element only."
+    },
+    {
+      "afterStep": 219,
+      "upper": "SIZE=",
+      "lower": "3.",
+      "mode": "LIST"
+    },
+    {
+      "afterStep": 220,
+      "upper": "LIST1=",
+      "lower": "0.",
+      "mode": "LIST"
+    },
+    {
+      "afterStep": 221,
+      "upper": "LIST2=",
+      "lower": "0.",
+      "mode": "LIST"
+    },
+    {
+      "afterStep": 222,
+      "upper": "LIST3=",
+      "lower": "0.",
+      "mode": "LIST",
+      "note": "L1−L2 is elementwise [0,0,0]; editing a previous result buffer did not overwrite the stored operands."
+    },
+    {
+      "afterStep": 229,
+      "upper": "SIZE=",
+      "lower": "3.",
+      "mode": "LIST",
+      "note": "L1÷2 is accepted."
+    },
+    {
+      "afterStep": 230,
+      "upper": "LIST1=",
+      "lower": "1.5",
+      "mode": "LIST"
+    },
+    {
+      "afterStep": 231,
+      "upper": "LIST2=",
+      "lower": "0.5",
+      "mode": "LIST"
+    },
+    {
+      "afterStep": 232,
+      "upper": "LIST3=",
+      "lower": "1.",
+      "mode": "LIST",
+      "note": "L1÷2 produces [1.5,0.5,1]."
+    },
+    {
+      "afterStep": 239,
+      "upper": "SIZE=",
+      "lower": "3.",
+      "mode": "LIST",
+      "note": "2×L1 accepts scalar on the left."
+    },
+    {
+      "afterStep": 240,
+      "upper": "LIST1=",
+      "lower": "6.",
+      "mode": "LIST"
+    },
+    {
+      "afterStep": 241,
+      "upper": "LIST2=",
+      "lower": "2.",
+      "mode": "LIST"
+    },
+    {
+      "afterStep": 242,
+      "upper": "LIST3=",
+      "lower": "4.",
+      "mode": "LIST",
+      "note": "2×L1 produces [6,2,4]."
+    },
+    {
+      "afterStep": 243,
+      "upper": "",
+      "lower": "0.",
+      "mode": "LIST",
+      "cursor": "start",
+      "note": "LEFT from a LIST cell prompt enters a blank expression editor; cursor is visible."
+    },
+    {
+      "afterStep": 244,
+      "upper": "",
+      "lower": "0.",
+      "mode": "LIST",
+      "cursor": "start"
+    },
+    {
+      "afterStep": 245,
+      "upper": "SIZE=",
+      "lower": "3.",
+      "mode": "LIST",
+      "note": "DOWN after horizontal editing reopens the same three-element buffer from SIZE."
+    },
+    {
+      "afterStep": 249,
+      "upper": "",
+      "lower": "0.",
+      "mode": "LIST",
+      "note": "CHK undefined L3 completes without Error 10."
+    },
+    {
+      "afterStep": 250,
+      "upper": "SIZE=",
+      "lower": "1.",
+      "mode": "LIST",
+      "note": "CHK undefined L3 clears the prior buffer; default SIZE becomes one."
+    },
+    {
+      "afterStep": 251,
+      "upper": "LIST1=",
+      "lower": "0.",
+      "mode": "LIST"
+    },
+    {
+      "afterStep": 254,
+      "upper": "",
+      "lower": "0.",
+      "mode": "LIST",
+      "cursor": "start",
+      "note": "LEFT from pending 98 abandons pending cell input and opens a blank expression editor."
+    },
+    {
+      "afterStep": 255,
+      "upper": "SIZE=",
+      "lower": "1.",
+      "mode": "LIST"
+    },
+    {
+      "afterStep": 256,
+      "upper": "LIST1=",
+      "lower": "0.",
+      "mode": "LIST",
+      "note": "Abandoned pending 98 does not alter the stored buffer cell."
+    },
+    {
+      "afterStep": 264,
+      "upper": "sumL1=",
+      "lower": "6.",
+      "mode": "LIST",
+      "note": "Sum of stored [3,1,2] is 6."
+    },
+    {
+      "afterStep": 272,
+      "upper": "prodL1=",
+      "lower": "6.",
+      "mode": "LIST"
+    },
+    {
+      "afterStep": 280,
+      "upper": "stdDvL1=",
+      "lower": "1.",
+      "mode": "LIST"
+    },
+    {
+      "afterStep": 288,
+      "upper": "meanL1=",
+      "lower": "2.",
+      "mode": "LIST"
+    },
+    {
+      "afterStep": 296,
+      "upper": "medL1=",
+      "lower": "2.",
+      "mode": "LIST"
+    },
+    {
+      "afterStep": 304,
+      "upper": "minL1=",
+      "lower": "1.",
+      "mode": "LIST"
+    },
+    {
+      "afterStep": 312,
+      "upper": "maxL1=",
+      "lower": "3.",
+      "mode": "LIST"
+    },
+    {
+      "afterStep": 320,
+      "upper": "absL1=",
+      "lower": "3.741657387",
+      "mode": "LIST"
+    },
+    {
+      "afterStep": 327,
+      "upper": "Error 1",
+      "lower": "",
+      "mode": "LIST"
+    },
+    {
+      "afterStep": 334,
+      "upper": "Error 1",
+      "lower": "",
+      "mode": "LIST"
+    },
+    {
+      "afterStep": 341,
+      "upper": "Error 1",
+      "lower": "",
+      "mode": "LIST"
+    },
+    {
+      "afterStep": 349,
+      "upper": "SIZE=",
+      "lower": "3.",
+      "mode": "LIST"
+    },
+    {
+      "afterStep": 350,
+      "upper": "LIST1=",
+      "lower": "1.",
+      "mode": "LIST"
+    },
+    {
+      "afterStep": 351,
+      "upper": "LIST2=",
+      "lower": "2.",
+      "mode": "LIST"
+    },
+    {
+      "afterStep": 352,
+      "upper": "LIST3=",
+      "lower": "3.",
+      "mode": "LIST"
+    },
+    {
+      "afterStep": 360,
+      "upper": "SIZE=",
+      "lower": "3.",
+      "mode": "LIST"
+    },
+    {
+      "afterStep": 361,
+      "upper": "LIST1=",
+      "lower": "3.",
+      "mode": "LIST"
+    },
+    {
+      "afterStep": 362,
+      "upper": "LIST2=",
+      "lower": "2.",
+      "mode": "LIST"
+    },
+    {
+      "afterStep": 363,
+      "upper": "LIST3=",
+      "lower": "1.",
+      "mode": "LIST"
+    },
+    {
+      "afterStep": 371,
+      "upper": "SIZE=",
+      "lower": "3.",
+      "mode": "LIST"
+    },
+    {
+      "afterStep": 372,
+      "upper": "LIST1=",
+      "lower": "3.",
+      "mode": "LIST"
+    },
+    {
+      "afterStep": 373,
+      "upper": "LIST2=",
+      "lower": "4.",
+      "mode": "LIST"
+    },
+    {
+      "afterStep": 374,
+      "upper": "LIST3=",
+      "lower": "6.",
+      "mode": "LIST"
+    },
+    {
+      "afterStep": 382,
+      "upper": "SIZE=",
+      "lower": "2.",
+      "mode": "LIST"
+    },
+    {
+      "afterStep": 383,
+      "upper": "LIST1=",
+      "lower": "-2.",
+      "mode": "LIST"
+    },
+    {
+      "afterStep": 384,
+      "upper": "LIST2=",
+      "lower": "1.",
+      "mode": "LIST"
+    },
+    {
+      "afterStep": 397,
+      "upper": "SIZE=",
+      "lower": "6.",
+      "mode": "LIST"
+    },
+    {
+      "afterStep": 398,
+      "upper": "LIST1=",
+      "lower": "3.",
+      "mode": "LIST"
+    },
+    {
+      "afterStep": 399,
+      "upper": "LIST2=",
+      "lower": "1.",
+      "mode": "LIST"
+    },
+    {
+      "afterStep": 400,
+      "upper": "LIST3=",
+      "lower": "2.",
+      "mode": "LIST"
+    },
+    {
+      "afterStep": 401,
+      "upper": "LIST4=",
+      "lower": "3.",
+      "mode": "LIST"
+    },
+    {
+      "afterStep": 402,
+      "upper": "LIST5=",
+      "lower": "1.",
+      "mode": "LIST"
+    },
+    {
+      "afterStep": 403,
+      "upper": "LIST6=",
+      "lower": "2.",
+      "mode": "LIST"
+    },
+    {
+      "afterStep": 415,
+      "upper": "Error 8",
+      "lower": "",
+      "mode": "LIST"
+    },
+    {
+      "afterStep": 421,
+      "upper": "Error 1",
+      "lower": "",
+      "mode": "LIST"
+    },
+    {
+      "afterStep": 427,
+      "upper": "SIZE=",
+      "lower": "3.",
+      "mode": "LIST"
+    },
+    {
+      "afterStep": 428,
+      "upper": "LIST1=",
+      "lower": "9.",
+      "mode": "LIST"
+    },
+    {
+      "afterStep": 429,
+      "upper": "LIST2=",
+      "lower": "1.",
+      "mode": "LIST"
+    },
+    {
+      "afterStep": 430,
+      "upper": "LIST3=",
+      "lower": "4.",
+      "mode": "LIST"
+    },
+    {
+      "afterStep": 432,
+      "upper": "1÷",
+      "lower": "0.",
+      "mode": "LIST"
+    },
+    {
+      "afterStep": 433,
+      "upper": "1÷",
+      "lower": "0.",
+      "mode": "LIST"
+    },
+    {
+      "afterStep": 434,
+      "upper": "Error 2",
+      "lower": "",
+      "mode": "LIST"
+    },
+    {
+      "afterStep": 437,
+      "upper": "",
+      "lower": "",
+      "power": "off"
+    },
+    {
+      "afterStep": 438,
+      "upper": "",
+      "lower": "0.",
+      "mode": "LIST",
+      "power": "on"
+    },
+    {
+      "afterStep": 442,
+      "upper": "SIZE=",
+      "lower": "6.",
+      "mode": "LIST"
+    },
+    {
+      "afterStep": 445,
+      "upper": "",
+      "lower": "0.",
+      "mode": "LIST",
+      "second": false
+    },
+    {
+      "afterStep": 449,
+      "upper": "Error 10",
+      "lower": "",
+      "mode": "LIST"
+    }
+  ],
+  "notes": [
+    "Fresh pinned simulator launch. Keyboard 1 and KP_1 were ignored; all canonical inputs below use physical panel clicks."
+  ]
+}

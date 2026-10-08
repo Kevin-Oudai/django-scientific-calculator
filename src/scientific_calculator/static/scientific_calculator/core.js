@@ -1293,7 +1293,7 @@
     return {calculations,numeric};
   }
   function physicalEditor(next){if(!next.selectionActive)next.cursor=Math.max(0,next.expression.length-1);next.control.errorCode=null;next.editor=editorForState(next);next.displayExpression=next.expression;next.lifecycle=next.selectionActive?'editing':inferEntryPhase(next);return next;}
-  function physicalError(state,code){const next=structuredClone(state);next.control.errorCode=code;next.displayResult='Error';next.resultDisplay='Error';next.lifecycle='error';return next;}
+  function physicalError(state,code){const next=structuredClone(state);if(typeof code==='string'&&/^EL506-ERROR-\d+$/.test(code))code=Number(code.slice('EL506-ERROR-'.length));next.control.errorCode=code;next.displayResult='Error';next.resultDisplay='Error';next.lifecycle='error';return next;}
   function physicalMenu(previous,id){
     const next=structuredClone(previous);next.secondActive=false;next.layers.alpha=false;next.layers.hyp=false;next.layers.inverseHyp=false;
     next.workflow={kind:'menu',payload:{id,keyLayer:true,choices:structuredClone(id==='MEMORY_CLEAR'?['MEM','RESET']:MODE_SUBMENUS[id]||KEY_MENUS[id]||[]),path:[],selected:0,groups:structuredClone(menuGroups[id]||[2])},page:0,returnPhase:previous.workflow.kind?previous.workflow.returnPhase:previous.lifecycle};

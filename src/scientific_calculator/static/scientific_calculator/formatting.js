@@ -415,11 +415,22 @@
       }
       if(workflow.payload.id==='TAB')view.resultHtml='';
       if(workflow.payload.id==='EQN_COEFFICIENTS'){const p=workflow.payload;view.resultHtml=p.input?formatExpression(physicalExpression(p.input)):sharpNumber(p.coefficients[p.coefficient],settings).html;indicators['?']=false;}
-      if(workflow.payload.id==='LIST_BUFFER'){const p=workflow.payload;if(p.input)view.expressionHtml='';view.resultHtml=p.input?(/^-?\d+(?:\.\d*)?$/.test(p.input)?sharpEntry(p.input):formatExpression(physicalExpression(p.input))):sharpNumber(p.index===-1?p.list.length:p.list[p.index],settings).html;indicators['?']=false;}
+      if(workflow.payload.id==='LIST_BUFFER'){
+        const p=workflow.payload;
+        if(p.input){
+          const tail=p.input.match(/(?:\d+(?:\.\d*)?)$/)?.[0]||'',prefix=p.input.slice(0,p.input.length-tail.length);
+          const scalar=/^-?\d+(?:\.\d*)?$/.test(p.input);
+          view.expressionHtml=scalar?'':formatExpression(physicalExpression(prefix));
+          view.resultHtml=sharpEntry(scalar?p.input:tail||'0');
+          if(!scalar&&prefix)view.expressionHtml+='<span class="scicalc__cursor" aria-hidden="true"></span>';
+        }else view.resultHtml=sharpNumber(p.index===-1?p.list.length:p.list[p.index],settings).html;
+        indicators['?']=false;
+      }
       if(workflow.payload.id==='MAT_BUFFER'){const p=workflow.payload;if(p.input)view.expressionHtml='';view.resultHtml=p.input?formatExpression(physicalExpression(p.input)):sharpNumber(p.index===-2?p.matrix.rows:p.index===-1?p.matrix.columns:p.matrix.data[p.index],settings).html;indicators['?']=false;}
       if(workflow.payload.id==='CNST'){view.expressionHtml='';view.resultHtml=escapeHtml('01-52 ['+(workflow.payload.path||[]).join('')+']');}
       if(workflow.payload.id==='CONV'){view.expressionHtml=formatExpression(physicalExpression(workflow.payload.source)+'→cv');view.resultHtml=sharpEntry((workflow.payload.path||[]).join('')||'0');indicators['?']=false;}
-      view.cursorVisible = false;
+      view.cursorVisible = workflow.payload.id==='LIST_BUFFER'&&Boolean(workflow.payload.input)&&!/^-?\d+(?:\.\d*)?$/.test(workflow.payload.input);
+      if(view.cursorVisible)view.cursorPosition=physicalExpression(workflow.payload.input.replace(/\d+(?:\.\d*)?$/,'')).length;
     }
     if(state.historyIndex!==null){view.previousPage=state.historyIndex>0;view.nextPage=state.historyIndex<state.history.length-1;view.pageStatus=`${state.historyIndex+1} / ${state.history.length}`;}
     if(state.control?.power==='off'){

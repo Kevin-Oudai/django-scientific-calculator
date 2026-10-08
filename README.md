@@ -1410,3 +1410,16 @@ fraction separator in the upper display. Passing these regression tests does not
 waive the precision discrepancy or establish full simulator parity.
 
 The LIST magnitude shortcut uses the A-labelled key directly in its MATH menu. Sum, product, minimum, maximum, mean, median, sample standard deviation, variance and magnitude have independent native LCD checkpoints.
+
+The 2026-10-08 independent polynomial check also records `X^4` differentiated
+at `X=2`, with default `dx=0.00002`: the simulator displays `32.0000005`,
+while the application displays `32.`. This additional precision difference
+is tracked in `tests/reference/el506ts/experiments/calculus-polynomial-native.json`
+and remains part of the final precision audit.
+
+LIST element entry splits pending arithmetic across the two LCD lines, with
+a cursor after the operator. Invalid elements such as `1÷0` report `Error 2`.
+Generic scalar functions such as `sin L1` report `Error 1`, while list squaring
+remains available. Sorting, cumulative totals, adjacent differences and
+augmentation have independently observed numerical reference checkpoints in
+`tests/reference/el506ts/experiments/vector-limits-native.json`.

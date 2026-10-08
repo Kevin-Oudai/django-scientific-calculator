@@ -95,9 +95,14 @@
       "number": 5,
       "display": "Error 5",
       "meaning": "Recalled expression unavailable in current mode",
-      "nativeStatus": "pending",
-      "nativeEvidence": [],
-      "faultCursorAndRecovery": "Scope-specific existing traces; exhaustive verification pending"
+      "nativeStatus": "observed in listed scopes",
+      "nativeEvidence": [
+        {
+          "experiment": "experiments/formula-error5-native.json",
+          "afterStep": 9
+        }
+      ],
+      "faultCursorAndRecovery": "ON/C clears the display and preserves BIN; frame 10. Broader cursor/fault-navigation audit remains pending."
     },
     {
       "number": 6,

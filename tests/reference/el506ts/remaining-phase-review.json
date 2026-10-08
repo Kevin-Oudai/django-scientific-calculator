@@ -40,6 +40,13 @@
       "reference": "0.577350268",
       "application": "0.57735027",
       "status": "unresolved internal-precision/display difference"
+    },
+    {
+      "fixture": "calculus-polynomial-native",
+      "reference": "32.0000005",
+      "application": "32.",
+      "status": "unresolved internal-precision/display difference independently observed 2026-10-08",
+      "evidence": "experiments/calculus-polynomial-native.json after_step 462"
     }
   ],
   "releaseGate": {
@@ -125,10 +132,10 @@
   },
   "resolvedDifferences": [
     {
-      "reference": "2┌tan17=",
-      "application": "2┌tan17=",
+      "reference": "2\u250ctan17=",
+      "application": "2\u250ctan17=",
       "evidence": "phase16-native-notes.json checkpoint 177; tests/unit/phase16.test.js",
-      "scope": "Function denominator glyph and decimal result; ordinary DIV remains ÷."
+      "scope": "Function denominator glyph and decimal result; ordinary DIV remains \u00f7."
     }
   ]
 }
