@@ -4,13 +4,13 @@
 - Plan status: Active
 - Current package baseline: 0.3.1
 - Target release: 1.0.0 after verified parity
-- Next item: EL506-350
+- Next item: EL506-351
 - Last updated: 2026-10-08
 
 ## Progress Overview
 
-As of 2026-10-08, **230 of 245 roadmap tasks are complete (93.9%)**, with
-**15 remaining**. The next task is **EL506-350**. These counts measure
+As of 2026-10-08, **231 of 245 roadmap tasks are complete (94.3%)**, with
+**14 remaining**. The next task is **EL506-351**. These counts measure
 completed checklist items, not elapsed effort or verified calculator parity;
 individual tasks vary in size. The detailed checklist below describes every
 remaining task and preserves its evidence and completion requirements.
@@ -33,7 +33,7 @@ items), and Phase 14 is complete (8/8 complex items). Phase 15 is complete (14/1
 items). Phase 16 is complete (11/11 LIST items), including entry, arithmetic,
 aggregates, vector operations, paging, memory, copying, conversions,
 persistence and observed limits/errors.
-Phase 17 has 2/15 items complete (guide regressions and property tests).
+Phase 17 has 3/15 items complete (guide regressions and property tests).
 Phase 18 has 13/15 items complete; release candidates and 1.0.0 remain gated. Pending simulator/application behavior is visible
 in the generated report; phase completion does not establish full parity.
 
@@ -56,9 +56,9 @@ in the generated report; phase completion does not establish full parity.
 | Phase 14 - Complex Mode | 8 | 0 |
 | Phase 15 - Matrix Mode | 14 | 0 |
 | Phase 16 - LIST Mode | 11 | 0 |
-| Phase 17 - Errors, Limits, and Cross-mode Parity | 2 | 13 |
+| Phase 17 - Errors, Limits, and Cross-mode Parity | 3 | 12 |
 | Phase 18 - Security, Packaging, Compatibility, and Release | 13 | 2 |
-| **Total** | **230** | **15** |
+| **Total** | **231** | **14** |
 
 Refresh this overview's date, counts, percentage, and next task in every
 roadmap completion tracking commit, using the checklist as the source of truth.
@@ -423,7 +423,7 @@ The following order takes precedence over the phase layout and numeric IDs:
 EL506-014 -> EL506-019 -> EL506-003 -> EL506-004 -> EL506-006`
 
 The bootstrap chain and Phase 1 are complete as of 2026-10-05.
-Resume with Phase 17, EL506-350.
+Resume with Phase 17, EL506-351.
 Stable physical-key IDs
 must exist before the experiment schema and capability ledger use them. Capture
 the 0.3.1 baseline before refactoring its behavior. Unit testing, the reducer,
@@ -2898,13 +2898,18 @@ guess any item in this phase; observe it in the reference simulator first.
 
 ### Phase 17 - Errors, Limits, and Cross-mode Parity
 
-- [ ] **EL506-350 - Build the complete simulator error catalogue.**
+- [x] **EL506-350 - Build the complete simulator error catalogue.**
 
-    READY_TO_PUSH: All ten documented native error numbers independently observed.
+    Completed: 2026-10-08, implementation commit effcb6aad43c1d09d0306d3d38150630b47a171b.
+    All ten documented native error numbers independently observed.
     Error3/4/6 capture completes the catalogue and includes adjacent formula
     storage and retained-state checks. Measured calculus discrepancies resolved;
     exhaustive EL506-351..361/364 and release gates remain open.
     Evidence: error-catalogue-review.json and its independent native references.
+    Validation: 550 unit tests, 29 golden fixtures / 1200 frames, six browser tests
+    across Chromium, Firefox and WebKit, reference/report gates, compileall and
+    docker compose config passed. Fresh IAB quartic derivative: 32.0000005.
+    Docker Desktop unavailable; no runtime verification claimed.
 - [ ] **EL506-351 - Match error cursor placement and fault navigation.**
 - [ ] **EL506-352 - Match error clearing and preserved expression/state.**
 - [ ] **EL506-353 - Match scalar and exponent limits.**
