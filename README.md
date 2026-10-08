@@ -1431,3 +1431,10 @@ LIST storage; CA, MEM clearing, RESET, HOME and mode changes clear it. MEM clear
 keeps LIST mode, whereas RESET and HOME restore NORMAL. Independent reference
 traces and validation are consolidated in
 `tests/reference/el506ts/list-memory-review.json`.
+
+The LIST exposure inventory is consolidated in
+`tests/reference/el506ts/list-inventory.json`: every independently captured LIST
+menu page and all 48 physical key positions with their complete modifier legends.
+This inventory records exposure; the separate modifier-by-mode and value-type
+audits determine availability and behavior. Menu labels alone do not establish
+calculator parity.

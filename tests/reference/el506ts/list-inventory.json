@@ -1,0 +1,720 @@
+{
+  "schemaVersion": 1,
+  "inventoryId": "el506-list-inventory-v1",
+  "roadmapItem": "EL506-320",
+  "scope": "Complete exposure inventory of LIST menus and physical key layers. Availability, modifier dispatch and numerical behavior remain separate audit dimensions; no unmeasured action is asserted available.",
+  "simulatorProfile": "sharp-el506ts-pc-simulator-1.0.2.0",
+  "menuReference": "experiments/menu-inventory.json",
+  "panelReference": "physical-key-reference.json",
+  "menus": [
+    {
+      "menu": "LIST",
+      "afterStep": 56,
+      "labels": [
+        "LST",
+        "CHK",
+        "STO"
+      ]
+    },
+    {
+      "menu": "LIST",
+      "afterStep": 57,
+      "labels": [
+        "OPE",
+        "MATH"
+      ]
+    },
+    {
+      "menu": "LIST",
+      "afterStep": 58,
+      "labels": [
+        "list\u2192mat"
+      ]
+    },
+    {
+      "menu": "LIST",
+      "afterStep": 59,
+      "labels": [
+        "list\u2192matA"
+      ]
+    },
+    {
+      "menu": "LIST_SLOTS",
+      "afterStep": 60,
+      "labels": [
+        "L1",
+        "L2",
+        "L3",
+        "L4"
+      ]
+    },
+    {
+      "menu": "LIST_OPE",
+      "afterStep": 63,
+      "labels": [
+        "sortA",
+        "sortD"
+      ]
+    },
+    {
+      "menu": "LIST_OPE",
+      "afterStep": 64,
+      "labels": [
+        "dim(",
+        "fill("
+      ]
+    },
+    {
+      "menu": "LIST_OPE",
+      "afterStep": 65,
+      "labels": [
+        "cumul"
+      ]
+    },
+    {
+      "menu": "LIST_OPE",
+      "afterStep": 66,
+      "labels": [
+        "df_list",
+        "aug("
+      ]
+    },
+    {
+      "menu": "LIST_MATH",
+      "afterStep": 69,
+      "labels": [
+        "min",
+        "max",
+        "mean"
+      ]
+    },
+    {
+      "menu": "LIST_MATH",
+      "afterStep": 70,
+      "labels": [
+        "med",
+        "sum"
+      ]
+    },
+    {
+      "menu": "LIST_MATH",
+      "afterStep": 71,
+      "labels": [
+        "prod",
+        "stdDv"
+      ]
+    },
+    {
+      "menu": "LIST_MATH",
+      "afterStep": 72,
+      "labels": [
+        "vari",
+        "o_prod("
+      ]
+    },
+    {
+      "menu": "LIST_MATH",
+      "afterStep": 73,
+      "labels": [
+        "i_prod(",
+        "abs"
+      ]
+    }
+  ],
+  "keys": [
+    {
+      "keyId": "EL506-K01",
+      "legends": {
+        "primary": "HOME",
+        "second": "",
+        "alpha": "",
+        "mode": "",
+        "formula": ""
+      },
+      "exposureStatus": "independently observed panel",
+      "listAvailabilityStatus": "not asserted by exposure inventory"
+    },
+    {
+      "keyId": "EL506-K02",
+      "legends": {
+        "primary": "ON/C",
+        "second": "OFF",
+        "alpha": "",
+        "mode": "",
+        "formula": ""
+      },
+      "exposureStatus": "independently observed panel",
+      "listAvailabilityStatus": "not asserted by exposure inventory"
+    },
+    {
+      "keyId": "EL506-K03",
+      "legends": {
+        "primary": "2nd F",
+        "second": "",
+        "alpha": "",
+        "mode": "",
+        "formula": ""
+      },
+      "exposureStatus": "independently observed panel",
+      "listAvailabilityStatus": "not asserted by exposure inventory"
+    },
+    {
+      "keyId": "EL506-K04",
+      "legends": {
+        "primary": "MODE",
+        "second": "CA",
+        "alpha": "",
+        "mode": "",
+        "formula": ""
+      },
+      "exposureStatus": "independently observed panel",
+      "listAvailabilityStatus": "not asserted by exposure inventory"
+    },
+    {
+      "keyId": "EL506-K05",
+      "legends": {
+        "primary": "ALPHA",
+        "second": "STAT VAR",
+        "alpha": "",
+        "mode": "",
+        "formula": ""
+      },
+      "exposureStatus": "independently observed panel",
+      "listAvailabilityStatus": "not asserted by exposure inventory"
+    },
+    {
+      "keyId": "EL506-K06",
+      "legends": {
+        "primary": "SET UP",
+        "second": "",
+        "alpha": "",
+        "mode": "",
+        "formula": ""
+      },
+      "exposureStatus": "independently observed panel",
+      "listAvailabilityStatus": "not asserted by exposure inventory"
+    },
+    {
+      "keyId": "EL506-K07",
+      "legends": {
+        "primary": "DEL",
+        "second": "INS",
+        "alpha": "",
+        "mode": "",
+        "formula": ""
+      },
+      "exposureStatus": "independently observed panel",
+      "listAvailabilityStatus": "not asserted by exposure inventory"
+    },
+    {
+      "keyId": "EL506-K08",
+      "legends": {
+        "primary": "\u2191",
+        "second": "",
+        "alpha": "",
+        "mode": "",
+        "formula": "F1"
+      },
+      "exposureStatus": "independently observed panel",
+      "listAvailabilityStatus": "not asserted by exposure inventory"
+    },
+    {
+      "keyId": "EL506-K09",
+      "legends": {
+        "primary": "\u2190",
+        "second": "",
+        "alpha": "",
+        "mode": "",
+        "formula": "F2"
+      },
+      "exposureStatus": "independently observed panel",
+      "listAvailabilityStatus": "not asserted by exposure inventory"
+    },
+    {
+      "keyId": "EL506-K10",
+      "legends": {
+        "primary": "\u2192",
+        "second": "",
+        "alpha": "",
+        "mode": "",
+        "formula": "F3"
+      },
+      "exposureStatus": "independently observed panel",
+      "listAvailabilityStatus": "not asserted by exposure inventory"
+    },
+    {
+      "keyId": "EL506-K11",
+      "legends": {
+        "primary": "\u2193",
+        "second": "",
+        "alpha": "",
+        "mode": "",
+        "formula": "F4"
+      },
+      "exposureStatus": "independently observed panel",
+      "listAvailabilityStatus": "not asserted by exposure inventory"
+    },
+    {
+      "keyId": "EL506-K12",
+      "legends": {
+        "primary": "hyp",
+        "second": "arc hyp",
+        "alpha": "",
+        "mode": "NOT",
+        "formula": ""
+      },
+      "exposureStatus": "independently observed panel",
+      "listAvailabilityStatus": "not asserted by exposure inventory"
+    },
+    {
+      "keyId": "EL506-K13",
+      "legends": {
+        "primary": "sin",
+        "second": "sin\u207b\u00b9",
+        "alpha": "",
+        "mode": "AND",
+        "formula": ""
+      },
+      "exposureStatus": "independently observed panel",
+      "listAvailabilityStatus": "not asserted by exposure inventory"
+    },
+    {
+      "keyId": "EL506-K14",
+      "legends": {
+        "primary": "cos",
+        "second": "cos\u207b\u00b9",
+        "alpha": "",
+        "mode": "OR",
+        "formula": ""
+      },
+      "exposureStatus": "independently observed panel",
+      "listAvailabilityStatus": "not asserted by exposure inventory"
+    },
+    {
+      "keyId": "EL506-K15",
+      "legends": {
+        "primary": "tan",
+        "second": "tan\u207b\u00b9",
+        "alpha": "",
+        "mode": "XOR",
+        "formula": ""
+      },
+      "exposureStatus": "independently observed panel",
+      "listAvailabilityStatus": "not asserted by exposure inventory"
+    },
+    {
+      "keyId": "EL506-K16",
+      "legends": {
+        "primary": "\u222bdx",
+        "second": "d/dx",
+        "alpha": "",
+        "mode": "XNOR",
+        "formula": ""
+      },
+      "exposureStatus": "independently observed panel",
+      "listAvailabilityStatus": "not asserted by exposure inventory"
+    },
+    {
+      "keyId": "EL506-K17",
+      "legends": {
+        "primary": "MATH",
+        "second": "ALGB",
+        "alpha": "",
+        "mode": "",
+        "formula": ""
+      },
+      "exposureStatus": "independently observed panel",
+      "listAvailabilityStatus": "not asserted by exposure inventory"
+    },
+    {
+      "keyId": "EL506-K18",
+      "legends": {
+        "primary": "\u03c0",
+        "second": "x\u207b\u00b9",
+        "alpha": "A",
+        "mode": "",
+        "formula": ""
+      },
+      "exposureStatus": "independently observed panel",
+      "listAvailabilityStatus": "not asserted by exposure inventory"
+    },
+    {
+      "keyId": "EL506-K19",
+      "legends": {
+        "primary": "y\u02e3",
+        "second": "\u02e3\u221ay",
+        "alpha": "B",
+        "mode": "",
+        "formula": ""
+      },
+      "exposureStatus": "independently observed panel",
+      "listAvailabilityStatus": "not asserted by exposure inventory"
+    },
+    {
+      "keyId": "EL506-K20",
+      "legends": {
+        "primary": "x\u00b2",
+        "second": "\u221a",
+        "alpha": "C",
+        "mode": "",
+        "formula": ""
+      },
+      "exposureStatus": "independently observed panel",
+      "listAvailabilityStatus": "not asserted by exposure inventory"
+    },
+    {
+      "keyId": "EL506-K21",
+      "legends": {
+        "primary": "x\u00b3",
+        "second": "\u00b3\u221a",
+        "alpha": "D",
+        "mode": "",
+        "formula": ""
+      },
+      "exposureStatus": "independently observed panel",
+      "listAvailabilityStatus": "not asserted by exposure inventory"
+    },
+    {
+      "keyId": "EL506-K22",
+      "legends": {
+        "primary": "log",
+        "second": "10\u02e3",
+        "alpha": "E",
+        "mode": "",
+        "formula": ""
+      },
+      "exposureStatus": "independently observed panel",
+      "listAvailabilityStatus": "not asserted by exposure inventory"
+    },
+    {
+      "keyId": "EL506-K23",
+      "legends": {
+        "primary": "ln",
+        "second": "e\u02e3",
+        "alpha": "F",
+        "mode": "",
+        "formula": ""
+      },
+      "exposureStatus": "independently observed panel",
+      "listAvailabilityStatus": "not asserted by exposure inventory"
+    },
+    {
+      "keyId": "EL506-K24",
+      "legends": {
+        "primary": "Exp",
+        "second": "\u2194,\u2192",
+        "alpha": "",
+        "mode": "",
+        "formula": ""
+      },
+      "exposureStatus": "independently observed panel",
+      "listAvailabilityStatus": "not asserted by exposure inventory"
+    },
+    {
+      "keyId": "EL506-K25",
+      "legends": {
+        "primary": "a b/c",
+        "second": "d/c",
+        "alpha": "",
+        "mode": "",
+        "formula": ""
+      },
+      "exposureStatus": "independently observed panel",
+      "listAvailabilityStatus": "not asserted by exposure inventory"
+    },
+    {
+      "keyId": "EL506-K26",
+      "legends": {
+        "primary": "D\u00b0M\u2032S",
+        "second": "\u2194 DEG",
+        "alpha": "",
+        "mode": "",
+        "formula": ""
+      },
+      "exposureStatus": "independently observed panel",
+      "listAvailabilityStatus": "not asserted by exposure inventory"
+    },
+    {
+      "keyId": "EL506-K27",
+      "legends": {
+        "primary": "RCL",
+        "second": "",
+        "alpha": "X",
+        "mode": "",
+        "formula": ""
+      },
+      "exposureStatus": "independently observed panel",
+      "listAvailabilityStatus": "not asserted by exposure inventory"
+    },
+    {
+      "keyId": "EL506-K28",
+      "legends": {
+        "primary": "STO",
+        "second": ",",
+        "alpha": "Y",
+        "mode": "(x,y)",
+        "formula": ""
+      },
+      "exposureStatus": "independently observed panel",
+      "listAvailabilityStatus": "not asserted by exposure inventory"
+    },
+    {
+      "keyId": "EL506-K29",
+      "legends": {
+        "primary": "M+",
+        "second": "M\u2212",
+        "alpha": "M",
+        "mode": "DATA CD",
+        "formula": ""
+      },
+      "exposureStatus": "independently observed panel",
+      "listAvailabilityStatus": "not asserted by exposure inventory"
+    },
+    {
+      "keyId": "EL506-K30",
+      "legends": {
+        "primary": "7",
+        "second": "RANDOM",
+        "alpha": "\u0233",
+        "mode": "",
+        "formula": ""
+      },
+      "exposureStatus": "independently observed panel",
+      "listAvailabilityStatus": "not asserted by exposure inventory"
+    },
+    {
+      "keyId": "EL506-K31",
+      "legends": {
+        "primary": "8",
+        "second": "\u2192r\u03b8",
+        "alpha": "sy",
+        "mode": "",
+        "formula": ""
+      },
+      "exposureStatus": "independently observed panel",
+      "listAvailabilityStatus": "not asserted by exposure inventory"
+    },
+    {
+      "keyId": "EL506-K32",
+      "legends": {
+        "primary": "9",
+        "second": "\u2192xy",
+        "alpha": "\u03c3y",
+        "mode": "",
+        "formula": ""
+      },
+      "exposureStatus": "independently observed panel",
+      "listAvailabilityStatus": "not asserted by exposure inventory"
+    },
+    {
+      "keyId": "EL506-K33",
+      "legends": {
+        "primary": "(",
+        "second": "x\u0302",
+        "alpha": "a",
+        "mode": "",
+        "formula": ""
+      },
+      "exposureStatus": "independently observed panel",
+      "listAvailabilityStatus": "not asserted by exposure inventory"
+    },
+    {
+      "keyId": "EL506-K34",
+      "legends": {
+        "primary": ")",
+        "second": "\u0177",
+        "alpha": "b",
+        "mode": "",
+        "formula": ""
+      },
+      "exposureStatus": "independently observed panel",
+      "listAvailabilityStatus": "not asserted by exposure inventory"
+    },
+    {
+      "keyId": "EL506-K35",
+      "legends": {
+        "primary": "4",
+        "second": "n!",
+        "alpha": "x\u0304",
+        "mode": "",
+        "formula": ""
+      },
+      "exposureStatus": "independently observed panel",
+      "listAvailabilityStatus": "not asserted by exposure inventory"
+    },
+    {
+      "keyId": "EL506-K36",
+      "legends": {
+        "primary": "5",
+        "second": "nCr",
+        "alpha": "sx",
+        "mode": "",
+        "formula": ""
+      },
+      "exposureStatus": "independently observed panel",
+      "listAvailabilityStatus": "not asserted by exposure inventory"
+    },
+    {
+      "keyId": "EL506-K37",
+      "legends": {
+        "primary": "6",
+        "second": "nPr",
+        "alpha": "\u03c3x",
+        "mode": "",
+        "formula": ""
+      },
+      "exposureStatus": "independently observed panel",
+      "listAvailabilityStatus": "not asserted by exposure inventory"
+    },
+    {
+      "keyId": "EL506-K38",
+      "legends": {
+        "primary": "\u00d7",
+        "second": "\u2192HEX",
+        "alpha": "c",
+        "mode": "",
+        "formula": ""
+      },
+      "exposureStatus": "independently observed panel",
+      "listAvailabilityStatus": "not asserted by exposure inventory"
+    },
+    {
+      "keyId": "EL506-K39",
+      "legends": {
+        "primary": "\u00f7",
+        "second": "\u2192BIN",
+        "alpha": "r",
+        "mode": "",
+        "formula": ""
+      },
+      "exposureStatus": "independently observed panel",
+      "listAvailabilityStatus": "not asserted by exposure inventory"
+    },
+    {
+      "keyId": "EL506-K40",
+      "legends": {
+        "primary": "1",
+        "second": "%",
+        "alpha": "\u03a3xy",
+        "mode": "",
+        "formula": ""
+      },
+      "exposureStatus": "independently observed panel",
+      "listAvailabilityStatus": "not asserted by exposure inventory"
+    },
+    {
+      "keyId": "EL506-K41",
+      "legends": {
+        "primary": "2",
+        "second": "CNST",
+        "alpha": "\u03a3y",
+        "mode": "",
+        "formula": ""
+      },
+      "exposureStatus": "independently observed panel",
+      "listAvailabilityStatus": "not asserted by exposure inventory"
+    },
+    {
+      "keyId": "EL506-K42",
+      "legends": {
+        "primary": "3",
+        "second": "CONV",
+        "alpha": "\u03a3y\u00b2",
+        "mode": "",
+        "formula": ""
+      },
+      "exposureStatus": "independently observed panel",
+      "listAvailabilityStatus": "not asserted by exposure inventory"
+    },
+    {
+      "keyId": "EL506-K43",
+      "legends": {
+        "primary": "+",
+        "second": "\u2192PEN",
+        "alpha": "",
+        "mode": "",
+        "formula": ""
+      },
+      "exposureStatus": "independently observed panel",
+      "listAvailabilityStatus": "not asserted by exposure inventory"
+    },
+    {
+      "keyId": "EL506-K44",
+      "legends": {
+        "primary": "\u2212",
+        "second": "\u2192OCT",
+        "alpha": "",
+        "mode": "",
+        "formula": ""
+      },
+      "exposureStatus": "independently observed panel",
+      "listAvailabilityStatus": "not asserted by exposure inventory"
+    },
+    {
+      "keyId": "EL506-K45",
+      "legends": {
+        "primary": "0",
+        "second": "MDF",
+        "alpha": "n",
+        "mode": "",
+        "formula": ""
+      },
+      "exposureStatus": "independently observed panel",
+      "listAvailabilityStatus": "not asserted by exposure inventory"
+    },
+    {
+      "keyId": "EL506-K46",
+      "legends": {
+        "primary": ".",
+        "second": "DRG\u25b6",
+        "alpha": "\u03a3x",
+        "mode": "",
+        "formula": ""
+      },
+      "exposureStatus": "independently observed panel",
+      "listAvailabilityStatus": "not asserted by exposure inventory"
+    },
+    {
+      "keyId": "EL506-K47",
+      "legends": {
+        "primary": "+/\u2212",
+        "second": "M-CLR",
+        "alpha": "\u03a3x\u00b2",
+        "mode": "NEG",
+        "formula": ""
+      },
+      "exposureStatus": "independently observed panel",
+      "listAvailabilityStatus": "not asserted by exposure inventory"
+    },
+    {
+      "keyId": "EL506-K48",
+      "legends": {
+        "primary": "=",
+        "second": "\u2192DEC",
+        "alpha": "ANS",
+        "mode": "ENT",
+        "formula": ""
+      },
+      "exposureStatus": "independently observed panel",
+      "listAvailabilityStatus": "not asserted by exposure inventory"
+    }
+  ],
+  "behaviorReferences": [
+    "experiments/phase16-native.json",
+    "experiments/collection-operations-native.json",
+    "experiments/vector-limits-native.json",
+    "experiments/list-copy-conversion-native.json"
+  ],
+  "remainingAuditItems": [
+    "EL506-358",
+    "EL506-359",
+    "EL506-361",
+    "EL506-364"
+  ],
+  "notes": [
+    "All four formula legends F1..F4, yellow second-function legends and green ALPHA legends are included. Printed STAT/N-base legends are retained as context-dependent labels, without claiming LIST availability.",
+    "LIST DATA/CD on K29 is mode-dependent; LIST-buffer edit and native element errors are recorded in the behavior references.",
+    "Native menu selection A is the physical A/K18 action, not a fabricated numeric choice.",
+    "No menu or key label is counted as proven application parity."
+  ]
+}

@@ -2814,6 +2814,16 @@ The operation guide names LIST mode but does not document its behavior. Do not
 guess any item in this phase; observe it in the reference simulator first.
 
 - [ ] **EL506-320 - Inventory every LIST menu and shifted-key action.**
+
+    READY_TO_PUSH: Consolidated all native LIST menu pages (menu-inventory frames
+    56..73) and all 48 independently observed panel positions/layer legends in
+    list-inventory.json. Exposure remains distinct from availability and parity;
+    exhaustive modifier dispatch remains EL506-358. Two inventory integrity
+    checks passed; 544 unit tests and 29 golden fixtures/1200 frames passed in
+    list-inventory-validation.log. Its initial browser filter matched no tests;
+    the full LIST suite subsequently passed 27/27 across Chromium, Firefox and
+    WebKit in list-inventory-browser.log. compileall, compose config and diff
+    checks passed. No package behavior or version changed.
 - [x] **EL506-321 - Determine and match list slots, aliases, and capacity.**
 
     Completed: 2026-10-08, implementation commit 96d066d5bf321f508229f4552a71eaac53a6e007
