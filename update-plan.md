@@ -2947,7 +2947,8 @@ guess any item in this phase; observe it in the reference simulator first.
     compileall and Compose config. Independent 101-key native evidence and
     scoped policy: collection-precision-review.json. EL506-354 remains open.
     Additional34-key native scaled-matrix probe reproduces333.3 with bounded
-    component division and14-digit scalar products. READY_TO_PUSH after687 unit
+    component division and14-digit scalar products. Published as
+    5d012f5ab0b6742f0354a6615317b1d073febc1f, verified on origin/main, after687 unit
     tests and six browser checks across three engines; the complete result-type
     precision audit remains open.
 
