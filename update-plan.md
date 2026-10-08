@@ -2985,6 +2985,22 @@ guess any item in this phase; observe it in the reference simulator first.
     Final installed wheel/sdist smoke passed. Docker build/start attempted;
     its Linux engine pipe is absent. Package remains 0.3.1; eight tasks remain.
 
+    Published continuation 768d625fa08ab78ec087d374626d387f2d3fb5a2,
+    verified on origin/main: four independent native traces / 148 keys cover
+    matrix product precision, LINE Y sum/mean cancellation, nested LIST inner
+    products with fractional fill, and QUAD cancellation plus plain DOWN.
+    Scoped review: phase17-precision-continuation-review.json. Final unit suite
+    751/751; full browser run executed 616 passing applicable cases and 38
+    expected platform skips (runner completion not yet observed). Additional
+    final-code native cases passed in all three engines: STAT Y, LIST and QUAD;
+    initial QUAD failures were corrected and all three reruns passed.
+    Golden replay, reference/report, compileall, Compose config and seven
+    Django checks passed. Fresh local app arithmetic verifies 2+3=5.
+    Docker Linux engine remains unavailable. EL506-354 and all six remaining
+    Phase 17 items stay open; package version and roadmap counts unchanged.
+    At the user's 90% weekly-allowance boundary, implementation is closed for
+    this batch after safe validation and publication; full parity is unclaimed.
+
 - [x] **EL506-355 - Match expression length and nesting limits.**
 - [x] **EL506-356 - Match history, formula, dataset, matrix, and list
   capacities.**
