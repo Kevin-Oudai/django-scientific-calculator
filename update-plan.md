@@ -2933,6 +2933,17 @@ guess any item in this phase; observe it in the reference simulator first.
 - [ ] **EL506-355 - Match expression length and nesting limits.**
 - [ ] **EL506-356 - Match history, formula, dataset, matrix, and list
   capacities.**
+
+    EL506-355/356 READY_TO_PUSH: shared early capacity checks and serializable
+    failed definition/coefficient workflows; capacity-review.json records the
+    independent 24-key MAT fault trace and full-manual policy. User authorized
+    completion of all remaining phases, so adjacent capacity prerequisites were
+    addressed together while EL506-354 remains next.
+    Validation: 681 unit checks, 29 golden fixtures / 1200 frames,
+    reference/report checks, nine focused browser checks across three engines,
+    compileall and Compose config passed. Broader run passed93 checks; its three
+    snapshot failures were repaired and reverified in the focused run.
+    Fresh IAB MAT fault cursor verified. Docker Desktop runtime unavailable.
 - [x] **EL506-357 - Complete the state persistence matrix for every clear,
   reset, power, HOME, and mode transition.**
 

@@ -1274,7 +1274,7 @@
       .replace(new RegExp('\\b(?:'+semantic.functions.join('|')+')\\(','g'),'(');
     return physicalLength(source);
   }
-  function physicalBufferUsage(source){
+  function physicalBufferUsage(source,numericLimit=10){
     // Separate pending calculations from saved left operands. Sharp specifies
     // 24 calculation slots and 10 numeric slots in NORMAL mode.
     const stack=[],precedence={'+':1,'-':1,'*':2,':':2,'/':2,'^':3};
@@ -1290,7 +1290,7 @@
         stack.push(token);operand=false;
       }else operand=true;
       observe();
-      if(faultIndex===null&&(calculations>24||numeric>10))faultIndex=match.index;
+      if(faultIndex===null&&(calculations>24||numeric>numericLimit))faultIndex=match.index;
     }
     return {calculations,numeric,faultIndex};
   }
@@ -2297,6 +2297,35 @@
       const source=previous.layers.intent?.kind==='matrix-error'?previous.layers.intent.workflow.payload.input:physicalSource(previous).replace(/=$/,'');
       next.workflow=emptyWorkflow();next.expression=source;next.entry='';next.stagedEntry=null;next.selectionActive=Boolean(source);next.cursor=source.length;next.displayResult=next.resultDisplay='0';next.layers.intent=null;return physicalEditor(next);
     }
+    // Apply the manual's independent expression and pending-value budgets before
+    // numerical controllers return. Matrix/list definition inputs have one saved
+    // value slot; other non-NORMAL modes have five, NORMAL has ten.
+    const bufferInput=previous.workflow.kind==='data-entry'&&['MAT_BUFFER','LIST_BUFFER'].includes(previous.workflow.payload?.id)&&[8,11,29].includes(n);
+    const equationInput=previous.workflow.kind==='data-entry'&&previous.layers.mode==='EQN'&&[8,11,48].includes(n);
+    const ordinaryInput=previous.workflow.kind===null&&n===48&&!previous.secondActive&&!previous.layers.alpha;
+    const statisticsInput=previous.layers.mode==='STAT'&&previous.workflow.kind===null&&n===29&&!previous.secondActive&&!previous.layers.alpha;
+    if(bufferInput||equationInput||ordinaryInput||statisticsInput){
+      let source;
+      try{source=bufferInput||equationInput?previous.workflow.payload.input:physicalSource(previous).replace(/=$/,'');}
+      catch(error){if(!(error instanceof SyntaxError))throw error;} // Controller owns incomplete staged-input diagnostics.
+      if(source!==undefined){
+        const usage=physicalBufferUsage(source||''),limit=bufferInput?1:previous.layers.mode==='NORMAL'?10:5;
+        const code=physicalLength(source||'')+1>142?4:usage.calculations>24||usage.numeric>limit?3:null;
+        if(code){
+          const failed=physicalError(next,code);
+          if(bufferInput||equationInput){
+            failed.layers.intent={kind:equationInput?'equation-error':previous.layers.mode==='MAT'?'matrix-error':'list-capacity-error',workflow:structuredClone(previous.workflow)};
+            failed.workflow=emptyWorkflow();
+            if(bufferInput){failed.expression=source;failed.entry='';failed.stagedEntry=null;}
+          }else if(previous.control.nbase.radix!==10)failed.layers.intent={kind:'nbase-error'};
+          else if(previous.layers.mode==='STAT')failed.layers.intent={kind:'statistics-error'};
+          return failed;
+        }
+      }
+    }
+    if(previous.layers.mode!=='NORMAL'&&previous.lifecycle==='error'&&previous.control.errorCode===3&&previous.workflow.kind===null&&[9,10].includes(n)){
+      const source=physicalSource(previous).replace(/=$/,'');next.expression=source;next.entry='';next.stagedEntry=null;next.selectionActive=Boolean(source);next.cursor=physicalBufferUsage(source,5).faultIndex??0;next.displayResult=next.resultDisplay='';next.layers.intent=null;return physicalEditor(next);
+    }
     const baseKey=physicalPhase9(previous,next,n);if(baseKey)return baseKey;
     const calculusKey=physicalPhase10(previous,next,n);if(calculusKey)return calculusKey;
     if(previous.secondActive&&[30,41,42].includes(n)||['CNST','CONV'].includes(previous.workflow.payload?.id)||n===48&&previous.layers.mode!=='NORMAL'&&/(?:random|dice|coin|rint|cv)\(/.test(previous.expression)){const earlyCatalogue=physicalPhase7(previous,next,intent,n,randomSample);if(earlyCatalogue)return earlyCatalogue;}
@@ -2500,7 +2529,7 @@
     if(computing && physicalLength(previous.expression.replace(/=$/,'')+previous.entry)+1>142)return physicalError(previous,4);
     if(physicalLength(source)>142){const full=structuredClone(previous);full.cursor=physicalCells(previous.expression).at(-1)?.start||0;full.selectionActive=true;return physicalEditor(full);}
     const buffers=physicalBufferUsage(previous.expression.replace(/=$/,'')+previous.entry);
-    if(computing && (buffers.calculations>(next.layers.mode==='NORMAL'?24:5)||buffers.numeric>(next.layers.mode==='NORMAL'?10:5)))return physicalError(structuredClone(previous),3);
+    if(computing && (buffers.calculations>24||buffers.numeric>(next.layers.mode==='NORMAL'?10:5)))return physicalError(structuredClone(previous),3);
     if(next.lifecycle==='error'&&!next.control.errorCode)next.control.errorCode=1;
     return next;
   }

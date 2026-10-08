@@ -1,0 +1,68 @@
+{
+  "reviewId": "expression-and-store-capacities-2026-10-08",
+  "roadmapItems": ["EL506-355", "EL506-356"],
+  "status": "validated; ready for publication",
+  "scope": "Physical expression and pending-value/calculation budgets, playback, shared formula memory, STAT records, matrix and list stores. Numerical precision and exhaustive per-function domains remain separately tracked.",
+  "references": [
+    "experiments/matrix-pending-values-native.json",
+    "experiments/calculation-buffer-error3-native.json",
+    "experiments/formula-length-memory-errors-native.json",
+    "experiments/capacity-cursor-recovery-native.json",
+    "experiments/vector-limits-native.json",
+    "experiments/matrix-errors-native.json",
+    "experiments/phase11-statistics.json"
+  ],
+  "manualOracle": {
+    "source": "Full English manual, playback/formula memory on page1 and errors/specifications/STAT/MATRIX/LIST on page2",
+    "sourceSha256": "c5b6a1cc542dee4cd93be2459bba501addf7d3eb32b2bc4dd146407b02b2ab86",
+    "equationCharactersIncludingENT": 142,
+    "pendingCalculationInstructions": 24,
+    "normalPendingValues": 10,
+    "otherModePendingValues": 5,
+    "matrixListDefinitionPendingValues": 1,
+    "playbackSharedCharacters": 142,
+    "formulaSharedCharacters": 256,
+    "formulaSlots": 4,
+    "statUnweightedSingle": 100,
+    "statWeightedSingle": 50,
+    "statUnweightedPaired": 50,
+    "statWeightedPaired": 33,
+    "matrixSlots": 4,
+    "matrixRows": 4,
+    "matrixColumns": 4,
+    "listSlots": 4,
+    "listElements": 16
+  },
+  "changes": [
+    "Apply capacity checks before specialized mode controllers can bypass them.",
+    "Use24 calculation instructions in all modes, independently of numeric-value capacity.",
+    "Use one pending-value slot for matrix/list DATA definitions and five for other non-NORMAL input.",
+    "Restore native MAT Error3 arrows to the sixth plus and an empty lower line.",
+    "Leave incomplete staged-input diagnostics to their existing numerical controller.",
+    "Move faulted definition/coefficient workflows into retained error context so snapshots remain valid; EQN ON/C restores the coefficient prompt without committing invalid input."
+  ],
+  "tests": [
+    "capacity-audit.test.js: adjacent numeric/instruction/equation limits, definition limits, native fault position, STAT DAT, exact256 formula budget, exact142 playback budget and atomic whole-equation eviction",
+    "phase8.test.js: four formula slots, replacement, shared allocation and function character accounting",
+    "phase11.test.js: all four STAT record budgets, atomic capacity rejection and deletion/reinsertion",
+    "phase15/phase16 and native matrix/vector fixtures: four store slots and maximum dimensions/elements"
+  ],
+  "validation": {
+    "additionalCapacityUnitPassed": 38,
+    "fullUnitPassed": 681,
+    "focusedBrowserPassed": 9,
+    "browserEngines": ["Chromium", "Firefox", "WebKit"],
+    "broaderBrowserRun": "93 passed; its three definition snapshot failures were repaired and passed in the final focused run",
+    "goldenFixtures": 29,
+    "goldenFrames": 1200,
+    "referenceAndReportChecks": "passed",
+    "compileall": "passed",
+    "dockerComposeConfig": "passed",
+    "dockerRuntime": "unavailable: Docker Desktop Linux pipe absent",
+    "proof": "capacity-recovery-proof.png (outside repository)"
+  },
+  "limitations": [
+    "Manual-derived policy tests are distinguished from independently observed native traces.",
+    "These items do not certify every operation's domain, rounding, modifier compatibility or final simulator parity."
+  ]
+}

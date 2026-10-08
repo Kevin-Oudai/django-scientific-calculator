@@ -1469,3 +1469,12 @@ The manual persistence matrix verifies 72 transitions across all six modes,
 including ON/C, CA, OFF/ON, MEM, RESET, HOME and each mode selection. Its source
 policy and store coverage are recorded in `persistence-matrix-review.json`.
 These checks do not remove the remaining precision, compatibility and release gates.
+
+Physical capacity checks now run before each mode's calculation handler. Expressions
+allow 142 calculator characters including ENT, with 24 pending calculation
+instructions, ten pending values in NORMAL and five in other modes. Matrix/list
+DATA definitions allow one pending value. The observed MAT overflow recovery
+selects the sixth plus with either arrow and leaves the lower display empty.
+Playback uses a shared 142-character budget and evicts complete oldest equations;
+the four formula slots share 256 characters. The manual and native evidence,
+including STAT, matrix and list capacities, is recorded in `capacity-review.json`.
