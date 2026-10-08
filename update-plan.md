@@ -9,8 +9,8 @@
 
 ## Progress Overview
 
-As of 2026-10-08, **237 of 245 roadmap tasks are complete (96.7%)**, with
-**8 remaining**. The next task is **EL506-354**. These counts measure
+As of 2026-10-08, **238 of 245 roadmap tasks are complete (97.1%)**, with
+**7 remaining**. The next task is **EL506-354**. These counts measure
 completed checklist items, not elapsed effort or verified calculator parity;
 individual tasks vary in size. The detailed checklist below describes every
 remaining task and preserves its evidence and completion requirements.
@@ -33,7 +33,7 @@ items), and Phase 14 is complete (8/8 complex items). Phase 15 is complete (14/1
 items). Phase 16 is complete (11/11 LIST items), including entry, arithmetic,
 aggregates, vector operations, paging, memory, copying, conversions,
 persistence and observed limits/errors.
-Phase 17 has 9/15 items complete (error catalogue, recovery, scalar and capacity limits, persistence, guide regressions and property tests).
+Phase 17 has 10/15 items complete (error catalogue, recovery, scalar and capacity limits, persistence, ledger boundary tests, guide regressions and property tests).
 Phase 18 has 13/15 items complete; release candidates and 1.0.0 remain gated. Pending simulator/application behavior is visible
 in the generated report; phase completion does not establish full parity.
 
@@ -56,9 +56,9 @@ in the generated report; phase completion does not establish full parity.
 | Phase 14 - Complex Mode | 8 | 0 |
 | Phase 15 - Matrix Mode | 14 | 0 |
 | Phase 16 - LIST Mode | 11 | 0 |
-| Phase 17 - Errors, Limits, and Cross-mode Parity | 9 | 6 |
+| Phase 17 - Errors, Limits, and Cross-mode Parity | 10 | 5 |
 | Phase 18 - Security, Packaging, Compatibility, and Release | 13 | 2 |
-| **Total** | **237** | **8** |
+| **Total** | **238** | **7** |
 
 Refresh this overview's date, counts, percentage, and next task in every
 roadmap completion tracking commit, using the checklist as the source of truth.
@@ -3053,8 +3053,24 @@ guess any item in this phase; observe it in the reference simulator first.
     ee5129749ca3b604ca66913909e63ea0a934f8b8, verified on origin/main, after690 full unit tests,
     focused unit and nine browser checks across three engines; fullcompatibility
     remains open. See matrix-type-review.json.
-- [ ] **EL506-360 - Add boundary and invalid-input tests for every ledger
+- [x] **EL506-360 - Add boundary and invalid-input tests for every ledger
   operation.**
+
+    Completed: 2026-10-08, implementation commit
+    06ea29316be4376db07476444250d9b813da55aa, verified at origin/main.
+    The explicit boundary-coverage.js index binds all 430 ledger entries to
+    application contracts in existing phase tests and 366 new cases. Numeric
+    operations cover accepted endpoints and rejected domains, ranges, syntax,
+    selectors or capacities; controls cover navigation, cancellation and
+    unavailable contexts. Scope is application regression coverage, not full
+    native parity or every mode/type combination. Fixed failed collection
+    conversions retaining a menu during error recovery. Verification: 1,101
+    full unit tests before the final sixteen selector cases, final 366 boundary
+    tests plus two report checks, nine targeted browser checks in three engines,
+    compileall, Compose configuration, reference/golden and current report.
+    Docker rebuild was unavailable because the Linux engine pipe is missing;
+    the local app was verified with 2+3=5. See boundary-review.json. Other
+    Phase 17 items remain open; this user-authorized run completes one task.
 - [ ] **EL506-361 - Add differential coverage for every capability-ledger
   entry.**
 
