@@ -4,13 +4,13 @@
 - Plan status: Active
 - Current package baseline: 0.3.1
 - Target release: 1.0.0 after verified parity
-- Next item: EL506-351
+- Next item: EL506-354
 - Last updated: 2026-10-08
 
 ## Progress Overview
 
-As of 2026-10-08, **232 of 245 roadmap tasks are complete (94.7%)**, with
-**13 remaining**. The next task is **EL506-351**. These counts measure
+As of 2026-10-08, **235 of 245 roadmap tasks are complete (95.9%)**, with
+**10 remaining**. The next task is **EL506-354**. These counts measure
 completed checklist items, not elapsed effort or verified calculator parity;
 individual tasks vary in size. The detailed checklist below describes every
 remaining task and preserves its evidence and completion requirements.
@@ -33,7 +33,7 @@ items), and Phase 14 is complete (8/8 complex items). Phase 15 is complete (14/1
 items). Phase 16 is complete (11/11 LIST items), including entry, arithmetic,
 aggregates, vector operations, paging, memory, copying, conversions,
 persistence and observed limits/errors.
-Phase 17 has 4/15 items complete (error catalogue, scalar limits, guide regressions and property tests).
+Phase 17 has 7/15 items complete (error catalogue, recovery, scalar limits, persistence, guide regressions and property tests).
 Phase 18 has 13/15 items complete; release candidates and 1.0.0 remain gated. Pending simulator/application behavior is visible
 in the generated report; phase completion does not establish full parity.
 
@@ -56,9 +56,9 @@ in the generated report; phase completion does not establish full parity.
 | Phase 14 - Complex Mode | 8 | 0 |
 | Phase 15 - Matrix Mode | 14 | 0 |
 | Phase 16 - LIST Mode | 11 | 0 |
-| Phase 17 - Errors, Limits, and Cross-mode Parity | 4 | 11 |
+| Phase 17 - Errors, Limits, and Cross-mode Parity | 7 | 8 |
 | Phase 18 - Security, Packaging, Compatibility, and Release | 13 | 2 |
-| **Total** | **232** | **13** |
+| **Total** | **235** | **10** |
 
 Refresh this overview's date, counts, percentage, and next task in every
 roadmap completion tracking commit, using the checklist as the source of truth.
@@ -2910,8 +2910,15 @@ guess any item in this phase; observe it in the reference simulator first.
     across Chromium, Firefox and WebKit, reference/report gates, compileall and
     docker compose config passed. Fresh IAB quartic derivative: 32.0000005.
     Docker Desktop unavailable; no runtime verification claimed.
-- [ ] **EL506-351 - Match error cursor placement and fault navigation.**
-- [ ] **EL506-352 - Match error clearing and preserved expression/state.**
+- [x] **EL506-351 - Match error cursor placement and fault navigation.**
+- [x] **EL506-352 - Match error clearing and preserved expression/state.**
+
+    EL506-351/352 published implementation 12a8f3854ecc9ce6b758ae1ef6e93ad37fe396ab.
+    Ten-code native arrow paths and manual failed-operation/ON-C store preservation
+    verified; fault-navigation-review.json records references and scope.
+    Validation: 561 full unit checks plus ten new preservation tests; 39 browser
+    checks across Chromium, Firefox and WebKit, golden/reference/report gates,
+    compileall and Compose config passed; fresh IAB matrix recovery verified.
 - [x] **EL506-353 - Match scalar and exponent limits.**
 
     Published implementation 01c86a2dc3bcc92b0b66278f2ef9a53a8a7099f0; independently measured signed scalar minimum,
@@ -2926,8 +2933,14 @@ guess any item in this phase; observe it in the reference simulator first.
 - [ ] **EL506-355 - Match expression length and nesting limits.**
 - [ ] **EL506-356 - Match history, formula, dataset, matrix, and list
   capacities.**
-- [ ] **EL506-357 - Complete the state persistence matrix for every clear,
+- [x] **EL506-357 - Complete the state persistence matrix for every clear,
   reset, power, HOME, and mode transition.**
+
+    Published implementation 12a8f3854ecc9ce6b758ae1ef6e93ad37fe396ab.
+    Full-manual clearing policy matrix: 72 validated transitions across six modes,
+    all variable/formula/dataset/matrix/list/buffer/history stores and settings.
+    Evidence: persistence-matrix-review.json; 72 new unit tests passed.
+    Existing native power, EQN prompt and complex-memory transition checks retained.
 - [ ] **EL506-358 - Complete the modifier-by-key-by-mode compatibility
   matrix.**
 - [ ] **EL506-359 - Complete the function-by-value-type compatibility
