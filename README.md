@@ -25,7 +25,7 @@ The demo project is intentionally excluded from pip installs. Do not copy it int
 
 - Package install name: `django-scientific-calculator`
 - Django app name: `scientific_calculator`
-- Current version: `0.3.4`
+- Current version: `0.3.5`
 - Python support: `>=3.10`
 - Django support: `Django>=5.2.17,<6.0`
 - Repository: `https://github.com/Kevin-Oudai/django-scientific-calculator`
@@ -45,22 +45,24 @@ The app has no models, migrations, URLs, database requirements, or server-side v
 
 ## Install
 
-Install the current v0.3.4 release from GitHub in your project's virtual environment:
+Install the current v0.3.5 release from GitHub in your project's virtual environment:
 
 ```powershell
-python -m pip install --upgrade "django-scientific-calculator @ git+https://github.com/Kevin-Oudai/django-scientific-calculator.git@v0.3.4"
+python -m pip install --upgrade "django-scientific-calculator @ git+https://github.com/Kevin-Oudai/django-scientific-calculator.git@v0.3.5"
 ```
 
 For `requirements.txt`:
 
 ```text
-django-scientific-calculator @ git+https://github.com/Kevin-Oudai/django-scientific-calculator.git@v0.3.4
+django-scientific-calculator @ git+https://github.com/Kevin-Oudai/django-scientific-calculator.git@v0.3.5
 ```
 
 The target machine needs Git and access to the repository. For a private repository,
 authenticate Git with your normal GitHub credential manager; do not put tokens in
 requirements files. SSH is also supported: replace `git+https://github.com/` with
 `git+ssh://git@github.com/` when your machine has a GitHub SSH key.
+
+Version 0.3.5 reduces the physical calculator height by approximately 5% while retaining the enlarged primary labels.
 
 Version 0.3.4 separates the ALPHA and STAT VAR captions. The demo removes its
 extra white title bar and uses the black calculator brand as the drag handle.
@@ -85,11 +87,11 @@ django-scientific-calculator @ git+ssh://git@github.com/Kevin-Oudai/django-scien
 
 ### Refresh an existing downstream installation
 
-Upgrade a downstream installation to the published v0.3.4 tag:
+Upgrade a downstream installation to the published v0.3.5 tag:
 
 ```powershell
 python -m pip install --upgrade "Django>=5.2.17,<6.0"
-python -m pip install --upgrade --no-cache-dir "django-scientific-calculator @ git+https://github.com/Kevin-Oudai/django-scientific-calculator.git@v0.3.4"
+python -m pip install --upgrade --no-cache-dir "django-scientific-calculator @ git+https://github.com/Kevin-Oudai/django-scientific-calculator.git@v0.3.5"
 python manage.py check
 python manage.py collectstatic --noinput
 ```

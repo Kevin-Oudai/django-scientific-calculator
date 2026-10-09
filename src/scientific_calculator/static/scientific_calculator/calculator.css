@@ -498,7 +498,7 @@
 .scicalc__physical-row--5, .scicalc__physical-row--4 { grid-template-columns: repeat(5,minmax(0,1fr)); }
 .scicalc__physical .scicalc__physical-key {
   position: relative; display: flex; flex-direction: column; justify-content: center;
-  min-width: 0; height: 66px; padding: 15px 1px 10px;
+  min-width: 0; height: 60px; padding: 15px 1px 10px;
   border: 1px solid var(--scicalc-border); border-radius: 5px;
   background: var(--scicalc-key); color: var(--scicalc-ink);
   box-shadow: none; font-size: .8rem; font-weight: 600; line-height: 1;
@@ -511,7 +511,7 @@
 .scicalc__physical .scicalc__physical-key:active { filter: brightness(.9); }
 .scicalc__physical .scicalc__physical-key[aria-pressed="true"] { outline: 2px solid var(--scicalc-second); outline-offset: -3px; }
 .scicalc__physical [data-key-id="EL506-K05"][aria-pressed="true"] { outline-color: var(--scicalc-alpha); }
-.scicalc__legends { position: absolute; inset: 3px 2px; white-space: nowrap; pointer-events: none; }
+.scicalc__legends { position: absolute; inset: 1px 2px; white-space: nowrap; pointer-events: none; }
 .scicalc__physical .scicalc__primary { position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); font-size: 14px; white-space: nowrap; }
 .scicalc__physical .scicalc__physical-row .scicalc__primary { font-size: 28px; }
 .scicalc__physical .scicalc__physical-row [data-primary-name="hyp"] .scicalc__primary,

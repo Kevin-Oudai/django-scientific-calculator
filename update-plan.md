@@ -2,7 +2,7 @@
 
 - Plan version: 1.2
 - Plan status: Remaining Phase 17 and Phase 18 work deferred by user
-- Current package baseline: 0.3.4
+- Current package baseline: 0.3.5
 - Target release: 1.0.0 after verified parity (deferred)
 - Next item: EL506-354 when the user resumes parity work
 - Last updated: 2026-10-09
