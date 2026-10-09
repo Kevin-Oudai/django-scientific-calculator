@@ -25,9 +25,9 @@ The demo project is intentionally excluded from pip installs. Do not copy it int
 
 - Package install name: `django-scientific-calculator`
 - Django app name: `scientific_calculator`
-- Current version: `0.3.1`
+- Current version: `0.3.2`
 - Python support: `>=3.10`
-- Django support: `Django>=5.2,<6.0`
+- Django support: `Django>=5.2.17,<6.0`
 - Repository: `https://github.com/Kevin-Oudai/django-scientific-calculator`
 
 The reusable app includes:
@@ -45,19 +45,28 @@ The app has no models, migrations, URLs, database requirements, or server-side v
 
 ## Install
 
-Install from the private GitHub repository:
+Install the current v0.3.2 release from GitHub in your project's virtual environment:
 
 ```powershell
-pip install "django-scientific-calculator @ git+ssh://git@github.com/Kevin-Oudai/django-scientific-calculator.git@main"
+python -m pip install --upgrade "django-scientific-calculator @ git+https://github.com/Kevin-Oudai/django-scientific-calculator.git@v0.3.2"
 ```
 
 For `requirements.txt`:
 
 ```text
-django-scientific-calculator @ git+ssh://git@github.com/Kevin-Oudai/django-scientific-calculator.git@main
+django-scientific-calculator @ git+https://github.com/Kevin-Oudai/django-scientific-calculator.git@v0.3.2
 ```
 
-The target machine must have access to the private repository. SSH installs require a GitHub SSH key that can read the repo.
+The target machine needs Git and access to the repository. For a private repository,
+authenticate Git with your normal GitHub credential manager; do not put tokens in
+requirements files. SSH is also supported: replace `git+https://github.com/` with
+`git+ssh://git@github.com/` when your machine has a GitHub SSH key.
+
+Version 0.3.2 packages the current calculator functionality and validated fixes.
+Remaining Phase 17 parity work and Phase 18 final-release gates are deferred at
+the user's request. This is a reusable scientific calculator release, not a claim
+of exact EL-506TS behavior or a completed 1.0.0 parity release. In particular,
+the recorded matrix precision differences remain unresolved.
 
 For the existing stable 0.3.1 release, pin its version tag:
 
@@ -67,12 +76,11 @@ django-scientific-calculator @ git+ssh://git@github.com/Kevin-Oudai/django-scien
 
 ### Refresh an existing downstream installation
 
-Main receives roadmap changes while the package version remains 0.3.1. Force a
-reinstall to replace a cached installation with the current main commit:
+Upgrade a downstream installation to the published v0.3.2 tag:
 
 ```powershell
 python -m pip install --upgrade "Django>=5.2.17,<6.0"
-python -m pip install --force-reinstall --no-deps --no-cache-dir "django-scientific-calculator @ git+ssh://git@github.com/Kevin-Oudai/django-scientific-calculator.git@main"
+python -m pip install --upgrade --no-cache-dir "django-scientific-calculator @ git+https://github.com/Kevin-Oudai/django-scientific-calculator.git@v0.3.2"
 python manage.py check
 python manage.py collectstatic --noinput
 ```
@@ -937,7 +945,8 @@ later roadmap owners; this is not a claim of complete device parity.
 Snapshot schema 7 introduced retained arithmetic state; schema 8 adds physical
 mixed-fraction templates and migrates schemas 1–7.
 The optional enhanced legacy layout keeps its existing arithmetic grammar.
-The package release remains 0.3.1 during this parity implementation series.
+The package stayed at 0.3.1 during the initial parity implementation series;
+0.3.2 now makes the accumulated functionality available as a pip-installable release.
 
 
 ### Angles, fractions, DMS, and coordinates

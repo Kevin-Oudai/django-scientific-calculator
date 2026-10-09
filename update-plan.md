@@ -1,13 +1,19 @@
 # EL-506TS Behavior Parity Update Plan
 
 - Plan version: 1.2
-- Plan status: Active
-- Current package baseline: 0.3.1
-- Target release: 1.0.0 after verified parity
-- Next item: EL506-354
+- Plan status: Remaining Phase 17 and Phase 18 work deferred by user
+- Current package baseline: 0.3.2
+- Target release: 1.0.0 after verified parity (deferred)
+- Next item: EL506-354 when the user resumes parity work
 - Last updated: 2026-10-08
 
 ## Progress Overview
+
+The user authorized publishing the current functionality as v0.3.2 for pip
+installation on 2026-10-08. The remaining Phase 17 and Phase 18 checklist items
+are deferred until the user has more usage available. They remain unchecked;
+the current release does not claim complete Sharp parity or completion of the
+final 1.0.0 release gates. No further parity work is scheduled automatically.
 
 As of 2026-10-08, **238 of 245 roadmap tasks are complete (97.1%)**, with
 **7 remaining**. The next task is **EL506-354**. These counts measure
