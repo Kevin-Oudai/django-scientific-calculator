@@ -83,7 +83,7 @@ pre {
   max-height: calc(100vh - 24px);
   border: 1px solid rgba(15, 23, 42, 0.16);
   border-radius: 12px;
-  background: #ffffff;
+  background: #151c28;
   box-shadow: 0 24px 70px rgba(15, 23, 42, 0.2);
   overflow: auto;
   touch-action: none;
@@ -94,23 +94,17 @@ pre {
   user-select: none;
 }
 
-.floating-tool__bar {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  height: 38px;
-  padding: 0 12px;
-  border-bottom: 1px solid #e5e7eb;
-  background: #f8fafc;
-  color: #111827;
+.floating-tool [data-drag-handle] {
   cursor: grab;
-  font-size: 0.82rem;
-  font-weight: 800;
+  touch-action: none;
+  user-select: none;
 }
 
-.floating-tool.is-dragging .floating-tool__bar {
+.floating-tool.is-dragging [data-drag-handle] {
   cursor: grabbing;
 }
+
+.floating-tool__legacy-title { margin: 0; padding: 10px 12px; color: #f2f5fa; font-size: .9rem; }
 
 .floating-tool__hint {
   border-radius: 999px;

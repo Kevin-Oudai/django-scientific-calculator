@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
   const panel = document.querySelector("[data-floating-calculator]");
-  const handle = document.querySelector("[data-drag-handle]");
+  const handle = panel?.querySelector("[data-drag-handle]");
 
   if (!panel || !handle) {
     return;

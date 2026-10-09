@@ -1,7 +1,7 @@
 {% if layout == "legacy" %}{% include "scientific_calculator/calculator-legacy.html" %}{% else %}
 <div class="scicalc" data-scientific-calculator>
 <div class="scicalc__physical" data-physical-layout>
-{% block calculator_brand %}<div class="scicalc__brand">{{ calculator_brand|default:"Scientific Calculator"|force_escape }}</div>{% endblock %}
+{% block calculator_brand %}<div class="scicalc__brand" data-drag-handle>{{ calculator_brand|default:"Scientific Calculator"|force_escape }}</div>{% endblock %}
 {% block calculator_display %}
 <div class="scicalc__screen" aria-label="Calculator display">
 <div class="scicalc__indicators" data-indicators aria-label="Status indicators"></div>

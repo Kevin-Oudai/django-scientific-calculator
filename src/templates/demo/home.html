@@ -25,12 +25,8 @@
     </section>
   </main>
 
-  <section class="floating-tool" data-floating-calculator aria-labelledby="calculator-title">
-    <div class="floating-tool__bar" data-drag-handle>
-      <h2 class="demo-sr-only" id="calculator-title">Scientific calculator</h2>
-      <span>Scientific Calculator</span>
-      <span class="floating-tool__hint">Drag</span>
-    </div>
+  <section class="floating-tool" data-floating-calculator aria-label="Scientific calculator">
+    {% if calculator_layout == "legacy" %}<div class="floating-tool__legacy-title" data-drag-handle>Scientific Calculator</div>{% endif %}
     {% scientific_calculator layout=calculator_layout|default:"physical" %}
   </section>
 

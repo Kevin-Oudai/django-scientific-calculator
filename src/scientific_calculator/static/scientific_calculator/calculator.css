@@ -528,6 +528,7 @@
 .scicalc__physical [data-key-id="EL506-K03"] { background: var(--scicalc-second); color: var(--scicalc-surface); }
 .scicalc__physical [data-key-id="EL506-K05"] { background: var(--scicalc-alpha); color: var(--scicalc-surface); }
 .scicalc__physical [data-key-id="EL506-K05"] .scicalc__second-legend { background: var(--scicalc-key); padding: 1px 2px; border-radius: 2px; }
+.scicalc__physical [data-key-id="EL506-K05"] .scicalc__primary { top: 65%; }
 .scicalc__physical-key[data-key-id="EL506-K12"] .scicalc__second-legend { letter-spacing: -.7px; }
 .scicalc__second-legend { position: absolute; top: 0; left: 0; color: var(--scicalc-second); font-size: 14px; }
 .scicalc__alpha-legend { position: absolute; bottom: 0; right: 0; color: var(--scicalc-alpha); font-size: 14px; }
