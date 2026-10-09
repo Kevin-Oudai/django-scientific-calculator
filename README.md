@@ -25,7 +25,7 @@ The demo project is intentionally excluded from pip installs. Do not copy it int
 
 - Package install name: `django-scientific-calculator`
 - Django app name: `scientific_calculator`
-- Current version: `0.3.2`
+- Current version: `0.3.3`
 - Python support: `>=3.10`
 - Django support: `Django>=5.2.17,<6.0`
 - Repository: `https://github.com/Kevin-Oudai/django-scientific-calculator`
@@ -45,16 +45,16 @@ The app has no models, migrations, URLs, database requirements, or server-side v
 
 ## Install
 
-Install the current v0.3.2 release from GitHub in your project's virtual environment:
+Install the current v0.3.3 release from GitHub in your project's virtual environment:
 
 ```powershell
-python -m pip install --upgrade "django-scientific-calculator @ git+https://github.com/Kevin-Oudai/django-scientific-calculator.git@v0.3.2"
+python -m pip install --upgrade "django-scientific-calculator @ git+https://github.com/Kevin-Oudai/django-scientific-calculator.git@v0.3.3"
 ```
 
 For `requirements.txt`:
 
 ```text
-django-scientific-calculator @ git+https://github.com/Kevin-Oudai/django-scientific-calculator.git@v0.3.2
+django-scientific-calculator @ git+https://github.com/Kevin-Oudai/django-scientific-calculator.git@v0.3.3
 ```
 
 The target machine needs Git and access to the repository. For a private repository,
@@ -62,7 +62,11 @@ authenticate Git with your normal GitHub credential manager; do not put tokens i
 requirements files. SSH is also supported: replace `git+https://github.com/` with
 `git+ssh://git@github.com/` when your machine has a GitHub SSH key.
 
-Version 0.3.2 packages the current calculator functionality and validated fixes.
+Version 0.3.3 doubles the white number and short symbol labels from 14px to
+28px. Longer function labels use 18px, and the main keys are slightly taller
+to preserve space for the orange and green legends. A few longer captions
+scale down on narrow screens so they stay inside their keys. It also packages the
+current calculator functionality and validated fixes.
 Remaining Phase 17 parity work and Phase 18 final-release gates are deferred at
 the user's request. This is a reusable scientific calculator release, not a claim
 of exact EL-506TS behavior or a completed 1.0.0 parity release. In particular,
@@ -76,11 +80,11 @@ django-scientific-calculator @ git+ssh://git@github.com/Kevin-Oudai/django-scien
 
 ### Refresh an existing downstream installation
 
-Upgrade a downstream installation to the published v0.3.2 tag:
+Upgrade a downstream installation to the published v0.3.3 tag:
 
 ```powershell
 python -m pip install --upgrade "Django>=5.2.17,<6.0"
-python -m pip install --upgrade --no-cache-dir "django-scientific-calculator @ git+https://github.com/Kevin-Oudai/django-scientific-calculator.git@v0.3.2"
+python -m pip install --upgrade --no-cache-dir "django-scientific-calculator @ git+https://github.com/Kevin-Oudai/django-scientific-calculator.git@v0.3.3"
 python manage.py check
 python manage.py collectstatic --noinput
 ```

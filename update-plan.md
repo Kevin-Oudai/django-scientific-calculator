@@ -2,10 +2,10 @@
 
 - Plan version: 1.2
 - Plan status: Remaining Phase 17 and Phase 18 work deferred by user
-- Current package baseline: 0.3.2
+- Current package baseline: 0.3.3
 - Target release: 1.0.0 after verified parity (deferred)
 - Next item: EL506-354 when the user resumes parity work
-- Last updated: 2026-10-08
+- Last updated: 2026-10-09
 
 ## Progress Overview
 
@@ -14,6 +14,14 @@ installation on 2026-10-08. The remaining Phase 17 and Phase 18 checklist items
 are deferred until the user has more usage available. They remain unchecked;
 the current release does not claim complete Sharp parity or completion of the
 final 1.0.0 release gates. No further parity work is scheduled automatically.
+
+The 2026-10-09 v0.3.3 presentation update doubles main white numbers and short
+symbols to 28px, with fitting adjustments for long labels and narrow screens.
+Validation: 1,118 unit tests, 58 physical-UI browser checks and two expected
+platform skips, installed wheel/sdist with 24 assets, compileall and Compose
+configuration. An owned idle browser worker was stopped after all cases finished
+to release successful teardown. Docker runtime returned an engine API error;
+the local app remains usable. Parity work and checklist counts remain deferred.
 
 As of 2026-10-08, **238 of 245 roadmap tasks are complete (97.1%)**, with
 **7 remaining**. The next task is **EL506-354**. These counts measure
